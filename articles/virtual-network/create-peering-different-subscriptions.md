@@ -104,7 +104,6 @@ The following resources and account examples are used in the steps in this artic
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-
 ### Sign in to SubscriptionA
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionA**.
@@ -169,6 +168,46 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
+### Sign in to SubscriptionA
+
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+
+```azurecli-interactive
+az login
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionA** with [az account set](/cli/azure/account#az-account-set).
+
+```azurecli-interactive
+az account set --subscription "SubscriptionA"
+```
+
+### Create a resource group - myResourceGroupA
+
+An Azure resource group is a logical container where Azure resources are deployed and managed.
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
+
+```azurecli-interactive
+az group create \
+    --name myResourceGroupA \
+    --location westus3
+```
+
+### Create the virtual network
+
+Create a virtual network and subnet with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVNetA** in the **West US 3** location.
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group myResourceGroupA\
+    --location westus3 \
+    --name myVNetA \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name default \
+    --subnet-prefixes 10.1.0.0/24
+```
+
 ---
 
 ## Assign permissions for UserB
@@ -228,6 +267,51 @@ New-AzRoleAssignment @role
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
+Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetA**. Assign **UserB** from **SubscriptionB** to **myVNetA** with [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
+
+Use [az ad user list](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) to obtain the object ID for **UserB**.
+
+**UserB** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if your using the same account for both subscriptions.
+
+```azurecli-interactive
+az ad user list --display-name UserB
+```
+```bash
+[
+  {
+    "businessPhones": [],
+    "displayName": "UserB",
+    "givenName": null,
+    "id": "16d51293-ec4b-43b1-b54b-3422c108321a",
+    "jobTitle": null,
+    "mail": "userB@fabrikam.com",
+    "mobilePhone": null,
+    "officeLocation": null,
+    "preferredLanguage": null,
+    "surname": null,
+    "userPrincipalName": "userb_fabrikam.com#EXT#@contoso.onmicrosoft.com"
+  }
+]
+```
+
+Make note of the object id of **UserB** in field **id**. In this example, its **16d51293-ec4b-43b1-b54b-3422c108321a**.
+
+
+```azurecli-interactive
+vnetid=$(az network vnet show \
+    --name myVNetA \
+    --resource-group myResourceGroupA \
+    --query id \
+    --output tsv)
+
+az role assignment create \
+      --assignee 16d51293-ec4b-43b1-b54b-3422c108321a \
+      --role "Network Contributor" \
+      --scope $vnetid
+```
+
+Replace the example guid in **`--assignee`** with the real object id for **UserB**.
+
 ---
 
 ## Obtain resource ID of myVNetA
@@ -248,7 +332,7 @@ New-AzRoleAssignment @role
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-The resource ID of **myVNetA** is required to setup the peering connection from **myVNetB** to **myVNetA**. Use Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetA**.
+The resource ID of **myVNetA** is required to setup the peering connection from **myVNetB** to **myVNetA**. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetA**.
 
 ```azurepowershell-interactive
 $id = @{
@@ -261,6 +345,18 @@ $vnet.id
 ``` 
 
 # [**Azure CLI**](#tab/create-peering-cli)
+
+The resource ID of **myVNetA** is required to setup the peering connection from **myVNetB** to **myVNetA**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetA**.
+
+```azurecli-interactive
+vnetid=$(az network vnet show \
+    --name myVNetA \
+    --resource-group myResourceGroupA \
+    --query id \
+    --output tsv)
+
+echo $vnetid
+``` 
 
 ---
 
@@ -372,6 +468,46 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
+### Sign in to SubscriptionB
+
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+
+```azurecli-interactive
+az login
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionB** with [az account set](/cli/azure/account#az-account-set).
+
+```azurecli-interactive
+az account set --subscription "SubscriptionB"
+```
+
+### Create a resource group - myResourceGroupB
+
+An Azure resource group is a logical container where Azure resources are deployed and managed.
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
+
+```azurecli-interactive
+az group create \
+    --name myResourceGroupB \
+    --location westus3
+```
+
+### Create the virtual network
+
+Create a virtual network and subnet with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVNetB** in the **West US 3** location.
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group myResourceGroupB\
+    --location westus3 \
+    --name myVNetB \
+    --address-prefixes 10.2.0.0/16 \
+    --subnet-name default \
+    --subnet-prefixes 10.2.0.0/24
+```
+
 ---
 
 ## Assign permissions for UserA
@@ -431,6 +567,49 @@ New-AzRoleAssignment @role
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
+Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetB**. Assign **UserA** from **SubscriptionA** to **myVNetB** with [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). 
+
+Use [az ad user list](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) to obtain the object ID for **UserA**.
+
+**UserA** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionA** that you wish to assign permissions to **myVNetB**. You can skip this step if your using the same account for both subscriptions.
+
+```azurecli-interactive
+az ad user list --display-name UserA
+```
+
+```bash
+[
+  {
+    "businessPhones": [],
+    "displayName": "UserA",
+    "givenName": null,
+    "id": "ee0645cc-e439-4ffc-b956-79577e473969",
+    "jobTitle": null,
+    "mail": "userA@contoso.com",
+    "mobilePhone": null,
+    "officeLocation": null,
+    "preferredLanguage": null,
+    "surname": null,
+    "userPrincipalName": "usera_contoso.com#EXT#@fabrikam.onmicrosoft.com"
+  }
+]
+```
+
+Make note of the object id of **UserA** in field **id**. In this example, its **ee0645cc-e439-4ffc-b956-79577e473969**.
+
+```azurecli-interactive
+vnetid=$(az network vnet show \
+    --name myVNetB \
+    --resource-group myResourceGroupB \
+    --query id \
+    --output tsv)
+
+az role assignment create \
+      --assignee ee0645cc-e439-4ffc-b956-79577e473969 \
+      --role "Network Contributor" \
+      --scope $vnetid
+```
+
 ---
 
 ## Obtain resource ID of myVNetB
@@ -465,6 +644,18 @@ $vnet.id
 ```
 
 # [**Azure CLI**](#tab/create-peering-cli)
+
+The resource ID of **myVNetB** is required to setup the peering connection from **myVNetA** to **myVNetB**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetB**.
+
+```azurecli-interactive
+vnetid=$(az network vnet show \
+    --name myVNetB \
+    --resource-group myResourceGroupB \
+    --query id \
+    --output tsv)
+
+echo $vnetid
+``` 
 
 ---
 
@@ -525,7 +716,7 @@ If you're using one account for both subscriptions, sign in to that account and 
 Set-AzContext -Subscription SubscriptionB
 ```
 
-## Sign in to SubscriptionB (optional)
+### Sign in to SubscriptionB (optional)
 
 If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
 
@@ -570,7 +761,7 @@ $peer = @{
 Add-AzVirtualNetworkPeering @peer
 ```
 
-User [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to obtain the status of the peering connections from **myVNetA** to **myVNetB**.
+Use [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to obtain the status of the peering connections from **myVNetA** to **myVNetB**.
 
 ```azurepowershell-interactive
 $status = @{
@@ -593,6 +784,70 @@ The peering connection will show in **Peerings** in a **Initiated** state. To co
 Sign-out of the PowerShell session.
 
 # [**Azure CLI**](#tab/create-peering-cli)
+
+### Sign in to SubscriptionA
+
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+
+```azurecli-interactive
+az login
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionA** with [az account set](/cli/azure/account#az-account-set).
+
+```azurecli-interactive
+az account set --subscription "SubscriptionA"
+```
+
+### Sign in to SubscriptionB (optional)
+
+If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+
+Use [[az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+
+```azurecli-interactive
+az login
+```
+
+### Change to SubscriptionA (optional)
+
+If you are using two accounts, you have to switch back to **SubscriptionA**.
+
+Use [[az login](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionA**.
+
+```azurecli-interactive
+az login
+```
+
+If you are using one account for both subscriptions, change context to **SubscriptionA**.
+
+```azurecli-interactive
+az account set --subscription "SubscriptionA"
+```
+
+### Create peering connection
+
+Use [az network vnet peering create](/powershell/module/az.network/add-azvirtualnetworkpeering) to create a peering connection between **myVNetA** and **myVNetB**.
+
+```azurecli-interactive
+az network vnet peering create \
+    --name myVNetAToMyVNetB \
+    --resource-group myResourceGroupA \
+    --vnet-name myVNetA \
+    --remote-vnet /subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/VirtualNetworks/myVNetB \
+    --allow-vnet-access
+```
+
+Use [az network vnet peering list](/cli/azure/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-list) to obtain the status of the peering connections from **myVNetA** to **myVNetB**.
+
+```azurecli-interactive
+az network vnet peering list \
+    --resource-group myResourceGroupA \
+    --vnet-name myVNetA \
+    --output table
+```
+
+The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
 
 ---
 
