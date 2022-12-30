@@ -47,5 +47,7 @@ Refer to the following general guidance on the replication filter:
 
 ## Next steps
 
-- How to configure Data-out replication
-- How to configure Data-in replication
+- How to configure [Data-out replication](how-to-data-out-replication.md)
+- Learn about [Data-in replication](concepts-data-in-replication.md)
+- How to configure [Data-in replication](how-to-data-in-replication.md)
+
