@@ -213,7 +213,7 @@ Refer to [Conditional Access policy templates](concept-conditional-access-policy
 
 We recommend that you use the following tools to evaluate the impact of your policies both before and after making changes.
 
-- [Report-only mode](concept-conditional-access-report-only) and the Conditional Access insights and Reporting workbook.
+- [Report-only mode](concept-conditional-access-report-only.md) and the Conditional Access insights and Reporting workbook.
 - The [What If tool](concept-conditional-access-policies.md)
 
 > [!IMPORTANT] 
