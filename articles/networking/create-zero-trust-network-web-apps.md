@@ -440,7 +440,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
 
 1. Select **Review + create** and then select **Create**. This deployment can take up to 30 minutes to complete.
 
-### Configure the firewall oplicy
+### Configure the firewall policy
 
 In this task, you'll configure the firewall policy used for packet inspection.
 
