@@ -191,7 +191,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
   * [Microsoft Visual C++ Redistributable](https://www.microsoft.com/download/details.aspx?id=40784)
 
-    (This component enables performance counters.)
+    This component enables performance counters.
 
 ### Azure App Service, Azure Kubernetes Service, VMs config
 
@@ -576,7 +576,9 @@ To search for individual instances of dependency, exception, and method reports,
 
 Learn more about how to [diagnose dependency issues](./asp-net-dependencies.md#diagnosis).
 
-### Questions? Problems?
+### Questions or problems?
+
+Use the following resources:
 
 * No data? [Set firewall exceptions](./ip-addresses.md).
 * [Troubleshoot Java](java-2x-troubleshoot.md).
@@ -850,49 +852,49 @@ On your Linux server machines:
 1. Edit `/etc/collectd/collectd.conf`:
    * Ensure that [the Java plug-in](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
    * Update the JVMArg for the `java.class.path` to include the following jar. Update the version number to match the one you downloaded:
-   * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
+       * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Add this snippet by using the instrumentation key from your resource:
 
-```xml
-
-     LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
-     <Plugin ApplicationInsightsWriter>
-        InstrumentationKey "Your key"
-     </Plugin>
-```
-
-Here's part of a sample configuration file:
-
-```xml
-
-    ...
-    # collectd plugins
-    LoadPlugin cpu
-    LoadPlugin disk
-    LoadPlugin load
-    ...
-
-    # Enable Java Plugin
-    LoadPlugin "java"
-
-    # Configure Java Plugin
-    <Plugin "java">
-      JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
-
-      # Enabling Application Insights plugin
-      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
-
-      # Configuring Application Insights plugin
-      <Plugin ApplicationInsightsWriter>
-        InstrumentationKey "12345678-1234-1234-1234-123456781234"
-      </Plugin>
-
-      # Other plugin configurations ...
-      ...
-    </Plugin>
-    ...
-```
+        ```xml
+        
+             LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
+             <Plugin ApplicationInsightsWriter>
+                InstrumentationKey "Your key"
+             </Plugin>
+        ```
+        
+        Here's part of a sample configuration file:
+    
+        ```xml
+        
+            ...
+            # collectd plugins
+            LoadPlugin cpu
+            LoadPlugin disk
+            LoadPlugin load
+            ...
+        
+            # Enable Java Plugin
+            LoadPlugin "java"
+        
+            # Configure Java Plugin
+            <Plugin "java">
+              JVMArg "-verbose:jni"
+              JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
+        
+              # Enabling Application Insights plugin
+              LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
+        
+              # Configuring Application Insights plugin
+              <Plugin ApplicationInsightsWriter>
+                InstrumentationKey "12345678-1234-1234-1234-123456781234"
+              </Plugin>
+        
+              # Other plugin configurations ...
+              ...
+            </Plugin>
+            ...
+        ```
 
 Configure other [collectd plug-ins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 
@@ -909,12 +911,12 @@ By default, the Application Insights plug-in sends all the data collected by all
 To exclude data from specific plug-ins or data sources:
 
 * Edit the configuration file.
-* In `<Plugin ApplicationInsightsWriter>`, add directive lines like the ones in the following table.
+* In `<Plugin ApplicationInsightsWriter>`, add directive lines like the ones in the following table:
 
-| Directive | Effect |
-| --- | --- |
-| `Exclude disk` |Exclude all data collected by the `disk` plug-in. |
-| `Exclude disk:read,write` |Exclude the sources named `read` and `write` from the `disk` plug-in. |
+    | Directive | Effect |
+    | --- | --- |
+    | `Exclude disk` |Exclude all data collected by the `disk` plug-in. |
+    | `Exclude disk:read,write` |Exclude the sources named `read` and `write` from the `disk` plug-in. |
 
 Separate directives with a newline.
 
@@ -980,7 +982,8 @@ Follow these steps:
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Build your application and run it.
-1. The preceding steps should get you up and running with pre-aggregated metrics autocollected to Azure Monitor.
+
+The preceding steps should get you up and running with pre-aggregated metrics autocollected to Azure Monitor.
 
 ### Use Spring 2.x
 
@@ -1006,7 +1009,8 @@ Follow these steps:
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Build your application and run it.
-1. The preceding steps should get you running with pre-aggregated metrics autocollected to Azure Monitor. For more information on how to fine-tune Application Insights Spring Boot starter, see the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
+
+The preceding steps should get you running with pre-aggregated metrics autocollected to Azure Monitor. For more information on how to fine-tune Application Insights Spring Boot starter, see the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
 Default metrics:
 

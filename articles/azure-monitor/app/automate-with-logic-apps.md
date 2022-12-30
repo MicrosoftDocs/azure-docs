@@ -21,7 +21,7 @@ You can also add other actions. The Logic Apps feature of Azure App Service make
 
 ## Create a logic app for Application Insights
 
-In this tutorial, you learn how to create a logic app that uses the Analytics autocluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email. This example shows how you can use Application Insights Analytics and Logic Apps together.
+In this tutorial, you learn how to create a logic app that uses the Log Analytics autocluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email. This example shows how you can use Application Insights analytics and Logic Apps together.
 
 ### Create a logic app
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -62,10 +62,10 @@ For this step, you need an application ID and an API key for your resource.
 
     ![Screenshot that shows the Logic App Designer flow connection window.](./media/automate-with-logic-apps/7connection.png)
 
-### Specify the Analytics query and chart type
-In the following example, the query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates the failed requests based on the `operation_Id` identifier. The query then segments the results by using the autocluster algorithm.
+### Specify the Log Analytics query and chart type
+In the following example, the query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Log Analytics correlates the failed requests based on the `operation_Id` identifier. The query then segments the results by using the autocluster algorithm.
 
-When you create your own queries, verify that they're working properly in Analytics before you add them to your flow.
+When you create your own queries, verify that they're working properly in Log Analytics before you add them to your flow.
 
 1. In the **Query** box, add the following Log Analytics query:
 
@@ -82,7 +82,7 @@ When you create your own queries, verify that they're working properly in Analyt
 
 1. In the **Chart Type** box, select **Html Table**.
 
-    ![Screenshot that shows the Analytics query configuration window.](./media/automate-with-logic-apps/8query.png)
+    ![Screenshot that shows the Log Analytics query configuration window.](./media/automate-with-logic-apps/8query.png)
 
 ### Configure the logic app to send email
 
@@ -130,5 +130,5 @@ When you create your own queries, verify that they're working properly in Analyt
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](../logs/get-started-queries.md).
+- Learn more about creating [Log Analytics queries](../logs/get-started-queries.md).
 - Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).

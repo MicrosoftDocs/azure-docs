@@ -28,18 +28,18 @@ To use the Impact analysis workbook, in your Application Insights resources go t
 
 :::image type="content" source="./media/usage-impact/selected-event.png" alt-text="Screenshot that shows where to choose an initial page view, custom event, or request." lightbox="./media/usage-impact/selected-event.png":::
 
-1. Select an event from the **Selected event** dropdown list.
-1. Select a metric from the **analyze how its** dropdown list.
-1. Select an event from the  **Impacting event** dropdown list.
+1. From the **Selected event** dropdown list, select an event.
+1. From the **analyze how its** dropdown list, select a metric.
+1. From the  **Impacting event** dropdown list, select an event.
 1. To add a filter, use the **Add selected event filters** tab or the **Add impacting event filters** tab.
 
 ## Is page load time affecting how many people convert on my page?
 
 To begin answering questions with the Impact workbook, choose an initial page view, custom event, or request.
 
-1. Select an event from the **Selected event** dropdown list.
+1. From the **Selected event** dropdown list, select an event.
 1. Leave the **analyze how its** dropdown list on the default selection of **Duration**. (In this context, **Duration** is an alias for **Page Load Time**.)
-1. For the **Impacting event** dropdown list, select a custom event. This event should correspond to a UI element on the page view you selected in step 1.
+1. From the **Impacting event** dropdown list, select a custom event. This event should correspond to a UI element on the page view you selected in step 1.
 
    :::image type="content" source="./media/usage-impact/impact.png" alt-text="Screenshot that shows an example with the selected event as Home Page analyzed by duration." lightbox="./media/usage-impact/impact.png":::
 
@@ -49,11 +49,11 @@ Impact supports both standard and custom properties and measurements. Use whatev
 
 ## Do users from different countries or regions convert at different rates?
 
-1. Select an event from the **Selected event** dropdown list.
-1. Choose **Country or region** from the **analyze how its** dropdown list.
-1. For the **Impacting event** dropdown list, select a custom event that corresponds to a UI element on the page view you chose in step 1.
+1. From the **Selected event** dropdown list, select an event.
+1. From the **analyze how its** dropdown list, select **Country or region**.
+1. From the **Impacting event** dropdown list, select a custom event that corresponds to a UI element on the page view you chose in step 1.
 
-:::image type="content" source="./media/usage-impact/regions.png" alt-text="Screenshot that shows an example with the selected event as GET analyzed by country and region." lightbox="./media/usage-impact/regions.png":::
+   :::image type="content" source="./media/usage-impact/regions.png" alt-text="Screenshot that shows an example with the selected event as GET analyzed by country and region." lightbox="./media/usage-impact/regions.png":::
 
 ## How does the Impact analysis workbook calculate these conversion rates?
 
