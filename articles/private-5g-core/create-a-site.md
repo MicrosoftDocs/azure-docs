@@ -18,6 +18,7 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 
 - Carry out the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for your new site.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
+- If you decided to set up Azure AD for local monitoring access, follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 - Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
@@ -67,13 +68,13 @@ In this step, you'll create the mobile network site resource representing the ph
 
     Once you've finished filling out the fields, select **Attach**.
 
-1. Repeat the previous step for each additional data network you want to configure.
-1. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate at this stage, you can skip this step.
-    
-    1. Under **Provide custom HTTPS certificate?**, select **Yes**.
-    1. Use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
+1. Repeat the previous step for each additional data network you want to configure, and then select **Next : Local access >**.
+1. In the **Local access** section, set the fields as follows:
 
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
+  
+    - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
+    - under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.

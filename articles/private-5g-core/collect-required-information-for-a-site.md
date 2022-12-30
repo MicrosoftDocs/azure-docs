@@ -72,7 +72,7 @@ For each data network that you want to configure, collect all the values in the 
 
 You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access distributed tracing and the packet core dashboards to monitor your site after you deploy it. We recommend setting up Azure AD authentication to improve security in your deployment.
 
-If you want to access your local monitoring tools using Azure AD, before creating a site you must follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
+If you want to access your local monitoring tools using Azure AD, before creating a site you'll need to follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 
 If you want to access your local monitoring tools using local username and passwords, you don't need to do anything at this stage. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
 
@@ -113,5 +113,5 @@ If you decided to set up Azure AD for local monitoring access, follow the steps 
 
 Use the information you've collected to create the site:
 
-- [Create a site - Azure portal](create-a-site.md)
-- [Create a site - ARM template](create-site-arm-template.md)
+   - [Create a site - Azure portal](create-a-site.md)
+   - [Create a site - ARM template](create-site-arm-template.md)
