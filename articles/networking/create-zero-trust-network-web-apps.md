@@ -501,6 +501,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. Type app services in the search. Under Services, select **Route tables**.
 1. In the Route tables page, select **+ Create**.
 1. On the Create Route table page, specify the following settings:
+    
     | Setting            | Value                      |
     |--| - |
     | Subscription | Select your subscription. |
@@ -508,9 +509,11 @@ You'll create a route table with user-defined route force traffic all App Servic
     | Region | Select **East US**. |
     | Name | Enter **myRTspoke2hub**. |
     | Propagate gateway routes | Select **Yes** |
+
 1. Select **Review + Create**, and then select **Create**.
 1. Navigate back to the Route Tables page and then select **+ Create**.
 1. On the **Create Route** table page, specify the following settings:
+    
     | Setting            | Value                      |
     |--| - |
     | Subscription | Select your subscription. |
@@ -518,6 +521,7 @@ You'll create a route table with user-defined route force traffic all App Servic
     | Region | Select **East US**. |
     | Name | Enter **myRTapp2web**. |
     | Propagate gateway routes | Select **Yes** |
+
 1. Select **Review + Create**, and then select **Create**.
 
 ### Configuring route tables
@@ -525,6 +529,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. Navigate to the **myRTspoke2hub** route table.
 1. From the Route Table, select the **Routes** page under **Settings** and select **+ Add**.
 1. On the **Add Route** pane, specify the following settings:
+
     | Setting            | Value                      |
     |--| - |
     | Route name | Enter **ToAppService**. |
@@ -532,6 +537,7 @@ You'll create a route table with user-defined route force traffic all App Servic
     | Destination IP addresses/CIDR ranges | Enter **172.16.1.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address |   The private IP address of the Azure Firewall. For example, **192.168.100.4**. |
+
 1. Select **Add**.
 1. From the Route table, select **Subnets** under **Settings** and select **+ Associate**.
 1. On the **Associate subnet** pane, select the **mySpokeVNet** virtual network, and then select the **AppGwSubnet** subnet.
@@ -541,6 +547,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. Navigate to the **myRTapp2web** route table.
 1. From the **Route Table** page, select **Routes** under **Settings**.
 1. In the Add Route pane, specify the following settings:
+    
     | Setting            | Value                      |
     |--| - |
     | Route name | Enter **ToAppGW**. |   
@@ -548,6 +555,7 @@ You'll create a route table with user-defined route force traffic all App Servic
     | Destination IP addresses/CIDR ranges | Enter **172.16.0.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter the  private IP address of the Azure Firewall. For example, **192.168.100.4**. |
+
 1. Select **Add**.
 1. Select the **Subnets** page under settings, and select **+ Associate**.
 1. On the **Associate subnet** pane, select the **mySpokeVNet** virtual network, and then select the **App1** subnet.
@@ -556,7 +564,6 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. Select the **mySpokeVNet** virtual network, and then select the **AppGwSubnet** subnet. Select **OK**.
 1. After the association appears, select the link to the **App1** association.
 1. In the **Network policy for private endpoints** section, select **Route Tables** and select **Save**.
-
 
 ### Test again
 
@@ -625,7 +632,7 @@ You'll deploy network security groups to prevent other subnets from accessing th
 1. Select **OK**.
 
 ## Clean Up
-You'll clean up your environment by deleting the resource group containing all resources, **myResourceGroup**. Due to soft delete rules, Azure Key Vault may not be deleted. Learn how to delete [Azure Key Vault]
+You'll clean up your environment by deleting the resource group containing all resources, **myResourceGroup**.
 
 ## Next steps
 
