@@ -24,9 +24,9 @@ Microsoft Defender for Cloud (MDC) is a Cloud Security Posture Management (CSPM)
 
 This sample solution demonstrates integration of Azure Backup with Microsoft Defender for Cloud (MDC) for detection and response to alerts to accelerate response. Sample illustrates the following three use cases:
 
-1. Ability to send email alerts to the Backup Admin.
-1. Security Admin to triage and manually trigger logic app to secure backups. 
-1. Workflow to automatically respond to the alert by performing the *Disable Backup Policy (Stop backup and retain data)* operation.
+- Ability to send email alerts to the Backup Admin.
+- Security Admin to triage and manually trigger logic app to secure backups. 
+- Workflow to automatically respond to the alert by performing the *Disable Backup Policy (Stop backup and retain data)* operation.
 
 :::image type="content" source="./media/backup-azure-integrate-microsoft-defender-using-logic-apps/logic-apps-flow-diagram.png" alt-text="Diagram shows how Microsoft Defender for Cloud and Azure Backup using Logic apps helps protecting the backup data.":::
 
