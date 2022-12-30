@@ -37,6 +37,8 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
+  - If you plan to use private endpoint, and your virtual network has [private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) enabled, make sure the inbound connection with TCP/443 to the subnet hosting the private endpoint must be allowed from Batch pool's subnet.
+
 - Enable outbound access for Batch node management. A pool with no public IP addresses doesn't have internet outbound access enabled by default. Choose one of the following options to allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)):
 
   - Use [**nodeManagement private endpoint**](private-connectivity.md) with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
@@ -157,7 +159,8 @@ If you created node management private endpoint in the virtual network for your 
   - If your private endpoint is created with automatic private DNS zone integration, check the DNS A record is configured correctly in the private DNS zone `privatelink.batch.azure.com`, and the zone is linked to your virtual network.
   - If you're using your own DNS solution, make sure the DNS record for your Batch node management endpoint is configured correctly and point to the private endpoint IP address.
 - Check the DNS resolution for [Batch node management endpoint](batch-account-create-portal.md#view-batch-account-properties) of your account. You can confirm it by running `nslookup <nodeManagementEndpoint>` from within your virtual network, and the DNS name should be resolved to the private endpoint IP address.
-- Run TCP ping with the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
+- If your virtual network has [private endpoint network policy](../private-link/disable-private-endpoint-network-policy.md) enabled, check NSG and UDR for subnets of both the Batch pool and the private endpoint. The inbound connection with TCP/443 to the subnet hosting the private endpoint must be allowed from Batch pool's subnet.
+- From the Batch pool's subnet, run TCP ping to the node management endpoint using default HTTPS port (443). This probe can tell if the private link connection is working as expected.
 
 ```
 # Windows
