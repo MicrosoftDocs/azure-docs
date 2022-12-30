@@ -67,14 +67,14 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Select a virtual network and subnet you wish to use. This virtual network must be in the same location as the pool you're creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 
-The following screenshot shows the elements that are required to be modified to enable a pool without public
-IP addresses as specified above.
+The following screenshot shows the elements that's required to be modified to create a pool without public
+IP addresses.
 
 ![Screenshot of the Add pool screen with NoPublicIPAddresses selected.](./media/simplified-compute-node-communication/add-pool-simplified-mode-no-public-ip.png)
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The example below shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The following example shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### REST API URI
 
@@ -173,7 +173,7 @@ If the TCP ping fails (for example, timed out), it's typically an issue with the
 
 #### Using your own internet outbound solution
 
-If you're using your own internet outbound solution instead of private endpoint, run the same TCP ping with node management endpoint as shown above. If it's not working, check if your outbound access is configured correctly by following detailed requirements for [simplified compute node communication](simplified-compute-node-communication.md).
+If you're using your own internet outbound solution instead of private endpoint, run TCP ping to the node management endpoint. If it's not working, check if your outbound access is configured correctly by following detailed requirements for [simplified compute node communication](simplified-compute-node-communication.md).
 
 ### Connect to compute nodes
 
