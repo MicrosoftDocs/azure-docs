@@ -24,7 +24,7 @@ Debug logging is only enabled for the main ARM template or Bicep file. If you're
 
 For a resource group deployment, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and set the `DeploymentDebugLogLevel` parameter to `All`, `ResponseContent`, or `RequestContent`.
 
-When debug logging is enabled, a warning is displayed that secrets like passwords or `listKeys` operations can be logged and displayed when you get deployment operations with commands like `Get-AzResourceGroupDeploymentOperation`.
+When debug logging is enabled, a warning is displayed that secrets like passwords or `listKeys` operations can be logged and displayed when you use commands like `Get-AzResourceGroupDeploymentOperation` to get information about deployment operations.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -130,7 +130,7 @@ For more information, see the documentation for deployment operation scopes: sub
 
 ## Debug nested template
 
-The following sections contain information about nested ARM templates and Bicep modules. The main ARM template and nested templates have their own deployment name and deployment history. The main Bicep file and module also use a separate deployment name and deployment history.
+The main ARM template and nested templates have their own deployment name and deployment history. The main Bicep file and module also use a separate deployment name and deployment history.
 
 ### ARM template
 
@@ -211,6 +211,8 @@ To remove deployment history for a resource group deployment, use [az deployment
 ```azurecli
 az deployment group delete --resource-group examplegroup --name exampledeployment
 ```
+
+The command returns to the command prompt when it's completed.
 
 For more information, see the documentation for deployment scopes: subscription, management group, and tenant.
 
