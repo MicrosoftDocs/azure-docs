@@ -35,7 +35,7 @@ The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn
 
     :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting VNet integration.":::
 
-1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet.
+1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty pre-existing subnet or create a new subnet.
 
     :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
 
@@ -76,7 +76,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $integrationSubnetName -Virtual
 Get-AzDelegation -Subnet $subnet
 ```
 
-If your subnet is not delegated to Microsoft.Web/serverFarms, add delegation using below commands.
+If your subnet isn't delegated to Microsoft.Web/serverFarms, add delegation using below commands.
 
 ```azurepowershell
 $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.Web/serverFarms" -Subnet $subnet
