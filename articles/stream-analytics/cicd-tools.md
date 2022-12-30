@@ -11,7 +11,7 @@ ms.date: 12/27/2022
 
 # Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
 
-You can use the Azure Stream Analytics CI/CD npm package to automatically build, test, and deploy your Azure Stream Analytics projects using Visual Studio Code. You can create a new Stream Analytics project using the ASA Tools extension for Visual Studio Code or export an existing Stream Analytics job from Azure. This article describes how to use the npm package with any CI/CD system. For deployment with Azure Pipelines, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
+After developing your Stream Analytics project in Visual Studio Code, you can use the Azure Stream Analytics (ASA) CI/CD npm package to automatically build, test, and deploy your Stream Analytics projects. This article shows how to use the npm package with any CI/CD system. For deployment with Azure pipelines, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
 
 ## Installation
 

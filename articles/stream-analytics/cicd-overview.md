@@ -11,7 +11,7 @@ ms.date: 12/27/2022
 
 # Continuous integration and deployment (CI/CD) for Azure Stream Analytics
 
-You can build and deploy your Azure Stream Analytics job continuously using a source control integration. Source control integration creates a workflow in which any code updates would trigger a resource deployment to Azure. This article outlines the basic steps for creating a continuous integration and continuous delivery (CI/CD) pipeline.
+You can build and deploy your Azure Stream Analytics (ASA) job continuously using a source control integration. Source control integration creates a workflow in which updating code would trigger a resource deployment to Azure. This article outlines the basic steps for creating a continuous integration and continuous delivery (CI/CD) pipeline.
 
 If you're new to Azure Stream Analytics, get started with the [Azure Stream Analytics quickstart](stream-analytics-quick-create-portal.md).
 
@@ -20,8 +20,10 @@ If you're new to Azure Stream Analytics, get started with the [Azure Stream Anal
 Follow the steps to create a CI/CD pipeline for your Stream Analytics project: 
 
 1. Create a Stream Analytics project using VSCode.
-
-   Use the ASA Tools extension for [Visual Studio Code](./quick-create-visual-studio-code.md) to [develop and test queries locally](develop-locally.md). You can also [export an existing job](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) to your local machine.
+   
+    You can either create a new project or export an existing job to your computer using the ASA Tools extension for Visual Studio Code. Check out these two docs for more information:
+    * [Quickstart: Create a Stream Analytics job using VSCode](./quick-create-visual-studio-code.md) 
+    * [Export an existing job](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project)
 
 2. Commit your Stream Analytics project to your source control system, like a Git repository.
 
