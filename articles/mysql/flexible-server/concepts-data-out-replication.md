@@ -4,7 +4,7 @@ description: Learn about the concepts of data-out replication out of Azure Datab
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 12/29/2022
+ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -50,4 +50,3 @@ Refer to the following general guidance on the replication filter:
 - How to configure [Data-out replication](how-to-data-out-replication.md)
 - Learn about [Data-in replication](concepts-data-in-replication.md)
 - How to configure [Data-in replication](how-to-data-in-replication.md)
-

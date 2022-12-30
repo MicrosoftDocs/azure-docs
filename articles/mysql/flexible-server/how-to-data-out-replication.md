@@ -4,7 +4,7 @@ description: This article describes how to set up Data-out replication for Azure
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 12/29/2022
+ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -35,10 +35,10 @@ The following steps prepare and configure the Azure Database for MySQL Flexible 
 1. **Networking Requirements**
 
 Ensure that your network settings are established so that source and replica server can communicate seamlessly.  
-If the source server is on public access, then ensure that firewall rules allow the replica server IP address. If the replica server is hosted on Azure, please ensure that you select the option of allowing public access from any Azure service from the networking blade in the Azure portal.
+If the source server is on public access, then ensure that firewall rules allow the replica server IP address. If the replica server is hosted on Azure, please ensure that you select the option of allowing public access from any Azure service from the networking page in the Azure portal.
 If the source server is on private access, ensure that the replica server can connect to the source through Vnet peering or a VNet-to-VNet VPN gateway connection.
 
-> [!NOTE]
+> [!NOTE]  
 > For more information - [Networking overview - Azure Database for MySQL Flexible Server](concepts-networking.md).
 
 1. **Turn on binary logging**
@@ -61,7 +61,7 @@ There are a few tools you can use to set account names. Select the one that best
 
 To require SSL for all user connections, use the following command to create a user:
 
-```bash
+```sql
 CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
 GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
 ```
@@ -70,7 +70,7 @@ GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
 
 If SSL isn't required for all connections, use the following command to create a user:
 
-```bash
+```sql
 CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
 GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
 ```
@@ -81,7 +81,7 @@ To create the replication role in MySQL Workbench, open the Users and Privileges
 
 :::image type="content" source="media/how-to-data-out-replication/mysql-workbench-add-account.png" alt-text="Screenshot of adding an account.":::
 
-Type the username into the Login Name field.
+Type the username into the **Login Name** field.
 
 :::image type="content" source="media/how-to-data-out-replication/mysql-workbench-login.png" alt-text="Screenshot of logging in on MySQL Workbench.":::
 
@@ -91,9 +91,12 @@ Select the Administrative Roles panel and Replication Slave from the list of Glo
 
 1. **Set the source server to read-only mode**
 
-Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the source cannot process any write transactions. Evaluate the impact on your business and schedule the read-only window in an off-peak time if necessary.
-FLUSH TABLES WITH READ LOCK;
-SET GLOBAL read_only = ON;
+Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the source can't process any write transactions. Evaluate the effect on your business and schedule the read-only window in an off-peak time if necessary.
+
+   ```sql
+   FLUSH TABLES WITH READ LOCK;
+   SET GLOBAL read_only = ON;
+   ```
 
 1. **Get binary log file name and offset**
 
@@ -111,32 +114,39 @@ The results should appear similar to the following. Make sure to note the binary
 ## Dump and restore the source server.
 
 Skip this section if it's a newly created source server with no existing data to migrate to the replica. You can, at this point, unlock the tables:
-SET GLOBAL read_only = OFF;
-UNLOCK TABLES;
+
+   ```sql
+   SET GLOBAL read_only = OFF;
+   UNLOCK TABLES;
+   ```
 
 Follow the below steps if the source server has existing data to migrate to the replica.
 
 1. Determine which databases and tables you want to replicate into Azure Database for MySQL Flexible Server and perform the dump from the source server.
-You can use mysqldump to dump databases from your primary server. For details, refer to Dump & Restore. It's unnecessary to dump the MySQL library and test library.
+You can use mysqldump to dump databases from your primary server. For more details, visit [Dump & Restore](../single-server/concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
 1. Set the source server to read/write mode.
 After dumping the database, change the source MySQL server to read/write mode.
-SQLCopy
-SET GLOBAL read_only = OFF;
-UNLOCK TABLES;
 
-1. Restore dump file to the new server.
+   ```sql
+   SET GLOBAL read_only = OFF;
+   UNLOCK TABLES;
+   ```
+
+1. Restore the dump file to the new server.
 Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to Dump & Restore for restoring a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
 
 > [!NOTE]  
-> If you want to avoid setting the database to read only when you dump and restore, you can use mydumper/myloader.
+> If you want to avoid setting the database to read-only when you dump and restore, you can use [mydumper/myloader](../migrate/concepts-migrate-mydumper-myloader).
 
 ## Configure the replica server to start Data-out replication.
 
 1. Filtering
-   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible server used as source and select "Server parameters" to view/edit the "Replicate_Wild_Ignore_Table" parameter. Refer to MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement for more details on modifying this server parameter.
+
+   Suppose data-out replication is being set up between Azure MySQL and an external MySQL on other cloud providers or on-premises. In that case, you must use the replication filter to filter out Azure custom tables. This can be achieved by setting Replicate_Wild_Ignore_Table = "mysql.\_\_%" to filter the Azure mysql internal tables. To modify this parameter from the Azure portal, navigate to Azure Database for MySQL Flexible server used as source and select "Server parameters" to view/edit the "Replicate_Wild_Ignore_Table" parameter. Refer to [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.2 CHANGE REPLICATION FILTER Statement](https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html) for more details on modifying this server parameter.
 
 1. Set the replica server by connecting to it and opening the MySQL shell on the replica server. From the prompt, run the following operation, which configures several MySQL replication settings at the same time:
+
    CHANGE THE REPLICATION SOURCE TO
    SOURCE_HOST='<master_host>',
    SOURCE_USER='<master_user>',
@@ -145,30 +155,39 @@ Restore the dump file to the server created in the Azure Database for MySQL Flex
    SOURCE_LOG_POS=<master_log_pos>
 
    - master_host: hostname of the source server (example – 'source.mysql.database.Azure.com')
-   - master_user: username for the source server (example -'syncuser'@'%')
+   - master_user: username for the source server (example - 'syncuser'@'%')
    - master_password: password for the source server
    - master_log_file: binary log file name from running show master status
    - master_log_pos: binary log position from running show master status
 
 > [!NOTE]  
-> To use SSL for the connection, add the attribute SOURCE_SSL=1 to the command. For more information about using SSL in a replication context, please refer - https://dev.mysql.com/doc/refman/8.0/en/change-replication-source-to.html
+> To use SSL for the connection, add the attribute SOURCE_SSL=1 to the command. For more information about using SSL in a replication context, visit - https://dev.mysql.com/doc/refman/8.0/en/change-replication-source-to.html
 
 1. Activate the replica server using the following command.
-                START REPLICA;
-At this point, the replica instance will begin replicating any changes made to the source server database. You can test this by creating a sample table on your source database and checking whether it gets replicated successfully.
+
+   ```sql
+   START REPLICA;
+   ```
+
+At this point, the replica instance begins replicating any changes made to the source server database. You can test this by creating a sample table on your source database and checking whether it gets replicated successfully.
 
 1. Check replication status.
-Call the show slave status\G command on the replica server to view the replication status.
-Show slave status;
-If the state of Slave_IO_Running and Slave_SQL_Running are "yes" and the value of Seconds_Behind_Master is "0", replication is working well. Seconds_Behind_Master indicates how late the replica is. The replica is processing updates if the value isn't "0".
 
-If the replica server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" on the source to allow the source and replica servers to communicate. This setting can be changed from the Connection security options. For more information, see Manage firewall rules using the portal.
+   Call the show slave status\G command on the replica server to view the replication status.
+
+   ```sql
+    show slave status;
+   ```
+
+   If the state of Slave_IO_Running and Slave_SQL_Running are `yes` and the value of Seconds_Behind_Master is `0`, replication is working well. Seconds_Behind_Master indicates how late the replica is. The replica is processing updates if the value isn't `0`.
+
+If the replica server is hosted in an Azure VM, set **Allow access to Azure services** to **ON** on the source to allow the source and replica servers to communicate. This setting can be changed from the connection security options. For more information, visit [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
 
 If you used mydumper/myloader to dump the database, you could get the master_log_file and master_log_pos from the /backup/metadata file.
 
 ## Next step
 
-- Learn about [Data-out replication](concepts-data-out-replication.md)
-- Learn about [Data-in replication](concepts-data-in-replication.md)
+- Learn more about [Data-out replication](concepts-data-out-replication.md)
+- Learn more about [Data-in replication](concepts-data-in-replication.md)
 - How to configure [Data-in replication](how-to-data-out-replication.md)
-
+- Learn more about [replicating in Azure with read replicas](concepts-read-replicas.md)
