@@ -29,10 +29,10 @@ The following prerequisites are required:
 Set the following variables that will be used throughout this procedure:
 
 ```console
-KEYVAULT_RESOURCE_GROUP=\<name of your ARO resource group\>
-KEYVAULT_LOCATION=\<location for your key vault\>
-KEYVAULT_NAME=\<name for key vault\>
-AZ_TENANT_ID=\<the tenant ID for your Azure account\>
+KEYVAULT_RESOURCE_GROUP=<name of your ARO resource group>
+KEYVAULT_LOCATION=<location for your key vault>
+KEYVAULT_NAME=<name for key vault>
+AZ_TENANT_ID=<the tenant ID for your Azure account>
 ```
 
 ## Install the Kubernetes Secrets Store CSI Driver
