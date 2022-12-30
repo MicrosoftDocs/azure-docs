@@ -68,7 +68,7 @@ $vNetSubscriptionId = '<subscription-guid>'
 > [!NOTE]
 > If the virtual network is in another subscription than webapp, you can use the *Set-AzContext -Subscription "xxxx-xxxx-xxxx-xxxx"* command to set the current subscription context. Set the current subscription context to the subscription where the virtual network was deployed.
 
-Checks if the subnet is delegated to Microsoft.Web/serverFarms.
+Check if the subnet is delegated to Microsoft.Web/serverFarms.
 
 ```azurepowershell
 $vnet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroupName
