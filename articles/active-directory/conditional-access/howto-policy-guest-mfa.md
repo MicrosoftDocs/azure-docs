@@ -19,6 +19,7 @@ ms.collection: M365-identity-device-management
 
 Require guest users perform multifactor authentication when accessing your organization's resources.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

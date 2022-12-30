@@ -41,8 +41,6 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 * A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
-[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
-
 ## Conditional Access policy components
 
 Conditional Access policies answer questions about who can access your resources, what resources they can access, and under what conditions. Policies can be designed to grant access, limit access with session controls, or to block access. You [build a Conditional Access policy](concept-conditional-access-policies.md) by defining the if-then statements like: 
@@ -52,6 +50,9 @@ Conditional Access policies answer questions about who can access your resources
 | If you're a user in Finance accessing the Payroll application | Require multifactor authentication and a compliant device |
 | If you aren't a member of Finance accessing the Payroll application | Block access |
 | If your user risk is high | Require a multifactor authentication and a secure password change |
+
+### User exclusions
+[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ### Ask the right questions
 
@@ -241,7 +242,7 @@ In case you need to roll back your newly implemented policies, use one or more o
    > [!CAUTION]
    > **Exclusions should be used sparingly**, only in situations where the user is trusted. Users should be added back into the policy or group as soon as possible.
 
-* If a policy is disabled and no longer required, delete it.
+* If a policy is disabled and no longer required, **delete it**.
 
 ## Troubleshoot Conditional Access policies
 
