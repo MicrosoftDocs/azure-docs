@@ -96,9 +96,9 @@ If you are familiar with MLflow or your platform support MLflow natively (like A
 
 MLflow includes built-in deployment tools that model developers can use to test models locally. For instance, you can run a local instance of a model registered in MLflow server registry with `mlflow models serve -m my_model` or you can use the MLflow CLI `mlflow models predict`. Azure Machine Learning online and batch endpoints run different inferencing technologies which may have different features. Read this section to understand their differences.
 
-### Batch vs online endpoints?
+### Batch vs online endpoints
 
-Azure Machine Learning supports deploying models to both online and batch endpoints. Online Endpoints compare to [MLflow built-in server](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) or [MLServer](https://mlserver.readthedocs.io), and they provide a scalable, synchronous, and lightweight way to run models for inference. Batch Endpoints, on the other hand, provide a way to run asynchronous inference over long running inferencing processes that can scale to big amounts of data. This capability is not present by the moment in MLflow server although similar capability can be achieved using Spark jobs. The rest of this section mostly applies to online endpoints but you can learn more of batch endpoint at [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+Azure Machine Learning supports deploying models to both online and batch endpoints. Online Endpoints compare to [MLflow built-in server](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools) and they provide a scalable, synchronous, and lightweight way to run models for inference. Batch Endpoints, on the other hand, provide a way to run asynchronous inference over long running inferencing processes that can scale to big amounts of data. This capability is not present by the moment in MLflow server although similar capability can be achieved using Spark jobs. The rest of this section mostly applies to online endpoints but you can learn more of batch endpoint at [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
 ### Input formats
 
