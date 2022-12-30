@@ -122,8 +122,6 @@
           items:
             - name: Configure optional claims
               href: active-directory-optional-claims.md
-            - name: Claims mapping policy type
-              href: reference-claims-mapping-policy-type.md
             - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
@@ -812,6 +810,8 @@
           href: reply-url.md
         - name: Validation differences by supported account types
           href: supported-accounts-validation.md
+    - name: Claims mapping policy type
+      href: reference-claims-mapping-policy-type.md
     - name: Microsoft auth libraries by app type
       displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md
