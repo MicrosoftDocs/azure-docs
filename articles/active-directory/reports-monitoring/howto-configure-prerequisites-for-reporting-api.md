@@ -133,8 +133,28 @@ Once you have the app registration configured, you can run activity log queries 
 
     ![Screenshot of an activity log GET query in Microsoft Graph.](./media/howto-configure-prerequisites-for-reporting-api/graph-sample-get-query.png)
 
+### API Endpoints 
+
+Microsoft Graph API endpoints:
+- **Audit logs:** `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
+- **Sign-in logs:** `https://graph.microsoft.com/v1.0/auditLogs/signIns`
+
+Programmatic access APIs:
+- **Security detections:** [Identity Protection risk detections API](/graph/api/resources/identityprotection-root)
+- **Tenant provisioning events:** [Provisioning logs API](/graph/api/resources/provisioningobjectsummary)
+
+### Troubleshoot errors in Azure Active Directory reporting API
+
+**500 HTTP internal server error while accessing Microsoft Graph V2 endpoint**: We don't currently support the Microsoft Graph v2 endpoint - make sure to access the activity logs using the Microsoft Graph v1 endpoint.
+
+**Error: Neither tenant is B2C or tenant doesn't have premium license**: Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
+
+**Error: User isn't in the allowed roles**: If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Reports Reader** role in your Azure Active Directory tenant. 
+
+**Error: Application missing Azure AD 'Read directory data' or 'Read all audit log data' permission**: Revisit the **[Grant permissions](#grant-permissions)** section of this article to ensure the permissions are properly set.
+
 ## Next steps
 
-* [Learn about Azure AD identity and access management APIs](/graph/azuread-identity-access-management-concept-overview?view=graph-rest-1.0)
+* [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
 * [Sign-in API reference](/graph/api/resources/signin)
