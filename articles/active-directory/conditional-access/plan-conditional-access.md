@@ -239,7 +239,7 @@ In case you need to roll back your newly implemented policies, use one or more o
 * **Exclude a user or group from a policy.** If a user is unable to access the app, you can choose to exclude the user from the policy.
 
    > [!CAUTION]
-   > Exclusions should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
+   > **Exclusions should be used sparingly**, only in situations where the user is trusted. Users should be added back into the policy or group as soon as possible.
 
 * If a policy is disabled and no longer required, delete it.
 
