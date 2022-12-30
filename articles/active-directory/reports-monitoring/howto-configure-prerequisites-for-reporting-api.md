@@ -16,12 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools.
+The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. Authentication must  be enabled with the reporting API using one of two methods: app-only access and delegated access.
 
-- The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
-- If you want to access the Azure AD Reporting API without user intervention, you must configure your access to use certificates.
-
-This article shows you how to register an application, grant permissions, and gather your configuration settings. Then you'll be able to use MS Graph to access the Azure AD reporting API. 
+This article describes how to enable MS Graph to access the Azure AD reporting API using both authentication methods. For more information on the authentication methods, see [Introduction to permissions and consent](../develop/permissions-consent-overview.md).
 
 ## Roles and license requirements
 
@@ -33,8 +30,6 @@ To get access to the reporting data through the API, you need to have one of the
 
 In order to access the sign-in reports for a tenant, an Azure AD tenant must have associated Azure AD Premium P1 or P2 license. Alternatively if the directory type is Azure AD B2C, the sign-in reports are accessible through the API without any additional license requirement. 
 
-## Register an application
-
 Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens.
 
 To configure your directory to access the Azure AD reporting API, you must sign in to the [Azure portal](https://portal.azure.com) in one of the required roles.
@@ -42,8 +37,11 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 > [!IMPORTANT]
 > Applications running under credentials with administrator privileges can be very powerful, so be sure to keep the application's ID and secret credentials in a secure location.
 > 
+## App-only access
 
-**To register an Azure AD application:**
+To enable your application to access Microsoft Graph without user intervention, you'll need to register your application with Azure AD, then grant permissions to the Microsoft Graph API. This article covers the steps to follow in the Azure portal. 
+
+### Register an Azure AD application
 
 1. In the [Azure portal](https://portal.azure.com), go to **Azure Active Directory** > **App registrations**.
 1. Select **New registration**.
@@ -58,7 +56,7 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
     ![Screenshot shows the Register an application page where you can enter the values in this step.](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-## Grant permissions 
+### Grant permissions 
 
 To access the Azure AD reporting API, you must grant your app *Read directory data* and *Read all audit log data* permissions for the Microsoft Graph API.
 
@@ -80,7 +78,11 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
 
     ![Screenshot shows the Reporting API Application API permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-grant-consent.png)
 
-## Gather configuration settings 
+## Delegated access
+
+To enable delegated access to the Azure AD reporting API, you'll need to gather a few configuration settings. 
+
+### Gather configuration settings 
 
 This section shows you how to gather the following settings from your directory:
 
@@ -113,7 +115,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
 ### Upload the certificate of your application
 
-If you don't have a certificate to upload, follow the steps outline in the [Create a self-signed certificate to authenticate your application](../develop/howto-create-self-signed-certificate.md) article. 
+If you don't have a certificate to upload, follow the steps outlined in the [Create a self-signed certificate to authenticate your application](../develop/howto-create-self-signed-certificate.md) article. 
 
 1. Go **Azure Active Directory** > **App Registration** > Select your application > **Certificates & secrets** > **Certificates** > **Upload certificate**.
 1. Select the file icon and select your certificate.
