@@ -4,15 +4,13 @@ description: Learn about what custom RBAC is and why it's important to implement
 services: active-directory
 author: davidmu1
 manager: CelesteDG
- 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 08/19/2022
+ms.date: 12/29/2022
 ms.custom: template-concept, ignite-2022
 ms.author: davidmu
-ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
 #Customer intent: As a developer, I want to learn about custom RBAC and why I need to use it in my application.
 ---
 

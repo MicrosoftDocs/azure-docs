@@ -4,12 +4,11 @@ description: Learn where to get help and find answers to your questions as you b
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/09/2022
+ms.date: 12/29/2022
 ms.author: davidmu
 ms.custom: has-adal-ref
 ---

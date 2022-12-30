@@ -9,9 +9,8 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 12/29/2022
 ms.author: davidmu
-ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 # Using directory extension attributes in claims
 
