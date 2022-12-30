@@ -198,6 +198,12 @@
         href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=/azure/virtual-network/toc.json
     - name: Configure Virtual network TAP
       href: tutorial-tap-virtual-network-cli.md
+    - name: Standalone Docker host container networking
+      items:
+      - name: Linux
+        href: deploy-container-networking-docker-linux.md
+      - name: Windows
+        href: deploy-container-networking-docker-windows.md
     - name: Deploy Container networking
       href: deploy-container-networking.md
   - name: Security

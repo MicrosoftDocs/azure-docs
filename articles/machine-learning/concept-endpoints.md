@@ -48,7 +48,7 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- The Azure CLI
+- The Azure CLI and the Python SDK
 - Azure Resource Manager/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
@@ -70,7 +70,7 @@ To create an online endpoint, you need to specify the following elements:
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
-Learn how to deploy online endpoints from the [CLI](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
+Learn how to deploy online endpoints from the [CLI/SDK](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
 
 ### Test and deploy locally for faster debugging
 
@@ -119,11 +119,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 :::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
-### Private endpoint support (preview)
+### Private endpoint support
 
-Optionally, you can secure communication with a managed online endpoint by using private endpoints. This functionality is currently in preview.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Optionally, you can secure communication with a managed online endpoint by using private endpoints.
 
 You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created per deployment.
 

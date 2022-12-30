@@ -1,84 +1,14 @@
 - name: Azure IoT Edge documentation
   href: index.yml
-- name: Azure IoT Edge for Linux on Windows (EFLOW)
-  expanded: false
-  items:
-  - name: About EFLOW
-    href: iot-edge-for-linux-on-windows.md
-  - name: Deploy to a Windows device
-    href: quickstart.md
-  - name: Concepts
-    items:
-    - name: Benefits
-      href: iot-edge-for-linux-on-windows-benefits.md
-    - name: Updates
-      href: iot-edge-for-linux-on-windows-updates.md
-    - name: Security
-      href: iot-edge-for-linux-on-windows-security.md
-    - name: Networking
-      href: iot-edge-for-linux-on-windows-networking.md
-    - name: Platform support
-      href: iot-edge-for-linux-on-windows-support.md
-  - name: Install and provision
-    items:
-    - name: Single device
-      items:
-      - name: X.509 certificate attestation
-        href: how-to-provision-single-device-linux-on-windows-x509.md
-      - name: Symmetric key attestation
-        href: how-to-provision-single-device-linux-on-windows-symmetric.md
-    - name: Provision at scale
-      items:
-      - name: X.509 certificate attestation
-        href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
-      - name: TPM attestation
-        href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
-      - name: Symmetric key attestation
-        href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-  - name: Configure
-    items:
-    - name: Networking
-      items:
-      - name: Understand VM networking
-        href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
-      - name: Virtual switch
-        href: how-to-create-virtual-switch.md
-      - name: Multiple NICs
-        href: how-to-configure-multiple-nics.md
-      - name: VM on a DMZ
-        href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
-    - name: Configure nested virtualization for Windows VMs
-      href: nested-virtualization.md
-    - name: Access TPM secrets
-      href: how-to-access-dtpm.md
-    - name: GPU acceleration
-      href: gpu-acceleration.md
-    - name: Shared folders
-      href: how-to-share-windows-folder-to-vm.md
-    - name: Connect a USB device
-      href: how-to-connect-usb-devices.md
-  - name: Develop and debugging
-    href: tutorial-develop-for-linux-on-windows.md
-  - name: Create a hierarchy of IoT Edge devices
-    href: tutorial-nested-iot-edge-for-linux-on-windows.md
-  - name: Troubleshoot
-    items:
-    - name: Diagnose virtual machine
-      href: troubleshoot-iot-edge-for-linux-on-windows.md
-    - name: Diagnose virtual machine networking
-      href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
-    - name: Resolve common errors
-      href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
-  - name: Reference
-    items:
-    - name: PowerShell functions
-      href: reference-iot-edge-for-linux-on-windows-functions.md
-- name: Azure IoT Edge versions
-  href: version-history.md
 - name: Overview
+  expanded: true
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
+  - name: Version / release notes
+    href: version-history.md
+  - name: Supported platforms
+    href: support.md
 - name: Quickstarts
   expanded: true
   items:
@@ -182,8 +112,6 @@
       href: iot-edge-certs.md
     - name: Confidential computing
       href: deploy-confidential-applications.md
-  - name: Platform support
-    href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
   - name: Limits and restrictions
@@ -343,6 +271,79 @@
       href: troubleshoot-in-portal.md
     - name: Resolve common errors
       href: troubleshoot-common-errors.md
+- name: Azure IoT Edge for Linux on Windows (EFLOW)
+  expanded: false
+  items:
+  - name: About EFLOW
+    href: iot-edge-for-linux-on-windows.md
+  - name: Deploy to a Windows device
+    href: quickstart.md
+  - name: Concepts
+    items:
+    - name: Benefits
+      href: iot-edge-for-linux-on-windows-benefits.md
+    - name: Updates
+      href: iot-edge-for-linux-on-windows-updates.md
+    - name: Security
+      href: iot-edge-for-linux-on-windows-security.md
+    - name: Networking
+      href: iot-edge-for-linux-on-windows-networking.md
+    - name: Supported platforms
+      href: iot-edge-for-linux-on-windows-support.md
+  - name: Install and provision
+    items:
+    - name: Single device
+      items:
+      - name: X.509 certificate attestation
+        href: how-to-provision-single-device-linux-on-windows-x509.md
+      - name: Symmetric key attestation
+        href: how-to-provision-single-device-linux-on-windows-symmetric.md
+    - name: Provision at scale
+      items:
+      - name: X.509 certificate attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+      - name: TPM attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+      - name: Symmetric key attestation
+        href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+  - name: Configure
+    items:
+    - name: Networking
+      items:
+      - name: Understand VM networking
+        href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
+      - name: Virtual switch
+        href: how-to-create-virtual-switch.md
+      - name: Multiple NICs
+        href: how-to-configure-multiple-nics.md
+      - name: VM on a DMZ
+        href: how-to-configure-iot-edge-for-linux-on-windows-iiot-dmz.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Access TPM secrets
+      href: how-to-access-dtpm.md
+    - name: GPU acceleration
+      href: gpu-acceleration.md
+    - name: Shared folders
+      href: how-to-share-windows-folder-to-vm.md
+    - name: Connect a USB device
+      href: how-to-connect-usb-devices.md
+  - name: Develop and debugging
+    href: tutorial-develop-for-linux-on-windows.md
+  - name: Create a hierarchy of IoT Edge devices
+    href: tutorial-nested-iot-edge-for-linux-on-windows.md
+  - name: Troubleshoot
+    items:
+    - name: Diagnose virtual machine
+      href: troubleshoot-iot-edge-for-linux-on-windows.md
+    - name: Diagnose virtual machine networking
+      href: troubleshoot-iot-edge-for-linux-on-windows-networking.md
+    - name: Resolve common errors
+      href: troubleshoot-iot-edge-for-linux-on-windows-common-errors.md
+  - name: Reference
+    items:
+    - name: PowerShell functions
+      href: reference-iot-edge-for-linux-on-windows-functions.md
 - name: Reference
   items:
   - name: Runtime modules environment variables

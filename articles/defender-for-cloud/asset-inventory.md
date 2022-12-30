@@ -126,7 +126,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 To access the software inventory, you'll need one of the following **paid** solutions:
 
 - [Agentless machine scanning](concept-agentless-data-collection.md) from [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md).
-- [Agentless machine scanning](concept-agentless-data-collection.md) from [Defender for Servers P2](defender-for-servers-introduction.md#defender-for-servers-plans).
+- [Agentless machine scanning](concept-agentless-data-collection.md) from [Defender for Servers P2](plan-defender-for-servers-select-plan.md#plan-features).
 - [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) from [Defender for Servers](defender-for-servers-introduction.md).
 
 If you've already enabled the integration with Microsoft Defender for Endpoint and enabled Microsoft Defender for Servers, you'll have access to the software inventory.

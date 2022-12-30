@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: ryanmajidi
 ms.author: rymajidi
 ms.reviewer: wiassaf, sngun
-ms.date: 11/16/2022
+ms.date: 12/06/2022
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -205,6 +205,7 @@ This section summarizes recent new security features and settings in Azure Synap
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
+| December 2022 | **How Data Exfiltration Protection (DEP) impacts Azure Synapse Analytics Pipelines** | [Data Exfiltration Protection (DEP)](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-data-exfiltration-protection-dep-impacts-azure-synapse/ba-p/3676146) is a feature that enables additional restrictions on the ability of Azure Synapse Analytics to connect to other services. |
 | August 2022 | **Execute Azure Synapse Spark Notebooks with system-assigned managed identity** | You can [now execute Spark Notebooks with the system-assigned managed identity (or workspace managed identity)](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-august-update-2022/ba-p/3535126#TOCREF_30) by enabling *Run as managed identity* from the **Configure** session menu. With this feature, you'll be able to validate that your notebook works as expected when using the system-assigned managed identity, before using the notebook in a pipeline. For more information, see [Managed identity for Azure Synapse](synapse-service-identity.md).|
 | July 2022 | **Changes to permissions needed for publishing to Git** | Now, only Git permissions and the Synapse Artifact Publisher (Synapse RBAC) role are needed to commit changes in Git-mode. For more information, see [Access control enforcement in Synapse Studio](security/synapse-workspace-access-control-overview.md#access-control-enforcement-in-synapse-studio).|
 | April 2022 | **Synapse Monitoring Operator RBAC role** | The Synapse Monitoring Operator role-based access control (RBAC) role allows a user persona to monitor the execution of Synapse Pipelines and Spark applications without having the ability to run or cancel the execution of these applications. For more information, review the [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md).|

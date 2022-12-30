@@ -399,7 +399,7 @@ You can now use the search feature, at the top of  the [Azure Video Indexer webs
 
 ### Multiple account owners
 
-Account owner role was added to Azure Video Indexer. You can add, change, and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
+Account owner role was added to Azure Video Indexer. You can add, change, and remove users; change their role. For details on how to share an account, see [Invite users](restricted-viewer-role.md#share-the-account).
 
 ### Audio event detection (public preview)
 
@@ -461,7 +461,7 @@ You will be able to sign up and sign in using one of these providers: Azure AD, 
 > [!NOTE]
 > The Azure Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021.
 >
-> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Azure Video Indexer account so you will still have access. You can add an additional owner of supported providers, as described in [invite](invite-users.md). <br/>
+> You should [invite](restricted-viewer-role.md#share-the-account) an Azure AD, Microsoft, or Google email you own to the Azure Video Indexer account so you will still have access. You can add an additional owner of supported providers, as described in [invite](restricted-viewer-role.md#share-the-account). <br/>
 > Alternatively, you can create a paid account and migrate the data.
 
 ## August 2020
