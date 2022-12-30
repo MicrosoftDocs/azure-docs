@@ -9,7 +9,7 @@ ms.date: 12/31/2022
 ms.custom: template-how-to
 # Customer Intent: As a cloud architect, I want to deploy a web app based on Zero Trust principles so that my applications & traffic are always secure.
 ---
-# Deploy a Zero Trust Network for web applications
+# Deploy a zero trust network for web applications
 
 ## Introduction
 
@@ -440,7 +440,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
 
 1. Select **Review + create** and then select **Create**. This deployment can take up to 30 minutes to complete.
 
-### Configure the Firewall Policy
+### Configure the firewall oplicy
 
 In this task, you'll configure the firewall policy used for packet inspection.
 
@@ -566,7 +566,7 @@ The application gateway should be sending traffic to the private IP address of t
 
 If you would like to test that the Firewall is actually inspecting or filtering traffic, modify the network rule that you created in the Firewall Policy from **TCP** to **ICMP**. This will then implicitly block TCP traffic from the application gateway and the website access will be denied.
 
-### Deploy the network security groups - Optional
+### Deploy the network security groups - optional
 
 You'll deploy network security groups to prevent other subnets from accessing the private endpoint used by the app service.
 
@@ -632,5 +632,5 @@ You'll clean up your environment by deleting the resource group containing all r
 After you've created a Zero Trust network for web applications, check out these extra learning opportunities to further your knowledge of Zero Trust security:
 
 > [!div class="nextstepaction"]
-- [Review the fundamentals of Zero Trust security in Azure](../security/fundamentals/Zero Trust.md)
-- Complete the Training Guide - [Establish the guiding principles and core components of Zero Trust](/training/paths/Zero Trust-principles/)
+- Review the [fundamentals of Zero Trust for Azure infrastructure](/security/zero-trust/azure-infrastructure-overview)
+- Complete the Training Guide - [Establish the guiding principles and core components of Zero Trust](/training/paths/zero-trust-principles/)
