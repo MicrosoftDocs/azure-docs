@@ -82,7 +82,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 
 **Solution**
 
-1. Open **Azure Active Directory** > **Custom security attributes** to see if custom security attributes have been defined and which attribute sets you have access to.
+1. Open **Azure Active Directory** > **Custom security attributes**.
 
     If the **Custom security attributes** page is disabled, you don't have an Azure AD Premium P1 or P2 license. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
 
@@ -102,7 +102,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
     > [!IMPORTANT]
     > By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
-1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope, add an attribute set, and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
 
     When finished, you should be able to read at least one attribute set. **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
 
