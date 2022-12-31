@@ -11,9 +11,7 @@ ms.date: 12/31/2022
 
 This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version.
 
-If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
-
-You can choose to [enable automatic updates](#automatically-update-the-sap-data-connector-agent) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
+To get the latest features, you can [enable automatic updates](#automatically-update-the-sap-data-connector-agent) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
 
 Note that the automatic or manual update described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
 
@@ -29,7 +27,7 @@ To enable automatic updates on all existing containers (all containers with a co
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh 
 ```
     
-The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. The job also checks containers running a Preview version. If the Preview version is newer than the later version, the job doesn't update those containers. 
+The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. If a container is running a Preview version that is newer than the latest version (the version that the job installs), the job doesn't update that container. 
 
 If you add containers after you run the cron job, the new containers are not automatically updated. To update these containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
 
@@ -37,7 +35,7 @@ The logs for this update are under *var/log/sapcon-sentinel-register-autoupdate.
 
 ### Enable automatic updates on a specific container
 
-To enable automatic updates on a specific container, run the following command on the container on which you want to enable auto-update:
+To enable automatic updates on a specific container, run the following command on the relevant container:
 
 ```
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh --containername <containername> [--containername <containername>]...
