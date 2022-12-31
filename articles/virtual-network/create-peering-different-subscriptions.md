@@ -698,8 +698,6 @@ You'll need the **Resource ID** for **myVNetB** from the previous steps to set u
 
 9. Select **Add**.
 
-The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be set up in **myVNetB**.
-
 10. Sign out of the portal as **UserA**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
@@ -715,7 +713,7 @@ Connect-AzAccount
 If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionA** with [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
-Set-AzContext -Subscription SubscriptionB
+Set-AzContext -Subscription SubscriptionA
 ```
 
 ### Sign in to SubscriptionB (optional)
