@@ -45,7 +45,7 @@ Before following the steps in this article, make sure you have the following pre
     pip install mlflow azureml-mlflow
     ```
 
-- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+- If you aren't  running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
 
 
 ### Connect to your workspace
@@ -74,9 +74,9 @@ There are multiple ways to get the Azure Machine Learning MLflow tracking URI. R
 
 **Configure authentication**
 
-Once the tracking is configured, you will also need to configure how the authentication needs to happen to the associated workspace. For interactive jobs where there is a user connected to the session, you can rely on Interactive Authentication.
+Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. For interactive jobs where  there's a user connected to the session, you can rely on Interactive Authentication.
 
-For those scenarios where unattended execution is required, you will have to configure a service principal to communicate with Azure Machine Learning.
+For those scenarios where unattended execution is required, you'll have to configure a service principal to communicate with Azure Machine Learning.
 
 ```python
 import os
@@ -87,7 +87,7 @@ os.environ["AZURE_CLIENT_SECRET"] = "<AZURE_CLIENT_SECRET>"
 ```
 
 > [!TIP]
-> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](../databricks/security/secrets/secrets.md#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
+> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](../../databricks/security/secrets/secrets.md#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
 
 ---
 
@@ -108,7 +108,7 @@ version = registered_model.version
 Alternatively, if your model was logged inside of a run, you can register it directly.
 
 > [!TIP]
-> To register the model, you will need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommend to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an example, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
+> To register the model, you'll need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommend to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an example, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
 
 ```python
 model_name = 'sklearn-diabetes'
@@ -124,9 +124,9 @@ version = registered_model.version
 
 ---
 
-### Get some data to run the model over
+### Get input data to score
 
-We will need some input data to run or jobs on. In this example, we will download sample data from internet and place it in a shared storage used by the Spark cluster.
+We'll need some input data to run or jobs on. In this example, we'll download sample data from internet and place it in a shared storage used by the Spark cluster.
 
 ```python
 import urllib
@@ -144,12 +144,13 @@ input_data_path = "dbfs:/data"
 
 dbutils.fs.mkdirs(input_data_path)
 dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
-
 ```
 
-## Run the model in a Spark clusters
+## Run the model in Spark clusters
 
-1. Configure the model URI you need. The following URI brings a model named `heart-classifier` in its latest version.
+The following section explains how to run MLflow models registered in Azure Machine Learning in Spark jobs.
+
+1. Configure the model URI. The following URI brings a model named `heart-classifier` in its latest version.
 
     ```python
     model_uri = "models:/heart-classifier/latest"
@@ -170,9 +171,9 @@ dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
     df = spark.read.option("header", "true").option("inferSchema", "true").csv(input_data_path).drop("target")
     ```
 
-    In our case, the input data is on `CSV` format and placed in the folder `dbfs:/data/`. We are also dropping the column `target` as this dataset contains the target variable to predict. In production scenarios, your data won't have this column.
+    In our case, the input data is on `CSV` format and placed in the folder `dbfs:/data/`. We're also dropping the column `target` as this dataset contains the target variable to predict. In production scenarios, your data won't have this column.
 
-1. Run the function `predict_function` and place the predictions on a new column. In this case, we are placing the predictions in the column `predictions`.
+1. Run the function `predict_function` and place the predictions on a new column. In this case, we're placing the predictions in the column `predictions`.
 
     ```python
     df.withColumn("predictions", score_function(*df.columns))
@@ -184,12 +185,12 @@ dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
 
 ## Run the model in a standalone Spark job in Azure Machine Learning
 
- Azure Machine Learning supports creation of a standalone Spark job, and creation of a reusable Spark component that can be used in [Azure Machine Learning pipelines](concept-ml-pipelines.md). In this example, we will deploy an scoring job that runs in Azure Machine Learning standalone Spark job and runs an MLflow model to perform inference.
+ Azure Machine Learning supports creation of a standalone Spark job, and creation of a reusable Spark component that can be used in [Azure Machine Learning pipelines](concept-ml-pipelines.md). In this example, we'll deploy a scoring job that runs in Azure Machine Learning standalone Spark job and runs an MLflow model to perform inference.
 
 > [!NOTE]
 > To learn more about Spark jobs in Azure Machine Learning, see [Submit Spark jobs in Azure Machine Learning (preview)](how-to-submit-spark-jobs.md).
 
-1. A Spark job requires a Python script that takes arguments. Create an scoring script:
+1. A Spark job requires a Python script that takes arguments. Create a scoring script:
 
     __score.py__
 
@@ -218,7 +219,7 @@ dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
     scored_data.to_csv(args.scored_data)
     ```
     
-    The above script takes three arguments `--model`, `--input_data` and `--scored_data`. The first two are inputs are represent the model we want to run and the input data, the last one is an output and it is the output folder where predictions will be placed.
+    The above script takes three arguments `--model`, `--input_data` and `--scored_data`. The first two are inputs and represent the model we want to run and the input data, the last one is an output and it is the output folder where predictions will be placed.
 
 1. Create a job definition:
 
@@ -273,3 +274,9 @@ dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
     ```azurecli
     az ml job create -f mlflow-score-spark-job.yml
     ```
+
+# Next steps
+
+- [Deploy MLflow models to batch endpoints](how-to-mlflow-batch.md)
+- [Deploy MLflow models to online endpoint](how-to-deploy-mlflow-models-online-endpoints.md)
+- [Using MLflow models for no-code deployment](how-to-log-mlflow-models.md)

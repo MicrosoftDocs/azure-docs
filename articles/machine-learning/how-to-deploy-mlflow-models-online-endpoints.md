@@ -471,7 +471,7 @@ version = registered_model.version
 
 ### Invoke the endpoint
 
-Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using the built in invocation capability in the deployment client you are using.
+Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using the built-in invocation capability in the deployment client you are using.
 
 **sample-request-sklearn.json**
 
