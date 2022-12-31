@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 12/30/2022
 ms.custom: template-how-to, FY23 content-maintenance
 ---
 
@@ -14,7 +14,9 @@ ms.custom: template-how-to, FY23 content-maintenance
 
 In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Azure Active Directory (Azure AD) tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
-The steps to create a virtual network peering are different, depending on whether the virtual networks are in the same, or different, subscriptions, and which [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) the virtual networks are created through. Learn how to create a virtual network peering in other scenarios by selecting the scenario from the following table:
+Depending on whether the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+
+Learn how to create a virtual network peering in other scenarios by selecting the scenario from the following table:
 
 |Azure deployment model  | Azure subscription  |
 |--------- |---------|
@@ -22,7 +24,7 @@ The steps to create a virtual network peering are different, depending on whethe
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
-A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks.
+A virtual network peering can't be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks.
 
 This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). It's recommended that you familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
 
@@ -32,11 +34,11 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
-    - If the virtual networks are in different subscriptions, and the subscriptions are associated with different Azure Active Directory tenants, add the user from each Active Directory tenant as a [guest user](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
+    - If the virtual networks are in different subscriptions and Active Directory tenants, add the user from each tenant as a guest in the opposite tenant. For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
     - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -50,7 +52,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 In the following steps, you'll learn how to peer virtual networks in different subscriptions and Azure Active Directory tenants. 
 
-You can use the same account that has permissions in both subscriptions or you can use separate accounts for each subscription to setup the peering. An account with permissions in both subscriptions can complete all of the steps without signing out and signing in to portal and assigning permissions.
+You can use the same account that has permissions in both subscriptions or you can use separate accounts for each subscription to set up the peering. An account with permissions in both subscriptions can complete all of the steps without signing out and signing in to portal and assigning permissions.
 
 The following resources and account examples are used in the steps in this article:
 
@@ -66,7 +68,7 @@ The following resources and account examples are used in the steps in this artic
 
 # [**Portal**](#tab/create-peering-portal)
 
-1. Sign-in to the [Azure portal](https://.portal.azure.com) as **UserA**.
+1. Sign-in to the [Azure portal](https://portal.azure.com) as **UserA**.
 
 2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -170,7 +172,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Sign in to SubscriptionA
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -212,7 +214,7 @@ az network vnet create \
 
 ## Assign permissions for UserB
 
-A user account in the other subscription that you want to peer with must be added to the network you previously created. If you are using a single account for both subscriptions, you can skip this section.
+A user account in the other subscription that you want to peer with must be added to the network you previously created. If you're using a single account for both subscriptions, you can skip this section.
 
 # [**Portal**](#tab/create-peering-portal)
 
@@ -246,7 +248,7 @@ Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) t
 
 Use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to obtain the object ID for **UserB**.
 
-**UserB** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if your using the same account for both subscriptions.
+**UserB** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if you're using the same account for both subscriptions.
 
 ```azurepowershell-interactive
 $id = @{
@@ -269,9 +271,9 @@ New-AzRoleAssignment @role
 
 Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetA**. Assign **UserB** from **SubscriptionB** to **myVNetA** with [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
-Use [az ad user list](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) to obtain the object ID for **UserB**.
+Use [az ad user list](/cli/azure/ad/user#az-ad-user-list) to obtain the object ID for **UserB**.
 
-**UserB** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if your using the same account for both subscriptions.
+**UserB** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if you're using the same account for both subscriptions.
 
 ```azurecli-interactive
 az ad user list --display-name UserB
@@ -294,7 +296,7 @@ az ad user list --display-name UserB
 ]
 ```
 
-Make note of the object id of **UserB** in field **id**. In this example, its **16d51293-ec4b-43b1-b54b-3422c108321a**.
+Make note of the object ID of **UserB** in field **id**. In this example, its **16d51293-ec4b-43b1-b54b-3422c108321a**.
 
 
 ```azurecli-interactive
@@ -310,7 +312,7 @@ az role assignment create \
       --scope $vnetid
 ```
 
-Replace the example guid in **`--assignee`** with the real object id for **UserB**.
+Replace the example guid in **`--assignee`** with the real object ID for **UserB**.
 
 ---
 
@@ -332,7 +334,7 @@ Replace the example guid in **`--assignee`** with the real object id for **UserB
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-The resource ID of **myVNetA** is required to setup the peering connection from **myVNetB** to **myVNetA**. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetA**.
+The resource ID of **myVNetA** is required to set up the peering connection from **myVNetB** to **myVNetA**. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetA**.
 
 ```azurepowershell-interactive
 $id = @{
@@ -346,7 +348,7 @@ $vnet.id
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-The resource ID of **myVNetA** is required to setup the peering connection from **myVNetB** to **myVNetA**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetA**.
+The resource ID of **myVNetA** is required to set up the peering connection from **myVNetB** to **myVNetA**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetA**.
 
 ```azurecli-interactive
 vnetid=$(az network vnet show \
@@ -366,7 +368,7 @@ In this section, you'll sign in as **UserB** and create a virtual network for th
 
 # [**Portal**](#tab/create-peering-portal)
 
-1. Sign in to the portal as **UserB**. If you are using one account for both subscriptions, change to **SubscriptionB** in the portal.
+1. Sign in to the portal as **UserB**. If you're using one account for both subscriptions, change to **SubscriptionB** in the portal.
 
 2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -470,7 +472,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Sign in to SubscriptionB
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -512,7 +514,7 @@ az network vnet create \
 
 ## Assign permissions for UserA
 
-A user account in the other subscription that you want to peer with must be added to the network you previously created. If you are using a single account for both subscriptions, you can skip this section.
+A user account in the other subscription that you want to peer with must be added to the network you previously created. If you're using a single account for both subscriptions, you can skip this section.
 
 # [**Portal**](#tab/create-peering-portal)
 
@@ -546,7 +548,7 @@ Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) t
 
 Use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to obtain the object ID for **UserA**.
 
-**UserA** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionA** that you wish to assign permissions to **myVNetB**. You can skip this step if your using the same account for both subscriptions.
+**UserA** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionA** that you wish to assign permissions to **myVNetB**. You can skip this step if you're using the same account for both subscriptions.
 
 ```azurepowershell-interactive
 $id = @{
@@ -569,9 +571,9 @@ New-AzRoleAssignment @role
 
 Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetB**. Assign **UserA** from **SubscriptionA** to **myVNetB** with [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). 
 
-Use [az ad user list](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) to obtain the object ID for **UserA**.
+Use [az ad user list](/cli/azure/ad/user#az-ad-user-list) to obtain the object ID for **UserA**.
 
-**UserA** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionA** that you wish to assign permissions to **myVNetB**. You can skip this step if your using the same account for both subscriptions.
+**UserA** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionA** that you wish to assign permissions to **myVNetB**. You can skip this step if you're using the same account for both subscriptions.
 
 ```azurecli-interactive
 az ad user list --display-name UserA
@@ -595,7 +597,7 @@ az ad user list --display-name UserA
 ]
 ```
 
-Make note of the object id of **UserA** in field **id**. In this example, its **ee0645cc-e439-4ffc-b956-79577e473969**.
+Make note of the object ID of **UserA** in field **id**. In this example, it's **ee0645cc-e439-4ffc-b956-79577e473969**.
 
 ```azurecli-interactive
 vnetid=$(az network vnet show \
@@ -614,7 +616,7 @@ az role assignment create \
 
 ## Obtain resource ID of myVNetB
 
-The resource ID of **myVNetB** is required to setup the peering connection from **myVNetA** to **myVNetB**. Use the following steps to obtain the resource ID of **myVNetB**.
+The resource ID of **myVNetB** is required to set up the peering connection from **myVNetA** to **myVNetB**. Use the following steps to obtain the resource ID of **myVNetB**.
 # [**Portal**](#tab/create-peering-portal)
 
 1. Remain signed in to the portal as **UserB**.
@@ -631,7 +633,7 @@ The resource ID of **myVNetB** is required to setup the peering connection from 
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-The resource ID of **myVNetB** is required to setup the peering connection from **myVNetA** to **myVNetB**. Use Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetB**.
+The resource ID of **myVNetB** is required to set up the peering connection from **myVNetA** to **myVNetB**. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetB**.
 
 ```azurepowershell-interactive
 $id = @{
@@ -645,7 +647,7 @@ $vnet.id
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-The resource ID of **myVNetB** is required to setup the peering connection from **myVNetA** to **myVNetB**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetB**.
+The resource ID of **myVNetB** is required to set up the peering connection from **myVNetA** to **myVNetB**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetB**.
 
 ```azurecli-interactive
 vnetid=$(az network vnet show \
@@ -661,11 +663,11 @@ echo $vnetid
 
 ## Create peering connection - myVNetA to myVNetB
 
-You'll need the **Resource ID** for **myVNetB** from the previous steps to setup the peering connection.
+You'll need the **Resource ID** for **myVNetB** from the previous steps to set up the peering connection.
 
 # [**Portal**](#tab/create-peering-portal)
 
-1. Sign in to the [Azure portal](https://.portal.azure.com) as **UserA**. If you are using one account for both subscriptions, change to **SubscriptionA** in the portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) as **UserA**. If you're using one account for both subscriptions, change to **SubscriptionA** in the portal.
 
 2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -696,7 +698,7 @@ You'll need the **Resource ID** for **myVNetB** from the previous steps to setup
 
 9. Select **Add**.
 
-The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
+The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be set up in **myVNetB**.
 
 10. Sign out of the portal as **UserA**.
 
@@ -718,7 +720,7 @@ Set-AzContext -Subscription SubscriptionB
 
 ### Sign in to SubscriptionB (optional)
 
-If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionB**.
 
@@ -728,7 +730,7 @@ Connect-AzAccount
 
 ### Change to SubscriptionA (optional)
 
-If you are using two accounts, you have to switch back to **SubscriptionA**.
+If you're using two accounts, you have to switch back to **SubscriptionA**.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign back in to **SubscriptionA**.
 
@@ -736,7 +738,7 @@ Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sig
 Connect-AzAccount
 ```
 
-If you are using one account for both subscriptions, change context to **SubscriptionA**.
+If you're using one account for both subscriptions, change context to **SubscriptionA**.
 
 ```azurepowershell-interactive
 Set-AzContext -Subscription SubscriptionB
@@ -783,7 +785,7 @@ myVNetA            Initiated
 
 ### Sign in to SubscriptionA
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -797,9 +799,9 @@ az account set --subscription "SubscriptionA"
 
 ### Sign in to SubscriptionB (optional)
 
-If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
 
-Use [[az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+Use [[az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
 
 ```azurecli-interactive
 az login
@@ -807,15 +809,15 @@ az login
 
 ### Change to SubscriptionA (optional)
 
-If you are using two accounts, you have to switch back to **SubscriptionA**.
+If you're using two accounts, you have to switch back to **SubscriptionA**.
 
-Use [[az login](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionA**.
+Use [[az sign in](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
 ```
 
-If you are using one account for both subscriptions, change context to **SubscriptionA**.
+If you're using one account for both subscriptions, change context to **SubscriptionA**.
 
 ```azurecli-interactive
 az account set --subscription "SubscriptionA"
@@ -834,7 +836,7 @@ az network vnet peering create \
     --allow-vnet-access
 ```
 
-Use [az network vnet peering list](/cli/azure/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-list) to obtain the status of the peering connections from **myVNetA** to **myVNetB**.
+Use [az network vnet peering list](/cli/azure/network/vnet/peering#az-network-vnet-peering-list) to obtain the status of the peering connections from **myVNetA** to **myVNetB**.
 
 ```azurecli-interactive
 az network vnet peering list \
@@ -845,15 +847,15 @@ az network vnet peering list \
 
 ---
 
-The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
+The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be set up in **myVNetB**.
 
 ## Create peering connection - myVNetB to myVNetA
 
-You'll need the **Resource IDs** for **myVNetA** from the previous steps to setup the peering connection.
+You'll need the **Resource IDs** for **myVNetA** from the previous steps to set up the peering connection.
 
 # [**Portal**](#tab/create-peering-portal)
 
-1. Sign in to the [Azure portal](https://.portal.azure.com) as **UserB**. If you are using one account for both subscriptions, change to **SubscriptionB** in the portal.
+1. Sign in to the [Azure portal](https://portal.azure.com) as **UserB**. If you're using one account for both subscriptions, change to **SubscriptionB** in the portal.
 
 2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -902,7 +904,7 @@ Set-AzContext -Subscription SubscriptionB
 
 ## Sign in to SubscriptionA (optional)
 
-If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionA**.
 
@@ -912,7 +914,7 @@ Connect-AzAccount
 
 ### Change to SubscriptionB (optional)
 
-If you are using two accounts, you have to switch back to **SubscriptionB**.
+If you're using two accounts, you have to switch back to **SubscriptionB**.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign back in to **SubscriptionB**.
 
@@ -920,7 +922,7 @@ Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sig
 Connect-AzAccount
 ```
 
-If you are using one account for both subscriptions, change context to **SubscriptionB**.
+If you're using one account for both subscriptions, change context to **SubscriptionB**.
 
 ```azurepowershell-interactive
 Set-AzContext -Subscription SubscriptionB
@@ -967,7 +969,7 @@ myVNetB            Connected
 
 ### Sign in to SubscriptionB
 
-Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
 
 ```azurecli-interactive
 az login
@@ -981,9 +983,9 @@ az account set --subscription "SubscriptionB"
 
 ### Sign in to SubscriptionA (optional)
 
-If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
 
-Use [[az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [[az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -991,15 +993,15 @@ az login
 
 ### Change to SubscriptionB (optional)
 
-If you are using two accounts, you may have to switch back to **SubscriptionB**.
+If you're using two accounts, you may have to switch back to **SubscriptionB**.
 
-Use [[az login](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionB**.
+Use [[az sign in](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionB**.
 
 ```azurecli-interactive
 az login
 ```
 
-If you are using one account for both subscriptions, change context to **SubscriptionB**.
+If you're using one account for both subscriptions, change context to **SubscriptionB**.
 
 ```azurecli-interactive
 az account set --subscription "SubscriptionB"
@@ -1018,7 +1020,7 @@ az network vnet peering create \
     --allow-vnet-access
 ```
 
-Use [az network vnet peering list](/cli/azure/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-list) to obtain the status of the peering connections from **myVNetB** to **myVNetA**.
+Use [az network vnet peering list](/cli/azure/network/vnet/peering#az-network-vnet-peering-list) to obtain the status of the peering connections from **myVNetB** to **myVNetA**.
 
 ```azurecli-interactive
 az network vnet peering list \
@@ -1028,9 +1030,9 @@ az network vnet peering list \
 ```
 ---
 
-The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server or use Azure DNS.
+The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks aren't able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server or use Azure DNS.
 
-For more information about using your own DNS for name resolution see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+For more information about using your own DNS for name resolution, see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 For more information about Azure DNS, see [What is Azure DNS?](/azure/dns/dns-overview).
 
