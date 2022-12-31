@@ -87,7 +87,7 @@ os.environ["AZURE_CLIENT_SECRET"] = "<AZURE_CLIENT_SECRET>"
 ```
 
 > [!TIP]
-> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](../../databricks/security/secrets/secrets.md#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
+> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](https://learn.microsoft.com/azure/databricks/security/secrets/secrets#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
 
 ---
 
@@ -131,19 +131,22 @@ We'll need some input data to run or jobs on. In this example, we'll download sa
 ```python
 import urllib
 
-urllib.request.urlretrieve("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv", "/tmp/heart.csv")
+urllib.request.urlretrieve("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv", "/tmp/data")
 ```
 
 Move the data to a mounted storage account available to the entire cluster.
 
+```python
+dbutils.fs.mv("file:/tmp/data", "dbfs:/")
+```
+
 > [!IMPORTANT]
-> The following code uses `dbutils`, which is a tool available in Azure Databricks cluster. Use the appropriate tool depending on the platform you are using.
+> The previous code uses `dbutils`, which is a tool available in Azure Databricks cluster. Use the appropriate tool depending on the platform you are using.
+
+The input data is then placed in the following folder:
 
 ```python
 input_data_path = "dbfs:/data"
-
-dbutils.fs.mkdirs(input_data_path)
-dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
 ```
 
 ## Run the model in Spark clusters
@@ -275,7 +278,7 @@ The following section explains how to run MLflow models registered in Azure Mach
     az ml job create -f mlflow-score-spark-job.yml
     ```
 
-# Next steps
+## Next steps
 
 - [Deploy MLflow models to batch endpoints](how-to-mlflow-batch.md)
 - [Deploy MLflow models to online endpoint](how-to-deploy-mlflow-models-online-endpoints.md)

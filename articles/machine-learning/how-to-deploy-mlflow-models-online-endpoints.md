@@ -446,9 +446,7 @@ version = registered_model.version
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
     *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
-    ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
