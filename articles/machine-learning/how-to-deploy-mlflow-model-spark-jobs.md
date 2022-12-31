@@ -20,7 +20,7 @@ In this article, learn how to deploy and run your [MLflow](https://www.mlflow.or
 
 ## About this example
 
-This example shows how you can deploy an MLflow model registered in Azure Machine Learning to Spark jobs running in [managed Spark clusters (preview)](how-to-submit-spark-jobs), Azure Databricks, or Azure Synapse Analytics, to perform inference over large amounts of data. 
+This example shows how you can deploy an MLflow model registered in Azure Machine Learning to Spark jobs running in [managed Spark clusters (preview)](how-to-submit-spark-jobs.md), Azure Databricks, or Azure Synapse Analytics, to perform inference over large amounts of data. 
 
 It uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline (regression).
 
@@ -87,7 +87,7 @@ os.environ["AZURE_CLIENT_SECRET"] = "<AZURE_CLIENT_SECRET>"
 ```
 
 > [!TIP]
-> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secrets#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
+> When working on shared environments, it is better to configure this environment variables for the entire cluster. As a best practice, manage them as secrets in an instance of Azure Key Vault. For instance, in Azure Databricks, you can use secrets to set this variables as follows: `AZURE_CLIENT_SECRET={{secrets/<scope-name>/<secret-name>}}`. See [Reference a secret in an environment variable](../databricks/security/secrets/secrets.md#reference-a-secret-in-an-environment-variable) for how to do it in Azure Databricks or refer to similar documentation in your platform.
 
 ---
 
@@ -185,6 +185,9 @@ dbutils.fs.mv("file:/tmp/heart.csv", f"{input_data_path}/heart.csv")
 ## Run the model in a standalone Spark job in Azure Machine Learning
 
  Azure Machine Learning supports creation of a standalone Spark job, and creation of a reusable Spark component that can be used in [Azure Machine Learning pipelines](concept-ml-pipelines.md). In this example, we will deploy an scoring job that runs in Azure Machine Learning standalone Spark job and runs an MLflow model to perform inference.
+
+> [!NOTE]
+> To learn more about Spark jobs in Azure Machine Learning, see [Submit Spark jobs in Azure Machine Learning (preview)](how-to-submit-spark-jobs.md).
 
 1. A Spark job requires a Python script that takes arguments. Create an scoring script:
 

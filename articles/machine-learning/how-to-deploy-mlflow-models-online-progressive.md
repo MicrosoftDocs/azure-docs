@@ -51,8 +51,6 @@ Additionally, you will need to:
     pip install azure-ai-ml
     ```
     
-    For more information, see [Install the Python SDK v2 for Azure Machine Learning](../../python/api/overview/azure/ai-ml-readme.md).
-
 # [Python (MLflow SDK)](#tab/mlflow)
 
 - Install the Mlflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`.
