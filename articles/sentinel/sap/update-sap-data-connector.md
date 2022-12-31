@@ -1,5 +1,5 @@
 ---
-title: Update Microsoft Sentinel's SAP data connector agent | Microsoft Docs
+title: Update Microsoft Sentinel's SAP data connector agent
 description: This article shows you how to update an already existing SAP data connector to its latest version.
 author: MSFTandrelom
 ms.author: andrelom
@@ -13,7 +13,38 @@ This article shows you how to update an already existing Microsoft Sentinel for 
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
 
-## Update SAP data connector agent
+You can choose to [enable auto-update](#automatically-update-the-sap-data-connector-agent) the SAP data connector agent when a new version of the SAP agent is available, or [manually update the agent](#manually-update-sap-data-connector-agent).
+
+## Automatically update the SAP data connector agent
+
+You can choose to enable automatic updates for the connector agent on [all existing containers](#enable-automatic-updates-on-all-existing-containers) or a [specific container](#enable-automatic-updates-on-a-specific-container).
+
+### Enable automatic updates on all existing containers
+
+To enable automatic updates on all existing containers, run the following command:
+
+```
+wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh 
+```
+    
+The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. This includes containers in a Preview version. If you add containers  after you run the command, the new containers are not automatically updated. 
+
+To update additional containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
+
+The logs for this update are under *var/log/sapcon-sentinel-register-autoupdate.log/*.
+
+### Enable automatic updates on a specific container
+
+To enable automatic updates on a specific container, run the following command on the container on which you want to enable auto-update:
+
+```
+wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh --containername <containername> [--containername <containername>]...
+```
+
+The logs for this update are under */var/log/sapcon-sentinel-register-autoupdate.log*. 
+
+
+## Manually update SAP data connector agent
 
 Make sure that you have the most recent versions of the relevant deployment scripts from the Microsoft Sentinel GitHub repository. 
 
