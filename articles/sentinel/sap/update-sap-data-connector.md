@@ -3,7 +3,7 @@ title: Update Microsoft Sentinel's SAP data connector agent
 description: This article shows you how to update an already existing SAP data connector to its latest version.
 author: MSFTandrelom
 ms.author: andrelom
-ms.topic: reference
+ms.topic: how-to
 ms.date: 12/31/2022
 ---
 
@@ -13,7 +13,9 @@ This article shows you how to update an already existing Microsoft Sentinel for 
 
 If you have a Docker container already running with an earlier version of the SAP data connector, run the SAP data connector update script to get the latest features available.
 
-You can choose to [enable auto-update](#automatically-update-the-sap-data-connector-agent) the SAP data connector agent when a new version of the SAP agent is available, or [manually update the agent](#manually-update-sap-data-connector-agent).
+You can choose to [enable automatic updates](#automatically-update-the-sap-data-connector-agent) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
+
+Note that the automatic or manual update described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel Solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
 
 ## Automatically update the SAP data connector agent
 
@@ -21,15 +23,15 @@ You can choose to enable automatic updates for the connector agent on [all exist
 
 ### Enable automatic updates on all existing containers
 
-To enable automatic updates on all existing containers, run the following command:
+To enable automatic updates on all existing containers (all containers with a connected SAP agent), run the following command:
 
 ```
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh 
 ```
     
-The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. This includes containers in a Preview version. If you add containers  after you run the command, the new containers are not automatically updated. 
+The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. The job also checks containers running a Preview version. If the Preview version is newer than the later version, the job doesn't update those containers. 
 
-To update additional containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
+If you add containers after you run the cron job, the new containers are not automatically updated. To update these containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
 
 The logs for this update are under *var/log/sapcon-sentinel-register-autoupdate.log/*.
 
@@ -43,14 +45,17 @@ wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/A
 
 The logs for this update are under */var/log/sapcon-sentinel-register-autoupdate.log*. 
 
+### Disable automatic updates
+
+To disable automatic updates for a container or containers, define the `auto_update` parameter for each of the containers as `false`.
 
 ## Manually update SAP data connector agent
 
-Make sure that you have the most recent versions of the relevant deployment scripts from the Microsoft Sentinel GitHub repository. 
+To manually update the connector agent, make sure that you have the most recent versions of the relevant deployment scripts from the Microsoft Sentinel GitHub repository. 
 
 Run:
 
-```azurecli
+```
 wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
 ```
 
