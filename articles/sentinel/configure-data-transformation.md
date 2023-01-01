@@ -58,7 +58,7 @@ Use the following procedures from the Log Analytics and Azure Monitor documentat
 - [Data collection transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 
 
-When you're done, come back to Microsoft Sentinel to verify that your data is being ingested based on your newly-configured transformation. It make take up to 60 minutes for the data transformation configurations to apply.
+When you're done, come back to Microsoft Sentinel to verify that your data is being ingested based on your newly configured transformation. It may take up to 60 minutes for the data transformation configurations to apply.
 
 
 ## Migrate to ingestion-time data transformation
