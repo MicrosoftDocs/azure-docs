@@ -32,18 +32,15 @@ In this tutorial we will triage incoming email using custom single text classifi
 :::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation." lightbox="../media/create-flow.png":::
 
 3- Name your flow as *EmailTriage*, from triggers search for *email* and choose *When a new email arrives* option then click *create*
-:::image type="content" source="../media/language-flow.png" alt-text="A screenshot of the language flow." lightbox="../media/language-flow.png":::
-
+:::image type="content" source="../media/email-flow.png" alt-text="A screenshot of the language flow." lightbox="../media/email-flow.png":::
 
 4- Start by adding the right connection to your email. This connection will be used to access the email content.
-
 
 5- To add a Language connector, search for *Azure Language* 
 :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of azure language connectors." lightbox="../media/language-connector.png":::
 
-
 6- Search for *CustomSingleLabelClassification*
-:::image type="content" source="../media/entity-connector.png" alt-text="A screenshot of NER connector." lightbox="../media/entity-connector.png":::
+:::image type="content" source="../media/single-classification.png" alt-text="A screenshot of NER connector." lightbox="../media/single-classification.png":::
 
 7- Start by adding the right connection to your connector. This connection will be used to access the classification project.
 
@@ -53,11 +50,12 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 10- Fill in the project name and deployment name of your deployed model
 
-11- Add condition to send a Microsoft Teams message to the righ team. Choose *results* from dynamic content and add the condition. For this tutorial, we are looking for *Computer_science* related emails.
+:::image type="content" source="../media/classification.png" alt-text="A screenshot of NER connector." lightbox="../media/classification.png":::
 
-12- In the *Yes* condition, choose your desired option to notify the team.
+11- Add condition to send a Microsoft Teams message to the righ team. Choose *results* from dynamic content and add the condition. For this tutorial, we are looking for *Computer_science* related emails. In the *Yes* condition, choose your desired option to notify the team. In the *No* condition, you can add further condition to check other cases and do alternative actions.
 
-13- In the *No* condition, you can add further condition to check other cases and do alternative actions.
+:::image type="content" source="../media/email-triage.png" alt-text="A screenshot of NER connector." lightbox="../media/email-triage.png":::
+
 
 # Next steps
 
