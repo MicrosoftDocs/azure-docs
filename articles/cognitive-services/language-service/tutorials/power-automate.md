@@ -65,7 +65,7 @@ To automate repetative tasks and bring efficiencies to any organization, you can
 
 ## Next steps 
 
-[Language studio quick start](../language-studio.md)
+[Triage incoming emails with custom text classification]()
 
 
 
