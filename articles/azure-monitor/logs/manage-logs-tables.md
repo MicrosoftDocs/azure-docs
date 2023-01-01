@@ -50,7 +50,7 @@ Reduce costs and analysis effort by using data collection rules to [filter out a
 
 ## View table properties
 
-## [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 To view and set table properties in the Azure portal:
 
@@ -68,7 +68,7 @@ To view and set table properties in the Azure portal:
     
     1. Select **Edit schema** to view and edit the table schema.
 
-## [API](#tab/api)
+# [API](#tab/api)
 
 To view table properties, call the **Tables - Get** API:
 
@@ -111,7 +111,7 @@ Status code: 200
 }
 ```
 
-## [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To view table properties using Azure CLI, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
@@ -121,7 +121,7 @@ For example:
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
 ```
 
-## [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To view table properties using PowerShell, run:
 
