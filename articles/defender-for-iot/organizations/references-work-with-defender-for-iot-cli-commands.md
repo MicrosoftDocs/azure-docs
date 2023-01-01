@@ -40,9 +40,9 @@ The following table lists the activities available by CLI and the privileged use
 |---------|---------|---------|
 |**Appliance maintenance**     |         |         |
 |Service health     |   *support*, *cyberx*      | [Check OT monitoring services health](cli-ot-sensor.md#check-ot-monitoring-services-health)        |
-|Restart and shutdown     |  *support*, *cyberx*, *cyberx-host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
+|Restart and shutdown     |  *support*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
 |Software versions     |  *support*, *cyberx*       |  [Show installed software version](cli-ot-sensor.md#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
-|Date and time     |   *support*, *cyberx*, *cyberx-host*          |  [Show current system date/time](cli-ot-sensor.md#show-current-system-datetime)       |
+|Date and time     |   *support*, *cyberx*, *cyberx_host*          |  [Show current system date/time](cli-ot-sensor.md#show-current-system-datetime)       |
 |NTP     | *support*, *cyberx*        | [Turn on NTP time sync](cli-ot-sensor.md#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](cli-ot-sensor.md#turn-off-ntp-time-sync)        |
 |**Backup and restore**     |         |         |
 |Backup files     | *support*, *cyberx*        | [List current backup files](cli-ot-sensor.md#list-current-backup-files)        |
@@ -52,15 +52,15 @@ The following table lists the activities available by CLI and the privileged use
 | **SSL and TLS certificates**    |         |         |
 |Certificate management     | *cyberx*        | [Import TLS/SSL certificates to your OT sensor](cli-ot-sensor.md#import-tlsssl-certificates-to-your-ot-sensor)<br>[Restore the default self-signed certificate](cli-ot-sensor.md#restore-the-default-self-signed-certificate)        |
 | **Local user management** | | |
-|Password changes     | *cyberx*, *cyberx-host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
+|Password changes     | *cyberx*, *cyberx_host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
 |Failed sign-in protections     | *cyberx*        | [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins)       |
-| User timeouts | *support*, *cyberx*, *cyberx-host* |[Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts) |
+| User timeouts | *support*, *cyberx*, *cyberx_host* |[Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts) |
 |**Network settings**     |         |         |
 |Bandwidth limits     |    *cyberx*     | [Set bandwidth limit for the management network interface](cli-ot-sensor.md#set-bandwidth-limit-for-the-management-network-interface)        |
 |Internet connections     |  *cyberx*       | [Check internet connection](cli-ot-sensor.md#check-internet-connection)        |
 |Network connectivity     |  *support*, *cyberx*       |  [Check network connectivity from the OT sensor](cli-ot-sensor.md#check-network-connectivity-from-the-ot-sensor)       |
 |Network load     |  *cyberx*       | [Check network interface current load](cli-ot-sensor.md#check-network-interface-current-load)        |
-| Network setting configuration | *cyberx-host* | [Change networking configuration or reassign network interface roles](cli-ot-sensor.md#change-networking-configuration-or-reassign-network-interface-roles) |
+| Network setting configuration | *cyberx_host* | [Change networking configuration or reassign network interface roles](cli-ot-sensor.md#change-networking-configuration-or-reassign-network-interface-roles) |
 |Network setting validation     |  *support*       |  [Validate and show network interface configuration](cli-ot-sensor.md#validate-and-show-network-interface-configuration)       |
 |Port locations     | *support*        | [Locate a physical port by blinking interface lights](cli-ot-sensor.md#locate-a-physical-port-by-blinking-interface-lights)        |
 |Physical interfaces     | *support*, *cyberx*        |     [List connected physical interfaces](cli-ot-sensor.md#list-connected-physical-interfaces)    |

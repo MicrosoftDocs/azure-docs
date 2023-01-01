@@ -177,7 +177,7 @@ root@xsense:
 
 Use the following commands to change passwords for local users on your OT sensor.
 
-When resetting the password for the *cyberx*, *support*, or *cyberx-host* user, the password is reset for both SSH and web access.
+When resetting the password for the *cyberx*, *support*, or *cyberx_host* user, the password is reset for both SSH and web access.
 
 
 |User  |Command  |Full command syntax   |
@@ -198,7 +198,7 @@ resetting the password of UI user "support"
 root@xsense:/#
 ```
 
-The following example shows the *cyberx-host* user changing the *cyberx-host* user's password.
+The following example shows the *cyberx_host* user changing the *cyberx_host* user's password.
 
 ```bash
 cyberx_host@xsense:/# passwd
@@ -606,17 +606,19 @@ Test Alert was successfully triggered.
 
 ## Create capture filters for incoming traffic
 
-To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source.
+To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source. Capture filters allow you to block high-bandwidth traffic at the hardware layer, optimizing both appliance performance and resource usage.
 
-In such cases, use include and/or exclude lists to create and configure capture filters on your OT network sensors. Capture filters ensure that the data that reaches Defender for IoT is only the data that you need to monitor.
-
-Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
+Use include an/or exclude lists to create and configure capture filters on your OT network sensors, making sure that you don't block any of the traffic that you want to monitor.
 
 The basic use case for capture filters uses the same filter for all Defender for IoT components. However, for advanced use cases, you may want to configure separate filters for each of the following Defender for IoT components:
 
 - `horizon`: Captures deep packet inspection (DPI) data
 - `collector`: Captures PCAP data
 - `traffic-monitor`: Captures communication statistics
+
+> [!NOTE]
+> Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
+>
 
 ### Create a basic filter for all components
 
@@ -710,6 +712,327 @@ Reply to the prompts displayed as follows:
     For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints.
 
     The default mode is `internal`. To use the `all-connected` mode, select `Y` at the prompt, and then enter `all-connected`.
+
+The following example shows a series of prompts that excludes subnet `192.168.x.x` and port `9000:`
+
+```bash
+root@xsense: network capture-filter
+Would you like to supply devices and subnet masks you wish to include in the capture filter? [y/N]: y
+You've exited the editor. Would you like to apply your modifications? [y/N]:
+root@xsense:
+root@xsense: network capture-filter
+Would you like to supply devices and subnet masks you wish to include in the capture filter? [y/N]: n
+Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [y/N]: y
+You've exited the editor. Would you like to apply your modifications? [y/N]: y
+Enter tcp ports to include (delimited by comma or Enter to skip):
+Enter udp ports to include (delimited by comma or Enter to skip):
+Enter tcp ports to exclude (delimited by comma or Enter to skip):9000
+Enter udp ports to exclude (delimited by comma or Enter to skip):9000
+Enter VLAN ids to include (delimited by comma or Enter to skip):
+In which component do you wish to apply this capture filter?all
+Would you like to supply a custom base capture filter for the collector component? [y/N]: n
+Would you like to supply a custom base capture filter for the traffic_monitor component? [y/N]: n
+Would you like to supply a custom base capture filter for the horizon component? [y/N]: n
+type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/n]: internal
+Please respond with 'yes' or 'no' (or 'y' or 'n').
+type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/n]: y
+starting "/usr/local/bin/cyberx-xsense-capture-filter --exclude /var/cyberx/media/capture-filter/exclude --exclude-tcp-port 9000 --exclude-udp-port 9000 --program all --mode internal --from-shell"
+No include file given
+Loaded 1 unique channels
+(000) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 8
+(002) ld       [26]
+(003) and      #0xffff0000
+(004) jeq      #0xc0a80000      jt 16   jf 5
+(005) ld       [30]
+(006) and      #0xffff0000
+(007) jeq      #0xc0a80000      jt 16   jf 17
+(008) jeq      #0x806           jt 10   jf 9
+(009) jeq      #0x8035          jt 10   jf 17
+(010) ld       [28]
+(011) and      #0xffff0000
+(012) jeq      #0xc0a80000      jt 16   jf 13
+(013) ld       [38]
+(014) and      #0xffff0000
+(015) jeq      #0xc0a80000      jt 16   jf 17
+(016) ret      #0
+(017) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x86dd          jt 2    jf 8
+(002) ldb      [20]
+(003) jeq      #0x6             jt 4    jf 19
+(004) ldh      [54]
+(005) jeq      #0x2328          jt 18   jf 6
+(006) ldh      [56]
+(007) jeq      #0x2328          jt 18   jf 19
+(008) jeq      #0x800           jt 9    jf 19
+(009) ldb      [23]
+(010) jeq      #0x6             jt 11   jf 19
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 19   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 18   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 18   jf 19
+(018) ret      #0
+(019) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x86dd          jt 2    jf 8
+(002) ldb      [20]
+(003) jeq      #0x11            jt 4    jf 19
+(004) ldh      [54]
+(005) jeq      #0x2328          jt 18   jf 6
+(006) ldh      [56]
+(007) jeq      #0x2328          jt 18   jf 19
+(008) jeq      #0x800           jt 9    jf 19
+(009) ldb      [23]
+(010) jeq      #0x11            jt 11   jf 19
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 19   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 18   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 18   jf 19
+(018) ret      #0
+(019) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 18
+(002) ld       [26]
+(003) and      #0xffff0000
+(004) jeq      #0xc0a80000      jt 34   jf 5
+(005) ld       [30]
+(006) and      #0xffff0000
+(007) jeq      #0xc0a80000      jt 34   jf 8
+(008) ldb      [23]
+(009) jeq      #0x6             jt 11   jf 10
+(010) jeq      #0x11            jt 11   jf 35
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 35   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 34   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 34   jf 35
+(018) jeq      #0x806           jt 20   jf 19
+(019) jeq      #0x8035          jt 20   jf 26
+(020) ld       [28]
+(021) and      #0xffff0000
+(022) jeq      #0xc0a80000      jt 34   jf 23
+(023) ld       [38]
+(024) and      #0xffff0000
+(025) jeq      #0xc0a80000      jt 34   jf 35
+(026) jeq      #0x86dd          jt 27   jf 35
+(027) ldb      [20]
+(028) jeq      #0x6             jt 30   jf 29
+(029) jeq      #0x11            jt 30   jf 35
+(030) ldh      [54]
+(031) jeq      #0x2328          jt 34   jf 32
+(032) ldh      [56]
+(033) jeq      #0x2328          jt 34   jf 35
+(034) ret      #0
+(035) ret      #262144
+debug: set new filter for dumpark '(((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000))) or (vlan and ((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000)))'
+No include file given
+Loaded 1 unique channels
+(000) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 8
+(002) ld       [26]
+(003) and      #0xffff0000
+(004) jeq      #0xc0a80000      jt 16   jf 5
+(005) ld       [30]
+(006) and      #0xffff0000
+(007) jeq      #0xc0a80000      jt 16   jf 17
+(008) jeq      #0x806           jt 10   jf 9
+(009) jeq      #0x8035          jt 10   jf 17
+(010) ld       [28]
+(011) and      #0xffff0000
+(012) jeq      #0xc0a80000      jt 16   jf 13
+(013) ld       [38]
+(014) and      #0xffff0000
+(015) jeq      #0xc0a80000      jt 16   jf 17
+(016) ret      #0
+(017) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x86dd          jt 2    jf 8
+(002) ldb      [20]
+(003) jeq      #0x6             jt 4    jf 19
+(004) ldh      [54]
+(005) jeq      #0x2328          jt 18   jf 6
+(006) ldh      [56]
+(007) jeq      #0x2328          jt 18   jf 19
+(008) jeq      #0x800           jt 9    jf 19
+(009) ldb      [23]
+(010) jeq      #0x6             jt 11   jf 19
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 19   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 18   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 18   jf 19
+(018) ret      #0
+(019) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x86dd          jt 2    jf 8
+(002) ldb      [20]
+(003) jeq      #0x11            jt 4    jf 19
+(004) ldh      [54]
+(005) jeq      #0x2328          jt 18   jf 6
+(006) ldh      [56]
+(007) jeq      #0x2328          jt 18   jf 19
+(008) jeq      #0x800           jt 9    jf 19
+(009) ldb      [23]
+(010) jeq      #0x11            jt 11   jf 19
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 19   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 18   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 18   jf 19
+(018) ret      #0
+(019) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 18
+(002) ld       [26]
+(003) and      #0xffff0000
+(004) jeq      #0xc0a80000      jt 34   jf 5
+(005) ld       [30]
+(006) and      #0xffff0000
+(007) jeq      #0xc0a80000      jt 34   jf 8
+(008) ldb      [23]
+(009) jeq      #0x6             jt 11   jf 10
+(010) jeq      #0x11            jt 11   jf 35
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 35   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 34   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 34   jf 35
+(018) jeq      #0x806           jt 20   jf 19
+(019) jeq      #0x8035          jt 20   jf 26
+(020) ld       [28]
+(021) and      #0xffff0000
+(022) jeq      #0xc0a80000      jt 34   jf 23
+(023) ld       [38]
+(024) and      #0xffff0000
+(025) jeq      #0xc0a80000      jt 34   jf 35
+(026) jeq      #0x86dd          jt 27   jf 35
+(027) ldb      [20]
+(028) jeq      #0x6             jt 30   jf 29
+(029) jeq      #0x11            jt 30   jf 35
+(030) ldh      [54]
+(031) jeq      #0x2328          jt 34   jf 32
+(032) ldh      [56]
+(033) jeq      #0x2328          jt 34   jf 35
+(034) ret      #0
+(035) ret      #262144
+debug: set new filter for traffic-monitor '(((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000))) or (vlan and ((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000)))'
+No include file given
+Loaded 1 unique channels
+(000) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 8
+(002) ld       [26]
+(003) and      #0xffff0000
+(004) jeq      #0xc0a80000      jt 16   jf 5
+(005) ld       [30]
+(006) and      #0xffff0000
+(007) jeq      #0xc0a80000      jt 16   jf 17
+(008) jeq      #0x806           jt 10   jf 9
+(009) jeq      #0x8035          jt 10   jf 17
+(010) ld       [28]
+(011) and      #0xffff0000
+(012) jeq      #0xc0a80000      jt 16   jf 13
+(013) ld       [38]
+(014) and      #0xffff0000
+(015) jeq      #0xc0a80000      jt 16   jf 17
+(016) ret      #0
+(017) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x86dd          jt 2    jf 8
+(002) ldb      [20]
+(003) jeq      #0x6             jt 4    jf 19
+(004) ldh      [54]
+(005) jeq      #0x2328          jt 18   jf 6
+(006) ldh      [56]
+(007) jeq      #0x2328          jt 18   jf 19
+(008) jeq      #0x800           jt 9    jf 19
+(009) ldb      [23]
+(010) jeq      #0x6             jt 11   jf 19
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 19   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 18   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 18   jf 19
+(018) ret      #0
+(019) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x86dd          jt 2    jf 8
+(002) ldb      [20]
+(003) jeq      #0x11            jt 4    jf 19
+(004) ldh      [54]
+(005) jeq      #0x2328          jt 18   jf 6
+(006) ldh      [56]
+(007) jeq      #0x2328          jt 18   jf 19
+(008) jeq      #0x800           jt 9    jf 19
+(009) ldb      [23]
+(010) jeq      #0x11            jt 11   jf 19
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 19   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 18   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 18   jf 19
+(018) ret      #0
+(019) ret      #262144
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2    jf 18
+(002) ld       [26]
+(003) and      #0xffff0000
+(004) jeq      #0xc0a80000      jt 34   jf 5
+(005) ld       [30]
+(006) and      #0xffff0000
+(007) jeq      #0xc0a80000      jt 34   jf 8
+(008) ldb      [23]
+(009) jeq      #0x6             jt 11   jf 10
+(010) jeq      #0x11            jt 11   jf 35
+(011) ldh      [20]
+(012) jset     #0x1fff          jt 35   jf 13
+(013) ldxb     4*([14]&0xf)
+(014) ldh      [x + 14]
+(015) jeq      #0x2328          jt 34   jf 16
+(016) ldh      [x + 16]
+(017) jeq      #0x2328          jt 34   jf 35
+(018) jeq      #0x806           jt 20   jf 19
+(019) jeq      #0x8035          jt 20   jf 26
+(020) ld       [28]
+(021) and      #0xffff0000
+(022) jeq      #0xc0a80000      jt 34   jf 23
+(023) ld       [38]
+(024) and      #0xffff0000
+(025) jeq      #0xc0a80000      jt 34   jf 35
+(026) jeq      #0x86dd          jt 27   jf 35
+(027) ldb      [20]
+(028) jeq      #0x6             jt 30   jf 29
+(029) jeq      #0x11            jt 30   jf 35
+(030) ldh      [54]
+(031) jeq      #0x2328          jt 34   jf 32
+(032) ldh      [56]
+(033) jeq      #0x2328          jt 34   jf 35
+(034) ret      #0
+(035) ret      #262144
+debug: set new filter for horizon '(((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000))) or (vlan and ((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000)))'
+root@xsense:
+```
 
 ### Create an advanced filter for specific components
 
