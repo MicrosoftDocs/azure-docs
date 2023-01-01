@@ -83,6 +83,7 @@ The following filtering parameters are available:
 | **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
@@ -90,10 +91,6 @@ For example, to filter only Web sessions for a specified list of domain names, u
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_WebSession (url_has_any = torProxies)
 ```
-
-> [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
->
 
 ## Schema details
 

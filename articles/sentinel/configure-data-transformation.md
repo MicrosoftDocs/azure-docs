@@ -34,7 +34,7 @@ Before you start configuring DCRs for data transformation:
 
 | If you are ingesting | Ingestion-time transformation is... | Use this DCR type |
 | -------------------- | ---------------------------- | ----------------- |
-| **Custom data** through <br>the **DCR-based API** | <li>Required<li>Included in the DCR that defines the data model | Standard DCR |
+| **Custom data** through <br>the [**Log Ingestion API**](../azure-monitor/logs/logs-ingestion-api-overview.md) | <li>Required<li>Included in the DCR that defines the data model | Standard DCR |
 | **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the legacy **Log Analytics Agent (MMA)** | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
 | **Built-in data types** <br>from most other sources | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
 
@@ -45,7 +45,7 @@ Before you start configuring DCRs for data transformation:
 
 Use the following procedures from the Log Analytics and Azure Monitor documentation to configure your data transformation DCRs:
 
-[Direct ingestion through the DCR-based Custom Logs API](../azure-monitor/logs/logs-ingestion-api-overview.md):
+[Direct ingestion through the Log Ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md):
 - Walk through a tutorial for [ingesting logs using the Azure portal](../azure-monitor/logs/tutorial-logs-ingestion-portal.md).
 - Walk through a tutorial for [ingesting logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-logs-ingestion-api.md).
 

@@ -40,6 +40,46 @@ Audit events also reference the following entities which are involved in the con
 
 The descriptor `Dvc` is used for the reporting device, which is the local system for sessions reported by an endpoint, and the intermediary or security device in other cases. 
 
+
+## Parsers
+
+### Deploying and using audit events parsers
+
+Deploy the ASIM audit events parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). To query across all audit event sources use the unifying parser `imAuditEvent` as the table name in your query. 
+
+For more information about using ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
+For the list of the audit event parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#audit-event-parsers) 
+
+### Add your own normalized parsers
+
+When implementing custom parsers for the File Event information model, name your KQL functions using the following syntax: `imAuditEvent<vendor><Product>`. Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the audit event unifying parser.
+
+### Filtering parser parameters
+
+The audit events parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only events that ran at or after this time. This parameter uses the `TimeGenerated` field as the time designator of the event. |
+| **endtime** | datetime | Filter only events queries that finished running at or before this time. This parameter uses the `TimeGenerated` field as the time designator of the event. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only events from this source IP address, as represented in the [SrcIpAddr](#srcipaddr) field. |
+| **eventtype_in**| string | Filter only events in which the event type, as represented in the [EventType](#eventtype) field is any of the terms provided. |
+| **eventresult**| string | Filter only events in which the event result, as represented in the [EventResult](#eventresult) field is equal to the parameter value. |
+| **actorusername_has_any** | dynamic/string | Filter only events in which the [ActorUsername](#actorusername) includes any of the terms provided. | 
+| **operation_has_any** | dynamic/string | Filter only events in which [Operation](#operation) field includes any of the terms provided. | 
+| **object_has_any** | dynamic/string | Filter only events in which [Object](#object) field includes any of the terms provided. | 
+| **newvalue_has_any** | dynamic/string | Filter only events in which [NewValue](#object) field includes any of the terms provided. | 
+
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
+
+For example, to filter only audit events with the terms `install` or `update` in their [Operation](#operation) field, from the last day , use:
+
+```kql
+imAuditEvent (operation_has_any=dynamic(['install','update']), starttime = ago(1d), endtime=now())
+```
+
 ## Schema details
 
 ### Common ASIM fields
@@ -160,7 +200,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcDvcIdType** | Optional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
-| <a name="srcsubscription"></a>**SrcSubscriptionId** | Optional | String | The cloud platform subscription ID the source device belongs to. **SrcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="srcsubscriptionid"></a>**SrcSubscriptionId** | Optional | String | The cloud platform subscription ID the source device belongs to. **SrcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
 | **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
@@ -187,6 +227,9 @@ The following fields are used to represent that inspection performed by a securi
 | **ThreatIsActive** | Optional | Boolean | True ID the threat identified is considered an active threat. | 
 | **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
 | **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
+| **ThreatIpAddr** | Optional | IP Address | An IP address for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatIpAddr** represents. |
+| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcIpAddr` or `TargetIpAddr`. |
+
 
 ## Next steps
 
