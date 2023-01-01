@@ -6,11 +6,11 @@ ms.date: 12/13/2022
 
 Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings.
 
+### [Azure Cloud](#tab/azure-cloud)
+
 > [!IMPORTANT]
 > Azure Arc agents require the following outbound URLs on `https://:443` to function.
 > For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
-
-### [Azure Cloud](#tab/azure-cloud)
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
@@ -26,7 +26,22 @@ Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings.
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
 | `*.arc.azure.net`| To manage connected clusters in Azure portal. | 
 
+To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:
+
+```rest
+GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. 
+```
+
+Replace `<location>` with the region.
+
+> [!IMPORTANT]
+> To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
+
 ### [Azure Government](#tab/azure-government)
+
+> [!IMPORTANT]
+> Azure Arc agents require the following outbound URLs on `https://:443` to function.
+> For `*.servicebus.usgovcloudapi.net`, websockets need to be enabled for outbound access on firewall and proxy.
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
@@ -37,20 +52,20 @@ Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings.
 | `https://gbl.his.arc.azure.us` |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://usgv.his.arc.azure.us` |  Required to pull system-assigned Managed Identity certificates. |
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
-|`guestnotificationservice.azure.com`<br/>`*.guestnotificationservice.azure.com`<br/>`sts.windows.net`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
-|`*.servicebus.windows.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
+|`guestnotificationservice.azure.us`<br/>`*.guestnotificationservice.azure.us`<br/>`sts.windows.net`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
+|`*.servicebus.usgovcloudapi.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
+
+To translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command:
+
+```rest
+\GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01-01&location=<location>
+```
+
+Within these commands, the region must be specified for the `<location>` placeholder.
 
 #### [Azure China](#tab/azure-china)
 
 Azure Arc Kubernetes is not available in Azure China at this time.
 
 ---
-
-To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:
-
-```rest
-GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. 
-```
-
-Replace `<location>` with the region.
