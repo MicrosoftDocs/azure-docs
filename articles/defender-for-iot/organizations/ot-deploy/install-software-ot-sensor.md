@@ -1,48 +1,39 @@
 ---
 title: Install OT network monitoring software on OT sensors - Microsoft Defender for IoT
-description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
+description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article when reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 12/13/2022
 ms.topic: how-to
 ---
 
 # Install OT monitoring software on OT sensors
 
-This article describes how to install Microsoft Defender for IoT monitoring software on OT network sensors. You might need the procedures in this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
+Use the procedures in this article when installing Microsoft Defender for IoT software on OT network sensors. You might be reinstalling software on a [pre-configured appliance](../ot-pre-configured-appliances.md), or your may be installing software on your own appliance.
 
 ## Prerequisites
 
-Before preparing to install the software, make sure you've completed the following:
+Before installing Microsoft Defender for IoT, make sure that you have:
 
-- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
+- [Traffic mirroring configured in your network](../best-practices/traffic-mirroring-methods.md)
+- An [OT plan in Defender for IoT](../how-to-manage-subscriptions.md) on your Azure subscription
+- An OT sensor [onboarded to Defender for IoT](../onboard-sensors.md) in the Azure portal
 
-- [Configure traffic mirroring in your network](../best-practices/traffic-mirroring-methods.md)
+Each appliance type also comes with its own set of instructions that are required before installing Defender for IoT software. Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. 
 
-- [Manage OT plans on Azure subscriptions](../how-to-manage-subscriptions.md)
-
-- [Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
-
-- [Pre-installation configuration of your specific appliance](#pre-installation-appliance-configuration)
-
-### Pre-installation appliance configuration
-
-Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
-
-Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. For more information, see:
+For more information, see:
 
 - The [OT monitoring appliance catalog](../appliance-catalog/index.yml)
 - [Which appliances do I need?](../ot-appliance-sizing.md)
-- [Pre-configured physical appliances for OT monitoring](../ot-pre-configured-appliances.md), including the catalog of available appliances
 - [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
 
 ## Download software files from the Azure portal
 
-Download OT sensor software from the Azure portal.
+Download the OT sensor software from Defender for IoT on the Azure portal.
 
 On the Defender for IoT > **Getting started** page, select the **Sensor** or **Updates** tab and locate the software you need.
 
 If you're updating from a previous version, check the options carefully to ensure that you have the correct update path for your situation.
 
-## Install sensor software
+## Install Defender or IoT software on OT sensors
 
 This procedure describes how to install OT monitoring software on a sensor.
 
@@ -78,7 +69,7 @@ This procedure describes how to install OT monitoring software on a sensor.
     > Make sure that you select only interfaces that are connected. 
     > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them via the CLI.    
 
-    By default, eno1 is reserved for the management interface and we recommend that you leave this option unselected.
+    By default, `eno1` is reserved for the management interface and we recommend that you leave this option unselected.
 
     For example:
 
@@ -131,7 +122,7 @@ This procedure describes how to install OT monitoring software on a sensor.
 
     :::image type="content" source="../media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
-    Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
+    Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are shown. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
     For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
@@ -154,6 +145,11 @@ Make sure that your sensor is connected to your network, and then you can sign i
 
 ## Next steps
 
-- [Post-installation validation of OT network monitoring software](post-install-validation-ot-software.md)
-- [Install OT monitoring software on an on-premises management console](install-software-on-premises-management-console.md)
-- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [!div class="nextstepaction"]
+> [Validate after installing software](post-install-validation-ot-software.md)
+
+> [!div class="nextstepaction"]
+> [Install software on an on-premises management console](install-software-on-premises-management-console.md)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

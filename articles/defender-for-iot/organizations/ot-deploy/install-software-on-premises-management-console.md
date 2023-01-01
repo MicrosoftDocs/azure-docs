@@ -1,42 +1,34 @@
 ---
-title: Install OT network management software on an on-premises management console - Microsoft Defender for IoT
-description: Learn how to install OT management software for an on-premises management console for Microsoft Defender for IoT. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
+title: Install Microsoft Defender for IoT on-premises management console software - Microsoft Defender for IoT
+description: Learn how to install Microsoft Defender for IoT on-premises management console software. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 ms.date: 12/13/2022
 ms.topic: how-to
 ---
 
-# Install Microsoft Defender for IoT OT management software on an on-premises management console?
+# Install Microsoft Defender for IoT on-premises management console software
 
-This article describes how to install Microsoft Defender for IoT OT management software on an on-premises management console. You might need the procedures in this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
+Use the procedures in this article when installing Microsoft Defender for IoT software on an on-premises management console. You might be reinstalling software on a [pre-configured appliance](../ot-pre-configured-appliances.md), or your may be installing software on your own appliance.
 
 ## Prerequisites
 
-Before preparing to install the software, make sure you've completed the following:
+Before installing Microsoft Defender for IoT, make sure that you have:
 
-- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
+- [Traffic mirroring configured in your network](../best-practices/traffic-mirroring-methods.md)
+- An [OT plan in Defender for IoT](../how-to-manage-subscriptions.md) on your Azure subscription
+- An OT sensor [onboarded to Defender for IoT](../onboard-sensors.md) in the Azure portal
+- [OT monitoring software installed on an OT network sensor](install-software-ot-sensor.md)
 
-- [Configure traffic mirroring in your network](../best-practices/traffic-mirroring-methods.md)
+Each appliance type also comes with its own set of instructions that are required before installing Defender for IoT software. Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. 
 
-- [Manage OT plans on Azure subscriptions](../how-to-manage-subscriptions.md)
-
-- [Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
-
-- [Pre-installation configuration of your specific appliance](#pre-installation-appliance-configuration)
-
-### Pre-installation appliance configuration
-
-Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
-
-Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. For more information, see:
+For more information, see:
 
 - The [OT monitoring appliance catalog](../appliance-catalog/index.yml)
 - [Which appliances do I need?](../ot-appliance-sizing.md)
-- [Pre-configured physical appliances for OT monitoring](../ot-pre-configured-appliances.md), including the catalog of available appliances
 - [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
 
 ## Download software files from the Azure portal
 
-Download on-premises management console software from the Azure portal.
+Download on-premises management console software from Defender for IoT on the Azure portal.
 
 On the Defender for IoT > **Getting started** page, select the **On-premises management console** or **Updates** tab and locate the software you need.
 
@@ -47,8 +39,6 @@ If you're updating from a previous version, check the options carefully to ensur
 This procedure describes how to install OT management software on an on-premises management console, for a physical or virtual appliance.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
-
-During the installation process, you can add a secondary NIC. If you choose not to install the secondary Network Interface Card (NIC) during installation, you can [add a secondary NIC](#add-a-secondary-nic-optional) at a later time.
 
 **To install the software**:
 
@@ -83,15 +73,19 @@ During the installation process, you can add a secondary NIC. If you choose not 
    | **configure DNS** | Enter an IP address |
    | **configure default gateway IP address** | Enter an IP address|
 
-1. **(Optional)** If you would like to install a secondary NIC, define the following appliance profile, and network properties:
-
-    :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
 
    | Parameter | Configuration |
    |--|--|
    | **configure sensor monitoring interface** (Optional) | **eth1** or **possible value** |
    | **configure an IP address for the sensor monitoring interface** | Enter an IP address |
    | **configure a subnet mask for the sensor monitoring interface** | Enter an IP address |
+
+    For example:
+    
+    :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+
+    If you choose not to install the secondary NIC now, you can [do so at a later time](#add-a-secondary-nic-optional-after-installation).
 
 1. Accept the settings and continue by typing `Y`.
 
@@ -105,9 +99,7 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 1. Select **Enter** to continue.
 
-For information on how to find the physical port on your appliance, see [Find your port](#find-your-port).
-
-### Add a secondary NIC (optional)
+### Add a secondary NIC after installation (optional)
 
 You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
@@ -142,9 +134,9 @@ This procedure describes how to add a secondary NIC if you've already installed 
 
 1. Review all choices and enter `Y` to accept the changes. The system reboots.
 
-### Find your port
+### Find a port on your appliance
 
-If you're having trouble locating the physical port on your device, you can use the following command to find your port:
+If you're having trouble locating the physical port on your appliance, you can use the following command to find your port:
 
 ```bash
 sudo ethtool -p <port value> <time-in-seconds>
@@ -154,6 +146,8 @@ This command will cause the light on the port to flash for the specified time pe
 
 ## Next steps
 
-- [Post-installation validation of OT network monitoring software](post-install-validation-ot-software.md)
-- [Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
-- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [!div class="nextstepaction"]
+> [Validate after installing software](post-install-validation-ot-software.md)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
