@@ -53,4 +53,11 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 10- Fill in the project name and deployment name of your deployed model
 
-11- Add condition to send a Microsoft Teams message to the righ team
+11- Add condition to send a Microsoft Teams message to the righ team. Choose *results* from dynamic content and add the condition. For this tutorial, we are looking for *Computer_science* related emails.
+
+12- In the *Yes* condition, choose your desired option to notify the team.
+
+13- In the *No* condition, you can add further condition to check other cases and do alternative actions.
+
+
+
