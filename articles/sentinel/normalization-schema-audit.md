@@ -66,7 +66,7 @@ The following filtering parameters are available:
 | **endtime** | datetime | Filter only events queries that finished running at or before this time. This parameter uses the `TimeGenerated` field as the time designator of the event. |
 | **srcipaddr_has_any_prefix** | dynamic | Filter only events from this source IP address, as represented in the [SrcIpAddr](#srcipaddr) field. |
 | **eventtype_in**| string | Filter only events in which the event type, as represented in the [EventType](#eventtype) field is any of the terms provided. |
-| **eventresult**| string | Filter only events in which the event result, as represented in the [EventResult](#eventresult) field is equal to the parameter value. |
+| **eventresult**| string | Filter only events in which the event result, as represented in the [EventResult](normalization-common-fields.md#eventresult) field is equal to the parameter value. |
 | **actorusername_has_any** | dynamic/string | Filter only events in which the [ActorUsername](#actorusername) includes any of the terms provided. | 
 | **operation_has_any** | dynamic/string | Filter only events in which [Operation](#operation) field includes any of the terms provided. | 
 | **object_has_any** | dynamic/string | Filter only events in which [Object](#object) field includes any of the terms provided. | 

@@ -41,7 +41,7 @@ The most important fields in a Web Session schema are:
 
 - [Url](#url), which reports the url that the client requested from the server.
 - The [SrcIpAddr](network-normalization-schema.md#srcipaddr) (aliased to [IpAddr](network-normalization-schema.md#ipaddr)), which represents the IP address from which the request was generated. 
-- [EventResultDetails](#eventresultdetails), which reports the HTTP Status Code.
+- [EventResultDetails](#eventresultdetails) field, which reports the HTTP Status Code.
 
 Web Session events may also include [User](network-normalization-schema.md#user) and [Process](process-events-normalization-schema.md) information for the user and process initiating the request. 
 

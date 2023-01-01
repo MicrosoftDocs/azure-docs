@@ -90,8 +90,8 @@ Query time parsers have many advantages:
 On the other hand, while ASIM parsers are optimized, query time parsing can slow down queries, especially on large data sets. To resolve this, Microsoft Sentinel complements query time parsing with ingest time parsing. Using ingest transformation the events are normalized to normalized table, accelerating queries that use normalized data.
 
 Currently, ASIM supports the following normalized tables as a destination for ingest time normalization:
-- [**ASimDnsActivityLogs**](../azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
-- [**ASimNetworkSessionLogs**](../azure-monitor/reference/tables/asimnetworksessionlogs) for the [NetworkS Session](network-normalization-schema.md) schema 
+- [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
+- [**ASimNetworkSessionLogs**](/azire/azure-monitor/reference/tables/asimnetworksessionlogs) for the [NetworkS Session](network-normalization-schema.md) schema 
  
 For more information, see [Ingest Time Normalization](normalization-ingest-time.md).
 
