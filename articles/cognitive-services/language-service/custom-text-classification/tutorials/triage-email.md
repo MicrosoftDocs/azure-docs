@@ -20,8 +20,8 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 ## Prerequisites
 * Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.* Trained model (if using custom capabilites)
-    * You will need the key and endpoint from the resource you created in your flow
-    * Successfully created and deployed a [single text classification project](../quickstart.md)
+    * You will need the key and endpoint from the resource you created in your flow.
+    * Successfully created and deployed a [single text classification project](../quickstart.md).
 
 
 ## Create a power automate flow
@@ -58,6 +58,11 @@ In this tutorial we will triage incoming email using custom single text classifi
 12- In the *Yes* condition, choose your desired option to notify the team.
 
 13- In the *No* condition, you can add further condition to check other cases and do alternative actions.
+
+
+# Next Steps
+
+* [Language studio quick start](../language-studio.md)
 
 
 
