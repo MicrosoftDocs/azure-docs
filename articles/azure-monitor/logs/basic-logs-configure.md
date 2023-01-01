@@ -18,7 +18,7 @@ Azure Monitor Logs offers two log data plans that let you reduce log ingestion a
 This article describes Azure Monitor's log data plans and explains how to configure the log data plan of the tables in your Log Analytics workspace.
 
 > [!IMPORTANT]
-> You can switch a table's plan once a week.<br/> The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+> You can switch a table's plan once a week.<br/> Basic logs aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Compare the Basic and Analytics log data plans 
 
@@ -28,51 +28,50 @@ The following table summarizes the two plans.
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
 | Log queries | No extra cost. Full query capabilities. | Extra cost.<br/>[Subset of query capabilities](basic-logs-query.md#limitations). |
-| Retention |  [Configure retention from 30 days to 730 days](data-retention-archive.md). | Retention fixed at eight days.<br/>When you change an existing table's plan to Basic Logs, Azure archives data that's more than eight days old but still within the table's original retention period. |
+| Retention |  [Configure retention from 30 days to 730 days](data-retention-archive.md). | Retention fixed at eight days.<br/>When you change an existing table's plan to Basic logs, Azure archives data that's more than eight days old but still within the table's original retention period. |
 | Alerts | Supported. | Not supported. |
 
 > [!NOTE]
 > The Basic log data plan isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
-## When should I use Basic Logs?
-The decision whether to configure a table for Basic Logs is based on the following criteria:
+## When should I use Basic logs?
 
-- The table currently [supports Basic Logs](#which-tables-support-basic-logs).
+By default, all tables in your Log Analytics workspace are Analytics tables, and they're available for query and alerts. 
+
+Configure a table for Basic logs if:
+
 - You don't require more than eight days of data retention for the table.
 - You only require basic queries of the data using a limited version of the query language.
-- The cost savings for data ingestion over a month exceed the expected cost for any expected queries
-
-## Which tables support Basic Logs?
-
-By default, all tables in your Log Analytics workspace are Analytics tables, and they're available for query and alerts. You can currently configure the following tables for Basic Logs:
-
-| Table | Details|
-|:---|:---|
-| Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
-| [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations) | Communication Services incoming requests Calls. |
-| [ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary) | Communication Services recording summary logs. |
-| [ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) | Communication Services Rooms incoming requests operations. |
-| [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | Application Insights Freeform traces. |
-| [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations) | Azure Media Services encoder connects, disconnects, or discontinues. |
-| [AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests) | Azure Media Services HTTP request details for key, or license acquisition. |
-| [AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth) | Azure Media Services account health status. |
-| [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
-| [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
-| [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
-| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Dev Center resources data plane audit logs. For example, dev boxes and environment stop, start, delete. |
-| [StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs) | Azure Storage blob service logs. |
-| [StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs) | Azure Storage file service logs. |
-| [StorageQueueLogs](/azure/azure-monitor/reference/tables/StorageQueueLogs) | Azure Storage queue service logs. |
-| [StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs) | Azure Storage table service logs. |
-
+- The cost savings for data ingestion over a month exceed the expected cost for any expected queries.
+- The table supports Basic logs. Below is the list of all tables that currently support Basic logs:
+    
+    | Table | Details|
+    |:---|:---|
+    | Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
+    | [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations) | Communication Services incoming requests Calls. |
+    | [ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary) | Communication Services recording summary logs. |
+    | [ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) | Communication Services Rooms incoming requests operations. |
+    | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | Application Insights Freeform traces. |
+    | [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations) | Azure Media Services encoder connects, disconnects, or discontinues. |
+    | [AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests) | Azure Media Services HTTP request details for key, or license acquisition. |
+    | [AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth) | Azure Media Services account health status. |
+    | [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
+    | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
+    | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
+    | [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Dev Center resources data plane audit logs. For example, dev boxes and environment stop, start, delete. |
+    | [StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs) | Azure Storage blob service logs. |
+    | [StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs) | Azure Storage file service logs. |
+    | [StorageQueueLogs](/azure/azure-monitor/reference/tables/StorageQueueLogs) | Azure Storage queue service logs. |
+    | [StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs) | Azure Storage table service logs. |
+    
 > [!NOTE]
-> Tables created with the [Data Collector API](data-collector-api.md) don't support Basic Logs.
+> Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
 
 ## Set a table's log data plan
 
 # [Portal](#tab/portal-1)
 
-To configure a table for Basic Logs or Analytics Logs in the Azure portal:
+To configure a table for Basic logs or Analytics logs in the Azure portal:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.
 
@@ -84,7 +83,7 @@ To configure a table for Basic Logs or Analytics Logs in the Azure portal:
 
 1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
 
-    The **Table plan** dropdown is enabled only for [tables that support Basic Logs](#which-tables-support-basic-logs).
+    The **Table plan** dropdown is enabled only for [tables that support Basic logs](#when-should-i-use-basic-logs).
 
     :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot that shows the Table plan dropdown on the table configuration screen.":::
 
@@ -92,7 +91,7 @@ To configure a table for Basic Logs or Analytics Logs in the Azure portal:
 
 # [API](#tab/api-1)
 
-To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
+To configure a table for Basic logs or Analytics logs, call the **Tables - Update** API:
 
 ```http
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview
@@ -109,9 +108,9 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 **Example**
 
-This example configures the `ContainerLogV2` table for Basic Logs.
+This example configures the `ContainerLogV2` table for Basic logs.
 
-Container insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic Logs.
+Container insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic logs.
 
 **Sample request**
 
@@ -119,7 +118,7 @@ Container insights uses `ContainerLog` by default. To switch to using `Container
 PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
-Use this request body to change to Basic Logs:
+Use this request body to change to Basic logs:
 
 ```http
 {
@@ -162,11 +161,11 @@ Status code: 200
 
 # [CLI](#tab/cli-1)
 
-To configure a table for Basic Logs or Analytics Logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` parameter to `Basic` or `Analytics`.
+To configure a table for Basic logs or Analytics logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` parameter to `Basic` or `Analytics`.
 
 For example:
 
-- To set Basic Logs:
+- To set Basic logs:
 
     ```azurecli
     az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Basic
@@ -183,6 +182,5 @@ For example:
 ## Next steps
 
 - [View table properties](../logs/manage-logs-tables.md#view-table-properties)
-- [Query data in Basic Logs](basic-logs-query.md)
 - [Set retention and archive policies](../logs/data-retention-archive.md)
-
+- [Query data in Basic logs](basic-logs-query.md)
