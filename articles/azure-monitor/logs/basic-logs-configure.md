@@ -28,7 +28,7 @@ The following table summarizes the two plans.
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
 | Log queries | No extra cost. Full query capabilities. | Extra cost.<br/>[Subset of query capabilities](basic-logs-query.md#limitations). |
-| Retention |  Configure retention from 30 days to 730 days. | Retention fixed at eight days. |
+| Retention |  [Configure retention from 30 days to 730 days](data-retention-archive.md). | Retention fixed at eight days.<br/>When you change an existing table's plan to Basic Logs, Azure archives data that's more than eight days old but still within the table's original retention period. |
 | Alerts | Supported. | Not supported. |
 
 > [!NOTE]
@@ -180,88 +180,9 @@ For example:
 
 ---
 
-## View a table's log data plan
-
-# [Portal](#tab/portal-2)
-
-To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-a-tables-log-data-plan).
-
-Alternatively:
-
-1. From the **Azure Monitor** menu, select **Logs** and select your workspace for the [scope](scope.md). See the [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
-1. Open the **Tables** tab, which lists all tables in the workspace.
-
-    Basic Logs tables have a unique icon:
-    
-    :::image type="content" source="media/basic-logs-configure/table-icon.png" alt-text="Screenshot that shows the Basic Logs table icon in the table list." lightbox="media/basic-logs-configure/table-icon.png":::
-
-    You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
-
-    :::image type="content" source="media/basic-logs-configure/table-info.png" alt-text="Screenshot that shows the Basic Logs table indicator in the table details." lightbox="media/basic-logs-configure/table-info.png":::
-
-# [API](#tab/api-2)
-
-To check the configuration of a table, call the **Tables - Get** API:
-
-```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
-```
-
-**Response body**
-
-|Name | Type | Description |
-| --- | --- | --- |
-|properties.plan | string  | The table plan. Either `Analytics` or `Basic`. |
-|properties.retentionInDays | integer  | The table's data retention in days. In `Basic Logs`, the value is eight days, fixed. In `Analytics Logs`, the value is between 7 and 730 days.|
-|properties.totalRetentionInDays | integer  | The table's data retention that also includes the archive period.|
-|properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
-|properties.lastPlanModifiedDate|String|Last time when the plan was set for this table. Null if no change was ever done from the default settings (read-only).
-
-**Sample request**
-
-```http
-GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
-```
-
-**Sample response**
- 
-Status code: 200
-```http
-{
-    "properties": {
-        "retentionInDays": 8,
-        "totalRetentionInDays": 8,
-        "archiveRetentionInDays": 0,
-        "plan": "Basic",
-        "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
-        "schema": {...},
-        "provisioningState": "Succeeded"        
-    },
-    "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLogV2"
-}
-```
-
-# [CLI](#tab/cli-2)
-
-To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
-
-For example:
-
-```azurecli
-az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
-```
-
----
-
-## Retain and archive Basic Logs
-
-Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
-
-Basic Logs tables retain data for eight days. When you change an existing table's plan to Basic Logs, Azure archives data that's more than eight days old but still within the table's original retention period.
-
 ## Next steps
 
+- [View table properties](../logs/manage-logs-tables.md#view-table-properties)
 - [Query data in Basic Logs](basic-logs-query.md)
 - [Set retention and archive policies](../logs/data-retention-archive.md)
 
