@@ -45,7 +45,7 @@ Configure a table for Basic logs if:
 - The cost savings for data ingestion over a month exceed the expected cost for any expected queries.
 - The table supports Basic logs. 
     
-    Tables that currently support Basic logs:
+    These tables currently support Basic logs:
     
     | Table | Details|
     |:---|:---|
