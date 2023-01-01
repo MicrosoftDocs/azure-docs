@@ -9,13 +9,11 @@ ms.topic: reference
 
 This article lists the CLI commands available from Defender for IoT OT network sensors.
 
-Command syntax differs depending on the user performing the command, as indicated below for each activity.
-
 ## Prerequisites
 
 Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
 
-Each activity listed below is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
+Each activity listed in this article is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
 
 >[!IMPORTANT]
 > We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
@@ -26,7 +24,7 @@ For more information, see [Access the CLI](../references-work-with-defender-for-
 
 ### Check OT monitoring services health
 
-Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes.
+Use the following commands to verify that the Defender for IoT application on the OT sensor are working correctly, including the web console and traffic analysis processes.
 
 Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
 
@@ -284,7 +282,7 @@ root@xsense:/#
 ```
 
 
-## SSL and TLS certificates
+## TLS/SSL certificates
 
 
 ### Import TLS/SSL certificates to your OT sensor
@@ -319,7 +317,7 @@ root@xsense:/# cyberx-xsense-certificate-import
 
 ### Restore the default self-signed certificate
 
-Use this command in order to restore the default self-signed certificates on the appliance (This should be used only for troubleshooting and not production environments).
+Use the following command to restore the default, self-signed certificates on your sensor appliance. We recommend that you use this activity for troubleshooting only, and not on production environments.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -348,7 +346,7 @@ root@xsense:/#
 
 Use the following commands to change passwords for local users on your OT sensor.
 
-When resetting the password for the *cyberx*, *support*, or *cyberx_host* user, the password is reset for both SSH and web access.
+When you change the password for the *cyberx*, *support*, or *cyberx_host* user, the password is changed for both SSH and web access.
 
 
 |User  |Command  |Full command syntax   |
@@ -399,7 +397,7 @@ For more information, see [Define maximum number of failed sign-ins](manage-user
 ### Network settings
 #### Change networking configuration or reassign network interface roles
 
-Use the following command to re-run the OT monitoring software configuration wizard, which helps you define or re-configure the following OT sensor settings:
+Use the following command to rerun the OT monitoring software configuration wizard, which helps you define or reconfigure the following OT sensor settings:
 
 - Enable/disable SPAN monitoring interfaces
 - Configure network settings for the management interface (IP, subnet, default gateway, DNS)
@@ -410,19 +408,19 @@ Use the following command to re-run the OT monitoring software configuration wiz
 |---------|---------|---------|
 |**cyberx_host**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
 
-For example with the **cyberx_host** user:
+For example, with the **cyberx_host** user:
 
 ```bash
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
 ```
 
-The configuration wizard starts automatically after you run this command. 
+The configuration wizard starts automatically after you run this command.
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
 #### Validate and show network interface configuration
 
-Use the following commands to send a validate and show the current network interface configuration on the OT sensor.
+Use the following commands to validate and show the current network interface configuration on the OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -512,7 +510,7 @@ In this command:
 
 - `-h` or `--help`: Shows the command help syntax
 
-- `--interface <INTERFACE VALUE>`: Is the interface you you want to limit, such as `eth0`
+- `--interface <INTERFACE VALUE>`: Is the interface you want to limit, such as `eth0`
 
 - `--limit <LIMIT VALUE>`: The limit you want to set, such as `30kbit`. Use one of the following units:
 
@@ -651,7 +649,7 @@ Supported attributes for the *cyberx* user are defined as follows:
 
 #### Create a basic capture filter using the support user
 
-If you are creating a basic capture filter as the *support* user, no attributes are passed in the [original command](#create-a-basic-filter-for-all-components). Instead, a series of prompts are displayed to help you create the capture filter interactively.
+If you're creating a basic capture filter as the *support* user, no attributes are passed in the [original command](#create-a-basic-filter-for-all-components). Instead, a series of prompts is displayed to help you create the capture filter interactively.
 
 Reply to the prompts displayed as follows:
 
@@ -665,8 +663,8 @@ Reply to the prompts displayed as follows:
     |---------|---------|---------|
     |**Device**     |   Define a device by its IP address.      |    `1.1.1.1` includes all traffic for this device.     |
     |**Channel**    |    Define a channel by the IP addresses of its source and destination devices, separated by a comma.     |   `1.1.1.1,2.2.2.2` includes all of the traffic for this channel.      |
-    |**Subnet**     |    Define a subnet by its network address.     |   `1.1.1` incudes all traffic for this subnet.      |
-    |**Subnet channel**     |    Define a subnet channel network addresses of the source and destination subnets.     |   `1.1.1,2.2.2` incudes all of the traffic between these subnets.      |
+    |**Subnet**     |    Define a subnet by its network address.     |   `1.1.1` includes all traffic for this subnet.      |
+    |**Subnet channel**     |    Define subnet channel network addresses for the source and destination subnets.     |   `1.1.1,2.2.2` includes all of the traffic between these subnets.      |
 
     List multiple arguments in separate rows.
 
@@ -682,7 +680,7 @@ Reply to the prompts displayed as follows:
     | **Channel** | Define a channel by the IP addresses of its source and destination devices, separated by a comma. | `1.1.1.1,2.2.2.2` excludes all of the traffic between these devices. |
     | **Channel by port** | Define a channel by the IP addresses of its source and destination devices, and the traffic port. | `1.1.1.1,2.2.2.2,443` excludes all of the traffic between these devices and using the specified port.|
     | **Subnet** | Define a subnet by its network address. | `1.1.1` excludes all traffic for this subnet. |
-    | **Subnet channel** | Define a subnet channel network addresses of the source and destination subnets. | `1.1.1,2.2.2` excludes all of the traffic between these subnets. |
+    | **Subnet channel** | Define subnet channel network addresses for the source and destination subnets. | `1.1.1,2.2.2` excludes all of the traffic between these subnets. |
 
     List multiple arguments in separate rows.
 
@@ -736,9 +734,7 @@ Loaded 1 unique channels
 (000) ret      #262144
 (000) ldh      [12]
 ......
-
 ......
-
 ......
 debug: set new filter for horizon '(((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000))) or (vlan and ((not (net 192.168))) and (not (tcp port 9000)) and (not (udp port 9000)))'
 root@xsense:
@@ -767,11 +763,11 @@ The following extra attributes are used for the *cyberx* user to create capture 
 |`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |     Defines a base capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
 |`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     |  Defines a base capture filter for the `collector` component.  <br> Default value = `""`             |
 
-Other attribute values have the same descriptions as in the basic use case, described [above](#create-a-basic-filter-for-all-components).
+Other attribute values have the same descriptions as in the basic use case, described [earlier](#create-a-basic-filter-for-all-components).
 
 #### Create an advanced capture filter using the support user
 
-If you are creating a capture filter for each component separately as the *support* user, no attributes are passed in the [original command](#create-an-advanced-filter-for-specific-components). Instead, a series of prompts are displayed to help you create the capture filter interactively.
+If you're creating a capture filter for each component separately as the *support* user, no attributes are passed in the [original command](#create-an-advanced-filter-for-specific-components). Instead, a series of prompts is displayed to help you create the capture filter interactively.
 
 Most of the prompts are identical to [basic use case](#create-a-basic-capture-filter-using-the-support-user). Reply to the following extra prompts as follows:
 

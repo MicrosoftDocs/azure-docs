@@ -18,8 +18,8 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 
 Privileged users for OT monitoring are pre-defined together with the [OT monitoring software installation](../how-to-install-software.md), as part of the hardened operating system.
 
-- On the sensor, this includes the *cyberx*, *support*, and *cyberx_host* users.
-- On the on-premises management console, this includes the *cyberx* and *support* users.
+- On the OT sensor, users include the *cyberx*, *support*, and *cyberx_host* users.
+- On the on-premises management console, users include the *cyberx* and *support* users.
 
 The following table describes the access available to each privileged user:
 
@@ -54,7 +54,7 @@ The following tables list the activities available by CLI and the privileged use
 |Restore     | *support*, *cyberx*        | [Restore data from the most recent backup](cli-ot-sensor.md#restore-data-from-the-most-recent-backup)        |
 |Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](cli-ot-sensor.md#display-backup-disk-space-allocation)       |
 
-### SSL and TLS certificates commands
+### TLS/SSL certificate commands
 
 |Service area  |Users  |Actions  |
 |---------|---------|---------|

@@ -38,7 +38,7 @@ This procedure describes how to create new users for a specific OT network senso
     |**First Name**     |    Enter the user's first name.     |
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select one of the following user roles: **Admin**, **Security Analyst**, or **Read Only**. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol<br><br>Local user passwords can only be modified by **Admin** users.|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one number<br>- At least one symbol<br><br>Local user passwords can only be modified by **Admin** users.|
 
     > [!TIP]
     > Integrating with Active Directory lets you associate groups of users with specific permission levels. If you want to create users using Active Directory, first configure [Active Directory on the sensor](manage-users-sensor.md#integrate-ot-sensor-users-with-active-directory) and then return to this procedure.
@@ -75,7 +75,7 @@ For more information, see [Active Directory support on sensors and on-premises m
     |Name  |Description  |
     |---------|---------|
     |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.        |
-    |**Domain Controller Port**     | The port on which your LDAP is configured.        |
+    |**Domain Controller Port**     | The port where your LDAP is configured.        |
     |**Primary Domain**     | The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
     |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when [adding new sensor users](#add-new-ot-sensor-users) with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
 
@@ -158,7 +158,7 @@ This procedure descries how to recover privileged access to a sensor, for the *c
     >
     > Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensor was onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the sensor again.
 
-1. Select **Next**. A system-generated password for your sensor appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+1. Select **Next**. A system-generated password for your sensor appears for you to use for the selected user. Make sure to write down the password as it won't be shown again.
 
 1. Select **Next** again to sign into your sensor with the new password.
 
@@ -176,7 +176,7 @@ For more information, see [Defender for IoT CLI users and access](references-wor
     nano /var/cyberx/components/xsense-web/cyberx_web/settings.py
     ```
 
-1. In the **settings.py** file, set the the `"MAX_FAILED_LOGINS"` value to the maximum number of failed sign ins you want to define. Make sure that you consider the number of concurrent users in your system.
+1. In the **settings.py** file, set the `"MAX_FAILED_LOGINS"` value to the maximum number of failed sign ins you want to define. Make sure that you consider the number of concurrent users in your system.
 
 1. Exit the file and run `sudo monit restart all` to apply your changes.
 
