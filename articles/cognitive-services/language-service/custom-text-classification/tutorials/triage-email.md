@@ -57,6 +57,6 @@ In this tutorial we will triage incoming email using custom single text classifi
 :::image type="content" source="../media/email-triage.png" alt-text="A screenshot of email flow." lightbox="../media/email-triage.png":::
 
 
-# Next steps
+## Next steps
 
 [Language studio overview](../../language-studio.md)
