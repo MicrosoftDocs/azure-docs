@@ -403,7 +403,7 @@ Use the following command to re-run the OT monitoring software configuration wiz
 
 - Enable/disable SPAN monitoring interfaces
 - Configure network settings for the management interface (IP, subnet, default gateway, DNS)
-- Setting up for [ERSPAN monitoring](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/traffic-mirroring/configure-mirror-erspan)
+- Setting up for [ERSPAN monitoring](traffic-mirroring/configure-mirror-erspan.md)
 - Assigning a backup directory
 
 |User  |Command  |Full command syntax   |
