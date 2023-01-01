@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 12/27/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -18,7 +18,7 @@ This article will show you how to get started with the Azure MedTech service in 
 
 The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a medical device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key development stages: deployment, post-deployment, and data processing.
 
-:::image type="content" source="media/iot-get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/iot-get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
 
 ### Deployment
 
