@@ -23,9 +23,42 @@ To automate repetative tasks and bring efficiencies to any organization, you can
 * Remove personal data before saving the files
 
 ## Prerequisites
-* Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.* Trained model (if using custom capabilites)
+* Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * Trained model (if using custom capabilites)
     * You will need the key and endpoint from the resource you created in your flow
 
+## Available connectors
+
+|Connector name|
+|--|
+|Entity Linking (V3.0)|
+|Named Entity Recognition (V3.0)|
+|Sentiment(V3.0)|
+|Async AbstractiveSummarization (2022-10-01-preview)|
+|Async conversation PII(Text) (2022-05-15-preview)|
+|Async conversation PII(Transcript) (2022-05-15-preview)|
+|Async conversation summarization (2022-05-15-preview)|
+|Async customEntityRecognition (2022-05-01)|
+|Async customMultiLabelClassification (2022-05-01)|
+|Async customSingleLabelClassification (2022-05-01)|
+|Async EntityLinking (2022-05-01)|
+|Async EntityRecognition (2022-05-01)|
+|Async ExtractiveSummarization  (2022-10-01-preview)|
+|Async Healthcare (2022-05-01)|
+|Async keyPhrases (2022-05-01)|
+|Async piiEntityRecognition (2022-05-01)|
+|Async SentimentAnalysis (2022-05-01)|
+|Conversations CLU (2022-05-01)|
+|Conversations orchestraion (2022-05-01)|
+|Detect langauge (v3.0)|
+|Detect langauge (v4 preview)|
+|Detect personal information (v3.1)|
+|Detect personal information (v4 preview)|
+|Entity linking (v4 preview)|
+|Key phrases (v3.0)|
+|Key phrases (v4 preview)|
+|Named entity Recognition (v4 preview)|
+|Sentiment (v4 preview)|
 
 ## Create a power automate flow
 
