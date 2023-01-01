@@ -39,13 +39,7 @@ aks-nodepool1-12345678-vmss000001   Ready    agent   13m     v1.19.9   10.240.0.
 aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.67   <none>        Windows Server 2019 Datacenter   10.0.17763.1935    docker://19.3.1
 ```
 
-Us the `kubectl debug` command to run a container image on the node to connect to it.
-
-```bash
-kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
-```
-
-The following command starts a privileged container on your node and connects to it.
+Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
 
 ```bash
 kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
