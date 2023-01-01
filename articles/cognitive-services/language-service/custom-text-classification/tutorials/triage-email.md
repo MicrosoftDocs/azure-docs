@@ -40,7 +40,7 @@ In this tutorial we will triage incoming email using custom single text classifi
 :::image type="content" source="../media/language-connector.png" alt-text="A screenshot of azure language connectors." lightbox="../media/language-connector.png":::
 
 6- Search for *CustomSingleLabelClassification*
-:::image type="content" source="../media/single-classification.png" alt-text="A screenshot of NER connector." lightbox="../media/single-classification.png":::
+:::image type="content" source="../media/single-classification.png" alt-text="A screenshot of Classification connector." lightbox="../media/single-classification.png":::
 
 7- Start by adding the right connection to your connector. This connection will be used to access the classification project.
 
@@ -50,11 +50,11 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 10- Fill in the project name and deployment name of your deployed model
 
-:::image type="content" source="../media/classification.png" alt-text="A screenshot of NER connector." lightbox="../media/classification.png":::
+:::image type="content" source="../media/classification.png" alt-text="A screenshot project details." lightbox="../media/classification.png":::
 
 11- Add condition to send a Microsoft Teams message to the righ team. Choose *results* from dynamic content and add the condition. For this tutorial, we are looking for *Computer_science* related emails. In the *Yes* condition, choose your desired option to notify the team. In the *No* condition, you can add further condition to check other cases and do alternative actions.
 
-:::image type="content" source="../media/email-triage.png" alt-text="A screenshot of NER connector." lightbox="../media/email-triage.png":::
+:::image type="content" source="../media/email-triage.png" alt-text="A screenshot of email flow." lightbox="../media/email-triage.png":::
 
 
 # Next steps
