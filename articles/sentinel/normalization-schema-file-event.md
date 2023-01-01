@@ -23,7 +23,7 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 
 ### Deploying and using file activity parsers
 
-Deploy the ASIM File Activity parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). To query across all File Activity sources use the unifying parser `imFileEvent` as the table name in your query. 
+Deploy the ASIM File Activity parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). To query across all File Activity sources, use the unifying parser `imFileEvent` as the table name in your query. 
 
 For more information about using ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
 For the list of the file activity parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#file-activity-parsers) 
@@ -39,9 +39,23 @@ Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to
 
 For a full list of analytics rules that use normalized File Activity events, see [File Activity security content](normalization-content.md#file-activity-security-content).
 
-## Schema details
+## Schema overview
 
 The File Event information model is aligned to the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/file.md).
+
+The File Event schema references the following entities, which are central to file activities:
+
+- **Actor**. The user that initiated the file activity
+- **ActingProcess**. The process used by the Actor to initiate the file activity
+- **TargetFile**. The file on which the operation was performed
+- **Source File (SrcFile)**. Stores file information prior to the operation.
+
+The relationship between these entities is best demonstrated as follows: An **Actor** performs a file operation using an **Acting Process**, which modifies the **Source File** to **Target File**. 
+
+For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting process**) to rename `new.doc` (**Source File**) to `old.doc` (**Target File**).
+
+
+## Schema details
 
 ### Common fields
 
@@ -67,31 +81,13 @@ The following list mentions fields that have specific guidelines for File activi
 
 #### All common fields
 
-Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+Fields that appear in the table are common to all ASIM schemas. Any of the schema specific guidelines in this document overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For more information on each field, see to the [ASIM Common Fields](normalization-common-fields.md) article.
 
 | **Class** | **Fields** |
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
 | Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br>- [EventUid](normalization-common-fields.md#eventuid)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
 | Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br> - [EventOwner](normalization-common-fields.md#eventowner)<br>- [DvcZone](normalization-common-fields.md#dvczone)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)<br>- [DvcScopeId](normalization-common-fields.md#dvcscopeid)<br>- [DvcScope](normalization-common-fields.md#dvcscope)|
-
-
-
-
-### File event specific fields
-
-The fields listed in the table below are specific to File events, but are similar to fields in other schemas and follow similar naming conventions.
-
-The File Event schema references the following entities, which are central to file activities:
-
-- **Actor**. The user that initiated the file activity
-- **ActingProcess**. The process used by the Actor to initiate the file activity
-- **TargetFile**. The file on which the operation was performed
-- **Source File (SrcFile)**. Stores file information prior to the operation.
-
-The relationship between these entities is best demonstrated as follows: An **Actor** performs a file operation using an **Acting Process**, which modifies the **Source File** to **Target File**. 
-
-For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting process**) to rename `new.doc` (**Source File**) to `old.doc` (**Target File**).
 
 ### Target file fields
 
@@ -143,12 +139,12 @@ The following fields represent information about the source file in a file opera
 | <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `S-1-12` |
 | **ActorScope** | Optional | String | The scope, such as Azure AD tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
  **ActorScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For a list of allowed values and further information refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For a list of allowed values and further information, refer to [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
 |**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
-| <a name="actorusernametype"></a>**ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
+| <a name="actorusernametype"></a>**ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information, refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
-| **ActorUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
+| **ActorUserType** | Optional | UserType | The type of Actor. For a list of allowed values and further information, refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
 | <a name="actororiginalusertype"></a>**ActorOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 
