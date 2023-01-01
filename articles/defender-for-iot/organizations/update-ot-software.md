@@ -91,25 +91,27 @@ This procedure describes how to send a software version update to an OT sensor a
 
 **To send the software update to your OT sensor**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed. If you know your site and sensor name, you can browse to it directly. Alternately filter the sensors listed by *Sensor version* and show all sensor versions that contain a number earlier than the most recent version available.
+1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed.
 
-1. Select one or more sensors to update, and then select **Update (Preview)** > **Send package**. For a specific sensor, you can also access the **Send package** option from the **...** options menu to the right of the sensor row.
+    If you know your site and sensor name, you can browse or search for it directly. Alternately, filter the sensors listed by *Sensor version*, to show sensors with versions earlier than the most recent version available, and *Remote updates supported*.
+
+1. Select one or more sensors to update, and then select **Update (Preview)** > **Upload package**. For a specific sensor, you can also access the **Upload package** option from the **...** options menu to the right of the sensor row.
 
 1. In the **Send package** pane that appears on the right, check to make sure that you're sending the correct software to the sensor you want to update. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Send package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your update versions.
+1. When you're ready, select **Upload package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your update versions.
 
 **Update your sensor from the Azure portal**
 
-1. When the **Sensor version** column reads *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
+1. When the **Sensor version** column reads :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
 
-1. In the **Update sensor** pane that appears on the right, verify your update details.
+1. In the **Update sensor (Preview)** pane that appears on the right, verify your update details.
 
     When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to *Installing* until the update is complete, when the value switches to the new sensor version number instead.
 
-If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. <!--xref to sensor health-->
+If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
 
 
 # [From each sensor](#tab/sensor)
