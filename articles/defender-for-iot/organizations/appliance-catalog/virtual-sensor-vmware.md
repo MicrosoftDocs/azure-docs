@@ -68,7 +68,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
+1. Continue with the [generic procedure for installing sensor software](../ot-deploy/install-software-ot-sensor.md).
 
 
 ## Next steps

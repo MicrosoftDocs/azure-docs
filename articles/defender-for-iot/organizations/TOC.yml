@@ -184,8 +184,6 @@
       href: onboard-sensors.md
     - name: Install OT monitoring software
       items:
-      - name: Prepare to install OT monitoring software
-        href: ot-deploy/prepare-for-ot-software-install.md
       - name: Install OT sensor software
         href: ot-deploy/install-software-ot-sensor.md
       - name: Install on-premises management console software

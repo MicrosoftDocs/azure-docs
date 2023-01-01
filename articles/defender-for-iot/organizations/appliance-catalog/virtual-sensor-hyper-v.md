@@ -93,4 +93,4 @@ Then, use any of the following procedures to continue:
 
 - [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Install OT monitoring software on OT sensors](../ot-deploy/install-software-ot-sensor.md)

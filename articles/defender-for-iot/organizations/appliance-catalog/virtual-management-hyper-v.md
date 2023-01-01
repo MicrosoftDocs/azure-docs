@@ -88,4 +88,4 @@ Then, use any of the following procedures to continue:
 
 - [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Prepare for OT agentless monitoring software installation](../ot-deploy/prepare-for-ot-software-install.md)
+- [Install Microsoft Defender for IoT on-premises management console software](../ot-deploy/install-software-on-premises-management-console.md)
