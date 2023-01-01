@@ -119,17 +119,18 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Navigate to your test Log Analytics Workspace. Open JSON view off **Overview** page and copy resource ID. We are going to need it through the rest of this tutorial.
-2. Close the JSON view and select **Tables** in the side menu. The list of the tables present in given LAW will be displayed. Pick a table of interest, which details we are going to read.
+1. Navigate to your test Log Analytics Workspace. Open JSON view off **Overview** page and copy resource ID. We're going to need it through the rest of this tutorial.
+2. Close the JSON view and select **Tables** in the side menu. The list of the tables present in given LAW will be displayed. Pick a table of interest, which details we're going to read.
 3. Open PowerShell terminal and run the following command:
 
 ```powershell
 Invoke-AzRestMethod -Path "/subscriptions/378e5be3-6163-4ae6-9b38-9f10c1429f24/resourcegroups/ingestion_e2e/providers/microsoft.operationalinsights/workspaces/canaryinestiontest/tables/Heartbeat?api-version=2021-12-01-preview" -Method GET 
 ```
 
-Please note that the table name as used in `-Path` parameter is case sensitive.
+> [!NOTE]
+> The table name as used in `-Path` parameter is case sensitive.
 
-As a response the table properties are returned. Here is an example for `Heartbeat` table:
+As a response the table properties are returned. Here's an example for `Heartbeat` table:
 
 ```json
 {
