@@ -40,7 +40,7 @@ Azure Maps Python SDK supports Python version 3.7 or later. Check the [Azure S
 | [Render][py render readme]| [azure-maps-render][py render package]|[render sample][py render sample] |
 | [Geolocation][py geolocation readme]|[azure-maps-geolocation][py geolocation package]|[geolocation sample][py geolocation sample] |
 
-<!--For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).-->
+For more information, see the [python SDK Developers Guide](how-to-dev-guide-py-sdk.md).
 
 ## JavaScript/TypeScript
 
