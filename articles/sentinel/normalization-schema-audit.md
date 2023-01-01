@@ -12,7 +12,7 @@ ms.author: ofshezaf
 
 The Microsoft Sentinel Audit events normalization schema represents events associated with the audit trail of information systems. The audit trail logs system configuration activities and policy changes. Such changes are often performed by system administrators, but can also be performed by users when configuring the settings of their own applications.
 
-Every system logs audit events alongside its core activity logs. For example, a Firewall will log events about the network sessions is processes, as well as audit events about configuration changes applied to the Firewall itself.
+Every system logs audit events alongside its core activity logs. For example, a Firewall will log events about the network sessions is processes, and audit events about configuration changes applied to the Firewall itself.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
@@ -25,12 +25,12 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 ## Schema overview
 
 The main fields of an audit event are:
-- The object, which may be, for example a managed resource or policy rule, that the event focuses on, represented by the field [Object](#object). The field [ObjectType](#objecttype) specifies the type of the object.
+- The object, which may be, for example, a managed resource or policy rule, that the event focuses on, represented by the field [Object](#object). The field [ObjectType](#objecttype) specifies the type of the object.
 - The application context of the object, represented by the field [TargetAppName](#targetappname), which is aliased by [Application](#application).
-- The operation performed on the object, represented by the fields [EventType](#eventtype) and [Operation](#operation). While [Operation](#operation) is the value the source reported, [EventType](#eventtype) is a normalized version, that is more consistent across sources.
+- The operation performed on the object, represented by the fields [EventType](#eventtype) and [Operation](#operation). While [Operation](#operation) is the value the source reported, [EventType](#eventtype) is a normalized version that is more consistent across sources.
 - The old and new values for the object, if applicable, represented by [OldValue](#oldvalue) and [NewValue](#newvalue) respectively.
 
-Audit events also reference the following entities which are involved in the configuration operation:
+Audit events also reference the following entities, which are involved in the configuration operation:
 
 - **Actor** - The user performing the configuration operation.
 - **TargetApp** - The application or system for which the configuration operation applies.
@@ -45,7 +45,7 @@ The descriptor `Dvc` is used for the reporting device, which is the local system
 
 ### Deploying and using audit events parsers
 
-Deploy the ASIM audit events parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). To query across all audit event sources use the unifying parser `imAuditEvent` as the table name in your query. 
+Deploy the ASIM audit events parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). To query across all audit event sources, use the unifying parser `imAuditEvent` as the table name in your query. 
 
 For more information about using ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
 For the list of the audit event parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#audit-event-parsers) 
@@ -95,15 +95,15 @@ The following list mentions fields that have specific guidelines for Audit Event
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reported device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other`. <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limit the usability of the event and should be avoided if possible.   |
-| <a name="eventsubtype"></a> **EventSubType** | Optional | String | Provides further details which the normalized value in [EventType](#eventtype) does not convey. |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details, which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reporting device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other`. <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limits the usability of the event and should be avoided if possible.   |
+| <a name="eventsubtype"></a> **EventSubType** | Optional | String | Provides further details, which the normalized value in [EventType](#eventtype) does not convey. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `AuditEvent`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`.  |
 
 
 #### All common fields
 
-Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For more information on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+Fields that appear in the table are common to all ASIM schemas. Any of guidelines specified in this document overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For more information on each field, see the [ASIM Common Fields](normalization-common-fields.md) article.
 
 | **Class** | **Fields** |
 | --------- | ---------- |
@@ -129,7 +129,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="actoruserid"></a>**ActorUserId**    | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
+| <a name="actoruserid"></a>**ActorUserId**    | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, and for alternative fields for other IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
 | **ActorScope** | Optional | String | The scope, such as Azure AD Domain Name, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
 | **ActorScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | **ActorUserIdType**| Optional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
@@ -159,14 +159,14 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
 | <a name="targethostname"></a>**TargetHostname** | Recommended | Hostname | The target device hostname, excluding domain information.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="targetdomain"></a>**TargetDomain** | Recommended | String | The domain of the target device.<br><br>Example: `Contoso` |
-| <a name="targetdomaintype"></a>**TargetDomainType** | Recommended | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
+| <a name="targetdomaintype"></a>**TargetDomainType** | Recommended | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
 | **TargetFQDN** | Optional | String | The target device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [TargetDomainType](#targetdomaintype) reflects the format used.   |
 | <a name = "targetdescription"></a>**TargetDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="targetdvcid"></a>**TargetDvcId** | Optional | String | The ID of the target device. If multiple IDs are available, use the most important one, and store the others in the fields `TargetDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="targetdvcscopeid"></a>**TargetDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **TargetDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="targetdvcscope"></a>**TargerDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
-| **TargetDvcIdType** | Optional | Enumerated | The type of [TargetDvcId](#targetdvcid). For a list of allowed values and further information refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **TargetDeviceId** is used.|
-| **TargetDeviceType** | Optional | Enumerated | The type of the target device.  For a list of allowed values and further information refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **TargetDvcIdType** | Optional | Enumerated | The type of [TargetDvcId](#targetdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Required if **TargetDeviceId** is used.|
+| **TargetDeviceType** | Optional | Enumerated | The type of the target device.  For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 |<a name="targetipaddr"></a>**TargetIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
 | **TargetPortNumber** |Optional |Integer |The port of the target device.|
