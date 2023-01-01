@@ -43,7 +43,9 @@ Configure a table for Basic logs if:
 - You don't require more than eight days of data retention for the table.
 - You only require basic queries of the data using a limited version of the query language.
 - The cost savings for data ingestion over a month exceed the expected cost for any expected queries.
-- The table supports Basic logs. Below is the list of all tables that currently support Basic logs:
+- The table supports Basic logs. 
+    
+    Tables that currently support Basic logs:
     
     | Table | Details|
     |:---|:---|
@@ -140,7 +142,7 @@ Use this request body to change to Analytics Logs:
 
 **Sample response**
 
-This sample is the response for a table changed to Basic Logs:
+This sample is the response for a table changed to Basic logs:
 
 Status code: 200
 
