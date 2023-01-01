@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021, cogserv-non-critical-language
 ---
 
 
-
+#  Use Language services in power automate
 To automate repetative tasks and bring efficiencies to any organization, you can use [power automate](). To make this more taliored for your business, you can use lanague services capabilites and automate tasks like:
 * Triaging incoming emails to different departments 
 * Analyze the sentiment of new tweets
