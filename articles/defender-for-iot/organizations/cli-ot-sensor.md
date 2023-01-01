@@ -352,6 +352,28 @@ root@xsense:/#
 
 ## Configure network settings
 
+### Change networking configuration or reassign network interface roles
+
+Use the following command to re-run the OT monitoring software configuration wizard, which helps you define or re-configure the following OT sensor settings:
+
+- Enable/disable SPAN monitoring interfaces
+- Configure network settings for the management interface (IP, subnet, default gateway, DNS)
+- Setting up for [ERSPAN monitoring](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/traffic-mirroring/configure-mirror-erspan)
+- Assigning a backup directory
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx_host**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
+
+For example with the **cyberx_host** user:
+
+```bash
+root@xsense:/# sudo dpkg-reconfigure iot-sensor
+```
+
+The configuration wizard starts automatically after you run this command. 
+For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+
 ### Set bandwidth limit for the management network interface
 
 Use the following command to set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
@@ -397,28 +419,6 @@ root@xsense:/# cyberx-xsense-limit-interface --interface eth0 --limit 1000mbps
 setting the bandwidth limit of interface "eth0" to 1000mbps
 ```
 
-
-### Change networking configuration or reassign network interface roles
-
-Use the following command to re-run the OT monitoring software configuration wizard, which helps you define or re-configure the following OT sensor settings:
-
-- Mapping monitoring interfaces
-- Mapping and configuring network settings for the management interface
-- Assigning ERSPAN interfaces
-- Assigning a backup directory
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**cyberx_host**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
-
-For example with the **cyberx_host** user:
-
-```bash
-root@xsense:/# sudo dpkg-reconfigure iot-sensor
-```
-
-The configuration wizard starts automatically after you run this command. 
-For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Manage TLS/SSL certificates
 
