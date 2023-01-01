@@ -605,7 +605,6 @@ root@xsense:
 
 ## Traffic capture filters
 
-## Create capture filters for incoming traffic
 
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source. Capture filters allow you to block high-bandwidth traffic at the hardware layer, optimizing both appliance performance and resource usage.
 
