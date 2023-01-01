@@ -61,4 +61,4 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 # Next steps
 
-[Language studio quickstarts](../../language-studio.md)
+[Language studio overview](../../language-studio.md)
