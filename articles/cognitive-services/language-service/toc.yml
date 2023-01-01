@@ -123,6 +123,8 @@ items:
     items:
     - name: Enrich a Cognitive Search index 
       href: custom-text-classification/tutorials/cognitive-search.md
+    - name: Triage incoming emails with power automate
+      href: custom-text-classification/tutorials/triage-email.md
   - name: Reference
     items:
     - name: Glossary
