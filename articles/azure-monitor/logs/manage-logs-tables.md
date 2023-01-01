@@ -19,7 +19,7 @@ This diagram provides an overview of the table configuration options in Azure Mo
 
 :::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, table schema, table plan, and retention and archive policies." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
 
-## Table type and schema
+### Table type and schema
 
 A Log Analytics workspace lets you collect logs from Azure and non-Azure resources into one space for data analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Logic Apps](../logs/logicapp-flow-connector.md). 
 
@@ -34,23 +34,25 @@ Your Log Analytics workspace can contain the following types of tables:
 | Search results | All data stored in a Log Analytics workspace.                                             | The schema of a search results table is based on the query you define when you [run the search job](../logs/search-jobs.md). You can't edit the schema of existing search results tables.                                                                                        |
 | Restored logs  | Archived logs.                                                         | A restored logs table has the same schema as the table from which you [restore logs](../logs/restore.md). You can't edit the schema of existing restored logs tables.                                                                                          |
 
-## Log data plan
+### Log data plan
 
 [Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
 - The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. 
 - The **Analytics** plan makes log data available for interactive queries and use by features and services. 
 
-## Retention and archive
+### Retention and archive
 
 Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation. [Set table-level retention policies](../logs/data-retention-archive.md) to override the default workspace retention policy and to archive data within your workspace. 
 
 To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
 
-## Ingestion-time transformations
+### Ingestion-time transformations
 
 Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md) based on the schema you define for your custom table.    
 
 ## View table properties
+
+# [Portal](#tab/portal-1)
 
 To view and set table configuration in the Azure portal:
 
@@ -63,6 +65,61 @@ To view and set table configuration in the Azure portal:
 1. Select the ellipsis (**...**) to the right of a table to open the table management menu.
 
     The available table management options vary based on the table type. 
+
+# [API](#tab/api-1)
+
+To check the configuration of a table, call the **Tables - Get** API:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
+```
+
+**Response body**
+
+|Name | Type | Description |
+| --- | --- | --- |
+|properties.plan | string  | The table plan. Either `Analytics` or `Basic`. |
+|properties.retentionInDays | integer  | The table's data retention in days. In `Basic Logs`, the value is eight days, fixed. In `Analytics Logs`, the value is between 7 and 730 days.|
+|properties.totalRetentionInDays | integer  | The table's data retention that also includes the archive period.|
+|properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
+|properties.lastPlanModifiedDate|String|Last time when the plan was set for this table. Null if no change was ever done from the default settings (read-only).
+
+**Sample request**
+
+```http
+GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
+```
+
+**Sample response**
+ 
+Status code: 200
+```http
+{
+    "properties": {
+        "retentionInDays": 8,
+        "totalRetentionInDays": 8,
+        "archiveRetentionInDays": 0,
+        "plan": "Basic",
+        "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
+        "schema": {...},
+        "provisioningState": "Succeeded"        
+    },
+    "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
+    "name": "ContainerLogV2"
+}
+```
+
+# [CLI](#tab/cli-1)
+
+To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
+
+For example:
+
+```azurecli
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
+```
+
+---
 
 ## Next steps
 
