@@ -1,6 +1,6 @@
 ---
 title: Navigate and investigate incidents in Microsoft Sentinel
-description: ---------------------------------------------------------------------------------------------------------------------------
+description: This article takes you through all the panels and options available on the incident details page, helping you navigate and investigate your incidents more quickly, effectively, and efficiently, and reducing your mean time to resolve (MTTR).
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -293,5 +293,6 @@ Using advanced search options changes the search behavior as follows:
 ## Next steps
 In this article, you learned how to get started investigating incidents using Microsoft Sentinel. For more information, see:
 
+- [Investigate incidents comprehensively in Microsoft Sentinel](incident-investigation.md)
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)
