@@ -700,7 +700,7 @@ Reply to the prompts displayed as follows:
 
 1. `Type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/N]:`
 
-    This prompt supports the ability to define an include file's mode, or scope. Define whether you want to collect traffic within the specified subnet only, or traffic where even only one of the endpoints is in the specified subnet.
+    This prompt allows to configure which traffic is in scope:  Define whether you want to collect traffic where both endpoints are within scope or only one of them is in the specified subnet.
 
     Supported values include:
 
