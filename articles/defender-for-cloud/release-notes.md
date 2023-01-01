@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 11/29/2022
+ms.date: 01/01/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,18 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## January 2023
+
+Updates in January include:
+
+- [Continuously export to an Event Hub behind a firewall with Microsoft Trusted Service](#continuously-export-to-an-event-hub-behind-a-firewall-with-microsoft-trusted-service)
+
+### Continuously export to an Event Hub behind a firewall with Microsoft Trusted Service
+
+You can now enable the ability to export as a trusted service. By enabling this feature you will now be allowed to stream exports to an Event Hub that is behind an Azure firewall.
+
+Learn how to enable [continuos export to an Event Hub behind an Azure firewall](continuous-export.md#export-data-to-an-azure-event-hub-or-log-analytics-workspace-in-another-tenant).
 
 ## December 2022
 
