@@ -84,7 +84,7 @@ The following tables list the activities available by CLI and the privileged use
 
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
-| Capture filter management    |  *support*, *cyberx*       | [Create capture filters for incoming traffic](cli-ot-sensor.md#create-capture-filters-for-incoming-traffic)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
+| Capture filter management    |  *support*, *cyberx*       | [Create a basic filter for all components](cli-ot-sensor.md#create-a-basic-filter-for-all-components)<br>[Create an advanced filter for specific components](cli-ot-sensor.md#create-an-advanced-filter-for-specific-components)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
 
 ### Alert commands
 
