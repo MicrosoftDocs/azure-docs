@@ -44,7 +44,7 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 7- Start by adding the right connection to your connector. This connection will be used to access the classification project.
 
-8- In documents id field, add *1*.
+8- In documents id field, add **1**.
 
 9- In documents text field add *body* from dynamic content.
 
