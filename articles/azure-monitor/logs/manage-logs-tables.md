@@ -52,7 +52,7 @@ Reduce costs and analysis effort by using data collection rules to [filter out a
 
 ## View table properties
 
-# [Portal](#tab/portal-1)
+### [Portal](#tab/portal-1)
 
 To view and set table configuration in the Azure portal:
 
@@ -66,7 +66,7 @@ To view and set table configuration in the Azure portal:
 
     The available table management options vary based on the table type. 
 
-# [API](#tab/api-1)
+### [API](#tab/api-1)
 
 To check the configuration of a table, call the **Tables - Get** API:
 
@@ -109,7 +109,7 @@ Status code: 200
 }
 ```
 
-# [CLI](#tab/cli-1)
+### [CLI](#tab/cli-1)
 
 To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
