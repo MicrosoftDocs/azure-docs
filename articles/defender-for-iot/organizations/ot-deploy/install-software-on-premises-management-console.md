@@ -85,7 +85,7 @@ The installation process takes about 20 minutes. After the installation, the sys
     
     :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
 
-    If you choose not to install the secondary NIC now, you can [do so at a later time](#add-a-secondary-nic-optional-after-installation).
+    If you choose not to install the secondary NIC now, you can [do so at a later time](#add-a-secondary-nic-after-installation-optional).
 
 1. Accept the settings and continue by typing `Y`.
 
