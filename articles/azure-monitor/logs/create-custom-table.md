@@ -40,7 +40,7 @@ Azure tables have predefined schemas. To store log data in a different schema, u
 > [!NOTE]
 > For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log).
 
-### [Portal](#tab/portal-1)
+# [Portal](#tab/azure-portal-1)
 
 To create a custom table in the Azure portal:
 
@@ -58,7 +58,7 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" lightbox="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" alt-text="Screenshot showing new data collection rule.":::
 
-4. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) and select **Next**.
+1. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) and select **Next**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot showing custom log table name.":::
 
@@ -88,7 +88,7 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-create.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot showing custom log create.":::
 
-### [PowerShell](#tab/powershell-1)
+# [PowerShell](#tab/azure-powershell-1)
 
 Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to create a custom table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
 
@@ -99,7 +99,7 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
 
-2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
+1. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
 
     ```PowerShell
     $tableParams = @'
@@ -134,7 +134,7 @@ You can delete any table in your Log Analytics workspace that's not an [Azure ta
 > [!NOTE]
 > Deleting a restored table doesn't delete the data in the source table.
 
-### [Portal](#tab/portal-2)
+# [Portal](#tab/azure-portal-2)
 
 To delete a table from the Azure portal:
 
@@ -147,7 +147,7 @@ To delete a table from the Azure portal:
 
     :::image type="content" source="media/search-job/delete-table.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/delete-table.png":::
     
-### [API](#tab/api-2)
+# [API](#tab/api-2)
 
 To delete a table, call the **Tables - Delete** API: 
 
@@ -155,7 +155,7 @@ To delete a table, call the **Tables - Delete** API:
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-### [CLI](#tab/cli-2)
+# [CLI](#tab/azure-cli-2)
 
 To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
@@ -165,6 +165,21 @@ For example:
 az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
 ```
 
+# [PowerShell](#tab/azure-powershell-2)
+
+To delete a table using PowerShell:
+
+1. Select the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
+
+1. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
+
+
+    ```PowerShell
+    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/NewCustom_CL?api-version=2021-12-01-preview" -Method DELETE
+    ```
+    
 ---
 ## Add or delete a custom column
 
