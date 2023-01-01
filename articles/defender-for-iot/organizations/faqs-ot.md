@@ -53,7 +53,7 @@ For information on how to activate your on-premises management console, see [Act
 Change network configuration settings before or after you activate your sensor using either of the following options:
 
 - **From the sensor UI**: [Update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration)
-- **From the sensor CLI**: [Configure network settings](cli-ot-sensor.md#configure-network-settings)
+- **From the sensor CLI**: [Network configuration](cli-ot-sensor.md#network-configuration)
 
 For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md) and [Getting started with advanced CLI commands](references-work-with-defender-for-iot-cli-commands.md)
 
