@@ -59,10 +59,6 @@ In this tutorial we will triage incoming email using custom single text classifi
 
 13- In the *No* condition, you can add further condition to check other cases and do alternative actions.
 
+# Next steps
 
-# Next Steps
-
-* [Language studio quick start](../language-studio.md)
-
-
-
+[Language studio quickstarts](../../language-studio.md)
