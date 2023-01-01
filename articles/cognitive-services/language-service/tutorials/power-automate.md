@@ -65,7 +65,7 @@ To automate repetative tasks and bring efficiencies to any organization, you can
 
 ## Next steps 
 
-[Triage incoming emails with custom text classification]()
+[Triage incoming emails with custom text classification](../custom-text-classification/tutorials/language-studio.md))
 
 
 
