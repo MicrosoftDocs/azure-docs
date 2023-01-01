@@ -11,17 +11,15 @@ ms.date: 11/09/2022
 
 # Manage tables in a Log Analytics workspace
 
-By configuring table properties, you define how to store data you collect to a Log Analytics workspace, how long to retain the data, and whether you collect the data for auditing and troubleshooting or for ongoing data analysis and regular use by features and services. This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
+A Log Analytics workspace lets you collect logs from Azure and non-Azure resources into one space for data analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Logic Apps](../logs/logicapp-flow-connector.md). The Log Analytics workspace consists of tables, which you can configure to manage your data model and log-related costs. This article explains the table configuration options in Azure Monitor Logs and how to manage table settings based on your data analysis and cost management needs. 
 
-## Table properties overview
+## Table properties
 
 This diagram provides an overview of the table configuration options in Azure Monitor Logs:
 
 :::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, table schema, table plan, and retention and archive policies." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
 
 ### Table type and schema
-
-A Log Analytics workspace lets you collect logs from Azure and non-Azure resources into one space for data analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Logic Apps](../logs/logicapp-flow-connector.md). 
 
 A table's schema is the set of columns that make up the table, into which Azure Monitor Logs collects log data from one or more data sources.
 
