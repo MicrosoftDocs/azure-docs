@@ -64,6 +64,9 @@ To view and set table properties in the Azure portal:
 
     The available table management options vary based on the table type. 
 
+    1. Select **Manage table** to edit the table properties.
+    1. Select **Edit schema** to view and edit the table schema.
+
 ### [API](#tab/api)
 
 To view table properties, call the **Tables - Get** API:
