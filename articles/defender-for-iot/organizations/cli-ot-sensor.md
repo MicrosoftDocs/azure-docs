@@ -711,7 +711,7 @@ Reply to the prompts displayed as follows:
 
     The default mode is `internal`. To use the `all-connected` mode, select `Y` at the prompt, and then enter `all-connected`.
 
-The following example shows a series of prompts that excludes subnet `192.168.x.x` and port `9000:`
+The following example shows a series of prompts that creates a capture filter to exclude subnet `192.168.x.x` and port `9000:`
 
 ```bash
 root@xsense: network capture-filter
@@ -1096,6 +1096,25 @@ These commands open the following files, which list the capture filters configur
 |**traffic-monitor**     |   `/var/cyberx/properties/traffic-monitor.properties`      |    `horizon.processor.filter`     |
 |**collector**     |   `/var/cyberx/properties/dumpark.properties`      |   `dumpark.network.filter`      |
 
+For example with the **support** user, with a capture filter defined for the *collector* component that excludes subnet 192.168.x.x and port 9000:
+
+```bash
+
+root@xsense: edit-config dumpark.properties
+  GNU nano 2.9.3                      /tmp/tmpevt4igo7/tmpevt4igo7
+
+dumpark.network.filter=(((not (net 192.168))) and (not (tcp port 9000)) and (not
+dumpark.network.snaplen=4096
+dumpark.packet.filter.data.transfer=false
+dumpark.infinite=true
+dumpark.output.session=false
+dumpark.output.single=false
+dumpark.output.raw=true
+dumpark.output.rotate=true
+dumpark.output.rotate.history=300
+dumpark.output.size=20M
+dumpark.output.time=30S
+```
 
 ### Reset all capture filters
 
