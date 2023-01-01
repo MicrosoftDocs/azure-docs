@@ -52,7 +52,7 @@ Reduce costs and analysis effort by using data collection rules to [filter out a
 
 ## View table properties
 
-### [Portal](#tab/portal-1)
+### [Portal](#tab/azure-portal)
 
 To view and set table configuration in the Azure portal:
 
@@ -66,7 +66,7 @@ To view and set table configuration in the Azure portal:
 
     The available table management options vary based on the table type. 
 
-### [API](#tab/api-1)
+### [API](#tab/api)
 
 To check the configuration of a table, call the **Tables - Get** API:
 
@@ -109,7 +109,7 @@ Status code: 200
 }
 ```
 
-### [CLI](#tab/cli-1)
+### [Azure CLI](#tab/azure-cli)
 
 To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
@@ -117,6 +117,76 @@ For example:
 
 ```azurecli
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
+```
+
+### [PowerShell](#tab/azure-powershell)
+
+1. Navigate to your test Log Analytics Workspace. Open JSON view off **Overview** page and copy resource ID. We are going to need it through the rest of this tutorial.
+2. Close the JSON view and select **Tables** in the side menu. The list of the tables present in given LAW will be displayed. Pick a table of interest, which details we are going to read.
+3. Open PowerShell terminal and run the following command:
+
+```powershell
+Invoke-AzRestMethod -Path "/subscriptions/378e5be3-6163-4ae6-9b38-9f10c1429f24/resourcegroups/ingestion_e2e/providers/microsoft.operationalinsights/workspaces/canaryinestiontest/tables/Heartbeat?api-version=2021-12-01-preview" -Method GET 
+```
+
+Please note that the table name as used in `-Path` parameter is case sensitive.
+
+As a response the table properties are returned. Here is an example for `Heartbeat` table:
+
+```json
+{
+  "properties": {
+    "totalRetentionInDays": 30,
+    "archiveRetentionInDays": 0,
+    "plan": "Analytics",
+    "retentionInDaysAsDefault": true,
+    "totalRetentionInDaysAsDefault": true,
+    "schema": {
+      "tableSubType": "Any",
+      "name": "Heartbeat",
+      "tableType": "Microsoft",
+      "standardColumns": [
+        {
+          "name": "TenantId",
+          "type": "guid",
+          "description": "ID of the workspace that stores this record.",
+          "isDefaultDisplay": true,
+          "isHidden": true
+        },
+        {
+          "name": "SourceSystem",
+          "type": "string",
+          "description": "Type of agent the data was collected from. Possible values are OpsManager (Windows agent) or Linux.",
+          "isDefaultDisplay": true,
+          "isHidden": false
+        },
+        {
+          "name": "TimeGenerated",
+          "type": "datetime",
+          "description": "Date and time the record was created.",
+          "isDefaultDisplay": true,
+          "isHidden": false
+        },
+        <OMITTED>
+        {
+          "name": "ComputerPrivateIPs",
+          "type": "dynamic",
+          "description": "The list of private IP addresses of the computer.",
+          "isDefaultDisplay": true,
+          "isHidden": false
+        }
+      ],
+      "solutions": [
+        "LogManagement"
+      ],
+      "isTroubleshootingAllowed": false
+    },
+    "provisioningState": "Succeeded",
+    "retentionInDays": 30
+  },
+  "id": "/subscriptions/{guid}/resourceGroups/{rg name}/providers/Microsoft.OperationalInsights/workspaces/{ws id}/tables/Heartbeat",
+  "name": "Heartbeat"
+}
 ```
 
 ---
