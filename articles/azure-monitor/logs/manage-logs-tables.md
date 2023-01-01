@@ -52,7 +52,7 @@ Reduce costs and analysis effort by using data collection rules to [filter out a
 
 ### [Portal](#tab/azure-portal)
 
-To view and set table configuration in the Azure portal:
+To view and set table properties in the Azure portal:
 
 1. From your Log Analytics workspace, select **Tables**.   
 
@@ -66,7 +66,7 @@ To view and set table configuration in the Azure portal:
 
 ### [API](#tab/api)
 
-To check the configuration of a table, call the **Tables - Get** API:
+To view table properties, call the **Tables - Get** API:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
@@ -109,28 +109,26 @@ Status code: 200
 
 ### [Azure CLI](#tab/azure-cli)
 
-To check the configuration of a table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
+To view table properties using Azure CLI, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
 For example:
 
-```azurecli
+```azurecli 
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
 ```
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Navigate to your test Log Analytics Workspace. Open JSON view off **Overview** page and copy resource ID. We're going to need it through the rest of this tutorial.
-2. Close the JSON view and select **Tables** in the side menu. The list of the tables present in given LAW will be displayed. Pick a table of interest, which details we're going to read.
-3. Open PowerShell terminal and run the following command:
+To view table properties using PowerShell, run:
 
 ```powershell
-Invoke-AzRestMethod -Path "/subscriptions/378e5be3-6163-4ae6-9b38-9f10c1429f24/resourcegroups/ingestion_e2e/providers/microsoft.operationalinsights/workspaces/canaryinestiontest/tables/Heartbeat?api-version=2021-12-01-preview" -Method GET 
+Invoke-AzRestMethod -Path "/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/microsoft.operationalinsights/workspaces/ContosoWorkspace/tables/Heartbeat?api-version=2021-12-01-preview" -Method GET 
 ```
 
 > [!NOTE]
-> The table name as used in `-Path` parameter is case sensitive.
+> The table name used in the `-Path` parameter is case sensitive.
 
-As a response the table properties are returned. Here's an example for `Heartbeat` table:
+**Sample response**
 
 ```json
 {
