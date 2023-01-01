@@ -76,7 +76,7 @@ The following built-in file activity content is supported for ASIM normalization
 
 - [Legacy IOC Based Threat Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)
 
-### Analytic Rules
+### Analytics Rules
 
 - [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
 - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
@@ -156,7 +156,7 @@ The following built-in process activity content is supported for ASIM normalizat
 
 The following built-in registry activity content is supported for ASIM normalization.
 
-### Analytic rules
+### Analytics rules
 
 - [Potential Fodhelper UAC Bypass (ASIM Version)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PotentialFodhelperUACBypass(ASIMVersion).yaml)
 

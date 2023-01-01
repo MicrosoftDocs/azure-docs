@@ -73,9 +73,9 @@ For an example of using filtering parsers see [Unifying parsers](#unifying-parse
 
 ## The pack parameter
 
-To ensure efficiency, parsers maintain just normalized fields. Fields which are not normalized have less values when combined with other sources. Some parsers support the `pack` parameter. When the `pack` parameter is set to true, the parser will pack additional data into the `AdditionalFields` dynamic field.
+To ensure efficiency, parsers maintain only normalized fields. Fields which are not normalized have less value when combined with other sources. Some parsers support the *pack* parameter. When the *pack* parameter is set to `true`, the parser will pack additional data into the *AdditionalFields* dynamic field.
 
-The [parsers list](normalization-parsers-list.md) article notes parsers which support the pack parameter. 
+The [parsers list](normalization-parsers-list.md) article notes parsers which support the *pack* parameter. 
 
 ## Next steps
 

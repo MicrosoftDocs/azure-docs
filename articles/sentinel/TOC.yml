@@ -117,7 +117,7 @@
       href: normalization-about-schemas.md
     - name: ASIM parsers
       href: normalization-parsers-overview.md
-    - name: Ingest time normalization
+    - name: Ingest-time normalization
       href: normalization-ingest-time.md
   - name: Integrate threat intelligence
     items:

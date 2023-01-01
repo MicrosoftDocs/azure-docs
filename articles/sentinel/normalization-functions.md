@@ -15,27 +15,27 @@ Advanced Security Information Model (ASIM) helper functions extend the KQL langu
 
 Enrichment lookup functions provide an easy method of looking up known values, based on their numerical representation. Such functions are useful as events often use the short form numeric code, while users prefer the textual form. Most of the functions have two forms:
 
-The lookup version is a scalar function that accepts as input the numeric code and returns the textual form. Use the following KQL snippet with the lookup version:
+The **lookup** version is a scalar function that accepts as input the numeric code and returns the textual form. Use the following KQL snippet with the **lookup** version:
 
 ```KQL
 | extend ProtocolName = _ASIM_LookupNetworkProtocol (ProtocolNumber)
 ``` 
 
-The resolve version is a tabular function that:
+The **resolve** version is a tabular function that:
 
 - Is used a KQL pipeline operator. 
 - Accepts as input the name of the field holding the value to look up.
 - Sets the ASIM fields typically holding both the input value and the resulting lookup value. 
 
-Use the following KQL snippet with the resolve version:
+Use the following KQL snippet with the **resolve** version:
 
 ```KQL
 | invoke _ASIM_ResolveNetworkProtocol (`ProtocolNumber`)
 ``` 
 
-Which will automatically set the field NetworkProtocol with the result of the lookup.
+Which will automatically populate the NetworkProtocol field with the result of the lookup.
 
-The resolve version is preferable for use in ASIM parsers, while the lookup version is useful in general purpose queries. When an enrichment lookup function has to return more than one value, it will always use the resolve format.
+The **resolve** version is preferable for use in ASIM parsers, while the lookup version is useful in general purpose queries. When an enrichment lookup function has to return more than one value, it will always use the **resolve** format.
 
 ### Lookup type functions
 
@@ -60,7 +60,7 @@ The resolve format functions perform the same action as their lookup counterpart
 
 ## Parser helper functions
 
-The following functions perform tasks, which are common in parsers, and are useful to accelerate parser development
+The following functions perform tasks which are common in parsers and useful to accelerate parser development.
 
 ### Device resolution functions
 
@@ -75,7 +75,7 @@ The device resolution functions analyze a hostname and determine whether it has 
 
 ### Source identification functions
 
-The **_ASIM_GetSourceBySourceType** function retrieves the list of sources associated with a source type provided as input from the `SourceBySourceType` Watchlist. The function This function is intended for use by parsers writers. For more information, see [Filtering by source type using a Watchlist](normalization-develop-parsers.md#filtering-by-source-type-using-a-watchlist).
+The **_ASIM_GetSourceBySourceType** function retrieves the list of sources associated with a source type provided as input from the `SourceBySourceType` Watchlist. The function is intended for use by parsers writers. For more information, see [Filtering by source type using a Watchlist](normalization-develop-parsers.md#filtering-by-source-type-using-a-watchlist).
 
 ## <a name="next-steps"></a>Next steps
 

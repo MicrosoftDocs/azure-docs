@@ -36,9 +36,9 @@ Ingestion-time data transformation supports [multiple-workspace scenarios](exten
 
 ### Normalization
 
-Ingest-time transformation also allows you to normalize logs when ingested into built-in or customer ASIM normalized tables. Using ingest time normalization improves normalized queries performance.
+Ingest-time transformation also allows you to normalize logs when ingested into built-in or customer ASIM normalized tables. Using ingest-time normalization improves normalized queries performance.
 
-For more informatoin on ingest time normalization using transformations, refer to [Ingest time normalization](normalization-ingest-time.md).
+For more informatoin on ingest-time normalization using transformations, refer to [Ingest-time normalization](normalization-ingest-time.md).
 
 ### Enrichment and tagging
 
