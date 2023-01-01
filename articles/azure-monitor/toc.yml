@@ -467,7 +467,7 @@ items:
         - name: Manage tables
           displayName: Azure Monitor Logs tables
           items:            
-          - name: Overview
+          - name: View and manage table properties
             href: logs/manage-logs-tables.md      
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
