@@ -24,7 +24,7 @@ The following table summarizes the Basic and Analytics log data plans. You can s
 | Category | Analytics | Basic |
 |:---|:---|:---|
 | Ingestion | Regular ingestion cost. | Reduced ingestion cost. |
-| Log queries | Full query capabilities at no extra cost. | <br/>Pay-per-use for [basic query capabilities](basic-logs-query.md#limitations). |
+| Log queries | Full query capabilities<br/>No extra cost. | [Basic query capabilities](basic-logs-query.md#limitations).<br/>Pay-per-use.|
 | Retention |  [Configure retention from 30 days to 730 days](data-retention-archive.md). | Retention fixed at eight days.<br/>When you change an existing table's plan to Basic logs, Azure archives data that's more than eight days old but still within the table's original retention period. |
 | Alerts | Supported. | Not supported. |
 
