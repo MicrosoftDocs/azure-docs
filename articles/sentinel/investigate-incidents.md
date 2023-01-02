@@ -24,26 +24,43 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
 - If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
 
-## Navigate incidents
+## Navigate and triage incidents
 
-1. From the Microsoft Sentinel navigation menu, select **Incidents**. 
+1. From the Microsoft Sentinel navigation menu, under **Threat management**, select **Incidents**. 
 
     The **Incidents** page gives you basic information about all of your open incidents.
-    - Across the top of the screen you have the counts of new, open, and active incidents, and the counts of open incidents by severity. You also have the **banner** with actions you can take outside of a specific incident.
+    - Across the top of the screen you have the counts of open incidents, whether new or active, and the counts of open incidents by severity. You also have the **banner** with actions you can take outside of a specific incident - either on the grid as a whole, or on multiple selected incidents.
+
     - In the central pane, you have the **incident grid**, a list of incidents as filtered by the filtering controls at the top of the list, and a search bar to find specific incidents.
+
     - On the right side, you have a **details pane** that shows important information about the incident highlighted in the central list, along with buttons for taking certain specific actions with regard to that incident.
 
     :::image type="content" source="media/investigate-incidents/incident-grid.png" alt-text="Screenshot of view of incident severity." lightbox="media/investigate-incidents/incident-grid.png":::
 
-1. Your Security Operations team should have [**automation rules**](automate-incident-handling-with-automation-rules.md#automatic-assignment-of-incidents) in place to perform basic triage on new incidents and assign them to the proper personnel.
+1. Your Security Operations team may have [**automation rules**](automate-incident-handling-with-automation-rules.md#automatic-assignment-of-incidents) in place to perform basic triage on new incidents and assign them to the proper personnel.
 
-    Filter the incident list by **Owner** to limit the list to the incidents assigned to you or to your team. This filtered set represents your personal workload.
+    In that case, filter the incident list by **Owner** to limit the list to the incidents assigned to you or to your team. This filtered set represents your personal workload.
 
-    Of course, you can filter the list by the other available filtering criteria, those being status, severity, and product name. For more information, see [Search for incidents](#search-for-incidents).
+    Otherwise, you can perform basic triage yourself. You can start by filtering the list of incidents by available filtering criteria, whether status, severity, or product name. For more information, see [Search for incidents](#search-for-incidents).
 
-1. To begin an investigation, select a specific incident. On the **details pane** on the right, you can see detailed information for the incident including its severity, summary of the number of entities involved, assigned tasks (in Preview), the alerts that generated this incident, the incident’s unique ID and a direct hyperlink to it, and any tags or comments that have been applied.
+1. Triage a specific incident by selecting it in the grid. View the incident in the **details pane** on the right. 
 
-1. There are some actions you can take on this incident immediately, if it seems appropriate. Select the **Actions** button at the bottom of the **details pane** to do one of the following:
+    - At the top you can see basic information for the incident including its current owner, status, and severity. 
+    - Below that, you have more administrative information including a description, the product for which the alert was generated, and any existing tasks assigned for the incident (in Preview). 
+    - Then you'll see the evidence accumulated so far: alerts that generated this incident, the incident’s unique ID and a direct hyperlink to it, and any tags or comments that have been applied.
+
+1. Take some triage actions on this incident, as appropriate. 
+
+    - Assign ownership of the incident to a user or group by selecting from the **Owner** drop-down list.
+
+    - Change the incident's status (for example, from **New** to **Active** or **Closed**).
+
+    - Update the incident's severity if required.
+
+1. Dive deeper into the information presented in the **details pane** by selecting the links representing **entities** in the alert.
+
+1. If the information in the **details pane** is sufficient to prompt further remediation or mitigation actions, select the **Actions** button at the bottom of the **details pane** to do one of the following:
+
     - **Investigate:** use the [graphical investigation tool](#use-the-investigation-graph-to-deep-dive) to discover relationships between alerts, entities, and activities, both within this incident and across other incidents.
     - **Run playbook (Preview):** run a [playbook](automate-responses-with-playbooks.md#run-a-playbook-manually) on this incident to take particular [enrichment, collaboration, or response actions](automate-responses-with-playbooks.md#use-cases-for-playbooks) such as your SOC engineers may have made available.
     - **Create automation rule:** create an [automation rule](automate-incident-handling-with-automation-rules.md#common-use-cases-and-scenarios) that will run only on incidents like this one (generated by the same analytics rule) in the future, in order to reduce your future workload or to account for a temporary change in requirements (such as for a penetration test).
@@ -51,7 +68,7 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     :::image type="content" source="media/investigate-incidents/incident-actions.png" alt-text="Screenshot of menu of actions that can be performed on an incident from the details pane.":::
 
-1. To view the incident's details in their entirety, including the alerts and entities in the incident and selected top insights, select **View full details** in the incident page. 
+1. If more information about the incident is needed, select **View full details** in the details pane to open and see the incident's details in their entirety, including the alerts and entities in the incident, a list of similar incidents, and selected top insights.
 
 See the next sections of this article to follow a typical investigation path, learning in the process about all the information you'll see there, and all the actions you can take.
 
