@@ -101,90 +101,19 @@ If you prefer to manage your tracked experiments in a centralized location, you 
 
 You have to configure the MLflow tracking URI to point exclusively to Azure Machine Learning, as it is demonstrated in the following example:
 
-   # [Using the Azure ML SDK v2](#tab/azuremlsdk)
-   
-   [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+**Configure tracking URI**
 
-   You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-mlflow-configure-tracking.md)]
 
-   a. Using the workspace configuration file:
+> ![Configure the environment variables in an Azure Databricks cluster](./media/how-to-use-mlflow-azure-databricks/env.png)
+>
+> After the environment variable is configured, any experiment running in such cluster will be tracked in Azure Machine Learning.
 
-   ```Python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
-   import mlflow
+**Configure authentication**
 
-   ml_client = MLClient.from_config(credential=DefaultAzureCredential()
-   azureml_mlflow_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
-   mlflow.set_tracking_uri(azureml_mlflow_uri)
-   ```
+Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-   > [!TIP]
-   > You can download the workspace configuration file by:
-   > 1. Navigate to [Azure ML studio](https://ml.azure.com)
-   > 2. Click on the uper-right corner of the page -> Download config file.
-   > 3. Save the file `config.json` in the same directory where you are working on.
-
-   b. Using the subscription ID, resource group name and workspace name:
-
-   ```Python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
-   import mlflow
-
-   #Enter details of your AzureML workspace
-   subscription_id = '<SUBSCRIPTION_ID>'
-   resource_group = '<RESOURCE_GROUP>'
-   workspace_name = '<AZUREML_WORKSPACE_NAME>'
-
-   ml_client = MLClient(credential=DefaultAzureCredential(),
-                        subscription_id=subscription_id, 
-                        resource_group_name=resource_group)
-
-   azureml_mlflow_uri = ml_client.workspaces.get(workspace_name).mlflow_tracking_uri
-   mlflow.set_tracking_uri(azureml_mlflow_uri)
-   ```
-
-   > [!IMPORTANT]
-   > `DefaultAzureCredential` will try to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in `azure.identity` package.
-   
-   # [Using an environment variable](#tab/env)
-   
-   Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your cluster. This has the advantage of doing the configuration only once per compute cluster. In Azure Databricks, you can configure environment variables using the cluster configuration page.
-   
-   ![Configure the environment variables in an Azure Databricks cluster](./media/how-to-use-mlflow-azure-databricks/env.png)
-   
-   After the environment variable is configured, any experiment running in such cluster will be tracked in Azure Machine Learning.
-   
-   > [!NOTE]
-   > You can get the tracking URL for your Azure Machine Learning workspace by: 
-   > 1. Navigate to [Azure ML studio](https://ml.azure.com)
-   > 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
-   > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
-   
-   # [Building the MLflow tracking URI](#tab/build)
-
-   For workspaces not deployed in a private network, the Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
-
-   ```python
-   import mlflow
-
-   region = ""
-   subscription_id = ""
-   resource_group = ""
-   workspace_name = ""
-
-   azureml_mlflow_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}"
-   mlflow.set_tracking_uri(azureml_mlflow_uri)
-   ```
-
-   > [!NOTE]
-   > You can also get this URL by: 
-   > 1. Navigate to [Azure ML studio](https://ml.azure.com)
-   > 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
-   > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
-   
-   ---
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-mlflow-configure-auth.md)]
 
 #### Experiment's names in Azure Machine Learning
 

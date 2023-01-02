@@ -1,5 +1,5 @@
 ---
-title: Progressive rollout of MLflow models
+title: Progressive rollout of MLflow models to Online Endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model progressively using MLflow SDK.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 ms.devlang: azurecli
 ---
 
-# Progressive rollout of MLflow models
+# Progressive rollout of MLflow models to Online Endpoints
 
 In this article, you'll learn how you can progressively update and deploy MLflow models to Online Endpoints without causing service disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 

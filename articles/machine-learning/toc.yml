@@ -503,16 +503,21 @@
               href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Train and track with MLflow
           items:
+            - name: Configure MLflow for Azure Machine Learning
+              href: how-to-use-mlflow-configure-tracking.md
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, model registry, register
               href: how-to-use-mlflow-cli-runs.md
+            - name: Log metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
             - name: Track Azure Databricks runs with MLflow
               displayName: log, monitor, deploy, metrics, databricks
               href: how-to-use-mlflow-azure-databricks.md
             - name: Track Azure Synapse Analytics runs with MLflow
               displayName: log, monitor, deploy, metrics, synapse, analytics
               href: how-to-use-mlflow-azure-synapse.md
-            - name: Train experiments with MLflow Projects
+            - name: Train with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
             - name: Query & compare experiments and runs with MLflow
@@ -640,13 +645,13 @@
               items:
                 - name: Deploy MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Progressive rollout of MLflow models
+                - name: Progressive rollout of MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-progressive.md 
             - name: Batch inference
               items:
                 - name: Deploy MLflow models to Batch Endpoints
                   href: how-to-mlflow-batch.md
-                - name: Run MLflow models in Spark jobs
+                - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
         - name: Inference HTTP server
           displayName: local debug
