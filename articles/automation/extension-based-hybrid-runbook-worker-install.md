@@ -953,10 +953,10 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 **Manage Hybrid Worker Extension**
 
-- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg?view=azure-cli-latest)
-- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg)
+- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw)
 
-After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker using [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set).
+After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker using [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set).
 
 
 #### [PowerShell](#tab/ps)
@@ -965,14 +965,14 @@ You can use the following PowerShell cmdlets to manage Hybrid Runbook Worker and
 
 | PowerShell cmdlet | Description |
 | ----- | ----------- |
-|[`Get-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/get-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Gets Hybrid Runbook Worker group|
-|[`Remove-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/remove-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Removes Hybrid Runbook Worker group|
-|[`Set-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/set-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Updates Hybrid Worker group with Hybrid Worker credentials|
-|[`New-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup?view=azps-9.1.0) | Creates new Hybrid Runbook Worker group|
-|[`Get-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/get-azautomationhybridrunbookworker?view=azps-9.1.0) | Gets Hybrid Runbook Worker|
-|[`Move-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/move-azautomationhybridrunbookworker?view=azps-9.1.0) | Moves Hybrid Worker from one group to other|
-|[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker?view=azps-9.1.0) | Creates new Hybrid Runbook Worker|
-|[`Remove-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/remove-azautomationhybridrunbookworker?view=azps-9.1.0)| Removes Hybrid Runbook Worker|
+|[`Get-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/get-azautomationhybridrunbookworkergroup) | Gets Hybrid Runbook Worker group|
+|[`Remove-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/remove-azautomationhybridrunbookworkergroup) | Removes Hybrid Runbook Worker group|
+|[`Set-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/set-azautomationhybridrunbookworkergroup) | Updates Hybrid Worker group with Hybrid Worker credentials|
+|[`New-AzAutomationHybridRunbookWorkerGroup`](/powershell/module/az.automation/new-azautomationhybridrunbookworkergroup) | Creates new Hybrid Runbook Worker group|
+|[`Get-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/get-azautomationhybridrunbookworker) | Gets Hybrid Runbook Worker|
+|[`Move-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/move-azautomationhybridrunbookworker) | Moves Hybrid Worker from one group to other|
+|[`New-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/new-azautomationhybridrunbookworker) | Creates new Hybrid Runbook Worker|
+|[`Remove-AzAutomationHybridRunbookWorker`](/powershell/module/az.automation/remove-azautomationhybridrunbookworker)| Removes Hybrid Runbook Worker|
 
 After creating new Hybrid Runbook Worker, you must install the extension on the Hybrid Worker.
 
