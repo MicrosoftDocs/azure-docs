@@ -732,8 +732,6 @@ items:
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
-    - name: Create a resource (classic)
-      href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
       href: app/create-workspace-resource.md
     - name: Migrate to a workspace-based resource
@@ -1662,7 +1660,9 @@ items:
           - name: Key Vault Analytics (deprecated)
             href: insights/azure-key-vault-deprecated.md
     - name: Application Insights Java 2.x
-      href: ./app/deprecated-java-2x.md    
+      href: ./app/deprecated-java-2x.md
+    - name: Create a new App Insights resource (classic)
+      href: app/create-new-resource.md
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics
