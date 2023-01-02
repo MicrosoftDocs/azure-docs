@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 01/02/2023
 ms.author: ludwignick
 ms.custom: seoapril2019, contperf-fy22q2
 ms.collection: M365-identity-device-management
@@ -19,7 +19,11 @@ zone_pivot_groups: home-realm-discovery
 
 # Configure sign-in behavior using Home Realm Discovery
 
-This article provides an introduction to configuring Azure Active Directory(Azure AD) authentication behavior for federated users using Home Realm Discovery (HRD) policy.  It covers using auto-acceleration to skip the username entry screen and automatically forward users to federated login endpoints. To learn more about HRD policy, see [Home Realm Discovery](home-realm-discovery-policy.md)
+This article provides an introduction to configuring Azure Active Directory (Azure AD) authentication behavior for federated users using Home Realm Discovery (HRD) policy. It covers using auto-acceleration sign-in to skip the username entry screen and automatically forward users to federated login endpoints. To learn more about HRD policy, check out the [Home Realm Discovery](home-realm-discovery-policy.md) article.
+
+## Auto-acceleration sign-in
+
+Some organizations configure domains in their Azure AD tenant to federate with another identity provider (IDP), such as AD FS for user authentication. When a user signs into an application, they are first presented with an Azure AD sign-in page. After they have typed their UPN, if they are in a federated domain they are then taken to the sign-in page of the IDP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications. As a result users can skip the initial Azure AD page. This process is referred to as "sign-in auto-acceleration." 
 
 For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO keys, you should prevent sign-in auto-acceleration. See [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md) to learn how to prevent domain hints with HRD. 
 
