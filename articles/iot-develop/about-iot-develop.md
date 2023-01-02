@@ -12,7 +12,7 @@ ms.date: 12/15/2022
 
 Azure IoT is a collection of managed and platform services that connect, monitor, and control your IoT devices. Azure IoT offers developers a comprehensive set of options. Your options include device platforms, supporting cloud services, SDKs, and tools for building device-enabled cloud applications.
 
-This article overviews several key considerations for developers who are getting started with Azure IoT. These concepts will orient you, as an IoT device developer, to your Azure IoT options and how to begin. 
+This article overviews several key considerations for developers who are getting started with Azure IoT.  
 - [Understanding device development paths](#device-development-paths)
 - [Choosing your hardware](#choosing-your-hardware)
 - [Choosing an SDK](#choosing-an-sdk)
@@ -22,7 +22,7 @@ This article overviews several key considerations for developers who are getting
 ## Device development paths
 This article discusses two common device development paths. Each path includes a set of related development options and tasks.  
 
-* **Device application development:** Aligns with modern development practices, targets many of the higher-order languages, and executes on a general-purpose operating system such as Windows or Linux. 
+* **Device application development:** Aligns with modern development practices, targets higher-order languages, and executes on a general-purpose operating system such as Windows or Linux. 
     > [!NOTE]
     > If your device is able to run a general-purpose operating system, we recommend following the [Device application development](#device-application-development) path. It provides a richer set of development options.
 
@@ -34,7 +34,7 @@ Device application developers are adapting existing devices to connect to the cl
 Rather than develop constrained devices at scale, device application developers focus on enabling a specific IoT scenario required by their cloud solution. Some developers will also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see the [Embedded Device Development](#embedded-device-development) path.
 
 > [!IMPORTANT]
-> See the [Device SDKs](about-iot-sdks.md#device-sdks) to get started.
+> For information on SDKs to use with device application development, see the [Device SDKs](about-iot-sdks.md#device-sdks).
 
 ### Embedded device development
 Embedded development targets constrained devices that have limited memory and processing. Constrained devices restrict what can be achieved compared to a traditional development platform.
@@ -43,18 +43,16 @@ Embedded devices typically use a real-time operating system (RTOS), or no operat
 
 The current embedded SDKs target the **C** language. The embedded SDKs provide either no operating system, or Azure RTOS support. They're designed with embedded targets in mind. The design considerations include the need for a minimal footprint, and a non-memory allocating design.
 
-If your device is able to run a general-purpose operating system, we recommend following the [Device Application Development](#device-application-development) path. It provides a richer set of development options.
-
 > [!IMPORTANT]
-> See the [Embedded device SDKs](about-iot-sdks.md#embedded-device-sdks) to get started.
+> For information on SDKs to use with embedded device development, see the [Embedded device SDKs](about-iot-sdks.md#embedded-device-sdks).
 
 ## Choosing your hardware
 Azure IoT devices are the basic building blocks of an IoT solution and are responsible for observing and interacting with their environment. There are many different types of IoT devices, and it's helpful to understand the kinds of devices that exist and how they can affect your development process.
 
-For more information on the difference between devices types covered in this article, read [About IoT Device Types](concepts-iot-device-types.md).
+For more information on the difference between devices types covered in this article, see [About IoT Device Types](concepts-iot-device-types.md).
 
 ## Choosing an SDK
-As an Azure IoT device developer, you have a diverse set of device SDKs, and Azure service SDKs, to help you build device-enabled cloud applications. The SDKs streamline your development effort and simplify much of the complexity of connecting and managing devices. 
+As an Azure IoT device developer, you have a diverse set of SDKs to help you build device-enabled cloud applications. The SDKs streamline your development effort and simplify much of the complexity of connecting and managing devices. 
 
 There are three sets of IoT SDKs for device development:
 - Device SDKs (for using higher order languages to connect existing general purpose devices to IoT applications)
@@ -66,12 +64,12 @@ To learn more about choosing an Azure IoT device or service SDK, see [Overview o
 ## Selecting a service
 A key step in the development process is selecting a service to connect your devices to. There are two primary Azure IoT service options for connecting and managing devices: IoT Hub, and IoT Central. 
 
-- [Azure IoT Hub](../iot-hub/about-iot-hub.md). You can use Iot Hub to host IoT applications and connect devices. IoT Hub is a platform-as-a-service (PaaS) application that acts as a central message hub for bi-directional communication between IoT applications and connected devices. It's a platform-as-a-service (PaaS) application that scales to support millions of devices. In general, IoT Hub offers the greatest control and customization over your application design. It also offers the most developer tool options for working with the service, at the cost of some increase in development and management complexity.
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md). You can use Iot Hub to host IoT applications and connect devices. IoT Hub is a platform-as-a-service (PaaS) application that acts as a central message hub for bi-directional communication between IoT applications and connected devices. IoT Hub can scale to support millions of devices. Compared to other Azure IoT services, IoT Hub offers the greatest control and customization over your application design. It also offers the most developer tool options for working with the service, at the cost of some increase in development and management complexity.
 - [Azure IoT Central](../iot-central/core/overview-iot-central.md). IoT Central is designed to simplify the process of working with IoT solutions.  You can use it as a proof of concept to evaluate your IoT solutions. IoT Central is a software-as-a-service (SaaS) application that provides a web UI to simplify the tasks of creating applications, and connecting and managing devices. IoT Central uses IoT Hub to create and manage applications, but keeps most details transparent to the user. 
 
 ## Tools to connect and manage devices
 
-After you have selected devices and a device SDK to use, you have several options of developer tools. You can use these tools to connect your device to IoT Hub, and manage them. The following table summarizes common tool options. 
+After you have selected hardware and a device SDK to use, you have several options of developer tools. You can use these tools to connect your device to IoT Hub, and manage them. The following table summarizes common tool options. 
 
 |Tool  |Documentation  |Description  |
 |---------|---------|---------|
@@ -82,7 +80,7 @@ After you have selected devices and a device SDK to use, you have several option
 |Azure IoT Tools for VS Code  | [Create an IoT hub with Tools for VS Code](../iot-hub/iot-hub-create-use-iot-toolkit.md) | VS Code extension for IoT Hub applications. |
 
 > [!NOTE]
-> In addition to the previously listed tools, you can programmatically create and manage IoT applications by using REST API's, Azure SDKs, or Azure Resource Manager templates. Learn more in the [IoT Hub](../iot-hub/about-iot-hub.md) service documentation.
+> In addition to the previously listed tools, you can programmatically create and manage IoT applications by using REST API's, Azure SDKs, or Azure Resource Manager templates. Learn more in the [IoT Hub](../iot-hub/about-iot-hub.md) service documentation. 
 
 
 ## Next steps

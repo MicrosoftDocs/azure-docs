@@ -40,9 +40,9 @@ Azure AD replicates each tenant through its scale unit, across data centers, bas
 
 * Directory data stored in data centers closest to the tenant-residency location, to reduce latency and provide fast user sign-in times
 * Directory data stored in geographically isolated data centers to assure availability during unforeseen single-datacenter, catastrophic events 
-* Compliance with data residency, or other requirements, for specific customers and countries or geographies
+* Compliance with data residency, or other requirements, for specific customers and countries/regions or geographies
 
-During tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal) you select a country as the primary location. Azure AD maps the selection to a logical region and a single scale unit in it. Tenant location can’t be changed after it’s set.
+During tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal) you select a country/region as the primary location. Azure AD maps the selection to a logical region and a single scale unit in it. Tenant location can’t be changed after it’s set.
 
 ## Azure AD cloud solution models
 
@@ -50,8 +50,8 @@ Use the following table to see Azure AD cloud solution models based on infrastru
 
 |Model|Model regions|Data location|Operations personnel|Customer support|Put a tenant in this model|
 |---|---|---|---|---|---|
-|Regional (2)|North America, EMEA, Japan|At rest, in the target region. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose the country in the residency.|
-|Worldwide|Worldwide||Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose a country without a regional model.|
+|Regional (2)|North America, EMEA, Japan|At rest, in the target region. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose the country/region in the residency.|
+|Worldwide|Worldwide||Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose a country/region without a regional model.|
 |Sovereign or national clouds|US government, China|At rest, in the target country or region. No exceptions.|Operated by a data custodian (1). Personnel are screened according to requirements.|Microsoft, country or region|Each national cloud instance has a sign-up experience.
 
 **Table references**:
