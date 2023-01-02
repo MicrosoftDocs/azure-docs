@@ -79,7 +79,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 
 ## Retrieve forensics data stored on the sensor
 
-Use Azure Monitor workbooks on an OT network sensor to get forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Azure Monitor workbooks on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data

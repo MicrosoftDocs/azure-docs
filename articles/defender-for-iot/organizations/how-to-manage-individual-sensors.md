@@ -438,7 +438,7 @@ This feature is supported for the following sensor versions:
 
 ## Retrieve forensics data stored on the sensor
 
-Use Defender for IoT data mining reports on an OT network sensor to get forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data
