@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 
 # Add or delete tables and columns in Azure Monitor Logs
 
-[Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
+[Data collection rules](../essentials/data-collection-rule-overview.md) let you [filter and transform log data](../essentials/data-collection-transformations.md) before sending the data to an [Azure table or a custom table](../logs/manage-logs-tables.md#table-type-and-schema). This article explains how to create custom tables and add custom columns to tables in your Log Analytics workspace.  
 
 ## Prerequisites
 
@@ -136,7 +136,7 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type). 
+You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type-and-schema). 
 
 > [!NOTE]
 > Deleting a restored table doesn't delete the data in the source table.
