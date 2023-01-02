@@ -46,7 +46,7 @@ In this article, you can learn:
 - Azure Machine Learning does not guarantee support for all preview stage features in AKS. For example, [Azure AD pod identity](../aks/use-azure-ad-pod-identity.md) is not supported.
 - If you've previously followed the steps from [AzureML AKS v1 document](./v1/how-to-create-attach-kubernetes.md) to create or attach your AKS as inference cluster, use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources) before you continue the next step.
 - We currently don't support attaching your AKS cluster across subscription, which means that your AKS cluster must be in the same subscription as your workspace. 
-   - The workaround to meet your cross-subscription needs is to first connect AKS to Azure-ARC and then attach this ARC-Kubernetes resource.
+   - The workaround to meet your cross-subscription requirement is to first connect AKS to Azure-ARC and then attach this ARC-Kubernetes resource.
 
 ## Review AzureML extension configuration settings
 

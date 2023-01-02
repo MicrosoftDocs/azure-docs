@@ -99,7 +99,7 @@ The compute information is invalid.
 There is a compute target validation process when deploying models to your Kubernetes cluster. This error should occur when the compute information is invalid when validating, for example the compute target is not found, or the configuration of Azure Machine Learning extension has been updated in your Kubernetes cluster. 
 
 You can check the following items to troubleshoot the issue:
-* Check whether the compute target you used is correct and exsiting in your workspace.
+* Check whether the compute target you used is correct and existing in your workspace.
 * Try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
 
 #### ERROR: InvalidComputeNoKubernetesConfiguration
@@ -112,7 +112,7 @@ The compute kubeconfig is invalid.
 
 This error should occur when the system failed to find any configuration to connect to cluster, such as:
 * For Arc-Kubernetes cluster, there is no Azure Relay configuration can be found.
-* For AKS cluster, there is no AKS configuraiton can be found.
+* For AKS cluster, there is no AKS configuration can be found.
 
 To rebuild the configuration of compute connection in your cluster, you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
 
@@ -173,11 +173,11 @@ Cannot found Kubernetes cluster.
 This error should occur when the system cannot find the AKS/Arc-Kubernetes cluster.
 
 You can check the following items to troubleshoot the issue:
-* First, check the cluster resource ID in the Azure Portal to verify whether Kubernetes cluster resource still exist and is running normally.
+* First, check the cluster resource ID in the Azure Portal to verify whether Kubernetes cluster resource still exists and is running normally.
 * If the cluster exists and is running, then you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
 
 > [!TIP]
-   > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](#how-to-troubleshoot-online-endpoints.md).
+   > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
 
 ## Training guide

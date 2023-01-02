@@ -485,17 +485,17 @@ Below is a list of reasons you might run into this error when creating/updating 
 
 ### ERROR: EndpointNotFound
 
-The reason you might run into this error when creating/updating a Kubernetes online deployments is because the system can't find the endpoint resource for the deployment in the cluster. You should create the deployment in a exist endpoint or create this endpoint first in your cluster.
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the system can't find the endpoint resource for the deployment in the cluster. You should create the deployment in an exist endpoint or create this endpoint first in your cluster.
 
 ### ERROR: ValidateScoringFailed
 
-The reason you might run into this error when creating/updating a Kubernetes online deployments is because the scoring request URL validation failed when processing the model deploying. 
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the scoring request URL validation failed when processing the model deploying. 
 
 In this case, you can first check the endpoint URL and then try to re-deploy the deployment.
 
 ### ERROR: InvalidDeploymentSpec
 
-The reason you might run into this error when creating/updating a Kubernetes online deployments is because the deployment spec is invalid.
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the deployment spec is invalid.
 
 In this case, you can check the error message.
 * Make sure the `instance count` is valid.
@@ -503,14 +503,14 @@ In this case, you can check the error message.
 
 ### ERROR: ImagePullLoopBackOff
 
-The reason you might run into this error when creating/updating a Kubernetes online deployments is because the images can't be downloaded from the container registry, resulting in the images pull failure. <message>
+The reason you might run into this error when creating/updating Kubernetes online deployments is because the images can't be downloaded from the container registry, resulting in the images pull failure. 
 
 In this case, you can check the cluster network policy and the workspace container registry if cluster can pull image from the container registry.
 
 ### ERROR: KubernetesCrashLoopBackOff
 
 Below is a list of reasons you might run into this error when creating/updating the Kubernetes online endpoints/deployments:
-* One or more pod(s) stuck in CrashLoopBackoff status, you can check if the deployment log exist, and check if there are error messgaes in the log.
+* One or more pod(s) stuck in CrashLoopBackoff status, you can check if the deployment log exists, and check if there are error messages in the log.
 * There is an error in `score.py` and the container crashed when init your score code, please following [ERROR: ResourceNotReady](#error-resourcenotready) part. 
 * Your scoring process needs more memory that your deployment config limit is insufficient, you can try to update the deployment with a larger memory limit. 
 
@@ -523,7 +523,7 @@ Below is a list of reasons you might run into this error when creating/updating 
 To mitigate this error, refer to the following steps: 
 * Check the `node selector` definition of the `instance type` you used, and `node label` configuration of your cluster nodes. 
 * Check `instance type` and the node SKU size for AKS cluster or the node resource for Arc-Kubernetes cluster.
-  * If the cluster is under-resourced, you can reduce the instance type resource requirement or use the anohter instance type with smaller resource required. 
+  * If the cluster is under-resourced, you can reduce the instance type resource requirement or use the another instance type with smaller resource required. 
 * If the cluster has no more resource to meet the requirement of the deployment, delete some deployment to release resources.
 
 
