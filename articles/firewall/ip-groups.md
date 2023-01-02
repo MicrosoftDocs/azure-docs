@@ -68,7 +68,7 @@ IP Groups are available in all public cloud regions.
 
 ## IP address limits
 
-You can have a maximum of 200 IP Groups per firewall with a maximum of 5000 individual IP addresses or IP prefixes per each IP Group.
+You can have a maximum of 200 IP Groups per firewall with a maximum of 5,000 individual IP addresses or IP prefixes per each IP Group.
 
 ## Related Azure PowerShell cmdlets
 
