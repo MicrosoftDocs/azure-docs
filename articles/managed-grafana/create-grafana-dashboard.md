@@ -1,6 +1,6 @@
 ---
 title: Create a Grafana dashboard with Azure Managed Grafana
-description: Learn how to create and set up Azure Managed Grafana dashboards.
+description: Learn how to create and configure Azure Managed Grafana dashboards.
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
@@ -49,9 +49,10 @@ If none of the pre-configured dashboards listed on the Grafana Labs website fit 
 
 1. Select the title of your first panel and select **Edit** to start editing your panel.
 
-## Edit a panel
+## Edit a dashboard panel
 
 To update your Grafana panel, follow the steps below.
+
 1. Review the visualization to check if you're satisfied with the data and display:
 
      :::image type="content" source="media/dashboard/visualization.png" alt-text="Screenshot of the Grafana instance. Example of visualization.":::
@@ -62,7 +63,7 @@ To update your Grafana panel, follow the steps below.
       1. Update the query. Each data source has a specific query editor that provides different features and capabilities for that type of [data source](https://grafana.com/docs/grafana/v9.1/datasources/#querying).
       1. Select **+ Query** or **+ Expression** to add a new query or expression.
 
-    :::image type="content" source="media/dashboard/edit-query.png" alt-text="Screenshot of the Grafana instance. Create a new dashboard.":::
+    :::image type="content" source="media/dashboard/edit-query.png" alt-text="Screenshot of the Grafana instance. Queries.":::
 
    1. **Transform** tab:  filter data or queries, and organize or combine data before the data is visualized.
    1. **Alert** tab: set alert rules and notifications.
@@ -72,9 +73,9 @@ To update your Grafana panel, follow the steps below.
    1. Switch between **Fill** and **Actual** to edit panel size
    1. Select time to update the time range
    1. Select the **Visualization** drop-down menu to choose a visualization type that best supports your use case. Go to [visualization](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) for more information.
-   1. Select the **Panel options** icon on the right side to review and update a variety of panel options.
+   1. Select the **Panel options** icon on the right side to review and update various panel options.
 
-    :::image type="content" source="media/dashboard/panel-time-visualization-options.png" alt-text="Screenshot of the Grafana instance. Open options.":::
+    :::image type="content" source="media/dashboard/panel-time-visualization-options.png" alt-text="Screenshot of the Grafana instance. Time, visualization and more options.":::
 
 Grafana displays a preview of your query results with the visualization applied.
 
