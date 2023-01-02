@@ -282,7 +282,7 @@ $tableParams = @'
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
 
-To can delete all custom columns in the table, run:
+To delete all custom columns in the table, run:
 
 ```powershell
 $tableParams = @'
