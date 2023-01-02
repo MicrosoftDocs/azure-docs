@@ -339,8 +339,14 @@
         href: api/management-integration-apis.md
   - name: Sensor health message reference
     href: sensor-health-messages.md
-  - name: Defender for IoT CLI commands
-    href: references-work-with-defender-for-iot-cli-commands.md
+  - name: Defender for IoT CLI
+    items:
+    - name: CLI users and access
+      href: references-work-with-defender-for-iot-cli-commands.md
+      displayName: shell, login, cli, command-line, commands, users, user
+    - name: OT sensor CLI reference
+      href: cli-ot-sensor.md
+      displayName: shell, login, cli, command-line, commands, users, user
   - name: Frequently asked questions
     items:
     - name: General FAQ
