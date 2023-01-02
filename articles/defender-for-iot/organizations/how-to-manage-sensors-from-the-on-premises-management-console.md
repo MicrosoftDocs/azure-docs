@@ -117,9 +117,15 @@ Sensors are protected by Defender for IoT engines. You can enable or disable the
 
 ## Retrieve forensics data stored on the sensor
 
-Device inventory data, alerts and OT alert PCAP files, OT event timeline data, and OT log files are [stored locally on the OT sensor](how-to-manage-individual-sensors.md#retrieve-forensics-data-stored-on-the-sensor).
+Use Defender for IoT data mining reports on an OT network sensor to get forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
 
-Use [data mining reports](how-to-create-data-mining-queries.md) to retrieve forensics data from the sensor's local storage to the on-premises management console's central storage.
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
+
+Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
 
 ## Define sensor backup schedules
 

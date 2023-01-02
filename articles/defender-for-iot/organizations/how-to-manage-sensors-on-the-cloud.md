@@ -79,9 +79,15 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 
 ## Retrieve forensics data stored on the sensor
 
-Device inventory data, alerts and OT alert PCAP files, OT event timeline data, and OT log files are [stored locally on the OT sensor](how-to-manage-individual-sensors.md#retrieve-forensics-data-stored-on-the-sensor).
+Use Azure Monitor workbooks on an OT network sensor to get forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
 
-Use [workbooks](workbooks.md) to retrieve forensics data from the sensor's local storage to the could's global storage on the Azure portal.
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
+
+Each type of data has a different retention period and maximum capacity. For more information see [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md).
 
 ## Reactivate an OT sensor
 

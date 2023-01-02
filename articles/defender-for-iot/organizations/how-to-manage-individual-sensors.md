@@ -371,6 +371,7 @@ To send notifications:
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
+
 ## Upload and play PCAP files
 
 When troubleshooting, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your sensor console and replay the data recorded.
@@ -437,27 +438,15 @@ This feature is supported for the following sensor versions:
 
 ## Retrieve forensics data stored on the sensor
 
-The following types of forensics data are stored locally on the OT sensor:
+Use Defender for IoT data mining reports on an OT network sensor to get forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
 
-- Devices
-- Alerts
-- OT alert PCAP files
-- OT event timeline
-- OT log files
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
 
-Use the [data mining reports](how-to-create-data-mining-queries.md) to retrieve forensics data from the sensor's local storage.
-
-The following table describes how much and how long each type of data is stored before it's either deleted or overridden:
-
-|Type of data  | Retention time / capacity  |
-|---------|---------|
-| **Devices** | Device inventory data is stored for 90 days, for all sensors from sensor version 22.3 minor and up. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
-| **Alerts** | Alerts are stored on the local sensor for 90 days from their first detection time. <br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
-| **OT alert PCAP files** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is 133,120 MB. <br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
-| **OT event timeline** | Event timeline data retention capacity differs depending on the sensor's [hardware profile](ot-appliance-sizing.md). <br><br> For more information, see x-ref to event timeline in data retention article. |
-| **OT log files** | Only service and processing log files are stored on the Azure portal, and are retained for 30 days. <br><br> Other OT network monitoring log files are stored only on the OT network sensor and on-premises management console.<br><br> For more information, see x-ref to log files in data retention article. |
-
-For more information, see Data retention x-ref.
+Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
 
 ## Clearing sensor data
 
