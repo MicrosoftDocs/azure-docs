@@ -18,8 +18,8 @@ The following table lists how long device data in stored in each Defender for Io
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
-| **OT network sensor** | Device inventory data is stored with no time limit. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
-| **On-promises management console** | Device inventory data is stored with no time limit. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
+| **OT network sensor** | The retention of device inventory data is not time limited. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
+| **On-promises management console** | The retention of device inventory data is not time limited. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
 
 ## Alert data retention
 
@@ -38,7 +38,7 @@ The following table lists how long PCAP data is stored in each Defender for IoT 
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
-| **OT network sensor** | 90 days, depending on the sensor's storage capacity <br><br> The maximum size of PCAP file storage is set by default to 133,120 MB. If a sensor exceeds this size, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
+| **OT network sensor** | 90 days, depending on the sensor's storage capacity. <br><br> The maximum size of PCAP file storage is set by default to 133,120 MB. If a sensor exceeds this size, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
 | **On-promises management console** | PCAP files aren't stored on the on-premises management console and are only accessed from the on-premises management console via a direct link to the OT sensor. |
 
 ## Security recommendation retention
@@ -49,7 +49,9 @@ For more information, see [Enhance security posture with security recommendation
 
 ## OT event timeline retention
 
-OT event timeline data is stored on OT network sensors only, for as long as there's available storage space, which differs depending on the sensor's [hardware profile](ot-appliance-sizing.md).
+OT event timeline data is stored on OT network sensors only, and the storage capacity differs depending on the sensor's [hardware profile](ot-appliance-sizing.md).
+
+The retention of event timeline data is not time limited. If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
 
 The following table lists the maximum number of events that can be stored for each hardware profile:
 
