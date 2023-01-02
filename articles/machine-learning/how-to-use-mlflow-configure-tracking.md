@@ -38,7 +38,7 @@ You will need the following prerequisites to follow this tutorial:
 
 To connect MLflow to an Azure Machine Learning workspace you will need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
 
-[!INCLUDE [cli v2](../../includes/machine-mlflow-configure-tracking.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 ## Configure authentication
 
@@ -52,7 +52,7 @@ The Azure Machine Learning plugin for MLflow supports several authentication mec
 1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it will authenticate as that user.
 1. __Interactive browser__: it will interactively authenticate a user via the default browser.
 
-[!INCLUDE [cli v2](../../includes/machine-mlflow-configure-auth.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 > [!NOTE]
 > If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
