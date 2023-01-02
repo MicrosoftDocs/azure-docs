@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 12/27/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -14,6 +14,35 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## December 2022
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans) |
+|**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
+
+### Enterprise IoT sensor alerts and recommendations (Public Preview)
+
+The Azure portal now provides the following additional security data for traffic detected by Enterprise IoT network sensors:
+
+|Data type  |Description  |
+|---------|---------|
+|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
+|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: <br>**Disable insecure administration protocol**        |
+
+For more information, see:
+
+- [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Enhance security posture with security recommendations](recommendations.md)
+- [Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
+
+### New purchase experience for OT plans
+
+The **Plans and pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
+
+For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
 
 ## November 2022
 
@@ -542,7 +571,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings.
 
-    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-a-report).
+    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report)
 
 - The **System settings** area has been reorganized in to sections for *Basic* settings, settings for *Network monitoring*, *Sensor management*, *Integrations*, and *Import settings*.
 

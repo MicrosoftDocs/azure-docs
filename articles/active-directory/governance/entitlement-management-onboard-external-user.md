@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Onboard external users to Azure AD through an approval process - Azure Active Directory
-description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
+description: Step-by-step tutorial for how to create an access package for external users requiring approvals in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: Sammak
@@ -23,7 +23,7 @@ You can use entitlement management as a way of onboarding external users. This f
 
 In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve been asked to create an access package to onboard partners from an outside organization that your business group is working with. They will need access to a Teams group called **External collaboration**. 
 Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
-To use Azure AD entitlement management, you must have one of the following licenses:
+To use entitlement management, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
@@ -128,4 +128,4 @@ In this step, you can delete the **External user package** access package.
 
 ## Next steps
 
-Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](./entitlement-management-access-package-first.md)
+Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in entitlement management](./entitlement-management-access-package-first.md)

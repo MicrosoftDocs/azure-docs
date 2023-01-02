@@ -24,7 +24,7 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 
 ## Prerequisites
 
-* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md). 
+* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md). 
 
 ## Define an autoscale profile
 

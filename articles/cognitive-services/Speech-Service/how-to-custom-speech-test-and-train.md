@@ -102,7 +102,7 @@ Custom Speech projects require audio files with these properties:
 | File format              | RIFF (WAV)                          |
 | Sample rate              | 8,000 Hz or 16,000 Hz               |
 | Channels                 | 1 (mono)                            |
-| Maximum length per audio | 2 hours (testing) / 60 s (training) |
+| Maximum length per audio | 2 hours (testing) / 60 s (training)<br/><br/>Training with audio has a maximum audio length of 60 seconds per file. For audio files longer than 60 seconds, only the corresponding transcription files will be used for training. If all audio files are longer than 60 seconds, the training will fail.|
 | Sample format            | PCM, 16-bit                         |
 | Archive format           | .zip                                |
 | Maximum zip size         | 2 GB or 10,000 files                |

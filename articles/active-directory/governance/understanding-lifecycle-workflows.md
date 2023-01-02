@@ -1,5 +1,5 @@
 ---
-title: 'Understanding lifecycle workflows- Azure Active Directory'
+title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
 author: owinfrey

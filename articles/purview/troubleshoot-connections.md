@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/05/2022
 ms.custom: ignite-fall-2021
 ---
 # Troubleshoot your connections in Microsoft Purview
@@ -90,5 +90,5 @@ If your Microsoft Purview scan used to successfully run, but are now failing, ch
 
 ## Next steps
 
-- [Browse the Microsoft Purview Data catalog](how-to-browse-catalog.md)
+- [Browse the Microsoft Purview Data Catalog](how-to-browse-catalog.md)
 - [Search the Microsoft Purview Data Catalog](how-to-search-catalog.md)

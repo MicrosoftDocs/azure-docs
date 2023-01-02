@@ -41,7 +41,7 @@ Here's an excerpt from a twin model implementing a marker tag as a property:
 
 Once the `tags` property is part of a digital twin's model, you can set the marker tag in the digital twin by setting the value of this property. 
 
-Here's a code example on how to set marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
+Here's a code example on how to set marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
