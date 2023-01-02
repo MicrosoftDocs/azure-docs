@@ -56,7 +56,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Applications that explicitly authenticate users must handle failed authentication scenarios securely.The authentication mechanism must:</p><ul><li>Deny access to privileged resources when authentication fails</li><li>Display a generic error message after failed authentication and access denied occurs</li></ul><p>Test for:</p><ul><li>Protection of privileged resources after failed logins</li><li>A generic error message is displayed on failed authentication and access denied event(s)</li><li>Accounts are disabled after an excessive number of failed attempts</li><ul>|
+| Details | <p>Applications that explicitly authenticate users must handle failed authentication scenarios securely. The authentication mechanism must:</p><ul><li>Deny access to privileged resources when authentication fails</li><li>Display a generic error message after failed authentication and access denied occurs</li></ul><p>Test for:</p><ul><li>Protection of privileged resources after failed logins</li><li>A generic error message is displayed on failed authentication and access denied event(s)</li><li>Accounts are disabled after an excessive number of failed attempts</li><ul>|
 
 ## <a id="step-up-adaptive-authn"></a>Enable step up or adaptive authentication
 
@@ -78,7 +78,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution would not be possible than it is always recommended to enforce a step-up or adaptive authentication for logging in into the administrative interface |
+| Details | The first solution is to grant access only from a certain source IP range to the administrative interface. If that solution would not be possible then it is always recommended to enforce a step-up or adaptive authentication for logging in into the administrative interface |
 
 ## <a id="forgot-pword-fxn"></a>Implement forgot password functionalities securely
 
