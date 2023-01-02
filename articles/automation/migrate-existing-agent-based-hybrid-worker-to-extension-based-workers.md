@@ -8,20 +8,15 @@ ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ---
 
-# Migrate existing Agent-based Hybrid Workers to Extension-based Hybrid Workers
+# Migrate the existing agent-based hybrid workers to extension-based hybrid workers
 
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers. 
-
-Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines. 
 
 There are two Hybrid Runbook Workers installation platforms supported by Azure Automation:
 - **Agent based hybrid runbook worker** (V1) -  The Agent-based hybrid runbook worker depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md).
 - **Extension based hybrid runbook worker** (V2) - The Extension-based hybrid runbook worker provides native integration of the hybrid runbook worker role through the Virtual machine (VM) extension framework. 
 
 The process of executing runbooks on Hybrid Runbook Workers remains the same for both.
-
-> [!NOTE]
-> A hybrid worker can co-exist with both Agent based (V1) and Extension based (V2) platforms. If you install Extension based (V2) on a hybrid worker that already has the Agent based (V1) running on it, then you would see two entries of the Hybrid Runbook Worker in the group, one with Platform Extension based (V2) and the other Agent based (V1). [Learn more](../automation/extension-based-hybrid-runbook-worker-install.md).
 
 ## Benefits of Extension-based User Hybrid Runbook Workers over Agent-based workers
 
@@ -100,13 +95,13 @@ To install Hybrid worker extension on an existing agent based hybrid worker, fol
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
 1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 
-   :::image type="content" source="./media/migrate-existing-agent-based-hw-extension-based-hw/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hw-extension-based-hw/add-machines-hybrid-worker-expanded.png":::
+   :::image type="content" source="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-expanded.png":::
 
 1. Select **Add** to append the machine to the group.
 
    The **Platform** column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can [remove](#remove-agent-based-hybrid-worker) the agent based Worker. 
 
-   :::image type="content" source="./media/migrate-existing-agent-based-hw-extension-based-hw/hybrid-workers-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based hybrid worker." lightbox="./media/migrate-existing-agent-based-hw-extension-based-hw/hybrid-workers-group-platform-expanded.png":::
+   :::image type="content" source="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/hybrid-workers-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based hybrid worker." lightbox="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/hybrid-workers-group-platform-expanded.png":::
 
 For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
 
