@@ -88,6 +88,9 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-create.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot showing custom log create.":::
 
+# [API](#tab/api-1)
+
+To create a custom table, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update). 
 # [PowerShell](#tab/azure-powershell-1)
 
 Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to create a custom table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
@@ -149,11 +152,7 @@ To delete a table from the Azure portal:
     
 # [API](#tab/api-2)
 
-To delete a table, call the **Tables - Delete** API: 
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
-```
+To delete a table, call the [Tables - Delete API](/rest/api/loganalytics/tables/delete). 
 
 # [CLI](#tab/azure-cli-2)
 
@@ -200,6 +199,10 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
     1. Set the column name and description (optional), and select the expected value type from the **Type** dropdown.
     1. Select **Save** to save the new column.
 1. To delete a column, select the **Delete** icon to the left of the column you want to delete.
+
+# [API](#tab/api-1)
+
+To add or delete a custom column, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update). 
 
 # [PowerShell](#tab/azure-powershell-3)
 
