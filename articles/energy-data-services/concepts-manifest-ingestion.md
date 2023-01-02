@@ -12,6 +12,8 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # Manifest-based ingestion concepts
 Manifest-based file ingestion provides end-users and systems a robust mechanism for loading metadata about datasets in Microsoft Energy Data Services Preview instance. This metadata is indexed by the system and allows the end-user to search the datasets.
 
+Manifest-based file ingestion is an opaque ingestion that do not parse or understand the file contents. It creates a metadata record based on the manifest and makes the record searchable.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What is a Manifest?
@@ -52,7 +54,7 @@ The Manifest-based file ingestion workflow consists of the following components:
 * **Search Service** is used to perform referential integrity check during the manifest ingestion process.
 
 ### Pre-requisites
-Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service. As part of Microsoft Energy Data Services instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
+Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Microsoft Energy Data Services instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
 
 ### Workflow sequence
 The following illustration provides the Manifest-based file ingestion workflow:
