@@ -11,37 +11,40 @@ Microsoft Defender for IoT stores data in the Azure portal, on OT network sensor
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
-## Devices retention periods
+## Device data retention periods
+
+The following table lists how long device data in stored in each Defender for IoT location.
 
 | Storage type | Details |
 |---------|---------|
-| **Azure portal** | Device inventory data is stored for 90 days from last seen/activity field. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
+| **Azure portal** | 90 days from the date of the **Last activity** value.<br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
 | **OT network sensor** | Device inventory data is stored for 90 days, for all sensors from sensor version 22.3 minor and up. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
 | **On-promises management console** | Device inventory data is stored for 90 days, depending on the sensor. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
 
 ## Alert data retention
 
-Alert data is retained as listed below, regardless of the alert's status, or whether it's been learned or muted.
+The following table lists how long alert data in stored in each Defender for IoT location. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
 
 | Storage type | Details |
 |---------|---------|
-| **Azure portal** | Alerts are stored on the Azure portal for 90 days from their first detection time. <br><br> For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md). |
-| **OT network sensor** | Alerts are stored on the OT sensor for 90 days from their first detection time. <br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
-| **On-premises management console** |  Alerts are stored on the on-premises management console for 90 days from their first detection time. <br><br> For more information, see [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md). |
+| **Azure portal** | 90 days from the date in the **First detection** value. <br><br> For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md). |
+| **OT network sensor** | 90 days from the date in the **First detection** value.<br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
+| **On-premises management console** |  90 days from the date in the **First detection** value.<br><br> For more information, see [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md). |
 
 ### OT alert PCAP data retention
+
+The following table lists how long PCAP data is stored in each Defender for IoT location. 
 
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
-| **OT network sensor** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is set by default to 133,120 MB. <br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
-| **On-promises management console** | PCAP files aren't stored on the on-premises management console. <br><br> Access PCAP files from the on-premises management console using a direct link to the sensor, for as long as the on premises sensor stores them. |
+| **OT network sensor** | 90 days, depending on the sensor's storage capacity <!--check this--><br><br>The maximum size of PCAP file storage is set by default to 133,120 MB. If a sensor exceeds this size, the oldest PCAP file is deleted to accommodate the new one. <!--how to change this default?--> <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
+| **On-promises management console** | PCAP files aren't stored on the on-premises management console and are only accessed from the on-premises management console via a direct link to the OT sensor.  |
 
 ## Security recommendation retention
 
-Defender for IoT security recommendations are stored only on the Azure portal.
+Defender for IoT security recommendations are stored only on the Azure portal, for 90 days from when the recommendation is first detected.
 
-Recommendations are stored for 90 days from the their first detection time.
 
 For more information, see [Enhance security posture with security recommendations](recommendations.md).
 
@@ -73,17 +76,22 @@ On both the OT sensor and the on-premises management console, older log files ar
 
 For more information, see:
 
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
-- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 
 ## On-premises backup file capacity
 
-Both the OT network sensor and the on-premises management console have automated backups running daily, which are stored as follows:
+Both the OT network sensor and the on-premises management console have automated backups running daily. 
+The following table describes the default maximum sizes for each storage location. 
+
+On both the OT sensor and the on-premises management console, older backup files are overridden when the configured storage capacity has reached its maxium.
+
+ For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files
 
 | Storage type | Details |
 |---------|---------|
-| **OT network sensor** | The maximum size of sensor backup files stored on the sensor itself is set by default to 100 GB. <br><br> Older backup files are deleted if the total backup file size passes this limit. <br><br> However, each sensor also has its own, extra backup directory on the on-premises management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
-| **On-promises management console** | The following types of backup files are stored on the on-premises management console, each with their own maximum file size: <br><br> - **On-premises management console backup file**: Set by default to 10 GB. <br> - **OT sensor backup files**: Set by default to 40 GB. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)|
+| **OT network sensor** | The default maximum size of backup files stored on the OT sensor is 100 GB. If you're using an on-premises management console, each connected OT sensor also has its own, extra backup directory on the on-premises management console. |
+| **On-promises management console** | The default maximum size of backup files stored on an on-premises management console are: <br><br>- **On-premises management console backup file**: 10 GB <br> - **OT sensor backup files**, for any connected OT sensor: 40 GB.|
 
 For more information, see:
 
