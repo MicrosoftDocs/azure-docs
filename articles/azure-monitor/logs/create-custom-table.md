@@ -94,7 +94,7 @@ To create a custom table, call the [Tables - Create Or Update API](/rest/api/log
 
 # [CLI](#tab/azure-cli-1)
 
-To create a custom table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-create) command.
+To create a custom table, run the [az monitor log-analytics workspace table create](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-create) command.
 # [PowerShell](#tab/azure-powershell-1)
 
 Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to create a custom table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
@@ -262,7 +262,7 @@ $tableParams = @'
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
 
-To delete the newly added column and add another one instead, run:
+Now, to delete the newly added column and add another one instead, run:
 
 ```powershell
 $tableParams = @'
