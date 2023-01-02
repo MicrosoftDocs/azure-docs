@@ -40,7 +40,7 @@ Follow these steps to assess your pronunciation of the reference text:
 
 1. Go to **Pronunciation Assessment** in the [Speech Studio](https://aka.ms/speechstudio/pronunciationassessment).
 
-   :::image type="content" source="media/pronunciation-assessment/pa.png" alt-text="Screenshot of how to go to Prounciation Assessment on Speech Studio.":::
+   :::image type="content" source="media/pronunciation-assessment/pa.png" alt-text="Screenshot of how to go to Pronunciation Assessment on Speech Studio.":::
 
 1. Choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
 
