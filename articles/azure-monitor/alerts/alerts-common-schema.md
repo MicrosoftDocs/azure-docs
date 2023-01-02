@@ -203,7 +203,7 @@ The common schema includes information about the affected resource and the cause
 
 > [!NOTE]
 > When you enable the common schema, the fields in the payload are reset to the common schema fields. Therefore, log alerts have these limitations regarding the common schema:
-> - The common schema is not supported  for log alerts using webhooks with a custom email subject and/or JSON payload, since the common schema overwrites the custom configurations.
+> - The common schema is not supported for log alerts using webhooks with a custom email subject and/or JSON payload, since the common schema overwrites the custom configurations.
 > - Alerts using the common schema have an upper size limit of 256 KB per alert. If the log alerts payload includes search results that cause the alert to exceed the maximum size, the search results aren't embedded in the log alerts payload. You can check if the payload includes the search results with the `IncludedSearchResults` flag. Use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get) if the search results are not included.
 
 ### Sample log alert when the monitoringService = Platform
