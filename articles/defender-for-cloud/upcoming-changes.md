@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/01/2023
+ms.date: 01/02/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -64,7 +64,7 @@ The updated name will be reflected on Azure Resource Graph (ARG), Secure Score C
 
 **Estimated date for change: April 2023**
 
-As part of Defender for Servers security alerts quality improvements process, in April 2023, some of the security alerts for Windows and Linux servers will require deployment of Defender for Endpoint.  
+As part of Defender for Servers security alerts quality improvements process, in April 2023, some of the security alerts for Windows and Linux servers will be removed from Defender for Servers in favor of sourcing them from Defender for Endpoint.  
 
 All security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
 
