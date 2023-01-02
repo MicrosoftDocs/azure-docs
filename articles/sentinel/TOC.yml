@@ -264,6 +264,8 @@
         href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
+      - name: Microsoft Purview Information Protection
+        href: connect-microsoft-purview.md
       - name: Microsoft Sentinel Data Collector API
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
