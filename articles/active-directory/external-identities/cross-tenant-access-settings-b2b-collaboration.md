@@ -144,7 +144,7 @@ With inbound settings, you select which external users and groups will be able t
    - **Block access**: Blocks the applications specified under **Applies to** from being accessed by B2B collaboration users.
 
     ![Screenshot showing applications access status.](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-applications-access.png)
-
+  
 1. Under **Applies to**, select one of the following:
 
    - **All applications**: Applies the action you chose under **Access status** to all of your applications.
@@ -162,6 +162,9 @@ With inbound settings, you select which external users and groups will be able t
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing selecting applications.](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-applications-add.png)
+
+   > [!NOTE]
+   > Applications refers to a collection of client application identifiers (token requestors) and gets evaluated with AND condition to targets (resources).
 
 1. Select **Save**.
 
@@ -264,6 +267,9 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing selecting applications for b2b collaboration.](media/cross-tenant-access-settings-b2b-collaboration/outbound-b2b-collaboration-add-apps.png)
+
+   > [!NOTE]
+   > Applications refers to a collection of client (token requestors) and resource (token audiences) application identifiers. If the client or resource in a request matches any identifier in this rule, the rule applies. 
 
 1. Select **Save**.
 
