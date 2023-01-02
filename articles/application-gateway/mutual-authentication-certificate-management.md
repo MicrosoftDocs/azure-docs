@@ -3,11 +3,11 @@ title: Export trusted client CA certificate chain for client authentication
 titleSuffix: Azure Application Gateway
 description: Learn how to export a trusted client CA certificate chain for client authentication on Azure Application Gateway
 services: application-gateway
-author: mscatyao
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2021
-ms.author: caya
+ms.author: greglin
 ---
 
 # Export a trusted client CA certificate chain to use with client authentication
@@ -50,7 +50,7 @@ The following steps help you export the .pem or .cer file for your certificate:
 6. Click **Finish** to export the certificate.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
+    > ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish-screen.png)
 
 7. Your certificate is successfully exported.
 

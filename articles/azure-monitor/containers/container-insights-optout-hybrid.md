@@ -2,9 +2,9 @@
 title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 06/16/2020 
+ms.date: 05/24/2022
 ms.custom: devx-track-azurepowershell
-
+ms.reviewer: aul
 ---
 
 # How to stop monitoring your hybrid cluster
@@ -13,7 +13,7 @@ After you enable monitoring of your Kubernetes cluster, you can stop monitoring 
 
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
-- Azure Arc enabled Kubernetes (preview)
+- Azure Arc-enabled Kubernetes (preview)
 
 ## How to stop monitoring using Helm
 
@@ -53,7 +53,7 @@ The following steps apply to the following environments:
 
 The configuration change can take a few minutes to complete. Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
 
-## How to stop monitoring on Arc enabled Kubernetes
+## How to stop monitoring on Azure Arc-enabled Kubernetes
 
 ### Using PowerShell
 
@@ -85,7 +85,7 @@ The configuration change can take a few minutes to complete. Because Helm tracks
 The script *disable-monitoring.ps1* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you will have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
 
 ```powershell
-$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$subscriptionId = "<subscription Id of the Azure Arc-connected cluster resource>"
 $servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
 
 $servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
@@ -138,7 +138,7 @@ For example:
 The bash script *disable-monitoring.sh* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you will have to pass --client-id, --client-secret and  --tenant-id values of service principal you have intended to use to *enable-monitoring.sh* bash script.
 
 ```bash
-subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+subscriptionId="<subscription Id of the Azure Arc-connected cluster resource>"
 servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
 servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
 

@@ -5,20 +5,20 @@
  author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 03/12/2020
+ ms.date: 10/16/2022
  ms.author: dobett
  ms.custom: include file
 ---
-<!-- All needs updating -->
+
 As an operator in your Azure IoT Central application, you can:
 
 * View the telemetry sent by the two thermostat components on the **Overview** page:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/view-telemetry.png" alt-text="View device telemetry":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/view-telemetry.png" alt-text="Screenshot that shows the device overview page." lightbox="media/iot-central-monitor-thermostat/view-telemetry.png":::
 
 * View the device properties on the **About** page. This page shows the properties from the device information component and the two thermostat components:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="View device properties":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="Screenshot that shows the device properties view." lightbox="media/iot-central-monitor-thermostat/about-properties.png":::
 
 ## Customize the device template
 
@@ -28,13 +28,13 @@ To add a cloud property to store the customer name associated with the device:
 
 1. In your IoT Central application, navigate to the **Temperature Controller** device template on the **Device templates** page.
 
-1. In the **Temperature Controller** device template, select **Cloud properties**.
+1. In the **Temperature Controller** model, select **+Add capability**.
 
-1. Select **Add cloud property**. Enter *Customer name* as the **Display name**, expand the entry and choose **String** as the **Schema**. Then select **Save**.
+1. Enter *Customer name* as the **Display name**, select **Cloud property** as the **capability type**, expand the entry and choose **String** as the **Schema**. Then select **Save**.
 
 To customize how the **Get Max-Min report** commands display in your IoT Central application:
 
-1. Select **Customize** in the device template.
+1. Navigate to the **Temperature Controller** device template on the **Device templates** page.
 
 1. For **getMaxMinReport (thermostat1)**, replace *Get Max-Min report.* with *Get thermostat1 status report*.
 
@@ -44,7 +44,7 @@ To customize how the **Get Max-Min report** commands display in your IoT Central
 
 To customize how the **Target Temperature** writable properties display in your IoT Central application:
 
-1. Select **Customize** in the device template.
+1. Navigate to the **Temperature Controller** device template on the **Device templates** page.
 
 1. For **targetTemperature (thermostat1)**, replace *Target Temperature* with *Target Temperature (1)*.
 
@@ -62,7 +62,7 @@ The thermostat components in the **Temperature Controller** model include the **
 
 1. Save your changes.
 
-:::image type="content" source="media/iot-central-monitor-thermostat/properties-view.png" alt-text="View for updating property values":::
+:::image type="content" source="media/iot-central-monitor-thermostat/properties-view.png" alt-text="Screenshot that shows a view for updating property values." lightbox="media/iot-central-monitor-thermostat/properties-view.png":::
 
 ## Publish the device template
 
@@ -74,10 +74,10 @@ An operator can now use the **Properties** view to update the property values, a
 
 * Update writable property values on the **Properties** page:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Update the device properties":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Screenshot that shows updating the device properties." lightbox="media/iot-central-monitor-thermostat/update-properties.png":::
 
 * Call the commands from the **Commands** page. If you run the status report command, select a date and time for the **Since** parameter before you run it:
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Call the command":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Screenshot that shows calling a command." lightbox="media/iot-central-monitor-thermostat/call-command.png":::
 
-    :::image type="content" source="media/iot-central-monitor-thermostat/command-response.png" alt-text="View the command response":::
+    :::image type="content" source="media/iot-central-monitor-thermostat/command-response.png" alt-text="Screenshot that shows a command response." lightbox="media/iot-central-monitor-thermostat/command-response.png":::

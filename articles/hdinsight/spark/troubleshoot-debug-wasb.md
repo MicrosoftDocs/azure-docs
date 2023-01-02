@@ -3,7 +3,7 @@ title: Debug WASB file operations in Azure HDInsight
 description: Describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/18/2020
+ms.date: 07/19/2022
 ---
 
 # Debug WASB file operations in Azure HDInsight
@@ -34,7 +34,7 @@ A produced log will look similar to:
 
 ## Additional logging
 
-The above logs should provide high-level understanding of the file system operations. If the above logs are still not providing useful information, or if you want to investigate blob storage api calls, add `fs.azure.storage.client.logging=true` to the `core-site`. This setting will enable the java sdk logs for wasb storage driver and will print each call to blob storage server. Remove the setting after investigations because it could fill up the disk quickly and could slow down the process.
+The above logs should provide high-level understanding of the file system operations. If the above logs are still not providing useful information, or if you want to investigate blob storage api calls, add `fs.azure.storage.client.logging=true` to the `core-site`. This setting will enable the Java sdk logs for wasb storage driver and will print each call to blob storage server. Remove the setting after investigations because it could fill up the disk quickly and could slow down the process.
 
 If the backend is Azure Data Lake based, then use the following log4j setting for the component(for example, spark/tez/hdfs):
 

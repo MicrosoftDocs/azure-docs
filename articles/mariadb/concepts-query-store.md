@@ -1,11 +1,11 @@
-﻿---
+---
 title: Query Store - Azure Database for MariaDB
 description: Learn about the Query Store feature in Azure Database for MariaDB to help you track performance over time. 
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 06/24/2022
 ---
 # Monitor Azure Database for MariaDB performance with Query Store
 
@@ -63,7 +63,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## Finding wait queries
 
 > [!NOTE]
-> Wait statistics should not be enabled during peak workload hours or be turned on indefinitely for sensitive workloads. <br>For workloads running with high CPU utilization or on servers configured with lower vCores, use caution when enabling wait statistics. It should not be turned on indefinitely. 
+> Wait statistics should not be enabled during peak workload hours or be turned on indefinitely for sensitive workloads. <br>For workloads running with high CPU utilization or on servers configured with lower vCores, use caution when enabling wait statistics. It should not be turned on indefinitely.
 
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
 
@@ -169,6 +169,7 @@ This view returns wait events data in Query Store. There's one row for each dist
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 - The retention period for wait statistics is 24 hours.
 - Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
+- Query store is not supported for version 10.3.
 
 ## Next steps
 

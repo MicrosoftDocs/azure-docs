@@ -4,15 +4,14 @@ titleSuffix: Azure Load Balancer
 description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2021
-ms.author: allensu
+ms.date: 12/05/2022
+ms.author: mbender
 ---
 
 # Configure the distribution mode for Azure Load Balancer
@@ -46,7 +45,7 @@ The following options are available:
 
 5. Choose the distribution mode and then select **Save**.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true":::
+:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true" lightbox="./media/load-balancer-distribution-mode/session-persistence.png":::
 
 
 # [**PowerShell**](#tab/azure-powershell)
@@ -90,7 +89,7 @@ Set the value of `--load-distribution` for the type of load balancing required.
 
 * Specify **Default** for the default behavior of five-tuple load balancing.
 
-For more information on the command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
+For more information on the command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az-network-lb-rule-update)
 
 ---
 

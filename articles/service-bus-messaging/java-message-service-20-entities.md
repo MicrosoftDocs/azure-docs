@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging - Java message service entities
 description: This article provides an overview of Azure Service Bus messaging entities accessible through the Java message service API.
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/27/2021
 ---
 
 # Java message service (JMS) 2.0 entities

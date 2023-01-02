@@ -1,11 +1,12 @@
 ---
-title: Integrate Azure NetApp Files with Azure VMware Solution
+title: Attach Azure NetApp Files to Azure VMware Solution VMs
 description: Use Azure NetApp Files with Azure VMware Solution VMs to migrate and sync data across on-premises servers, Azure VMware Solution VMs, and cloud infrastructures. 
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.service: azure-vmware
+ms.date: 05/10/2022
 ---
 
-# Integrate Azure NetApp Files with Azure VMware Solution
+# Attach Azure NetApp Files to Azure VMware Solution VMs
 
 [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an Azure service for migration and running the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. In this article, you'll set up, test, and verify the Azure NetApp Files volume as a file share for Azure VMware Solution workloads using the Network File System (NFS) protocol. The guest operating system runs inside virtual machines (VMs) accessing Azure NetApp Files volumes. 
 
@@ -13,7 +14,7 @@ Azure NetApp Files and Azure VMware Solution are created in the same Azure regio
 
 Services where Azure NetApp Files are used:
 
-- **Active Directory connections**: Azure NetApp Files supports [Active Directory Domain Services and Azure Active Directory Domain Services](../azure-netapp-files/create-active-directory-connections.md#decide-which-domain-services-to-use).
+- **Active Directory connections**: Azure NetApp Files supports [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md).
 
 - **Share Protocol**: Azure NetApp Files supports Server Message Block (SMB) and Network File System (NFS) protocols. This support means the volumes can be mounted on the Linux client and can be mapped on Windows client.
 
@@ -22,7 +23,7 @@ Services where Azure NetApp Files are used:
 
 The diagram shows a connection through Azure ExpressRoute to an Azure VMware Solution private cloud. The Azure VMware Solution environment accesses the Azure NetApp Files share mounted on Azure VMware Solution VMs.
 
-![Diagram showing NetApp Files for Azure VMware Solution architecture.](media/net-app-files/net-app-files-topology.png)
+:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution architecture." border="false":::
 
 
 ## Prerequisites 
@@ -55,13 +56,13 @@ You'll verify the pre-configured Azure NetApp Files created in Azure on Azure Ne
 
 1. In the Azure portal, under **STORAGE**, select **Azure NetApp Files**. A list of your configured Azure NetApp Files will show. 
 
-   :::image type="content" source="media/net-app-files/azure-net-app-files-list.png" alt-text="Screenshot showing list of pre-configured Azure NetApp Files."::: 
+   :::image type="content" source="media/netapp-files/azure-netapp-files-list.png" alt-text="Screenshot showing list of pre-configured Azure NetApp Files."::: 
 
 2. Select a configured NetApp Files account to view its settings. For example, select **Contoso-anf2**. 
 
 3. Select **Capacity pools** to verify the configured pool. 
 
-   :::image type="content" source="media/net-app-files/net-app-settings.png" alt-text="Screenshot showing options to view capacity pools and volumes of a configured NetApp Files account.":::
+   :::image type="content" source="media/netapp-files/netapp-settings.png" alt-text="Screenshot showing options to view capacity pools and volumes of a configured NetApp Files account.":::
 
    The Capacity pools page opens showing the capacity and service level. In this example, the storage pool is configured as 4 TiB with a Premium service level.
 
@@ -69,11 +70,11 @@ You'll verify the pre-configured Azure NetApp Files created in Azure on Azure Ne
 
 5. Select a volume to view its configuration.  
 
-   :::image type="content" source="media/net-app-files/azure-net-app-volumes.png" alt-text="Screenshot showing volumes created under the capacity pool.":::
+   :::image type="content" source="media/netapp-files/azure-netapp-volumes.png" alt-text="Screenshot showing volumes created under the capacity pool.":::
 
    A window opens showing the configuration details of the volume.
 
-   :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
+   :::image type="content" source="media/netapp-files/configuration-of-volume.png" alt-text="Screenshot showing configuration details of a volume.":::
 
    You can see that anfvolume has a size of 200 GiB and is in capacity pool anfpool1. It's exported as an NFS file share via 10.22.3.4:/ANFVOLUME. One private IP from the Azure Virtual Network (VNet) was created for Azure NetApp Files and the NFS path to mount on the VM.
 
@@ -94,4 +95,5 @@ Now that you've covered integrating Azure NetApp Files with your Azure VMware So
 - [Resource limitations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
 - [Guidelines for Azure NetApp Files network planning](../azure-netapp-files/azure-netapp-files-network-topologies.md)
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md) 
-- [FAQs about Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)
+- [Azure NetApp Files NFS FAQs](../azure-netapp-files/faq-nfs.md)
+- [Azure NetApp Files SMB FAQs](../azure-netapp-files/faq-smb.md)

@@ -2,12 +2,13 @@
 title: Quickstart - Azure Key Vault Key client library for Java
 description: Provides a quickstart for the Azure Key Vault Keys client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
+ms.devlang: java
 ---
 
 # Quickstart: Azure Key Vault Key client library for Java
@@ -108,7 +109,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 #### Grant access to your key vault
 Create an access policy for your key vault that grants key permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
@@ -150,9 +151,9 @@ import com.azure.security.keyvault.keys.models.KeyVaultKey;
 ```
 
 ### Authenticate and create a client
-In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/java/api/overview/azure/identity-readme).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -171,7 +172,7 @@ Now that your application is authenticated, you can create a key in your key vau
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
+You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -196,7 +197,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
+You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey

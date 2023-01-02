@@ -1,8 +1,8 @@
 ---
-title: Configure NFSv4.1 default domain for Azure NetApp Files | Microsoft Docs
-description: Describes how to configure the NFS client for using NFSv4.1 with Azure NetApp Files.
+title: Configure NFSv4.1 domain for Azure NetApp Files | Microsoft Docs
+description: Describes how to configure NFSv4.1 domain for using NFSv4.1 with Azure NetApp Files.
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -10,12 +10,11 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: b-juche
+ms.date: 11/11/2021
+ms.author: anfdocs
 ---
-# Configure NFSv4.1 default domain for Azure NetApp Files
+# Configure NFSv4.1 domain for Azure NetApp Files
 
 NFSv4 introduces the concept of an authentication domain. Azure NetApp Files currently supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
 
@@ -27,25 +26,63 @@ Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `l
 
 As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default.  This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
 
-## Steps 
+## Configure NFSv4.1 domain  
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
-    Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` to `defaultv4iddomain.com`. 
+    Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
-    Initial configuration: 
-    
-    ![Initial configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-initial-config.png)
+    * If the volume isn’t enabled for LDAP, set `Domain = defaultv4iddomain.com`.
+    * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
+        For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
-    Updated configuration:
+    The following examples shows the initial configuration of `/etc/idmapd.conf` before changes:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    # Domain = localdomain 
+     
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
+
+    The following example shows updated configuration of *non-LDAP* NFSv4.1 volumes:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    Domain = defaultv4iddomain.com 
+ 
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
+
+    The following example shows updated configuration of *LDAP-enabled* NFSv4.1 volumes. In this example, `contoso.com` is the configured domain in the NetApp account:
+
+    ```
+    [General]
+    Verbosity = O 
+    Pipefs—Directory = /run/rpc_pipefs 
+    # set your own domain here, if it differs from FQDN minus hostname 
+    Domain = contoso.com
     
-    ![Updated configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-updated-config.png)
+    [Mapping] 
+    Nobody-User = nobody 
+    Nobody-Group = nogroup 
+    ```
 
 2. Unmount any currently mounted NFS volumes.
 3. Update the `/etc/idmapd.conf` file.
 4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or simply reboot the host.
 5. Mount the NFS volumes as required.   
 
-    See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
+    See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
 The following example shows the resulting user/group change: 
 
@@ -67,5 +104,6 @@ On `Host2`, note that the test user accounts have not been created, but the same
 
 ## Next step 
 
-[Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 

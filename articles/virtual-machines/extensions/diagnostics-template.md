@@ -4,8 +4,8 @@ description: Use an Azure Resource Manager template to create a new Windows virt
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 05/31/2017
 
@@ -168,4 +168,4 @@ Each WADMetrics table contains the following columns:
 ## Next Steps
 * For a complete sample template of a Windows virtual machine with diagnostics extension, see [vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-monitoring-diagnostics-extension)
 * Deploy the Azure Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md)
-* Learn more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
+* Learn more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md)

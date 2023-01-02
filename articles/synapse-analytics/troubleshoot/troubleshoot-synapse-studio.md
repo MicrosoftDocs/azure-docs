@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
-author: julieMSFT 
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 04/15/2020 
-ms.author: jrasnick 
-ms.reviewer: jrasnick
+ms.author: wiassaf
+ms.reviewer: sngun
 ---
 
 # Synapse Studio troubleshooting
@@ -29,7 +29,7 @@ Running the query with "serverless SQL pool" gives you the "Failed to establish 
 ![symptom 2](media/troubleshooting-synapse-studio/symptom2.png)
  
 
-## Troubleshooting steps
+### Troubleshooting steps
 
 > [!NOTE] 
 >    The following troubleshooting steps are for Chromium Edge and Chrome. You may use other browsers (such as FireFox) with the same troubleshooting steps, but the "Developer Tool" window may have different layout from the screenshots in this TSG. If possible, DO NOT use classical Edge for troubleshooting, as it may show inaccurate information in certain situation.
@@ -95,6 +95,47 @@ Certain browsers support showing timestamps in the "Console" tab. For Chromium E
 ![developer tool console settings](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
 ![show time stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
+
+## Notebook websocket connection issue
+
+### Symptom
+Error message shows: your notebook connection has closed unexpectedly. To re-establish the connection, run the notebook again. Diagnostic information: websocket_close_error (correlation id) 
+
+![Notebook websocket connection issue](media/troubleshooting-synapse-studio/notebook-websocket-connection-issue.png)
+
+### Root cause: 
+Notebook execution depends on establishing a WebSocket connection to the following URL 
+``` 
+wss://{workspace}.dev.azuresynapse.net/jupyterApi/versions/1/sparkPools/{spark-pool}/api/kernels/{kernel-id}/channels 
+``` 
+
++ **{workspace}** is the name of Synapse workspace, 
++ **{spark-pool}** is the name of Spark pool you are currently working on, 
++ **{kernel-id}** is a GUID used for distinguishing notebook sessions. 
+
+When setting up WebSocket connection, Synapse Studio will include an access token (JWT bearer token) in the Sec-WebSocket-Protocol header of the WebSocket request. 
+
+Sometimes, WebSocket request might be blocked, or JWT token in the request header might be redacted in your network environment. This will cause Synapse Notebook unable to establish the connection to our server and run your notebook. 
+
+### Action: 
+
+If possible, please try to switch your network environment, such as inside/outside corpnet, or access Synapse Notebook on another workstation. 
+
++ If you can run notebook on the same workstation but in a different network environment, please work with your network administrator to find out whether the WebSocket connection has been blocked. 
+
++ If you can run notebook on a different workstation but in the same network environment, please ensure you didn’t install any browser plugin that may block the WebSocket request. 
+
+Otherwise, please contact your network administrator and ensure the outbound WebSocket requests with the following URL pattern is allowed and their request header is not redacted: 
+
+``` 
+wss://{workspace}.dev.azuresynapse.net/{path} 
+``` 
++ **{workspace}** is the Synapse workspace name; 
+
++ **{path}** indicates any sub-path (i.e., slash character is included) in URI. 
+
+This URL pattern is looser than the one shown in “Root Cause” section because it allows for us adding new WebSocket-dependent features to Synapse without any potential connectivity issue in the future. 
+
 
 ## Next steps
 If the previous steps don't help to resolve your issue [Create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

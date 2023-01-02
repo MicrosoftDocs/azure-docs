@@ -5,19 +5,16 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 10/12/2022
 
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
 # Add a self-service sign-up user flow to an app
-
-> [!NOTE]
-> Some of the features mentioned in this article are public preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the identity providers you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
 
@@ -28,9 +25,9 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account (Preview), and Email One-time Passcode (Preview).
+Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and Email One-time Passcode. For more information, see these articles:
 
-- [Microsoft Account (Preview) identity provider](microsoft-account.md)
+- [Microsoft Account identity provider](microsoft-account.md)
 - [Email one-time passcode authentication](one-time-passcode.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Add Google to your list of social identity providers](google-federation.md)
@@ -42,6 +39,9 @@ User attributes are values collected from the user during self-service sign-up. 
 ## Enable self-service sign-up for your tenant
 
 Before you can add a self-service sign-up user flow to your applications, you need to enable the feature for your tenant. After it's enabled, controls become available in the user flow that let you associate the user flow with an application.
+
+> [!NOTE]
+> This setting can also be configured with the [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type in the Microsoft Graph API.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -61,9 +61,10 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
    ![Add a new user flow button](media/self-service-sign-up-user-flow/new-user-flow.png)
 
-5. On the **Create** page, enter a **Name** for the user flow. Note that the name is automatically prefixed with **B2X_1_**.
-6. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
-7. Under **User attributes**, choose the attributes you want to collect from the user. For additional attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+5. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
+6. On the **Create** page, enter a **Name** for the user flow. Note that the name is automatically prefixed with **B2X_1_**.
+7. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
+8. Under **User attributes**, choose the attributes you want to collect from the user. For additional attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
    ![Create a new user flow page](media/self-service-sign-up-user-flow/create-user-flow.png)
 
@@ -86,7 +87,7 @@ You can choose order in which the attributes are displayed on the sign-up page.
 
 ## Add applications to the self-service sign-up user flow
 
-Now you can associate applications with the user flow.
+Now you'll associate applications with the user flow to enable sign-up for those applications. New users who access the associated applications will be presented with your new self-service sign-up experience.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -107,3 +108,4 @@ Now you can associate applications with the user flow.
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md)
 - [Add custom approval workflow to your user flow](self-service-sign-up-add-approvals.md)
+- [Learn more about initiating an OAuth 2.0 authorization code flow](../develop/v2-oauth2-auth-code-flow.md#request-an-authorization-code)

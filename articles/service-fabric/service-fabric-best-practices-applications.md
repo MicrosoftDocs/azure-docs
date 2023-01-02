@@ -1,9 +1,12 @@
 ---
 title: Azure Service Fabric application design best practices 
 description: Best practices and design considerations for developing applications and services using Azure Service Fabric.
-
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Service Fabric application design best practices
@@ -24,7 +27,6 @@ Become familiar with the [general architecture](/azure/architecture/reference-ar
 Use an API gateway service that communicates to back-end services that can then be scaled out. The most common API gateway services used are:
 
 - [Azure API Management](./service-fabric-api-management-overview.md), which is [integrated with Service Fabric](./service-fabric-tutorial-deploy-api-management.md).
-- [Azure IoT Hub](../iot-hub/index.yml) or [Azure Event Hubs](../event-hubs/index.yml), using the [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) to read from Event Hub partitions.
 - [Træfik reverse proxy](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric), using the [Azure Service Fabric provider](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/).
 - [Azure Application Gateway](../application-gateway/index.yml).
 
@@ -70,11 +72,7 @@ Service Fabric Reliable Actors enables you to easily create stateful, virtual ac
 ## Application diagnostics
 Be thorough about adding [application logging](./service-fabric-diagnostics-event-generation-app.md) in service calls. It will help you diagnose scenarios in which services call each other. For example, when A calls B calls C calls D, the call could fail anywhere. If you don't have enough logging, failures are hard to diagnose. If the services are logging too much because of call volumes, be sure to at least log errors and warnings.
 
-## IoT and messaging applications
-When you're reading messages from [Azure IoT Hub](../iot-hub/index.yml) or [Azure Event Hubs](../event-hubs/index.yml), use  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor integrates with Service Fabric Reliable Services to maintain the state of reading from the event hub partitions and pushes new messages to your services via the `IEventProcessor::ProcessEventsAsync()` method.
-
-
 ## Design guidance on Azure
 * Visit the [Azure architecture center](/azure/architecture/microservices/) for design guidance on [building microservices on Azure](/azure/architecture/microservices/).
 
-* Visit [Get Started with Azure for Gaming](/gaming/azure/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* Visit [Get Started with Azure for Gaming](/gaming/azure/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous).

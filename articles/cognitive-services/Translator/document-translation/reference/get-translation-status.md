@@ -3,14 +3,12 @@ title: Get translation status
 titleSuffix: Azure Cognitive Services
 description: The get translation status method returns the status for a document translation request.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
 ---
 
 # Get translation status

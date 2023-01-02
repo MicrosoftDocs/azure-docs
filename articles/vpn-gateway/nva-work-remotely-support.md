@@ -3,12 +3,12 @@ title: 'Working remotely: Network Virtual Appliance (NVA) considerations for rem
 titleSuffix: Azure VPN Gateway
 description: Learn about the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
 services: vpn-gateway
-author: scottnap
+author: KumudD
 
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: scottnap
+ms.author: kumud
 
 ---
 

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
@@ -223,7 +223,5 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
-Next, you can monitor the Azure Firewall logs.
-
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Deploy and configure Azure Firewall Premium](premium-deploy.md)

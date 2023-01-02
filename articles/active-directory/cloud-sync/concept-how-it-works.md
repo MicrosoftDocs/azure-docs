@@ -3,9 +3,10 @@ title: 'Azure AD Connect cloud sync deep dive - how it works'
 description: This topic provides deep dive information on how cloud sync works.
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.subservice: hybrid
@@ -21,12 +22,12 @@ ms.collection: M365-identity-device-management
 
 Cloud sync is built on top of the Azure AD services and has 2 key components:
 
-- **Provisioning agent**: The Azure AD Connect cloud provisioning agent is the same agent as Workday inbound and built on the same server-side technology as app proxy and Pass Through Authentication. It requires and outbound connection only and agents are auto-updated. 
+- **Provisioning agent**: The Azure AD Connect cloud provisioning agent is the same agent as Workday inbound and built on the same server-side technology as app proxy and Pass Through Authentication. It requires an outbound connection only and agents are auto-updated. 
 - **Provisioning service**: Same provisioning service as outbound provisioning and Workday inbound provisioning which uses a scheduler-based model. In case of cloud sync, the changes are provisioned every 2 mins.
 
 
 ## Initial setup
-During initial setup, the a few things are done that makes cloud sync happen.  These are: 
+During initial setup, a few things are done that makes cloud sync happen. These are: 
 
 - **During agent installation**: You configure the agent for the AD domains you want to provision from.  This configuration registers the domains in the hybrid identity service and establishes an outbound connection to the service bus listening for requests.
 - **When you enable provisioning**: You select the AD domain and enable provisioning which runs every 2 mins. Optionally you may deselect password hash sync and define notification email. You can also manage attribute transformation using Microsoft Graph APIs.

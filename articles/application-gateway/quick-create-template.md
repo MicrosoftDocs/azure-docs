@@ -3,26 +3,23 @@ title: 'Quickstart: Direct web traffic using a Resource Manager template'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use a Resource Manager template to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: vhorne
-ms.author: victorh
-ms.date: 01/20/2021
+author: greg-lindsay
+ms.author: greglin
+ms.date: 06/10/2022
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
 
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
+
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -34,7 +31,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-For the sake of simplicity, this template creates a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+For the sake of simplicity, this template creates a simple setup with a public frontend IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 

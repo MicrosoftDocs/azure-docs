@@ -1,11 +1,13 @@
 ---
 title: Deploy STIG-compliant Windows Virtual Machines (Preview)
-description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from Azure Marketplace
+description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from the Azure portal or Azure Government portal.
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.custom: mode-other, kr2b-contr-experiment
+recommendations: false
+ms.date: 08/25/2022
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
@@ -24,7 +26,7 @@ This quickstart shows how to deploy a STIG-compliant Windows virtual machine (Pr
 
 ## Sign in to Azure
 
-Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
+Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
 
 ## Create a STIG-compliant virtual machine
 
@@ -48,15 +50,19 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     a. Enter the *VM name*.
 
-    b. Select the *Windows OS version*.
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-    c. Select the instance *Size*.
+    c. Select the *Windows OS version*.
 
-    d. Enter the administrator account *Username*.
+    d. Select the instance *Size*.
 
-    e. Enter the administrator account *Password*.
+    e. Enter the administrator account *Username*.
 
-    f. Confirm *Password*.
+    f. Enter the administrator account *Password*.
+
+    g. Confirm *Password*.
+
+    h. Check if using an existing Windows Server license.
 
     :::image type="content" source="./media/stig-windows-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
@@ -147,3 +153,16 @@ To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)
+
+For more information about Azure Government, see the following resources:
+
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)
+- [FedRAMP – Azure compliance](/azure/compliance/offerings/offering-fedramp)
+- [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
+- [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
+- [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)

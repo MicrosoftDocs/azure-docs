@@ -2,11 +2,10 @@
 title: Dependency Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor dependency calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
-ms.date: 10/15/2019
+ms.date: 8/19/2022
+ms.devlang: python
 ms.custom: devx-track-python
-
+ms.reviewer: mmcc
 ---
 
 # Track dependencies with OpenCensus Python
@@ -105,6 +104,8 @@ OPENCENSUS = {
     }
 }
 ```
+
+You can find a Django sample application that uses dependencies in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
 
 ## Dependencies with "mysql" integration
 

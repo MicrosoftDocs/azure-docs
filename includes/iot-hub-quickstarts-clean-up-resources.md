@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: iot-hub
-author: wesmc7777
+author: kgremban
 ms.service: iot-hub
 ms.topic: include
 ms.date: 06/19/2018
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: include file
 ---
 

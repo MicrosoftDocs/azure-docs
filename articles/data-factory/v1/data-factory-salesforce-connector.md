@@ -1,11 +1,12 @@
 ---
 title: Move data from Salesforce by using Data Factory 
 description: Learn about how to move data from Salesforce by using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data from Salesforce by using Azure Data Factory
@@ -24,7 +25,7 @@ Azure Data Factory currently supports only moving data from Salesforce to [suppo
 This connector supports the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition. And it supports copying from Salesforce production, sandbox and custom domain.
 
 ## Prerequisites
-* API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+* API permission must be enabled. 
 * To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
 ## Salesforce request limits
@@ -75,7 +76,7 @@ The **typeProperties** section is different for each type of dataset and provide
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Screenshot shows the Custom Object Definition Detail where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="Screenshot shows the Custom Object Definition Detail where you can see the A P I names of the custom objects.":::
 
 ## Copy activity properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
@@ -91,7 +92,7 @@ In copy activity, when the source is of the type **RelationalSource** (which inc
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Screenshot shows the Custom Fields & Relationships where you can see the A P I names of the custom objects.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="Screenshot shows the Custom Fields & Relationships where you can see the A P I names of the custom objects.":::
 
 ## Query tips
 ### Retrieving data using where clause on DateTime column
@@ -186,7 +187,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Screenshot shows the Custom Object Definition Detail where you can see Singular Label, Plural Label, Object Name, and A P I Name.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="Screenshot shows the Custom Object Definition Detail where you can see Singular Label, Plural Label, Object Name, and A P I Name.":::
 
 **Azure blob output dataset**
 
@@ -267,7 +268,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Screenshot shows the Custom Fields & Relationships with the A P I names called out.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="Screenshot shows the Custom Fields & Relationships with the A P I names called out.":::
 
 
 ### Type mapping for Salesforce

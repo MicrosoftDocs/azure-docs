@@ -1,11 +1,13 @@
 ---
 title: Release notes for Azure HDInsight 
-description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive, and more.
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 12/07/2022
 ---
+
+
 # Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
@@ -13,65 +15,89 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
+## Release date: December 12, 2022
 
-## Release date: 06/02/2021
+This release applies to HDInsight 4.0. and 5.0 HDInsight release is made available to all regions over several days.
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
-The OS versions for this release are:
-- HDInsight 3.6: Ubuntu 16.04.7 LTS
-- HDInsight 4.0: Ubuntu 18.04.5 LTS
+**OS versions**
 
-## New features
-### OS version upgrade
-As referenced in [Ubuntu’s release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel will reach End of Life (EOL) in April 2021. We started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 with this release. Newly created HDInsight 4.0 clusters will run on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 will run as is with full support.
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
-HDInsight 3.6 will continue to run on Ubuntu 16.04. It will change to Basic support (from Standard support) beginning 1 July 2021. For more information about dates and support options, see [Azure HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions). Ubuntu 18.04 will not be supported for HDInsight 3.6. If you’d like to use Ubuntu 18.04, you’ll need to migrate your clusters to HDInsight 4.0. 
+For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-component-versioning) 
 
-You need to drop and recreate your clusters if you’d like to move existing HDInsight 4.0 clusters to Ubuntu 18.04. Plan to create or recreate your clusters after Ubuntu 18.04 support becomes available.
+![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
-After creating the new cluster, you can SSH to your cluster and run `sudo lsb_release -a` to verify that it runs on Ubuntu 18.04. We recommend that you test your applications in your test subscriptions first before moving to production. [Learn more about the HDInsight Ubuntu 18.04 update](./hdinsight-ubuntu-1804-qa.md).
+* **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
+* **Ambari** user auto UI logout due to inactivity. For more information, see [here](/azure/hdinsight/ambari-web-ui-auto-logout)
+* **Spark** - A new and optimized version of Spark 3.1 is included in this release which is twice as fast as before.
 
-### Scaling optimizations on HBase accelerated writes clusters
-HDInsight made some improvements and optimizations on scaling for HBase accelerated write enabled clusters. [Learn more about HBase accelerated write](./hbase/apache-hbase-accelerated-writes.md).
+![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
 
-### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+* Qatar Central
+* Germany North
 
-## Deprecation
-No deprecation in this release.
+![Icon showing what's changed with text.](media/hdinsight-release-notes/new-icon-for-changed.png)
 
-## Behavior changes
-### Disable Stardard_A5 VM size as Head Node for HDInsight 4.0
-HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from this release, customers will not be able to create new clusters with Standard_A5 VM size as Head Node. You can use other two-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A four-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
+* HDInsight has moved away from Azul Zulu Java JDK  8 to Adoptium Temurin JDK 8, which supports high-quality TCK certified runtimes, and associated technology for use across the Java ecosystem.
 
-### Network interface resource not visible for clusters running on Azure virtual machine scale sets
-HDInsight is gradually migrating to Azure virtual machine scale sets. Network interfaces for virtual machines are no longer visible to customers for clusters that use Azure virtual machine scale sets.
+* HDInsight has migrated to reload4j. The log4j changes are applicable to
 
-## Upcoming changes
-The following changes will happen in upcoming releases.
+  * Apache Hadoop
+  * Apache Zookeeper
+  * Apache Oozie
+  * Apache Ranger
+  * Apache Sqoop
+  * Apache Pig
+  * Apache Ambari 
+  * Apache Kafka
+  * Apache Spark
+  * Apache Zeppelin
+  * Apache Livy
+  * Apache Rubix
+  * Apache Hive
+  * Apache Tez
+  * Apache HBase
+  * OMI
+  * Apache Pheonix
 
-### HDInsight Interactive Query only supports schedule-based Autoscale
+![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
 
-As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The affect on performance can outweigh the cost benefits of Autoscale.
+HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
 
-Starting from July  2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable Autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
+For more information, see [How to enable Transport Layer Security (TLS)](https://learn.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
-Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
-### Basic support for HDInsight 3.6 starting July 1, 2021
-Starting July 1, 2021, Microsoft will offer [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
+![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
 
-We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
+End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022. HDInsight had begun release of cluster images using Ubuntu 18.04 from June 27,  2021. We recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
 
-### VM host naming will be changed on July 1, 2021
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). This migration will change the cluster host name FQDN name format, and the numbers in the host name will not be guarantee in sequence. If you want to get the FQDN names for each node, refer to [Find the Host names of Cluster Nodes](./find-host-name.md).
+For more information on how to check Ubuntu version of cluster, see [here](https://learnubuntu.com/check-ubuntu-version)
 
-## Bug fixes
-HDInsight continues to make cluster reliability and performance improvements. 
+1. Execute the command “lsb_release -a” in the terminal.  
 
-## Component version change
-You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+1. If the value for “Description” property in output is “Ubuntu 16.04 LTS”, then this update is applicable to the cluster.  
+
+![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
+
+* Support for Availability Zones selection for Kafka and HBase (write access) clusters.
+
+## Open source bug fixes
+
+**Hive bug fixes**
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)| INSERT OVERWRITE error - File Not Found|
+|[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)| Wrong results when subquery has COALESCE in correlation predicate|
+|[HIVE-24999](https://issues.apache.org/jira/browse/HIVE-24999)| HiveSubQueryRemoveRule generates invalid plan for IN subquery with multiple correlations| 
+|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there's direct insert, the attempt ID has to be checked when reading the manifest files|
+|[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)| Upgrade DataNucleus dependency to 5.2 |
+|[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default|
+|[HIVE-26173](https://issues.apache.org/jira/browse/HIVE-26173)| Upgrade derby to 10.14.2.0|
+|[HIVE-25920](https://issues.apache.org/jira/browse/HIVE-25920)| Bump Xerce2 to 2.12.2.|
+|[HIVE-26300](https://issues.apache.org/jira/browse/HIVE-26300)| Upgrade Jackson data bind version to 2.12.6.1+ to avoid CVE-2020-36518|

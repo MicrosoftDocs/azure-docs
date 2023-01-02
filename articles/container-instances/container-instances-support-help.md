@@ -1,11 +1,12 @@
 ---
 title: Azure Container Instances support and help options 
 description: How to obtain help and support for questions or problems when you create solutions using Azure Container Instances. 
-author: mimckitt
-ms.author: mimckitt
+author: tomvcassidy
+ms.author: tomcassidy
 ms.service: container-instances
+services: container-instances
 ms.topic: troubleshooting
-ms.date: 6/4/2021
+ms.date: 06/17/2022
 ms.custom: support-help-page
 ---
 
@@ -71,19 +72,6 @@ If you need help with the language and tools used to develop and manage Azure Co
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
 
-
-## Submit feature requests on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure Container Instances.
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure Container Instances  | https://feedback.azure.com/forums/602224-azure-container-instances 
-
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
@@ -96,4 +84,4 @@ News and information about Azure Container Instances is shared at the [Azure blo
 
 ## Next steps
 
-Learn more about [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)
+Learn more about [Azure Container Instances](./index.yml)

@@ -2,7 +2,7 @@
 title: Convert portal template to template spec
 description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 05/25/2022
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -12,11 +12,15 @@ The Azure portal provides a way to store Azure Resource Manager templates (ARM t
 
 To see if you have any templates to convert, view the [template gallery in the portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). These templates have the resource type `Microsoft.Gallery/myareas/galleryitems`.
 
+## Deprecation of portal feature
+
+**The template gallery in the portal is being deprecated on March 31, 2025**. To continue using a template in the template gallery, you need to migrate it to a template spec. Use one of the methods shown in this article to migrate the template.
+
 ## Convert with PowerShell script
 
 To simplify converting templates in the template gallery, use a PowerShell script from the Azure Quickstart Templates repo. When you run the script, you can either create a new template spec for each template or download a template that creates the template spec. The script doesn't delete the template from the template gallery.
 
-1. Copy the [migration script](https://github.com/Azure/azure-quickstart-templates/blob/master/201-templatespec-migrate-create/Migrate-GalleryItems.ps1). Save a local copy with the name *Migrate-GalleryItems.ps1*.
+1. Copy the [migration script](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.resources/templatespec-migrate-create/Migrate-GalleryItems.ps1). Save a local copy with the name *Migrate-GalleryItems.ps1*.
 1. To create new template specs, provide values for the `-ResourceGroupName` and `-Location` parameters.
 
    Set `ItemsToExport` to `MyGalleryItems` to export your templates. Set it to `AllGalleryItems` to export all templates you have access to.
@@ -37,7 +41,7 @@ To simplify converting templates in the template gallery, use a PowerShell scrip
 
    To learn how to deploy the template that creates the template spec, see [Quickstart: Create and deploy template spec](quickstart-create-template-specs.md).
 
-For more information about the script and its parameters, see [Create TemplateSpecs from Template Gallery Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/201-templatespec-migrate-create).
+For more information about the script and its parameters, see [Create TemplateSpecs from Template Gallery Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/templatespec-migrate-create).
 
 ## Manually convert through portal
 

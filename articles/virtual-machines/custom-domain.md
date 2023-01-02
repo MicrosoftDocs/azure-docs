@@ -14,6 +14,9 @@ ms.reviewer: cynthn
 
 # Add Custom Domain to Azure VM or resource
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
+
 In Azure there are multiple ways to connect a custom domain to your VM or resource. For any resource with a public IP (Virtual Machine, Load Balancer, Application Gateway) the most straight-forward way is to create an A record set in your corresponding domain registrar. 
 
 ## Prerequisites 

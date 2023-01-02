@@ -47,7 +47,7 @@ A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is
 
 Create the vault as follows:
 
-1. Use the  [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)to create the vault. Specify the resource group name and location of the VM you want to back up.
+1. Use the  [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) to create the vault. Specify the resource group name and location of the VM you want to back up.
 
     ```powershell
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
@@ -79,7 +79,7 @@ To enable and backup up the Azure VM in this tutorial, we do the following:
 
 1. Specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Each VM for backup is an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
-3. Run an on-demand backup with[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
+3. Run an on-demand backup with [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
     * The first initial backup job creates a full recovery point.
     * After the initial backup, each backup job creates incremental recovery points.
     * Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.

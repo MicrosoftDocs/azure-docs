@@ -4,8 +4,8 @@ description: Learn how to install and configure the Symantec Endpoint Protection
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 03/31/2017
 

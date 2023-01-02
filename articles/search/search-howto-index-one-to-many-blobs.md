@@ -12,9 +12,11 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ---
 
-# Indexing blobs to produce multiple search documents
+# Indexing blobs and files to produce multiple search documents
 
-By default, a blob indexer will treat the contents of a blob as a single search document. If you want a more granular representation of the blob in a search index, you can set **parsingMode** values to create multiple search documents from one blob. The **parsingMode** values that result in many search documents include `delimitedText` (for [CSV](search-howto-index-csv-blobs.md)), and `jsonArray` or `jsonLines` (for [JSON](search-howto-index-json-blobs.md)).
+**Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
+
+By default, an indexer will treat the contents of a blob or file as a single search document. If you want a more granular representation in a search index, you can set **parsingMode** values to create multiple search documents from one blob or file. The **parsingMode** values that result in many search documents include `delimitedText` (for [CSV](search-howto-index-csv-blobs.md)), and `jsonArray` or `jsonLines` (for [JSON](search-howto-index-json-blobs.md)).
 
 When you use any of these parsing modes, the new search documents that emerge must have unique document keys, and a problem arises in determining where that value comes from. The parent blob has at least one unique value in the form of `metadata_storage_path property`, but if it contributes that value to more than one search document, the key is no longer unique in the index.
 
@@ -109,6 +111,30 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 
 > [!NOTE]
 > The approach used by `AzureSearch_DocumentKey` of ensuring uniqueness per extracted entity is subject to change and therefore you should not rely on it's value for your application's needs.
+
+## Specifiying the index key field in your data
+
+Assuming the same index definition as the previous example and **parsingMode** is set to `jsonLines` without specifying any explicit field mappings so the mappings look like in the first example, suppose your blob container has blobs with the following structure:
+
+_Blob1.json_
+
+```json
+id, temperature, pressure, timestamp
+1, 100, 100,"2019-02-13T00:00:00Z" 
+2, 33, 30,"2019-02-14T00:00:00Z"
+```
+
+_Blob2.json_
+
+```json
+id, temperature, pressure, timestamp
+1, 1, 1,"2018-01-12T00:00:00Z" 
+2, 120, 3,"2013-05-11T00:00:00Z" 
+```
+
+Notice that each document contains the `id` field, which is defined as the `key` field in the index. In such a case, even though a document-unique `AzureSearch_DocumentKey` will be generated, it won't be used as the "key" for the document. Rather, the value of the `id` field will be mapped to the `key` field
+
+Similar to the example above, this mapping will _not_ result in four documents showing up in the index, because the `id` field is not unique _across blobs_. When this is the case, any json entry that specifies an `id` will result in a merge on the existing document instead of an upload of a new document, and the state of the index will reflect the latest read entry with the specified `id`.
 
 ## Next steps
 

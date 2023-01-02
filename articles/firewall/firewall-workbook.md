@@ -5,7 +5,7 @@ services: firewall
 author: gopimsft
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/01/2021
 ms.author: victorh
 ---
 
@@ -31,9 +31,13 @@ The overview page provides you with a way to filter across workspaces, time, and
 
 ## Application rule log statistics
 
-This page shows unique sources of IP address over time, application rule count usage, denied/allowed FQDN over time, and filtered data. You can filter data based on IP address.
+This page shows unique sources of IP address over time, application rule count usage, denied/allowed FQDN over time, and filtered data. You can filter data based on IP address. 
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Azure Firewall Workbook application rule log":::
+
+The Web Categories view summarizes all allow and deny access log actions based on severity as configured by the firewall administrator.
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-webcategory.png" alt-text="Azure Firewall Web Category Summary":::
 
 ## Network rule log statistics
 
@@ -45,11 +49,18 @@ You can also filter logs based on time window:
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Azure Firewall Workbook network rule log time window":::
 
+## IDPS log statistics
+
+This page provides an overview of the IDPS actions count for all traffic that match the IDPS rules: Protocol, Signature ID, Source IP.
+
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-idps.png" alt-text="Azure Firewall Workbook idps log":::
+
 ## Investigations
 
 You can look at the logs and understand more about the resource based on the source IP address. You can get information like virtual machine name and network interface name. It's simple to filter to the resource from the logs.
 
 :::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Azure Firewall Workbook investigation":::
+
 
 ## Next steps
 

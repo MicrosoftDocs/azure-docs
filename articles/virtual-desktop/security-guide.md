@@ -1,11 +1,13 @@
 ---
 title: Azure Virtual Desktop security best practices - Azure
+titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
-
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 10/12/2022
 ms.author: helohr
+ms.service: virtual-desktop
+ms.custom: ignite-2022
 manager: femila
 ---
 # Security best practices
@@ -27,7 +29,7 @@ Here are the security needs you're responsible for in your Azure Virtual Desktop
 |Identity|Yes|
 |User devices (mobile and PC)|Yes|
 |App security|Yes|
-|Session host OS|Yes|
+|Session host operating system (OS)|Yes|
 |Deployment configuration|Yes|
 |Network controls|Yes|
 |Virtualization control plane|No|
@@ -43,21 +45,19 @@ Azure Virtual Desktop is a service under Azure. To maximize the safety of your A
 
 This section describes best practices for securing your Azure ecosystem.
 
-### Enable Azure Security Center
+### Enable Microsoft Defender for Cloud
 
-We recommend you enable Azure Security Center Standard for subscriptions, virtual machines, key vaults, and storage accounts.
+We recommend enabling Microsoft Defender for Cloud's enhanced security features to:
 
-With Azure Security Center Standard, you can:
+- Manage vulnerabilities.
+- Assess compliance with common frameworks like PCI.
+- Strengthen the overall security of your environment.
 
-* Manage vulnerabilities.
-* Assess compliance with common frameworks like PCI.
-* Strengthen the overall security of your environment.
-
-To learn more, see [Onboard your Azure subscription to Security Center Standard](../security-center/security-center-get-started.md).
+To learn more, see [Enable enhanced security features](../defender-for-cloud/enable-enhanced-security.md).
 
 ### Improve your Secure Score
 
-Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/secure-score-security-controls.md).
+Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Microsoft Defender for Cloud](../defender-for-cloud/secure-score-security-controls.md).
 
 ## Azure Virtual Desktop security best practices
 
@@ -79,16 +79,19 @@ Enabling audit log collection lets you view user and admin activity related to A
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)
--   [Azure Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
 ### Use RemoteApps
 
-When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with with a subset of the remote machine exposed by the application.
+When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
 Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
+
+### Encrypt your VM
+
+Encrypt your VM with [managed disk encryption options](../virtual-machines/disk-encryption-overview.md) to protect stored data from unauthorized access. 
 
 ## Session host security best practices
 
@@ -102,11 +105,11 @@ For profile solutions like FSLogix or other solutions that mount VHD files, we r
 
 ### Install an endpoint detection and response product
 
-We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Azure Security Center](../security-center/security-center-services.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
+We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Microsoft Defender for Cloud](../defender-for-cloud/integration-defender-for-endpoint.md) enabled, installing an EDR product will deploy Microsoft Defender for Endpoint. For client operating systems, you can deploy [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
 
 ### Enable threat and vulnerability management assessments
 
-Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Azure Security Center can help you identify problem spots through vulnerability assessments for server operating systems. You can also use Defender ATP, which provides threat and vulnerability management for desktop operating systems. You can also use third-party products if you're so inclined, although we recommend using Azure Security Center and Defender ATP.
+Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Microsoft Defender for Cloud can help you identify problem spots through [Microsoft Defender for Endpoint's threat and vulnerability management solution](../defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management.md). You can also use third-party products if you're so inclined, although we recommend using Microsoft Defender for Cloud and Microsoft Defender for Endpoint.
 
 ### Patch software vulnerabilities in your environment
 
@@ -140,7 +143,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Restrict Windows Explorer access by hiding local and remote drive mappings. This prevents users from discovering unwanted information about system configuration and users.
 
-- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../security-center/security-center-just-in-time.md) access to limit the potential attack surface on a session host.
+- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../defender-for-cloud/just-in-time-access-usage.md) access to limit the potential attack surface on a session host.
 
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 
@@ -148,7 +151,15 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Azure Virtual Desktop support for Trusted Launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+## Azure Confidential Computing virtual machines (preview)
+
+> [!IMPORTANT]
+> Azure Virtual Desktop support for Azure Confidential virtual machines is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Virtual Desktop support for Azure Confidential Computing virtual machines (preview) ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust. Deploying confidential VMs with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. These virtual desktops are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure Confidential Computing overview](../confidential-computing/overview.md).
 
 ### Secure Boot
 
@@ -162,7 +173,7 @@ Remote attestation is a great way to check the health of your VMs. Remote attest
 
 A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
 
-We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
+We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality with Azure Disk Encryption, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
 
 >[!NOTE]
 >BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
@@ -179,18 +190,32 @@ HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mod
 
 Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
 
-### Deploy Trusted Launch in your Azure Virtual Desktop environment
-
-Azure Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Azure Virtual Desktop environment, you'll need to deploy Trusted Launch normally and then manually add the virtual machine to your desired host pool.
-
 ## Nested virtualization
 
 The following operating systems support running nested virtualization on Azure Virtual Desktop:
 
 - Windows Server 2016
 - Windows Server 2019
+- Windows Server 2022
 - Windows 10 Enterprise
-- Windows 10 Enterprise multi-session.
+- Windows 10 Enterprise multi-session
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
+
+## Windows Defender Application Control
+
+The following operating systems support using Windows Defender Application Control with Azure Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows Server 2022
+- Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
+
+>[!NOTE]
+>When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
 
 ## Next steps
 

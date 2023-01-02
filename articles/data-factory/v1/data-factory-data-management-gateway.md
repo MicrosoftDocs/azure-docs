@@ -3,8 +3,9 @@ title: Data Management Gateway for Data Factory
 description: Use Data Management Gateway in Azure Data Factory to move your data.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell
 robots: noindex
@@ -42,7 +43,7 @@ Data management gateway provides the following capabilities:
 When you use a copy activity to copy data between on-premises and cloud, the activity uses a gateway to transfer data from on-premises data source to cloud and vice versa.
 
 Here is the high-level data flow for and summary of steps for copy with data gateway:
-![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/data-flow-using-gateway.png" alt-text="Data flow using gateway":::
 
 1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](/powershell/module/az.datafactory/).
 2. Data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, data developer uses the Setting Credentials application to specify authentication types and credentials. The Setting Credentials application dialog communicates with the data store to test connection and the gateway to save credentials.
@@ -103,31 +104,31 @@ To create a gateway in the portal and get the key from the **Configure** page, F
 #### If you have already created the logical gateway in the portal
 1. In Azure portal, navigate to the **Data Factory** page, and click **Linked Services** tile.
 
-    ![Data Factory page](media/data-factory-data-management-gateway/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-blade.png" alt-text="Data Factory page":::
 2. In the **Linked Services** page, select the logical **gateway** you created in the portal.
 
-    ![logical gateway](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/data-factory-select-gateway.png" alt-text="logical gateway":::
 3. In the **Data Gateway** page, click **Download and install data gateway**.
 
-    ![Download link in the portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/download-and-install-link-on-portal.png" alt-text="Download link in the portal":::
 4. In the **Configure** page, click **Recreate key**. Click Yes on the warning message after reading it carefully.
 
-    ![Recreate key button](media/data-factory-data-management-gateway/recreate-key-button.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/recreate-key-button.png" alt-text="Recreate key button":::
 5. Click Copy button next to the key. The key is copied to the clipboard.
 
-    ![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png)
+    :::image type="content" source="media/data-factory-data-management-gateway/copy-gateway-key.png" alt-text="Copy key":::
 
 ### System tray icons/ notifications
 The following image shows some of the tray icons that you see.
 
-![system tray icons](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-tray-icons.png" alt-text="system tray icons":::
 
 If you move cursor over the system tray icon/notification message, you see details about the state of the gateway/update operation in a popup window.
 
 ### Ports and firewall
 There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed.
 
-![firewalls](./media/data-factory-data-management-gateway/firewalls2.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/firewalls2.png" alt-text="firewalls":::
 
 At corporate firewall level, you need configure the following domains and outbound ports:
 
@@ -142,7 +143,7 @@ At Windows firewall level, these outbound ports are normally enabled. If not, yo
 
 > [!NOTE]
 > 1. Based on your source/ sinks, you may have to allow additional domains and outbound ports in your corporate/Windows firewall.
-> 2. For some Cloud Databases (For example: [Azure SQL Database](../../azure-sql/database/firewall-configure.md), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
+> 2. For some Cloud Databases (For example: [Azure SQL Database](/azure/azure-sql/database/firewall-configure), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
 >
 >
 
@@ -162,11 +163,11 @@ For example, to copy from **an on-premises data store to an Azure SQL Database s
 ### Proxy server considerations
 If your corporate network environment uses a proxy server to access the internet, configure data management gateway to use appropriate proxy settings. You can set the proxy during the initial registration phase.
 
-![Set proxy during registration](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyDuringRegistration.png" alt-text="Set proxy during registration":::
 
 Gateway uses the proxy server to connect to the cloud service. Click **Change** link during initial setup. You see the **proxy setting** dialog.
 
-![Set proxy using config manager 1](media/data-factory-data-management-gateway/SetProxySettings.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxySettings.png" alt-text="Set proxy using config manager 1":::
 
 There are three configuration options:
 
@@ -185,7 +186,7 @@ After gateway has been successfully registered, if you want to view or update pr
 
 You can view and update HTTP proxy by using Configuration Manager tool.
 
-![Set proxy using config manager 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+:::image type="content" source="media/data-factory-data-management-gateway/SetProxyConfigManager.png" alt-text="Set proxy using config manager 2":::
 
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, Gateway Host Service runs under the domain account. If you change the password for the domain account later, remember to update configuration settings for the service and restart it accordingly. Due to this requirement, we suggest you use a dedicated domain account to access the proxy server that does not require you to update the password frequently.
@@ -256,15 +257,15 @@ You see the scheduled update time in the following places:
 
 The Home tab of the Data Management Gateway Configuration Manager displays the update schedule and the last time the gateway was installed/updated.
 
-![Schedule updates](media/data-factory-data-management-gateway/UpdateSection.png)
+:::image type="content" source="media/data-factory-data-management-gateway/UpdateSection.png" alt-text="Schedule updates":::
 
 You can install the update right away or wait for the gateway to be automatically updated at the scheduled time. For example, the following image shows you the notification message shown in the Gateway Configuration Manager along with the Update button that you can click to install it immediately.
 
-![Update in DMG Configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png" alt-text="Update in DMG Configuration Manager":::
 
 The notification message in the system tray would look as shown in the following image:
 
-![System Tray message](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
+:::image type="content" source="./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png" alt-text="System Tray message":::
 
 You see the status of update operation (manual or automatic) in the system tray. When you launch Gateway Configuration Manager next time, you see a message on the notification bar that the gateway has been updated along with a link to [what's new topic](data-factory-gateway-release-notes.md).
 
@@ -272,6 +273,7 @@ You see the status of update operation (manual or automatic) in the system tray.
 You can disable/enable the auto-update feature by doing the following steps:
 
 [For single node gateway]
+
 1. Launch Windows PowerShell on the gateway machine.
 2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
@@ -279,20 +281,26 @@ You can disable/enable the auto-update feature by doing the following steps:
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
+
 4. To turn it back on:
 
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-   [For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
+[For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
+
 1. Launch Windows PowerShell on the gateway machine.
+
 2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* folder.
+
 3. Run the following command to turn the auto-update feature OFF (disable).
 
     For gateway with high availability feature, an extra AuthKey param is required.
+
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
+
 4. To turn it back on:
 
     ```powershell
@@ -300,6 +308,7 @@ You can disable/enable the auto-update feature by doing the following steps:
     ```
 
 ## Configuration Manager
+
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
 1. In the **Search** window, type **Data Management Gateway** to access this utility.
@@ -343,16 +352,16 @@ In the Azure portal, you can view near-real time snapshot of resource utilizatio
 
 1. In Azure portal, navigate to the home page for your data factory, and click **Linked services** tile.
 
-    ![Data factory home page](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png" alt-text="Data factory home page":::
 2. Select the **gateway** in the **Linked services** page.
 
-    ![Linked services page](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/monitor-linked-services-blade.png" alt-text="Linked services page":::
 3. In the **Gateway** page, you can see the memory and CPU usage of the gateway.
 
-    ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-simple-monitoring.png" alt-text="CPU and memory usage of gateway":::
 4. Enable **Advanced settings** to see more details such as network usage.
     
-    ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png" alt-text="Advanced monitoring of gateway":::
 
 The following table provides descriptions of columns in the **Gateway Nodes** list:
 
@@ -402,29 +411,29 @@ This section provides steps for moving gateway client from one machine to anothe
 
 1. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile.
 
-    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DataGatewaysLink.png" alt-text="Data Gateways Link":::
 2. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** page.
 
-    ![Linked Services page with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png" alt-text="Linked Services page with gateway selected":::
 3. In the **Data gateway** page, click **Download and install data gateway**.
 
-    ![Download gateway link](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/DownloadGatewayLink.png" alt-text="Download gateway link":::
 4. In the **Configure** page, click **Download and install data gateway**, and follow instructions to install the data gateway on the machine.
 
-    ![Configure page](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigureBlade.png" alt-text="Configure page":::
 5. Keep the **Microsoft Data Management Gateway Configuration Manager** open.
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/ConfigurationManager.png" alt-text="Configuration Manager":::
 6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.
 
-    ![Recreate key 2](./media/data-factory-data-management-gateway/RecreateKey.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/RecreateKey.png" alt-text="Recreate key 2":::
 7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
 
-    ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/CopyKeyAndRegister.png" alt-text="Copy key and Register":::
 8. Click **Register** to register the gateway with the cloud service.
 9. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**.
 
-   ![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   :::image type="content" source="./media/data-factory-data-management-gateway/SpecifyCertificate.png" alt-text="Specify Certificate":::
 
    You can export a certificate from the old gateway by doing the following steps: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certificate** tab, click **Export** button and follow the instructions.
 10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager.
@@ -439,7 +448,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
 5. Enter database name for the **Initial Catalog** property in the **connectionString**.
 6. Click **Encrypt** button on the command bar that launches the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box.
 
-    ![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+    :::image type="content" source="./media/data-factory-data-management-gateway/setting-credentials-dialog.png" alt-text="Setting credentials dialog":::
 7. In the **Setting Credentials** dialog box, do the following steps:
    1. Select **authentication** that you want the Data Factory service to use to connect to the database.
    2. Enter name of the user who has access to the database for the **USERNAME** setting.
@@ -447,7 +456,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
    4. Click **OK** to encrypt credentials and close the dialog box.
 8. You should see a **encryptedCredential** property in the **connectionString** now.
 
-    ```JSON
+    ```json
     {
         "name": "SqlServerLinkedService",
         "properties": {
@@ -460,7 +469,8 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
         }
     }
     ```
-   If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source and to test connection to the data source.
+
+    If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source and to test connection to the data source.
 
 When you use the **Setting Credentials** application, the portal encrypts the credentials with the certificate specified in the **Certificate** tab of the **Gateway Configuration Manager** on the gateway machine.
 
@@ -519,10 +529,11 @@ This section describes how to create and register a gateway using Azure PowerShe
     ```
 2. You can use the **Get-AzDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-    ```powershell        
+    ```powershell
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   You can remove a gateway using the **Remove-AzDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
+
+    You can remove a gateway using the **Remove-AzDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 
 ### List gateways using PowerShell
 

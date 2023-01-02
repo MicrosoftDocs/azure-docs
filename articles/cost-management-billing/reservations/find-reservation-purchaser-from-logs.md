@@ -2,11 +2,11 @@
 title: Find a reservation purchaser from Azure Monitor logs
 description: This article helps find a reservation purchaser with information from Azure Monitor logs.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: troubleshooting
-ms.date: 03/13/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -28,4 +28,4 @@ This article helps find a reservation purchaser with information from your direc
 
 ## Next steps
 
-- If needed, billing administrators can [take ownership of a reservation](view-reservations.md#how-billing-administrators-can-view-or-manage-reservations).
+- If needed, billing administrators can [take ownership of a reservation](view-reservations.md#view-and-manage-reservations).

@@ -9,7 +9,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 08/12/2020
+ms.date: 07/05/2022
 ms.author: jgardner
 
 #Customer intent: As an Azure service administrator, I want to move my resources to another Azure region
@@ -23,7 +23,7 @@ This article describes how to move Azure Workbook resources to a different Azure
 
 * Ensure that workbooks are supported in the target region.
 
-* These instructions apply to both shared workbooks (`microsoft.insights/workbooks`) and private workbooks (`microsoft.insights/myworkbooks`) saved in Azure Monitor and on most resource types.
+* These instructions apply to workbooks (`microsoft.insights/workbooks`) saved in Azure Monitor and on most resource types.
 
   However, for workbooks specifically linked to the Application Insights resource type, those workbooks are stored in the Azure region where the Application Insights resource is saved.
 

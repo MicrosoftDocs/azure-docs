@@ -4,14 +4,14 @@ description: More scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
-manager: daveba  
+author: barclayn
+manager: amycolannino  
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/28/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory
 
-Use the following information and examples to gain a more advanced understanding of Azure Active Directory (Azure AD) group-based licensing.
+Use the following information and examples to gain a more advanced understanding of group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 ## Usage location
 
@@ -71,7 +71,7 @@ A user can be a member of multiple groups with licenses. Here are some things to
 
 ## Direct licenses coexist with group licenses
 
-When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. It is possible, however, to assign the same product license to the user directly and by group license assignment. In this way, you can enable additional services from the product just for one user, without affecting other users.
+When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign any additional features to a user that has their license from a group license assignment you must create another group to assign the additional features to the user.
 
 Directly assigned licenses can be removed, and don’t affect a user's inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
 

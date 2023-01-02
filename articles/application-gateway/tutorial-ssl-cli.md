@@ -2,11 +2,11 @@
 title: TLS termination using CLI - Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -79,7 +79,8 @@ az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --allocation-method Static \
-  --sku Standard
+  --sku Standard \
+  --location eastus
 ```
 
 ## Create the application gateway
@@ -101,6 +102,7 @@ az network application-gateway create \
   --frontend-port 443 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
+  --priority "1" \
   --public-ip-address myAGPublicIPAddress \
   --cert-file appgwcert.pfx \
   --cert-password "Azure123456!"
@@ -117,7 +119,7 @@ az network application-gateway create \
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
+In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \

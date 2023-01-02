@@ -3,7 +3,7 @@ title: China content delivery with Azure CDN | Microsoft Docs
 description: Learn about using Azure Content Delivery Network (CDN) to deliver content to China users.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
 
 ---

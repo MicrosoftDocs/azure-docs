@@ -3,12 +3,14 @@ title: Optimize your Azure Cosmos DB application using rate limiting
 description: This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 author: plasne
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/26/2021
 ms.author: pelasne
 ---
 
 # Optimize your Azure Cosmos DB application using rate limiting
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 
@@ -79,15 +81,15 @@ There are some key concepts when measuring cost:
 
 The method to determine the cost of a request, is different for each API:
 
-* [Core API](find-request-unit-charge.md)
-* [Cassandra API](find-request-unit-charge-cassandra.md)
-* [Gremlin API](find-request-unit-charge-gremlin.md)
-* [Mongo DB API](find-request-unit-charge-mongodb.md)
-* [Table API](find-request-unit-charge-table.md)
+* [API for NoSQL](find-request-unit-charge.md)
+* [API for Cassandra](cassandra/find-request-unit-charge.md)
+* [API for Gremlin](gremlin/find-request-unit-charge.md)
+* [API for MongoDB](mongodb/find-request-unit-charge.md)
+* [API for Table](table/find-request-unit-charge.md)
 
 ## Write requests
 
-The cost of write operations tends to be easy to predict. You will insert records and document the cost that Azure Cosmos reported.
+The cost of write operations tends to be easy to predict. You will insert records and document the cost that Azure Cosmos DB reported.
 
 If you have documents of different size and/or documents that will use different indexes, it is important to measure all of them.
 You may find that your representative documents are close enough in cost that you can assign a single value across all writes.
@@ -104,7 +106,7 @@ The cost of query operations can be much harder to predict for the following rea
 * The number of results can vary and unless you have statistics, you cannot predict the RU impact from the return payload.
 
 It is likely you will not have a single cost of query operations, but rather some function that evaluates the query and calculates a cost.
-If you are using the Core API, you could then evaluate the actual cost of the operation and determine how accurate your estimation was
+If you are using the API for NoSQL, you could then evaluate the actual cost of the operation and determine how accurate your estimation was
 (tuning of this estimation could even happen automatically within the code).
 
 ## Transient fault handling
@@ -126,7 +128,7 @@ Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the thro
 
 Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale.
 
-For more information on autoscaling, see [Create Azure Cosmos containers and databases with autoscale throughput
+For more information on autoscaling, see [Create Azure Cosmos DB containers and databases with autoscale throughput
 ](provision-throughput-autoscale.md).
 
 ### Queue-Based Load Leveling pattern
@@ -160,3 +162,6 @@ For more information, see [Materialized View pattern](/azure/architecture/patter
 * Learn more about [Partitioning and horizontal scaling](partitioning-overview.md) in Azure Cosmos DB.
 * Learn about [Indexing policies](index-policy.md) in Azure Cosmos DB.
 * Learn about [Autoscaling](provision-throughput-autoscale.md) in Azure Cosmos DB.
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

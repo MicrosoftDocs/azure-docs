@@ -1,0 +1,41 @@
+items:
+- name: Azure public multi-access edge compute documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure public MEC?
+    href: overview.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Key concepts
+    href: key-concepts.md
+  - name: Considerations for deployment
+    href: considerations-for-deployment.md
+  - name: Partner Solutions
+    href: partner-solutions.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create VM using ARM template
+    href: quickstart-create-vm-azure-resource-manager-template.md
+  - name: Create VM using Azure CLI
+    href: quickstart-create-vm-cli.md
+    displayName: az login, az account, az group, az vm, az network, jump server, SSH, Azure Virtual Network, VNet
+- name: Tutorials
+  items:
+  - name: Create VM using Go SDK
+    href: tutorial-create-vm-using-go-sdk.md
+  - name: Create VM using Python SDK
+    href: tutorial-create-vm-using-python-sdk.md
+- name: Resources
+  items:
+  - name: Azure public MEC product page
+    href: https://go.microsoft.com/fwlink/?linkid=2186926
+  - name: Azure Marketplace
+    href: https://azuremarketplace.microsoft.com/marketplace/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking

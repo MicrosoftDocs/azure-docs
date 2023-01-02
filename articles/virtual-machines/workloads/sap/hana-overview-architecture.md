@@ -10,12 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/04/2021
+ms.date: 09/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
 #  What is SAP HANA on Azure (Large Instances)?
+
+> [!NOTE]
+> HANA Large Instance service is in sunset mode and does not accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, please check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24).
 
 SAP HANA on Azure (Large Instances) is a unique solution to Azure. In addition to providing virtual machines for deploying and running SAP HANA, Azure offers you the possibility to run and deploy SAP HANA on bare-metal servers that are dedicated to you. The SAP HANA on Azure (Large Instances) solution builds on non-shared host/server bare-metal hardware that is assigned to you. The server hardware is embedded in larger stamps that contain compute/server, networking, and storage infrastructure. SAP HANA on Azure (Large Instances) offers different server SKUs or sizes. Units can have 36 Intel CPU cores and 768 GB of memory and go up to units that have up to 480 Intel CPU cores and up to 24 TB of memory.
 
@@ -51,7 +54,7 @@ The different documents of HANA Large Instance guidance cover the following area
 - [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md)
 - [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
 - [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md)
-- [High availability set up in SUSE by using the STONITH](./ha-setup-with-stonith.md)
+- [High availability set up in SUSE by using a fencing device](./ha-setup-with-fencing-device.md)
 - [OS Backup](./large-instance-os-backup.md)
 - [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 

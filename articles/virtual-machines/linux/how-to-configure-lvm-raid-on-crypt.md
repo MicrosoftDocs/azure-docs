@@ -15,6 +15,8 @@ ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 # Configure LVM and RAID on encrypted devices
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article is a step-by-step process for how to perform Logical Volume Management (LVM) and RAID on encrypted devices. The process applies to the following environments:
 
 - Linux distributions

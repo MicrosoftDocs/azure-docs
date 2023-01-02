@@ -1,17 +1,17 @@
 ---
-title: Deploy PHP `Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
-description: Describes how to deploy a PHP `Guestbook` stateless application with Redis using GitOps on an Arc enabled Kubernetes cluster of your Azure Stack Edge Pro device.
+title: Deploy PHP `Guestbook` app on Azure Arc-enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to deploy a PHP `Guestbook` stateless application with Redis using GitOps on an Azure Arc-enabled Kubernetes cluster of your Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 09/09/2022
 ms.author: alkohli
 ---
 
-# Deploy a PHP `Guestbook` stateless application with Redis on Arc enabled Kubernetes cluster on Azure Stack Edge Pro GPU
+# Deploy a PHP `Guestbook` stateless application with Redis on Azure Arc-enabled Kubernetes cluster on Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -21,19 +21,16 @@ This article shows you how to build and deploy a simple, multi-tier web applicat
 - Multiple replicated Redis instances to serve reads
 - Multiple web frontend instances
 
-The deployment is done using GitOps on the Arc enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
+The deployment is done using GitOps on the Azure Arc-enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
+This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
 
 > [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Prerequisites
 
 Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
-
-> [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### For device
 
@@ -82,9 +79,11 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. Go to **Configurations** and select **+ Add configuration**.
 
-    ![Screenshot shows the Azure Arc enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Screenshot shows the Azure Arc-enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. In **Add configuration**, enter the appropriate values for the fields, and then select **Apply**.
+1. Specify the **Flux version 1 Extension**.
+
+1. In **Add a GitOps configuration**, enter the appropriate values for the fields, and then select **Add**.
 
     |Parameter  |Description |
     |---------|---------|
@@ -95,7 +94,7 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
     |Operator scope     | Select **Namespace**. <br>This parameter defines the scope at which the operator is installed. Select Namespace to install your operator in the namespace specified in the deployment yaml files.       |
     |Operator type     | Leave at default. <br>This parameter specifies the type of the operator - by default, set as flux.        |
     |Operator params     | Leave this blank. <br>This parameter contains parameters to pass to the flux operator.        |
-    |Helm     | Set this parameter to **Disabled**. <br>Enable this option if you will do chart-based deployments.        |
+    |Helm     | Leave this checkbox **Unchecked**. <br>Enable this option if you will do chart-based deployments.        |
 
 
     ![Add configuration](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -103,11 +102,11 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. The configuration deployment starts and the **Operator state** shows as **Pending**. 
 
-    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in a pending state as it refreshes.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Screenshot shows the Azure Arc-enabled Kubernetes cluster in a pending state as it refreshes.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. The deployment takes a couple minutes. When the deployment completes, the **Operator state** shows as **Installed**.
 
-    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Screenshot shows the Azure Arc-enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 ## Verify deployment
 

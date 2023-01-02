@@ -4,7 +4,7 @@ description: Learn how to manage database roles and users on an Analysis Service
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 

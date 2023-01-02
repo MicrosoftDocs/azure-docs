@@ -2,13 +2,11 @@
 title: 'Custom skill example using Bing Entity Search API'
 titleSuffix: Azure Cognitive Search
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
-
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/01/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -20,7 +18,7 @@ In this example, learn how to create a web API custom skill. This skill will acc
 
 + Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you aren't familiar with the input/output interface that a custom skill should implement.
 
-+ Create a [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
++ Create a [Bing Search v7 resource](https://portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
 
 + Install [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
 
@@ -308,7 +306,7 @@ namespace SampleSkills
 
 Make sure to enter your own *key* value in the `key` constant based on the key you got when signing up for the Bing entity search API.
 
-This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Text/BingEntitySearch).
 
 Of course, you may rename the file from `Function1.cs` to `BingEntitySearch.cs`.
 

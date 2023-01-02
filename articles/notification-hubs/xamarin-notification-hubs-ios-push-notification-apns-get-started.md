@@ -10,7 +10,7 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/12/2021

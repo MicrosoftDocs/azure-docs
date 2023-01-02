@@ -1,28 +1,27 @@
 ---
-title: Query Delta Lake format using serverless SQL pool (preview)
-description: In this article, you'll learn how to query files stored in Apache Delta Lake format using serverless SQL pool.
+title: Query Delta Lake format using serverless SQL pool
+description: In this article, you'll learn how to query files stored in Delta Lake format using serverless SQL pool.
 services: synapse analytics
-author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 04/27/2021
+ms.date: 12/06/2022
+author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick 
+ms.reviewer: sngun, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
-# Query Delta Lake files (preview) using serverless SQL pool in Azure Synapse Analytics
+# Query Delta Lake files using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using serverless Synapse SQL pool to read Apache Delta Lake files.
+In this article, you'll learn how to write a query using serverless Synapse SQL pool to read Delta Lake files.
 Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
 
 The serverless SQL pool in Synapse workspace enables you to read the data stored in Delta Lake format, and serve it to reporting tools. 
 A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
 
 Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports
-on Delta Lake files created by data engineers.
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
+on Delta Lake files created by data engineers. You can learn more from the [how to query delta lake tables video](https://www.youtube.com/watch?v=LSIVX0XxVfc).
 
 ## Quickstart example
 
@@ -33,10 +32,10 @@ The [OPENROWSET](develop-openrowset.md) function enables you to read the content
 The easiest way to see to the content of your `DELTA` file is to provide the file URL to the [OPENROWSET](develop-openrowset.md) function and specify `DELTA` format. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using a query like the one shown in the following example:
 
 ```sql
-select top 10 *
-from openrowset(
-    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
-    format = 'delta') as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
+    FORMAT = 'delta') as rows;
 ```
 
 Column names and data types are automatically read from Delta Lake files. The `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
@@ -50,7 +49,7 @@ If you don't have this subfolder, you are not using Delta Lake format. You can c
 
 ```python
 %%pyspark
-from delta.tables import *
+from delta.tables import DeltaTable
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/covid`")
 ```
 
@@ -83,16 +82,16 @@ If you created your database, and switched the context to your database (using `
 your external data source containing the root URI to your data set and use it to query Delta Lake files:
 
 ```sql
-create external data source DeltaLakeStorage
-with ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
-go
+CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+WITH ( LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+GO
 
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
-    ) as rows
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
+    ) as rows;
 ```
 
 If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
@@ -102,16 +101,16 @@ If a data source is protected with SAS key or custom identity, you can configure
 `OPENROWSET` enables you to explicitly specify what columns you want to read from the file using `WITH` clause:
 
 ```sql
-select top 10 *
-from openrowset(
-        bulk 'covid',
-        data_source = 'DeltaLakeStorage',
-        format = 'delta'
+SELECT TOP 10 *
+FROM OPENROWSET(
+        BULK 'covid',
+        DATA_SOURCE = 'DeltaLakeStorage',
+        FORMAT = 'delta'
     )
-    with ( date_rep date,
+    WITH ( date_rep date,
            cases int,
            geo_id varchar(6)
-           ) as rows
+           ) as rows;
 ```
 
 With the explicit specification of the result set schema, you can minimize the type sizes and use the more precise types VARCHAR(6) for string columns instead of pessimistic VARCHAR(1000). Minimization of types might significantly improve performance of your queries.
@@ -126,7 +125,7 @@ With the explicit specification of the result set schema, you can minimize the t
 
 ## Dataset
 
-[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. You can query Parquet files the same way you [read CSV files](query-parquet-files.md). The only difference is that the `FILEFORMAT` parameter should be set to `PARQUET`. Examples in this article show the specifics of reading Parquet files.
+[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. The original `PARQUET` data set is converted to `DELTA` format, and the `DELTA` version is used in the examples.
 
 
 ### Query partitioned data
@@ -169,7 +168,7 @@ If you don't have this subfolder, you are not using Delta Lake format. You can c
 
 ```python
 %%pyspark
-from delta.tables import *
+from delta.tables import DeltaTable
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
 ```
 
@@ -177,8 +176,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 
 ## Limitations
 
-- Schema inference doesn't work if you have complex data types. For complex data types, use explicit `WITH` schema and specify `VARCHAR(MAX)` type. 
-- The `OPENROWSET` function doesn't support updating a Delta Lake file or time travel. Use Apache Spark engine to perform these actions.
+- Review the limitations and the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Next steps
 
@@ -189,5 +187,6 @@ If you want to continue building Delta Lake solution, learn how to create [views
 
 - [What is Delta Lake](../spark/apache-spark-what-is-delta-lake.md)
 - [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
-- [Azure Databricks Delta Lake best practices](/azure/databricks/best-practices-index)
+- [Azure Databricks Delta Lake best practices](/azure/databricks/delta/best-practices)
 - [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
+- [Know issues and limitations](resources-self-help-sql-on-demand.md#delta-lake)

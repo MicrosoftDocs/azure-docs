@@ -1,10 +1,14 @@
 ---
 title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
-ms.topic: conceptual
-ms.date: 11/01/2017
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # How to use the Reliable Services communication APIs
 Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are acceptable, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides built-in communication stacks as well as APIs that you can use to build your custom communication components.
 
@@ -80,7 +84,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-In both cases, you return a collection of listeners. This allows your service to listen on multiple endpoints, potentially using different protocols, by using multiple listeners. For example, you may have an HTTP listener and a separate WebSocket listener. Each listener gets a name, and the resulting collection of *name : address* pairs are represented as a JSON object when a client requests the listening addresses for a service instance or a partition.
+In both cases, you return a collection of listeners. Using multiple listeners allows your service to listen on multiple endpoints, potentially using different protocols. For example, you may have an HTTP listener and a separate WebSocket listener. You can migrate from unsecure to secure remoting by first enabling both scenarios by having both a non-secure listener and a secure listener. Each listener gets a name, and the resulting collection of *name : address* pairs are represented as a JSON object when a client requests the listening addresses for a service instance or a partition.
 
 In a stateless service, the override returns a collection of ServiceInstanceListeners. A `ServiceInstanceListener` contains a function to create an `ICommunicationListener(C#) / CommunicationListener(Java)` and gives it a name. For stateful services, the override returns a collection of ServiceReplicaListeners. This is slightly different from its stateless counterpart, because a `ServiceReplicaListener` has an option to open an `ICommunicationListener` on secondary replicas. Not only can you use multiple communication listeners in a service, but you can also specify which listeners accept requests on secondary replicas and which ones listen only on primary replicas.
 

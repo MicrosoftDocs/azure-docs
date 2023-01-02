@@ -2,14 +2,12 @@
 title: 'Quickstart: Create a Traffic Manager by using Azure Resource Manager template (ARM template)'
 description: This quickstart article describes how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
 services: traffic-manager
-author: duongau
-ms.author: duau
+author: greg-lindsay
+ms.author: greglin
 ms.date: 09/01/2020
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a Traffic Manager profile using an ARM template
@@ -28,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-traffic-manager-external-endpoint).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/traffic-manager-external-endpoint).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-external-endpoint/azuredeploy.json":::
 
@@ -63,7 +61,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment creates a profile with two external endpoints. **Endpoint1** uses a target endpoint of `www.microsoft.com` with the location in **North Europe**. **Endpoint2** uses a target endpoint of `docs.microsoft.com` with the location in **South Central US**.
+    The template deployment creates a profile with two external endpoints. **Endpoint1** uses a target endpoint of `www.microsoft.com` with the location in **North Europe**. **Endpoint2** uses a target endpoint of `learn.microsoft.com` with the location in **South Central US**.
 
     The resource group name is the project name with **rg** appended.
 
@@ -92,9 +90,9 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
 
-    You should get a NameHost of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
+    You should get a NameHost of either `www.microsoft.com` or `learn.microsoft.com` depending on which region is closer to you.
 
-1. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `docs.microsoft.com` respectively.
+1. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `learn.microsoft.com` respectively.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force

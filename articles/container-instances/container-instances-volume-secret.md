@@ -1,8 +1,12 @@
 ---
 title: Mount secret volume to container group
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Mount a secret volume in Azure Container Instances
@@ -105,7 +109,7 @@ Next, for each container in the container group in which you'd like to mount the
 The following Resource Manager template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two secrets, "mysecret1" and "mysecret2."
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
-[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+[!code-json[volume-secret](~/resourcemanager-templates/container-instances/aci-deploy-volume-secret.json)]
 
 To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az deployment group create][az-deployment-group-create] command with the `--template-file` parameter:
 

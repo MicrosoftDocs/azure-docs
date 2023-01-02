@@ -2,12 +2,12 @@
 title: Azure CDN from Verizon Premium rules engine features
 description: Reference documentation for Azure CDN from Verizon Premium rules engine features.
 services: cdn
-author: asudbring
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 06/02/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 
@@ -30,7 +30,6 @@ The available types of features are:
 * [Origin](#origin)
 * [Specialty](#specialty)
 * [URL](#url)
-* [Web Application Firewall](#waf)
 
 ### <a name="access"></a>Access
 
@@ -116,8 +115,8 @@ These features determine whether a request will undergo the optimizations provid
 
 | Name       | Purpose                                                           |
 |------------|-------------------------------------------------------------------|
-| [Edge Optimizer](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer.htm) | Determines whether Edge Optimizer can be applied to a request. |
-| [Edge Optimizer – Instantiate Configuration](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer-Instantiate-Configuration.htm) | Instantiates or activates the Edge Optimizer configuration associated with a site. |
+| Edge Optimizer | Determines whether Edge Optimizer can be applied to a request. |
+| Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site. |
 
 **[Back to the top](#top)**
 
@@ -155,12 +154,6 @@ These features allow a request to be redirected or rewritten to a different URL.
 | [Follow Redirects](https://docs.vdms.com/cdn/Content/HRE/F/Follow-Redirects.htm) | Determines whether requests can be redirected to the hostname defined in the Location header returned by a customer origin server. |
 | [URL Redirect](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm) | Redirects requests via the Location header. |
 | [URL Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm) | Rewrites the request URL. |
-
-**[Back to the top](#top)**
-
-### <a name="waf"></a>Web Application Firewall
-
-The [Web Application Firewall](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) feature determines whether a request will be screened by Web Application Firewall.
 
 **[Back to the top](#top)**
 

@@ -1,1 +1,0 @@
-This article is based on [sample code](https://github.com/Azure-Samples/live-video-analytics-iot-edge-python) written in Python.

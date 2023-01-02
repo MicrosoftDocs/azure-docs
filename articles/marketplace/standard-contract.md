@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 05/20/2020
+ms.date: 10/26/2021
 ---
 
 # Standard Contract for Microsoft commercial marketplace
@@ -17,6 +17,9 @@ The terms and conditions for an offer are defined when creating the offer in Par
 
 >[!Note]
 >Once you publish an offer using the Standard contract for the Microsoft commercial marketplace, you won't be able to use your own custom terms and conditions. You either offer your solution under the Standard Contract *or* your own terms and conditions. Custom terms and conditions are defined at the offer level and apply to all plans; write your custom terms and conditions in the **Properties** page of your offer in Partner Center. If you'd like to modify the terms of the Standard Contract, you can do so through Standard Contract Amendments.
+
+> [!TIP]
+> To see the customer's view of legal contracts in Azure Marketplace, see [Legal contracts](/marketplace/legal-contracts).
 
 ## Standard Contract Amendments
 
@@ -31,7 +34,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 >[!Note]
 >These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase. Amendments are limited to 4000 characters, including spaces.
 
-You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, and SaaS.
+You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Azure Containers, Container Apps, Virtual Machines, and SaaS.
 
 ## Customer experience
 

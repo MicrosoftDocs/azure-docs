@@ -4,15 +4,14 @@ description: Learn how to list, create, update, or delete custom roles using Azu
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: amycolannino
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 07/28/2022
 ms.author: rolyon
 ms.reviewer: bagovind 
 ms.custom: devx-track-azurepowershell
@@ -159,7 +158,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 When you use PowerShell to create a custom role, you can use one of the [built-in roles](built-in-roles.md) as a starting point or you can start from scratch. The first example in this section starts with a built-in role and then customizes it with more permissions. Edit the attributes to add the `Actions`, `NotActions`, or `AssignableScopes` that you want, and then save the changes as a new role.
 
-The following example starts with the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) built-in role to create a custom role named *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
+The following example starts with the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) built-in role to create a custom role named *Virtual Machine Operator*. The new role grants access to all read actions of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"
@@ -183,7 +182,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-The following example shows another way to create the *Virtual Machine Operator* custom role. It starts by creating a new `PSRoleDefinition` object. The action operations are specified in the `perms` variable and set to the `Actions` property. The `NotActions` property is set by reading the `NotActions` from the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) built-in role. Since [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) does not have any `NotActions`, this line is not required, but it shows how information can be retrieved from another role.
+The following example shows another way to create the *Virtual Machine Operator* custom role. It starts by creating a new `PSRoleDefinition` object. The actions are specified in the `perms` variable and set to the `Actions` property. The `NotActions` property is set by reading the `NotActions` from the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) built-in role. Since [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) does not have any `NotActions`, this line is not required, but it shows how information can be retrieved from another role.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -240,7 +239,7 @@ Similar to creating a custom role, you can modify an existing custom role using 
 
 To modify a custom role, first, use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use the [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) command to save the modified role definition.
 
-The following example adds the `Microsoft.Insights/diagnosticSettings/*` operation to the *Virtual Machine Operator* custom role.
+The following example adds the `Microsoft.Insights/diagnosticSettings/*` action to the *Virtual Machine Operator* custom role.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Operator"
@@ -366,35 +365,37 @@ Set-AzRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 
 ## Delete a custom role
 
-To delete a custom role, use the [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) command.
+1. Remove any role assignments that use the custom role. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
-The following example removes the *Virtual Machine Operator* custom role.
+1. Use the [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) command to delete the custom role.
 
-```azurepowershell
-Get-AzRoleDefinition "Virtual Machine Operator"
-Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
-```
-
-```Example
-PS C:\> Get-AzRoleDefinition "Virtual Machine Operator"
-
-Name             : Virtual Machine Operator
-Id               : 88888888-8888-8888-8888-888888888888
-IsCustom         : True
-Description      : Can monitor and restart virtual machines.
-Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
-                   Microsoft.Compute/virtualMachines/start/action...}
-NotActions       : {}
-AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
-                   /subscriptions/11111111-1111-1111-1111-111111111111}
-
-PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
-
-Confirm
-Are you sure you want to remove role definition with name 'Virtual Machine Operator'.
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-```
-
+    The following example removes the *Virtual Machine Operator* custom role.
+    
+    ```azurepowershell
+    Get-AzRoleDefinition "Virtual Machine Operator"
+    Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
+    ```
+    
+    ```Example
+    PS C:\> Get-AzRoleDefinition "Virtual Machine Operator"
+    
+    Name             : Virtual Machine Operator
+    Id               : 88888888-8888-8888-8888-888888888888
+    IsCustom         : True
+    Description      : Can monitor and restart virtual machines.
+    Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                       Microsoft.Compute/virtualMachines/start/action...}
+    NotActions       : {}
+    AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                       /subscriptions/11111111-1111-1111-1111-111111111111}
+    
+    PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | Remove-AzRoleDefinition
+    
+    Confirm
+    Are you sure you want to remove role definition with name 'Virtual Machine Operator'.
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+    ```
+    
 ## Next steps
 
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)

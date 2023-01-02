@@ -57,7 +57,7 @@ To create a share, do the following procedure:
     c. Provide a storage account where the share will reside. 
 
     > [!IMPORTANT]
-    > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro FPGA or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
+    > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge Pro FPGA or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/immutable-policy-configure-version-scope.md).
     
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.

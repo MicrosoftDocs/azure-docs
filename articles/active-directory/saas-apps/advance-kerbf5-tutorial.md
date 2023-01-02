@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -54,6 +54,8 @@ To configure the integration of F5 into Azure AD, you need to add F5 from the ga
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **F5** in the search box.
 1. Select **F5** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD single sign-on for F5
 
@@ -320,7 +322,7 @@ In this section, you create a user called B.Simon in F5. Work with [F5 Client s
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

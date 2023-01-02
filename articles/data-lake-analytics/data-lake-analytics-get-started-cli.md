@@ -1,6 +1,6 @@
 ---
-title: Create & query Azure Data Lake Analytics - Azure CLI
-description: Learn how to use the Azure Command-line Interface to create an Azure Data Lake Analytics account and submit a U-SQL job.
+title: Create and query Azure Data Lake Analytics - Azure CLI
+description: Learn how to use the Azure CLI to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: conceptual
@@ -10,6 +10,8 @@ ms.custom: devx-track-azurecli
 # Get started with Azure Data Lake Analytics using Azure CLI
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This article describes how to use the Azure CLI command-line interface to create Azure Data Lake Analytics accounts, submit USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file.
 

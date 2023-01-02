@@ -1,11 +1,9 @@
 ---
 title: Tutorial - Run Python scripts through Data Factory
 description: Learn how to run Python scripts as part of a pipeline through Azure Data Factory using Azure Batch.
-author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/12/2021
-ms.author: peshultz
 ms.custom: mvc, devx-track-python
 ---
 
@@ -50,7 +48,7 @@ In this section, you'll use Batch Explorer to create the Batch pool that your Az
 1. Create a pool by selecting **Pools** on the left side bar, then the **Add** button above the search form. 
     1. Choose an ID and display name. We'll use `custom-activity-pool` for this example.
     1. Set the scale type to **Fixed size**, and set the dedicated node count to 2.
-    1. Under **Data science**, select **Dsvm Windows** as the operating system.
+    1. Under **Image Type**, select **Marketplace** as the operating system and **Publisher** as **microsoft-dsvm**
     1. Choose `Standard_f2s_v2` as the virtual machine size.
     1. Enable the start task and add the command `cmd /c "pip install azure-storage-blob pandas"`. The user identity can remain as the default **Pool user**.
     1. Select **OK**.

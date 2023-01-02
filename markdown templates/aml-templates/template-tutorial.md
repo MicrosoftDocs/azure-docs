@@ -17,7 +17,7 @@ AUTHORS: A single sentence intro about AML. Intro paragraph to explain the inten
 
 In this tutorial you will do X...
 
-AUTHORS: Quick read tutorial guidance: https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=master  And, don't forget to run Acrolinx to find issues before you commit.
+AUTHORS: Quick read tutorial [here](https://review.learn.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=main). Also, don't forget to run Acrolinx to find issues before you commit.
 
 In this tutorial, you use X to do Y or you learn how to:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ In this tutorial, you use X to do Y or you learn how to:
 To complete this tutorial, you need:
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 * An Azure Machine Learning workspace. Learn how to get create a workspace in the [Get started](quickstart-get-started.md#create-a-workspace) quickstart.
-* A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn how to install Docker here: https://docs.docker.com/engine/installation/.
+* A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn [how to install Docker](https://docs.docker.com/engine/installation/).
 
 
 ## Log in to the Azure portal

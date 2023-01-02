@@ -6,17 +6,15 @@ services: notification-hubs
 documentationcenter: nodejs
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/23/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
 ---
@@ -87,7 +85,7 @@ Obtain the connection `connectionstring` value from the [Azure portal] by perfor
 ![Azure portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azure/) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-classic-cli).
+> You can also retrieve the connection string via the `Get-AzureSbNamespace` cmdlet in [Azure PowerShell](/powershell/azure/) or the `azure sb namespace show` command in the [Azure classic CLI](/cli/azure/install-classic-cli).
 
 ## General architecture
 
@@ -97,6 +95,9 @@ The `NotificationHubService` object exposes the following object instances for s
 - **iOS** - use the `ApnsService` object, which is accessible at `notificationHubService.apns`
 - **Windows Phone** - use the `MpnsService` object, which is available at `notificationHubService.mpns`
 - **Universal Windows Platform** - use the `WnsService` object, which is available at `notificationHubService.wns`
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 ### How to: Send push notifications to Android applications
 
@@ -195,7 +196,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 ## Next Steps
 
-The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
+The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with Node.js, follow these links to learn more about how you can extend these capabilities further.
 
 - See the MSDN Reference for [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)).
 - Visit the [Azure SDK for Node] repository on GitHub for more samples and implementation details.

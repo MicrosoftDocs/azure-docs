@@ -6,7 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/04/2021
+ms.date: 10/14/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Central
@@ -16,9 +17,9 @@ ms.date: 06/04/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit)
 
-In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (hereafter, the Renesas RX65N) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (from now on, the Renesas RX65N) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming a Renesas RX65N in C
 * Build an image and flash it onto the Renesas RX65N
@@ -26,13 +27,14 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    > * The [Renesas RX65N Cloud Kit](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-cloud-kit-renesas-rx65n-cloud-kit) (Renesas RX65N)
-    > * 2 USB 2.0 A male to Mini USB male cables
-    > * WiFi 2.4 GHz
+    * The [Renesas RX65N Cloud Kit](https://www.renesas.com/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-cloud-kit-renesas-rx65n-cloud-kit) (Renesas RX65N)
+    * two USB 2.0 A male to Mini USB male cables
+    * WiFi 2.4 GHz
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -62,14 +64,14 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain-rx.bat*:
 
-    > *getting-started\tools\get-toolchain-rx.bat*
+    *getting-started\tools\get-toolchain-rx.bat*
 
 1. Add the RX compiler to the Windows Path:
 
-   > *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
+   *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
-1. Run the following commands to confirm that CMake version 3.14 or later is installed and the RX compiler path is set up correctly.
+1. Run the following commands to confirm that CMake version 3.14 or later is installed. Make certain that the RX compiler path is set up correctly.
 
     ```shell
     cmake --version
@@ -89,13 +91,13 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
 1. Open the following file in a text editor:
 
-    > *getting-started\Renesas\RX65N_Cloud_Kit\app\azure_config.h*
+    *getting-started\Renesas\RX65N_Cloud_Kit\app\azure_config.h*
 
 1. Set the Wi-Fi constants to the following values from your local environment.
 
     |Constant name|Value|
     |-------------|-----|
-    |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
+    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
     |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
     |`WIFI_MODE` |{*One of the enumerated Wi-Fi mode values in the file*}|
 
@@ -111,13 +113,13 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\Renesas\RX65N_Cloud_Kit\tools\rebuild.bat*
+    *getting-started\Renesas\RX65N_Cloud_Kit\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\Renesas\RX65N_Cloud_Kit\build\app\rx65n_azure_iot.hex*
+    *getting-started\Renesas\RX65N_Cloud_Kit\build\app\rx65n_azure_iot.hex*
 
 ### Connect the device
 
@@ -148,27 +150,32 @@ After the build completes, confirm that the binary file was created in the follo
     * **Tool**: E2 emulator Lite
     * **Interface**: FINE
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-new.png" alt-text="Renesas Flash Programmer, New Project":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-new.png" alt-text="Screenshot of Renesas Flash Programmer, New Project":::
 
 3. Select the *Tool Details* button, and navigate to the *Reset Settings* tab.
 
 4. Select *Reset Pin as Hi-Z* and press the *OK* button.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-reset.png" alt-text="Renesas Flash Programmer, Reset Settings":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-reset.png" alt-text="Screenshot of Renesas Flash Programmer, Reset Settings":::
 
 5. Press the *Connect* button and, when prompted, check the *Auto Authentication* checkbox and then press *OK*.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-auth.png" alt-text="Renesas Flash Programmer, Authentication":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/rfp-auth.png" alt-text="Screenshot of Renesas Flash Programmer, Authentication":::
 
-6. Select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
+6. Select the *Connect Settings* tab, select the *Speed* dropdown, and set the speed to 1,000,000 bps.  
+    > [!IMPORTANT]
+    > If there are errors when you try to flash the board, you might need to lower the speed in this setting to 750,000 bps or lower. 
 
-7. Press *Start* to begin flashing. This process will take approximately 10 seconds.
+
+6. Select the *Operation* tab, then select the *Browse...* button and locate the *rx65n_azure_iot.hex* file created in the previous section.
+
+7. Press *Start* to begin flashing. This process takes less than a minute. 
 
 ### Confirm device connection details
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 > [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 1. Start **Termite**.
 1. Select **Settings**.
@@ -176,7 +183,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your Renesas RX65N is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device.
@@ -184,38 +191,54 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Starting Azure thread
-
+    
     Initializing WiFi
-	    Connecting to SSID 'iot'
-    SUCCESS: WiFi connected to iot
-
+    	MAC address: 
+    	Firmware version 0.14
+    SUCCESS: WiFi initialized
+    
+    Connecting WiFi
+    	Connecting to SSID
+    	Attempt 1...
+    SUCCESS: WiFi connected
+    
     Initializing DHCP
-	    IP address: 192.168.0.21
-	    Gateway: 192.168.0.1
+    	IP address: 192.168.0.31
+    	Mask: 255.255.255.0
+    	Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-
+    
     Initializing DNS client
-	    DNS address: 75.75.76.76
+    	DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
-
-    Initializing SNTP client
-	    SNTP server 0.pool.ntp.org
-	    SNTP IP address: 45.79.214.107
-	    SNTP time update: May 21, 2021 20:24:10.76 UTC 
+    
+    Initializing SNTP time sync
+    	SNTP server 0.pool.ntp.org
+    	SNTP server 1.pool.ntp.org
+    	SNTP time update: Oct 14, 2022 15:23:15.578 UTC 
     SUCCESS: SNTP initialized
-
+    
     Initializing Azure IoT DPS client
-	    DPS endpoint: global.azure-devices-provisioning.net
-	    DPS ID scope: ***
-	    Registration ID: mydevice
+    	DPS endpoint: global.azure-devices-provisioning.net
+    	DPS ID scope: 
+    	Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
-
+    
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
-    Connected to IoT Hub
-    SUCCESS: Azure IoT Hub client initialized
+    	Hub hostname: 
+    	Device id: mydevice
+    	Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
+    SUCCESS: Connected to IoT Hub
+    
+    Receive properties: {"desired":{"$version":1},"reported":{"$version":1}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
+    
+    Starting Main loop
+    Telemetry message sent: {"humidity":29.37,"temperature":25.83,"pressure":92818.25,"gasResistance":151671.25}.
+    Telemetry message sent: {"accelerometerX":-887,"accelerometerY":236,"accelerometerZ":8272}.
+    Telemetry message sent: {"gyroscopeX":9,"gyroscopeY":1,"gyroscopeZ":4}.
     ```
 
 Keep Termite open to monitor device output in the following steps.
@@ -227,7 +250,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **RX65N Cloud Kit Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -239,7 +262,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -253,9 +276,9 @@ To call a method in IoT Central portal:
 1. Select the **Command** tab from the device page.
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
-1. In the **State** dropdown, select **False**, and then select **Run**.. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -263,11 +286,14 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 ## Clean up resources
 
@@ -290,4 +316,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-

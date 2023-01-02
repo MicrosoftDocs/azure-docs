@@ -2,14 +2,14 @@
 title: Template artifact reference
 description: Provides an example of the deployment template artifact for Azure Managed Applications.
 ms.topic: conceptual
-ms.author: lazinnat
-author: lazinnat
+ms.author: davidsmatlak
+author: davidsmatlak
 ms.date: 07/11/2019
 ---
 
 # Reference: Deployment template artifact
 
-This article is a reference for a *mainTemplate.json* artifact in Azure Managed Applications. For more information about authoring deployment template, see [Azure Resource Manager templates](../templates/template-syntax.md).
+This article is a reference for a *mainTemplate.json* artifact in Azure Managed Applications. For more information about authoring deployment template, see [Azure Resource Manager templates](../templates/syntax.md).
 
 ## Deployment template
 

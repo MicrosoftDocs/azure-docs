@@ -1,18 +1,19 @@
 ---
 title: Total Cost of Ownership (TCO) with Azure Cosmos DB
 description: This article compares the total cost of ownership of Azure Cosmos DB with IaaS and on-premises databases
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.reviewer: sngun
+ms.date: 08/26/2021
 ---
 
 # Total Cost of Ownership (TCO) with Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Azure Cosmos DB is designed with the fine grained multi-tenancy and resource governance. This design allows Azure Cosmos DB to operate at significantly lower cost and help users save. Currently Azure Cosmos DB supports more than 280 customer workloads on a single machine with the density continuously increasing, and thousands of customer workloads within a cluster. It load balances replicas of customers' workloads across different machines in a cluster and across multiple clusters within a data center. To learn more, see [Azure Cosmos DB: Pushing the frontier of globally distributed databases](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Because of  resource-governance, multi-tenancy, and native integration with the rest of Azure infrastructure, Azure Cosmos DB is on average 4 to 6 times cheaper than MongoDB, Cassandra, or other OSS NoSQL running on IaaS and up to 10 times cheaper than the database engines running on premises. See the paper on [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+Azure Cosmos DB is designed with the fine grained multi-tenancy and resource governance. This design allows Azure Cosmos DB to operate at significantly lower cost and help users save. Currently Azure Cosmos DB supports more than 280 customer workloads on a single machine with the density continuously increasing, and thousands of customer workloads within a cluster. It load balances replicas of customers' workloads across different machines in a cluster and across multiple clusters within a data center. To learn more, see [Azure Cosmos DB: Pushing the frontier of globally distributed databases](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Because of  resource-governance, multi-tenancy, and native integration with the rest of Azure infrastructure, Azure Cosmos DB is on average 4 to 6 times cheaper than MongoDB, Cassandra, or other OSS NoSQL running on IaaS and up to 10 times cheaper than the database engines running on premises. See the paper on [The total cost of (non) ownership of a NoSQL database cloud service](https://azure.microsoft.com/blog/documentdb-total-cost-of-ownership-for-nosql-databases/).
 
 The OSS NoSQL database solutions, such as Apache Cassandra, MongoDB, HBase, engines were designed for on-premises. When offered as a managed service they are equivalent to a Resource Manager template with a tenant database for managing the provisioned clusters and monitoring support. OSS NoSQL architectures require significant operational overhead, and the expertise can be difficult and expensive to find. On the other hand, Azure Cosmos DB is a fully managed cloud service, which allows developers to focus on business innovation rather than on managing and maintaining database infrastructure.
 
@@ -50,15 +51,24 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 
 * **You automatically get all enterprise capabilities, at no additional cost.** Azure Cosmos DB offers the most comprehensive set of compliance certifications, security, and encryption at rest and in motion at no additional cost (compared to our competition). You automatically get regional availability anywhere in the world. You can span your database across any number of Azure regions and add or remove regions at any point.
 
-* **You can save up to 65% of costs with reserved capacity:** Azure Cosmos DB [reserved capacity](cosmos-db-reserved-capacity.md) helps you save money by pre-paying for Azure Cosmos DB resources for either one year or three years. You can significantly reduce your costs with one-year or three-year upfront commitments and save between 20-65% discounts when compared to the regular pricing. On your mission-critical workloads you can get better SLAs in terms of provisioning capacity.
+* **You can save up to 65% of costs with reserved capacity:** Azure Cosmos DB [reserved capacity](reserved-capacity.md) helps you save money by pre-paying for Azure Cosmos DB resources for either one year or three years. You can significantly reduce your costs with one-year or three-year upfront commitments and save between 20-65% discounts when compared to the regular pricing. On your mission-critical workloads you can get better SLAs in terms of provisioning capacity.
+
+## Capacity planning
+
+As an aid for estimating TCO, it can be helpful to start with capacity planning. If you are planning a migration to Azure Cosmos DB from an existing database cluster, you can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 ## Next steps
 
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 * Learn more about [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md)
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
-* Learn more about [The Total Cost of (Non) Ownership of a NoSQL Database Cloud Service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)
+* Learn more about [Optimizing the cost of multi-region Azure Cosmos DB accounts](optimize-cost-regions.md)
+* Learn more about [The Total Cost of (Non) Ownership of a NoSQL Database Cloud Service](https://azure.microsoft.com/blog/documentdb-total-cost-of-ownership-for-nosql-databases/)

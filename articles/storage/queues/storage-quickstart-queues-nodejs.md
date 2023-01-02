@@ -1,22 +1,23 @@
 ---
-title: 'Quickstart: Azure Queue Storage client library v12 - JavaScript'
-description: Learn how to use the Azure Queue Storage client library v12 for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
-author: twooley
-ms.author: twooley
-ms.date: 12/13/2019
+title: 'Quickstart: Azure Queue Storage client library for JavaScript'
+description: Learn how to use the Azure Queue Storage client library for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 12/15/2022
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom:
-  - devx-track-js
-  - mode-api
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
-# Quickstart: Azure Queue Storage client library v12 for JavaScript
+# Quickstart: Azure Queue Storage client library for JavaScript
 
-Get started with the Azure Queue Storage client library v12 for JavaScript. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the Azure Queue Storage client library for JavaScript. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
-Use the Azure Queue Storage client library v12 for JavaScript to:
+[API reference documentation](/javascript/api/@azure/storage-queue/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/queues/toc.json#queue-samples)
+
+Use the Azure Queue Storage client library for JavaScript to:
 
 - Create a queue
 - Add messages to a queue
@@ -26,13 +27,6 @@ Use the Azure Queue Storage client library v12 for JavaScript to:
 - Delete messages from a queue
 - Delete a queue
 
-Additional resources:
-
-- [API reference documentation](/javascript/api/@azure/storage-queue/)
-- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-- [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue)
-- [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
-
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -41,62 +35,63 @@ Additional resources:
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Queue Storage client library v12 for JavaScript.
+This section walks you through preparing a project to work with the Azure Queue Storage client library for JavaScript.
 
 ### Create the project
 
-Create a Node.js application named `queues-quickstart-v12`
+Create a Node.js application named `queues-quickstart`.
 
-1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
-
-    ```console
-    mkdir queues-quickstart-v12
-    ```
-
-1. Switch to the newly created `queues-quickstart-v12` directory.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project:
 
     ```console
-    cd queues-quickstart-v12
+    mkdir queues-quickstart
     ```
 
-1. Create a new text file called `package.json`. This file defines the Node.js project. Save this file in the `queues-quickstart-v12` directory. Here are the contents of the file:
+1. Switch to the newly created `queues-quickstart` directory:
 
-    ```json
-    {
-        "name": "queues-quickstart-v12",
-        "version": "1.0.0",
-        "description": "Use the @azure/storage-queue SDK version 12 to interact with Azure Queue storage",
-        "main": "queues-quickstart-v12.js",
-        "scripts": {
-            "start": "node queues-quickstart-v12.js"
-        },
-        "author": "Your Name",
-        "license": "MIT",
-        "dependencies": {
-            "@azure/storage-queue": "^12.0.0",
-            "@types/dotenv": "^4.0.3",
-            "dotenv": "^6.0.0"
-        }
-    }
+    ```console
+    cd queues-quickstart
     ```
 
-    You can put your own name in for the `author` field, if you'd like.
+1. Create a *package.json* file:
 
-### Install the package
+    ```console
+    npm init -y
+    ```
 
-While still in the `queues-quickstart-v12` directory, install the Azure Queue Storage client library for JavaScript package by using the `npm install` command.
+1. Open the project in Visual Studio Code:
 
-```console
-npm install
-```
+    ```console
+    code .
+    ```
 
-This command reads the `package.json` file and installs the Azure Queue Storage client library v12 for JavaScript package and all the libraries on which it depends.
+### Install the packages
+
+From the project directory, install the following packages using the `npm install` command. 
+
+1. Install the Azure Queue Storage npm package:
+
+    ```console
+    npm install @azure/storage-queue
+    ```
+
+1. Install the Azure Identity npm package to support passwordless connections:
+
+    ```console
+    npm install @azure/identity
+    ```
+    
+1. Install other dependencies used in this quickstart:
+
+    ```console
+    npm install uuid dotenv
+    ```
 
 ### Set up the app framework
 
 From the project directory:
 
-1. Open another new text file in your code editor
+1. Open a new text file in your code editor
 1. Add `require` calls to load Azure and Node.js modules
 1. Create the structure for the program, including very basic exception handling
 
@@ -104,20 +99,41 @@ From the project directory:
 
     ```javascript
     const { QueueClient } = require("@azure/storage-queue");
-    const uuidv1 = require("uuid/v1");
+    const { DefaultAzureCredential } = require('@azure/identity');
+    const { v1: uuidv1 } = require("uuid");
 
     async function main() {
-        console.log("Azure Queue Storage client library v12 - JavaScript quickstart sample");
-        // Quick start code goes here
+        console.log("Azure Queue Storage client library - JavaScript quickstart sample");
+
+        // Quickstart code goes here
     }
 
     main().then(() => console.log("\nDone")).catch((ex) => console.log(ex.message));
 
     ```
 
-1. Save the new file as `queues-quickstart-v12.js` in the `queues-quickstart-v12` directory.
+1. Save the new file as `index.js` in the `queues-quickstart` directory.
+
+## Authenticate to Azure
+
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+`DefaultAzureCredential` is a class provided by the Azure Identity client library for JavaScript. To learn more about `DefaultAzureCredential`, see the [DefaultAzureCredential overview](/javascript/api/overview/azure/identity-readme#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+
+For example, your app can authenticate using your Azure CLI sign-in credentials when developing locally, and then use a [managed identity](../../../articles/active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
+
+[!INCLUDE [storage-queues-create-assign-roles](../../../includes/passwordless/storage-queues/storage-queues-assign-roles.md)]
+
+### [Connection String](#tab/connection-string)
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
 
 ## Object model
 
@@ -141,7 +157,7 @@ Use the following JavaScript classes to interact with these resources:
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for JavaScript:
 
-- [Get the connection string](#get-the-connection-string)
+- [Authorize access and create a client object](#authorize-access-and-create-a-client-object)
 - [Create a queue](#create-a-queue)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
@@ -150,11 +166,43 @@ These example code snippets show you how to do the following actions with the Az
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
 
-### Get the connection string
+## [Passwordless (Recommended)](#tab/passwordless)
 
-The following code retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+### Authorize access and create a client object
 
-Add this code inside the `main` function:
+[!INCLUDE [default-azure-credential-sign-in-no-vs](../../../includes/passwordless/default-azure-credential-sign-in-no-vs.md)]
+
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step.
+
+To authorize using `DefaultAzureCredential`, make sure you've added the **@azure/identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to load the **@azure/identity** module in the *index.js* file:
+
+```javascript
+const { DefaultAzureCredential } = require('@azure/identity');
+```
+
+Decide on a name for the queue and create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+
+> [!IMPORTANT]
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
+
+Add the following code inside the `main` method, and make sure to replace the `<storage-account-name>` placeholder value:
+
+```javascript
+// Create a unique name for the queue
+const queueName = "quickstart" + uuidv1();
+
+// Instantiate a QueueClient which will be used to create and interact with a queue
+// TODO: replace <storage-account-name> with the actual name
+const queueClient = new QueueClient(`https://<storage-account-name>.queue.core.windows.net/${queueName}`, new DefaultAzureCredential());
+```
+
+## [Connection String](#tab/connection-string)
+
+### Get the connection string and create a client
+
+The following code retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+
+Add this code inside the `main` method:
 
 ```javascript
 // Retrieve the connection string for use with the application. The storage
@@ -166,26 +214,32 @@ Add this code inside the `main` function:
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
-### Create a queue
-
-Decide on a name for the new queue. The following code appends a UUID value to the queue name to ensure that it's unique.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Create an instance of the [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient) class. Then, call the [`create`](/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) method to create the queue in your storage account.
-
-Add this code to the end of the `main` function:
+Add this code to the end of the `main` method:
 
 ```javascript
 // Create a unique name for the queue
 const queueName = "quickstart" + uuidv1();
 
+// Instantiate a QueueClient which will be used to create and interact with a queue
+const queueClient = new QueueClient(AZURE_STORAGE_CONNECTION_STRING, queueName);
+```
+
+---
+
+### Create a queue
+
+Using the `QueueClient` object, call the [`create`](/javascript/api/@azure/storage-queue/queueclient#@azure-storage-queue-queueclient-create) method to create the queue in your storage account.
+
+Add this code to the end of the `main` method:
+
+```javascript
 console.log("\nCreating queue...");
 console.log("\t", queueName);
-
-// Instantiate a QueueClient which will be used to create and manipulate a queue
-const queueClient = new QueueClient(AZURE_STORAGE_CONNECTION_STRING, queueName);
 
 // Create the queue
 const createQueueResponse = await queueClient.create();
@@ -301,19 +355,19 @@ console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 
 This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-In your console window, navigate to the directory containing the `queues-quickstart-v12.js` file, then use the following `node` command to run the app.
+In your console window, navigate to the directory containing the `index.js` file, then use the following `node` command to run the app.
 
 ```console
-node queues-quickstart-v12.js
+node index.js
 ```
 
 The output of the app is similar to the following example:
 
 ```output
-Azure Queue Storage client library v12 - JavaScript quickstart sample
+Azure Queue Storage client library - JavaScript quickstart sample
 
 Creating queue...
-         quickstartc095d120-1d04-11ea-af30-090ee231305f
+         quickstart<UUID>
 Queue created, requestId: 5c0bc94c-6003-011b-7c11-b13d06000000
 
 Adding messages to the queue...
@@ -354,4 +408,4 @@ For tutorials, samples, quick starts and other documentation, visit:
 > [Azure for JavaScript documentation](/azure/developer/javascript/)
 
 - To learn more, see the [Azure Queue Storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library v12 for JavaScript - samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for JavaScript - samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

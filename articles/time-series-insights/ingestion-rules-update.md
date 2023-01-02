@@ -15,6 +15,8 @@ ms.custom: lyhughes
 
 # Upcoming changes to JSON flattening and escaping rules for new environments
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!IMPORTANT]
 > These changes will be applied to *newly created* Microsoft Azure Time Series Insights Gen2 environments only. The changes don't apply to Gen1 environments.
 

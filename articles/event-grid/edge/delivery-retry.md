@@ -6,13 +6,17 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
 # Delivery and retry
 
 Event Grid provides durable delivery. It tries to deliver each message at least once for each matching subscription immediately. If a subscriber's endpoint doesn't acknowledge receipt of an event or if there is a failure, Event Grid retries delivery based on a fixed **retry schedule** and **retry policy**.  By default, the Event Grid module delivers one event at a time to the subscriber. The payload is however an array with a single event. You can have the module deliver more than one event at a time by enabling the output batching feature. For details about this feature, see [output batching](delivery-output-batching.md).  
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 > [!IMPORTANT]
 >There is no persistence support for event data. This means redeploying or restart of the Event Grid module will cause you to lose any events that aren't yet delivered.

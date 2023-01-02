@@ -1,8 +1,8 @@
 ---
-title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs 
+title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs
 description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.reviewer: arduppal
 ms.date: 12/13/2019
 ms.topic: conceptual
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
@@ -60,7 +60,7 @@ An Azure IoT Edge device:
   * Windows AMD64
   * Linux AMD64
   * Linux ARM32
-  * Linux ARM64 (preview)
+  * Linux ARM64
 
 Cloud resources:
 
@@ -170,10 +170,10 @@ Specify your IoT Edge device as the blob endpoint for any storage requests that 
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
   * `http://<fully qualified domain name>:11002/<account name>`
- 
+
  > [!IMPORTANT]
  > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
- 
+
 ## Azure Blob Storage quickstart samples
 
 The Azure Blob Storage documentation includes quickstart sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to connect to your local blob storage module.
@@ -291,12 +291,6 @@ This Azure Blob Storage on IoT Edge module now provides integration with Event G
 ## Release Notes
 
 Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module. You might be able to find more information related to bug fixes and remediation in the release notes of a specific version.
-
-## Suggestions
-
-Your feedback is important to us to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
-
-You can reach us at absiotfeedback@microsoft.com
 
 ## Next steps
 

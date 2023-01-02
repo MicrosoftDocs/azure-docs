@@ -3,14 +3,14 @@ title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.author: mimart
+ms.date: 03/25/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -24,7 +24,7 @@ ms.subservice: B2C
 ## Prerequisites
 
 * Complete the steps in the [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
-* If you haven't created an DevOps organization, create one by following the instructions in [Sign up, sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates).  
+* If you haven't created a DevOps organization, create one by following the instructions in [Sign up, sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates).  
 
 ## Register an application for management tasks
 
@@ -52,8 +52,8 @@ Param(
     [Parameter(Mandatory = $true)][string]$ClientID,
     [Parameter(Mandatory = $true)][string]$ClientSecret,
     [Parameter(Mandatory = $true)][string]$TenantId,
-    [Parameter(Mandatory = $true)][string]$PolicyId,
-    [Parameter(Mandatory = $true)][string]$PathToFile
+    [Parameter(Mandatory = $true)][string]$Folder,
+    [Parameter(Mandatory = $true)][string]$Files
 )
 
 try {
@@ -66,15 +66,43 @@ try {
     $headers.Add("Content-Type", 'application/xml')
     $headers.Add("Authorization", 'Bearer ' + $token)
 
-    $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
-    $policycontent = Get-Content $PathToFile
+    # Get the list of files to upload
+    $filesArray = $Files.Split(",")
 
-    # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
-    # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
+    Foreach ($file in $filesArray) {
 
-    $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+        $filePath = $Folder + $file.Trim()
 
-    Write-Host "Policy" $PolicyId "uploaded successfully."
+        # Check if file exists
+        $FileExists = Test-Path -Path $filePath -PathType Leaf
+
+        if ($FileExists) {
+            $policycontent = Get-Content $filePath -Encoding UTF8
+
+            # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
+            # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
+    
+    
+            # Get the policy name from the XML document
+            $match = Select-String -InputObject $policycontent  -Pattern '(?<=\bPolicyId=")[^"]*'
+    
+            If ($match.matches.groups.count -ge 1) {
+                $PolicyId = $match.matches.groups[0].value
+    
+                Write-Host "Uploading the" $PolicyId "policy..."
+    
+                $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
+                $content = [System.Text.Encoding]::UTF8.GetBytes($policycontent)
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $content -Headers $headers -ContentType "application/xml; charset=utf-8"
+    
+                Write-Host "Policy" $PolicyId "uploaded successfully."
+            }
+        }
+        else {
+            $warning = "File " + $filePath + " couldn't be not found."
+            Write-Warning -Message $warning
+        }
+    }
 }
 catch {
     Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__
@@ -134,42 +162,25 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
 
 1. In the pipeline you created, select the **Tasks** tab.
 1. Select **Agent job**, and then select the plus sign (**+**) to add a task to the Agent job.
-1. Search for and select **PowerShell**. Do not select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
+1. Search for and select **PowerShell**. Don't select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
 1. Select newly added **PowerShell Script** task.
 1. Enter following values for the PowerShell Script task:
     * **Task version**: 2.*
     * **Display name**: The name of the policy that this task should upload. For example, *B2C_1A_TrustFrameworkBase*.
     * **Type**: File Path
     * **Script Path**: Select the ellipsis (***...***), navigate to the *Scripts* folder, and then select the *DeployToB2C.ps1* file.
-    * **Arguments:**
+    * **Arguments**: Enter the following PowerShell script. 
 
-        Enter the following values for **Arguments**. Replace the `{alias-name}` with the alias you specified in the previous section. Replace the `{policy-id}` with the policy name. Replace the `{policy-file-name}` with the policy file name.
-
-        The first policy your upload must be the *TrustFrameworkBase.xml*.
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId {policy-id} -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/{policy-file-name}
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
-
-        The `PolicyId` is a value found at the start of an XML policy file within the TrustFrameworkPolicy node. For example, the `PolicyId` in the following policy XML is *B2C_1A_TrustFrameworkBase*:
-
-        ```xml
-        <TrustFrameworkPolicy
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-        PolicySchemaVersion="0.3.0.0"
-        TenantId="your-tenant.onmicrosoft.com"
-        PolicyId= "B2C_1A_TrustFrameworkBase"
-        PublicPolicyUri="http://your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
-        ```
-
-        Your final arguments should look like the following example:
-
-        ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
-        ```
-
+        
+        The `-Files` parameter is a comma delimiter list of policy files to deploy. Update the list with your policy files.
+        
+        > [!IMPORTANT]
+        >  Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        
 1. Select **Save** to save the Agent job.
 
 ## Test your pipeline
@@ -182,17 +193,6 @@ To test your release pipeline:
 
 You should see a notification banner that says that a release has been queued. To view its status, select the link in the notification banner, or select it in the list on the **Releases** tab.
 
-## Add more pipeline tasks
-
-To deploy the rest of your policies, repeat the [preceding steps](#add-pipeline-tasks) for each of the custom policy files.
-
-When running the agents and uploading the policy files, ensure they're uploaded in the correct order:
-
-1. *TrustFrameworkBase.xml*
-1. *TrustFrameworkExtensions.xml*
-1. *SignUpOrSignin.xml*
-1. *ProfileEdit.xml*
-1. *PasswordReset.xml*
 
 ## Next steps
 

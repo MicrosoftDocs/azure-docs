@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - FROM clauses
+title: Azure Digital Twins query language reference - FROM clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language FROM clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: FROM clause
 
-This document contains reference information on the **FROM clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *FROM clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The FROM clause is the second part of a query. It specifies the collection and any joins that the query will act on.
 
@@ -41,11 +41,11 @@ To name the collection:
 
 ### Examples
 
-Here is a basic query. The following query returns all digital twins in the instance. 
+Here's a basic query. The following query returns all digital twins in the instance. 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsExample":::
 
-Here is a query with a named collection. The following query assigns a name `T` to the collection, and still returns all digital twins in the instance.
+Here's a query with a named collection. The following query assigns a name `T` to the collection, and still returns all digital twins in the instance.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromDigitalTwinsNamedExample":::
 
@@ -70,11 +70,11 @@ To name the collection:
 
 ### Examples
 
-Here is a query that returns all relationships in the instance. 
+Here's a query that returns all relationships in the instance. 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsExample":::
 
-Here is a query that returns all relationships coming from twins `A`, `B`, `C`, or `D`.
+Here's a query that returns all relationships coming from twins `A`, `B`, `C`, or `D`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromRelationshipsFilteredExample":::
 
@@ -90,7 +90,7 @@ The following limits apply to queries using `FROM`.
 * [No subqueries](#no-subqueries)
 * [Choose FROM RELATIONSHIPS or JOIN](#choose-from-relationships-or-join)
 
-See the sections below for more details.
+For more information, see the following sections.
 
 ### No subqueries
 
@@ -98,12 +98,12 @@ No subqueries are supported within the `FROM` statement.
 
 #### Example (negative)
 
-The following query shows an example of what **cannot** be done as per this limitation.
+The following query shows an example of what can't be done as per this limitation.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="FromNegativeExample":::
 
 ### Choose FROM RELATIONSHIPS or JOIN
 
-The `FROM RELATIONSHIPS` feature cannot be combined with `JOIN`. You will have to select which of these options works best for the information you'd like to select.
+The `FROM RELATIONSHIPS` feature cannot be combined with `JOIN`. You'll have to select which of these options works best for the information you'd like to select.
 
 

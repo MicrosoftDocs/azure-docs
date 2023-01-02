@@ -4,7 +4,7 @@ description: Tutorial - Learn how to use the Apache Kafka Streams API with Kafka
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 03/20/2020
+ms.date: 11/17/2022
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -14,7 +14,7 @@ Learn how to create an application that uses the Apache Kafka Streams API and ru
 
 The application used in this tutorial is a streaming word count. It reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
 
-Kafka stream processing is often done using Apache Spark or Apache Storm. Kafka version 1.1.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution.
+Kafka stream processing is often done using Apache Spark. Kafka version 1.1.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. 
 
 For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 * Complete the steps in the [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) or an equivalent, such as OpenJDK.
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 

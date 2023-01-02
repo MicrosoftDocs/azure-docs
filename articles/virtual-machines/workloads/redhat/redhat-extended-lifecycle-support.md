@@ -12,6 +12,9 @@ ms.author: mathapli
 ---
 
 # Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support
+
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article provides information on Extended Lifecycle Support for the Red Hat Enterprise images:
 * Red Hat Enterprise Linux 6  
 

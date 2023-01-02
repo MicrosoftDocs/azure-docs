@@ -1,17 +1,18 @@
 ---
 title: HB-series VM size performance
 description: Learn about performance testing results for HB-series VM sizes in Azure. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 09/09/2020
-ms.author: amverma
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # HB-series virtual machine sizes
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Several performance tests have been run on HB-series sizes. The following are some of the results of this performance testing.
 

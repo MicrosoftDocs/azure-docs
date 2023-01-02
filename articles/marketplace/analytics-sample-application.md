@@ -4,9 +4,10 @@ description: Use the sample application to build your own commercial marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 03/14/2022
 ---
 
 # Sample application for accessing commercial marketplace analytics data

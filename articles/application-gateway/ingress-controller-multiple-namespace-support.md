@@ -2,11 +2,11 @@
 title: Enable multiple namespace supports for Application Gateway Ingress Controller
 description: This article provides information on how to enable multiple namespace support in a Kubernetes cluster with an Application Gateway Ingress Controller. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
-ms.author: caya
+ms.author: greglin
 ---
 
 # Enable multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller
@@ -174,7 +174,7 @@ options:
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not

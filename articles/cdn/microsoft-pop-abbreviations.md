@@ -26,5 +26,5 @@ This article lists Microsoft POP locations, sorted by POP abbreviation, for **Az
 ## Next steps
 
 * View [Azure CDN from Microsoft POP locations by metro](cdn-pop-locations.md#microsoft).
-* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/cdn/edgenodes).
+* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/edge-nodes/list).
 * Learn how to [create an Azure CDN profile](cdn-create-new-endpoint.md).

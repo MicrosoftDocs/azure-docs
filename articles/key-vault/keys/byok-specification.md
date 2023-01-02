@@ -2,7 +2,7 @@
 title: Bring your own key specification - Azure Key Vault | Microsoft Docs
 description: This document described bring your own key specification. 
 services: key-vault
-author: amitbapat
+author: mbaldwin
 manager: devtiw
 tags: azure-resource-manager
 
@@ -10,9 +10,8 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.author: ambapat 
-ms.custom: devx-track-azurepowershell
-
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Bring your own key specification
@@ -72,6 +71,9 @@ Use the **az keyvault key create** command to create KEK with key operations set
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
+
+> [!NOTE]
+> Services support different KEK lengths; Azure SQL, for instance, only supports key lengths of [2048 or 3072 bytes](/azure/azure-sql/database/transparent-data-encryption-byok-overview#requirements-for-configuring-customer-managed-tde). Consult the documentation for your service for specifics.
 
 ### Step 2: Retrieve the public key of the KEK
 

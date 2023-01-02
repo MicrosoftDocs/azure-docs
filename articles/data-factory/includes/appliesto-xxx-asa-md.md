@@ -1,2 +1,1 @@
-<Token>**APPLIES TO:** ![no](../media/applies-to/no.png)Azure Data Factory ![yes](../media/applies-to/yes.png)Azure Synapse Analytics </Token> 
-
+**APPLIES TO:** :::image type="icon" source="../media/applies-to/no.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics

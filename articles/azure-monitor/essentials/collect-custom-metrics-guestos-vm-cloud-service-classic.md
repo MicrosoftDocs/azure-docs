@@ -3,7 +3,7 @@ title: Send classic Cloud Services metrics to Azure Monitor metrics database
 description: Describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. 
 author: anirudhcavale
 services: azure-monitor
-
+ms.reviewer: shijain
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav 
@@ -35,7 +35,7 @@ The process that's outlined in this article works only for performance counters 
 
 1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../../cloud-services/cloud-services-dotnet-get-started.md). 
 
-2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource blade, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
+2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource pane, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
 
    ![Storage account keys](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
@@ -56,7 +56,7 @@ Give the app created in the previous step *Monitoring Metrics Publisher* permiss
 
 Prepare your Diagnostics extension configuration file. This file dictates which logs and performance counters the Diagnostics extension should collect for your cloud service. Following is a sample Diagnostics configuration file:  
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -98,7 +98,7 @@ Prepare your Diagnostics extension configuration file. This file dictates which 
 
 In the "SinksConfig" section of your diagnostics file, define a new Azure Monitor sink: 
 
-```XML
+```xml
   <SinksConfig> 
     <Sink name="AzMonSink"> 
     <AzureMonitor> 
@@ -120,7 +120,7 @@ In the section of your configuration file where you list the performance counter
 
 Finally, in the private configuration, add an *Azure Monitor Account* section. Enter the service principal client ID and secret that you created earlier. 
 
-```XML
+```xml
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <StorageAccount name="" endpoint="" /> 
     <AzureMonitorAccount> 
@@ -172,7 +172,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 2. On the left menu, select **Monitor.**
 
-3. On the **Monitor** blade, select the **Metrics Preview** tab.
+3. On the **Monitor** pane, select the **Metrics Preview** tab.
 
 4. In the resources drop-down menu, select your classic cloud service.
 

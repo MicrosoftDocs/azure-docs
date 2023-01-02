@@ -10,15 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
 # Tutorial: Build a Web page Spell Check client
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 In this tutorial, we'll build a Web page that allows users to query the Bing Spell Check API. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -34,7 +32,7 @@ This tutorial shows you how to:
 To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, you'll need:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* [A Bing Spell Check resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)
+* [A Bing Spell Check resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)
 
 ## Create a new Web page
 

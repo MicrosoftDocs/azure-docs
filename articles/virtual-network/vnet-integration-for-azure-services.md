@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: This article describes different methods of integrating an Azure service to a virtual network that enables you to securely access the Azure service.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: conceptual
 ms.workload: infrastructure-services
+ms.custom: ignite-2022
 ms.date: 12/01/2020
-ms.author: kumud
+ms.author: allensu
 ---
 
 
@@ -93,6 +93,9 @@ For more information about Service Tags and Azure services that support them, se
 
 ## Compare Private Endpoints and Service Endpoints
 
+>[!NOTE]
+> Microsoft recommends using Azure Private Link. Private Link offers better capabilities in terms of privately accessing PaaS from on-premises, in built data-exfiltration protection and mapping service to Private IP in your own network. For more information, see [Azure Private Link](../private-link/private-link-overview.md)
+
 Rather than looking only at their differences, it's worth pointing out that both service endpoints and private endpoints have characteristics in common.
 
 Both features are used for more granular control over the firewall on the target service. For example, restricting access to SQL Server databases or storage accounts. The operation is different for both though, as discussed in more detail in the previous sections.
@@ -101,24 +104,30 @@ Both approaches overcome the problem of [Source Network Address Translation (SNA
 
 In both cases, you can still ensure that traffic into the target service passes through a network firewall or NVA. This procedure is different for both approaches. When using service endpoints, you should configure the service endpoint on the **firewall** subnet, rather than the subnet where the source service is deployed. When using private endpoints you put a User Defined Route (UDR) for the private endpoint's IP address on the **source** subnet. Not in the subnet of the private endpoint.
 
+To compare and understand the differences, see the following table.
+
 | Consideration                                                                                                                                    | Service Endpoints                                                                                                           | Private Endpoints                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Scope at which level the configuration applies                                                                                                   | Entire service (for example, _all_ SQL Servers or Storage accounts of _all_ customers)                                      | Individual instance (for example, a specific SQL Server instance or Storage account _you_ own)                                                                    |
+| Service scope at which level the configuration applies                                                                                                   | Entire service (for example, _all_ SQL Servers or Storage accounts of _all_ customers)                                      | Individual instance (for example, a specific SQL Server instance or Storage account _you_ own)                                                                    |
+|In-Built Data Exfiltration Protection - ability to move/copy data from protected PaaS resource to other unprotected PaaS resource by malicious insider| No | Yes|
+|Private Access to PaaS resource from On-Premises| No| Yes|
+|NSG configuration required for Service Access| Yes (using Service Tags)| No|
+| Service can be reached without using any public IP address                                                                                       | No                                                                                                                          | Yes                                                                                                                                                               |
 | Azure-to-Azure traffic stays on the Azure backbone network                                                                                       | Yes                                                                                                                         | Yes                                                                                                                                                               |
 | Service can disable its public IP address                                                                                                        | No                                                                                                                          | Yes                                                                                                                                                               |
-| Service can be reached without using any public IP address                                                                                       | No                                                                                                                          | Yes                                                                                                                                                               |
-| You can easily restrict traffic coming from an Azure Virtual Network                                                                             | Yes (allow access from specific subnets and or use NSGs)                                                                   | No*                                                                                                                                                               |
-| You can easily restrict traffic coming from on-prem (VPN/ExpressRoute)                                                                           | N/A**                                                                                                                       | No*                                                                                                                                                               |
+| You can easily restrict traffic coming from an Azure Virtual Network                                                                             | Yes (allow access from specific subnets and or use NSGs)                                                                   | Yes                                                                                                                                                               |
+| You can easily restrict traffic coming from on-prem (VPN/ExpressRoute)                                                                           | N/A**                                                                                                                       | Yes                                                                                                                                                               |
 | Requires DNS changes                                                                                                                             | No                                                                                                                          | Yes (see [DNS configuration](../private-link/private-endpoint-dns.md))                                                                 |
 | Impacts the cost of your solution                                                                                                                | No                                                                                                                          | Yes (see [Private link pricing](https://azure.microsoft.com/pricing/details/private-link/))                                                                       |
 | Impacts the [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) of your solution | No                                                                                                                          | Yes (Private link service itself has a [99.99% SLA](https://azure.microsoft.com/support/legal/sla/private-link/))                                                 |
+| Setup and maintenance | Simple to set up with less management overhead | Additional effort is required |
+| Limits | No limit on the total number of service endpoints in a virtual network. Azure services may enforce limits on the number of subnets used for securing the resource. (see [VNet FAQ](virtual-networks-faq.md#are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet)) | Yes (see [Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)) |
 
-*Anything with network line-of-sight into the private endpoint will have network-level access. This access can't be controlled by an NSG on the private endpoint itself.
 
 **Azure service resources secured to virtual networks aren't reachable from on-premises networks. If you want to allow traffic from on-premises, allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources. For more information, see the [VNet FAQ](virtual-networks-faq.md#can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints).
 
 ## Next steps
 
-- Learn how to [integrate your app with an Azure network](../app-service/web-sites-integrate-with-vnet.md).
+- Learn how to [integrate your app with an Azure network](../app-service/overview-vnet-integration.md).
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
-- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).
+- Learn how to [connect privately to an Azure Cosmos DB account via Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

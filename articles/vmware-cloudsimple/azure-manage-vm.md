@@ -1,11 +1,11 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Manage Private Cloud VMs in Azure 
 description: Describes how to manage CloudSimple Private Cloud VMs in the Azure portal, including adding disks, changing VM capacity, and adding network interfaces
-author: shortpatti 
-ms.author: v-patsho
+author: suzizuber 
+ms.author: v-szuber
 ms.date: 08/16/2019 
 ms.topic: article 
-ms.service: azure-vmware-cloudsimple 
+ms.service: azure-vmware
 ms.reviewer: cynthn 
 manager: dikamath 
 ---

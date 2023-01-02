@@ -14,6 +14,8 @@ ms.date: 12/10/2020
 
 # Monitoring Azure Time Series Insights data reference
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Learn about the data and resources collected by Azure Monitor from your Azure Time Series Insights environment. See [Monitoring Time Series Insights]( ./how-to-monitor-tsi.md) for details on collecting and analyzing monitoring data.
 
 ## Metrics

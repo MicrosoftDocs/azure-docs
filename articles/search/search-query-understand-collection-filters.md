@@ -3,23 +3,12 @@ title: Understanding OData collection filters
 titleSuffix: Azure Cognitive Search
 description: Learn the mechanics of how OData collection filters work in Azure Cognitive Search queries, including limitations and behaviors unique to collections.
 
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 10/06/2021
+
 ---
 # Understanding OData collection filters in Azure Cognitive Search
 
@@ -103,9 +92,6 @@ How `Rooms/Description` is stored for full-text search:
 | view | 1 |
 
 So unlike the filter above, which basically says "match documents where a room has `Type` equal to 'Deluxe Room' and **that same room** has `BaseRate` less than 100", the search query says "match documents where `Rooms/Type` has the term "deluxe" and `Rooms/Description` has the phrase "city view". There's no concept of individual rooms whose fields can be correlated in the latter case.
-
-> [!NOTE]
-> If you would like to see support for correlated search added to Azure Cognitive Search, please vote for [this User Voice item](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## Inverted indexes and collections
 

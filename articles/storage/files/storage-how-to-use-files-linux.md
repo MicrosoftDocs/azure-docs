@@ -1,22 +1,22 @@
 ---
-title: Use Azure Files with Linux | Microsoft Docs
-description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
-author: roygara
+title: Mount SMB Azure file share on Linux
+description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2021
-ms.author: rogarana
+ms.date: 11/03/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 
-# Use Azure Files with Linux
+# Mount SMB Azure file share on Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
-| Distribution | SMB 3.1.1 | SMB 3.0 |
+| Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
 |-|-----------|---------|
-| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
+| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li><li>AES-256-GCM encryption: 5.10</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
 | [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
 | [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
 | [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
@@ -30,6 +30,13 @@ uname -r
 
 > [!Note]  
 > SMB 2.1 support was added to Linux kernel version 3.7. If you are using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
 <a id="smb-client-reqs"></a>
@@ -76,8 +83,8 @@ uname -r
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
+        --query "primaryEndpoints.file" --output tsv | tr -d '"')
+    smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})
     fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
@@ -85,7 +92,7 @@ uname -r
 
     If the connection was successful, you should see something similar to the following output:
 
-    ```ouput
+    ```output
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -113,54 +120,54 @@ Next, mount the file share using the `mount` command. In the following example, 
 > [!Note]  
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel older than 5.0, specify `vers=3.1.1` in the mount options list.  
 
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
+sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30
 ```
 
 # [SMB 3.0](#tab/smb30)
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30
 ```
 
 # [SMB 2.1](#tab/smb21)
-```bash
+```azurecli
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino
+sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30
 ```
 
 ---
@@ -196,7 +203,7 @@ sudo mkdir -p "/etc/smbcredentials"
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
 # Create the credential file for this individual storage account
 smbCredentialFile="$credentialRoot/$storageAccountName.cred"
@@ -225,15 +232,18 @@ sudo mkdir -p $mntPath
 
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
+> [!Tip]
+> If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the CIFS mount options to avoid sending byte range lock requests to the server.
+
 ```bash
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
+smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
 
 if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
-    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
+    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
 else
     echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
 fi
@@ -278,7 +288,7 @@ fileShareName="<file-share-name>"
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath" > /etc/auto.fileshares
@@ -292,88 +302,9 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 
-## Securing Linux
-Port 445 must be accessible to mount an Azure file share with SMB. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
-
-Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
-
-| Distribution | Can disable SMB 1 |
-|--------------|-------------------|
-| Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04+ | Yes |
-| Debian 8-9 | No |
-| Debian 10+ | Yes |
-| Fedora 29+ | Yes |
-| CentOS 7 | No | 
-| CentOS 8+ | Yes |
-| Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8+ | Yes |
-| openSUSE Leap 15.0 | No |
-| openSUSE Leap 15.1+ | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11.x-12.x | No |
-| SUSE Linux Enterprise 15 | No |
-| SUSE Linux Enterprise 15.1 | No |
-
-You can check to see if your Linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
-
-```bash
-sudo modinfo -p cifs | grep disable_legacy_dialects
-```
-
-This command should output the following message:
-
-```output
-disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
-```
-
-Before disabling SMB 1, you must check to make sure that the SMB module is not currently loaded on your system (this happens automatically if you have mounted an SMB share). You can do this with the following command, which should output nothing if SMB is not loaded:
-
-```bash
-lsmod | grep cifs
-```
-
-To unload the module, first unmount all SMB shares (using the `umount` command as described above). You can identify all the mounted SMB shares on your system with the following command:
-
-```bash
-mount | grep cifs
-```
-
-Once you have unmounted all SMB file shares, it's safe to unload the module. You can do this with the `modprobe` command:
-
-```bash
-sudo modprobe -r cifs
-```
-
-You can manually load the module with SMB 1 unloaded using the `modprobe` command:
-
-```bash
-sudo modprobe cifs disable_legacy_dialects=Y
-```
-
-Finally, you can check the SMB module has been loaded with the parameter by looking at the loaded parameters in `/sys/module/cifs/parameters`:
-
-```bash
-cat /sys/module/cifs/parameters/disable_legacy_dialects
-```
-
-To persistently disable SMB 1 on Ubuntu and Debian-based distributions, you must create a new file (if you don't already have custom options for other modules) called `/etc/modprobe.d/local.conf` with the setting. You can do this with the following command:
-
-```bash
-echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
-```
-
-You can verify that this has worked by loading the SMB module:
-
-```bash
-sudo modprobe cifs
-cat /sys/module/cifs/parameters/disable_legacy_dialects
-```
-
 ## Next steps
 See these links for more information about Azure Files:
 
-* [Planning for an Azure Files deployment](storage-files-planning.md)
-* [FAQ](./storage-files-faq.md)
-* [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
+- [Planning for an Azure Files deployment](storage-files-planning.md)
+- [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
+- [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)

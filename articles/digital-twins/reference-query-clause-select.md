@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - SELECT clauses
+title: Azure Digital Twins query language reference - SELECT clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language SELECT clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: SELECT clause
 
-This document contains reference information on the **SELECT clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the *SELECT clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The SELECT clause is the first part of a query. It specifies the list of columns that the query will return.
 
@@ -36,7 +36,7 @@ Use the `*` character in a select statement to project the digital twin document
 
 ### Returns
 
-The set of properties which are returned from the query.
+The set of properties that are returned from the query.
 
 ### Example
 
@@ -64,7 +64,7 @@ To project a property:
 
 A collection of twins, properties, or relationships specified in the projection.
 
-If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](#project-property-example-property-not-present-for-a-data-row).
+If a property included in the projection isn't present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](#project-property-example-property-not-present-for-a-data-row).
 
 ### Examples
 
@@ -80,13 +80,7 @@ For the following examples, consider a twin graph that contains the following da
 
 Here's a diagram illustrating this scenario:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/reference-query-clause-select/projections-graph.png" alt-text="Diagram showing the sample graph described above.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/reference-query-clause-select/projections-graph.png" alt-text="Diagram showing the sample graph described above.":::
 
 #### Project collection example
 
@@ -94,7 +88,7 @@ Below is an example query that projects a collection from this graph. The follow
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectCollectionExample":::
 
-Here is the JSON payload that's returned from this query:
+Here's the JSON payload that's returned from this query:
 
 ```json
 {
@@ -136,11 +130,11 @@ Here is the JSON payload that's returned from this query:
 
 #### Project with JOIN example
 
-Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
+Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory, and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectJoinExample":::
 
-Here is the JSON payload that's returned from this query:
+Here's the JSON payload that's returned from this query:
 
 ```json
 {
@@ -188,11 +182,11 @@ Here is the JSON payload that's returned from this query:
 
 #### Project property example
 
-Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship.
+Here's an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyExample":::
 
-Here is the JSON payload that's returned from this query:
+Here's the JSON payload that's returned from this query:
 
 ```json
 {
@@ -212,15 +206,15 @@ Here is the JSON payload that's returned from this query:
 
 #### Project property example: Property not present for a data row
 
-If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set.
+If a property included in the projection isn't present for a particular data row, the property will similarly not be present in the result set.
 
-Consider for this example a set of twins that represent people. Some of the twins have ages associated with them, but others do not.
+Consider for this example a set of twins that represent people. Some of the twins have ages associated with them, but others don't.
 
-Here is a query that projects the `name` and `age` properties:
+Here's a query that projects the `name` and `age` properties:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyNotPresentExample":::
 
-The result might look something like this, with the `age` property missing from some twins in the result where the twins do not have this property.
+The result might look something like this, with the `age` property missing from some twins in the result where the twins don't have this property.
 
 ```json
 {
@@ -269,7 +263,7 @@ The following query returns the count of all relationships in the instance.
 
 ## SELECT TOP
 
-Use this method to return only a certain number of top items that meet the query requirements.
+Use this method to return only some of the top items that meet the query requirements.
 
 ### Syntax
 

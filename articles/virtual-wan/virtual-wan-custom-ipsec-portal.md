@@ -1,12 +1,12 @@
 ---
-title: 'Configure custom IPsec policy for Azure Virtual WAN: Portal | Microsoft Docs'
-description: Learn how to configure custom IPsec policy for Azure Virtual WAN using the portal.
+title: 'Configure a custom IPsec policy for Azure Virtual WAN: Portal'
+description: Learn how to configure a custom IPsec policy for Azure Virtual WAN using the portal.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 04/11/2022
 ms.author: cherylmc
 
 ---

@@ -10,6 +10,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 ---

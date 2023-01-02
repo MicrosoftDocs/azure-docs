@@ -3,12 +3,12 @@ title: Apply an Azure Resource Manager lock to a storage account
 titleSuffix: Azure Storage
 description: Learn how to apply an Azure Resource Manager lock to a storage account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common 
 ---
 
@@ -51,7 +51,7 @@ New-AzResourceLock -LockLevel CanNotDelete `
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure a lock on a storage account with Azure CLI, call the [az lock create](/cli/azure/lock#az_lock_create) command and specify the type of lock that you want to create, as shown in the following example:
+To configure a lock on a storage account with Azure CLI, call the [az lock create](/cli/azure/lock#az-lock-create) command and specify the type of lock that you want to create, as shown in the following example:
 
 ```azurecli
 az lock create \

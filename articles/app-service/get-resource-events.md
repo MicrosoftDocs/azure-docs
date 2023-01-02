@@ -8,21 +8,17 @@ ms.author: msangapu
 ---
 # Get resource events in Azure App Service
 
-Azure App Service provides built-in tools to monitor the status and health of your resources. Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include: scaling of instances, updates to application settings, restarting of the web app, and many more. In this article, you'll learn how to view [Azure Activity Logs](../azure-monitor/essentials/activity-log.md#view-the-activity-log) and enable [Event Grid](../event-grid/index.yml) to monitor resource events related to your App Service web app.
-
-> [!NOTE]
-> App Service integration with Event Grid is in **preview**. [View the announcement for more details.](https://aka.ms/app-service-event-grid-announcement)
->
+Azure App Service provides built-in tools to monitor the status and health of your resources. Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include: scaling of instances, updates to application settings, restarting of the web app, and many more. In this article, you'll learn how to view [Azure Activity Logs](../azure-monitor/essentials/activity-log.md#view-the-activity-log) and enable [Event Grid](../event-grid/index.yml) to monitor App Service resource events.
 
 ## View Azure Activity Logs
 Azure Activity Logs contain resource events emitted by operations taken on the resources in your subscription. Both the user actions in the Azure portal and Azure Resource Manager templates contribute to the events captured by the Activity log. 
 
 Azure Activity Logs for App Service details such as:
-- what operations were taken on the resources (ex: App Service Plans)
-- who started the operation
-- when the operation occurred
-- the status of the operation
-- property values to help you research the operation
+- What operations were taken on the resources (ex: App Service Plans)
+- Who started the operation
+- When the operation occurred
+- Status of the operation
+- Property values to help you research the operation
 
 ### What can you do with Azure Activity Logs?
 
@@ -34,7 +30,7 @@ Azure Activity Logs can be queried using the Azure portal, PowerShell, REST API,
 
 While Activity logs are user-based, there's a new [Event Grid](../event-grid/index.yml) integration with App Service (preview) that logs both user actions and automated events. With Event Grid, you can configure a handler to react to the said events. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 
-Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
+Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. Event Grid connects data sources and event handlers.
 
 [View the properties and schema for Azure App Service Events.](../event-grid/event-schema-app-service.md)
 

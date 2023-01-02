@@ -2,14 +2,14 @@
 title: Azure Managed HSM access control
 description: Manage access permissions for Azure Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSMs.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.author: ambapat
+ms.author: mbaldwin
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
 ---
 
@@ -65,7 +65,7 @@ The following table shows the endpoints for the management and data planes.
 
 ## Management plane and Azure RBAC
 
-In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
+In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](/rest/api/authorization/role-assignments).
 
 You create a key vault in a resource group and manage access by using Azure Active Directory. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
 

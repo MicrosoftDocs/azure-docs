@@ -3,14 +3,14 @@ title: 'Test your Custom Commands app'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn different approaches to testing a custom commands application. 
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.author: xiaojul
-ms.custom: devx-track-csharp
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Test your Custom Commands Application
@@ -22,7 +22,7 @@ In this article, you learn different approaches to testing a custom commands app
 Test in the portal is the simplest and quickest way to check if your custom command application work as expected. After the app is successfully trained, click `Test` button to start testing.
 
 > [!div class="mx-imgBorder"]
-> ![Test in the portal](media/custom-commands/create-basic-test-chat.png)
+> ![Test in the portal](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 ## Test with Windows Voice Assistant Client
 

@@ -3,19 +3,19 @@ title: Understand how expression builder works with Application Provisioning in 
 description: Understand how expression builder works with Application Provisioning in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/02/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Understand how expression builder in Application Provisioning works
 
-You can use [expressions](functions-for-customizing-application-data.md) to [map attributes](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes). Previously, you had to create these expressions manually and enter them into the expression box. Expression builder is a tool you can use to help you create expressions.
+You can use [expressions](functions-for-customizing-application-data.md) to [map attributes](./customize-application-attributes.md). Previously, you had to create these expressions manually and enter them into the expression box. Expression builder is a tool you can use to help you create expressions.
 
 :::image type="content" source="media/expression-builder/expression-builder.png" alt-text="The default expression builder page before selecting a function." lightbox="media/expression-builder/expression-builder.png":::
 

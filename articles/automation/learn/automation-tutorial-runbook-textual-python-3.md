@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2021
 ms.topic: tutorial
-ms.custom: has-adal-ref, devx-track-python
+ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
 ---
 
 # Tutorial: Create a Python 3 runbook (preview)
@@ -109,7 +109,7 @@ To do this, the script has to authenticate using the Run As account credential f
 > [!NOTE]
 > The Automation account must have been created with the Run As account for there to be a Run As certificate.
 > If your Automation account was not created with the Run As account, you can authenticate as described in
-> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate) or [create a Run As account](../create-run-as-account.md).
+> [Authenticate with the Azure Management Libraries for Python](/azure/developer/python/sdk/authentication-overview) or [create a Run As account](../create-run-as-account.md).
 
 1. Open the textual editor by selecting **Edit** on the **MyFirstRunbook-Python3** pane.
 

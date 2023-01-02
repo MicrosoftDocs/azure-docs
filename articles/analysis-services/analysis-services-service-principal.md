@@ -4,7 +4,7 @@ description: Learn how to create a service principal for automating Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan 
 ms.custom: devx-track-azurepowershell
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Automation with service principals
 
-Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it's assigned. 
+Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it is assigned. 
 
 In Analysis Services, service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Azure AD UPN accounts.
 

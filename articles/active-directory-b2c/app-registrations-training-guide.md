@@ -2,15 +2,15 @@
 title: New App registrations experience in Azure AD B2C
 description: An introduction to the new App registration experience in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/25/2020
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -41,7 +41,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 
 - The **Endpoints** pane lets you quickly identify the relevant endpoints for your scenario, including OpenID connect configuration, SAML metadata, Microsoft Graph API, and [OAuth 2.0 user flow endpoints](tokens-overview.md#endpoints).
 
-- **API permissions** and **Expose an API** provide more extensive scope, permission, and consent management. You can now also assign MS Graph and Azure AD Graph permissions to an app.
+- **API permissions** and **Expose an API** provide more extensive scope, permission, and consent management. You can now also assign MS Graph permissions to an app.
 
 -   **Owners** and **Manifest** are now available for apps that authenticate with Azure AD B2C. You can add owners for your registrations and directly edit application properties [using the manifest editor](../active-directory/develop/reference-app-manifest.md).
 
@@ -63,7 +63,7 @@ You can also use this option  to use Azure AD B2C as a SAML service provider. [L
 
 ## Applications for DevOps scenarios
 
-You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
+You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how to register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 
 You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](microsoft-graph-operations.md).
 
@@ -75,7 +75,7 @@ The **openid** scope is necessary so that Azure AD B2C can sign users in to an a
 Learn more about [permissions and consent](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## Platforms/Authentication: Reply URLs/redirect URIs
-In the legacy experience, the various platform types were managed under **Properties** as reply urls for web apps/APIs and Redirect URI for Native clients. "Native clients" are also known as "Public clients" and include apps for iOS, macOS, Android, and other mobile and desktop application types.
+In the legacy experience, the various platform types were managed under **Properties** as reply URLs for web apps/APIs and Redirect URI for Native clients. "Native clients" are also known as "Public clients" and include apps for iOS, macOS, Android, and other mobile and desktop application types.
 
 In the new experience, reply URLs and redirect URIs are both referred to as Redirect URIs and can be found in an app's **Authentication** section. App registrations aren't limited to being either a web app or a native application. You can use the same app registration for all of these platform types by registering the respective redirect URIs.
 
@@ -112,6 +112,6 @@ To get started with the new app registration experience:
 * Learn [how to register a web application](tutorial-register-applications.md).
 * Learn [how to register a web API](add-web-api-application.md).
 * Learn [how to register a native client application](add-native-application.md).
-* Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
+* Learn [how to register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 * Learn [how to use Azure AD B2C as a SAML Service Provider.](identity-provider-adfs.md)
 * Learn about [application types](application-types.md).

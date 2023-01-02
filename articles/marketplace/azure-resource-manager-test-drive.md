@@ -4,24 +4,28 @@ description: Types of test drives in the commercial marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
+ms.date: 06/03/2022
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
 # Azure Resource Manager test drive
 
 Use this type if you have an offer on Azure Marketplace or AppSource but want to build a test drive with only Azure resources. An Azure Resource Manager (ARM) template is a coded container of Azure resources that you design to best represent your solution. Test drive takes the provided ARM template and deploys all the resources it requires to a resource group. This is the only test drive option for virtual machine or Azure app offers.
 
-If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/template-syntax.md) to better understand how to build and test your own templates.
+If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md) to better understand how to build and test your own templates.
 
 For information on a **hosted** or **logic app** test drive, see [What is a test drive?](what-is-test-drive.md)
+
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## Technical configuration
 
 A deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Set the following properties in Partner Center:
 
-- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
+- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. For the best performance, we recommend choosing one region where you expect the largest number of customers to be located. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
 
 - **Instances** – Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
 
@@ -78,6 +82,9 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 #### baseuri
 
 Test drive initializes this parameter with a **Base Uri** of your deployment package so you can use this parameter to construct a Uri of any file included in your package.
+
+> [!NOTE]
+> The `baseUri` parameter cannot be used in conjunction with a custom script extension.
 
 ```JSON
 "parameters": {
@@ -191,9 +198,9 @@ restrictions in [this article](/azure/cloud-adoption-framework/ready/azure-best-
 
 ### Deployment Location
 
-You can make you test drive available in different Azure regions. The idea is to allow a user to pick the closest region, to provide with the beast user experience.
+You can make your test drive available in different Azure regions.
 
-When test drive creates an instance of the Lab, it always creates a resource group in the region chose by a user, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
+When test drive creates an instance of the Lab, it always creates a resource group in one of the selected regions, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
 
 ```JSON
 "variables": {
@@ -303,39 +310,50 @@ The final section to complete is to be able to deploy the test drives automatica
 
    If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.
+3. Provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
+    1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps).
+    1. Add the Service Principal for Microsoft Test-Drive application.
+        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](../active-directory/roles/permissions-reference.md#global-administrator).
+        1. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive'`.
+        1. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
+      ![Shows the code to verify service principal](media/test-drive/commands-to-verify-service-principal.png)
 
-   1. Navigate to the newly created directory or already existing directory and select Azure Active Directory in the filter pane.
-   2. Search **App registrations** and select **Add**.
-   3. Provide an application name.
-   4. Select the **Type** of **Web app / API**.
-   5. Provide any value in the Sign-on URL, this field isn't used.
-   6. Select **Create**.
-   7. After the application has been created, select **Properties** > **Set the application as multi-tenant** and then **Save**.
+4. For **Azure AD App ID**, paste in this Application ID: `d7e39695-0b24-441c-a140-047800a05ede`.
+5. For **Azure AD App Key**, since no secret is required, insert a dummy secret, such as "no-secret".
+6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription, from the Azure portal or PowerShell:
 
-4. Select **Save**.
+   1. From the Azure portal:
 
-5. Copy the Application ID for this registered app and paste it in the test drive field.
+       1. Select the subscription being used for the test drive.
 
-   ![Azure AD application ID detail](media/test-drive/azure-ad-application-id-detail.png)
+       1. Select **Access control (IAM)**.
 
-6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription:
+       1. Select **Add > Add role assignment**.
 
-   1. Select the type of **Subscription** you are using for the test drive.
-   1. Select **Access control (IAM)**.
-   1. Select the **Role assignments** tab, then **Add role assignment**.
+       :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-      ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
+      1. On the **Role** tab, select **Contributor**.
 
-   1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.
+      1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
 
-      ![Add the permissions](media/test-drive/access-control-permissions.jpg)
+      1. Select the **Microsoft TestDrive** service principal that you created previously.
 
-   1. Select **Save**.
+      1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-7. Generate an **Azure AD App** authentication key. Under **Keys**, add a **Key Description**, set the duration to **Never expires** (an expired key will break your test drive in production), then select **Save**. Copy and paste this value into your required test drive field.
+         For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
-![Shows the Keys for the Azure AD application](media/test-drive/azure-ad-app-keys.png)
+   1. If using PowerShell:
+      1. Run this to get the ServicePrincipal object-id: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
+      1. Run this with the ObjectId and subscription ID: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
+
+> [!NOTE]
+> Before deleting the old appID, go to the Azure portal, then **Resource groups**, and search for `CloudTry_`. Check the **Event initiated by** column.
+>
+> :::image type="content" source="media/test-drive/event-initiated-by-field.png" lightbox="media/test-drive/event-initiated-by-field.png" alt-text="Shows the Event Initiated By field":::
+>
+> Don't delete the old appID unless at least one resource (**Operation name**) is set to **Microsoft TestDrive**.
+>
+> To delete the appID, in the left nav menu select **Azure Active Directory** > **App Registrations**, then the **All applications** tab. Choose your application and select **Delete**.
 
 ## Republish
 

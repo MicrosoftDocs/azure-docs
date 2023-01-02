@@ -9,7 +9,7 @@ metadata:
   ms.collection: collection
   author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
   ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/13/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,8 +27,8 @@ landingContent:
             url: data-lake-analytics-whats-new.md
       - linkListType: quickstart
         links:
-          - text: Create U-SQL jobs in the Azure portal
-            url: data-lake-analytics-get-started-portal.md
+          - text: Get started with U-SQL
+            url: data-lake-analytics-u-sql-get-started.md
           - text: Create U-SQL jobs with Azure CLI
             url: data-lake-analytics-get-started-cli.md
           - text: Create U-SQL jobs in Visual Studio Code

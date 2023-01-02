@@ -1,15 +1,15 @@
 ---
 title: Connect to Outlook.com
-description: Automate tasks and workflows that manage email, calendars, and contacts in Outlook.com by using Azure Logic Apps
+description: Automate tasks and workflows that manage email, calendars, and contacts in Outlook.com using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 08/18/2016
 tags: connectors
 ---
 
-# Manage email, calendars, and contacts in Outlook.com by using Azure Logic Apps
+# Connect to Outlook.com from Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Outlook.com connector](/connectors/outlook/), you can create automated tasks and workflows that manage your @outlook.com or @hotmail.com account by building logic apps. For example, you automate these tasks:
 
@@ -27,7 +27,7 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 * An [Outlook.com account](https://outlook.live.com/owa/)
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The logic app where you want to access your Outlook.com account. To start your workflow with an Outlook.com trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Outlook.com action to your workflow, your logic app needs to already have a trigger.
 

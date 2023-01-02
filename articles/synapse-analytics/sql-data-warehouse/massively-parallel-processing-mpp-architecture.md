@@ -1,15 +1,14 @@
 ---
 title: Dedicated SQL pool (formerly SQL DW) architecture 
 description: Learn how Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.  
-services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 11/04/2019
+ms.date: 07/20/2022
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics
@@ -17,11 +16,7 @@ ms.reviewer: igorstan
 Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms.
 
 > [!NOTE]
->Explore the [Azure Synapse Analytics documentation](../overview-what-is.md).
->
-
-
-> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
+> For more on [Azure Synapse Analytics](../overview-what-is.md), watch this video [explaining the Data Movement Enhancements](https://www.youtube.com/embed/PlyQ8yOb8kc).
 
 ## Synapse SQL architecture components
 
@@ -66,7 +61,10 @@ Data Movement Service (DMS) is the data transport technology that coordinates da
 
 A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When Synapse SQL runs a query, the work is divided into 60 smaller queries that run in parallel.
 
-Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A dedicated SQL pool (formerly SQL DW) with maximum compute resources has one distribution per Compute node. A dedicated SQL pool (formerly SQL DW) with minimum compute resources has all the distributions on one compute node.  
+Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A dedicated SQL pool (formerly SQL DW) with maximum compute resources has one distribution per Compute node. A dedicated SQL pool (formerly SQL DW) with minimum compute resources has all the distributions on one compute node. 
+
+> [!NOTE]
+> For recommendations on the best table distribution strategy to use based on your workloads, see the [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md).
 
 ## Hash-distributed tables
 
@@ -106,7 +104,7 @@ Now that you know a bit about Azure Synapse, learn how to quickly [create a dedi
 
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)

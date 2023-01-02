@@ -6,12 +6,12 @@ documentationcenter: na
 author: damendo
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/29/2020
 ms.author: damendo
+ms.custom: engagement-fy23
 ---
 
 # Use next hop to diagnose virtual machine routing problems

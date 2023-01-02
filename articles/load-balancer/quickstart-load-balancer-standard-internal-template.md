@@ -2,12 +2,12 @@
 title: 'Quickstart: Create an internal load balancer by using a template'
 description: This quickstart shows how to create an internal Azure load balancer by using an Azure Resource Manager template (ARM template).
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: allensu
-ms.date: 09/14/2020
+ms.custom: subject-armqs, mode-arm, FY23 content-maintenance
+ms.author: mbender
+ms.date: 12/15/2022
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs by using an ARM template
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-2-vms-internal-load-balancer).
+The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/2-vms-internal-load-balancer/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
 
@@ -73,7 +73,7 @@ az deployment group create \
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group and all resources contained within.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
 ```azurecli-interactive
   az group delete \

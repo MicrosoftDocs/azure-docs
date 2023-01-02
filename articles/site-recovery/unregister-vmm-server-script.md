@@ -1,13 +1,12 @@
 ---
 title: Unregister a VMM server script
 description: This article describes the cleanup script on the VMM server
-author: MaggiePucciEvans
 manager: evansma
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.author: evansma
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Cleanup script on a VMM server
@@ -42,7 +41,7 @@ try
         }
         catch
         {
-            Write-Host "Error occured" -ForegroundColor "Red"
+            Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
             return
         }
@@ -654,7 +653,7 @@ try
             catch
             {
                 $transaction.Rollback()
-                Write-Host "Error occured" -ForegroundColor "Red"
+                Write-Host "Error occurred" -ForegroundColor "Red"
                 $error[0]
                 Write-Error "FAILED"
                 "All updates to the VMM database have been rolled back."
@@ -670,7 +669,7 @@ try
 
 catch
 {
-    Write-Error "Error occured"
+    Write-Error "Error occurred"
     $error[0]
     Write-Error "FAILED"
 }

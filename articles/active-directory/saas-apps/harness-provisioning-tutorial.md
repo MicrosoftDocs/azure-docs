@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Harness for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Harness.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2019
-ms.author: Zhchia
+ms.date: 11/21/2022
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Harness for automatic user provisioning
@@ -41,6 +41,7 @@ Before you configure and enable automatic user provisioning, decide which users 
 * We recommended that you assign a single Azure AD user to Harness to test the automatic user provisioning configuration. Additional users or groups can be assigned later.
 
 * When you assign a user to Harness, you must select any valid application-specific role (if available) in the **Assignment** dialog box. Users with the *Default Access* role are excluded from provisioning.
+* If you currently have a Harness FirstGen App Integration setup in Azure AD and are now trying to set up one for Harness NextGen, make sure the user information is also included in the FirstGen App Integration before attempting to log into Harness NextGen through SSO.
 
 ## Set up Harness for provisioning
 

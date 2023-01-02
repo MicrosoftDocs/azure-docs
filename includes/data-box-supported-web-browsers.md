@@ -14,4 +14,4 @@ Here is a list of web browsers supported for the local web UI.
 | Google Chrome |Latest version |Tested with Chrome|
 | Microsoft Edge |Latest version | |
 | FireFox | Latest version | Tested with FireFox|
-| Internet Explorer |Latest version |If you cannot sign in, check if cookies and Javascript are enabled. To enable the UI access, add the device IP to **Privacy Actions** so that the device can access cookies. |
+| Internet Explorer |Latest version |If you cannot sign in, check if cookies and JavaScript are enabled. To enable the UI access, add the device IP to **Privacy Actions** so that the device can access cookies. |

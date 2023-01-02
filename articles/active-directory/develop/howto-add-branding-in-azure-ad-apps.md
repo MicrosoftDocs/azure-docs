@@ -1,6 +1,5 @@
 ---
 title: Sign in with Microsoft branding guidelines | Azure AD
-titleSuffix: Microsoft identity platform
 description: Learn about application branding guidelines for Microsoft identity platform.
 services: active-directory
 author: rwike77
@@ -8,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: ryanwi

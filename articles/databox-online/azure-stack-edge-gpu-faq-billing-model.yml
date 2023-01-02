@@ -1,0 +1,50 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ about billing mode for Azure Stack Edge Pro GPU 
+  description: Gives answers to common questions about billing for Azure Stack Pro with GPU devices.
+  services: databox
+  author: v-dalc
+    
+  ms.service: databox
+  ms.subservice: edge
+  ms.topic: faq
+  ms.date: 06/01/2022
+  ms.author: alkohli
+
+title: "FAQ: Billing for Azure Stack Edge Pro GPU"
+summary:
+  The billing model for an Azure Stack Edge Pro with GPU device is based on a monthly charge to the Azure subscription with a onetime fee for shipping and other fees to replace a lost or damaged device or provide extra security. There is no traditional licensing fee. This FAQ answers questions you may have about the billing for your Azure Stack Edge device.
+
+sections:
+  - name: ignored
+    questions:
+    - question: |
+        How often am I billed for my Azure Stack Edge Pro GPU device? 
+      answer: |
+        Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. Currency conversion and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
+        
+    - question: |
+        Are there other fees associated with my Azure Stack Edge device?
+      answer: |
+        Yes. In addition to the monthly subscription fee, there is a onetime fee for shipping. Other onetime fees are charged for things like a damaged or lost device. For a list of fees, see **Frequently asked questions** on the [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) page.
+
+        No traditional on-premises software license is required for an Azure Stack Edge device, although guest virtual machines (VMs) may require their own licenses under Bring Your Own License (BYOL).
+
+    - question: |
+        When does billing start and stop for my Azure Stack Edge device?
+      answer: |
+        Billing starts when the devices are delivered to your location. Billing continues even if you're not using the device.
+
+        Billing stops when you initiate return of the device.
+
+        The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
+
+    - question: |
+        Why doesn't the price on my invoice match the price on the Pricing page for Azure Stack Edge?
+      answer: |
+         Your invoice shows the price you're charged after any discounts are applied. The [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) page shows list prices. If you received any discounts, the prices won't match.
+
+    - question: |
+        I'm replacing my Azure Stack Edge device, and I can't delete the resource. Will billing continue for the resource?
+      answer: |
+        Yes, until you activate a replacement device. You can't delete a resource while it's subject to billing. To delete a resource with active billing, you must first activate the device against a new resource. After the order and billing details move to the new resource, you can delete the resource.

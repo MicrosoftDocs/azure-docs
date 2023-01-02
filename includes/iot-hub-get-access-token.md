@@ -1,6 +1,6 @@
 ---
-author: robinsh
-ms.author: robinsh
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018

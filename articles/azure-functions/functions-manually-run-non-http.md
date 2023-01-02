@@ -1,11 +1,9 @@
 ---
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
-author: craigshoemaker
 
 ms.topic: article
 ms.date: 04/23/2020
-ms.author: cshoe
 ---
 
 # Manually run a non HTTP-triggered function
@@ -14,7 +12,7 @@ This article demonstrates how to manually run a non HTTP-triggered function via 
 
 In some contexts, you may need to run "on-demand" an Azure Function that is indirectly triggered.  Examples of indirect triggers include [functions on a schedule](./functions-create-scheduled-function.md) or functions that run as the result of [another resource's action](./functions-create-storage-blob-triggered-function.md). 
 
-[Postman](https://www.getpostman.com/) is used in the following example, but you may use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
+[Postman](https://www.getpostman.com/) is used in the following example, but you can use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
 ## Define the request location
 
@@ -65,6 +63,9 @@ Open Postman and follow these steps:
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
+   > [!NOTE]
+   > If you don't want to pass data into the function, you must still pass an empty dictionary `{}` as the body of the POST request.
+
 1. Select **Send**.
         
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Send a request with Postman." border="true":::
@@ -78,4 +79,4 @@ Open Postman and follow these steps:
 ## Next steps
 
 - [Strategies for testing your code in Azure Functions](./functions-test-a-function.md)
-- [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)
+- [Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)

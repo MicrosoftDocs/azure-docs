@@ -1,20 +1,19 @@
 ---
 title: Verify encryption status for Linux - Azure Disk Encryption
 description: This article provides instructions on verifying the encryption status from the platform and OS levels.
-author: kailashmsft
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
-ms.author: kaib
+ms.author: mamccrea
 ms.date: 03/11/2020
-
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
-
-
 # Verify encryption status for Linux 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 The scope of this article is to validate the encryption status of a virtual machine by using different methods: the Azure portal, PowerShell, the Azure CLI, or the operating system of the virtual machine (VM). 
 

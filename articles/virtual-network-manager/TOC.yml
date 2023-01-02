@@ -1,0 +1,101 @@
+- name: Virtual Network Manager documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Virtual Network Manager?
+    href: overview.md
+  - name: Common use cases for Azure Virtual Network Manager
+    href: concept-use-cases.md
+- name: Quickstarts
+  items:
+  - name: Create Virtual Network Manager - Portal
+    href: create-virtual-network-manager-portal.md
+  - name: Create Virtual Network Manager - PowerShell
+    href: create-virtual-network-manager-powershell.md
+  - name: Create Virtual Network Manager - CLI
+    href: create-virtual-network-manager-cli.md
+  expanded: true
+- name: Tutorials
+  items:
+  - name: Create a secured hub and spoke
+    href: tutorial-create-secured-hub-and-spoke.md
+- name: Concepts
+  items:
+  - name: FAQ
+    href: faq.md
+  - name: Use cases
+    href: concept-use-cases.md
+  - name: Scope
+    href: concept-network-manager-scope.md
+  - name: Network groups
+    items:
+    - name: Network groups overview
+      href: concept-network-groups.md
+    - name: Azure Policy integration with network groups
+      href: concept-azure-policy-integration.md
+    - name: Cross-tenant connection support
+      href: concept-cross-tenant.md
+  - name: Configuration types
+    items:
+    - name: Connectivity
+      href: concept-connectivity-configuration.md
+    - name: Security admin rules
+      items: 
+      - name: Security admin rule concepts
+        href: concept-security-admins.md
+      - name: Security admin rule enforcement
+        href: concept-enforcement.md
+  - name: Deployments
+    href: concept-deployments.md
+  - name: Remove or update components
+    href: concept-remove-components-checklist.md
+- name: How-to guides
+  items:
+  - name: Secure network traffic
+    items:
+    - name: Block network traffic - Portal
+      href: how-to-block-network-traffic-portal.md
+    - name: Block network traffic -PowerShell
+      href: how-to-block-network-traffic-powershell.md
+    - name: Protect high-risk network ports
+      href: how-to-block-high-risk-ports.md
+  - name: Create a network topology
+    items:
+    - name: Mesh
+      items: 
+      - name: Azure portal
+        href: how-to-create-mesh-network.md
+      - name: Azure PowerShell
+        href: how-to-create-mesh-network-powershell.md
+    - name: Hub-and-spoke
+      items:
+      - name: Azure portal
+        href: how-to-create-hub-and-spoke.md
+      - name: Azure PowerShell
+        href: how-to-create-hub-and-spoke-powershell.md
+  - name: Cross-tenant connection support
+    items:
+    - name: Configure cross-tenant connection - Portal
+      href: how-to-configure-cross-tenant-portal.md
+    - name: Configure cross-tenant connection - CLI
+      href: how-to-configure-cross-tenant-cli.md
+  - name: View applied configurations
+    href: how-to-view-applied-configurations.md
+  - name: Define dynamic network group membership with Azure Policy
+    href: how-to-exclude-elements.md
+  - name: Common issues
+    href: common-issues.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/networkmanager/
+  - name: .NET SDK
+    href: /dotnet/api/microsoft.azure.management.network
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

@@ -4,11 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Nevis for passwordless authentication 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -215,7 +216,7 @@ You'll receive two emails:
 
 4. Select **Run now**.
 
-5. In the popup window, select **Sign up now**.
+5. In the pop-up window, select **Sign up now**.
 
 6. Add your email address.
 
@@ -247,7 +248,7 @@ You'll receive two emails:
 
 2. Select **Run now**.
 
-3. On the popup window, select **Passwordless Authentication**.
+3. In the pop-up window, select **Passwordless Authentication**.
 
 4. Enter your email address.
 

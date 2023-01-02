@@ -3,7 +3,7 @@ title: Understanding Azure CDN billing | Microsoft Docs
 description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: allensu
+ms.author: duau
 
 ---
 # Understanding Azure CDN billing
@@ -60,7 +59,7 @@ If you are using Azure Blob storage as the origin for your content, you also inc
 > [!NOTE]
 > Starting October 2019, If you are using Azure CDN from Microsoft, the cost of data transfer from Origins hosted in Azure to CDN PoPs is free of charge. Azure CDN from Verizon and Azure CDN from Akamai are subject to the rates described below.
 
-For more information about Azure Storage billing, see [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+For more information about Azure Storage billing, see [Plan and manage costs for Azure Storage](../storage/common/storage-plan-manage-costs.md).
 
 If you are using *hosted service delivery*, you will incur charges as follows:
 

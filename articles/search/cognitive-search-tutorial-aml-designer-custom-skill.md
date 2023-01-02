@@ -2,9 +2,9 @@
 title: "Example: Create and deploy a custom skill with Azure Machine Learning designer"
 titleSuffix: Azure Cognitive Search
 description: This example demonstrates how to use Azure Machine Learning designer to build and deploy a custom AML skill for Azure Cognitive Search's AI enrichment pipeline.
-manager: luiscab
-author: vkurpad
-ms.author: vikurpad
+
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/16/2021
@@ -21,7 +21,7 @@ Follow the [Regression - Automobile Price Prediction (Advanced)](https://github.
 
 ## Register model and download assets
 
-Once you have a model trained, [register the trained model](../machine-learning/how-to-deploy-model-designer.md) and follow the steps to download all the files in the `trained_model_outputs` folder or download only the `score.py` and `conda_env.yml` files from the models artifacts page. You will edit the scoring script before the model is deployed as a real-time inferencing endpoint.
+Once you have a model trained, [register the trained model](../machine-learning/v1/how-to-deploy-model-designer.md) and follow the steps to download all the files in the `trained_model_outputs` folder or download only the `score.py` and `conda_env.yml` files from the models artifacts page. You will edit the scoring script before the model is deployed as a real-time inferencing endpoint.
 
 
 ## Edit the scoring script for use with Cognitive Search 

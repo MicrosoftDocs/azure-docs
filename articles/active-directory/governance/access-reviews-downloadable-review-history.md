@@ -1,23 +1,22 @@
 ---
-title: Create and manage downloadable access review history report (Preview) - Azure Active Directory
-description: Using Azure Active Directory access reviews, you can download a review history for access reviews in your organization.
+title: Create and manage downloadable access review history report
+description: Using Microsoft Entra access reviews, you can download a review history for access reviews in your organization.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: daveba
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/25/2021
-ms.author: ajburnle
+ms.date: 02/18/2022
+ms.author: amsliu
 ---
 
-# Create and manage downloadable access review history report (Preview) in Azure AD access reviews
+# Create and manage downloadable access review history report in Microsoft Entra access reviews
 
-With Azure Active Directory (Azure AD) Access Reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
+With access reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
  
 ## Who can access and request review history
 
@@ -55,6 +54,7 @@ The reports provide details on a per-user basis showing the following:
 | Element name | Description |
 | --- | --- |
 | AccessReviewId |	Review object id |
+| AccessReviewSeriesId |	Object id of the review series, if the review is an instance of a recurring review. If a one-time review, the value will be am empty GUID. |
 | ReviewType | Review types include group, application, Azure AD role, Azure role, and access package|
 |ResourceDisplayName | Display Name of the resource being reviewed |
 | ResourceId | Id of the resource being reviewed |

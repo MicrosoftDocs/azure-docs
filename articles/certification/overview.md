@@ -11,7 +11,7 @@ ms.service: certification
 
 # What is the Azure Certified Device program?
 
-Thank you for your interest in the Azure Certified Device program! Azure Certified Device is a free program that enables you to differentiating, certify, and promote your IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
+Thank you for your interest in the Azure Certified Device program! Azure Certified Device is a free program that enables you to differentiate, certify, and promote your IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
 
 ## Our certification promise
 

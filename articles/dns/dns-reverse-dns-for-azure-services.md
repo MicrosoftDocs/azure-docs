@@ -3,15 +3,14 @@ title: Reverse DNS for Azure services - Azure DNS
 description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
 documentationcenter: na
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/29/2021
-ms.author: rohink 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/27/2022
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure reverse DNS for services hosted in Azure
@@ -246,4 +245,4 @@ The technical ability to send email directly from an Azure deployment depends on
 ## Next steps
 
 * For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
-* Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
+* Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-hosting.md).

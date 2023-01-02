@@ -3,7 +3,7 @@ title: 'Azure HDInsight: Python samples'
 description: Find Python examples on GitHub for common tasks using the HDInsight SDK for Python.
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 11/08/2019
+ms.date: 05/30/2022
 ms.custom: devx-track-python
 ---
 
@@ -38,6 +38,6 @@ This article provides:
 
 You can get these samples for Python by cloning the [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub repository.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](/python/api/overview/azure/hdinsight).

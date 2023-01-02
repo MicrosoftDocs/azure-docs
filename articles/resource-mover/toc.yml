@@ -26,6 +26,8 @@
     href: support-matrix-move-region-azure-vm.md
   - name: Support-Move Azure SQL across regions
     href: support-matrix-move-region-sql.md
+  - name: Support-Move Extension resource types
+    href: support-matrix-extension-resource-types.md
 - name: How-to Guides
   items:
   - name: Move across regions
@@ -50,3 +52,7 @@
     href: /azure/templates/microsoft.migrate/allversions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+- name: Monitoring
+  items:
+  - name: Monitor Move across region
+    href: move-across-region-dashboard.md

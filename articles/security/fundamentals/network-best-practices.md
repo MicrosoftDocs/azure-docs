@@ -1,15 +1,12 @@
 ---
 title: Best practices for network security - Microsoft Azure
 description: This article provides a set of best practices for network security using built in Azure capabilities.
-services: security
 author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
-ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -73,7 +70,7 @@ Best practices are:
 **Detail**: [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Best practice**: Enable port access only after workflow approval.  
-**Detail**: You can use [just-in-time VM access in Azure Security Center](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+**Detail**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 **Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.  
 **Detail**: Use just-in-time access in Azure AD Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
@@ -186,7 +183,7 @@ Point-to-site VPN is more secure than direct RDP or SSH connections because the 
 **Option**: A [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) connects an entire network to another network over the internet. You can use a site-to-site VPN to connect your on-premises network to an Azure virtual network. Users on your on-premises network connect by using the RDP or SSH protocol over the site-to-site VPN connection. You don't have to allow direct RDP or SSH access over the internet.
 
 **Scenario**: Use a dedicated WAN link to provide functionality similar to the site-to-site VPN.   
-**Option**: Use [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). It provides functionality similar to the site-to-site VPN. The main differences are:
+**Option**: Use [ExpressRoute](../../expressroute/index.yml). It provides functionality similar to the site-to-site VPN. The main differences are:
 
 - The dedicated WAN link doesn't traverse the internet.
 - Dedicated WAN links are typically more stable and perform better.

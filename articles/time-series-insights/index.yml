@@ -36,7 +36,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Analyzing Data using Time Series Insights Gen2
-            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Deep-Dive-Analyzing-IoT-data-using-Time-Series-Insights
+            url: /Shows/Internet-of-Things-Show/Deep-Dive-Analyzing-IoT-data-using-Time-Series-Insights
 
   - title: Get started
     linkLists:
@@ -74,7 +74,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Rest APIs Overview
+          - text: REST APIs Overview
             url: /rest/api/time-series-insights/
           - text: Data Access Concepts Gen2
             url: /rest/api/time-series-insights/reference-data-access-overview

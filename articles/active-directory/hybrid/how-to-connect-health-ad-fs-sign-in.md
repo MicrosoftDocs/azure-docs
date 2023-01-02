@@ -4,14 +4,13 @@ description: This document describes how to integrate AD FS sign-ins with the Az
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 01/21/2022
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
@@ -100,6 +99,9 @@ The Azure AD Connect Health agent for AD FS correlates event IDs from AD FS depe
 
 ***Why do I see NotSet or NotApplicable in the Application ID/Name for some AD FS sign-ins?***
 The AD FS Sign-In Report will display OAuth Ids in the Application ID field for OAuth sign-ins. In the WS-Fed, WS-Trust sign-in scenarios, the application ID will be NotSet or NotApplicable and the Resource IDs and Relying Party identifiers will be present in the Resource ID field.
+
+***Why do I see Resource ID and Resource Name fields as "Not Set"?***
+The ResourceId/Name fields will be "NotSet" in some error cases, such as "Username and Password incorrect" and in WSTrust based failed sign-ins.
 
 ***Are there any more known issues with the report in preview?***
 The report has a known issue where the "Authentication Requirement" field in the "Basic Info" tab will be populated as a single factor authentication value for AD FS sign-ins regardless of the sign-in. Additionally, the Authentication Details tab will display "Primary or Secondary" under the Requirement field, with a fix in progress to differentiate Primary or Secondary authentication types.

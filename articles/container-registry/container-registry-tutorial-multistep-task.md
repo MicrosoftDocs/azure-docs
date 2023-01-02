@@ -2,20 +2,23 @@
 title: Tutorial - Multi-step ACR task
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger a multi-step workflow to build, run, and push container images in the cloud when you commit source code to a Git repository.
 ms.topic: tutorial
-ms.date: 11/24/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to trigger a multi-step container workflow automatically when I commit code to a Git repo.
 ---
 
 # Tutorial: Run a multi-step container workflow in the cloud when you commit source code
 
-In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports multi-step, multi-container-based workflows that can automatically trigger when you commit source code to a Git repository. 
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports multi-step, multi-container-based workflows that can automatically trigger when you commit source code to a Git repository.
 
 In this tutorial, you learn how to use example YAML files to define multi-step tasks that build, run, and push one or more container images to a registry when you commit source code. To create a task that only automates a single image build on code commit, see [Tutorial: Automate container image builds in the cloud when you commit source code](container-registry-tutorial-build-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md),
 
 In this tutorial:
 
 > [!div class="checklist"]
+>
 > * Define a multi-step task using a YAML file
 > * Create a task
 > * Optionally add credentials to the task to enable access to another registry
@@ -54,7 +57,7 @@ steps:
 
 This multi-step task does the following:
 
-1. Runs a `build` step to build an image from the Dockerfile in the working directory. The image targets the `Run.Registry`, the registry where the task is run, and is tagged with a unique ACR Tasks run ID. 
+1. Runs a `build` step to build an image from the Dockerfile in the working directory. The image targets the `Run.Registry`, the registry where the task is run, and is tagged with a unique ACR Tasks run ID.
 1. Runs a `cmd` step to run the image in a temporary container. This example starts a long-running container in the background and returns the container ID, then stops the container. In a real-world scenario, you might include steps to test the running container to ensure it runs correctly.
 1. In a `push` step, pushes the image that was built to the run registry.
 
@@ -79,7 +82,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-This task specifies that any time code is committed to the *main* branch in the repository specified by `--context`, ACR Tasks will run the multi-step task from the code in that branch. The YAML file specified by `--file` from the repository root defines the steps. 
+This task specifies that any time code is committed to the *main* branch in the repository specified by `--context`, ACR Tasks will run the multi-step task from the code in that branch. The YAML file specified by `--file` from the repository root defines the steps.
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
@@ -294,7 +297,7 @@ steps:
 This multi-step task does the following:
 
 1. Runs two `build` steps to build images from the Dockerfile in the working directory:
-    * The first targets the `Run.Registry`, the registry where the task is run, and is tagged with the ACR Tasks run ID. 
+    * The first targets the `Run.Registry`, the registry where the task is run, and is tagged with the ACR Tasks run ID.
     * The second targets the registry identified by the value of `regDate`, which you set when you create the task (or provide through an external `values.yaml` file passed to `az acr task create`). This image is tagged with the run date.
 1. Runs a `cmd` step to run one of the built containers. This example starts a long-running container in the background and returns the container ID, then stops the container. In a real-world scenario, you might test a running container to ensure it runs correctly.
 1. In a `push` step, pushes the images that were built, the first to the run registry, the second to the registry identified by `regDate`.
@@ -317,7 +320,9 @@ az acr task create \
 
 To push images to the registry identified by the value of `regDate`, use the [az acr task credential add][az-acr-task-credential-add] command to add login credentials for that registry to the task.
 
-For this example, we recommend that you create a [service principal](container-registry-auth-service-principal.md) with access to the registry scoped to the *AcrPush* role, so that it has permissions to push images. To create the service principal, see this [Azure CLI script](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+For this example, we recommend that you create a [service principal](container-registry-auth-service-principal.md) with access to the registry scoped to the *AcrPush* role, so that it has permissions to push images. To create the service principal, use the following script:
+
+:::code language="azurecli" source="~/azure_cli_scripts/container-registry/create-registry/create-registry-service-principal-assign-role.sh" id="Create":::
 
 Pass the service principal application ID and password in the following `az acr task credential add` command. Be sure to update the login server name *mycontainerregistrydate* with the name of your second registry:
 
@@ -442,11 +447,11 @@ In this tutorial, you learned how to create multi-step, multi-container-based ta
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
-[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
-[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az_acr_task_credential_add    
-[az-login]: /cli/azure/reference-index#az_login
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
+[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add
+[az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png

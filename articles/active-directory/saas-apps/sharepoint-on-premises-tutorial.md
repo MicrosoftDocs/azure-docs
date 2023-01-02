@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Implement federated authentication between Azure Active Directory and SharePoint on-premises
@@ -102,7 +102,7 @@ $realm = "urn:sharepoint:federation"
 $loginUrl = "https://login.microsoftonline.com/dc38a67a-f981-4e24-ba16-4443ada44484/wsfed"
 
 # Define the claim types used for the authorization
-$userIdentifier = New-SPClaimTypeMapping -IncomingClaimType `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
+$userIdentifier = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
 $role = New-SPClaimTypeMapping "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
 
 # Let SharePoint trust the Azure AD signing certificate
@@ -344,3 +344,37 @@ $t.Update()
 1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of all additional web applications that need to sign in users with Azure Active Directory and click **Save**.
 
 ![Specify additional web applications](./media/sharepoint-on-premises-tutorial/azure-active-directory-app-reply-urls.png)
+
+### Configure the lifetime of the security token
+
+By default, Azure AD creates a SAML token that is valid for 1 hour.  
+This lifetime cannot be customized in the Azure portal, or using a conditional access policy, but it can be done by creating a [custom token lifetime policy](../develop/active-directory-configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
+To do this, complete the steps below using Windows PowerShell (at the time of this writing, AzureADPreview v2.0.2.149 does not work with PowerShell Core):
+
+1. Install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):
+
+    ```powershell
+    Install-Module -Name AzureADPreview -Scope CurrentUser
+    ```
+
+1. Run `Connect-AzureAD` to sign-in as a tenant administrator.
+
+1. Run the sample script below to update the application `SharePoint corporate farm` to issue a SAML token valid for 6h (value `06:00:00` of property `AccessTokenLifetime`):
+
+    ```powershell
+    $appDisplayName = "SharePoint corporate farm"
+    
+    $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '$appDisplayName'"
+    $oldPolicy = Get-AzureADServicePrincipalPolicy -Id $sp.ObjectId | ?{$_.Type -eq "TokenLifetimePolicy"}
+    if ($null -ne $oldPolicy) {
+        # There can be only 1 TokenLifetimePolicy associated to the service principal (or 0, as by default)
+        Remove-AzureADServicePrincipalPolicy -Id $sp.ObjectId -PolicyId $oldPolicy.Id
+    }
+    
+    # Create a custom TokenLifetimePolicy in Azure AD and add it to the service principal
+    $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"06:00:00"}}') -DisplayName "Custom token lifetime policy" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+    Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+    ```
+
+After the script completed, all users who successfully sign-in to the enterprise application will get a SAML 1.1 token valid for 6h in SharePoint.  
+To revert the change, simply remove the custom `TokenLifetimePolicy` object from the service principal, as done at the beginning of the script.

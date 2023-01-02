@@ -14,11 +14,13 @@ ms.author: haroldw
 
 # Deploy OpenShift Container Platform 3.11 in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 You can use one of several methods to deploy OpenShift Container Platform 3.11 in Azure:
 
 - You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform).
 - You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
-- Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+- Another option is to use the Azure Marketplace offer.
 
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
 Make sure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
@@ -275,7 +277,7 @@ Different releases may have different parameters so verify the necessary paramet
 | `domainName` | Name of the custom domain name to use (if applicable). Set to "none" if not deploying fully private cluster |  | none |
 | `masterClusterDnsType` | Domain type for OpenShift web console. 'default' will use DNS label of master infra public IP. 'custom' allows you to define your own name | default <br> custom | default |
 | `masterClusterDns` | The custom DNS name to use to access the OpenShift web console if you selected 'custom' for `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | If set to 'nipio', `routingSubDomain` will use nip.io.  Use 'custom' if you have your own domain that you want to use for routing | nipio <br> custom | nipio |
+| `routingSubDomainType` | If set to `nipio`, `routingSubDomain` will use `nip.io`.  Use 'custom' if you have your own domain that you want to use for routing | `nipio` <br> custom | `nipio` |
 | `routingSubDomain` | The wildcard DNS name you want to use for routing if you selected 'custom' for `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Select whether to use an existing Virtual Network or create a new Virtual Network | existing <br> new | new |
 | `virtualNetworkResourceGroupName` | Name of the Resource Group for the new Virtual Network if you selected 'new' for `virtualNetworkNewOrExisting` |  | resourceGroup().name |

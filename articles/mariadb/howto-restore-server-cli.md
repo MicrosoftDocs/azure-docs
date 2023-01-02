@@ -1,13 +1,13 @@
 ---
 title: Backup and restore - Azure CLI - Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using the Azure CLI.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 3/27/2020 
 ms.custom: devx-track-azurecli
+ms.date: 06/24/2022
 ---
 # How to back up and restore a server in Azure Database for MariaDB using the Azure CLI
 
@@ -51,7 +51,7 @@ The backup retention period governs how far back in time a point-in-time restore
 
 You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server.
 
-To restore the server, use the Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) command.
+To restore the server, use the Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) command.
 
 ### Run the restore command
 
@@ -72,7 +72,7 @@ The `az mariadb server restore` command requires the following parameters:
 
 WWhen you restore a server to an earlier point in time, a new server is created. The original server and its databases from the specified point in time are copied to the new server.
 
-The location and pricing tier values for the restored server remain the same as the original server. 
+The location and pricing tier values for the restored server remain the same as the original server.
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
@@ -80,7 +80,7 @@ The new server created during a restore does not have the VNet service endpoints
 
 ## Geo restore
 
-If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.  
+If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.
 
 To create a server using a geo redundant backup, use the Azure CLI `az mariadb server georestore` command.
 

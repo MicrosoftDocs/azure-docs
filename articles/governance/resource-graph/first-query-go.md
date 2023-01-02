@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: Your first Go query"
 description: In this quickstart, you follow the steps to enable the Resource Graph package for Go and run your first query.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
+ms.devlang: golang
 ---
 # Quickstart: Run your first Resource Graph query using Go
 
@@ -24,7 +25,7 @@ To enable Go to query Azure Resource Graph, the package must be added. This pack
 Go can be used, including [bash on Windows 10](/windows/wsl/install-win10) or locally installed.
 
 1. Check that the latest Go is installed (at least **1.14**). If it isn't yet installed, download it
-   at [Golang.org](https://golang.org/dl/).
+   at [Golang.org](https://go.dev/dl/).
 
 1. Check that the latest Azure CLI is installed (at least **2.5.1**). If it isn't yet installed, see
    [Install the Azure CLI](/cli/azure/install-azure-cli).
@@ -44,7 +45,7 @@ Go can be used, including [bash on Windows 10](/windows/wsl/install-win10) or lo
 
    ```bash
    # Add the Resource Graph package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
 
    # Add the Azure auth package for Go
    go get -u github.com/Azure/go-autorest/autorest/azure/auth
@@ -66,7 +67,7 @@ Type** of each resource.
       "os"
       "context"
       "strconv"
-      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
+      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph"
       "github.com/Azure/go-autorest/autorest/azure/auth"
    )
 

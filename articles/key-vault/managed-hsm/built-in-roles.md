@@ -2,13 +2,13 @@
 title: Managed HSM local RBAC built-in roles - Azure Key Vault | Microsoft Docs
 description: An overview of Managed HSM built-in roles that can be assigned to users, service principals, groups, and managed identities
 services: key-vault
-author: amitbapat
+author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 06/01/2021
-ms.author: ambapat
+ms.author: mbaldwin
 
 ---
 # Managed HSM local RBAC built-in roles
@@ -43,6 +43,7 @@ Managed HSM local RBAC has several built-in roles. You can assign these roles to
 |**Key management**|
 |/keys/read/action|||<center>X</center>||<center>X</center>||<center>X</center>|
 |/keys/write/action|||<center>X</center>||||
+|/keys/rotate/action|||<center>X</center>||||
 |/keys/create|||<center>X</center>||||
 |/keys/delete|||<center>X</center>||||
 |/keys/deletedKeys/read/action||<center>X</center>|||||
@@ -50,7 +51,6 @@ Managed HSM local RBAC has several built-in roles. You can assign these roles to
 |/keys/deletedKeys/delete||<center>X</center>|||||<center>X</center>|
 |/keys/backup/action|||<center>X</center>|||<center>X</center>|
 |/keys/restore/action|||<center>X</center>||||
-|/keys/export/action||<center>X</center>|||||
 |/keys/release/action|||<center>X</center>||||
 |/keys/import/action|||<center>X</center>||||
 |**Key cryptographic operations**|

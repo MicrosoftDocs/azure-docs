@@ -1,9 +1,8 @@
 ---
 title: Handle errors and exceptions in MSAL.js
-titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL.js applications.
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/26/2020
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda, hahamil
 ms.custom: aaddev
 ---
@@ -114,7 +113,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 
 [!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
 
-When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](../azuread-dev/conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
+When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](v2-conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 

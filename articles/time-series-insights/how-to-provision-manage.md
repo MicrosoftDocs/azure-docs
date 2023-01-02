@@ -1,9 +1,9 @@
 ---
 title: Manage a Gen 2 environment - Azure Time Series | Microsoft Docs
 description: Learn how to manage an Azure Time Series Insights Gen 2 environment.
-author: shipra1mishra
-ms.author: shmishr
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -13,6 +13,8 @@ ms.custom: seodec18
 ---
 
 # Manage Azure Time Series Insights Gen2
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 After you've created your Azure Time Series Insights Gen2 environment by using [the Azure CLI](./how-to-create-environment-using-cli.md) or [the Azure portal](./how-to-create-environment-using-portal.md), you can modify your access policies and other environment attributes to suit your business needs.
 

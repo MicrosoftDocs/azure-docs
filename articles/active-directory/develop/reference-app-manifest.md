@@ -1,6 +1,5 @@
 ---
 title: Understanding the Azure Active Directory app manifest
-titleSuffix: Microsoft identity platform
 description: Detailed coverage of the Azure Active Directory app manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
 author: rwike77
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/02/2021
+ms.date: 05/19/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -19,7 +18,7 @@ ms.reviewer: sureshja
 
 The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](/graph/api/resources/application).
 
-You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+You can configure an app's attributes through the Azure portal or programmatically using [Microsoft Graph API](/graph/api/resources/application) or [Microsoft Graph PowerShell SDK](/powershell/module/microsoft.graph.applications/?view=graph-powershell-1.0&preserve-view=true). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * To define permissions and roles that your app supports, you must modify the application manifest.
@@ -49,6 +48,23 @@ Example:
 
 ```json
     "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
+
+### acceptMappedClaims attribute
+
+| Key | Value type |
+| :--- | :--- |
+| acceptMappedClaims | Nullable Boolean |
+
+As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use [claims mapping](active-directory-claims-mapping.md) without specifying a custom signing key.  Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors.
+
+> [!WARNING]
+> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
+
+Example:
+
+```json
+    "acceptMappedClaims": true,
 ```
 
 ### accessTokenAcceptedVersion attribute
@@ -200,12 +216,15 @@ Example:
 | :--- | :--- |
 | identifierUris | String Array |
 
-User-defined URI(s) that uniquely identify a Web app within its Azure AD tenant, or within a verified custom domain if the app is multi-tenant.
+User-defined URI(s) that uniquely identify a web app within its Azure AD tenant or verified customer owned domain.
+When an application is used as a resource app, the identifierUri value is used to uniquely identify and access the resource.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 Example:
 
 ```json
-    "identifierUris": "https://MyRegisteredApp",
+    "identifierUris": "https://contoso.onmicrosoft.com/fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed",
 ```
 
 ### informationalUrls attribute

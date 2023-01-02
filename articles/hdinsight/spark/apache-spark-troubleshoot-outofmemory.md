@@ -3,7 +3,7 @@ title: OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
 description: Various OutOfMemoryError exceptions for Apache Spark cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/15/2019
+ms.date: 03/31/2022
 ---
 
 # OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
@@ -231,7 +231,7 @@ Delete all entries using steps detailed below.
 1. Wait for the above command to complete and the cursor to return the prompt and then restart Livy service from Ambari, which should succeed.
 
 > [!NOTE]
-> `DELETE` the livy session once it is completed its execution. The Livy batch sessions will not be deleted automatically as soon as the spark app completes, which is by design. A Livy session is an entity created by a POST request against Livy Rest server. A `DELETE` call is needed to delete that entity. Or we should wait for the GC to kick in.
+> `DELETE` the livy session once it is completed its execution. The Livy batch sessions will not be deleted automatically as soon as the spark app completes, which is by design. A Livy session is an entity created by a POST request against Livy REST server. A `DELETE` call is needed to delete that entity. Or we should wait for the GC to kick in.
 
 ---
 

@@ -3,11 +3,11 @@ title: Internet peering vs. Peering Service
 titleSuffix: Azure
 description: Internet peering vs. Peering Service
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 5/22/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 # Internet peering vs. Peering Service
@@ -44,7 +44,7 @@ In the figure above each branch office of a global enterprise connects to the ne
 * Partner can utilize their existing peering to support Peering Service if it meets the requirement.
 
 ## FAQ
-For frequently asked questions, see [Peering Service - FAQ](service-faqs.md).
+For frequently asked questions, see [Peering Service - FAQ](service-faqs.yml).
 
 ## Next steps
 

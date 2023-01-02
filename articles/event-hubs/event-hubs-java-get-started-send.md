@@ -2,17 +2,14 @@
 title: Send or receive events from Azure Event Hubs using Java (latest)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the latest azure-messaging-eventhubs package.
 ms.topic: quickstart
-ms.date: 04/30/2021
-ms.custom: devx-track-java
+ms.date: 12/21/2022
+ms.devlang: java
+ms.custom: devx-track-java, mode-api
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)
 
 This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
-
-> [!IMPORTANT]
-> This quickstart uses the new **azure-messaging-eventhubs** package. For a quickstart that uses the old **azure-eventhubs** and **azure-eventhubs-eph** packages, see [Send and receive events using azure-eventhubs and azure-eventhubs-eph](event-hubs-java-get-started-send-legacy.md).
-
 
 ## Prerequisites
 
@@ -22,7 +19,7 @@ To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - A Java development environment. This quickstart uses [Eclipse](https://www.eclipse.org/). Java Development Kit (JDK) with version 8 or above is required.
-- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this quickstart.
+- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You use the connection string later in this quickstart.
 
 ## Send events
 
@@ -30,14 +27,14 @@ This section shows you how to create a Java application to send events an event 
 
 ### Add reference to Azure Event Hubs library
 
-The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). You can reference this library using the following dependency declaration inside your Maven project file:
+First, create a new **Maven** project for a console/shell application in your favorite Java development environment. Update the `pom.xml` file with the following dependency. The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). 
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-eventhubs</artifactId>
-    <version>5.7.0</version>
-</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
 ```
 
 > [!NOTE]
@@ -45,7 +42,7 @@ The Java client library for Event Hubs is available in the [Maven Central Reposi
 
 ### Write code to send messages to the event hub
 
-For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. Add a class named `Sender`, and add the following code to the class:
+Add a class named `Sender`, and add the following code to the class:
 
 > [!IMPORTANT]
 > Update `<Event Hubs namespace connection string>` with the connection string to your Event Hubs namespace. Update `<Event hub name>` with the name of your event hub in the namespace.
@@ -140,18 +137,18 @@ Add the following dependencies in the pom.xml file.
 - [azure-messaging-eventhubs-checkpointstore-blob](https://search.maven.org/search?q=a:azure-messaging-eventhubs-checkpointstore-blob)
 
 ```xml
-<dependencies>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-messaging-eventhubs</artifactId>
-        <version>5.7.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-        <version>1.6.0</version>
-    </dependency>
-</dependencies>
+	<dependencies>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs</artifactId>
+		    <version>5.15.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+		    <version>1.16.1</version>
+		</dependency>
+	</dependencies>
 ```
 
 1. Add the following **import** statements at the top of the Java file.

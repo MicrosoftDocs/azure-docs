@@ -1,0 +1,69 @@
+{
+    "redirections": [
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration.md",
+          "redirect_url": "/azure/governance/machine-configuration/overview",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration-policy-effects.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-policy-effects",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-desired-state-configuration-extension-migration.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-dsc-extension-migration",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration-custom.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-custom",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-test.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create-test",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-signing.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create-signing",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-setup.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create-setup",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-publish.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create-publish",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-definition.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create-definition",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-assignment.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-create-assignment",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-azure-automation-migration.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-azure-automation-migration",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/concepts/guest-configuration-assignments.md",
+          "redirect_url": "/azure/governance/machine-configuration/machine-configuration-assignments",
+          "redirect_document_id": false
+        },
+      ]
+}

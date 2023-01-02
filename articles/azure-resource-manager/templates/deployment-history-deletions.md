@@ -25,7 +25,7 @@ Deployments are deleted from your history when you exceed 700 deployments. Azure
 > [!IMPORTANT]
 > If your resource group is already at the 800 limit, your next deployment fails with an error. The automatic deletion process starts immediately. You can try your deployment again after a short wait.
 
-In addition to deployments, you also trigger deletions when you run the [what-if operation](template-deploy-what-if.md) or validate a deployment.
+In addition to deployments, you also trigger deletions when you run the [what-if operation](./deploy-what-if.md) or validate a deployment.
 
 When you give a deployment the same name as one in the history, you reset its place in the history. The deployment moves to the most recent place in the history. You also reset a deployment's place when you [roll back to that deployment](rollback-on-error.md) after an error.
 
@@ -77,7 +77,7 @@ To reenable automatic deletions, use Azure REST API or Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az feature register](/cli/azure/feature#az_feature_register).
+For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -89,7 +89,7 @@ To see the current status of your subscription, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az_feature_unregister).
+To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming

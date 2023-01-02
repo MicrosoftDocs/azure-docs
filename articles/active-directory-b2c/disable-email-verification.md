@@ -3,15 +3,15 @@ title: Disable email verification during customer sign-up
 titleSuffix: Azure AD B2C
 description: Learn how to disable email verification during customer sign-up in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -37,14 +37,15 @@ Some application developers prefer to skip email verification during the sign-up
 Follow these steps to disable email verification:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **User flows**.
-1. Select the user flow for which you want to disable email verification. For example, *B2C_1_signinsignup*.
+1. Select the user flow for which you want to disable email verification.
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **Email Address**.
-1. In the **REQUIRES VERIFICATION** drop-down, select **No**.
+1. In the **Requires Verification** drop-down, select **No**.
 1. Select **Save**. Email verification is now disabled for this user flow.
 
 ::: zone-end
@@ -75,7 +76,8 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
 ## Test your policy 
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select the user flow for which you want to disable email verification. For example, *B2C_1_signinsignup*.
@@ -91,7 +93,8 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
 ## Update and test the relying party file
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
 1. Select **Upload Custom Policy**, and then upload the two policy files that you changed.

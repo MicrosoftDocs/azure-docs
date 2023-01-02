@@ -1,11 +1,14 @@
 ---
 title: Package an Azure Service Fabric app 
 description: Learn about packaging an Azure Service Fabric application and how to prepare for deployment to a cluster.
-
-ms.topic: conceptual
-ms.date: 2/23/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Package an application
 
 This article describes how to package a Service Fabric application and make it ready for deployment.
@@ -41,7 +44,7 @@ The folders are named to match the **Name** attributes of each corresponding ele
 
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-* Setting up and initializing environment variables that the service executable needs. It is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
+* Setting up and initializing environment variables that the service executable needs. It is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a Node.js application.
 * Setting up access control by installing security certificates.
 
 For more information on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
@@ -131,7 +134,7 @@ For a compressed application package, [uploading the application package](servic
 The deployment mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
 The compression replaces the valid Service Fabric package with the compressed version. The folder must allow write permissions. Running compression on an already compressed package yields no changes.
 
-You can compress a package by running the Powershell command [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage)
+You can compress a package by running the PowerShell command [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage)
 with `CompressPackage` switch. You can uncompress the package with the same command, using `UncompressPackage` switch.
 
 The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage)
@@ -206,12 +209,11 @@ You can instruct Visual Studio to compress packages on deployment, by adding the
 ## Create an sfpkg
 
 Starting with version 6.1, Service Fabric allows provisioning from an external store.
-With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
+With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` file and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
 
-The `sfpkg` file is a zip that contains the initial application package and has the extension ".sfpkg".
-Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, config, and data package levels, as [mentioned earlier](service-fabric-package-apps.md#compress-a-package).
+The `sfpkg` file is a zip that contains the initial application package and has the extension `.sfpkg`. Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, config, and data package levels, as [mentioned earlier](service-fabric-package-apps.md#compress-a-package).
 
-To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use any utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
+To create an `sfpkg` file, start with a folder that contains the original application package, compressed or not. Then, use any utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

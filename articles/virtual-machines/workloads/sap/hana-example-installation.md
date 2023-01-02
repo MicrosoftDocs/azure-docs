@@ -7,12 +7,11 @@ author: hermanndms
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/4/2021
-ms.author: madhukan
+ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 02/22/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure. 
 ---
@@ -45,11 +45,17 @@ Follow these steps to configure the network for your device.
 
 2. If a zero day update is needed, you can do that here by configuring a data port with a wired connection. For more instructions on how to set up a wired connection for this device, see [Cable your device](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). After the update is over, you can remove the wired connection.
 
-3. Create certificates for Wi-Fi and signing chain. Both the signing chain and the Wi-Fi certificates must be DER format with a *.cer* file extension. For instructions, see [Create certificates](azure-stack-edge-gpu-manage-certificates.md).
+3. Create certificates for Wi-Fi and signing chain. Both the signing chain and the Wi-Fi certificates must be DER format with a *.cer* file extension. For instructions, see [Create certificates](azure-stack-edge-gpu-manage-certificates.md). This step is optional if you're using a Wi-Fi profile instead of certificates for authentication.
 
-4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
+   > [!NOTE] 
+   > If you're using password-based authentication on your personal Wi-Fi network, you can skip the certificate steps. Just configure the Wi-Fi port and then upload your Wi-Fi profile.</br></br> 
+   > To find out about Wi-Fi profiles for a WPA2 - Personal network and learn how to export your Wi-Fi profile, see [Use Wi-Fi profiles](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
-   [![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
+4. Add the certificates to your device: 
+
+   1. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
+
+      [![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
 
    1. Select **+ Add certificate**. 
     
@@ -69,7 +75,7 @@ Follow these steps to configure the network for your device.
 
    5. Go back to **Get started**.
 
-5. On the **Network** tile, select **Configure**.  
+5. Configure the Wi-Fi port. On the **Network** tile, select **Configure**.  
 
    On your physical device, there are five network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. The fifth port is the Wi-Fi port. 
 
@@ -125,7 +131,8 @@ Follow these steps to configure the network for your device.
     - Serial number for any port corresponds to the node serial number. For a K-series device, only one serial number is displayed.
 
      > [!NOTE]
-     > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
+     > - We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
+     > - If you need to connect to your device from an outside network, see [Enable device access from outside network](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-from-outside-network) for additional network settings.
 
 After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
 

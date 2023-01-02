@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 05/26/2022
 ms.author: victorh
 ---
 
@@ -28,7 +28,7 @@ You can configure a WAF policy and associate that policy to one or more CDN endp
 
 - custom rules that you can create.
 
-- managed rule sets that are a collection of Azure managed pre-configured rules.
+- managed rule sets that are a collection of Azure-managed pre-configured rules.
 
 When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: *ALLOW*, *BLOCK*, *LOG*, and *REDIRECT*. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
@@ -51,7 +51,7 @@ You can choose one of the following actions when a request matches a rule's cond
 - *Allow*: The request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request.
 - *Block*: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
 - *Log*:  The request is logged in the WAF logs and WAF continues evaluating lower priority rules.
-- *Redirect*: WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the *Redirect* action is sent to that URI.
+- *Redirect*: WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the *Redirect* action are sent to that URI.
 
 ## WAF rules
 
@@ -66,7 +66,7 @@ Custom rules can have match rules and rate control rules.
 
 You can configure the following custom match rules:
 
-- *IP allow list and block list*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
+- *IP allowlist and blocklist*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported.  IP list rules use the RemoteAddress IP contained in the X-Forwarded-For request header and not the SocketAddress that the WAF sees. IP lists can be configured to either block or allow requests where the RemoteAddress IP matches an IP in the list. If you have a requirement to block request on the source IP address that WAF sees, for example the proxy server address if the user is behind a proxy, you should use the Azure Front Door standard or premium tiers. For more information, see [Configure an IP restriction rule with a Web Application Firewall for Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-configure-ip-restriction) for details.
 
 - *Geographic based access control*: You can control access to your web applications based on the country code that's associated with a client's IP address.
 
@@ -78,7 +78,7 @@ You can configure the following custom match rules:
 
 A rate control rule limits abnormally high traffic from any client IP address.
 
-- *Rate limiting rules*: You can configure a threshold on the number of web requests allowed from a client IP address during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP address. Rate limits can be combined with additional match conditions such as HTTP(S) parameter matches for granular rate control.
+- *Rate limiting rules*: You can configure a threshold on the number of web requests allowed from a client IP address during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP address. Rate limits can be combined with more match conditions such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 
@@ -109,4 +109,4 @@ Monitoring for WAF with CDN is integrated with Azure Monitor to track alerts and
 
 ## Next steps
 
-- [Tutorial: Create a WAF policy with Azure CDN using the Azure portal](waf-cdn-create-portal.md)
+- [Azure CLI for CDN WAF](/cli/azure/cdn/waf)

@@ -1,7 +1,7 @@
 ---
 title: Understand the lifecycle of a blueprint
 description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Understand the lifecycle of an Azure Blueprint

@@ -3,7 +3,7 @@ title: Use Azure API Management with Microservices Deployed in Azure Kubernetes 
 description: This article describes the options of deploying API Management with AKS
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
  
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Use Azure API Management with microservices deployed in Azure Kubernetes Service
@@ -61,7 +61,7 @@ Pros:
 * No change on the AKS side if Services are already exposed publicly and authentication logic already exists in microservices
 
 Cons:
-* Potential security risk due to public visibility of Service endpoints
+* Potential security risk due to public visibility of endpoints
 * No single-entry point for inbound cluster traffic
 * Complicates microservices with duplicate authentication logic
 

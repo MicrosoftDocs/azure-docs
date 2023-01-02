@@ -2,11 +2,11 @@
 title: HTTP to HTTPS redirection in portal - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -133,7 +133,7 @@ In this example, you create a virtual machine scale set to provide servers for t
 3. In the search box, type *scale set* and press Enter.
 4. Select **Virtual machine scale set**, and then select **Create**.
 5. For **Virtual machine scale set name**, type *myvmss*.
-6. For Operating system disk image,** ensure **Windows Server 2016 Datacenter** is selected.
+6. For **Operating system disk image**, ensure **Windows Server 2016 Datacenter** is selected.
 7. For **Resource group**, select **myResourceGroupAG**.
 8. For **User name**, type *azureuser*.
 9. For **Password**, type *Azure123456!* and confirm the password.

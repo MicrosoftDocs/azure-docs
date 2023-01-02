@@ -17,6 +17,8 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 # Tutorial: Load balance VMs for high availability
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
 
 > [!div class="checklist"]
@@ -282,7 +284,7 @@ az network lb address-pool show \
     --lb-name myLoadBalancer \
     --name myBackEndPool \
     --query backendIpConfigurations \
-    --output tsv | cut -f4
+    --output tsv | cut -f5
 ```
 
 The output is similar to the following example, which shows that the virtual NIC for VM 2 is no longer part of the backend address pool:

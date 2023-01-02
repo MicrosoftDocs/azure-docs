@@ -1,15 +1,14 @@
 ---
 title: Column-level security for dedicated SQL pool 
 description: Column-Level Security allows customers to control access to database table columns based on the user's execution context or group membership, simplifying the design and coding of security in your application, and allowing you to implement restrictions on column access.
-services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/19/2020
-ms.author: jrasnick
-ms.reviewer: igorstan 
+ms.author: wiassaf
+ms.reviewer: wiassaf 
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ---

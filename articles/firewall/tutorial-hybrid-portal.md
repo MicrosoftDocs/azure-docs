@@ -4,10 +4,11 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: victorh
-customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+#Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 
 # Deploy and configure Azure Firewall in a hybrid network using the Azure portal
@@ -44,7 +45,7 @@ If you want to use Azure PowerShell instead to complete this procedure, see [Dep
 
 ## Prerequisites
 
-A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premise networks. The hub-and-spoke architecture has the following requirements:
+A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premises networks. The hub-and-spoke architecture has the following requirements:
 
 - Set **Use this virtual network's gateway or Route Server** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. 
 
@@ -240,7 +241,7 @@ In this step, you create the connection from the hub virtual network to the on-p
 1. Open the **FW-Hybrid-Test** resource group and select the **GW-hub** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
-4. The the connection name, type **Hub-to-Onprem**.
+4. For the connection name, type **Hub-to-Onprem**.
 5. Select **VNet-to-VNet** for **Connection type**.
 6. For the **Second virtual network gateway**, select **GW-Onprem**.
 7. For **Shared key (PSK)**, type **AzureA1b2C3**.

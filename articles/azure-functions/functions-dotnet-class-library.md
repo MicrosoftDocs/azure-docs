@@ -1,10 +1,11 @@
 ---
 title: Develop C# class library functions using Azure Functions
-description: Understand how to use C# to develop and publish code as class libraries that runs in-process with the Azure Functions runtime.
+description: Understand how to use C# to develop and publish code as class libraries that run in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/24/2020
+ms.date: 10/12/2022
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -14,32 +15,18 @@ ms.date: 07/24/2020
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
 >[!IMPORTANT]
->This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running your C# functions out-of-process and isolated from the runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
+>This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated worker process model is the only way to run non-LTS versions of .NET and .NET Framework apps in current versions of the Functions runtime. To learn more, see [.NET isolated worker process functions](dotnet-isolated-process-guide.md). 
+>For a comprehensive comparison between isolated worker process and in-process .NET Functions, see [Differences between in-process and isolate worker process .NET Azure Functions](dotnet-isolated-in-process-differences.md).
 
 As a C# developer, you may also be interested in one of the following articles:
 
 | Getting started | Concepts| Guided learning/samples |
 |--| -- |--| 
-| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
-## Supported versions
-
-Versions of the Functions runtime work with specific versions of .NET. To learn more about Functions versions, see [Azure Functions runtime versions overview](functions-versions.md)
-
-The following table shows the highest level of .NET Core or .NET Framework that can be used with a specific version of Functions. 
-
-| Functions runtime version | Max .NET version |
-| ---- | ---- |
-| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
-| Functions 2.x | .NET Core 2.2<sup>2</sup> |
-| Functions 1.x | .NET Framework 4.7 |
-
-<sup>1</sup> Must run [out-of-process](dotnet-isolated-process-guide.md).  
-<sup>2</sup> For details, see [Functions v2.x considerations](#functions-v2x-considerations).   
-
-For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ### Functions v2.x considerations
 
@@ -59,7 +46,7 @@ When running on Linux in a Premium or dedicated (App Service) plan, you pin your
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
 
 * [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-develop-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
 
 When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
@@ -73,7 +60,7 @@ When you build the project, a folder structure that looks like the following exa
  | - host.json
 ```
 
-This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#vs).
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-develop-vs.md?tabs=in-process#add-bindings).
 
 > [!IMPORTANT]
 > The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
@@ -81,7 +68,7 @@ This directory is what gets deployed to your function app in Azure. The binding 
 
 ## Methods recognized as functions
 
-In a class library, a function is a static method with a `FunctionName` and a trigger attribute, as shown in the following example:
+In a class library, a function is a method with a `FunctionName` and a trigger attribute, as shown in the following example:
 
 ```csharp
 public static class SimpleExample
@@ -96,7 +83,7 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The above example shows a static method being used, but functions aren't required to be static.
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
@@ -113,7 +100,7 @@ The order of parameters in the function signature doesn't matter. For example, y
 
 ### Output bindings
 
-A function can have zero or one output bindings defined by using output parameters. 
+A function can have zero or multiple output bindings defined by using output parameters. 
 
 The following example modifies the preceding one by adding an output queue binding named `myQueueItemCopy`. The function writes the contents of the message that triggers the function to a new message in a different queue.
 
@@ -184,7 +171,7 @@ The generated *function.json* file includes a `configurationSource` property tha
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks with the same `Sdk` package:
+The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of the `.csproj` files, showing different target frameworks with the same `Sdk` package:
 
 # [v2.x+](#tab/v2)
 
@@ -217,11 +204,11 @@ The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packag
 
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## Runtime version
+## Local runtime version
 
-Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects. The Core Tools is a command-line interface for the Functions runtime.
+Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects on your local computer. The Core Tools is a command-line interface for the Functions runtime.
 
-If you install the Core Tools by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
+If you install the Core Tools using the Windows installer (MSI) package or by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -229,23 +216,23 @@ If you install the Core Tools by using npm, that doesn't affect the Core Tools v
 
 ## ReadyToRun
 
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.0 and requires [version 3.0 of the Azure Functions runtime](functions-versions.md).
+ReadyToRun is available in .NET 3.1 and .NET 6 (in-proc and isolated) and .NET 7 and requires [version 3.0 or 4.0 of the Azure Functions runtime](functions-versions.md).
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netcoreapp3.1</TargetFramework>
-  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <TargetFramework>net6.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   <PublishReadyToRun>true</PublishReadyToRun>
   <RuntimeIdentifier>win-x86</RuntimeIdentifier>
 </PropertyGroup>
 ```
 
 > [!IMPORTANT]
-> ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
+> Starting in .NET 6, support for Composite ReadyToRun compilation has been added.  Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
 
 You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
 
@@ -309,25 +296,42 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-The following example shows how to check for impending function termination.
+Consider the case when you have a function that processes messages in batches. The following Azure Service Bus-triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a specific function invocation:
 
 ```csharp
-public static class CancellationTokenExample
+using Microsoft.Azure.ServiceBus;
+using System.Threading;
+
+namespace ServiceBusCancellationToken
 {
-    public static void Run(
-        [QueueTrigger("inputqueue")] string inputText,
-        TextWriter logger,
-        CancellationToken token)
+    public static class servicebus
     {
-        for (int i = 0; i < 100; i++)
+        [FunctionName("servicebus")]
+        public static void Run([ServiceBusTrigger("csharpguitar", Connection = "SB_CONN")]
+               Message[] messages, CancellationToken cancellationToken, ILogger log)
         {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
+            try
+            { 
+                foreach (var message in messages)
+                {
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        log.LogInformation("A cancellation token was received. Taking precautionary actions.");
+                        //Take precautions like noting how far along you are with processing the batch
+                        log.LogInformation("Precautionary activities --complete--.");
+                        break;
+                    }
+                    else
+                    {
+                        //business logic as usual
+                        log.LogInformation($"Message: {message} was processed.");
+                    }
+                }
             }
-            Thread.Sleep(5000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
+            catch (Exception ex)
+            {
+                log.LogInformation($"Something unexpected happened: {ex.Message}");
+            }
         }
     }
 }
@@ -476,7 +480,7 @@ namespace functionapp0915
 
 In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
 
-When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 
 # [v1.x](#tab/v1)
@@ -565,6 +569,13 @@ Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll s
 
 Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
+## Testing functions
+
+The following articles show how to run an in-process C# class library function locally for testing purposes:
+
++ [Visual Studio](functions-develop-vs.md#testing-functions)
++ [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp#debugging-functions-locally)
++ [Command line](functions-run-local.md?tabs=v4%2Ccsharp%2Cazurecli%2Cbash#start)
 
 ## Environment variables
 

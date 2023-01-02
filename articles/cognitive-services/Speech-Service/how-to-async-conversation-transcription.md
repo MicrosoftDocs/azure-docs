@@ -3,14 +3,13 @@ title: Asynchronous Conversation Transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use asynchronous Conversation Transcription using the Speech service. Available for Java and C# only.
 services: cognitive-services
-author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: amishu
-ms.custom: devx-track-csharp
+ms.devlang: csharp, java
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-one
 ---
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 05/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -33,16 +33,16 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 ## Prerequisites
 
-Before you can use Azure Marketplace images for Azure Stack Edge, make sure that you are connected to Azure in either of the following ways.
+Before you can use Azure Marketplace images for Azure Stack Edge, make sure you're connected to Azure in either of the following ways.
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 
 ## Search for Azure Marketplace images
 
-You will now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images. 
+You'll now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images. 
 
-To find some of the most common Marketplace images that match your search criteria, run the following command.  
+To find some of the most commonly used Marketplace images that match your search criteria, run the following command.  
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
@@ -64,8 +64,11 @@ az vm image list --all --publisher "Canonical"
 
 Here is an example output when VM images of a certain publisher, offer, and SKU were queried.
 
-```output
+```azurecli
 PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuServer" --sku "12.04.4-LTS"
+```
+
+```output
 [
   {
     "offer": "UbuntuServer",
@@ -127,14 +130,13 @@ PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuSer
 PS /home/user>
 ```
 
->[!IMPORTANT]
-> Use only the Gen 1 images. Any images specified as Gen 2 (usually the sku has a "-g2" suffix), do not work on Azure Stack Edge.
-
 In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”). 
  
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
-Below is a list of URNs for some of the most common images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
+### Commonly used Marketplace images
+
+Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
 
 
 | OS              | SKU                                     | Version               | URN                                                                                       |

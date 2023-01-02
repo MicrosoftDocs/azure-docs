@@ -3,16 +3,16 @@ title: Enable Azure Peering Service on a Direct peering by using the Azure porta
 titleSuffix: Azure
 description: Enable Azure Peering Service on a Direct peering by using the Azure portal
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 # Enable Azure Peering Service on a Direct peering by using the Azure portal
 
-This article describes how to enable Azure [Peering Service](overview-peering-service.md) on a Direct peering by using the Azure portal.
+This article describes how to enable [Azure Peering Service](../peering-service/about.md) on a Direct peering by using the Azure portal.
 
 If you prefer, you can complete this guide by using [PowerShell](howto-peering-service-powershell.md).
 
@@ -43,4 +43,4 @@ To modify connection settings, see the "Modify a Direct peering" section in [Cre
 
 ## Additional resources
 
-For frequently asked questions, see the [Peering Service FAQ](service-faqs.md).
+For frequently asked questions, see the [Peering Service FAQ](service-faqs.yml).

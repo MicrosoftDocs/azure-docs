@@ -3,22 +3,19 @@ title: Search for news with the Bing News Search API
 titleSuffix: Azure Cognitive Services
 description: Learn how to send search queries for general news, trending topics, and headlines.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.author: scottwhi
+
 ---
 
 # Search for news with the Bing News Search API
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 The Bing Image Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications.
 

@@ -3,8 +3,8 @@ title: "PowerShell: Migrate SQL Server to SQL Managed Instance online"
 titleSuffix: Azure Database Migration Service
 description: Learn to online migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -40,7 +40,7 @@ To complete these steps, you need:
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem).

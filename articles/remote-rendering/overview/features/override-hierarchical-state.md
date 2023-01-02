@@ -10,14 +10,17 @@ ms.custom: devx-track-csharp
 
 # Hierarchical state override
 
-In many cases, it is necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding sub graphs or switching parts to transparent rendering. Changing the materials of each part involved is not practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
+In many cases, it's necessary to dynamically change the appearance of parts of a [model](../../concepts/models.md), for example hiding sub graphs or switching parts to transparent rendering. Changing the materials of each part involved isn't practical since it requires to iterate over the whole scene graph, and manage material cloning and assignment on each node.
 
-To accomplish this use case with the least possible overhead, use the `HierarchicalStateOverrideComponent`. This component implements hierarchical state updates on arbitrary branches of the scene graph. That means, a state can be defined on any level in the scene graph and it trickles down the hierarchy until it is either overridden by a new state, or applied to a leaf object.
+To accomplish this use case with the least possible overhead, use the `HierarchicalStateOverrideComponent`. This component implements hierarchical state updates on arbitrary branches of the scene graph. That means, a state can be defined on any level in the scene graph and it trickles down the hierarchy until it's either overridden by a new state, or applied to a leaf object.
 
 As an example, consider the model of a car and you want to switch the whole car to be transparent, except for the inner engine part. This use case involves only two instances of the component:
 
 * The first component is assigned to the model's root node and turns on transparent rendering for the whole car.
 * The second component is assigned to the root node of the engine and overrides the state again by explicitly turning off see-through mode.
+
+> [!NOTE]
+> Point clouds do not expose a full scene graph (see [mesh type differences](../../concepts/meshes.md#mesh-types)), so assigning a hierarchical override to the root entity of a point cloud model will apply the state to the full point cloud. Furthermore, some state override features are not supported for point clouds, as mentioned in the respective section.
 
 ## Features
 
@@ -35,6 +38,9 @@ The fixed set of states that can be overridden are:
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
+  > [!NOTE]
+  > The see-through effect is ignored for point clouds.
+
 * **`Shell`**: The geometry is rendered as a transparent, de-saturated shell. This mode allows fading out non-important parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-effect.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
 
   ![Shell mode used to fade out specific objects](./media/shell.png)
@@ -42,9 +48,15 @@ The fixed set of states that can be overridden are:
   > [!IMPORTANT]
   > The shell effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
+  > [!NOTE]
+  > The shell effect is ignored for point clouds.
+
 * **`Selected`**: The geometry is rendered with a [selection outline](outlines.md).
 
   ![Outline option used to highlight a selected part](./media/selection-outline.png)
+
+  > [!NOTE]
+  > Selection outline rendering is ignored for point clouds.
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
@@ -101,7 +113,7 @@ The `tint color` override is slightly special in that there's both an on/off/inh
 
 ## Performance considerations
 
-An instance of `HierarchicalStateOverrideComponent` itself doesn't add much runtime overhead. However, it's always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it is recommended to delete the component when the highlight is removed. Keeping the components around with neutral features can quickly add up.
+An instance of `HierarchicalStateOverrideComponent` itself doesn't add much runtime overhead. However, it's always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it's recommended to delete the component when the highlight is removed. Keeping the components around with neutral features can quickly add up.
 
 Transparent rendering puts more workload on the server's GPUs than standard rendering. If large parts of the scene graph are switched to *see-through*, with many layers of geometry being visible, it may become a performance bottleneck. The same is valid for objects with [selection outlines](../../overview/features/outlines.md#performance) and for [shell rendering](../../overview/features/shell-effect.md#performance) . 
 

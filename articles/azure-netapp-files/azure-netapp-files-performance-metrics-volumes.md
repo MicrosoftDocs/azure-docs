@@ -1,12 +1,12 @@
 ---
 title: Recommended performance benchmark tests - Azure NetApp Files
 description: Learn about benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 11/09/2021
 
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
@@ -15,15 +15,17 @@ This article provides benchmark testing recommendations for volume performance a
 
 ## Overview
 
-To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
+To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate various workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
 
+> [!IMPORTANT]
+> Azure NetApp Files does *not* recommend using the `dd` utility as a baseline benchmarking tool. You should use an actual application workload, workload simulation, and benchmarking and analyzing tools (for example, Oracle AWR with Oracle, or the IBM equivalent for DB2) to establish and analyze optimal infrastructure performance. Tools such as FIO, vdbench, and iometer have their places in determining virtual machines to storage limits, matching the parameters of the test to the actual application workload mixtures for most useful results. However, it is always best to test with the real-world application.  
 ### VM instance sizing
 
 For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
 
 ### Azure NetApp Files volume sizing
 
-Ensure that you choose the correct service level and volume quota size for the expected performance level. See [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md) for more information.
+Ensure that you choose the correct service level and volume quota size for the expected performance level. For more information, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md).
 
 ### Virtual network (VNet) recommendations
 
@@ -31,11 +33,31 @@ You should perform the benchmark testing in the same VNet as Azure NetApp Files.
 
 ![VNet recommendations](../media/azure-netapp-files/azure-netapp-files-benchmark-testing-vnet.png)
 
-## Installation of FIO
+## Performance benchmarking tools
 
-FIO is available in binary format for both Linux and Windows. Follow the Binary Packages section in [FIO](https://github.com/axboe/fio) to install for the platform of your choice.
+This section provides details about a few benchmarking tools. 
 
-## FIO examples for IOPS 
+### SSB
+
+SQL Storage Benchmark (SSB) is an open-source benchmark tool written in Python. It is designed to generate a "real-world" workload that emulates database interaction in such a way to measure the performance of the storage subsystem. 
+
+The intent of SSB is to allow organizations and individuals to measure the performance of their storage subsystem under the stress of a SQL database workload.
+
+#### Installation of SSB 
+
+Follow the [Getting started](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) section in the SSB README file to install for the platform of your choice.
+
+### FIO 
+
+Flexible I/O Tester (FIO) is a free and open-source disk I/O tool used both for benchmark and stress/hardware verification. 
+
+FIO is available in binary format for both Linux and Windows. 
+
+#### Installation of FIO
+
+Follow the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) to install for the platform of your choice.
+
+#### FIO examples for IOPS 
 
 The FIO examples in this section use the following setup:
 * VM instance size: D32s_v3
@@ -44,42 +66,42 @@ The FIO examples in this section use the following setup:
 
 The following examples show the FIO random reads and writes.
 
-### FIO: 8k block size 100% random reads
+##### FIO: 8k block size 100% random reads
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
-### Output: 68k read IOPS displayed
+##### Output: 68k read IOPS displayed
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
-### FIO: 8k block size 100% random writes
+##### FIO: 8k block size 100% random writes
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### Output: 73k write IOPS displayed
+##### Output: 73k write IOPS displayed
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`
 
-## FIO examples for bandwidth
+#### FIO examples for bandwidth
 
 The examples in this section show the FIO sequential reads and writes.
 
-### FIO: 64k block size 100% sequential reads
+##### FIO: 64k block size 100% sequential reads
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### Output: 11.8 Gbit/s throughput displayed
+##### Output: 11.8 Gbit/s throughput displayed
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
-### FIO: 64k block size 100% sequential writes
+##### FIO: 64k block size 100% sequential writes
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
-### Output: 12.2 Gbit/s throughput displayed
+##### Output: 12.2 Gbit/s throughput displayed
 
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`

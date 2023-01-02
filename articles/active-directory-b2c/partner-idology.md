@@ -3,14 +3,14 @@ title: IDology integration with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with IDology. IDology is an identity verification and proofing provider with multiple solutions.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -31,7 +31,7 @@ The IDology integration includes the following components:
 
 - Azure AD B2C – The authorization server responsible for verifying the user’s credentials. It's also known as the identity provider.
 - IDology – The IDology service takes input provided by the user and verifies the user’s identity.
-- Custom Rest API – This API implements the integration between Azure AD and the IDology service.
+- Custom REST API – This API implements the integration between Azure AD and the IDology service.
 
 The following architecture diagram shows the implementation.
 
@@ -69,7 +69,7 @@ You'll need the URL of the deployed service to configure Azure AD with the requi
 
 ### Part 2 - Configure the API 
 
-Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in App Service in Azure](../app-service/configure-common.md#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|

@@ -4,7 +4,7 @@ description: Use the Apache Spark machine learning library to create data pipeli
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 07/22/2019
+ms.date: 05/10/2022
 ---
 # Create an Apache Spark machine learning pipeline
 
@@ -125,4 +125,4 @@ The `model` object can now be used to make predictions. For the  full sample of 
 
 ## See also
 
-* [Data Science using Scala and Apache Spark on Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Data Science using Scala and Apache Spark on Azure](/azure/architecture/data-science-process/scala-walkthrough)

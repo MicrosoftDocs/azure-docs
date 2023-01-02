@@ -20,8 +20,10 @@ This article provides troubleshooting information to address any issues you come
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the Recovery Services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
+- Ensure that the storage account and recovery services vault are present in the same region.
 - Ensure that the combined length of the storage account name and the resource group name don't exceed 84 characters in the case of new Storage accounts and 77 characters in the case of classic storage accounts.
-- Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
+- Check the firewall settings of storage account to ensure that the exception "_Allow Azure services on the trusted services list to access this storage account_" is granted. You can refer [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant exception.
+
 
 ### Error in portal states discovery of storage accounts failed
 

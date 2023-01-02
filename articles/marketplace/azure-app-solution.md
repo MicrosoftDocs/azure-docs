@@ -1,13 +1,12 @@
 ---
 title: Configure a solution template plan
 description: Configure a solution template plan for your Azure application offer in Partner Center (Azure Marketplace). 
-author: aarathin
-ms.author: aarathin
-ms.reviewer: dannyevers
+author: macerru
+ms.author: macerr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 9/14/2022
 ---
 
 # Configure a solution template plan
@@ -76,6 +75,8 @@ In the **Version** box provide the current version of the technical configuratio
 
 ### Upload a package file
 
+Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before uploading the package file.
+
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 
 > [!NOTE]
@@ -94,7 +95,7 @@ After you create one or more plans, you'll see your plan name, plan ID, plan typ
 The actions that are available in the **Action** column of the **Plan overview** tab vary depending on the status of your plan, and may include the following:
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
-- If the plan status is **Live**, the link in the **Action** column will be either **Stop selling plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+- If the plan status is **Live**, the link in the **Action** column will be either **Stop distribution** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 - To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](azure-app-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
 
 ## Next steps

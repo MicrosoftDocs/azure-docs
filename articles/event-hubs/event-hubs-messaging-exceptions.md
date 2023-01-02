@@ -3,6 +3,7 @@ title: Azure Event Hubs - exceptions (legacy)
 description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
 ms.topic: article
 ms.date: 02/10/2021
+ms.devlang: csharp
 ---
 
 # Event Hubs messaging exceptions - .NET (legacy)

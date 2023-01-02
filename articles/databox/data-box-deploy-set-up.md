@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 04/06/2021
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -114,20 +113,17 @@ After you have received the device, you need to cable and connect to your device
 Perform the following steps to set up your device using the local web UI and the portal UI.
 
 1. Configure the Ethernet adapter on the laptop you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
-2. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
-3. Click **Details** and then click **Go on to the webpage**.
+1. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
+1. Click **Details** and then click **Go on to the webpage**.
 
    ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
-4. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
-5. Sign into the [Azure portal](https://portal.azure.com).
-6. Download the device credentials from portal. Go to **General > Device details**. Copy the **Device password**. The device password is tied to a specific order in the portal. 
+1. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
 
-    ![Get device credentials](media/data-box-deploy-set-up/data-box-device-credentials.png)
+1. [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
     
-    
-7. Provide the device password that you got from the Azure portal in the previous step to sign into the local web UI of the device. Click **Sign in**.
-8. On the **Dashboard**, ensure that the network interfaces are configured. 
+1. Provide the device password that you got from the Azure portal in the previous step to sign into the local web UI of the device. Click **Sign in**.
+1. On the **Dashboard**, ensure that the network interfaces are configured. 
    - If DHCP is enabled in your environment, network interfaces are automatically configured. 
    - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
 
@@ -144,9 +140,9 @@ After the device setup is complete, you can connect to the device shares and cop
 ## Connect your device
 
 1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com).
-2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device. 
-3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
-4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
+1. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device. 
+1. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
+1. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
 
 ::: zone-end
 

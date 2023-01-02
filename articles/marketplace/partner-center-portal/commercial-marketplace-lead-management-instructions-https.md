@@ -4,9 +4,9 @@ description: Learn how to use Power Automate and an HTTPS endpoint to manage lea
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
-ms.date: 05/21/2021
+author: spadmanabhan
+ms.author: spadmanabhan
+ms.date: 08/19/2022
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
@@ -228,7 +228,7 @@ You can test your configuration with [Postman](https://app.getpostman.com/app/do
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 1. Select your offer, and go to the **Offer setup** tab.
 

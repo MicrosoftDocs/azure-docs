@@ -4,12 +4,12 @@ description: Learn how to use the Hive View from your web browser to submit Hive
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/23/2020
+ms.date: 06/09/2022
 ---
 
 # Use Apache Ambari Hive View with Apache Hadoop in HDInsight
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View allows you to author, optimize, and run Hive queries from your web browser.
 

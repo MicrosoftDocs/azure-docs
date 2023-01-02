@@ -2,7 +2,9 @@
 title: Replicate Azure Stack VMs to Azure using Azure Site Recovery | Microsoft Docs
 description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/02/2021
+ms.author: ankitadutta
+ms.custom: engagement-fy23
 ---
 # Replicate Azure Stack VMs to Azure
 
@@ -76,7 +78,7 @@ Make sure that the VMs are running one of the operating systems summarized in th
 
 **Operating system** | **Details**
 --- | ---
-**64-bit Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
+**64-bit Windows** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
 **CentOS** | 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.3
 **Ubuntu** | 14.04 LTS server, 16.04 LTS server. Review [supported kernels](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
@@ -254,7 +256,7 @@ Before you run a test failover, verify the machine properties, and make sure tha
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
-3. In **Compute and Network**, modify settings as needed.
+3. In **Compute** and **Network** settings, modify settings as needed.
 
     - You can modify the Azure VM name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
     - You can also view and modify network settings. These include the network/subnet to which the Azure VM is joined after failover, and the IP address that will be assigned to the VM.

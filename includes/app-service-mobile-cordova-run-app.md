@@ -8,8 +8,7 @@ ms.author: crdun
 
 1. Navigate to the solution file in the client project (.sln) and open it using Visual Studio.
 
-2. In Visual Studio, choose the solution platform (Android, iOS, or Windows) from the drop-down next to the start arrow. Select a specific deployment device or emulator by clicking the drop-down on the green arrow. You can use the default Android platform and Ripple emulator. More advanced tutorials
-    (for example, push notifications) require you to select a supported device or emulator.
+2. In Visual Studio, choose the solution platform (Android, iOS, or Windows) from the drop-down next to the start arrow. Select a specific deployment device or emulator by clicking the drop-down on the green arrow. You can use the default Android platform and Ripple emulator. More advanced tutorials (for example, push notifications) require you to select a supported device or emulator.
 
 3. Open the file `ToDoActivity.java` in this folder - ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. The application name is `ZUMOAPPNAME`.
 

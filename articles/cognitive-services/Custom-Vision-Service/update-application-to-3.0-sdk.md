@@ -8,21 +8,20 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/04/2019
+ms.topic: how-to
+ms.date: 12/27/2022
 ms.author: areddish
 ---
 
 # Update to the 3.0 API
 
-Custom Vision has now reached General Availability and has undergone an API update.
-This update includes a few new features and, importantly, a few breaking changes:
+Custom Vision has now reached General Availability and has undergone an API update. This update includes a few new features and, importantly, a few breaking changes:
 
-* The Prediction API is now split into two based on the project type.
+* The Prediction API is now split into two APIs based on the project type.
 * The Vision AI Developer Kit (VAIDK) export option requires creating a project in a specific way.
-* Default iterations have been removed in favor of a publish / unpublish a named iteration.
+* Default iterations have been removed in favor of publishing / unpublishing a named iteration.
 
-This guide will show you how to update your projects to work with the new API version. See the [Release notes](release-notes.md) for a full list of the changes.
+See the [Release notes](release-notes.md) for a full list of the changes. This guide will show you how to update your projects to work with the new API version. 
 
 ## Use the updated Prediction API
 

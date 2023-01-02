@@ -1,7 +1,7 @@
 ---
 title: Use a custom markdown tile on Azure dashboards
 description: Learn how to add a markdown tile to an Azure dashboard to display static content
-ms.date: 03/19/2021
+ms.date: 01/11/2022
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
@@ -12,9 +12,7 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 ## Add a markdown tile to your dashboard
 
-1. Select **Dashboard** from the Azure portal sidebar.
-
-   ![Screenshot showing portal sidebar](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+1. Select **Dashboard** from the Azure portal menu.
 
 1. In the dashboard view, select the dashboard where the custom markdown tile should appear, then select **Edit**.
 
@@ -37,7 +35,7 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
       ![Screenshot showing entering URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > For added security, you can create a markdown file and store it in an [Azure storage account blob where encryption is enabled](../storage/common/storage-service-encryption.md), then point to the file using the URL option. The markdown content is encrypted through the storage account's encryption options. Only users with permissions to the file can see the markdown content on the dashboard. You might need to set a [cross-origin resource sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) rule on the storage account so that the Azure portal (_https://portal.azure.com/_) can access the markdown file in the blob.
+      > For added security, create a markdown file and store it in an [Azure storage account blob where encryption is enabled](../storage/common/storage-service-encryption.md). For additional control, configure the encryption with [customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal). You can then point to the file using the **Insert content using URL** option. Only users with permissions to the file can see the markdown content on the dashboard. You might need to set a [cross-origin resource sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) rule on the storage account so that the Azure portal (_https://portal.azure.com/_) can access the markdown file in the blob.
 
 1. Select **Done** to dismiss the **Edit Markdown** pane. Your content appears on the Markdown tile, which you can resize by dragging the handle in the lower right-hand corner.
 
@@ -47,10 +45,11 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 You can use any combination of plain text, Markdown syntax, and HTML content on the markdown tile. The Azure portal uses an open-source library called _marked_ to transform your content into HTML that is shown on the tile. The HTML produced by _marked_ is pre-processed by the portal before it's rendered. This step helps make sure that your customization won't affect the security or layout of the portal. During that pre-processing, any part of the HTML that poses a potential threat is removed. The following types of content aren't allowed by the portal:
 
-* JavaScript – `<script>` tags and inline JavaScript evaluations are removed.
-* iframes - `<iframe>` tags are removed.
-* Style - `<style>` tags are removed. Inline style attributes on HTML elements aren't officially supported. You may find that some inline style elements work for you, but if they interfere with the layout of the portal, they could stop working at any time. The Markdown tile is intended for basic, static content that uses the default styles of the portal.
+- JavaScript – `<script>` tags and inline JavaScript evaluations are removed.
+- iframes - `<iframe>` tags are removed.
+- Style - `<style>` tags are removed. Inline style attributes on HTML elements aren't officially supported. You may find that some inline style elements work for you, but if they interfere with the layout of the portal, they could stop working at any time. The Markdown tile is intended for basic, static content that uses the default styles of the portal.
 
 ## Next steps
 
-* To create a custom dashboard, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)
+- Learn more about [creating dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+- Learn how to [share a dashboard by using Azure role-based access control](azure-portal-dashboard-share-access.md).

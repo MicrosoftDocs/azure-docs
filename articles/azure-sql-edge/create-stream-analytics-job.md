@@ -1,14 +1,13 @@
 ---
-title: Create a T-SQL streaming job in Azure SQL Edge 
-description: Learn about creating Stream Analytics jobs in Azure SQL Edge. 
-keywords: 
-services: sql-edge
+title: Create a T-SQL streaming job in Azure SQL Edge
+description: Learn about creating Stream Analytics jobs in Azure SQL Edge.
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 07/27/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
-ms.date: 07/27/2020
+services: sql-edge
 ---
 
 # Create a data streaming job in Azure SQL Edge 
@@ -99,7 +98,7 @@ The following example creates an external stream object to the local database in
 3. Create an external data source with CREATE EXTERNAL DATA SOURCE. The following example:
 
     * Creates an external data source named *LocalSQLOutput*.
-    * Identifies the external data source (LOCATION = '<vendor>://<server>[:<port>]'). In the example, it points to a local instance of Azure SQL Edge.
+    * Identifies the external data source (`LOCATION = '<vendor>://<server>[:<port>]'`). In the example, it points to a local instance of Azure SQL Edge.
     * Uses the credential created previously.
 
     ```sql
@@ -245,6 +244,9 @@ The streaming job can have any one of the following statuses:
 | Degraded | The streaming job is running, but there were some non-fatal errors during input processing. The input job will continue to run, but will drop inputs that encounter errors. |
 | Stopped | The streaming job has been stopped. |
 | Failed | The streaming job failed. This is generally an indication of a fatal error during processing. |
+
+> [!NOTE]
+> Since the streaming job is executed asynchronously, the job might encounter errors at runtime. In order to troubleshoot a streaming job failure, use the `sys.sp_get_streaming_job` stored procedure, or review the docker log from the Azure SQL Edge container, which can provide the error details from the streaming job.
 
 ## Next steps
 

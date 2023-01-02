@@ -34,7 +34,14 @@ There are two different possibilities of seeing access policy in Unknown section
 
 ### How can I assign access control per key vault object? 
 
-Per-secret/key/certificate access control feature's availability will be notified here, [read more](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
+Key Vault RBAC permission model allows per object permission. Individual keys, secrets, and certificates permissions should be used
+only for specific scenarios:
+
+-   Multi-layer applications that need to separate access control
+    between layers
+
+-   Sharing individual secret between multiple applications
+
 
 ### How can I provide key vault authenticate using access control policy?
 

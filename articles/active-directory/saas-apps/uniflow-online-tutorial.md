@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with uniFLOW Online | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with uniFLOW Online'
 description: Learn how to configure single sign-on between Azure Active Directory and uniFLOW Online.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with uniFLOW Online
+# Tutorial: Azure AD SSO integration with uniFLOW Online
 
 In this tutorial, you'll learn how to integrate uniFLOW Online with Azure Active Directory (Azure AD). When you integrate uniFLOW Online with Azure AD, you can:
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* uniFLOW Online supports **SP** initiated SSO
+* uniFLOW Online supports **SP** initiated SSO.
 
 ## Add uniFLOW Online from the gallery
 
@@ -44,6 +44,8 @@ To configure the integration of uniFLOW Online into Azure AD, you need to add un
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **uniFLOW Online** in the search box.
 1. Select **uniFLOW Online** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for uniFLOW Online
 
@@ -68,30 +70,37 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using one of the following patterns:
+    a. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
 
-	- `https://<tenant_domain_name>.eu.uniflowonline.com`
-	- `https://<tenant_domain_name>.us.uniflowonline.com`
-	- `https://<tenant_domain_name>.sg.uniflowonline.com`
-	- `https://<tenant_domain_name>.jp.uniflowonline.com`
-	- `https://<tenant_domain_name>.au.uniflowonline.com`
+	| **Identifier** |
+	|---------|
+	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.uk.uniflowonline.com` |
+	| `https://<tenant_domain_name>.us.uniflowonline.com` |
+	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
+	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
+	| `https://<tenant_domain_name>.au.uniflowonline.com` |
+	
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
+	b. In the **Sign on URL** text box, type a URL using one of the following patterns:
 
-	- `https://<tenant_domain_name>.eu.uniflowonline.com`
-	- `https://<tenant_domain_name>.us.uniflowonline.com`
-	- `https://<tenant_domain_name>.sg.uniflowonline.com`
-	- `https://<tenant_domain_name>.jp.uniflowonline.com`
-	- `https://<tenant_domain_name>.au.uniflowonline.com`
+	| **Sign on URL** |
+	|---------|
+	| `https://<tenant_domain_name>.eu.uniflowonline.com` |
+	| `https://<tenant_domain_name>.uk.uniflowonline.com` |
+	| `https://<tenant_domain_name>.us.uniflowonline.com` |
+	| `https://<tenant_domain_name>.sg.uniflowonline.com` |
+	| `https://<tenant_domain_name>.jp.uniflowonline.com` |
+	| `https://<tenant_domain_name>.au.uniflowonline.com` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.
 
-1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **nameidentifier** is mapped with **user.userprincipalname**. uniFLOW Online application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/default-attributes.png)
+	![Screenshot shows the User Attributes pane with the edit icon highlighted.](common/edit-attribute.png)
 
 1. In addition to above, uniFLOW Online application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -138,45 +147,56 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to uniFLOW Online website as an administrator.
 
-1. From the left navigation panel, select **User** tab.
+1. From the left navigation panel, select **Extensions** tab.
 
-	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/configure-1.png)
+	![Screenshot shows Extension selected from the uniFLOW Online site.](./media/uniflow-online-tutorial/extensions.png)
 
-1. Click **Identity providers**.
 
-	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/configure-2.png)
+1. Click **Identity Providers**.
+
+	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/identity-providers.png)
+	
+1. Click **Configure identity providers**
+
+	![Screenshot shows box to configure identity providers](./media/uniflow-online-tutorial/configure-identity-providers.png)
 
 1. Click on **Add identity provider**.
 
-	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/configure-3.png)
+	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/add-identity-providers.png)
+
 
 1. On the **ADD IDENTITY PROVIDER** section, perform the following steps:
 
-	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configure-4.png)
+	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/display-name.png)
 
-	a. Enter the Display name Ex: *AzureAD SSO*.
 
-	b. For **Provider type**, select **WS-Fed** option from the dropdown.
+	a. Enter the Display name Ex: **AzureAD SSO**.
 
-	c. For **WS-Fed type**, select **Azure Active Directory** option from the dropdown.
+	b. For **Provider type**, select **WS-Federation** option from the dropdown.
+
+	c. For **WS-Federation type**, select **Azure Active Directory** option from the dropdown.
 
 	d. Click **Save**.
 
 1. On the **General** tab, perform the following steps:
 
-	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configure-5.png)
+	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configuration.png)
 
-	a. Enter the Display name Ex: *AzureAD SSO*.
 
-	b. Select the **From URL** option for the **ADFS Federation Metadata**.
+	a. Enter the Display name Ex: **AzureAD SSO**.
+	
+	b. Select **Identity provider** as **Enable AzureAD SSO**.
 
-	c. In the **Federation Metadata URl** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
+	c. Select the **From URL** option for the **ADFS Federation Metadata**.
 
-	d. Select **Identity provider** as **Enabled**.
+	d. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata URL** value, which you have copied from the Azure portal.
 
 	e. Select **Automatic user registration** as **Activated**.
 
 	f. Click **Save**.
+	
+> [!NOTE]
+> **Reply URL** is automatically pre-filled and cannot be changed.	
 
 ### Sign in to uniFLOW Online using the created test user
 
@@ -194,8 +214,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to uniFLOW Online Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the uniFLOW Online tile in the My Apps, this will redirect to uniFLOW Online Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the uniFLOW Online tile in the My Apps, this will redirect to uniFLOW Online Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure uniFLOW Online you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure uniFLOW Online you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

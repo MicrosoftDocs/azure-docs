@@ -1,18 +1,13 @@
 ---
 title: Azure HANA Large Instances control through Azure portal | Microsoft Docs
 description: Describes the way how you can identify and interact with Azure HANA Large Instances through portal
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/31/2020
+ms.date: 07/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -118,7 +113,7 @@ The section **Properties** includes important information that you get when the 
 
 ![top part of HLI properties in Azure portal](./media/hana-li-portal/portal-properties-top.png)
 
-The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you got as the first deployed units were handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [configuration file for storage snapshot backups](./hana-backup-restore.md#set-up-storage-snapshots). 
+The first few data items, you saw in the overview screen already. But an important portion of data is the ExpressRoute Circuit ID, which you got as the first deployed units were handed over. In some support cases, you might get asked for that data. An important data entry is shown at the bottom of the screenshot. The data displayed is the IP address of the NFS storage head that isolates your storage to your **tenant** in the HANA Large Instance stack. This IP address is also needed when you edit the [Configure Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md). 
 
 As you scroll down in the property pane, you get additional data like a unique resource ID for your HANA Large Instance unit, or the subscription ID which was assigned to the deployment.
 

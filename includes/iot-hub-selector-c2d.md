@@ -1,6 +1,6 @@
 ---
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018

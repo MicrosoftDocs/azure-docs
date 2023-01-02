@@ -106,7 +106,7 @@ Blob storage provides the largest volume of storage on Azure. In addition to sto
 - [Mainframe rehosting on Azure Virtual Machines](../overview.md)
 - [Move mainframe compute to Azure](mainframe-compute-Azure.md)
 - [Deciding when to use Azure Blobs, Azure Files, or Azure Disks](../../../../storage/common/storage-introduction.md)
-- [Standard SSD Managed Disks for Azure VM workloads](../../../disks-types.md#standard-ssd)
+- [Standard SSD Managed Disks for Azure VM workloads](../../../disks-types.md#standard-ssds)
 
 ### IBM resources
 

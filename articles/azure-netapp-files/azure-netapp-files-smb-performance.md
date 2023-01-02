@@ -3,7 +3,7 @@ title: SMB performance best practices for Azure NetApp Files| Microsoft Docs
 description: Helps you understand SMB performance and best practices for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/19/2021
-ms.author: b-juche
+ms.date: 02/07/2022
+ms.author: anfdocs
 ---
 # SMB performance best practices for Azure NetApp Files
 
@@ -107,12 +106,38 @@ After you have data traffic running in your volumes, you can monitor your adapte
 
 ![Screenshot that shows Performance Monitor output.](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
+## SMB encryption
+
+This section helps you understand SMB encryption (SMB 3.0 and SMB 3.1.1) 
+
+[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
+
+When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
+
+Windows 10, Windows 2012, and later versions support SMB encryption.
+
+### SMB encryption and Azure NetApp Files
+
+SMB encryption is enabled at the share level for Azure NetApp Files. SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm.
+
+SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
+
+### <a name="smb_encryption_impact"></a>Impact of SMB encryption on client workloads
+
+Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
+
+|     I/O profile    	|     Impact    	|
+|-	|-	|
+|     Read and write workloads    	|     10% to 15%     	|
+|     Metadata intensive    	|     5%  	|
+
 ## Accelerated Networking 
 
 For maximum performance, it is recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) on your virtual machines where possible. Keep the following considerations in mind:  
 
-* The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable Accelerated Networking can hobble the performance of a machine.  
+* The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not. Failure to enable Accelerated Networking can hobble the performance of a machine.  
 * If Accelerated Networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
+* There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. Accelerated networking is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
 
 ## RSS 
 
@@ -136,5 +161,5 @@ As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine
 
 ## Next steps  
 
-- [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
+- [SMB FAQs](faq-smb.md)
 - See the [Azure NetApp Files: Managed Enterprise File Shares for SMB Workloads](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) about using SMB file shares with Azure NetApp Files.

@@ -44,10 +44,8 @@ landingContent:
           text: Read OCR
         - url: ../computer-vision/spatial-analysis-container.md
           text: Spatial analysis
-        - url: ../face/face-how-to-install-containers.md
+        - url: ../face/overview.md
           text: Face
-        - url: ../form-recognizer/form-recognizer-container-howto.md
-          text: Form Recognizer
 - title: Language containers
   linkLists:
       - linkListType: how-to-guide
@@ -72,15 +70,22 @@ landingContent:
           text: Speech to text
         - url: ../speech-service/speech-container-howto.md?tabs=cstt
           text: Custom Speech to text
-        - url: ../speech-service/speech-container-howto.md?tabs=tts
-          text: Text to speech
         - url: ../speech-service/speech-container-howto.md?tabs=ntts
           text: Neural text to speech
         - url: ../speech-service/speech-container-howto.md?tabs=lid
-          text: Speech language detection
+          text: Speech language identification
 - title: Decision container
   linkLists:
       - linkListType: how-to-guide
         links:
         - url: ../anomaly-detector/anomaly-detector-container-howto.md
           text: Anomaly Detector
+- title: Disconnected containers
+  linkLists:
+      - linkListType: how-to-guide
+        links:
+        - url: disconnected-containers.md 
+          text: Run containers disconnected from the internet
+        - url: disconnected-container-faq.yml
+          text: Frequently Asked Questions about disconnected containers
+        

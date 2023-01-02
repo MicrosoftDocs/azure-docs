@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/get-started-model-ingestion.md",
+            "redirect_url": "/azure/object-anchors/quickstarts/get-started-model-conversion",
+            "redirect_document_id": false
+        }
+    ]
+}

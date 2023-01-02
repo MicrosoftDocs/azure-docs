@@ -1,13 +1,13 @@
 ---
 title: Azure IoT device SDK for C - IoTHubClient | Microsoft Docs
 description: How to use the IoTHubClient library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: amqp
 ---
 
@@ -23,7 +23,7 @@ The article concludes by covering a couple of miscellaneous topics, including mo
 
 We'll use the **IoTHubClient** SDK samples to explain these topics. If you want to follow along, see the **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** applications that are included in the Azure IoT device SDK for C. Everything described in the following sections is demonstrated in these samples.
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](/azure/iot-hub/iot-c-sdk-ref/).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://github.com/Azure/azure-iot-sdk-c/).
 
 ## The lower-level APIs
 
@@ -260,7 +260,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 There are a couple of options that are commonly used:
 
-* **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. Batching over AMQP / AMQP-WS, as well as adding system properties on D2C messages, is supported.
+* **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. You can use the batching option with AMQP / AMQP-WS, as well as adding system properties on D2C messages, is supported.
 
 * **Timeout** (unsigned int) – This value is represented in milliseconds. If sending an HTTPS request or receiving a response takes longer than this time, then the connection times out.
 
@@ -268,7 +268,7 @@ The batching option is important. By default, the library ingresses events indiv
 
 ## Next steps
 
-This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The second article in this series is [Azure IoT device SDK for C - Serializer](iot-hub-device-sdk-c-serializer.md), which provides similar detail on the **serializer** library.
+This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. 
 
 To learn more about developing for IoT Hub, see the [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 

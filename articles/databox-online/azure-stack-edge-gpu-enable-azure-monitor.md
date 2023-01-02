@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 03/28/2022
 ms.author: alkohli
 ---
 
@@ -20,7 +20,7 @@ Monitoring containers on your Azure Stack Edge Pro GPU device is critical, speci
 This article describes the steps required to enable Azure Monitor on your device and gather container logs in Log Analytics workspace. The Azure Monitor metrics store is currently not supported with your Azure Stack Edge Pro GPU device. 
 
 > [!NOTE]
-> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json) to set up container monitoring.
+> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) to set up container monitoring.
 
 
 ## Prerequisites
@@ -58,7 +58,7 @@ For more information, see the detailed steps in [Create a Log Analytics workspac
 
 Take the following steps to enable Container Insights on your workspace. 
 
-1. Follow the detailed steps in the [How to add the Azure Monitor Containers solution](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
+1. Follow the detailed steps in [Add the Azure Monitor Containers solution](../azure-monitor/containers/container-insights-hybrid-setup.md#add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
 
     ```yml
     {
@@ -235,6 +235,9 @@ Take the following steps to enable Container Insights on your workspace.
 
     `Set-HcsKubernetesAzureMonitorConfiguration -WorkspaceId <> -WorkspaceKey <>`
 
+    > [!NOTE]
+    > By default, this cmdlet configures the Azure public cloud. To configure a government cloud or non-public cloud, use the parameter `AzureCloudDomainName`. 
+
 1. After the Azure Monitor is enabled, you should see logs in the Log Analytics workspace. To view the status of the Kubernetes cluster deployed on your device, go to **Azure Monitor > Insights > Containers**. For the environment option, select **All**. 
 
     ![Metrics in Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-metrics-1.png)
@@ -242,4 +245,4 @@ Take the following steps to enable Container Insights on your workspace.
 ## Next steps
 
 - Learn how to [Monitor Kubernetes workloads via the Kubernetes Dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
-- Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 
+- Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

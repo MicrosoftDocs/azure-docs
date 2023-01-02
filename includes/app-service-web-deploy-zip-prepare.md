@@ -10,10 +10,10 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
-## Create a project ZIP file
+## Create a project ZIP package
 
 >[!NOTE]
-> If you downloaded the files in a ZIP file, extract the files first. For example, if you downloaded a ZIP file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
+> If you downloaded the files in a ZIP package, extract the files first. For example, if you downloaded a ZIP package from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
 >
 
 In a local terminal window, navigate to the root directory of your app project. 

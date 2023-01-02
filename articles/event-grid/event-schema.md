@@ -2,7 +2,7 @@
 title: Azure Event Grid event schema
 description: Describes the properties and schema that are present for all events. Events consist of a set of four required string properties.
 ms.topic: reference
-ms.date: 07/07/2020
+ms.date: 09/15/2021
 ---
 
 # Azure Event Grid event schema
@@ -89,7 +89,7 @@ To learn about the properties in the data object, see the event source:
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
-* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Media Services](/azure/media-services/latest/monitoring/media-services-event-schemas?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)

@@ -2,17 +2,19 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
 # Use Azure Key Vault to pass secure parameter value during deployment
 
-Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
+Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID.
 
-This article's focus is how to pass a sensitive value as a template parameter. The article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault.
-For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
+> [!IMPORTANT]
+> This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to. 
+>
+> This article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault. For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows).
 
 ## Deploy key vaults and secrets
 
@@ -134,6 +136,7 @@ For other users, grant the `Microsoft.KeyVault/vaults/deploy/action` permission.
     az role definition create --role-definition "<path-to-role-file>"
     az role assignment create \
       --role "Key Vault resource manager template deployment operator" \
+      --scope /subscriptions/<Subscription-id>/resourceGroups/<resource-group-name> \
       --assignee <user-principal-name> \
       --resource-group ExampleGroup
     ```
@@ -380,4 +383,4 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 - For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
 - For complete examples of referencing key secrets, see [key vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples) on GitHub.
-- For a Microsoft Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+- For a Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).

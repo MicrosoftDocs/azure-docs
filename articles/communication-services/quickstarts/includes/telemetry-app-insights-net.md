@@ -7,7 +7,7 @@ manager: vravikumar
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
@@ -18,7 +18,7 @@ ms.author: peiliu
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- Create an [Application Insights Resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) in Azure portal.
+- Create an [Application Insights Resources](../../../azure-monitor/app/create-new-resource.md) in Azure portal.
 
 ## Setting Up
 
@@ -120,7 +120,7 @@ public static async Task TracedSample()
         activity?.SetTag("Token value", tokenResponse.Value.Token);
         activity?.SetTag("Expires on", tokenResponse.Value.ExpiresOn);
 
-        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {expiresOn}:");
+        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {tokenResponse.Value.ExpiresOn}:");
     }
 }
 ```
@@ -131,7 +131,7 @@ After the SDK calls have been wrapped with Activities, you can add the OpenTelem
 
 You have the option of defining a dictionary with some resource attributes that will show up in Application Insights.
 Then, call `AddSource` and use the same Activity Source name that was defined in `TracedSample`.
-You will also need to grab the connection string from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
+You will also need to grab the [connection string](../../../azure-monitor/app/sdk-connection-string.md) from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
 
 Lastly, call and await the `TracedSample()` function where we have our SDK calls.
 

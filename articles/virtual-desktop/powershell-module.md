@@ -3,7 +3,7 @@ title: PowerShell module Azure Virtual Desktop - Azure
 description: How to install and set up the PowerShell module for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/20/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -42,10 +42,16 @@ Connect-AzAccount
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureUSGovernment
 > ```
+> 
+> To connect to the Azure China portal, run this cmdlet:
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureChinaCloud
+> ```
 
-Signing into your Azure account requires a code that's generated when you run the Connect cmdlet. To sign in, go to <https://microsoft.com/devicelogin>, enter the code, then sign in using your Azure admin credentials.
+Signing into your Azure account requires a code that's generated when you run the Connect cmdlet. Sign in via [device login](https://microsoft.com/devicelogin), enter the code, then sign in using your Azure admin credentials.
 
-```powershell
+```output
 Account SubscriptionName TenantId Environment
 
 ------- ---------------- -------- -----------
@@ -123,10 +129,10 @@ Providers : {Microsoft.RecoveryServices, Microsoft.DesktopVirtualization,
 Microsoft.ManagedIdentity, Microsoft.SqlVirtualMachineΓÇª}
 ```
 
-Once you know your account's location, you can use it in a cmdlet. For example, here's a cmdlet that creates a host pool in the "southeastasia" location:
+Once you know your account's location, you can use it in a cmdlet. For example, here's a cmdlet that creates a host pool in the "uksouth" location:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -Location “southeastasia”
+New-AzWvdHostPool -Name <hostpoolname> -location uksouth -ResourceGroupName <resourcegroupname> -HostPoolType <hostpooltype> -LoadBalancerType <loadbalancertype> -PreferredAppGroupType ,preferredappgroiptype
 ```
 
 ## Next steps

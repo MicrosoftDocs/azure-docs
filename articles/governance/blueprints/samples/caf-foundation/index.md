@@ -18,7 +18,7 @@ estate. This sample will deploy and enforce resources, policies, and templates t
 organization to confidently get started with Azure.
 
 :::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="C A F Foundation, image describes what gets installed as part of C A F guidance for creating a foundation to get started with Azure." border="false":::
-   Describes an Azure architecture which is achieved by deploying the C A F Foundation blueprint. It's applicable to a subscription with resource groups which consists of a storage account for storing logs, Log Analytics configured to store in the storage account. It also depicts Azure Key Vault configured with Azure Security Center standard setup. All these core infrastructures are accessed using Azure Active Directory and enforced using Azure Policy.
+   Describes an Azure architecture which is achieved by deploying the C A F Foundation blueprint. It's applicable to a subscription with resource groups which consists of a storage account for storing logs, Log Analytics configured to store in the storage account. It also depicts Azure Key Vault configured with Microsoft Defender for Cloud standard setup. All these core infrastructures are accessed using Azure Active Directory and enforced using Azure Policy.
 :::image-end:::
 
 This implementation incorporates several Azure services used to provide a secure, fully monitored,
@@ -29,7 +29,7 @@ enterprise-ready foundation. This environment is composed of:
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your secure deployment in to
   [Storage Accounts](../../../../storage/common/storage-introduction.md) for diagnostic logging
-- Deploy [Azure Security Center](../../../../security-center/security-center-introduction.md) (standard
+- Deploy [Microsoft Defender for Cloud](../../../../security-center/security-center-introduction.md) (standard
   version) provides threat protection for your migrated workloads
 - The blueprint also defines and deploys [Azure Policy](../../../policy/overview.md) definitions:
   - Policy definitions:
@@ -42,7 +42,7 @@ enterprise-ready foundation. This environment is composed of:
     - Require Azure Storage Account Secure transfer Encryption
     - Deny resource types (choose while deploying)
   - Policy initiatives:
-    - Enable Monitoring in Azure Security Center (100+ policy definitions)
+    - Enable Monitoring in Microsoft Defender for Cloud (100+ policy definitions)
 
 All these elements abide to the proven practices published in the
 [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).

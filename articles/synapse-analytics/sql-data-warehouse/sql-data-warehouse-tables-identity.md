@@ -1,15 +1,14 @@
 ---
 title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in dedicated SQL pool.
-services: synapse-analytics
-author:  XiaoyuMSFT
+author:  mstehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 07/20/2020
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.author: emtehran
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -159,7 +158,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for dedicated SQL pool](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for dedicated SQL pool](design-elt-data-loading.md) and  [Loading best practices](../sql/data-loading-best-practices.md).
 
 ## System views
 
@@ -241,4 +240,4 @@ AND     tb.name = 'T1'
 
 - [Table overview](sql-data-warehouse-tables-overview.md)
 - [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [DBCC CHECKIDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

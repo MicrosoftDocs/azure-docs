@@ -1,11 +1,11 @@
---- 
+---
 title: Forbidden actions during elevated access
 description: VMware Engine reverts the changes to ensure that service remains uninterrupted when VMware Engine detects any of the following forbidden actions.
 titleSuffix: Azure VMware Solution by CloudSimple
 ms.date: 10/28/2020 
 ms.topic: article 
-ms.service: azure-vmware-cloudsimple 
-author: divka78  
+ms.service: azure-vmware
+author: divkamath  
 ms.author: dikamath 
 ---
 

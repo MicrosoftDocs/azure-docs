@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with .NET Core"
 description: In this quickstart, you use .NET Core to create a management group to organize your resources into a resource hierarchy.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -63,7 +63,7 @@ required packages.
    dotnet add package Microsoft.Azure.Management.ManagementGroups --version 1.1.1-preview
 
    # Add the Azure app auth package for .NET Core
-   dotnet add package Microsoft.Azure.Services.AppAuthentication --version 1.5.0
+   dotnet add package Microsoft.Azure.Services.AppAuthentication --version 1.6.1
    ```
 
 1. Replace the default `program.cs` with the following code and save the updated file:

@@ -3,7 +3,7 @@ title: Migrate Azure CDN profile from Verizon Standard to Verizon Premium
 description: Learn about the details of migrating a profile from Verizon Standard to Verizon Premium.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: 
 
 ---
@@ -32,7 +31,7 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 
 ## Profile comparison
 **Azure CDN Premium from Verizon** profiles have the following key differences from **Azure CDN Standard from Verizon** profiles:
-- For certain Azure CDN features such as [compression](cdn-improve-performance.md), [caching rules](cdn-caching-rules.md), and [geo filtering](cdn-restrict-access-by-country.md), you cannot use the Azure CDN interface, you must use the Verizon portal via the **Manage** button.
+- For certain Azure CDN features such as [compression](cdn-improve-performance.md), [caching rules](cdn-caching-rules.md), and [geo filtering](cdn-restrict-access-by-country-region.md), you cannot use the Azure CDN interface, you must use the Verizon portal via the **Manage** button.
 - API: Unlike with Standard Verizon, you cannot use the API to control those features that are accessed from the Premium Verizon portal. However, you can use the API to control other common features, such as creating/deleting an endpoint, purging/loading cached assets, and enabling/disabling a custom domain.
 - Pricing: Premium Verizon has a different pricing structure for data transfers  than Standard Verizon. For more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 

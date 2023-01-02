@@ -3,7 +3,7 @@ title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
 services: active-directory
 description: Learn how to create a basic AD and Azure AD environment.
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
@@ -19,7 +19,7 @@ This tutorial walks you through creating a basic Active Directory environment.
 
 ![Diagram that shows a basic Azure A D environment.](media/tutorial-single-forest/diagram-2.png)
 
-You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who my be starting from nothing.
+You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who may be starting from nothing.
 
 This tutorial consists of
 ## Prerequisites
@@ -28,7 +28,7 @@ The following are prerequisites required for completing this tutorial
 - An [external network adapter](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) to allow the virtual machine to communicate with the internet.
 - An [Azure subscription](https://azure.microsoft.com/free)
 - A copy of Windows Server 2016
-- [Microsoft .NET framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 
 > [!NOTE]
 > This tutorial uses PowerShell scripts so that you can create the tutorial environment in the quickest amount of time.  Each of the scripts uses variables that are declared at the beginning of the scripts.  You can and should change the variables to reflect your environment.

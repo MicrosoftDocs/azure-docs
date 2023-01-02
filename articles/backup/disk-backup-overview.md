@@ -2,7 +2,10 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 03/10/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Overview of Azure Disk Backup
@@ -49,7 +52,7 @@ Consider Azure Disk Backup in scenarios where:
 
 - To configure backup, go to the Backup vault, assign a backup policy, select the managed disk that needs to be backed up and provide a resource group where the snapshots are to be stored and managed. Azure Backup automatically triggers scheduled backup jobs that create an incremental snapshot of the disk according to the backup frequency. Older snapshots are deleted according to the retention duration specified by the backup policy.
 
-- Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) of the managed disk. Incremental snapshots are a cost-effective, point-in-time backup of managed disks that are billed for the delta changes to the disk since the last snapshot. These are always stored on the most cost-effective storage, standard HDD storage regardless of the storage type of the parent disks. The first snapshot of the disk will occupy the used size of the disk, and consecutive incremental snapshots store delta changes to the disk since the last snapshot.
+- Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) of the managed disk. Incremental snapshots are a cost-effective, point-in-time backup of managed disks that are billed for the delta changes to the disk since the last snapshot. These are always stored on the most cost-effective storage, standard HDD storage regardless of the storage type of the parent disks. The first snapshot of the disk will occupy the used size of the disk, and consecutive incremental snapshots store delta changes to the disk since the last snapshot. Azure Backup automatically assigns tag to the snapshots it creates to uniquely identify them. 
 
 - Once you configure the backup of a managed disk, a backup instance will be created within the backup vault. Using the backup instance, you can find health of backup operations, trigger on-demand backups, and perform restore operations. You can also view health of backups across multiple vaults and backup instances using Backup Center, which provides a single pane of glass view.
 
@@ -65,13 +68,7 @@ Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-
 
 Incremental snapshots are always stored on standard storage, irrespective of the storage type of parent-managed disks, and are charged based on  the pricing of standard storage. For example, incremental snapshots of a Premium SSD-Managed Disk are stored on standard storage. By default, they are stored on ZRS  in regions that support ZRS. Otherwise, they are stored on locally redundant storage (LRS). The per GiB pricing of both the options, LRS and ZRS, is the same. 
 
-The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. ForTo more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
-
-During a backup operation, the Azure Backup service creates a Storage Account in the Snapshot Resource Group, where the snapshots are stored. Managed disk’s incremental snapshots are ARM resources created on Resource group and not in Storage Account. 
-
-Storage Account is used to store metadata for each recovery point. Azure Backup service creates a Blob container per disk backup instance. For each recovery point, a block blob is created to store metadata information describing the recovery point, such as subscription, disk ID, disk attributes, and so on, that occupies a small space (in a few KiBs). 
-
-The storage account is created as RA GZRS if the region supports zonal redundancy. If the region doesn’t support Zonal redundancy, the storage account is created as RAGRS. If your existing policy stops creation of storage accounts on the subscription or resource group with GRS redundancy, the Storage account is created as LRS. The storage account created is General Purpose v2 with block blobs stored on Hot tier in the blob container. You’re charged for the Storage Account according to the storage account's redundancy. These charges are for the size of the block blobs. However, this will be a minimal amount as it stores metadata only, which are few KiBs per recovery point. 
+The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. For more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
 
 The number of recovery points is determined by the Backup policy used to configure backups of the disk backup instances. Older block blobs are deleted according to the garbage collection process as the corresponding older recovery points are pruned.
 

@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview 
-ms.date: 04/26/2021
+ms.date: 11/11/2021
 ---
 
 # Azure Web PubSub service FAQ
@@ -13,8 +13,7 @@ ms.date: 04/26/2021
 This is the FAQ of Azure Web PubSub service. 
 
 ## Is Azure Web PubSub service ready for production use?
-
-The Azure Web PubSub service is in public preview state and doesn't have a committed SLA. 
+Yes, Azure Web PubSub service is generally available.
 
 ## How do I choose between Azure SignalR Service and Azure Web PubSub service?
 
@@ -29,7 +28,7 @@ Azure SignalR Service is more suitable if:
 Azure Web PubSub service is more suitable for situations where:  
 
 - You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.
-- You want to build your own subprotocol or use existing advanced protocols over WebSocket (for example, MQTT, AMQP over WebSocket). 
+- You want to build your own subprotocol or use existing advanced sub-protocols over WebSocket (for example, [GraphQL subscriptions over WebSocket](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-graphql-subscribe)). 
 - You're looking for a lightweight server, for example, sending messages to client without going through the configured backend.  
 
 ##  Where does my data reside?

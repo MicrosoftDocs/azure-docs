@@ -3,19 +3,18 @@ title: Subnet extension in Azure | Microsoft Docs
 description: Learn about subnet extension in Azure.
 services: virtual-network
 documentationcenter: na
-author: anupam-p
+author: asudbring
 manager: narayan
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
-ms.author: anupand
+ms.author: allensu
 
 ---
 # Subnet extension

@@ -2,12 +2,12 @@
 title: 'Interpreting your Scorecard | Microsoft Docs'
 description: Learn how to interpret your scorecard. The scorecard tab contains the aggregated and analyzed results from your tests.
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 ---
 # Interpreting your scorecard
 

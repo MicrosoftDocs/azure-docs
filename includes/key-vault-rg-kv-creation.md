@@ -4,7 +4,8 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 # Used by articles that register native client applications in the B2C tenant.
 
@@ -15,7 +16,7 @@ This quickstart uses a pre-created Azure key vault. You can create a key vault b
 Alternatively, you can simply run the Azure CLI or Azure PowerShell commands below.
 
 > [!Important]
-> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+> Each key vault must have a unique name. Replace \<your-unique-keyvault-name\> with the name of your key vault in the following examples.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

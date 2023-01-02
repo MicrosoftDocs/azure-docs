@@ -6,13 +6,14 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: shijain
 
 ---
 
 # Azure Key Vault Analytics solution in Azure Monitor
 
 > [!NOTE]
-> This solution is deprecated. [We now recommend using Key Vault insights](./key-vault-insights-overview.md).
+> This solution is deprecated. [We now recommend using Key Vault insights](../../key-vault/key-vault-insights-overview.md).
 
 ![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 
@@ -71,7 +72,7 @@ The following table shows data collection methods and other details about how da
 | Azure |  |  |&#8226; |  |  | on arrival |
 
 ## Use Azure Key Vault
-After you [install the solution](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
+After you install the solution, view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
 
 ![Screenshot of the Key Vault Analytics tile on the Azure Monitor Overview page showing a graph of key vault operations volume over time.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -88,7 +89,7 @@ After you click the **Key Vault Analytics** tile, you can view summaries of your
 
 ### To view details for any operation
 1. On the **Overview** page, click the **Key Vault Analytics** tile.
-2. On the **Azure Key Vault** dashboard, review the summary information in one of the blades, and then click one to view detailed information about it in the log search page.
+2. On the **Azure Key Vault** dashboard, review the summary information in one of the panes, and then click one to view detailed information about it in the log search page.
 
     On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
@@ -146,4 +147,3 @@ Data collected before the change is not visible in the new solution. You can con
 
 ## Next steps
 * Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Azure Key Vault data.
-

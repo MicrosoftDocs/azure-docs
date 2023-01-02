@@ -2,24 +2,31 @@
 title: Quickstart - Add VOIP calling to an Android app using Azure Communication Services
 description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for Android
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Android.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
+  ```azurecli-interactive
+  az communication identity token issue --scope voip --connection-string "yourConnectionString"
+  ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  
 ## Setting up
 
 ### Create an Android app with an empty activity
@@ -161,7 +168,7 @@ Two inputs are needed: a text input for the callee ID, and a button for placing 
 
 ### Create the main activity scaffolding and bindings
 
-With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the call button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the call agent, and placing the call when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` and to add the bindings for the call button. This will occur only once when the activity is created. For more information, on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
 Navigate to **MainActivity.java** and replace the content with the following code:
 
@@ -170,9 +177,10 @@ package com.contoso.acsquickstart;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
+import android.media.AudioManager;
 import android.Manifest;
 import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -202,6 +210,8 @@ public class MainActivity extends AppCompatActivity {
         // Bind call button to call `startCall`
         Button callButton = findViewById(R.id.call_button);
         callButton.setOnClickListener(l -> startCall());
+        
+        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
     }
 
     /**
@@ -266,7 +276,9 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+With a user token, an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../access-tokens.md) guide. 
+
+For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
 
@@ -310,10 +322,6 @@ private void startCall() {
 
 ## Launch the app and call the echo bot
 
-The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you are able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
+The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you're able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
 
 :::image type="content" source="../../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)

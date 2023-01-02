@@ -1,11 +1,14 @@
 ---
 title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Package and deploy containers as a Service Fabric application using Yeoman
 
 This tutorial is part two in a series. In this tutorial, a template generator tool (Yeoman) is used to generate a Service Fabric application definition. This application can then be used to deploy containers to Service Fabric. In this tutorial you learn how to:
@@ -27,13 +30,13 @@ This tutorial is part two in a series. In this tutorial, a template generator to
 
 Service fabric provides scaffolding tools to help create applications from terminal using Yeoman template generator. Follow the steps below to ensure you have the Yeoman template generator.
 
-1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
+1. Install nodejs and Node Package Manager on your machine. If you use macOS X, you'll have to use the package manager Homebrew.
 
     ```bash
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node 
     ```
-2. Install Yeoman template generator on your machine from NPM
+2. Install Yeoman template generator on your machine from Node Package Manager:
 
     ```bash
     npm install -g yo
@@ -78,7 +81,7 @@ To add another container service to an application already created using Yeoman,
 1. Change directory one level to the **TestContainer** directory, for example, *./TestContainer*
 2. Run `yo azuresfcontainer:AddService`
 3. Name the service 'azurevoteback'
-4. Provide the container image path for Redis - 'alpine:redis'
+4. Provide the container image path for Redis - 'redis:alpine'
 5. Press Enter to leave the Commands section empty
 6. Specify an instance count of "1".
 
@@ -86,7 +89,7 @@ The entries for adding the service used are all shown:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: alpine:redis
+? Input the Image Name: redis:alpine
 ? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -239,7 +242,7 @@ az group create --name $ResourceGroupName --location $Location
 # The certificate is downloaded locally as a PEM file.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
 --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
---cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1804 --vault-name $VaultName \ 
 --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
@@ -265,7 +268,7 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at https:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
@@ -370,7 +373,6 @@ Use the uninstall script provided in the template to delete the application inst
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

@@ -3,15 +3,15 @@ title: Telemetry processors (preview) - Azure Monitor Application Insights for J
 description: Learn to configure telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
-author: kryalama
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: kryalama
+ms.reviewer: mmcc
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The telemetry processors feature is in preview.
+> The telemetry processors feature is designated as preview because we cannot guarantee backwards compatibility from release to release due to the experimental state of the attribute [semantic conventions](https://opentelemetry.io/docs/reference/specification/trace/semantic_conventions). However, the feature has been tested and is supported in production.
 
 Application Insights Java 3.x can process telemetry data before the data is exported.
 
@@ -20,6 +20,7 @@ Here are some use cases for telemetry processors:
  * Conditionally add custom dimensions.
  * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
  * Drop specific span attribute(s) to control ingestion costs.
+ * Filter out some metrics to control ingestion costs.
 
 > [!NOTE]
 > If you are looking to drop specific (whole) spans for controlling ingestion cost,
@@ -51,7 +52,7 @@ The trace message or body is the primary display for logs in the Azure portal. L
 
 ## Telemetry processor types
 
-Currently, the three types of telemetry processors are attribute processors, span processors and log processors.
+Currently, the four types of telemetry processors are attribute processors, span processors, log processors, and metric filters.
 
 An attribute processor can insert, update, delete, or hash attributes of a telemetry item (`span` or `log`).
 It can also use a regular expression to extract one or more new attributes from an existing attribute.
@@ -61,6 +62,8 @@ It can also use a regular expression to extract one or more new attributes from 
 
 A log processor can update the telemetry name of logs.
 It can also use a regular expression to extract one or more new attributes from the log name.
+
+A metric filter can filter out metrics to help control ingestion cost.
 
 > [!NOTE]
 > Currently, telemetry processors process only attributes of type string. They don't process attributes of type Boolean or number.
@@ -88,6 +91,10 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
       },
       {
         "type": "log",
+        ...
+      },
+      {
+        "type": "metric-filter",
         ...
       }
     ]
@@ -230,7 +237,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -240,7 +249,7 @@ All specified conditions must evaluate to true to result in a match.
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 > [!NOTE]
-> If the `include` or `exclude` configuration donot have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
+> If the `include` or `exclude` configuration do not have `spanNames` specified, then the matching criteria is applied on both `spans` and `logs`.
 
 ### Sample usage
 
@@ -361,7 +370,7 @@ This section lists some common span attributes that telemetry processors can use
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. |
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
 | `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|
@@ -377,7 +386,9 @@ To configure this option, under `include` or `exclude` (or both), specify at lea
 The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted.
+  Possible values are `regexp` and `strict`. Regular expression matches are performed against the entire attribute value,
+  so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 * **Optional fields**: 
     * `spanNames` must match at least one of the items. 
@@ -425,7 +436,7 @@ For more information, see [Telemetry processor examples](./java-standalone-telem
 ## Log processor
 
 > [!NOTE]
-> This feature is available only in version 3.1.1 and later.
+> Log processors are available starting from version 3.1.1.
 
 The log processor modifies either the log message body or attributes of a log based on the log message body. It can support the ability to include or exclude logs.
 
@@ -500,14 +511,16 @@ The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
 * **Required field**: 
-  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+  * `matchType` controls how items in `attributes` arrays are interpreted. Possible values are `regexp` and `strict`.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
   * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
     
 > [!NOTE]
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 > [!NOTE]
-> Log processors donot support `spanNames`.
+> Log processors do not support `spanNames`.
 
 ### Sample usage
 
@@ -546,3 +559,52 @@ All specified conditions must evaluate to true to result in a match.
 ]
 ```
 For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
+
+## Metric filter
+
+> [!NOTE]
+> Metric filters are available starting from version 3.1.1.
+
+Metric filter are used to exclude some metrics in order to help control ingestion cost.
+
+Metric filters only support `exclude` criteria. Metrics that match its `exclude` criteria will not be exported.
+
+To configure this option, under `exclude`, specify the `matchType` one or more `metricNames`.
+
+* **Required field**:
+  * `matchType` controls how items in `metricNames` are matched. Possible values are `regexp` and `strict`.
+     Regular expression matches are performed against the entire attribute value,
+     so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+   * `metricNames` must match at least one of the items.
+
+### Sample usage
+
+```json
+"processors": [
+  {
+    "type": "metric-filter",
+    "exclude": {
+      "matchType": "strict",
+      "metricNames": [
+        "metricA",
+        "metricB"
+      ]
+    }
+  }
+]
+```
+### Default metrics captured by Java agent
+
+| Metric name  | Metric type | Description  | Filterable |
+|---|---|---|---|
+| `Current Thread Count` | custom metrics | See [ThreadMXBean.getThreadCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ThreadMXBean.html#getThreadCount--). | yes |
+| `Loaded Class Count` | custom metrics | See [ClassLoadingMXBean.getLoadedClassCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ClassLoadingMXBean.html#getLoadedClassCount--). | yes |
+| `GC Total Count` | custom metrics | Sum of counts across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionCount()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html). | yes |
+| `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported). See [GarbageCollectorMXBean.getCollectionTime()](https://docs.oracle.com/javase/7/docs/api/java/lang/management/GarbageCollectorMXBean.html).| yes |
+| `Heap Memory Used (MB)` | custom metrics | See [MemoryMXBean.getHeapMemoryUsage().getUsed()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--). | yes |
+| `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes. See [MemoryUsage](https://docs.oracle.com/javase/7/docs/api/java/lang/management/MemoryUsage.html)| yes |
+| `\Processor(_Total)\% Processor Time` | default metrics | Difference in [system wide CPU load tick counters](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getProcessorCpuLoadTicks())(Only User and System) divided by the number of [logical processors count](https://oshi.github.io/oshi/oshi-core/apidocs/oshi/hardware/CentralProcessor.html#getLogicalProcessors—) in a given interval of time | no |
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | See [OperatingSystemMXBean.getProcessCpuTime()](https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getProcessCpuTime--) (diff since last reported, normalized by time and number of CPUs). | no |
+| `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | Sum of [MemoryMXBean.getHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--) and [MemoryMXBean.getNonHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getNonHeapMemoryUsage--). | no |
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | `/proc/[pid]/io` Sum of bytes read and written by the process (diff since last reported). See [proc(5)](https://man7.org/linux/man-pages/man5/proc.5.html). | no |
+| `\Memory\Available Bytes` | default metrics | See [OperatingSystemMXBean.getFreePhysicalMemorySize()](https://docs.oracle.com/javase/7/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getFreePhysicalMemorySize()). | no |

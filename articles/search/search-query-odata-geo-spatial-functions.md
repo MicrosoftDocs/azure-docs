@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: Syntax and reference documentation for using OData geo-spatial functions, geo.distance and geo.intersects, in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: reference
+ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"
   - "es-es"

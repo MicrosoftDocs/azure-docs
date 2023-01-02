@@ -1,17 +1,16 @@
 ---
 title: Quickstart - Create registry - PowerShell
 description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
-ms.date: 06/03/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
 # Quickstart: Create a private container registry using Azure PowerShell
 
-Azure Container Registry is a managed, private Docker container registry service for building, storing, and serving Docker container images. In this quickstart, you learn how to create an Azure container registry using PowerShell. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. In this quickstart, you create an Azure container registry instance with Azure  PowerShell. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
 ## Prerequisites
 
@@ -43,13 +42,13 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* in the following command, then run it to create the registry:
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "mycontainerregistry." Replace *mycontainerregistry* in the following command, then run it to create the registry:
 
 ```powershell
-$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "mycontainerregistry" -EnableAdminUser -Sku Basic
 ```
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
+[!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]
 
 ## Log in to registry
 

@@ -2,7 +2,7 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/12/2022
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
@@ -226,6 +226,17 @@ Selectors can be utilized when creating any of the below consumers -
    * Unshared non-durable subscription
    * Queue browser
 
+## AMQP disposition and Service Bus operation mapping
+
+Here's how an AMQP disposition translates to a Service Bus operation:
+
+```Output
+ACCEPTED = 1; -> Complete()
+REJECTED = 2; -> DeadLetter()
+RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
+MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
+MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
+```
 
 ## Summary
 

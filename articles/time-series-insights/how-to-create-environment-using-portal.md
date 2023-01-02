@@ -1,9 +1,9 @@
 ---
 title: 'Set up a Gen2 environment using the Azure portal - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Learn how to set up an environment in Azure Time Series Insights Gen2 using Azure portal.'
-author: riserrad
-ms.author: riserrad
-manager: edett
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -13,6 +13,8 @@ ms.custom: seodec18
 ---
 
 # Create an Azure Time Series Insights Gen2 environment using the Azure portal
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This article describes how to create an Azure Time Series Insights Gen2 environment by using the [Azure portal](https://portal.azure.com/).
 

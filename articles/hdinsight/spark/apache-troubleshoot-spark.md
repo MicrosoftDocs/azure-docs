@@ -2,7 +2,6 @@
 title: Troubleshoot Apache Spark in Azure HDInsight
 description: Get answers to common questions about working with Apache Spark and Azure HDInsight.
 ms.service: hdinsight
-ms.reviewer: jasonh 
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
@@ -92,7 +91,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 ### Additional reading
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](/archive/blogs/azuredatalake/spark-job-submission-on-hdinsight-101)
 
 ## Next steps
 

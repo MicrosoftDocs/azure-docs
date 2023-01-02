@@ -1,17 +1,18 @@
 ---
 title: Enable InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn how to enable InfiniBand on Azure HPC VMs. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 04/28/2021
-ms.author: amverma
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Enable InfiniBand
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [RDMA capable](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs communicate over the low latency and high bandwidth InfiniBand network. The RDMA capability over such an interconnect is critical to boost the scalability and performance of distributed-node HPC and AI workloads. The InfiniBand enabled H-series and N-series VMs are connected in a non-blocking fat tree with a low-diameter design for optimized and consistent RDMA performance.
 
@@ -52,7 +53,7 @@ yum install -y kernel-devel-${KERNEL}
 For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
 ## Enable IP over InfiniBand (IB)
-If you are plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
+If you plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
 
 ```bash
 sudo sed -i -e 's/# OS.EnableRDMA=n/OS.EnableRDMA=y/g' /etc/waagent.conf

@@ -2,29 +2,29 @@
 title: Error handling and detection in Azure Batch
 description: Learn about error handling in Batch service workflows from a development standpoint.
 ms.topic: article
-ms.date: 05/15/2020
+ms.date: 12/20/2021
 ---
 
 # Error handling and detection in Azure Batch
 
-At times, you may find it necessary to handle both task and application failures within your Batch solution. This article talks about types of errors and how to resolve them.
+At times, you might need to handle task and application failures in your Azure Batch solution. This article explains different types of Batch errors, and how to resolve common problems.
 
 ## Error codes
 
-General types of errors include:
+Some general types of errors you might see in Batch are:
 
-- Networking failures for requests that never reached Batch, or when the Batch response didn't reach the client in time.
-- Internal server errors (standard 5xx status code HTTP response).
-- Throttling-related errors, such as 429 or 503 status code HTTP responses with the Retry-after header.
-- 4xx errors such as AlreadyExists and InvalidOperation. This means that the resource is not in the correct state for the state transition.
+- Networking failures for requests that never reached Batch. Or, networking failures when the Batch response didn't reach the client in time.
+- Internal server errors. These errors have a standard `5xx` status code HTTP response.
+- Throttling-related errors. These errors include `429` or `503` status code HTTP responses with the `Retry-after` header.
+- `4xx` errors such as `AlreadyExists` and `InvalidOperation`. These errors indicate that the resource isn't in the correct state for the state transition.
 
-For detailed information about specific error codes, including error codes for REST API, Batch service, and job task/scheduling, see [Batch Status and Error Codes](/rest/api/batchservice/batch-status-and-error-codes).
+For detailed information about specific error codes, see [Batch Status and Error Codes](/rest/api/batchservice/batch-status-and-error-codes). This reference includes error codes for REST API, Batch service, and job tasks and scheduling.
 
 ## Application failures
 
-During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As described in [Files and directories](files-and-directories.md), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node.
+During execution, an application might produce diagnostic output. You can use this output to troubleshoot issues. The Batch service writes standard output and standard error output to the `stdout.txt` and `stderr.txt` files in the task directory on the compute node. For more information, see [Files and directories in Batch](files-and-directories.md).
 
-You can use the Azure portal or one of the Batch SDKs to download these files. For example, you can retrieve these and other files for troubleshooting purposes by using [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) and [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask) in the Batch .NET library.
+To download these output files, use the Azure portal or one of the Batch SDKs. For example, to retrieve files for troubleshooting purposes, use [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) and [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask) in the Batch .NET library.
 
 ## Task errors
 
@@ -32,77 +32,114 @@ Task errors fall into several categories.
 
 ### Pre-processing errors
 
-If a task fails to start, a pre-processing error is set for the task.  
+If a task fails to start, a pre-processing error is set for the task. Pre-processing errors can occur if:
 
-Pre-processing errors can occur if the task's resource files have moved, the storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+- The task's resource files have moved.
+- The storage account is no longer available.
+- Another issue happened that prevented the successful copying of files to the node.
 
 ### File upload errors
 
-If files that are specified for a task fail to upload for any reason, a file upload error is set for the task.
+If files that you specified for a task fail to upload for any reason, a file upload error is set for the task. File upload errors can occur if: 
 
-File upload errors can occur if the SAS supplied for accessing Azure Storage is invalid or does not provide write permissions, if the storage account is no longer available, or if another issue was encountered that prevented the successful copying of files from the node.
+- The shared access signature (SAS) token supplied for accessing Azure Storage is invalid.
+- The SAS token doesn't provide write permissions.
+- The storage account is no longer available
+- Another issue happened that prevented the successful copying of files from the node.
 
 ### Application errors
 
-The process that is specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process that is executed by the task (see *Task exit codes* in the next section).
+The process that the task's command line specifies can also fail. For more information, see [Task exit codes](#task-exit-codes).
 
-For application errors, you can configure Batch to automatically retry the task up to a specified number of times.
+For application errors, configure Batch to automatically retry the task up to a specified number of times.
 
 ### Constraint errors
 
-You can set a constraint that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating tasks that fail to progress.
+To specify the maximum execution duration for a job or task, set the **maxWallClockTime** constraint. Use this setting to terminate tasks that fail to progress.
 
-When the maximum amount of time has been exceeded, the task is marked as *completed*, but the exit code is set to `0xC000013A` and the *schedulingError* field is marked as `{ category:"ServerError", code="TaskEnded"}`.
+When the task exceeds the maximum time:
+
+- The task is marked as **completed**.
+- The exit code is set to `0xC000013A`
+- The **schedulingError** field is marked as `{ category:"ServerError", code="TaskEnded"}`.
 
 ## Task exit codes
 
-As mentioned earlier, a task is marked as failed by the Batch service if the process that is executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the return code of the process.
+When a task executes a process, Batch populates the task's exit code property with the return code of the process. If the process returns a nonzero exit code, the Batch service marks the task as failed.
 
-It is important to note that a task's exit code is not determined by the Batch service. A task's exit code is determined by the process itself or the operating system on which the process executed.
+The Batch service doesn't determine a task's exit code. The process itself, or the operating system on which the process executed, determines the exit code.
 
 ## Task failures or interruptions
 
-Tasks might occasionally fail or be interrupted. The task application itself might fail, the node on which the task is running might be rebooted, or the node might be removed from the pool during a resize operation (if the pool's deallocation policy is set to remove nodes immediately without waiting for tasks to finish). In all cases, the task can be automatically requeued by Batch for execution on another node.
+Tasks might occasionally fail or be interrupted. For example:
 
-It is also possible for an intermittent issue to cause a task to stop responding or take too long to execute. You can set the maximum execution interval for a task. If the maximum execution interval is exceeded, the Batch service interrupts the task application.
+- The task application itself might fail.
+- The node on which the task is running might reboot.
+- A resize operation might remove the node from the pool. This action might happen if the pool's deallocation policy removes nodes immediately without waiting for tasks to finish. 
+
+In all cases, Batch can automatically requeue the task for execution on another node.
+
+It's also possible for an intermittent issue to cause a task to stop responding or take too long to execute. You can set a maximum execution interval for a task. If a task exceeds the interval, the Batch service interrupts the task application.
 
 ## Connect to compute nodes
 
-You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs such as with [Batch .NET](/dotnet/api/microsoft.azure.batch.computenode) or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. Use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes, and obtain Secure Shell (SSH) connection information for Linux nodes. You can also download this information using the [Batch .NET](/dotnet/api/microsoft.azure.batch.computenode) or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) APIs.
 
-> [!IMPORTANT]
-> To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node](/rest/api/batchservice/computenode/adduser) by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode) method in Batch .NET, or call the [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) method in the Batch Python module.
+To connect to a node via RDP or SSH, first create a user on the node. Use one of the following methods:
 
-If you need to restrict or disable RDP or SSH access to compute nodes, see [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md).
+- The Azure portal
+- Batch REST API: [adduser](/rest/api/batchservice/computenode/adduser)
+- Batch .NET API: [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode)
+- Batch Python module: [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)
 
+If necessary, [restrict or disable RDP or SSH access to compute nodes](pool-endpoint-configuration.md).
 ## Troubleshoot problem nodes
 
-In situations where some of your tasks are failing, your Batch client application or service can examine the metadata of the failed tasks to identify a misbehaving node. Each node in a pool is given a unique ID, and the node on which a task runs is included in the task metadata. After you've identified a problem node, you can take several actions with it:
+Your Batch client application or service can examine the metadata of failed tasks to identify a problem node. Each node in a pool has a unique ID. Task metadata includes the node where a task runs. After you find the problem node, try the following methods to resolve the failure.
 
-- **Reboot the node** ([REST](/rest/api/batchservice/computenode/reboot) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reboot)))
+### Reboot node
 
-    Restarting the node can sometimes clear up latent issues like stuck or crashed processes. If your pool uses a start task or your job uses a job preparation task, they are executed when the node restarts.
-- **Reimage the node** ([REST](/rest/api/batchservice/computenode/reimage) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.reimage))
+Restarting a node sometimes fixes latent issues, such as stuck or crashed processes. If your pool uses a start task, or your job uses a job preparation task, a node restart executes these tasks.
 
-    This reinstalls the operating system on the node. As with rebooting a node, start tasks and job preparation tasks are rerun after the node has been reimaged.
-- **Remove the node from the pool** ([REST](/rest/api/batchservice/pool/removenodes) | [.NET](/dotnet/api/microsoft.azure.batch.pooloperations))
+- Batch REST API: [reboot](/rest/api/batchservice/computenode/reboot)
+- Batch .NET API: [ComputeNode.Reboot](/dotnet/api/microsoft.azure.batch.computenode.reboot)
 
-    Sometimes it is necessary to completely remove the node from the pool.
-- **Disable task scheduling on the node** ([REST](/rest/api/batchservice/computenode/disablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.disablescheduling))
+### Reimage node
 
-    This effectively takes the node offline so that no further tasks are assigned to it, but allows the node to remain running and in the pool. This enables you to perform further investigation into the cause of the failures without losing the failed task's data, and without the node causing additional task failures. For example, you can disable task scheduling on the node, then sign in remotely to examine the node's event logs or perform other troubleshooting. After you've finished your investigation, you can then bring the node back online by enabling task scheduling ([REST](/rest/api/batchservice/computenode/enablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling), or perform one of the other actions discussed earlier.
+Reimaging a node reinstalls the operating system. Start tasks and job preparation tasks rerun after the reimaging happens.
 
-> [!IMPORTANT]
-> With the actions described above, youc can specify how tasks currently running on the node are handled when you perform the action. For example, when you disable task scheduling on a node by using the Batch .NET client library, you can specify a [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) enum value to specify whether to **Terminate** running tasks, **Requeue** them for scheduling on other nodes, or allow running tasks to complete before performing the action (**TaskCompletion**).
+- Batch REST API: [reimage](/rest/api/batchservice/computenode/reimage)
+- Batch .NET API: [ComputeNode.Reimage](/dotnet/api/microsoft.azure.batch.computenode.reimage)
+
+### Remove node from pool
+
+Removing the node from the pool is sometimes necessary. 
+
+- Batch REST API: [removenodes](/rest/api/batchservice/pool/remove-nodes)
+- Batch .NET API: [pooloperations](/dotnet/api/microsoft.azure.batch.pooloperations)
+
+### Disable task scheduling on node
+
+Disabling task scheduling on a node effectively takes the node offline. Batch assigns no further tasks to the node. However, the node continues running in the pool. You can then further investigate the failures without losing the failed tasks's data. The node also won't cause additional task failures. 
+
+For example, disable task scheduling on the node. Then, sign in to the node remotely. Examine the event logs, and do other troubleshooting. After you solve the problems, enable task scheduling again to bring the node back online. 
+
+- Batch REST API: [enablescheduling](/rest/api/batchservice/computenode/enablescheduling)
+- Batch .NET API: [ComputeNode.EnableScheduling](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)
+
+You can use these actions to specify Batch handles tasks currently running on the node. For example, when you disable task scheduling with the Batch .NET API, you can specify an enum value for [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption). You can choose to:
+
+- Terminate running tasks (`Terminate`).
+- Requeue tasks for scheduling on other nodes (`Requeue`).
+- Allow running tasks to complete before performing the action (`TaskCompletion`).
 
 ## Retry after errors
 
-The Batch APIs will notify you if there is a failure. They can all be retried, and they all include a global retry handler for that purpose. It is best to use this built-in mechanism.
+The Batch APIs notify you about failures. You can retry all APIs using the built-in global retry handler. It's a best practice to use this option. 
 
-After a failure, you should wait a bit (several seconds between retries) before retrying. If you retry too frequently or too quickly, the retry handler will throttle.
+After a failure, wait several seconds before retrying. If you retry too frequently or too quickly, the retry handler throttles requests.
 
 ## Next steps
 
-- Learn how to [check for pool and node errors](batch-pool-node-error-checking.md).
-- Learn how to [check for job and task errors](batch-job-task-error-checking.md).
-- Review the list of [Batch Status and Error Codes](/rest/api/batchservice/batch-status-and-error-codes).
+- [Check for Batch pool and node errors](batch-pool-node-error-checking.md).
+- [Check for Batch job and task errors](batch-job-task-error-checking.md).

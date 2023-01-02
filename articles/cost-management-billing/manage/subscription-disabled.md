@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 11/10/2022
 ms.author: banders
 ---
 
@@ -46,15 +46,18 @@ If you're the Account Administrator and accidentally canceled a pay-as-you-go su
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Subscriptions and then select the canceled subscription.
-1. Select **Reactivate**.
-1. Confirm reactivation by selecting **OK**.  
-    :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="Screenshot that shows Confirm reactivation" :::
+1. Select **Reactivate**.  
+    :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="Screenshot that shows Confirm reactivation." :::
 
 For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
 ## After reactivation
 
 After your subscription is reactivated, there might be a delay in creating or managing resources. If the delay exceeds 30 minutes, contact [Azure Billing Support](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance. Most Azure resources automatically resume and don't require any action. However, we recommend that you check your Azure service resources and restart any that don't resume automatically.
+
+## Upgrade a disabled free account
+
+If you use resources that aren’t free and your subscription gets disabled because you run out of credit, and then you upgrade your subscription, the resources get enabled after upgrade. This situation will result in you getting charged for the resources used. For more information about upgrading a free account, see [Upgrade your Azure account](upgrade-azure-subscription.md).
 
 ## Need help? Contact us.
 

@@ -5,76 +5,85 @@ author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 ---
 
 # Webhook actions for log alert rules
 
-[Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
-
-> [!NOTE]
-> Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`.
+[Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available. Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
 
 > [!NOTE]
 > It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). This means that if you want to have a custom JSON payload defined, the webhook can't use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
-## Webhook payload properties
-
-Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
-
-Default webhook action properties and their custom JSON parameter names:
-
-| Parameter | Variable | Description |
-|:--- |:--- |:--- |
-| *AlertRuleName* |#alertrulename |Name of the alert rule. |
-| *Severity* |#severity |Severity set for the fired log alert. |
-| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule. |
-| *AlertThresholdValue* |#thresholdvalue |Threshold value for the alert rule. |
-| *LinkToSearchResults* |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
-| *LinkToSearchResultsAPI* |#linktosearchresultsapi |Link to the Analytics API that returns the records from the query that created the alert. |
-| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |Link to the Analytics portal that returns the records from the query filtered by dimensions value combinations that created the alert. |
-| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |Link to the Analytics API that returns the records from the query filtered by dimensions value combinations that created the alert. |
-| *ResultCount* |#searchresultcount |Number of records in the search results. |
-| *Search Interval End time* |#searchintervalendtimeutc |End time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
-| *Search Interval* |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
-| *Search Interval StartTime* |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
-| *SearchQuery* |#searchquery |Log search query used by the alert rule. |
-| *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
-| *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
-| *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
-| *Application ID* |#applicationid |ID of your Application Insights app. |
-| *Subscription ID* |#subscriptionid |ID of your Azure subscription used. |
-
-## Custom webhook payload definition
-
-You can use the **Include custom JSON payload for webhook** to get a custom JSON payload using the parameters above. You can also generate additional properties.
-For example, you might specify the following custom payload that includes a single parameter called *text*. The service that this webhook calls expects this parameter:
-
-```json
-
-    {
-        "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
-    }
-```
-This example payload resolves to something like the following when it's sent to the webhook:
-
-```json
-    {
-        "text":"My Alert Rule fired with 18 records over threshold of 10 ."
-    }
-```
-Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" in the above webhook example will output based on the alert results.
-
-To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. Search results are included as a JSON structure, so results can't be referenced in custom defined fields. 
-
-> [!NOTE]
-> The **View Webhook** button next to the **Include custom JSON payload for webhook** option displays preview of what was provided. It doesn't contain actual data, but is representative of the JSON schema that will be used. 
-
 ## Sample payloads
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
 
-### Log alert for Log Analytics
+### Log alert for all resources logs (from API version `2021-08-01`)
+
+The following sample payload is for a standard webhook when it's used for log alerts based on resources logs:
+
+```json
+{
+    "schemaId": "azureMonitorCommonAlertSchema",
+    "data": {
+        "essentials": {
+            "alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
+            "alertRule": "AcmeRule",
+            "severity": "Sev4",
+            "signalType": "Log",
+            "monitorCondition": "Fired",
+            "monitoringService": "Log Alerts V2",
+            "alertTargetIDs": [
+                "/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
+            ],
+            "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
+            "firedDateTime": "2020-07-09T14:04:49.99645Z",
+            "description": "log alert rule V2",
+            "essentialsVersion": "1.0",
+            "alertContextVersion": "1.0"
+        },
+        "alertContext": {
+            "properties": {
+              "name1": "value1",
+              "name2": "value2"
+            },
+            "conditionType": "LogQueryCriteria",
+            "condition": {
+                "windowSize": "PT10M",
+                "allOf": [
+                    {
+                        "searchQuery": "Heartbeat",
+                        "metricMeasureColumn": "CounterValue",
+                        "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+                        "operator": "LowerThan",
+                        "threshold": "1",
+                        "timeAggregation": "Count",
+                        "dimensions": [
+                            {
+                                "name": "ResourceId",
+                                "value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
+                            }
+                        ],
+                        "metricValue": 0.0,
+                        "failingPeriods": {
+                            "numberOfEvaluationPeriods": 1,
+                            "minFailingPeriodsToAlert": 1
+                        },
+                        "linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+                    }
+                ],
+                "windowStartTime": "2020-07-07T13:54:34Z",
+                "windowEndTime": "2020-07-09T13:54:34Z"
+            }
+        }
+    }
+}
+```
+
+### Log alert for Log Analytics (up to API version `2018-04-16`)
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
@@ -144,7 +153,7 @@ The following sample payload is for a standard webhook action that's used for al
 }
 ```
 
-### Log alert for Application Insights
+### Log alert for Application Insights (up to API version `2018-04-16`)
 The following sample payload is for a standard webhook when it's used for log alerts based on Application Insights resources:
     
 ```json
@@ -211,72 +220,58 @@ The following sample payload is for a standard webhook when it's used for log al
 }
 ```
 
-### Log alert for other resources logs (from API version `2020-05-01-preview`)
+### Log alert with a custom JSON payload (up to API version `2018-04-16`)
 
 > [!NOTE]
-> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
+> Custom JSON-based webhook is not supported from API version `2021-08-01`.
 
-The following sample payload is for a standard webhook when it's used for log alerts based on other resources logs (excluding workspaces and Application Insights):
+Default webhook action properties and their custom JSON parameter names:
+
+| Parameter | Variable | Description |
+|:--- |:--- |:--- |
+| *AlertRuleName* |#alertrulename |Name of the alert rule. |
+| *Severity* |#severity |Severity set for the fired log alert. |
+| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule. |
+| *AlertThresholdValue* |#thresholdvalue |Threshold value for the alert rule. |
+| *LinkToSearchResults* |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
+| *LinkToSearchResultsAPI* |#linktosearchresultsapi |Link to the Analytics API that returns the records from the query that created the alert. |
+| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |Link to the Analytics portal that returns the records from the query filtered by dimensions value combinations that created the alert. |
+| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |Link to the Analytics API that returns the records from the query filtered by dimensions value combinations that created the alert. |
+| *ResultCount* |#searchresultcount |Number of records in the search results. |
+| *Search Interval End time* |#searchintervalendtimeutc |End time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
+| *Search Interval* |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
+| *Search Interval StartTime* |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
+| *SearchQuery* |#searchquery |Log search query used by the alert rule. |
+| *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
+| *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
+| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
+| *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
+| *Application ID* |#applicationid |ID of your Application Insights app. |
+| *Subscription ID* |#subscriptionid |ID of your Azure subscription used. | 
+
+You can use the **Include custom JSON payload for webhook** to get a custom JSON payload using the parameters. You can also generate additional properties.
+For example, you might specify the following custom payload that includes a single parameter called *text*. The service that this webhook calls expects this parameter:
 
 ```json
-{
-    "schemaId": "azureMonitorCommonAlertSchema",
-    "data": {
-        "essentials": {
-            "alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
-            "alertRule": "AcmeRule",
-            "severity": "Sev4",
-            "signalType": "Log",
-            "monitorCondition": "Fired",
-            "monitoringService": "Log Alerts V2",
-            "alertTargetIDs": [
-                "/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
-            ],
-            "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
-            "firedDateTime": "2020-07-09T14:04:49.99645Z",
-            "description": "log alert rule V2",
-            "essentialsVersion": "1.0",
-            "alertContextVersion": "1.0"
-        },
-        "alertContext": {
-            "properties": null,
-            "conditionType": "LogQueryCriteria",
-            "condition": {
-                "windowSize": "PT10M",
-                "allOf": [
-                    {
-                        "searchQuery": "Heartbeat",
-                        "metricMeasure": null,
-                        "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
-                        "operator": "LowerThan",
-                        "threshold": "1",
-                        "timeAggregation": "Count",
-                        "dimensions": [
-                            {
-                                "name": "ResourceId",
-                                "value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
-                            }
-                        ],
-                        "metricValue": 0.0,
-                        "failingPeriods": {
-                            "numberOfEvaluationPeriods": 1,
-                            "minFailingPeriodsToAlert": 1
-                        },
-                        "linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
-                        "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
-                        "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
-                        "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
-                    }
-                ],
-                "windowStartTime": "2020-07-07T13:54:34Z",
-                "windowEndTime": "2020-07-09T13:54:34Z"
-            }
-        }
-    }
-}
-```
 
-### Log alert with a custom JSON payload
+    {
+        "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
+    }
+```
+This example payload resolves to something like the following when it's sent to the webhook:
+
+```json
+    {
+        "text":"My Alert Rule fired with 18 records over threshold of 10 ."
+    }
+```
+Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" in the webhook example will output based on the alert results.
+
+To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. Search results are included as a JSON structure, so results can't be referenced in custom defined fields. 
+
+> [!NOTE]
+> The **View Webhook** button next to the **Include custom JSON payload for webhook** option displays preview of what was provided. It doesn't contain actual data, but is representative of the JSON schema that will be used.
+
 For example, to create a custom payload that includes just the alert name and the search results, use this configuration: 
 
 ```json

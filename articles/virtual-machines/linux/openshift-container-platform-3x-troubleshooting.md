@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: openshift
 ms.collection: linux
 ms.topic: troubleshooting
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
@@ -15,6 +14,8 @@ ms.custom: devx-track-ansible
 ---
 
 # Troubleshoot OpenShift Container Platform 3.11 deployment in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 If the OpenShift cluster doesn't deploy successfully, the Azure portal will provide error output. The output may be difficult to read which makes it difficult to identify the problem. Quickly scan this output for exit code 3, 4 or 5. The following provides information on these three exit codes:
 

@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -30,7 +31,7 @@ A data factory can have one or more pipelines. A pipeline is a logical grouping 
 
 An activity can take zero or more input [datasets](data-factory-create-datasets.md) and produce one or more output [datasets](data-factory-create-datasets.md). The following diagram shows the relationship between pipeline, activity, and dataset in Data Factory:
 
-![Relationship between pipeline, activity, and dataset](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
+:::image type="content" source="media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png" alt-text="Relationship between pipeline, activity, and dataset":::
 
 A pipeline allows you to manage activities as a set instead of each one individually. For example, you can deploy, schedule, suspend, and resume a pipeline, instead of dealing with activities in the pipeline independently.
 
@@ -129,7 +130,7 @@ Following table describes properties in the activity JSON definition:
 | type | Type of the activity. See the [Data Movement Activities](#data-movement-activities) and [Data Transformation Activities](#data-transformation-activities) sections for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Yes |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Yes |
-| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and Azure Machine Learning Studio (classic) Batch Scoring Activity <br/><br/>No for all others |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight Activity and ML Studio (classic) Batch Scoring Activity <br/><br/>No for all others |
 | typeProperties |Properties in the **typeProperties** section depend on type of the activity. To see type properties for an activity, click links to the activity in the previous section. | No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
 | scheduler | “scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#dataset-availability). |No |
@@ -266,13 +267,13 @@ If you have multiple activities in a pipeline and output of an activity is not a
 
 You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The second activity executes only when the first one completes successfully.
 
-![Chaining activities in the same pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-one-pipeline.png" alt-text="Chaining activities in the same pipeline":::
 
 In this sample, the pipeline has two activities: Activity1 and Activity2. The Activity1 takes Dataset1 as an input and produces an output Dataset2. The Activity takes Dataset2 as an input and produces an output Dataset3. Since the output of Activity1 (Dataset2) is the input of Activity2, the Activity2 runs only after the Activity completes successfully and produces the Dataset2 slice. If the Activity1 fails for some reason and does not produce the Dataset2 slice, the Activity 2 does not run for that slice (for example: 9 AM to 10 AM).
 
 You can also chain activities that are in different pipelines.
 
-![Chaining activities in two pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+:::image type="content" source="./media/data-factory-create-pipelines/chaining-two-pipelines.png" alt-text="Chaining activities in two pipelines":::
 
 In this sample, Pipeline1 has only one activity that takes Dataset1 as an input and produces Dataset2 as an output. The Pipeline2 also has only one activity that takes Dataset2 as an input and Dataset3 as an output.
 

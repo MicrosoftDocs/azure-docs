@@ -2,11 +2,11 @@
 title: Performance tuning - Hive on Azure Data Lake Storage Gen1
 description: Learn about performance tuning for Hive on HdInsight and Azure Data Lake Storage Gen1. For I/O intensive queries, tune Hive to get better performance.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Performance tuning guidance for Hive on HDInsight and Azure Data Lake Storage Gen1
@@ -82,4 +82,4 @@ Restart all the nodes/service for the config to take effect.
 Here are a few blogs that will help tune your Hive queries:
 * [Optimize Hive queries for Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
 * [Encoding the Hive query file in Azure HDInsight](/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
-* [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)
+* Ignite talk on optimize Hive on HDInsight

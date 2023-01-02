@@ -1,0 +1,72 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String"
+        },
+        "environment_id": {
+            "type": "String"
+        },
+        "queue-connection-string": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.App/containerApps",
+        "apiVersion": "2022-03-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "managedEnvironmentId": "[parameters('environment_id')]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [
+                {
+                    "name": "queue-connection-string",
+                    "value": "[parameters('queue-connection-string')]"
+                }]
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "myregistry/myQueueApp:v1",
+                        "name": "myQueueApp",
+                        "env": [
+                            {
+                                "name": "QueueName",
+                                "value": "myqueue"
+                            },
+                            {
+                                "name": "ConnectionString",
+                                "secretRef": "queue-connection-string"
+                            }
+                        ]
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 0,
+                    "maxReplicas": 10,
+                    "rules": [
+                        {
+                            "name": "myqueuerule",
+                            "azureQueue": {
+                                "queueName": "demoqueue",
+                                "queueLength": 100,
+                                "auth": [
+                                    {
+                                        "secretRef": "queue-connection-string",
+                                        "triggerParameter": "connection"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }]
+}

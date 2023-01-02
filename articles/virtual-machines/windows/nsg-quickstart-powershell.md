@@ -12,6 +12,9 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # How to open ports and endpoints to a VM using PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
@@ -34,11 +37,11 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -Access "Allow" `
     -Protocol "Tcp" `
     -Direction "Inbound" `
-    -Priority "100" `
+    -Priority 100 `
     -SourceAddressPrefix "Internet" `
     -SourcePortRange * `
     -DestinationAddressPrefix * `
-    -DestinationPortRange 80
+    -DestinationPortRange "80"
 ```
 
 Next, create your Network Security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) and assign the HTTP rule you just created as follows. The following example creates a Network Security Group named *myNetworkSecurityGroup*:

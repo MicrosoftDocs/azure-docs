@@ -1,10 +1,10 @@
 ---
 title: Test the UI definition file
 description: Describes how to test the user experience for creating your Azure Managed Application through the portal.
-author: tfitzmac
+author: davidsmatlak
 ms.topic: conceptual
 ms.date: 06/04/2021
-ms.author: tomfitz
+ms.author: davidsmatlak
 ---
 # Test your portal interface for Azure Managed Applications
 
@@ -46,4 +46,4 @@ Now that you've verified your portal interface is working as expected, it's time
 
 ## Next steps
 
-After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](../../marketplace/create-new-azure-apps-offer.md).
+After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](../../marketplace/azure-app-offer-setup.md).

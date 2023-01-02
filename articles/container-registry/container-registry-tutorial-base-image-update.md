@@ -2,7 +2,9 @@
 title: Tutorial - Trigger image build on base image update
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated in the same registry.
 ms.topic: tutorial
-ms.date: 11/24/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want container images to be built automatically when the base image of a container is updated in the registry.
 ---
@@ -218,7 +220,11 @@ docker stop updatedapp
 
 ## Next steps
 
-In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
+In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated.
+
+For a complete workflow to manage base images originating from a public source, see [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md). 
+
+Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
 
 > [!div class="nextstepaction"]
 > [Run a task on a schedule](container-registry-tasks-scheduled.md)

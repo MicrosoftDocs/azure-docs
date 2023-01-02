@@ -1,12 +1,12 @@
 ---
-title: Develop for Azure Files with Java | Microsoft Docs
+title: Develop for Azure Files with Java
 description: Learn how to develop Java applications and services that use Azure Files to store file data.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/26/2021
 ms.custom: devx-track-java
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -22,6 +22,13 @@ Learn the basics developing Java applications that use Azure Files to store data
 - Upload, download, and delete a file
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Create a Java application
 

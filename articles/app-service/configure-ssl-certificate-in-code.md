@@ -43,6 +43,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 To make all your certificates accessible, set the value to `*`.
 
+> [!NOTE]
+> If your are using `*` for the App Setting, you will need to restart your web app after adding a new certificate to your web app to ensure that new certificate becomes accessible to your app.
+
 ## Load certificate in Windows apps
 
 The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
@@ -131,7 +134,7 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 
 ## Load certificate in Linux/Windows containers
 
-The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux container apps (including built-in Linux containers) as files. The files are found under the following directories:
+The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux custom containers (including built-in Linux containers) as files. The files are found under the following directories:
 
 | Container platform | Public certificates | Private certificates |
 | - | - | - |
@@ -180,4 +183,5 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.md)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
+* [Environment variables and app settings reference](reference-app-settings.md)
