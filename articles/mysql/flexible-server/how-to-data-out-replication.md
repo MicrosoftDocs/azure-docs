@@ -83,15 +83,15 @@ GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
 
 To create the replication role in MySQL Workbench, open the Users and Privileges panel from the Management panel and select Add Account.
 
-:::image type="content" source="media/how-to-data-out-replication/mysql-workbench-add-account.png" alt-text="Screenshot of adding an account.":::
+:::image type="content" source="media/how-to-data-out-replication/mysql-workbench-add-account.png" alt-text="Screenshot of adding an account." lightbox="media/how-to-data-out-replication/mysql-workbench-add-account.png":::
 
 Type the username into the **Login Name** field.
 
-:::image type="content" source="media/how-to-data-out-replication/mysql-workbench-login.png" alt-text="Screenshot of logging in on MySQL Workbench.":::
+:::image type="content" source="media/how-to-data-out-replication/mysql-workbench-login.png" alt-text="Screenshot of logging in on MySQL Workbench." lightbox="media/how-to-data-out-replication/mysql-workbench-login.png":::
 
 Select the Administrative Roles panel and Replication Slave from the list of Global Privileges. Then select Apply to create the replication role.
 
-:::image type="content" source="media/how-to-data-out-replication/mysql-workbench-apply.png" alt-text="Screenshot of adding permissions.":::
+:::image type="content" source="media/how-to-data-out-replication/mysql-workbench-apply.png" alt-text="Screenshot of adding permissions." lightbox="media/how-to-data-out-replication/mysql-workbench-apply.png":::
 
 1. **Set the source server to read-only mode**
 
