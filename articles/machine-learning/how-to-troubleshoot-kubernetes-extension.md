@@ -225,6 +225,40 @@ volcano-scheduler.conf: |
         - name: nodeorder
         - name: binpack
 ```
-You need to use the same config settings as above, and disable `job/validate` webhook in the volcano admission, so that AzureML training workloads can perform properly.
+You need to use the same config settings as above, and you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**, so that AzureML training workloads can perform properly.
+
+#### Volcano scheduler integration supporting cluster autoscaler
+As discussed in this [thread](https://github.com/volcano-sh/volcano/issues/2558) , the **gang plugin** is not working well with the cluster autoscaler(CA) and also the node autoscaler in AKS.
+
+ In this case, you could use this config of **no gang** volcano scheduler when using cluster autoscaler:
+
+ ```yaml
+volcano-scheduler.conf: |
+    actions: "enqueue, allocate, backfill"
+    tiers:
+    - plugins:
+      - name: sla 
+        arguments:
+        sla-waiting-time: 1m
+    - plugins:
+      - name: conformance
+    - plugins:
+        - name: overcommit
+        - name: drf
+        - name: predicates
+        - name: proportion
+        - name: nodeorder
+        - name: binpack
+```
+ 
+ And you need to skip the resource validation when install the extension by configuring `--config amloperator.skipResourceValidation=true`.
+
+ [!NOTE]
+ > Since the gang plugin is removed, there's potential that the deadlock happens when volcano schedules the job. 
+ > 
+ > * To avoid this situation, you can **use same instance type across the jobs**.
+ >
+ > Note that you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**.
+
 
 
