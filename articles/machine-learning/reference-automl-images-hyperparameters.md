@@ -22,11 +22,11 @@ ms.date: 01/18/2022
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 
-With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific.
+With support for computer vision tasks, you can control the model architecture and sweep hyperparameters. These model architectures and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific.
 
 ## Model-specific hyperparameters
 
-This table summarizes hyperparameters specific to the `yolov5` algorithm.
+This table summarizes hyperparameters specific to the `yolov5` architecture.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|----|
@@ -98,7 +98,7 @@ The following table summarizes hyperparmeters for image classification (multi-cl
 The following hyperparameters are for object detection and instance segmentation tasks.
 
 > [!WARNING]
-> These parameters are not supported with the `yolov5` algorithm. See the [model specific hyperparameters](#model-specific-hyperparameters) section for `yolov5` supported hyperparmeters.
+> These parameters are not supported with the `yolov5` architecture. See the [model specific hyperparameters](#model-specific-hyperparameters) section for `yolov5` supported hyperparmeters.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|

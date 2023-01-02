@@ -10,7 +10,7 @@ ms.subservice: automl
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 07/13/2022
-#Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
+#Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model architecture, hyperparameters, and training and deployment environments.
 ---
 
 # Set up AutoML to train computer vision models
@@ -285,10 +285,10 @@ Automatic sweeps can yield competitive results for many datasets. Additionally, 
 
 An AutoML training job uses a primary metric for model optimization and hyperparameter tuning. The primary metric depends on the task type as shown below; other primary metric values are currently not supported. 
 
-* `accuracy` for IMAGE_CLASSIFICATION
-* `iou` for IMAGE_CLASSIFICATION_MULTILABEL
-* `mean_average_precision` for IMAGE_OBJECT_DETECTION
-* `mean_average_precision` for IMAGE_INSTANCE_SEGMENTATION
+* Accuracy for image classification
+* Intersection over union for image classification multilabel
+* Mean average precision for image object detection
+* Mean average precision for image instance segmentation
     
 ### Job limits
 
@@ -296,7 +296,7 @@ You can control the resources spent on your AutoML Image training job by specify
 
 Parameter | Detail
 -----|----
-`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model algorithm, set this parameter to 1. The default value is 1.
+`max_trials` |  Parameter for maximum number of configurations to sweep. Must be an integer between 1 and 1000. When exploring just the default hyperparameters for a given model architecture, set this parameter to 1. The default value is 1.
 `max_concurrent_trials`| Maximum number of runs that can run concurrently. If specified, must be an integer between 1 and 100.  The default value is 1. <br><br> **NOTE:** <li> The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.  <li> `max_concurrent_trials` is capped at `max_trials` internally. For example, if user sets `max_concurrent_trials=4`, `max_trials=2`, values would be internally updated as `max_concurrent_trials=2`, `max_trials=2`.
 `timeout_minutes`| The amount of time in minutes before the experiment terminates. If none specified, default experiment timeout_minutes is seven days (maximum 60 days)
 
@@ -357,26 +357,26 @@ A number of runs between 10 and 20 will likely work well on many datasets. The [
 
 ### Individual runs
 
-In individual runs, you directly control the model algorithm and hyperparameters. The model algorithm is passed via the `model_name` parameter.
+In individual runs, you directly control the model architecture and hyperparameters. The model architecture is passed via the `model_name` parameter.
 
-#### Supported model algorithms
+#### Supported model architectures
 
 The following table summarizes the supported models for each computer vision task.
 
-Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
+Task |  model architectures | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
 Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn`
 
 
-In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
+In addition to controlling the model architecture, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name key in the training_parameters section. For example,
+If you wish to use the default hyperparameter values for a given architecture (say yolov5), you can specify it using the model_name key in the training_parameters section. For example,
 
 ```yaml
 training_parameters:
@@ -386,7 +386,7 @@ training_parameters:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify it using the model_name parameter in the set_training_parameters method of the task specific `automl` job. For example,
+If you wish to use the default hyperparameter values for a given architecture (say yolov5), you can specify it using the model_name parameter in the set_training_parameters method of the task specific `automl` job. For example,
 
 ```python
 image_object_detection_job.set_training_parameters(model_name="yolov5")
@@ -439,9 +439,9 @@ search_space:
 
 #### Define the parameter search space
 
-You can define the model algorithms and hyperparameters to sweep in the parameter space. You can either specify a single model algorithm or multiple ones. 
+You can define the model architectures and hyperparameters to sweep in the parameter space. You can either specify a single model architecture or multiple ones. 
 
-* See [Individual runs](#individual-runs) for the list of supported model algorithms for each task type. 
+* See [Individual runs](#individual-runs) for the list of supported model architectures for each task type. 
 * See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
 * See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
