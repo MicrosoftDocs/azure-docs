@@ -161,6 +161,81 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ::: zone-end
 
+::: zone pivot="bicep"
+
+To create a temporary volume and mount it in a container, make the following changes to the container apps resource in a Bicep script:
+
+- Add a `volumes` array to the `template` section of your container app definition and define a volume.
+    - The `name` is an identifier for the volume.
+    - Use `EmptyDir` as the `storageType`.
+- For each container in the template that you want to mount temporary storage, add a `volumeMounts` array to the container definition and define a volume mount.
+    - The `volumeName` is the name defined in the `volumes` array.
+    - The `mountPath` is the path in the container to mount the volume.
+
+Example Bicep snippet:
+
+```bicep
+resource symbolicname 'Microsoft.App/containerApps@2022-06-01-preview' = {
+  name: 'string'
+  location: 'string'
+  tags: {
+    tagName1: 'tagValue1'
+    tagName2: 'tagValue2'
+  }  
+  properties: {
+    
+    ...
+    
+    template: {
+      containers: [
+        {          
+          ...
+
+          resources: {
+            cpu: json('decimal-as-string')
+            memory: 'string'
+          }
+          volumeMounts: [
+            {
+              mountPath: '/myempty'
+              volumeName: 'myempty'
+            }
+          ]
+        }
+      ]
+      initContainers: [
+        {          
+          ...
+
+          resources: {
+            cpu: json('decimal-as-string')
+            memory: 'string'
+          }
+          volumeMounts: [
+            {
+              mountPath: '/myempty'
+              volumeName: 'myempty'
+            }
+          ]
+        }
+      ]
+      revisionSuffix: 'string'      
+      volumes: [
+        {
+          name: 'myempty'
+          storageType: 'EmptyDir'
+        }
+      ]
+    }
+    workloadProfileType: 'string'
+  }
+}
+```
+
+See the [Bicep specification](https://learn.microsoft.com/en-us/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep) for a full example.
+
+::: zone-end
+
 ## Azure Files
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume inside a container.
@@ -259,6 +334,107 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
 1. Add a `storages` child resource to the Container Apps environment.
 
     ```json
+    {
+      "type": "Microsoft.App/managedEnvironments",
+      "apiVersion": "2022-03-01",
+      "name": "[parameters('environment_name')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "daprAIInstrumentationKey": "[parameters('dapr_ai_instrumentation_key')]",
+        "appLogsConfiguration": {
+          "destination": "log-analytics",
+          "logAnalyticsConfiguration": {
+            "customerId": "[parameters('log_analytics_customer_id')]",
+            "sharedKey": "[parameters('log_analytics_shared_key')]"
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "storages",
+          "name": "myazurefiles",
+          "apiVersion": "2022-03-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]"
+          ],
+          "properties": {
+            "azureFile": {
+              "accountName": "[parameters('storage_account_name')]",
+              "accountKey": "[parameters('storage_account_key')]",
+              "shareName": "[parameters('storage_share_name')]",
+              "accessMode": "ReadWrite"
+            }
+          }
+        }
+      ]
+    }
+    ```
+
+1. Update the container app resource to add a volume and volume mount.
+
+    ```json
+    {
+      "apiVersion": "2022-03-01",
+      "type": "Microsoft.App/containerApps",
+      "name": "[parameters('containerappName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        
+        ...
+
+        "template": {
+          "revisionSuffix": "myrevision",
+          "containers": [
+            {
+              "name": "main",
+              "image": "[parameters('container_image')]",
+              "resources": {
+                "cpu": 0.5,
+                "memory": "1Gi"
+              },
+              "volumeMounts": [
+                {
+                  "mountPath": "/myfiles",
+                  "volumeName": "azure-files-volume"
+                }
+              ]
+            }
+          ],
+          "scale": {
+            "minReplicas": 1,
+            "maxReplicas": 3
+          },
+          "volumes": [
+            {
+              "name": "azure-files-volume",
+              "storageType": "AzureFile",
+              "storageName": "myazurefiles"
+            }
+          ]
+        }
+      }
+    }
+    ```
+
+    - Add a `volumes` array to the `template` section of your container app definition and define a volume.
+        - The `name` is an identifier for the volume.
+        - For `storageType`, use `AzureFile`.
+        - For `storageName`, use the name of the storage you defined in the environment.
+    - For each container in the template that you want to mount Azure Files storage, add a `volumeMounts` array to the container definition and define a volume mount.
+        - The `volumeName` is the name defined in the `volumes` array.
+        - The `mountPath` is the path in the container to mount the volume.
+
+See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
+
+::: zone-end
+
+::: zone pivot="bicep"
+//TODO
+The following ARM template snippets demonstrate how to add an Azure Files share to a Container Apps environment and use it in a container app.
+
+1. Add a `storages` child resource to the Container Apps environment.
+
+    ```bicep
     {
       "type": "Microsoft.App/managedEnvironments",
       "apiVersion": "2022-03-01",

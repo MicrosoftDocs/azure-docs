@@ -1733,6 +1733,8 @@ groups:
     title: Azure CLI
   - id: aca-arm
     title: Azure Resource Manager (ARM) template
+  - id: bicep
+    title: Bicep
 # Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
