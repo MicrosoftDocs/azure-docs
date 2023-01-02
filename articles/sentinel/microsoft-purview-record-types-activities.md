@@ -13,7 +13,7 @@ This article lists supported audit log record types and activities when using th
 
 When you use the [Microsoft Purview Information Protection connector](connect-microsoft-purview.md), you stream audit logs into the  
 `MicrosoftPurviewInformationProtection` standardized table. Data is 
-gathered through the [Office Management API](/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. 
+gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. 
 
 ## Supported audit log record types
 
