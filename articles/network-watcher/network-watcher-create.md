@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Network Watcher instance
-description: Learn how to create an Azure Network Watcher in an Azure region by using the Azure portal or other technologies, and how to delete a Network Watcher.
+description: Learn how to create or delete an Azure Network Watcher using the Azure portal, PowerShell, the Azure CLI or the REST API.
 services: network-watcher
 author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
