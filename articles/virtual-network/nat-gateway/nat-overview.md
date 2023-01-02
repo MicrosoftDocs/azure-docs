@@ -86,6 +86,8 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 * NAT gateway can’t be associated to an IPv6 public IP address or IPv6 public IP prefix. It can be associated to a dual stack subnet, but will only be able to direct outbound traffic with an IPv4 address.
 
+* NAT gateway can be used to provide outbound connectivity in a hub and spoke model when associated with Azure Firewall. NAT gateway can be associated to an Azure Firewall subnet in a hub virtual network and provide outbound connectivity from spoke virtual networks peered to the hub. To learn more, see [Azure Firewall integration with NAT gateway](/azure/firewall/integrate-with-nat-gateway).
+
 ### Availability zones
 
 * A NAT gateway can be created in a specific availability zone or placed in 'no zone'. 

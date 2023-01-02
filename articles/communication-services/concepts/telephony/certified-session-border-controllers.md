@@ -55,4 +55,4 @@ Note the certification granted to a major version. That means that firmware with
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)

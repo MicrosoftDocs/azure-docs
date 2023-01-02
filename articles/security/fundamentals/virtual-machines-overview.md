@@ -136,7 +136,7 @@ Learn more:
 
 * [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 * [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
-* [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+* [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 
 ## Compliance
 
