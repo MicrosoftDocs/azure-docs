@@ -48,3 +48,11 @@ gathered through the [Office Management API](/office/office-365-management-api/o
 |Changed sensitivity label on a site |`SensitivityLabelChanged` |A different sensitivity label was applied to a SharePoint or Teams site. |
 |Removed sensitivity label from site |`SiteSensitivityLabelRemoved` |A sensitivity label was removed from a SharePoint or Teams site. |
 |Document |`DocumentSensitivityMismatchDetected` |Non auditable activity. Signals to Substrate that the item was removed from the SharedWithMe view. This is the same as the `RemovedFromSharedWithMe` operation, but without audit. |
+
+## Next steps
+
+In this article, you learned about the audit log record types and activities supported when you use the Microsoft Purview Information Protection connector. To learn more about Microsoft Sentinel, see the following articles:
+
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.
