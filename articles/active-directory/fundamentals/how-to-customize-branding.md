@@ -30,7 +30,7 @@ Instructions for the legacy company branding customization process can be found 
 
 You can customize the sign-in pages when users access your organization's tenant-specific apps. For Microsoft and SaaS applications (multi-tenant apps) such as <https://myapps.microsoft.com>, or <https://outlook.com> the customized sign-in page appears only after the user types their **Email**, or **Phone**, and select **Next**. 
 
-Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page will appear immediately on the fist step. 
+Some of the Microsoft applications support the home realm discovery `whr` query string parameter, or a domain variable. With the home realm discovery and domain parameter, the customized sign-in page will appear immediately in the first step. 
 
 In the following examples replace the contoso.com with your own tenant name, or verified domain name:
 
