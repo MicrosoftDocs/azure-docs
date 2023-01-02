@@ -89,7 +89,7 @@ The following table describes the default maximum sizes for each storage locatio
 
 On both the OT sensor and the on-premises management console, older backup files are overridden when the configured storage capacity has reached its maximum.
 
- For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files
+ For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files).
 
 | Storage type | Details |
 |---------|---------|
