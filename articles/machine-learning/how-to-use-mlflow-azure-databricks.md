@@ -103,7 +103,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
 **Configure tracking URI**
 
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-mlflow-configure-tracking.md)]
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 > ![Configure the environment variables in an Azure Databricks cluster](./media/how-to-use-mlflow-azure-databricks/env.png)
 >
@@ -113,7 +113,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
 Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-mlflow-configure-auth.md)]
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 #### Experiment's names in Azure Machine Learning
 

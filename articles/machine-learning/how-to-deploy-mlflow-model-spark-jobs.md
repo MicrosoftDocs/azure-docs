@@ -43,8 +43,6 @@ Before following the steps in this article, make sure you have the following pre
     pip install mlflow azureml-mlflow
     ```
 
-- If you aren't  running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
-
 
 ### Connect to your workspace
 
@@ -58,13 +56,13 @@ Tracking is already configured for you. Your default credentials will also be us
 
 **Configure tracking URI**
 
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-mlflow-configure-tracking.md)]
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 **Configure authentication**
 
 Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-mlflow-configure-auth.md)]
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 ### Registering the model
 

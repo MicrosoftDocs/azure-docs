@@ -46,8 +46,13 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 
 ### Prerequisites
 
-* Install the `azureml-mlflow` package.
-* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+- Install the MLflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`.
+
+    ```bash
+    pip install mlflow azureml-mlflow
+    ```
+
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
 
 ## Registering new models in the registry
 

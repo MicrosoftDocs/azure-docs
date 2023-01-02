@@ -1,7 +1,7 @@
 ---
 title: Track ML experiments and models with MLflow
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models with MLflow
+description:  Use MLflow to log metrics and artifacts from machine learning runs
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
@@ -34,7 +34,7 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 
 ## Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-mlflow-configure-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-configure-prereqs.md)]
 
 * (Optional) Install and [set up Azure ML CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
 * (Optional) Install and set up Azure ML SDK(v2) for Python.
@@ -52,13 +52,13 @@ Tracking is already configured for you. Your default credentials will also be us
 
 **Configure tracking URI**
 
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-mlflow-configure-tracking.md)]
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 **Configure authentication**
 
 Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-mlflow-configure-auth.md)]
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 
 ### Set experiment name

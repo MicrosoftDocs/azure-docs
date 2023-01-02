@@ -1,7 +1,7 @@
 ---
 title: Configure MLflow for Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models with MLflow
+description:  Connect MLflow to Azure Machine Learning workspaces to log metrics, artifacts and deploy models.
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
