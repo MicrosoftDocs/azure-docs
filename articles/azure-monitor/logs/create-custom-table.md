@@ -183,6 +183,9 @@ To delete a table using PowerShell:
 ---
 ## Add or delete a custom column
 
+You can modify the schema of custom tables and add custom columns to, or delete columns from, a standard table.  
+# [Portal](#tab/azure-portal-3)
+
 To add a custom column to a table in your Log Analytics workspace, or delete a column:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
@@ -197,6 +200,10 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
     1. Set the column name and description (optional), and select the expected value type from the **Type** dropdown.
     1. Select **Save** to save the new column.
 1. To delete a column, select the **Delete** icon to the left of the column you want to delete.
+
+# [PowerShell](#tab/azure-powershell-3)
+
+To delete a table using PowerShell:
 
 ## Next steps
 

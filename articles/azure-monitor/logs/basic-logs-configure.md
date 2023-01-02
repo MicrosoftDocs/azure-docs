@@ -17,17 +17,14 @@ Azure Monitor Logs offers two log data plans that let you reduce log ingestion a
 
 This article describes Azure Monitor's log data plans and explains how to configure the log data plan of the tables in your Log Analytics workspace.
 
-> [!IMPORTANT]
-> You can switch a table's plan once a week.<br/> Basic logs aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
-
 ## Compare the Basic and Analytics log data plans 
 
-The following table summarizes the two plans. 
+The following table summarizes the Basic and Analytics log data plans. You can switch a table's plan once a week.
 
 | Category | Analytics | Basic |
 |:---|:---|:---|
-| Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No extra cost. Full query capabilities. | Extra cost.<br/>[Subset of query capabilities](basic-logs-query.md#limitations). |
+| Ingestion | Regular ingestion cost. | Reduced ingestion cost. |
+| Log queries | Full query capabilities at no extra cost. | <br/>Pay-per-use for [basic query capabilities](basic-logs-query.md#limitations). |
 | Retention |  [Configure retention from 30 days to 730 days](data-retention-archive.md). | Retention fixed at eight days.<br/>When you change an existing table's plan to Basic logs, Azure archives data that's more than eight days old but still within the table's original retention period. |
 | Alerts | Supported. | Not supported. |
 
