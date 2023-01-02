@@ -203,7 +203,103 @@ To add a custom column to a table in your Log Analytics workspace, or delete a c
 
 # [PowerShell](#tab/azure-powershell-3)
 
-To delete a table using PowerShell:
+To add a new column to an Azure or custom table, run: 
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "<TableName>",
+            "columns": [
+                {
+                    "name": ""<ColumnName>",
+                    "description": "First custom column",
+                    "type": "string",
+                    "isDefaultDisplay": true,
+                    "isHidden": false
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/<TableName>?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+The `PUT` call returns the updated table properties, which should include the newly added column.
+
+**Example**
+
+Run this command to add a custom column, called `Custom1_CF`, to the Azure `Heartbeat` table: 
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "Heartbeat",
+            "columns": [
+                {
+                    "name": "Custom1_CF",
+                    "description": "The second custom column",
+                    "type": "datetime",
+                    "isDefaultDisplay": true,
+                    "isHidden": false
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+To delete the newly added column and add another one instead, run:
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "Heartbeat",
+            "columns": [
+                {
+                    "name": "Custom2_CF",
+                    "description": "The second custom column",
+                    "type": "datetime",
+                    "isDefaultDisplay": true,
+                    "isHidden": false
+                }
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+
+To can delete all custom columns in the table, run:
+
+```powershell
+$tableParams = @'
+{
+    "properties": {
+        "schema": {
+            "name": "Heartbeat",
+            "columns": [
+            ]
+        }
+    }
+}
+'@
+
+Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/Heartbeat?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
+```
+---
 
 ## Next steps
 
