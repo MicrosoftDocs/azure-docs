@@ -208,9 +208,6 @@ See [Configure resource health alerts using Resource Manager templates](../../se
 ## Next steps
 
 Learn more about Resource Health:
--  [Azure Resource Health overview](Resource-health-overview.md)
--  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)
-
-Create Service Health Alerts:
--  [Configure Alerts for Service Health](./alerts-activity-log-service-notifications-portal.md) 
--  [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md)
+-  [[Azure Resource Health overview](../service-health/Resource-health-overview.md)](../../service-health/resource-health-overview.md)
+-  [Resource types and health checks available through Azure Resource Health](../../service-health/resource-health-checks-resource-types.md)
+-  [Configure Alerts for Service Health](../../service-health/alerts-activity-log-service-notifications-arm.md)
