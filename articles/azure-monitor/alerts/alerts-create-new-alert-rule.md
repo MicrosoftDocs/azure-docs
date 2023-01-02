@@ -267,6 +267,9 @@ Then you define these elements for the resulting alert actions by using:
 
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, the common schema is not supported for log alerts that use custom properties.
+
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
     ### [Activity log alert](#tab/activity-log)
@@ -275,6 +278,9 @@ Then you define these elements for the resulting alert actions by using:
     1. Select the **Region**.
     1. (Optional) In the **Advanced options** section, select **Enable upon creation** for the alert rule to start running as soon as you're done creating it.
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
+
+        > [!NOTE]
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, the common schema is not supported for activity log alerts that use custom properties.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
@@ -381,7 +387,7 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
 
 ### Additional properties for activity log alert ARM templates
 > [!NOTE]
-> - Activity log alerts can be defined at the subscription level. You have to define the alert per subscription. You can't define an alert on two subscriptions.
+> - Activity log alerts can be defined at the subscription level. You have to define the alert per subscription. You can't define an alert on more than one subscription.
 > - It may take up to five minutes for a new activity log alert rule to become active.
 
 ARM templates for activity log alerts contain additional properties for the conditions fields. The **Resource Health**, **Advisor** and **Service Health** fields have extra properties fields.
