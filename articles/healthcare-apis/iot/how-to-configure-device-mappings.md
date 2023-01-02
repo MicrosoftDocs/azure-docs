@@ -175,7 +175,7 @@ You can define one or more templates within the MedTech service device mapping. 
 
 |Template Type|Description|
 |-------------|-----------|   
-|[CalculatedContentTemplate](how-to-use-calculated-functions-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JMESPath functions.|
+|[CalculatedContentTemplate](how-to-use-calculatedcontenttemplate-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JMESPath functions.|
 |[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
  
 > [!TIP]

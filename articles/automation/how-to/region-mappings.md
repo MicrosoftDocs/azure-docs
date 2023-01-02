@@ -1,10 +1,10 @@
 ---
 title: Supported regions for linked Log Analytics workspace
 description: This article describes the supported region mappings between an Automation account and a Log Analytics workspace as it relates to certain features of Azure Automation.
-ms.date: 11/29/2022
+ms.date: 12/29/2022
 services: automation
 ms.topic: conceptual
-ms.custom: references_regions, engagement-fy23
+ms.custom: references_regions
 ---
 
 # Supported regions for linked Log Analytics workspace
@@ -75,6 +75,7 @@ The following table shows the supported mappings:
 |SouthCentralUS|SouthCentralUS|
 |WestUS|WestUS|
 |WestUS2|WestUS2|
+|WestUS3|WestUS3|
 |WestCentralUS|WestCentralUS|
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
