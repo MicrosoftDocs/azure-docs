@@ -98,7 +98,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 **Supported until**: 12/2023
 
-- [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#troubleshoot-connectivity-status)
+- [Azure connectivity status shown on OT sensors](how-to-manage-individual-sensors.md#validate-connectivity-status)
 
 ## Versions 22.2.x
 
