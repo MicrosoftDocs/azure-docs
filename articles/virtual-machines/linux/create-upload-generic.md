@@ -71,7 +71,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 
 ### Resizing VHDs
 VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
-   ```outout
+   ```output
    The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
    ```
 In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
@@ -200,11 +200,12 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    update-grub 
    ```
 1. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
+
 1. Install the Azure Linux Agent.
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
-> [!NOTE]
-> Make sure **'udf'** and **'vfat'** modules are enable. Blocklisting or removing the udf module will cause a provisioning failure.  Blocklisting or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+   > [!NOTE]
+   > Make sure 'udf' and 'vfat' modules are enable. Blocklisting or removing the udf module will cause a provisioning failure.  Blocklisting or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
