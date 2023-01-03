@@ -12,20 +12,18 @@ ms.author: fasantia
     
     [!INCLUDE [cli v2](machine-learning-cli-v2.md)]
     
-    You can use the Azure ML CLI v2 to get the MLflow tracking URI.
-    
     1. Login and configure your workspace:
     
-    ```bash
-    az account set --subscription <subscription>
-    az configure --defaults workspace=<workspace> group=<resource-group> location=<location> 
-    ```
+        ```bash
+        az account set --subscription <subscription>
+        az configure --defaults workspace=<workspace> group=<resource-group> location=<location> 
+        ```
     
     1. You can get the tracking URI using the `az ml workspace` command:
     
-    ```bash
-    az ml workspace show --query mlflow_tracking_uri
-    ```
+        ```bash
+        az ml workspace show --query mlflow_tracking_uri
+        ```
         
     # [Python](#tab/python)
     
@@ -118,6 +116,8 @@ ms.author: fasantia
     ```bash
     MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | sed 's/"//g') 
     ```
+    
+    ---
 
-> [!TIP]
-> When working on shared environments, like an Azure Databricks cluster, Azure Synapse Analytics cluster, or similar, it is useful to set the environment variable `MLFLOW_TRACKING_URI` at the cluster level to automatically configure the MLflow tracking URI to point to Azure Machine Learning for all the sessions running in the cluster rather than to do it on a per-session basis.
+    > [!TIP]
+    > When working on shared environments, like an Azure Databricks cluster, Azure Synapse Analytics cluster, or similar, it is useful to set the environment variable `MLFLOW_TRACKING_URI` at the cluster level to automatically configure the MLflow tracking URI to point to Azure Machine Learning for all the sessions running in the cluster rather than to do it on a per-session basis.
