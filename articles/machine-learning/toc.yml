@@ -643,7 +643,7 @@
               displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-log-view-metrics.md
             - name: Log MLflow models
-              href: how-to-log-mlflow-models
+              href: how-to-log-mlflow-models.md
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
         - name: ML lifecycle
