@@ -728,10 +728,10 @@ PULL_SECRET=$(cat pull-secret.txt)    # the pull secret text
 ### Define the following parameters as environment variables - Azure CLI
 
 ```azurecli-interactive
-RESOURCEGROUP=aro-rg   # the new resource group for the cluster
-LOCATION=eastus        # the location of the new cluster
-DOMAIN=mydomain        # the domain prefix for the cluster
-CLUSTER=aro-cluster    # the name of the cluster
+RESOURCEGROUP=aro-rg            # the new resource group for the cluster
+LOCATION=eastus                 # the location of the new cluster
+DOMAIN=mydomain                 # the domain prefix for the cluster
+ARO_CLUSTER_NAME=aro-cluster    # the name of the cluster
 ```
 
 ### Register the required resource providers - Azure CLI

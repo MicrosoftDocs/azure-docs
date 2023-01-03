@@ -36,6 +36,8 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Detect and analyze anomalies in Azure Monitor Logs
     href: logs/kql-machine-learning-azure-monitor.md
+  - name: Create a metric alert
+    href: alerts/tutorial-metric-alert.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
   - name: Virtual machines
@@ -82,6 +84,10 @@ items:
         href: alerts/resource-manager-alerts-log.md
       - name: Metric alert rules
         href: alerts/resource-manager-alerts-metric.md
+      - name: Activity log alert rules
+        href: alerts/resource-manager-alerts-activity-log.md
+      - name: Resource health alert rules
+        href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
         href: alerts/resource-manager-action-groups.md
     - name: Application Insights
@@ -1327,16 +1333,12 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
-      - name: Create a metric alert
-        href: alerts/tutorial-metric-alert.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
         href: alerts/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
         href: alerts/alerts-metric-logs.md
-      - name: Using Resource Manager template
-        href: alerts/alerts-metric-create-templates.md
       - name: Troubleshoot metric alerts
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
@@ -1345,8 +1347,6 @@ items:
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
         href: alerts/alerts-log-query.md
-      - name: Using Resource Manager template
-        href: alerts/alerts-log-create-templates.md
       - name: Troubleshoot log alerts
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
@@ -1366,7 +1366,7 @@ items:
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
-      - name: Create action group
+      - name: Create an action group
         href: alerts/action-groups.md
       - name: Create action groups with Resource Manager
         href: alerts/action-groups-create-resource-manager-template.md
@@ -1374,10 +1374,8 @@ items:
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
         href: alerts/alerts-sms-behavior.md
-      - name: Common alert schema
+      - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Common alert schema definition
-        href: alerts/alerts-common-schema-definitions.md
       - name: Common alert schema definition for Test action group
         href: alerts/alerts-common-schema-test-action-definitions.md
       - name: Configure the schema to get activity log alerts
