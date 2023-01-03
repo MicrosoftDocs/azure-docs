@@ -260,6 +260,11 @@ You'll need the Azure Functions Core Tools for this step.
     </ItemGroup>
     ```
 
+1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+    ```bash
+    func settings add AzureWebJobsStorage "<storage-connection-string>"
+    ```
+
 1. It's almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
 
     1. Confirm the SignalR Service instance was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
@@ -284,9 +289,6 @@ You'll need the Azure Functions Core Tools for this step.
 
     After the Azure function is running locally, open `http://localhost:7071/api/index`, and you can see the current star count. If you star or unstar in the GitHub, you'll get a star count refreshing every few seconds.
 
-    > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use a local storage emulator when the function is running locally.
-    > If you got the error `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.` You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
