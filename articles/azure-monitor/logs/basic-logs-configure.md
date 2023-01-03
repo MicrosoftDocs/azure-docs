@@ -39,30 +39,32 @@ Configure a table for Basic logs if:
 
 - You don't require more than eight days of data retention for the table.
 - You only require basic queries of the data using a limited version of the query language.
-- The cost savings for data ingestion over a month exceed the expected cost for any expected queries.
-- The table supports Basic logs. 
-    
-    These tables currently support Basic logs:
-    
-    | Table | Details|
-    |:---|:---|
-    | Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
-    | [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations) | Communication Services incoming requests Calls. |
-    | [ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary) | Communication Services recording summary logs. |
-    | [ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) | Communication Services Rooms incoming requests operations. |
-    | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | Application Insights Freeform traces. |
-    | [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations) | Azure Media Services encoder connects, disconnects, or discontinues. |
-    | [AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests) | Azure Media Services HTTP request details for key, or license acquisition. |
-    | [AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth) | Azure Media Services account health status. |
-    | [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
-    | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
-    | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
-    | [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Dev Center resources data plane audit logs. For example, dev boxes and environment stop, start, delete. |
-    | [StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs) | Azure Storage blob service logs. |
-    | [StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs) | Azure Storage file service logs. |
-    | [StorageQueueLogs](/azure/azure-monitor/reference/tables/StorageQueueLogs) | Azure Storage queue service logs. |
-    | [StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs) | Azure Storage table service logs. |
-    
+- The cost savings for data ingestion over a month exceed the expected cost for any expected queries
+
+## Which tables support Basic Logs?
+
+By default, all tables in your Log Analytics workspace are Analytics tables, and they're available for query and alerts. You can currently configure the following tables for Basic Logs:
+
+| Table | Details|
+|:---|:---|
+| Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
+| [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations) | Communication Services incoming requests Calls. |
+| [ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary) | Communication Services recording summary logs. |
+| [ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) | Communication Services Rooms incoming requests operations. |
+| [AHDSMedTechDiagnosticLogs](/azure/azure-monitor/reference/tables/AHDSMedTechDiagnosticLogs) | Health Data Services operational logs. |
+| [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | Application Insights Freeform traces. |
+| [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations) | Azure Media Services encoder connects, disconnects, or discontinues. |
+| [AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests) | Azure Media Services HTTP request details for key, or license acquisition. |
+| [AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth) | Azure Media Services account health status. |
+| [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
+| [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
+| [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
+| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Dev Center resources data plane audit logs. For example, dev boxes and environment stop, start, delete. |
+| [StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs) | Azure Storage blob service logs. |
+| [StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs) | Azure Storage file service logs. |
+| [StorageQueueLogs](/azure/azure-monitor/reference/tables/StorageQueueLogs) | Azure Storage queue service logs. |
+| [StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs) | Azure Storage table service logs. |
+
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
 
