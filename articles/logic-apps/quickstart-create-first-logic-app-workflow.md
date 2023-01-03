@@ -14,7 +14,7 @@ ms.date: 01/04/2023
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account. More specifically, you'll create a [Consumption](logic-apps-pricing.md#consumption-pricing) logic app resource and workflow that runs in [global, multi-tenant Azure Logic Apps](logic-apps-overview.md##create-and-deploy-to-different-environments).
+This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account. More specifically, you'll create a [Consumption](logic-apps-pricing.md#consumption-pricing) logic app resource and workflow that runs in [global, multi-tenant Azure Logic Apps](logic-apps-overview.md#create-and-deploy-to-different-environments).
 
 > [!NOTE]
 >
