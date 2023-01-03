@@ -34,8 +34,7 @@ Use MLflow to query and manage all the experiments in Azure Machine Learning. Th
 
 ### Prerequisites
 
-* Install `azureml-mlflow` plug-in.
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML tracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md).
+[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
 ## Getting all the experiments
 
