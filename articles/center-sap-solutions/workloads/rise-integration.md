@@ -204,10 +204,5 @@ SAP RISE/ECS doesn't support any integration with Azure Monitoring for SAP. RISE
 Check out the documentation:
 
 - [SAP workloads on Azure: planning and deployment checklist](./deployment-checklist.md)
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/rise-integration.md
 - [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
-- [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)
-========
-- [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/rise-integration.md
 - [SAP Data Integration Using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/main/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)

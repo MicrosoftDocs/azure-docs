@@ -118,7 +118,7 @@ For Azure VMs, the following high availability configurations are supported on D
 	- [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)
 - SAP ASE and SAP maxDB configuration as detailed in these documents:
 	- [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-sapase.md)
-	- [SAP MaxDB, liveCache, and Content Server deployment on Azure VMs](./dbms_guide_maxdb.md)
+	- [SAP MaxDB, liveCache, and Content Server deployment on Azure VMs](./dbms-guide-maxdb.md)
 - HANA Large Instances high availability scenarios are detailed in:
 	- [Supported scenarios for HANA Large Instances- HSR with fencing for high availability](../../virtual-machines/workloads/sap/hana-supported-scenario.md#hsr-with-fencing-for-high-availability)
 	- [Supported scenarios for HANA Large Instances - Host auto failover (1+1)](../../virtual-machines/workloads/sap/hana-supported-scenario.md#host-auto-failover-11)

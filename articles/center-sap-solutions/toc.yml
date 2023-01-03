@@ -251,7 +251,7 @@ items:
       - name: SAP ASE on Azure VMs
         href: workloads/dbms-guide-sapase.md
       - name: SAP MaxDB, liveCache and Content Server on Azure
-        href: workloads/dbms_guide_maxdb.md
+        href: workloads/dbms-guide-maxdb.md
       - name: SAP IQ on Azure VMs
         href: workloads/dbms-guide-sapiq.md
     - name: HANA
