@@ -73,6 +73,7 @@ args <- parse_args(parser)
 
 `args` is a named list. You can use any of these parameters later in your script.
 
+[test](#source-the-azureml_utilsr-helper-script)
 
 ## Source the `azureml_utils.R` helper script
 
