@@ -31,7 +31,7 @@ When you're scanning Azure SQL Database, Microsoft Purview supports extracting t
 - Stored procedures (with lineage extraction enabled)
 - Stored procedure runs (with lineage extraction enabled)
 
-When you're setting up scan, you can further scope the scan after providing the database name by selecting tables and views as needed. 
+When you're setting up a scan, you can further scope it after providing the database name by selecting tables and views as needed. 
 
 ### Known limitations
 
