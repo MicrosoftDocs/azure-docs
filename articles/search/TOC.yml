@@ -495,7 +495,7 @@
     - name: Search API
       href: /dotnet/api/overview/azure/search.documents-readme
     - name: Management API
-      href: /dotnet/api/overview/azure/search/management
+      href: /dotnet/api/overview/azure/search/management/management-search
   - name: Java
     items:
     - name: Search API

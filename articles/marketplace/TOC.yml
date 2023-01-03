@@ -32,7 +32,9 @@
     - name: Manage groups
       href: manage-groups.md
     - name: Add and manage Azure AD applications
-      href: manage-aad-apps.md  
+      href: manage-aad-apps.md
+    - name: Update marketplace owner
+      href: update-marketplace-owner.md
 - name: Concepts
   items: 
   - name: Listing options

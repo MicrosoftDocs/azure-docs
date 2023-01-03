@@ -323,7 +323,7 @@ If you see error messages like the following ones, the likely reason is improper
 
 If you scan Parquet files using the self-hosted integration runtime with Microsoft Purview, you'll need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
 
-When scanning Parquet files using the self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+When scanning Parquet files using the self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. You can set JAVA_HOME under System Settings, Environment Variables on your machine. Create or edit the JAVA_HOME variable to point to the Java jre on your machine. For example: *`C:\Program Files\Java\jdk1.8\jre`* 
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.

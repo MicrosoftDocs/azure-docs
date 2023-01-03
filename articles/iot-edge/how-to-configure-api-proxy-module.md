@@ -14,7 +14,7 @@ monikerRange: ">=iotedge-2020-11"
 
 # Configure the API proxy module for your gateway hierarchy scenario (Preview)
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-202011](includes/iot-edge-version-202011.md)]
 
 This article walks through the configuration options for the API proxy module, so you can customize the module to support your gateway hierarchy requirements.
 
