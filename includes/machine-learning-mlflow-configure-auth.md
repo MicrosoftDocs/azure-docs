@@ -9,7 +9,7 @@ ms.author: fasantia
 For interactive jobs where there's a user connected to the session, you can rely on Interactive Authentication and hence no further action is required.
 
 > [!WARNING]
-> __Interactive browser__ authentication will block code execution to prompt for credentials. As a result, it is not a suitable option for authentication in unattended environments like training jobs. Configure other authentication mode.
+> __Interactive browser__ authentication will block code execution when prompting for credentials. It is not a suitable option for authentication in unattended environments like training jobs. We recommend to configure other authentication mode.
 
 For those scenarios where unattended execution is required, you'll have to configure a service principal to communicate with Azure Machine Learning.
 

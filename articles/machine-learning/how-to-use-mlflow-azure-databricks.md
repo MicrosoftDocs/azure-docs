@@ -104,7 +104,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 **Configure tracking URI**
 
 [!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
-
+>
 > ![Configure the environment variables in an Azure Databricks cluster](./media/how-to-use-mlflow-azure-databricks/env.png)
 >
 > After the environment variable is configured, any experiment running in such cluster will be tracked in Azure Machine Learning.

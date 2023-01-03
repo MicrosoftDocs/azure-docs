@@ -508,9 +508,6 @@
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, model registry, register
               href: how-to-use-mlflow-cli-runs.md
-            - name: Log metrics, parameters and files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
             - name: Track Azure Databricks runs with MLflow
               displayName: log, monitor, deploy, metrics, databricks
               href: how-to-use-mlflow-azure-databricks.md
@@ -520,6 +517,9 @@
             - name: Train with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
+            - name: Log metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
         - name: Automated machine learning

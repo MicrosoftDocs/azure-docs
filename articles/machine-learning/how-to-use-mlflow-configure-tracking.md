@@ -26,12 +26,7 @@ Azure Machine Learning workspaces are MLflow compatible, which means they can ac
 
 You will need the following prerequisites to follow this tutorial:
 
-* Install the `mlflow` package. 
-    * You can use the [MLflow Skinny](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
-
-* Install the `azureml-mlflow` package. 
-* [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
-    * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
+[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
 
 ## Configure MLflow tracking URI
