@@ -17,11 +17,11 @@ ms.subservice: B2C
 
 # Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy
 
-In [Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md) article, we set up sign-in flow by using Azure Active Directory B2C (Azure AD B2C) Local Account.  
+In [Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md) article, we set up sign-in flow for a local account by using Azure Active Directory B2C (Azure AD B2C).  
 
-In this article, we add a sign-in flow for an external account, such as a social account like Facebook. In this case, Azure AD B2C to allow users to sign in to your application with credentials from external social identity providers (IdP). 
+In this article, we add a sign-in flow for an external account, such as a social account like Facebook. In this case, Azure AD B2C allows a user to sign in to your application with credentials from an external social identity provider (IdP). 
 
-For local accounts, a user account is uniquely identified by using the `objectId` [user attribute](user-profile-attributes.md). For external IdP, we use `alternativeSecurityId` user attribute though `objectId` still exists.   
+For local accounts, a user account is uniquely identified by using the `objectId` [user attribute](user-profile-attributes.md). For external IdP, we use `alternativeSecurityId` user attribute though an `objectId` still exists.   
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ To configure sign-in with Facebook, you need to perform the following steps:
 
 ### Step 3.1 - Declare additional claims 
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then add additional claims by using the following code:
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then declare additional claims by using the following code:
 
 ```xml
     <ClaimType Id="issuerUserId">
@@ -212,75 +212,86 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 ### Step 3.4 - Create Azure AD Technical Profiles
 
-writes social account using `AlternativeSecurityId`
+Just like in sign in with a local account, you need to configure the [Azure AD Technical Profiles](active-directory-technical-profile.md), which you use to connect to Azure AD storage, to store or read a user social account. 
 
-```xml
-    <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-        <DisplayName>Azure Active Directory technical profile for handling social accounts</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+1. In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserUpdate* technical profile and then add a new technical profile by using the following code: 
 
-        <Metadata>
-            <Item Key="Operation">Write</Item>
-            <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-        </Metadata>        
-
-        <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-        </CryptographicKeys>
-        <InputClaims>
-            <InputClaim ClaimTypeReferenceId="alternativeSecurityId" PartnerClaimType="alternativeSecurityId" Required="true" />
-        </InputClaims>
-        <PersistedClaims>
-            <!-- Required claims -->
-            <PersistedClaim ClaimTypeReferenceId="alternativeSecurityId" />
-            <PersistedClaim ClaimTypeReferenceId="userPrincipalName" />
-            <PersistedClaim ClaimTypeReferenceId="mailNickName" DefaultValue="unknown" />
-            <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-
-            <!-- Optional claims -->
-            <PersistedClaim ClaimTypeReferenceId="givenName" />
-            <PersistedClaim ClaimTypeReferenceId="surname" />
-        </PersistedClaims>
-        <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" />
-            <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-        </OutputClaims>
-
-    </TechnicalProfile>
-```
-
-Reads social account using `AlternativeSecurityId`
-
- ```xml
-    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-        <DisplayName>Azure Active Directory</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
-            <Item Key="Operation">Read</Item>
-            <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
-        </Metadata>
-        <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+    ```xml
+        <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+            <DisplayName>Azure Active Directory technical profile for handling social accounts</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    
+            <Metadata>
+                <Item Key="Operation">Write</Item>
+                <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+            </Metadata>        
+    
+            <CryptographicKeys>
+                <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
             </CryptographicKeys>
-        <InputClaims>
-            <InputClaim ClaimTypeReferenceId="alternativeSecurityId" PartnerClaimType="alternativeSecurityId" Required="true" />
-        </InputClaims>
-        <OutputClaims>
-            <!-- Required claims -->
-            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="alternativeSecurityId" PartnerClaimType="alternativeSecurityId" Required="true" />
+            </InputClaims>
+            <PersistedClaims>
+                <!-- Required claims -->
+                <PersistedClaim ClaimTypeReferenceId="alternativeSecurityId" />
+                <PersistedClaim ClaimTypeReferenceId="userPrincipalName" />
+                <PersistedClaim ClaimTypeReferenceId="mailNickName" DefaultValue="unknown" />
+                <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+    
+                <!-- Optional claims -->
+                <PersistedClaim ClaimTypeReferenceId="givenName" />
+                <PersistedClaim ClaimTypeReferenceId="surname" />
+            </PersistedClaims>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="objectId" />
+                <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+            </OutputClaims>
+    
+        </TechnicalProfile>
+    ```
+    We've added a new Azure AD Technical Profile *AAD-UserWriteUsingAlternativeSecurityId* that writes a new social account into Azure AD. 
 
-            <!-- Optional claims -->
-            <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-            <OutputClaim ClaimTypeReferenceId="displayName" />
-            <OutputClaim ClaimTypeReferenceId="givenName" />
-            <OutputClaim ClaimTypeReferenceId="surname" />
-        </OutputClaims>
-    </TechnicalProfile>
- ```
+1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key yuo created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
+ 
+1. In the `ContosoCustomPolicy.XML` file add another Azure AD Technical Profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
 
-### Step 3.5 - Content definition for Social interface 
+     ```xml
+        <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+            <DisplayName>Azure Active Directory</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+                <Item Key="Operation">Read</Item>
+                <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
+            </Metadata>
+            <CryptographicKeys>
+                <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+                </CryptographicKeys>
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="alternativeSecurityId" PartnerClaimType="alternativeSecurityId" Required="true" />
+            </InputClaims>
+            <OutputClaims>
+                <!-- Required claims -->
+                <OutputClaim ClaimTypeReferenceId="objectId" />
+    
+                <!-- Optional claims -->
+                <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+                <OutputClaim ClaimTypeReferenceId="displayName" />
+                <OutputClaim ClaimTypeReferenceId="givenName" />
+                <OutputClaim ClaimTypeReferenceId="surname" />
+            </OutputClaims>
+        </TechnicalProfile>
+     ```
 
-After sign in, collect some info via a self-asserted TP, we need content definition for this TP
+    We've added a new Azure AD Technical Profile *AAD-UserReadUsingAlternativeSecurityId* that reads a new social account from Azure AD. It uses `alternativeSecurityId` as a unique identifier for the social account. 
+
+1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key yuo created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
+
+### Step 3.5 - Configure Content Definition 
+
+After a user signs in, you can collect some information from them by using a SelfAsserted Technical Profile. So, you need to configure content definition for the SelfAsserted Technical Profile.  
+
+In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* element, and then add a new content definition by using the following code: 
 
 ```xml
     <ContentDefinition Id="socialAccountsignupContentDefinition">
@@ -292,14 +303,18 @@ After sign in, collect some info via a self-asserted TP, we need content definit
         </Metadata>
     </ContentDefinition>
 ```
+We use this content definition as a metadata in a SelfAsserted Technical Profile on the next step ([step 3.6](#step-36---configure-a-selfasserted-technical-profile)). 
 
-### Step 3.6 - Social interface TP
+### Step 3.6 - Configure a SelfAsserted Technical Profile
+
+The SelfAsserted Technical Profile you configure in this step is used to collect more information from the user or update similar information obtained from the social account. 
+
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a new claims provider by using the following code: 
 
 ```xml
         <ClaimsProvider>
             <DisplayName>Self Asserted for social sign in</DisplayName>
             <TechnicalProfiles>
-
                 <TechnicalProfile Id="SelfAsserted-Social">
                     <DisplayName>Collect more info during social signup</DisplayName>
                     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -349,16 +364,13 @@ After sign in, collect some info via a self-asserted TP, we need content definit
         </ClaimsProvider>
 ```
 
+The claims provider we've added contains a SelfAsserted Technical Profile, *SelfAsserted-Social*. The SelfAsserted Technical Profile uses the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
 
-`SelfAsserted-Social` to collect additional details before you submit. Uses `AAD-UserWriteUsingAlternativeSecurityId` as a validation TP
-
-Uses `socialAccountsignupContentDefinition` content definition
+Also, notice that we've added the content definition, *socialAccountsignupContentDefinition*, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
 
 ## Step 4 - Update the User Journey Orchestration Steps
 
-We'll make no references to the local account sign in, only social account. 
-
-Identify your `HelloWorldJourney` *UserJourney* and replace all the Orchestration Steps with the steps shown in the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the `HelloWorldJourney` *UserJourney* and replace all the Orchestration Steps with the steps shown in the following code: 
 
 ```xml
     <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp">
@@ -409,11 +421,25 @@ Identify your `HelloWorldJourney` *UserJourney* and replace all the Orchestratio
     </OrchestrationStep>
     <OrchestrationStep Order="6" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
 ```
-Explain the order of the Orchestration Steps
+In the orchestration we've used make reference to technical profiles that enable a user to sign in by using a social account.  
+
+When the custom policy runs:
+
+- **Orchestration Step 1** - This step includes a *ClaimsProviderSelections* element, which lists the available sign in options a user can choose from. In this case, we've one option only, *FacebookExchange*.
+
+-  **Orchestration Step 2** - The *Facebook-OAUTH* Technical Profile executes, so the user is redirected to Facebook to sign in. 
+
+- **Orchestration Step 3** - In step 3, the *AAD-UserReadUsingAlternativeSecurityId* Technical Profile executes to try to read the user social account from Azure AD. If the social account is found, `objectId` is returned as an output claim.    
+
+- **Orchestration Step 4** - This step runs if the user doesn't already exist (`objectId` doesn't exist). It shows the form that collects more information from the user or updates similar information obtained from the social account.
+
+-  **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes to write the social account into Azure AD.  
+
+- **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT token at the end of the policy’s execution.
 
 ## Step 5 - Update Relying Party Output Claims 
 
-Replace Relying Party Output Claims with the following:
+In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and then replace all the output claims with the following code:
 
 ```xml
     <OutputClaim ClaimTypeReferenceId="displayName" />
@@ -425,7 +451,13 @@ Replace Relying Party Output Claims with the following:
 ```
 ## Step 6 - Upload policy
 
+Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
+
 ## Step 7 - Test policy 
+
+Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy. 
+
+Once the policy runs, you're redirected to a Facebook sign-in page. We set this as so from our orchestration steps since we don't have multiple sign in options to choose from. 
 
 Observation: 
 

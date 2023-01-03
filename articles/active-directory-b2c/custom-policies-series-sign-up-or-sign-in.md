@@ -180,7 +180,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *SignInUser* technical profile
 
 We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form UI to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign in form UI includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
 
-Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. SO, the *SignInUser* Technical Profile execute when the user selects the **Sign in** button.    
+Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. So, the *SignInUser* Technical Profile executes when the user selects the **Sign in** button (see screenshot in [ste 7](#step-7---test-policy)).    
 
 In the next step ([step 2.2](#step-22---configure-sign-in-interface-content-definition)), we configure a content definition that we'll use in this SelfAsserted Technical Profile.    
 
@@ -231,11 +231,11 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimGenerator* Technical Pro
         </OutputClaimsTransformations>
     </TechnicalProfile>
 ```
-We've broken the technical profile into two separate technical profile, *UserInputMessageClaimGenerator* and *UserInputDisplayNameGenerator*. Each technical profile runs a **ClaimsTransformations**. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the *objectId* is returned after an account is created, so we don't need to generate it ourselves within the policy.
+We've broken the technical profile into two separate technical profiles, *UserInputMessageClaimGenerator* and *UserInputDisplayNameGenerator*. Each technical profile runs a **ClaimsTransformations**. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the *objectId* is returned after an account is created, so we don't need to generate it ourselves within the policy.
 
 ## Step 4 - Update AAD-UserRead Technical Profile 
 
-When users sign in, they don't input all the details they input when they sign up. However, we need to return more account details in the token, than is input by the user during sign in. Therefore, we need to add more output claims in out *AAD-UserRead* technical profile. At the moment, we only have *objectId* and *userPrincipalName* as output claims.     
+When users sign in, they don't provide as many details details as they do when they sign up. However, we need to return more account details in the token, than is input by the user during sign in. Therefore, we need to add more output claims in out *AAD-UserRead* technical profile. At the moment, we only have *objectId* and *userPrincipalName* as output claims.     
 
 In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserRead* technical profile, and then add three more output claims, *givenName*, *surname* and *displayName*, by using the following code:
 
@@ -332,22 +332,22 @@ In Orchestration Steps two to five, we've used Preconditions to determine if Orc
 
 When the custom policy runs: 
 
-- **Orchestration Steps 1** - Displays sign-in page, so the user can sign in or select the **Sign up now** link. Notice that we specify the content definition that the *UserSignInCollector* SelfAsserted Technical profile uses to display the sign-in form.
+- **Orchestration Step 1** - Displays sign-in page, so the user can sign in or select the **Sign up now** link. Notice that we specify the content definition that the *UserSignInCollector* SelfAsserted Technical profile uses to display the sign-in form.
   
-- **Orchestration Steps 2** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the  
+- **Orchestration Step 2** - This step runs if the user signs up (`objectId` doesn't exist), so we display the sign-up form by invoking the  
 *UserInformationCollector* SelfAsserted Technical Profile.
 
-- **Orchestration Steps 3** - This step runs if the user signs up (objectId doesn't exist), and that a user doesn't select a company `accountType`. So we've to ask the user to input an `accessCode` by invoking the *AccessCodeInputCollector* SelfAsserted Technical Profile.
+- **Orchestration Step 3** - This step runs if the user signs up (`objectId` doesn't exist), and that a user doesn't select a company `accountType`. So we've to ask the user to input an `accessCode` by invoking the *AccessCodeInputCollector* SelfAsserted Technical Profile.
 
-- **Orchestration Steps 4** - This step runs if the user signs up (objectId doesn't exist), so we invoke the ClaimsTransformations Technical Profile, *UserInputDisplayNameGenerator* to create the `displayName` value.
+- **Orchestration Step 4** - This step runs if the user signs up (`objectId` doesn't exist), so we invoke the ClaimsTransformations Technical Profile, *UserInputDisplayNameGenerator* to create the `displayName` value.
 
-- **Orchestration Steps 5** - This step runs if the user signs up (objectId doesn't exist), so we invoke the *AAD-UserWrite* Azure AD Technical Profile to add the user account into Azure AD.
+- **Orchestration Step 5** - This step runs if the user signs up (`objectId` doesn't exist), so we invoke the *AAD-UserWrite* Azure AD Technical Profile to add the user account into Azure AD.
 
 - **Orchestration Steps 6** - This step reads account information from Azure AD (we invoke *AAD-UserRead* Azure AD Technical Profile), so it runs whether a user signs up or signs in.   
 
-- **Orchestration Steps 7** -  This step invokes the *UserInputMessageClaimGenerator* Technical Profile to assemble the user’s greeting message.
+- **Orchestration Step 7** -  This step invokes the *UserInputMessageClaimGenerator* Technical Profile to assemble the user’s greeting message.
 
--  **Orchestration Steps 8** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution
+-  **Orchestration Step 8** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution
 
 ## Step 6 - Upload policy
 
