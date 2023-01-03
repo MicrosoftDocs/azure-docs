@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-install-software.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/install-software-ot-sensor",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-create-and-manage-users.md",
             "redirect_url": "/azure/defender-for-iot/organizations/manage-users-overview",
             "redirect_document_id": false
@@ -117,7 +122,7 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/how-to-install-software.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/how-to-install-software",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/install-software-ot-sensor",
             "redirect_document_id": false
         },
         {

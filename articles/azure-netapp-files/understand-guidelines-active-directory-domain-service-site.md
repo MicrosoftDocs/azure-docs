@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 01/03/2022
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -149,7 +149,8 @@ A separate discovery process for AD DS LDAP servers occurs when LDAP is enabled 
 
 Incorrect or incomplete AD DS site topology or configuration can result in volume creation failures, problems with client queries, authentication failures, and failures to modify Azure NetApp Files AD connections.
 
-The AD Site Name field is required to create an Azure NetApp Files AD connection. The AD DS site defined must exist and be properly configured.
+>[!IMPORTANT]
+>The AD Site Name field is required to create an Azure NetApp Files AD connection. The AD DS site defined must exist and be properly configured.
 
 Azure NetApp Files uses the AD DS Site to discover the domain controllers and subnets assigned to the AD DS Site defined in the AD Site Name. All domain controllers assigned to the AD DS Site must have good network connectivity from the Azure virtual network interfaces used by ANF and be reachable. AD DS domain controller VMs assigned to the AD DS Site that are used by Azure NetApp Files must be excluded from cost management policies that shut down VMs.
 
