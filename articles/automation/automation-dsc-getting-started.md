@@ -186,14 +186,14 @@ account in the **Nodes** tab of the State configuration (DSC) page.
 
 ### DSC nodes status values
 
-The DSC node can take six different values as follows:
+The DSC node can take any of the following six values as follows:
 
-- **Failed** - This status appears when an error occurs when applying one or more configurations on a node.
-- **Not complaint** - This status appears when drift occurs on a node and it requires a close review if it is systematic.
-- **Unresponsive** - This status appears when a node has not been checked in for more than 24 hours.
-- **Pending** - This status appears when a node has a new configuration to apply and the pull server is awaiting node check in.
-- **In-progress** - This status appears when a node applies configuration, and the pull server is awaiting status.
-- **Compliant** - This status appears when a node has a valid configuration, and no drift occurs presently.
+- **Failed** - This status is displayed when an error occurs while applying one or more configurations on a node.
+- **Not complaint** - This status is displayed when drift occurs on a node and it requires a close review if it is systematic.
+- **Unresponsive** - This status is displayed when a node has not been checked in for more than 24 hours.
+- **Pending** - This status is displayed when a node has a new configuration to apply and the pull server is awaiting node check in.
+- **In-progress** - This status is displayed when a node applies configuration, and the pull server is awaiting status.
+- **Compliant** - This status is displayed when a node has a valid configuration, and no drift occurs presently.
 
 >[!NOTE]
 >- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). If you use a value > 1440, the node is shown **Unresponsive** and gives a false status of the nodes. 
