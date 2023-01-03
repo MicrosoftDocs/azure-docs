@@ -157,7 +157,7 @@ The following table describes the fields on the **Advanced** tab.
 
 The following image shows a standard configuration of the advanced properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-advanced-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab." lightbox="media/storage-account-create/create-account-advanced-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-advanced-tab.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab." lightbox="media/storage-account-create/create-account-advanced-tab.png":::
 
 ### Networking tab
 
