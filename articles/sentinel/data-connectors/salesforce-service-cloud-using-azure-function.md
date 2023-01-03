@@ -3,7 +3,7 @@ title: "Salesforce Service Cloud (using Azure Function) connector for Microsoft 
 description: "Learn how to install the connector Salesforce Service Cloud (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -60,6 +60,10 @@ To integrate with Salesforce Service Cloud (using Azure Function) make sure you 
 1. See the [link](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm) and follow the instructions for obtaining Salesforce API Authorization credentials. 
 2. On the **Set Up Authorization** step choose **Session ID Authorization** method.
 3. You must provide your client id, client secret, username, and password with user security token.
+
+
+> [!NOTE]
+   >  Ingesting data from on an hourly interval may require additional licensing based on the edition of the Salesforce Service Cloud being used. Please refer to [Salesforce documentation](https://www.salesforce.com/editions-pricing/service-cloud/) and/or support for more details.
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**

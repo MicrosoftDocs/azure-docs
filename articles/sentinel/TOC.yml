@@ -292,6 +292,8 @@
         href: data-connectors/azure-active-directory.md
       - name: Azure Active Directory Identity Protection
         href: data-connectors/azure-active-directory-identity-protection.md
+      - name: Azure Activity
+        href: data-connectors/azure-activity.md
       - name: Azure Cognitive Search
         href: data-connectors/azure-cognitive-search.md
       - name: Azure DDoS Protection
@@ -314,6 +316,8 @@
         href: data-connectors/azure-storage-account.md
       - name: Azure Stream Analytics
         href: data-connectors/azure-stream-analytics.md
+      - name: Azure Web Application Firewall (WAF)
+        href: data-connectors/azure-web-application-firewall-waf.md
       - name: BETTER Mobile Threat Defense (MTD)
         href: data-connectors/better-mobile-threat-defense-mtd.md
       - name: Bitglass (using Azure Function)
@@ -350,6 +354,8 @@
         href: data-connectors/cognni.md
       - name: Common Event Format (CEF)
         href: data-connectors/common-event-format-cef.md
+      - name: Common Event Format (CEF) via AMA
+        href: data-connectors/common-event-format-cef-via-ama.md
       - name: Contrast Protect
         href: data-connectors/contrast-protect.md
       - name: Corelight
@@ -482,6 +488,8 @@
         href: data-connectors/nxlog-dns-logs.md
       - name: NXLog LinuxAudit
         href: data-connectors/nxlog-linuxaudit.md
+      - name: Office 365
+        href: data-connectors/office-365.md
       - name: Okta Single Sign-On (using Azure Function)
         href: data-connectors/okta-single-sign-on-using-azure-function.md
       - name: OneLogin IAM Platform (using Azure Function)
@@ -552,6 +560,8 @@
         href: data-connectors/symantec-proxysg.md
       - name: Symantec VIP
         href: data-connectors/symantec-vip.md
+      - name: Syslog
+        href: data-connectors/syslog.md
       - name: Tenable.io Vulnerability Management (using Azure Function)
         href: data-connectors/tenable-io-vulnerability-management-using-azure-function.md
       - name: TheHive Project - TheHive (using Azure Function)
@@ -594,6 +604,8 @@
         href: data-connectors/windows-security-events-via-ama.md
       - name: WireX Network Forensics Platform
         href: data-connectors/wirex-network-forensics-platform.md
+      - name: WithSecure Elements via Connector
+        href: data-connectors/withsecure-elements-via-connector.md
       - name: Workplace from Facebook (using Azure Function)
         href: data-connectors/workplace-from-facebook-using-azure-function.md
       - name: Zero Networks Segment Audit

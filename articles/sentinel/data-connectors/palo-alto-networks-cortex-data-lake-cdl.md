@@ -3,7 +3,7 @@ title: "Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentin
 description: "Learn how to install the connector Palo Alto Networks Cortex Data Lake (CDL) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

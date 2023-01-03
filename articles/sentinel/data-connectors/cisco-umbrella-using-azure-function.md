@@ -3,7 +3,7 @@ title: "Cisco Umbrella (using Azure Function) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Umbrella (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -117,6 +117,7 @@ Use this method for automated deployment of the Cisco Umbrella data connector us
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinelciscoumbrellaazuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the **Workspace ID**, **Workspace Key**, **S3Bucket**, **AWSAccessKeyId**, **AWSSecretAccessKey**
+**Note:** For the S3Bucket use the value that Cisco referrs to as the _S3 Bucket Data Path_ and add a / (forward slash) to the end of the value
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**.
 5. Click **Purchase** to deploy.
 

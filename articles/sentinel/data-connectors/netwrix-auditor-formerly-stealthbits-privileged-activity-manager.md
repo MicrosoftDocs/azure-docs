@@ -3,7 +3,7 @@ title: "Netwrix Auditor (formerly Stealthbits Privileged Activity Manager) conne
 description: "Learn how to install the connector Netwrix Auditor (formerly Stealthbits Privileged Activity Manager) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

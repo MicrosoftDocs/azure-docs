@@ -3,7 +3,7 @@ title: "Azure Stream Analytics connector for Microsoft Sentinel"
 description: "Learn how to install the connector Azure Stream Analytics to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

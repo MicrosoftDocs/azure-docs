@@ -3,7 +3,7 @@ title: "Azure Active Directory Identity Protection connector for Microsoft Senti
 description: "Learn how to install the connector Azure Active Directory Identity Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
