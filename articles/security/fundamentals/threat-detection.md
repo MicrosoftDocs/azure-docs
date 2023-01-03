@@ -116,7 +116,7 @@ Microsoft Defender for Cloud helps protect your hybrid cloud environment. By per
 
 Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
-Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multi-cloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
+Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
 
 The workload protection dashboard in Defender for Cloud provides visibility and control of the integrated cloud workload protection features provided by a range of **Microsoft Defender** plans:
 
