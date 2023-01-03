@@ -176,7 +176,7 @@ The device app can specify a **Will** message in the **CONNECT** packet. The dev
 
 ## Using the MQTT protocol directly (as a module)
 
-You can connect to IoT Hub over MQTT using a module identity, similar to connecting to IoT Hub as a device as described [in the section on using the MQTT protocol directly as a device](#using-the-mqtt-protocol-directly-as-a-device). However, you need to use the following values:
+You can connect to IoT Hub over MQTT using a module identity, similar to connecting to IoT Hub as a device. For more information about connecting to IoT Hub over MQTT as a device, see [Using the MQTT protocol directly (as a device)](#using-the-mqtt-protocol-directly-as-a-device). However, you need to use the following values:
 
 * Set the client ID to `{device-id}/{module-id}`.
 
@@ -200,7 +200,7 @@ To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Atte
 
 In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This certificate is the one that Azure uses to secure the connection. You can find this certificate in the [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) repository. More information about these certificates can be found on [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
-An example of how to implement this using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt) by the Eclipse Foundation might look like the following.
+The following example demonstrates how to implement this configuration, by using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt) by the Eclipse Foundation.
 
 First, install the Paho library from your command-line environment:
 
@@ -292,11 +292,11 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [!NOTE]
 > If you're routing D2C messages to a Storage account and you want to leverage JSON encoding you need to specify the Content Type and Content Encoding
-> information including `$.ct=application%2Fjson&$.ce=utf-8` as part of the `{property_bag}` mentioned above. 
+> information including `$.ct=application%2Fjson&$.ce=utf-8` as part of the `{property_bag}` mentioned in the previous note. 
 > 
 > These attributes format are protocol-specific and are translated by IoT Hub into the relative System Properties as described [here](./iot-hub-devguide-routing-query-syntax.md#system-properties)
 
-The following is a list of IoT Hub implementation-specific behaviors:
+The following list describes IoT Hub implementation-specific behaviors:
 
 * IoT Hub doesn't support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
 
@@ -304,7 +304,7 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
 
-* To route messages based on message body, you must first add property 'contentType' (`ct`) to the end of the MQTT topic and set its value to be `application/json;charset=utf-8`. An example is shown below. To learn more about routing messages either based on message properties or message body, please see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
+* To route messages based on message body, you must first add property 'contentType' (`ct`) to the end of the MQTT topic and set its value to be `application/json;charset=utf-8` as shown in the following example. For more information about routing messages either based on message properties or message body, see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
 
     ```devices/{device-id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
 
@@ -396,7 +396,7 @@ The possible status codes are:
 | 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-The Python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
+The following Python code snippet demonstrates the twin reported properties update process over MQTT using the Paho MQTT client:
 
 ```python
 from paho.mqtt import client as mqtt
@@ -410,7 +410,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
                rid, twin_reported_property_patch, qos=0)
 ```
 
-Upon success of twin reported properties update operation above, the publication message from IoT Hub will have the following topic: `$iothub/twin/res/204/?$rid=1&$version=6`, where `204` is the status code indicating success, `$rid=1` corresponds to the request ID provided by the device in the code, and `$version` corresponds to the version of reported properties section of device twins after the update.
+Upon success of the twin reported properties update process in the previous code snippet, the publication message from IoT Hub will have the following topic: `$iothub/twin/res/204/?$rid=1&$version=6`, where `204` is the status code indicating success, `$rid=1` corresponds to the request ID provided by the device in the code, and `$version` corresponds to the version of reported properties section of device twins after the update.
 
 For more information, see the [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
