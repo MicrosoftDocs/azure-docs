@@ -77,7 +77,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 
 > *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds. In reality, the SDK sends a ping request four times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
 
-Following the [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
+Following the [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value; however, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds). This limit exists because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
 
 For example, a device using the Java SDK sends the keep-alive ping, then loses network connectivity. 230 seconds later, the device misses the keep-alive ping because it's offline. However, IoT Hub doesn't close the connection immediately - it waits another `(230 * 1.5) - 230 = 115` seconds before disconnecting the device with the error [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md). 
 
@@ -152,7 +152,7 @@ If a device can't use the device SDKs, it can still connect to the public device
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
+  You can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
 
 ### For Azure IoT Tools
 
@@ -176,7 +176,7 @@ The device app can specify a **Will** message in the **CONNECT** packet. The dev
 
 ## Using the MQTT protocol directly (as a module)
 
-Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [in the section on using the MQTT protocol directly as a device](#using-the-mqtt-protocol-directly-as-a-device)) but you need to use the following:
+You can connect to IoT Hub over MQTT using a module identity, similar to connecting to IoT Hub as a device as described [in the section on using the MQTT protocol directly as a device](#using-the-mqtt-protocol-directly-as-a-device). However, you need to use the following values:
 
 * Set the client ID to `{device-id}/{module-id}`.
 
@@ -259,7 +259,7 @@ client.publish("devices/" + device_id + "/messages/events/", '{"id":123}', qos=1
 client.loop_forever()
 ```
 
-To authenticate using a device certificate, update the code snippet above with the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
+To authenticate using a device certificate, update the previous code snippet with the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
 
 ```python
 # Create the client as before
@@ -281,7 +281,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## Sending device-to-cloud messages
 
-After a device connects, it can send messages to IoT Hub using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
+After a device connects, it can send messages to IoT Hub using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with other properties in a url-encoded format. For example:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -312,11 +312,11 @@ For more information, see [Messaging developer's guide](iot-hub-devguide-messagi
 
 ## Receiving cloud-to-device messages
 
-To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub isn't a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
+To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive more properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub isn't a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device does not receive any messages from IoT Hub until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device-id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
+The device doesn't receive any messages from IoT Hub until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device-id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it doesn't receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
-IoT Hub delivers messages with the **Topic Name** `devices/{device-id}/messages/devicebound/`, or `devices/{device-id}/messages/devicebound/{property-bag}` when there are message properties. `{property-bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix. For additional details about the format of the property bag, see [Sending device-to-cloud messages](#sending-device-to-cloud-messages).
+IoT Hub delivers messages with the **Topic Name** `devices/{device-id}/messages/devicebound/`, or `devices/{device-id}/messages/devicebound/{property-bag}` when there are message properties. `{property-bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix. For more information about the format of the property bag, see [Sending device-to-cloud messages](#sending-device-to-cloud-messages).
 
 In cloud-to-device messages, values in the property bag are represented as in the following table:
 
@@ -448,7 +448,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 To learn more about planning your IoT Hub deployment, see:
 
 * [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
-* [Support additional protocols](../iot-edge/iot-edge-as-gateway.md)
+* [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)
 
