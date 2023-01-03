@@ -63,7 +63,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 > Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
 >
 
-#### Fields with specific guidelines for the DNS schema
+#### Fields with specific guidelines for the File Event schema
 
 The following list mentions fields that have specific guidelines for File activity events:
 
