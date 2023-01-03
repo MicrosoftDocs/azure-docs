@@ -55,11 +55,11 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Select your preferred language for the installation process.
 
-   :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::
+   :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
 1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
 
-   :::image type="content" source="../media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::
+   :::image type="content" source="../media/tutorial-install-components/on-prem-install-screen.png" alt-text="Screenshot of selecting your management release version.":::
 
 1. In the Installation Wizard, define the network properties:
 
@@ -91,7 +91,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. After about 10 minutes, the two sets of credentials appear. For example:
 
-   :::image type="content" source="../media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they won't be presented again.":::
+   :::image type="content" source="../media/tutorial-install-components/credentials-screen.png" alt-text="Screenshot of the credentials that appear that must be copied as they won't be presented again.":::
 
    Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
 
