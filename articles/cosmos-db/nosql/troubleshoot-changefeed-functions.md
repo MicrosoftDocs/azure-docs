@@ -89,7 +89,7 @@ When your Azure Function receives the changes, it often processes them, and coul
 
 If some changes are missing on the destination, this could mean that is some error happening during the Azure Function execution after the changes were received.
 
-In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). Alternatively, you can configure Azure Functions [retry policies](../azure-functions/functions-bindings-error-pages#retries).
+In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). Alternatively, you can configure Azure Functions [retry policies](../../azure-functions/functions-bindings-error-pages.md#retries).
 
 > [!NOTE]
 > The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination might be because you are failing to process them.
