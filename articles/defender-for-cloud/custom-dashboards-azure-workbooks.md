@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
-ms.date: 11/30/2022
+ms.date: 01/03/2023
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -20,12 +20,12 @@ Within Microsoft Defender for Cloud, you can access the built-in workbooks to tr
 
 ## Availability
 
-| Aspect                          | Details                                                                                                                                      |
-|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General availability (GA)                                                                                                                    |
-| Pricing:                        | Free                                                                                                                                         |
+| Aspect | Details |
+|---|:--|
+| Release state: | General availability (GA) |
+| Pricing: | For pricing check out the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). |
 | Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 
 ## Workbooks gallery in Microsoft Defender for Cloud
@@ -39,6 +39,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['Active Alerts' workbook](#use-the-active-alerts-workbook) - View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
 - Price Estimation workbook - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and do not provide actual billing data.
 - Governance workbook -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
+- ['DevOps Security (Preview)' workbook](#use-the-devops-security-preview-workbook) - View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you have configured.
 
 In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which are provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
@@ -171,6 +172,19 @@ By selecting a location on the map you will be able to view all of the alerts fo
 :::image type="content" source="media/custom-dashboards-azure-workbooks/map-alert-details.png" alt-text="Screenshot showing the alerts in a specific location.":::
 
 You can see the details for that alert with the Open Alert View button.
+
+### Use the 'DevOps Security (Preview)' workbook
+
+This workbook provides a customizable canvas for data analysis and the creation of rich visual reports. The new DevOps Security workbook in Microsoft Defender for Cloud provides you with a unified interactive experience enabling you to quickly gain visibility and insights into your DevOps security posture in coordination with the newest MDC service Defender for DevOps. The DevOps Security workbook provides you with a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you have configured. You can investigate credential exposure, including types of credentials and repo locations. Then you can do the same for code, dependencies, and hardening.
+
+**To deploy the workbook**:
+
+1. Navigate to the [DevOps Security (Preview)](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/preview/Workbooks/DevOps%20Security%20(Preview)) page.
+
+1. Select **Deploy to Azure**. 
+
+
+
 
 ## Import workbooks from other workbook galleries
 
