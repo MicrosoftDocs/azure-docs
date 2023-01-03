@@ -268,7 +268,7 @@ Then you define these elements for the resulting alert actions by using:
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, the common schema is not supported for log alerts that use custom properties.
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
@@ -280,7 +280,7 @@ Then you define these elements for the resulting alert actions by using:
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         > [!NOTE]
-        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, the common schema is not supported for activity log alerts that use custom properties.
+        > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for activity log alerts.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-activity-log-rule-details-tab.png" alt-text="Screenshot that shows the Actions tab when creating a new activity log alert rule.":::
 
@@ -380,14 +380,14 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
     - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
     - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
     - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
-1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json
-1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json
+1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json.
+1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json.
 1. Set the `metricName` parameter, using one of the values in [Azure Monitor supported metrics](../essentials/metrics-supported.md).
 1. Deploy the template using [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLI](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
 
 ### Additional properties for activity log alert ARM templates
 > [!NOTE]
-> - Activity log alerts can be defined at the subscription level. You have to define the alert per subscription. You can't define an alert on more than one subscription.
+> - Activity log alerts are defined at the subscription level. You can't define a single alert rule on more than one subscription.
 > - It may take up to five minutes for a new activity log alert rule to become active.
 
 ARM templates for activity log alerts contain additional properties for the conditions fields. The **Resource Health**, **Advisor** and **Service Health** fields have extra properties fields.
