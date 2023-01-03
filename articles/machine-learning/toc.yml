@@ -642,13 +642,17 @@
             - name: Log metrics, parameters and files
               displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-log-view-metrics.md
+            - name: Log MLflow models
+              href: how-to-log-mlflow-models
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-        - name: Models
+        - name: ML lifecycle
           items:
             - name: Manage models with MLflow
               href: how-to-manage-models-mlflow.md
-        - name: Deploy
+            - name: Manage experiments and runs with MLflow
+              href: how-to-track-experiments-mlflow.md
+        - name: Deployment
           items:
             - name: Guidelines for deploying MLflow models
               displayName: mlflow models deployment plugin
