@@ -109,6 +109,7 @@ mon_client.autoscale_settings.create_or_update(
     resource_group, 
     autoscale_settings_name, 
     parameters = {
+        "enabled" : True,
         "location" : endpoint.location,
         "target_resource_uri" : deployment.id,
         "profiles" : [
@@ -197,6 +198,7 @@ mon_client.autoscale_settings.create_or_update(
     resource_group, 
     autoscale_settings_name, 
     parameters = {
+        "enabled" : True,
         "location" : endpoint.location,
         "target_resource_uri" : deployment.id,
         "profiles" : [
@@ -274,6 +276,7 @@ mon_client.autoscale_settings.create_or_update(
     resource_group, 
     autoscale_settings_name, 
     parameters = {
+        "enabled" : True,
         "location" : endpoint.location,
         "target_resource_uri" : deployment.id,
         "profiles" : [
@@ -359,6 +362,7 @@ mon_client.autoscale_settings.create_or_update(
     resource_group, 
     autoscale_settings_name, 
     parameters = {
+        "enabled" : True,
         "location" : endpoint.location,
         "target_resource_uri" : deployment.id,
         "profiles" : [
@@ -416,6 +420,7 @@ mon_client.autoscale_settings.create_or_update(
     resource_group, 
     autoscale_settings_name, 
     parameters = {
+        "enabled" : True,
         "location" : endpoint.location,
         "target_resource_uri" : deployment.id,
         "profiles" : [
