@@ -105,13 +105,8 @@ The following table provides a list of control IDs and associated customer respo
 ### Next steps
 
 * [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
 * [Configure additional controls](configure-cmmc-level-2-additional-controls.md)
-
 * [Conditional Access require managed device - Require Hybrid Azure AD joined device](../conditional-access/concept-conditional-access-grant.md)
-
 * [Conditional Access require managed device - Require device to be marked as compliant](../conditional-access/require-managed-devices.md)
-
 * [What is Microsoft Intune?](/mem/intune/fundamentals/what-is-intune)
-
 * [Co-management for Windows 10 devices](/mem/configmgr/comanage/overview)
