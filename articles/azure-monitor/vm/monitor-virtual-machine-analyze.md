@@ -145,7 +145,33 @@ For instructions on how to create your own custom workbooks, see [Create interac
 :::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="Screenshot that shows virtual machine workbooks." lightbox="media/monitor-virtual-machines/workbook-example.png":::
 
 
+## Sample log queries
 
+### Windows and Syslog events
+
+Windows events are stored in the [Event](/azure/azure-monitor/reference/tables/event) table and Syslog events are stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in the Log Analytics workspace.
+
+- **Count the number of events by computer event log and event type.**
+
+    ```kusto
+    Event
+    | summarize count() by Computer, EventLog, EventLevelName
+    | sort by Computer, EventLog, EventLevelName
+    ```
+
+- **Count the number of events by computer event log and event ID.**
+    
+    ```kusto
+    Event
+    | summarize count() by Computer, EventLog, EventLevelName
+    | sort by Computer, EventLog, EventLevelName
+    ```
+
+
+### Custom performance counters
+
+
+For examples of log queries that use custom performance counters, see [Log queries with Performance records](../agents/data-sources-performance-counters.md#log-queries-with-performance-records).
 
 
 

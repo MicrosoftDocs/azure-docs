@@ -69,12 +69,6 @@ The legacy agents include the following:
 
 See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for the current features supported by Azure Monitor agent. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for details on migrating to the Azure Monitor agent if you already have the Log Analytics agent deployed.
 
-## Data collection rules
-[Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) define the data collection process in Azure Monitor. DCRs are stored in your Azure subscription and specify what data should be collected, how to transform that data, and where to send it. 
-
-For virtual machines, DCRs will define the events and performance counters to collect and specify the Log Analytics workspaces that data should be sent to. The DCR can also apply transformations to the data including filtering out unwanted records and adding calculated properties. A single machine can be associated with multiple DCRs, and a single DCR can be associated with multiple machines. DCRs are delivered to any machines they're associated with where they're processed by the Azure Monitor agent.
-
-You should implement a strategy for configuring your DCRs so that they're manageable as your monitoring environment grows in complexity. See [Best practices for data collection rule creation and management in Azure Monitor](data-collection-rule-vm-strategy.md) for guidance on different strategies.
 
  
 ## VM insights
@@ -86,9 +80,7 @@ You should implement a strategy for configuring your DCRs so that they're manage
 - Optional collection of details for each virtual machine, the processes running on it, and dependencies with other services.
 - Optional dependency map that displays interconnected components with other machines and external sources.
 
-Whether or not you choose to use the performance or map views in VM insights, it's valuable in providing base level performance monitoring and an interface to manage your monitored and unmonitored machines. VM insights also includes a simplified interface for [managing Azure Policy definitions](vminsights-enable-policy.md) to automatically install the agent and enable monitoring on new machines.
-
-By default, VM insights will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. [Enable this collection](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) if you want to use this feature.
+Whether or not you choose to use the performance or map views in VM insights, it can be valuable in providing base level performance monitoring and an interface to manage your monitored and unmonitored machines. 
 
 ## System Center Operations Manager (SCOM)
 You may currently use System Center Operations Manager (SCOM) to monitor your virtual machines and their workloads and are starting to consider which monitoring you can move to Azure Monitor. As described in [Azure Monitor for existing Operations Manager customer](../azure-monitor-operations-manager.md), you may continue using SCOM for some period of time until you know longer require the extensive monitoring that SCOM provides.
