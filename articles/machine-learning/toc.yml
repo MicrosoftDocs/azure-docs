@@ -154,6 +154,13 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
+    - name: MLflow guide
+      items:
+        - name: MLflow and Azure Machine Learning
+          href: concept-mlflow.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: MLOps capabilities
@@ -166,8 +173,6 @@
           href: concept-ml-pipelines.md
         - name: ML components
           href: concept-component.md
-        - name: MLflow
-          href: concept-mlflow.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
