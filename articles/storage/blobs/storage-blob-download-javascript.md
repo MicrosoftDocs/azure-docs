@@ -58,7 +58,7 @@ async function downloadBlobAsStream(containerClient, blobName, writableStream) {
 
 ## Download to a string
 
-The following example downloads a blob to a string with [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download) method.  
+The following example downloads a blob to a string with [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download) method. In this Node.js example, blob data returns in a Readable stream `readableStreamBody`.
 
 ```javascript
 
@@ -85,6 +85,8 @@ async function streamToBuffer(readableStream) {
     });
 }
 ```
+
+If you're working with JavaScript in a browser, blob data returns in a promise [blobBody](/javascript/api/@azure/storage-blob/blobdownloadresponseparsed#@azure-storage-blob-blobdownloadresponseparsed-blobbody). To learn more, see the example usage for browsers at [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download).
 
 ## See also
 
