@@ -13,7 +13,7 @@ ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 # Upload files with IoT Hub
 
-There are many scenarios where you can't easily map your device data into the relatively small device-to-cloud messages that IoT Hub accepts. For example, sending large media files like video; or, sending large telemetry batches either uploaded by intermittently connected devices or that have been aggregated and compressed to save bandwidth.
+There are many scenarios where you can't easily map your device data into the relatively small device-to-cloud messages that IoT Hub accepts. For example, sending large media files like video; or, sending large telemetry batches either uploaded by intermittently connected devices or aggregated and compressed to save bandwidth.
 
 When you need to upload large files from a device, you can still use the security and reliability of IoT Hub. Instead of brokering messages through itself, however, IoT Hub acts as a dispatcher to an associated Azure storage account. IoT Hub can also provide notification to backend services when a device completes a file upload.
 
@@ -41,21 +41,21 @@ File upload is fully supported by the Azure IoT device and service SDKs. For mor
 
 ### File upload quotas and limits
 
-IoT Hub imposes throttling limits on the number of file uploads that it can initiate in a given period. The threshold is based on the SKU and number of units of your IoT hub. Additionally, each device is limited to 10 concurrent active file uploads at a time. For more information, see [Throttling and quotas](iot-hub-devguide-quotas-throttling.md).
+IoT Hub imposes throttling limits on the number of file uploads that it can initiate in a given period. The threshold is based on the SKU and number of units of your IoT hub. Additionally, each device is limited to 10 concurrent active file uploads at a time. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Associate an Azure storage account with IoT Hub
 
-You must associate an Azure storage account and  blob container with your IoT hub to use file upload features. All file uploads from devices registered with your IoT hub will go to this container. To configure a storage account and blob container on your IoT hub, see [Configure file uploads with Azure portal](iot-hub-configure-file-upload.md), [Configure file uploads with Azure CLI](iot-hub-configure-file-upload-cli.md), or [Configure file uploads with PowerShell](iot-hub-configure-file-upload-powershell.md). You can also use the IoT Hub management APIs to configure file uploads programmatically.
+You must associate an Azure storage account and  blob container with your IoT hub to use file upload features. All file uploads from devices registered with your IoT hub will go to this container. To configure a storage account and blob container on your IoT hub, see [Configure IoT Hub file uploads using the Azure portal](iot-hub-configure-file-upload.md), [Configure IoT Hub file uploads using Azure CLI](iot-hub-configure-file-upload-cli.md), or [Configure IoT Hub file uploads using PowerShell](iot-hub-configure-file-upload-powershell.md). You can also use the IoT Hub management APIs to configure file uploads programmatically.
 
-If you use the portal, you can create a storage account and container during configuration. Otherwise, to create a storage account, see [Create a storage account](../storage/common/storage-account-create.md) in the Azure storage documentation. Once you have a storage account, you can see how to create a blob container in the [Azure blob storage quickstarts](../storage/blobs/storage-quickstart-blobs-portal.md). By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn how to configure managed identities, see [Configure file upload with managed identities](iot-hub-managed-identity.md#configure-file-upload-with-managed-identities).
+If you use the portal, you can create a storage account and container during configuration. Otherwise, to create a storage account, see [Create a storage account](../storage/common/storage-account-create.md) in the Azure storage documentation. Once you have a storage account, you can see how to create a blob container in the [Azure Blob Storage quickstarts](../storage/blobs/storage-quickstart-blobs-portal.md). By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn how to configure managed identities, see the [Configure file upload with managed identities](iot-hub-managed-identity.md#configure-file-upload-with-managed-identities) section of [IoT Hub support for managed identities](iot-hub-managed-identity.md).
 
-File upload is subject to [Azure storage's firewall settings](../storage/common/storage-network-security.md). Based on your authentication configuration, you will need to ensure your devices can communicate with Azure storage.
+File upload is subject to [Azure Storage's firewall settings](../storage/common/storage-network-security.md). Based on your authentication configuration, you'll need to ensure your devices can communicate with Azure storage.
 
 There are several other settings that control the behavior of file uploads and file upload notifications. The following sections list all of the settings available. Depending on whether you use the Azure portal, Azure CLI, PowerShell, or the management APIs to configure file uploads, some of these settings may not be available. Make sure to set the **enableFileUploadNotifications** setting if you want notifications sent to your backend services when a file upload completes.
 
 ### Iot Hub storage and authentication settings
 
-The following settings associate a storage account and container with your IoT hub and control how your hub authenticates with Azure storage. These settings do not affect how devices authenticate with Azure storage. Devices always authenticate with the SAS token presented in the SAS URI retrieved from IoT Hub.
+The following settings associate a storage account and container with your IoT hub and control how your hub authenticates with Azure storage. These settings don't affect how devices authenticate with Azure storage. Devices always authenticate with the SAS token presented in the SAS URI retrieved from IoT Hub.
 
 | Property | Description | Range and default |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ The following settings control file uploads from the device.
 
 | Property | Description | Range and default |
 | --- | --- | --- |
-| **storageEndpoints.$default.ttlAsIso8601** | Default TTL for SAS URIs generated by IoT Hub. | ISO_8601 interval up to 48 hours (minimum 1 minute). Default: 1 hour. |
+| **storageEndpoints.$default.ttlAsIso8601** | Default TTL for SAS URIs generated by IoT Hub. | ISO_8601 interval up to 48 hours (minimum one minute). Default: one hour. |
 
 ### File upload notification settings
 
@@ -79,13 +79,13 @@ The following settings control file upload notifications to backend services.
 | Property | Description | Range and default |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controls whether file upload notifications are written to the file notifications endpoint. |Bool. Default: False. |
-| **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48 hours (minimum 1 minute). Default: 1 hour. |
+| **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48 hours (minimum one minute). Default: one hour. |
 | **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds. Default: 60 seconds. |
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
 
 ## File upload using an SDK
 
-The following how-to guides provide complete, step-by-step instructions to upload files using the Azure IoT device and service SDKs. They show you how to use the Azure portal to associate a storage account with an IoT hub, and they contain code snippets or refer to samples that guide you through an upload.
+The following how-to guides provide complete, step-by-step instructions to upload files using the Azure IoT device and service SDKs. The guides show you how to use the Azure portal to associate a storage account with an IoT hub. The guides also contain code snippets or refer to samples that guide you through an upload.
 
 | How-to guide | Device SDK example | Service SDK example |
 |---------|--------|---------|
@@ -95,7 +95,7 @@ The following how-to guides provide complete, step-by-step instructions to uploa
 | [Python](iot-hub-python-python-file-upload.md) | Yes | No (not supported) |
 
 > [!NOTE]
-> The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L328) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L350). These functions perform all aspects of the file upload in a single call -- initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes. This means that, in addition to whatever protocol the device is using to communicate with IoT Hub, it will also need to be able to communicate over HTTPS with Azure storage as these functions make calls to the Azure storage APIs.
+> The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L328) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L350). These functions perform all aspects of the file upload in a single call — initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes. This interaction means that, in addition to whatever protocol the device is using to communicate with IoT Hub, the device also needs to be able to communicate over HTTPS with Azure storage as these functions make calls to the Azure storage APIs.
 
 ## Device: Initialize a file upload
 
@@ -143,13 +143,13 @@ When it receives the response, the device:
 
 * Uses the other properties to construct a SAS URI for the blob that it uses to authenticate with Azure storage. The SAS URI contains the resource URI for the requested blob and the SAS token. It takes following form: `https://{hostName}/{containerName}/{blobName}{sasToken}` (The `sasToken` property in the response contains a leading '?' character.) The braces aren't included.
 
-    For example, for the values returned in the sample above, the SAS URI is, `https://contosostorageaccount.blob.core.windows.net/device-upload-container/mydevice/myfile.txt?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw`
+    For example, for the values returned in the previous sample, the SAS URI is, `https://contosostorageaccount.blob.core.windows.net/device-upload-container/mydevice/myfile.txt?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw`
 
     For more information about the SAS URI and SAS token, see [Create a service SAS](/rest/api/storageservices/create-service-sas) in the Azure storage documentation.
 
 ## Device: Upload file using Azure storage APIs
 
-The device uses the [Azure Blob storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or equivalent Azure storage SDK APIs to upload the file to the blob in Azure storage.
+The device uses the [Azure Blob Storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or equivalent Azure storage SDK APIs to upload the file to the blob in Azure storage.
 
 **Supported protocols**: HTTPS
 
@@ -167,7 +167,7 @@ hello world
 
 Working with Azure storage APIs is beyond the scope of this article. In addition to the Azure Blob storage REST APIs linked previously in this section, you can explore the following documentation to help you get started:
 
-* To learn more about working with blobs in Azure storage, see the [Azure blob storage](../storage/blobs/index.yml) documentation.
+* To learn more about working with blobs in Azure storage, see the [Azure Blob Storage documentation](../storage/blobs/index.yml).
 
 * For information about using Azure storage client SDKs to upload blobs, see [Azure Blob Storage API reference](../storage/blobs/reference.md).  
 
@@ -204,7 +204,7 @@ When it receives a file upload complete notification from the device, IoT Hub:
 
 ## Service: File upload notifications
 
-If file upload notifications are enabled on your IoT hub, it generates a notification message for backend services when it receives notification from a device that a file upload is complete. IoT Hub delivers these file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications.
+If file upload notifications are enabled on your IoT hub, your hub generates a notification message for backend services when it receives notification from a device that a file upload is complete. IoT Hub delivers these file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications.
 
 **Supported protocols** AMQP, AMQP-WS <br/>
 **Endpoint**: {iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications <br/>
