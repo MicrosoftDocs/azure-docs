@@ -16,13 +16,9 @@ Get started by creating an Azure Managed Grafana workspace using the Azure CLI. 
 
 ## Prerequisites
 
-- To create an a new instance:
-  - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-  - Minimum required role: resource group Contributor.
-
-- To access an instance:
-  - An Azure school or work account with an active subscription.
-  - Minimum required role to access an instance: resource group Owner.
+- An Azure account for work or school and an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Minimum required role to create an instance: resource group Contributor.
+- Minimum required role to access an instance: resource group Owner.
     >[!NOTE]
     > If you don't meet this requirement, once you've created a new Azure Managed Grafana instance, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role on the instance.
 

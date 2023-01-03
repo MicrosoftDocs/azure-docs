@@ -16,10 +16,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-    >[!NOTE]
-    > Azure Managed Grafana currently only supports logging in with work or school accounts. You can use a personal Microsoft account to create a new instance, but will then need to use a school or work account to access it.
-
+- An Azure account for work or school and an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - Minimum required role to create an instance: resource group Contributor.
 - Minimum required role to access an instance: resource group Owner.
     >[!NOTE]
