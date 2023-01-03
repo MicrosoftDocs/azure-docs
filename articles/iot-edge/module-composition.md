@@ -82,7 +82,7 @@ The $edgeAgent properties follow this structure:
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.4",
+        "schemaVersion": "1.1",
         "runtime": {
           "settings":{
             "registryCredentials":{
@@ -130,7 +130,7 @@ For example:
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.4",
+        "schemaVersion": "1.1",
         "runtime": { ... },
         "systemModules": {
           "edgeAgent": { ... },
@@ -195,7 +195,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
     "$edgeAgent": { ... },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.4",
+        "schemaVersion": "1.1",
         "routes": {
           "route1": "FROM <source> WHERE <condition> INTO <sink>",
           "route2": {
@@ -317,7 +317,7 @@ The following example shows what a valid deployment manifest document may look l
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.4",
+        "schemaVersion": "1.1",
         "runtime": {
           "type": "docker",
           "settings": {
@@ -382,7 +382,7 @@ The following example shows what a valid deployment manifest document may look l
     },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.4",
+        "schemaVersion": "1.1",
         "routes": {
           "sensorToFilter": {
             "route": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
