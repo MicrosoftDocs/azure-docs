@@ -14,7 +14,7 @@ monikerRange: ">=iotedge-2020-11"
 
 # Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-202011](includes/iot-edge-version-202011.md)]
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This setup is also known as "nested edge".
 

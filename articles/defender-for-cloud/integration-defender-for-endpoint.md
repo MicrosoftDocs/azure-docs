@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 12/14/2022
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -83,7 +83,9 @@ Before you can enable the Microsoft Defender for Endpoint integration with Defen
 
 - For Windows servers, make sure that your servers meet the requirements for [onboarding Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-server-endpoints#windows-server-2012-r2-and-windows-server-2016).
 
-- If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+- For Linux servers, you must have Python installed. Python 3 is recommended for all distros, but is required for RHEL 8.x and Ubuntu 20.04 or higher. If needed, see Step-by-step Instructions for Installing Python on Linux.
+
+- If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### Enable the integration
 
@@ -93,7 +95,7 @@ Before you can enable the Microsoft Defender for Endpoint integration with Defen
 
 #### Windows
 
-[The MDE unified solution](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for all Windows servers connected through Azure Arc and multicloud servers connected through the multicloud connectors, except for Windows 2012 R2 and 2016 servers on Azure that are protected by Defender for Servers Plan 2. You can choose to deploy the MDE unified solution to those machines.
+[The MDE unified solution](/microsoft-365/security/defender-endpoint/configure-server-endpoints#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for Windows servers connected through Azure Arc and multicloud servers connected through the multicloud connectors. However, the unified solution isn't automatically deployed for Azure Windows 2012 R2 and 2016 servers that are protected by Defender for Servers Plan 2. You can choose to deploy the MDE unified solution to those machines.
 
 You'll deploy Defender for Endpoint to your Windows machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
 
@@ -235,7 +237,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 
 You can also enable the MDE unified solution at scale through the supplied REST API version 2022-05-01. For full details, see the [API documentation](/rest/api/defenderforcloud/settings/update?tabs=HTTP).
 
-This is an example request body for the PUT request to enable the MDE unified solution:
+Here's an example request body for the PUT request to enable the MDE unified solution:
 
 URI: `https://management.azure.com/subscriptions/<subscriptionId>providers/Microsoft.Security/settings/WDATP_UNIFIED_SOLUTION?api-version=2022-05-01`
 
@@ -342,12 +344,12 @@ Defender for Cloud automatically deploys the extension to machines running:
 > If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
 
 
-### I enabled the solution but the "MDE.Windows" / "MDE.Linux" extension isn't showing on my machine
+### I enabled the solution but the `MDE.Windows`/`MDE.Linux` extension isn't showing on my machine
 
 If you enabled the integration, but still don't see the extension running on your machines:
 
-1. If 12 hours didn't pass since you enabled the solution, you'll need to wait until the end of this period to be sure there's an issue to investigate. 
-1. After 12 hours pass, if you still don't see the extension running on your machines, check that you've met [Prerequisites](#prerequisites) for the integration.
+1. You need to wait at least 12 hours to be sure there's an issue to investigate. 
+1. If after 12 hours you still don't see the extension running on your machines, check that you've met [Prerequisites](#prerequisites) for the integration.
 1. Ensure you've enabled the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for the subscriptions related to the machines you're investigating.
 1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

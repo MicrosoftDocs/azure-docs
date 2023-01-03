@@ -18,7 +18,7 @@ ms.date: 11/03/2022
 >
 > While the Apache Kafka project might be comfortable with mixing these roles, Azure believes that such information is best managed in a proper database or configuration store.
 >
-> Many Apache Kafka Connect scenarios will be functional, but these conceptual differences between Apache Kafka's and Azure Event Hubs' retention models may cause certain configurations not to work as expected. 
+> Many Apache Kafka Connect scenarios will be functional, but these conceptual differences between Apache Kafka's and Azure Event Hubs' retention models may cause certain configurations to not work as expected. 
 
 This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
 

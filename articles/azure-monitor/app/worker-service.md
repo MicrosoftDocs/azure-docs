@@ -602,6 +602,6 @@ For the latest updates and bug fixes, [see the Release Notes](./release-notes.md
 ## Next steps
 
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* [Track more dependencies not automatically tracked](./auto-collect-dependencies.md).
+* [Track more dependencies not automatically tracked](asp-net-dependencies.md#dependency-auto-collection).
 * [Enrich or filter auto-collected telemetry](./api-filtering-sampling.md).
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).

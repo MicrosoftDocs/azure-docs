@@ -115,6 +115,7 @@ For Azure RBAC enabled key vaults, you can create custom role with the following
 | Microsoft.KeyVault/vaults/secrets/backup/action | Creates the backup file of a secret.  |
 | Microsoft.KeyVault/vaults/secrets/getSecret/action | Gets the value of a secret.  |
 | Microsoft.KeyVault/vaults/keys/read | List keys in the specified vault or read properties and public materials.  |
+| Microsoft.KeyVault/vaults/secrets/readMetadata/action | List or view the properties of a secret, but not its values.    |
 
 ```json
 "permissions": [
