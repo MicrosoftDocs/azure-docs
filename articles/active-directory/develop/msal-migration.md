@@ -29,7 +29,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-To understand 'Why MSAL?', it's important to first understand the differences between Microsoft identity platform (v2.0) and Azure Active Directory (v1.0) endpoints. The v1.0 endpoint is used by Azure AD Authentication Library (ADAL) while the v2.0 endpoint is used by Microsoft Authentication Library (MSAL). If you've developed apps against the v1.0 endpoint in the past, you're likely using ADAL. Since the v2.0 endpoint has changed significantly enough, the new library (MSAL) was built for the new endpoint entirely. 
+If you've developed apps against Azure Active Directory (v1.0) endpoint in the past, you're likely using ADAL. Since Microsoft identity platform (v2.0) endpoint has changed significantly enough, the new library (MSAL) was built for the new endpoint entirely.
 
 The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 

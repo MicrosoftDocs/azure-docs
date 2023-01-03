@@ -73,6 +73,9 @@ Support for Accelerated Networking can be found in the individual [virtual machi
 
 The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
 
+> [!NOTE]
+> Although NC and NV sizes will show in the command below, they do not support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs will have no effect.
+
 ```azurecli-interactive
 az vm list-skus \
   --location westus \

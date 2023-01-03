@@ -48,7 +48,7 @@
     href: troubleshooting-identity-protection-faq.yml
 - name: Reference
   items:
-  - name: Graph APIs
+  - name: Microsoft Graph APIs
     items: 
     - name: riskDetection API
       href: /graph/api/resources/riskdetection
@@ -56,6 +56,10 @@
       href: /graph/api/resources/riskyuser
     - name: signIn API
       href: /graph/api/resources/signin
+    - name: servicePrincipalRiskDetection API
+      href: /graph/api/resources/serviceprincipalriskdetection
+    - name: riskyServicePrincipal API
+      href: /graph/api/resources/riskyserviceprincipal
   - name: Glossary
     href: reference-identity-protection-glossary.md
 - name: Resources

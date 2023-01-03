@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
 ms.topic: tutorial
-ms.date: 11/28/2022
+ms.date: 12/02/2022
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -75,6 +75,26 @@ Run the following command to update to the latest version of the extension relea
 
 ```azurecli
 az extension update --name aks-preview
+```
+
+## Register the 'EnableWorkloadIdentityPreview' feature flag
+
+Register the `EnableWorkloadIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
+```
+
+When the status shows *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
 ```
 
 ## Create AKS cluster

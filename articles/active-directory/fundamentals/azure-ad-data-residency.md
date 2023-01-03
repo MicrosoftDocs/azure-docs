@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/23/2022
+ms.date: 12/5/2022
 ms.author: jricketts
 ms.reviewer: jricketts
 ms.custom: "it-pro"
 ms.collection:
 ---
-# Azure Active Directory and data residency
+# Azure Active Directory and data residency 
 
 Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns. 
 
@@ -34,15 +34,15 @@ Currently Azure AD has the following regions:
 * [United States government](https://azure.microsoft.com/global-infrastructure/government/)
 * Worldwide
 
-Azure AD handles directory data based on usability, performance, residency and/or other requirements based on region. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geographic region. 
+Azure AD handles directory data based on usability, performance, residency and/or other requirements based on geography. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geography. 
 
 Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria:
 
-* Directory data stored in data centers closest to the user-residency location, to reduce latency and provide fast user sign-in times
-* Directory data stored in geographically isolated data centers to assure availability during unforeseen geological events 
-* Compliance with data residency, or other requirements, for specific customers and countries or regions
+* Directory data stored in data centers closest to the tenant-residency location, to reduce latency and provide fast user sign-in times
+* Directory data stored in geographically isolated data centers to assure availability during unforeseen single-datacenter, catastrophic events 
+* Compliance with data residency, or other requirements, for specific customers and countries/regions or geographies
 
-During tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal) you select a country or region as the primary location. Azure AD maps the selection to a logical region and a single scale unit in it. Tenant location can’t be changed after it’s set.
+During tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal) you select a country/region as the primary location. Azure AD maps the selection to a logical region and a single scale unit in it. Tenant location can’t be changed after it’s set.
 
 ## Azure AD cloud solution models
 
@@ -50,8 +50,8 @@ Use the following table to see Azure AD cloud solution models based on infrastru
 
 |Model|Model regions|Data location|Operations personnel|Customer support|Put a tenant in this model|
 |---|---|---|---|---|---|
-|Regional (2)|North America, EMEA, Japan|At rest, in the target region. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose the country in the residency.|
-|Worldwide|Worldwide||Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose a country without a regional model.|
+|Regional (2)|North America, EMEA, Japan|At rest, in the target region. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose the country/region in the residency.|
+|Worldwide|Worldwide||Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose a country/region without a regional model.|
 |Sovereign or national clouds|US government, China|At rest, in the target country or region. No exceptions.|Operated by a data custodian (1). Personnel are screened according to requirements.|Microsoft, country or region|Each national cloud instance has a sign-up experience.
 
 **Table references**:

@@ -3,7 +3,7 @@ title: Compare the features of the Remote Desktop clients for Azure Virtual Desk
 description: Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 11/29/2022
 ms.author: daknappe
 ---
 
@@ -39,14 +39,21 @@ The following tables compare support for device and other redirections across th
 
 ### Input redirection
 
+The following table shows which input methods are available for each Remote Desktop client:
+
 | Input | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
 | Keyboard | X | X | X | X | X | X |
 | Mouse | X | X | X | X | X | X |
 | Touch | X | X | X | X |  | X |
-| Pen | X |  | X (as touch) | X (as touch) |  |  |
+| Multi-touch | X | X | X | X |  |  |
+| Pen | X |  | X (as touch) | X\* |  |  |
+
+\* Pen input redirection is not supported when connecting to Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.
 
 ### Port redirection
+
+The following table shows which ports can be redirected for each Remote Desktop client:
 
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
@@ -57,9 +64,11 @@ When you enable USB port redirection, all USB devices attached to USB ports are 
 
 ### Other redirection (devices, etc.)
 
+The following table shows which other devices can be redirected with each Remote Desktop client:
+
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
-| Cameras | X |  | X | X | X |  |
+| Cameras | X |  | X | X | X | X (preview) |
 | Clipboard | X | X | Text | Text, images | X | Text |
 | Local drive/storage | X |  | X | X | X | X\* |
 | Location | X (Windows 11 only) |  |  |  |  |  |
