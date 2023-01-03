@@ -30,6 +30,8 @@ The following table describes each default privileged user in detail:
 |**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools.<br><br>Has no filesystem access.<br><br>Can access only dedicated CLI commands for controlling OT monitoring. <br><br>Can recover or change passwords for the *support* user, and any user with the **Admin**, **Security Analyst**, and **Read-only** roles.  |
 |**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS.<br><br>Used for support scenarios with containers and filesystem access.        |
 
+Supported CLI commands and command syntax differ for each user. For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
+
 ## On-premises user roles
 
 The following roles are available on OT network sensors and on-premises management consoles:
