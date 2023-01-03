@@ -227,6 +227,11 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process.
 
+
+### Can I have AOF persistence enabled if I have more than 1 replica?
+
+No, AOF persistence cannot be enabled with replicas (i.e replica count >= 2).
+
 ## Next steps
 
 Learn more about Azure Cache for Redis features.
