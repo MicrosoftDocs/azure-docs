@@ -164,9 +164,7 @@
         - name: GitLab
           href: gitlab.md
 - name: Samples
-  items:
-    - name: Serverless app with Azure SQL
-      href: https://github.com/Azure-Samples/azure-sql-db-fullstack-serverless-kickstart
+  href: /samples/browse/?terms=static%20web%20apps
 - name: Reference
   items:
     - name: Azure CLI

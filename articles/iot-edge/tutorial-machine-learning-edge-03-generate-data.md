@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Tutorial: Generate simulated device data
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 In this article, we use machine learning training data to simulate a device sending telemetry to Azure IoT Hub. As stated in the introduction, this tutorial uses the [Turbofan engine degradation simulation data set](https://c3.nasa.gov/dashlink/resources/139/) to simulate data from a set of airplane engines for training and testing.
 

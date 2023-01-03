@@ -7,6 +7,7 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: kendownie
+ms.custom: engagement-fy23
 ---
 
 # Overview of Azure Files identity-based authentication options for SMB access

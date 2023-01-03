@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 10/28/2022
+ms.date: 12/22/2022
 ms.custom: engagement-fy23
 ---
 
@@ -36,7 +36,7 @@ Frequency of 2.7Ghz and Turbo of 4.0Ghz.
 - 38.4TB storage capacity with all NVMe based SSDs (With Random Read of 636500 IOPS and Random Write of 223300 IOPS)
 - 1.5TB of NVMe Cache
 
-For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
+For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all).
 
 ## Hosts, clusters, and private clouds
 
