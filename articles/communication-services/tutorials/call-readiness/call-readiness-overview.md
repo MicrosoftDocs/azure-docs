@@ -113,7 +113,7 @@ To get us started, we'll replace the create-react-app default `App.tsx` content 
 
 `App.tsx`
 
-```tsx
+```ts
 import { CallClientProvider, createStatefulCallClient, FluentThemeProvider, useTheme } from '@azure/communication-react';
 import { initializeIcons, registerIcons, Stack, Text } from '@fluentui/react';
 import {

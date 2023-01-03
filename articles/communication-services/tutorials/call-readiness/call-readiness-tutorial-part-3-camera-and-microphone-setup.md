@@ -37,7 +37,7 @@ First we'll create a new file called `DeviceSetup.tsx` and add some setup code, 
 
 `DeviceSetup.tsx`
 
-```tsx
+```ts
 import { PrimaryButton, Stack } from '@fluentui/react';
 
 export const DeviceSetup = (props: {
@@ -60,7 +60,7 @@ We can then add this DeviceSetup to our App. Update the App to have a new testin
 
 `App.tsx`
 
-```tsx
+```ts
 ...
 
 import { DeviceSetup } from './DeviceSetup';
@@ -112,7 +112,7 @@ Each of these hooks will use `useCallClientStateChange` to update their lists an
 
 `deviceSetupHooks.tsx`
 
-```tsx
+```ts
 import { AudioDeviceInfo, VideoDeviceInfo } from "@azure/communication-calling";
 import { CallClientState, StatefulDeviceManager, useCallClient, VideoStreamRendererViewState } from "@azure/communication-react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -209,7 +209,7 @@ To house these new components, we'll create a file called `DeviceSelectionCompon
 
 `DeviceSelectionComponents.tsx`
 
-```tsx
+```ts
 import { Dropdown } from '@fluentui/react';
 import { useCameras, useMicrophones, useSpeakers } from './deviceSetupHooks';
 
@@ -292,7 +292,7 @@ The camera, microphone and speaker dropdowns can then be added to the Device Set
 
 `deviceSetup.tsx`
 
-```tsx
+```ts
 ...
 
 import { CameraSelectionDropdown, MicrophoneSelectionDropdown, SpeakerSelectionDropdown } from './DeviceSelectionComponents';
@@ -328,7 +328,7 @@ First we'll add a new hook to our `deviceSetupHooks.tsx` called `useLocalPreview
 
 `deviceSetupHooks.tsx`
 
-```tsx
+```ts
 /** A helper hook to providing functionality to create a local video preview */
 export const useLocalPreview = (): {
   localPreview: VideoStreamRendererViewState | undefined,
@@ -387,7 +387,7 @@ Then we'll create a new component called `LocalPreview.tsx` that will use that h
 
 `LocalPreview.tsx`
 
-```tsx
+```ts
 import { StreamMedia, VideoTile, ControlBar, CameraButton, MicrophoneButton, useTheme } from '@azure/communication-react';
 import { Stack, mergeStyles, Text, ITheme } from '@fluentui/react';
 import { VideoOff20Filled } from '@fluentui/react-icons';
@@ -473,7 +473,7 @@ The local preview component can then be added to the Device Setup:
 
 `deviceSetup.tsx`
 
-```tsx
+```ts
 ...
 
 import { LocalPreview } from './LocalPreview';

@@ -40,7 +40,7 @@ Create a new file called `PreparingYourSession.tsx` where we'll create a spinner
 
 `PreparingYourSession.tsx`
 
-```tsx
+```ts
 import { useTheme } from '@azure/communication-react';
 import { ISpinnerStyles, IStackStyles, ITextStyles, ITheme, Spinner, Stack, Text } from '@fluentui/react';
 
@@ -94,7 +94,7 @@ In the `App.tsx` and a variable `testState` to track the state of the app and wh
 
 `App.tsx`
 
-```tsx
+```ts
 ...
 
 import { useState } from 'react';
@@ -147,7 +147,7 @@ Create a new file called `UnsupportedBrowserPrompt.tsx` where we'll create an un
 
 `UnsupportedBrowserPrompt.tsx`
 
-```tsx
+```ts
 import { UnsupportedBrowser } from '@azure/communication-react';
 import { Modal } from '@fluentui/react';
 
@@ -166,7 +166,7 @@ This component will have a callback `onTestsSuccessful` that can take the user t
 
 `PreCallChecksComponent.tsx`
 
-```tsx
+```ts
 import { useCallClient } from '@azure/communication-react';
 import { useEffect, useState } from 'react';
 import { BrowserUnsupportedPrompt } from './UnsupportedBrowserPrompt';
@@ -218,7 +218,7 @@ We can then add the `PreCallChecksComponent` to the `App.tsx`. The App will then
 
 `App.tsx`
 
-```tsx
+```ts
 ...
 
 import { PreCallChecksComponent } from './PreCallChecksComponent';
