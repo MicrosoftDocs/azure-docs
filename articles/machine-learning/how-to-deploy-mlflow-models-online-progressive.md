@@ -1,5 +1,5 @@
 ---
-title: Progressive rollout of MLflow models
+title: Progressive rollout of MLflow models to Online Endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model progressively using MLflow SDK.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 ms.devlang: azurecli
 ---
 
-# Progressive rollout of MLflow models
+# Progressive rollout of MLflow models to Online Endpoints
 
 In this article, you'll learn how you can progressively update and deploy MLflow models to Online Endpoints without causing service disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
@@ -34,9 +34,34 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
-- Install the Mlflow SDK package: `mlflow`.
-- Install the Azure Machine Learning plug-in for MLflow: `azureml-mlflow`.
-- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+Additionally, you will need to:
+
+# [Azure CLI](#tab/cli)
+
+- Install the Azure CLI and the ml extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+
+# [Python (Azure ML SDK)](#tab/sdk)
+
+- Install the Azure Machine Learning SDK for Python
+    
+    ```bash
+    pip install azure-ai-ml
+    ```
+    
+# [Python (MLflow SDK)](#tab/mlflow)
+
+- Install the Mlflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`.
+
+    ```bash
+    pip install mlflow azureml-mlflow
+    ```
+
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
+
+---
 
 ### Connect to your workspace
 
@@ -271,7 +296,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     __blue-deployment.yml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: default
     endpoint_name: heart-classifier-edp
@@ -384,9 +409,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
     *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
-    ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -409,7 +432,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     __sample.yml__
 
-    ```yml
+    ```yaml
     {
         "input_data": {
             "columns": [
@@ -464,9 +487,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         .sample(n=5)
         .drop(columns=["target"])
         .reset_index(drop=True)
-    )
-    
-    sample_request = { "input_data": json.loads(samples.to_json(orient="split", index=False)) }
+    )    
     ```
 
 1. Test the deployment
@@ -488,26 +509,8 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     # [Python (MLflow SDK)](#tab/mlflow)
 
-    Get the scoring URI:
-
     ```python
-    scoring_uri = deployment_client.get_endpoint(endpoint=endpoint_name)["properties"]["scoringUri"]
-    ```
-    
-    Let's create the headers:
-
-    ```python
-    headers = {
-        'Content-Type':'application/json',
-        'Authorization':('Bearer '+ endpoint_secret_key),
-    }
-    ```
-
-    Call the endpoint and its default deployment:
-
-    ```python
-    req = requests.post(scoring_uri, json=sample_request, headers=headers)
-    req.json()
+    deployment_client.predict(endpoint=endpoint_name, df=samples)
     ```
 
 ### Create a green deployment under the endpoint
@@ -559,7 +562,7 @@ Let's imagine that there is a new version of the model created by the developmen
     
     __green-deployment.yml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: xgboost-model
     endpoint_name: heart-classifier-edp
@@ -642,6 +645,35 @@ Let's imagine that there is a new version of the model created by the developmen
         config={"deploy-config-file": deployment_config_path},
     ) 
     ```
+
+1. Test the deployment without changing traffic
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-endpoint invoke --name $ENDPOINT_NAME --deployment-name $GREEN_DEPLOYMENT_NAME --request-file sample.json
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.online_endpoints.invoke(
+        endpoint_name=endpoint_name,
+        deployment_name=green_deployment_name
+        request_file="sample.json",
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    deployment_client.predict(endpoint=endpoint_name, deployment_name=green_deployment_name, df=samples)
+    ```
+
+    ---
+
+    > [!TIP]
+    > Notice how now we are indicating the name of the deployment we want to invoke.
 
 ## Progressively update the traffic
 
