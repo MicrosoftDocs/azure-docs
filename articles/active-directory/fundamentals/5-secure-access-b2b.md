@@ -111,7 +111,7 @@ To begin collaboration, invite or enable a partner to access resources. Users ga
 
 When you enable Azure AD B2B, you can invite guest users with links and email invitations. Self service sign-up, and publishing Access Packages to the My Access portal, require more configuration. 
 
-> [NOTE]
+> [!NOTE]
 > Self service sign-up enforces no allowlist or blocklist in External Collaboration Settings. Use Cross Tenant Access Settings. You can integrate allowlists and blocklists with self service sign-up using custom API connectors. See, [Add an API connector to a user flow](../external-identities/self-service-sign-up-add-api-connector.md).
 
 ### Guest user invitations
