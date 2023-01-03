@@ -39,7 +39,7 @@ The common theme that all brokered authentications have in is they all acquire a
 This article provides troubleshooting guidance used to assist macOS administrators to resolving issues that arise with deploying the [Enterprise SSO plugin](../develop/apple-sso-plugin.md). The Apple SSO extension can also be deployed to iOS/iPadOS, however this article focuses on macOS troubleshooting. 
  ## Troubleshooting Model
 The following flowchart outlines a logical process flow to approach the troubleshooting steps.  The rest of this article will go into detail on the steps depicted in this flowchart. The troubleshooting can be broken down into two separate focus areas: [Deployment](#deployment-troubleshooting) and [Application Auth Flow](#application-auth-flow-troubleshooting).
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for macOS extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png.png" alt-text="Screenshot of flowchart showing the troubleshooting process flow for macOS extension" lightbox="media/troubleshoot-mac-sso-extension-plugin/macos-enterprise-sso-tsg-model.png":::
 ### macOS Spotlight Configuration
 The guidance in this article assumes that **Spotlight** has been properly indexed. If by chance you are having issues with **Spotlight** resolving applications, use the following procedure to fix the indexing:
 
@@ -139,7 +139,21 @@ If the SSO extension configuration profile does not appear in the **Profiles** a
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/console-subsystem-filter.png" alt-text="Screenshot showing the Console app with the subsystem filter":::
 1. Where the cursor is flashing in the **search bar** type **message:Extensible**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/filter-console-message-extensible.png" alt-text="Screenshot showing the console being further filtered on the message field":::
-1. We should now see the MDM Console logs filtered on **Extensible SSO** configuration profile activities. The following screenshot shows a log entry **Installed configuration profile**, showing that the configuration profile was installed.
+1. You should now see the MDM Console logs filtered on **Extensible SSO** configuration profile activities. The following screenshot shows a log entry **Installed configuration profile**, showing that the configuration profile was installed.
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png" alt-text="Screenshot showing a sample of an installed configuration profile in console logs" lightbox="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png":::
 
 ## Application Auth Flow Troubleshooting
+The guidance in this section assumes that the macOS device has a correctly deployed configuration profile. See [Validate SSO Configuration Profile on macOS Device](#validate-sso-configuration-profile-on-macos-device) for the steps.
+
+Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** supports two types of application authentication flows:
+
+1. Native MSAL App
+1. Non-MSAL Native/Browser SSO
+
+
+|**Application Type**  |**Interactive Auth**  |**Silent Auth**  |
+|---------|---------|---------|
+|Native MSAL App     |    X     |    X     |
+|Non-MSAL Native/Browser SSO     |         |    X     |
+
+
