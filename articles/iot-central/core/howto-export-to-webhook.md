@@ -21,10 +21,15 @@ For Webhook destinations, IoT Central exports data in near real time. The data i
 
 ## Create a Webhook destination
 
-You can export data to a publicly available HTTP Webhook endpoint. You can create a test Webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
+You can export data to a publicly available HTTP Webhook endpoint. You can create a test Webhook endpoint using [RequestBin](https://requestbin.com/). RequestBin throttles request when the request limit is reached:
 
-1. Open [RequestBin](https://requestbin.net/).
-1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
+1. Navigate to [RequestBin](https://requestbin.com/).
+
+1. Select **Create a RequestBin**.
+
+1. Sign in with one of the available methods.
+
+1. Copy the URL of your RequestBin  You use this URL when you test your data export.
 
 To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
 

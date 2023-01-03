@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/08/2022
+ms.date: 12/16/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -159,11 +159,21 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-## Create graph from a CSV file
+## Create multiple graph elements at once
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
+This section describes strategies for creating a graph with multiple elements at the same time, rather than using individual API calls to upload models, twins, and relationships to upload them one by one.
 
-Consider the following data table, describing a set of digital twins and relationships.
+### Import graph with Azure Digital Twins Explorer
+
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a visual tool for viewing and interacting with your twin graph. It contains a feature for importing a graph file in either JSON or Excel format that can contain multiple models, twins, and relationships.
+
+For detailed information about using this feature, see [Import graph](how-to-use-azure-digital-twins-explorer.md#import-graph) in the Azure Digital Twins Explorer documentation.
+
+### Create twins and relationships from a CSV file
+
+Sometimes, you might need to create twin hierarchies out of data stored in a different database, or in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
+
+Consider the following data table, describing a set of digital twins and relationships. The models referenced in this file must already exist in the Azure Digital Twins instance.
 
 |  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |

@@ -6,7 +6,8 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 12/20/2022
+ms.custom: engagement-fy23
 ---
 
 # Prepare source machine for push installation of mobility agent

@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Microsoft Sentinel network normalization schema (Legacy version - Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable unifying analytics.
 
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
@@ -354,6 +352,6 @@ For more information, see:
 - [Normalization in Microsoft Sentinel](normalization.md)
 - [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
 - [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
 - [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
