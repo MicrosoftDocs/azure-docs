@@ -128,7 +128,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/single-classification.png" alt-text="A screenshot of a custom text classification example." lightbox="media/studio-examples/single-classification.png":::
    :::column-end:::
    :::column span="":::
-      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify text into custom classes you define.
+      [Custom text classification](./custom-text-classification/overview.md) enables you to build custom AI models to classify an unstructured passage of text into custom classes you define.
    :::column-end:::
 :::row-end:::
 
