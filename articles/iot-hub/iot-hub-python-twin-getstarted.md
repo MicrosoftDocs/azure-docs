@@ -126,7 +126,7 @@ In this section, you create a Python console app that adds location metadata to 
     python AddTagsAndQuery.py
     ```
 
-    You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network. In the next section, you'll create a device app that will use cellular network and you'll rerun this query to see the difference.
+    You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network. In the next section, you'll create a device app that will use a cellular network and you'll rerun this query to see how it changes.
 
     ![first query showing all devices in Redmond](./media/iot-hub-python-twin-getstarted/service-1.png)
 
