@@ -152,6 +152,13 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
+    - name: MLflow guide
+      items:
+        - name: MLflow and Azure Machine Learning
+          href: concept-mlflow.md
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: MLOps capabilities
@@ -164,8 +171,6 @@
           href: concept-ml-pipelines.md
         - name: ML components
           href: concept-component.md
-        - name: MLflow
-          href: concept-mlflow.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
@@ -501,6 +506,8 @@
               href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Train and track with MLflow
           items:
+            - name: Configure MLflow for Azure Machine Learning
+              href: how-to-use-mlflow-configure-tracking.md
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, model registry, register
               href: how-to-use-mlflow-cli-runs.md
@@ -510,9 +517,12 @@
             - name: Track Azure Synapse Analytics runs with MLflow
               displayName: log, monitor, deploy, metrics, synapse, analytics
               href: how-to-use-mlflow-azure-synapse.md
-            - name: Train experiments with MLflow Projects
+            - name: Train with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
+            - name: Log metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
         - name: Automated machine learning
@@ -638,12 +648,14 @@
               items:
                 - name: Deploy MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Progressive rollout of MLflow models
+                - name: Progressive rollout of MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-progressive.md 
             - name: Batch inference
               items:
                 - name: Deploy MLflow models to Batch Endpoints
                   href: how-to-mlflow-batch.md
+                - name: Deploy and run MLflow models in Spark jobs
+                  href: how-to-deploy-mlflow-model-spark-jobs.md
         - name: Inference HTTP server
           displayName: local debug
           href: how-to-inference-server-http.md
