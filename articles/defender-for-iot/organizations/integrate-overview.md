@@ -112,16 +112,5 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 ## Next steps
 
-For more information, see:
-
-**Device inventory**:
-
-- [Use the Device inventory in the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Use the Device inventory in the OT sensor](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Use the Device inventory in the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
-
-**Alerts**:
-
-- [View alerts in the Azure portal](how-to-manage-cloud-alerts.md)
-- [View alerts in the OT sensor](how-to-view-alerts.md)
-- [View alerts in the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+> [!div class="nextstepaction"]
+> [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md)

@@ -126,10 +126,12 @@
   - name: Enhance security posture
     href: recommendations.md
     displayName: recommendations
-  - name: Integrate with security partners
+  - name: Integrate with partner services
     items:
     - name: Integration catalog
       href: integrate-overview.md
+    - name: Stream cloud alerts to a partner SIEM
+      href: integrations/send-cloud-data-to-partners.md
     - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
