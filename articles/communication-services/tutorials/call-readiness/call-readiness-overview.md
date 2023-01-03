@@ -81,7 +81,7 @@ Your final app will prompt the user onto a supported browser and access for the 
 
 ## Setup the Project
 
-To set up the [React](https://reactjs.org/) App, we'll use the create-react-app template for this quickstart. This will create an easy to run TypeScript App powered by React. It will also install the Azure Communication Services npm packages, as well as the [FluentUI](https://developer.microsoft.com/fluentui/) npm package for creating advanced UI. For more information on create-react-app, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
+To set up the [React](https://reactjs.org/) App, we'll use the create-react-app template for this quickstart. This `create-react-app` command will create an easy to run TypeScript App powered by React. The command will also install the Azure Communication Services npm packages, as well as the [FluentUI](https://developer.microsoft.com/fluentui/) npm package for creating advanced UI. For more information on create-react-app, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -94,7 +94,7 @@ cd ui-library-call-readiness-app
 At the end of this process, you should have a full application inside of the folder `ui-library-call-readiness-app`.
 For this quickstart, we'll be modifying files inside of the `src` folder.
 
-### Install the Package
+### Install Packages
 
 As this feature is in public preview, you must use the beta versions of the Azure Communication Services npm packages. Use the `npm install` command to install these packages:
 
