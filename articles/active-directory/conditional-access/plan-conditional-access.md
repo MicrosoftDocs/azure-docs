@@ -161,7 +161,7 @@ Creating a policy for each app isn’t efficient and leads to difficult administ
 
 By default, each policy created from template is created in report-only mode. We recommended organizations test and monitor usage, to ensure the intended result, before turning on each policy.
 
-[Enable policies in report-only mode](howto-conditional-access-insights-reporting.md). Once you save a policy in report-only mode, you can see the affect on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the **Report-only** tab to see the result of each report-only policy.
+[Enable policies in report-only mode](howto-conditional-access-insights-reporting.md). Once you save a policy in report-only mode, you can see the effect on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the **Report-only** tab to see the result of each report-only policy.
 
 You can view the aggregate affects of your Conditional Access policies in the **Insights and Reporting workbook**. To access the workbook, you need an Azure Monitor subscription and you'll need to [stream your sign-in logs to a log analytics workspace](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
@@ -215,7 +215,7 @@ Refer to [Conditional Access policy templates](concept-conditional-access-policy
 
 #### Evaluate the policy impact
 
-We recommend that you use the following tools to evaluate the affect of your policies both before and after making changes. A simulated run gives you a good idea of the affect a Conditional Access policy has, it doesn't replace an actual test run in a properly configured development environment.
+We recommend that you use the following tools to evaluate the effect of your policies both before and after making changes. A simulated run gives you a good idea of the effect a Conditional Access policy has, it doesn't replace an actual test run in a properly configured development environment.
 
 - [Report-only mode](concept-conditional-access-report-only.md) and the Conditional Access insights and Reporting workbook.
 - The [What If tool](concept-conditional-access-policies.md)
