@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 01/03/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -25,6 +25,8 @@ This article shows you how to harden a managed domain by using setting setting s
 - Disable NTLM password hash synchronization
 - Disable the ability to change passwords with RC4 encryption
 - Enable Kerberos armoring
+- LDAP signing 
+- LDAP channel binding
 
 ## Prerequisites
 
@@ -50,6 +52,8 @@ To complete this article, you need the following resources:
    - **NTLM password synchronization from on-premises**
    - **RC4 encryption**
    - **Kerberos armoring**
+   - **LDAP signing**
+   - **LDAP channel binding**
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
