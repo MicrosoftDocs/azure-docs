@@ -11,14 +11,14 @@ ms.date: 12/08/2022
 
 # Service Connector internals
 
-Service Connector is an Azure extension resource provider designed to provide a simple way to create and manage connections between Azure services. 
+Service Connector is an Azure extension resource provider designed to provide a simple way to create and manage connections between Azure services.
 
-Service Connector:
+Service Connector offers the following features:
 
-- Enables you to connect services together with a single Azure CLI command or in a few steps in the Azure portal.
+- Lets you connect Azure services together with a single Azure CLI command or in a few steps using the Azure portal.
 - Supports an increasing number of databases, storage, real-time services, state, and secret stores that are used with your cloud native application.
-- Configures network settings, authentication, and manages connection environment variables or properties for you
-- Validates connections and provides suggestions to fix connections.
+- Configures network settings, authentication, and manages connection environment variables or properties for you.
+- Validates connections and provides suggestions to fix faulty connections.
 
 ## Service connection overview
 
@@ -83,12 +83,12 @@ Service Connector sets the connection configuration when creating a connection. 
 
 ## Service connection validation
 
-The following items are checked while validating the connection:
+When validating a connection, Service connector checks the following elements:
 
-- Validate whether source and target resources exist
-- Validate target resource network and firewall settings
-- Validate connection information on source resource
-- Validate authentication information on source and target if needed
+- The source and target resources exist.
+- Source: correct connection information is registered.
+- Target: correct network and firewall settings are registered.
+- Source and target resources: correct authentication information is registered.
 
 ## Connection deletion
 
