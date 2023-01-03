@@ -38,7 +38,7 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 * Conditional Access policies and configuration can be read by anyone assigned the following roles:
    * [Security Reader](../roles/permissions-reference.md#security-reader)
    * [Global Reader](../roles/permissions-reference.md#global-reader)
-* A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before you affect real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ### Communication plan
@@ -121,7 +121,7 @@ When creating and assigning policies, you must take into account how access toke
 
 **Access tokens are issued by default if a Conditional Access policy condition does not trigger an access control**. 
 
-This doesn’t prevent the app having its own ability to block access. 
+This policy doesn’t prevent the app having its own ability to block access. 
 
 For example, consider a simplified policy example where: 
 
@@ -129,7 +129,7 @@ Users: FINANCE GROUP <br>
 Accessing: PAYROLL APP <br>
 Access control: Multifactor authentication<br>
   
-- User A is in the FINANCE GROUP, they are required to perform multifactor authentication to access the **PAYROLL APP**.
+- User A is in the FINANCE GROUP, they're required to perform multifactor authentication to access the **PAYROLL APP**.
 - User B is **not** in the FINANCE GROUP, is issued an access token and is allowed to access the **PAYROLL APP** without performing multifactor authentication.
 
 To ensure users outside of finance group can't access the payroll app, a separate policy could be created to block all other users, like the following simplified policy:
@@ -138,7 +138,7 @@ Users: Include All Users / Exclude FINANCE GROUP <br>
 Accessing: PAYROLL APP <br>
 Access control: Block access <br>
 
-Now when User B attempts to access the **PAYROLL APP** they are blocked.
+Now when User B attempts to access the **PAYROLL APP** they're blocked.
 
 ![Access token issuance diagram](media/plan-conditional-access/CA-policy-token-issuance.png)
 
@@ -148,7 +148,7 @@ Taking into account our learnings in the use of Conditional Access and supportin
 
 ### Apply Conditional Access policies to every app
 
-**Ensure that every app has at least one Conditional Access policy applied**. From a security perspective it's better to create a policy that encompasses **All cloud apps**, and then exclude applications that you don't want the policy to apply to. This ensures you don't need to update Conditional Access policies every time you onboard a new application.
+**Ensure that every app has at least one Conditional Access policy applied**. From a security perspective it's better to create a policy that encompasses **All cloud apps**, and then exclude applications that you don't want the policy to apply to. This practice ensures you don't need to update Conditional Access policies every time you onboard a new application.
 
 > [!TIP]
 > Be very careful in using block and all apps in a single policy. This could lock admins out of the Azure portal, and exclusions cannot be configured for important endpoints such as Microsoft Graph.
@@ -161,9 +161,9 @@ Creating a policy for each app isn’t efficient and leads to difficult administ
 
 By default, each policy created from template is created in report-only mode. We recommended organizations test and monitor usage, to ensure the intended result, before turning on each policy.
 
-[Enable policies in report-only mode](howto-conditional-access-insights-reporting.md). Once you save a policy in report-only mode, you can see the impact on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the **Report-only** tab to see the result of each report-only policy.
+[Enable policies in report-only mode](howto-conditional-access-insights-reporting.md). Once you save a policy in report-only mode, you can see the affect on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the **Report-only** tab to see the result of each report-only policy.
 
-You can view the aggregate impact of your Conditional Access policies in the **Insights and Reporting workbook**. To access the workbook, you need an Azure Monitor subscription and you'll need to [stream your sign-in logs to a log analytics workspace](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+You can view the aggregate affects of your Conditional Access policies in the **Insights and Reporting workbook**. To access the workbook, you need an Azure Monitor subscription and you'll need to [stream your sign-in logs to a log analytics workspace](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ### Plan for disruption
 
@@ -203,7 +203,7 @@ In addition to your active policies, implement disabled policies that act as sec
 
 ### Block countries from which you never expect a sign-in.
 
-Azure Active Directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This is less overhead for customers who are based in smaller geographic locations.**Be sure to exempt your emergency access accounts from this policy**.
+Azure Active Directory allows you to create [named locations](location-condition.md). Create the list of countries that are allowed, and then create a network block policy with these "allowed countries" as an exclusion. This practice creates less overhead for customers who are based in smaller geographic locations.**Be sure to exempt your emergency access accounts from this policy**.
 
 ## Deploy Conditional Access policies
 
@@ -215,7 +215,7 @@ Refer to [Conditional Access policy templates](concept-conditional-access-policy
 
 #### Evaluate the policy impact
 
-We recommend that you use the following tools to evaluate the impact of your policies both before and after making changes. A simulated run gives you a good idea of the impact a Conditional Access policy has, it does not replace an actual test run in a properly configured development environment.
+We recommend that you use the following tools to evaluate the affect of your policies both before and after making changes. A simulated run gives you a good idea of the affect a Conditional Access policy has, it doesn't replace an actual test run in a properly configured development environment.
 
 - [Report-only mode](concept-conditional-access-report-only.md) and the Conditional Access insights and Reporting workbook.
 - The [What If tool](concept-conditional-access-policies.md)
@@ -259,7 +259,7 @@ If a user has an issue with a Conditional Access policy, collect the following i
 * Time stamp (approximate is ok)
 * Target application
 * Client application type (browser vs client)
-* Correlation ID (this is unique to the sign-in)
+* Correlation ID (this ID is unique to the sign-in)
 
 If the user received a message with a More details link, they can collect most of this information for you.
 
