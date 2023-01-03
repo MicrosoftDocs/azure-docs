@@ -103,6 +103,8 @@ items:
     items:
     - name: Get started with UI Library
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Get started with Chat UI Library
+      href: quickstarts/ui-library/get-started-chat-ui-library.md
     - name: Design with UI Library Design Kit
       href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Teams interoperability
