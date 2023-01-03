@@ -75,7 +75,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |C#     | 300 seconds* |  [Yes](/dotnet/api/microsoft.azure.devices.client.transport.mqtt.mqtttransportsettings.keepaliveinseconds)   |
 |Python   | 60 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/azure/iot/device/iothub/abstract_clients.py#L343)   |
 
-> *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds. In reality, the SDK sends a ping request four times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
+*The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds. In reality, the SDK sends a ping request four times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
 
 Following the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value; however, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds). This limit exists because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
 
