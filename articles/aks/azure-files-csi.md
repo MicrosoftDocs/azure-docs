@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 author: palma21
 
 ---
@@ -231,7 +231,7 @@ You can request a larger volume for a PVC. Edit the PVC object, and specify a la
 > [!NOTE]
 > A new PV is never created to satisfy the claim. Instead, an existing volume is resized.
 
-In AKS, the built-in `azurefile-csi` storage class already supports expansion, so use the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). The PVC requested a 100Gi file share. We can confirm that by running:
+In AKS, the built-in `azurefile-csi` storage class already supports expansion, so use the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). The PVC requested a 100GiB file share. We can confirm that by running:
 
 ```bash
 kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
@@ -276,7 +276,7 @@ If your Azure Files resources are protected with a private endpoint, you must cr
 * `storageAccount`: The storage account name.
 * `server`: The FQDN of the storage account's private endpoint (for example, `<storage account name>.privatelink.file.core.windows.net`).
 
-Create a file named *private-azure-file-sc.yaml*, and then paste the following example manifest in the file. Replace the values for `<resourceGroup>` and `<storageAccountName>`.
+Create a file named `private-azure-file-sc.yaml`, and then paste the following example manifest in the file. Replace the values for `<resourceGroup>` and `<storageAccountName>`.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -314,7 +314,7 @@ The output of the command resembles the following example:
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
   
-Create a file named *private-pvc.yaml*, and then paste the following example manifest in the file:
+Create a file named `private-pvc.yaml`, and then paste the following example manifest in the file:
   
 ```yaml
 apiVersion: v1
