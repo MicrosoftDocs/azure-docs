@@ -3,7 +3,7 @@ title: Get started with Azure Automation State Configuration
 description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.subservice: dsc
-ms.date: 04/15/2019
+ms.date: 01/03/2022
 ms.topic: conceptual
 ---
 
@@ -182,6 +182,17 @@ account in the **Nodes** tab of the State configuration (DSC) page.
 1. On the left, click **All resources** and then the name of your Automation account.
 1. On the Automation account page, click **State configuration (DSC)** under **Configuration Management**.
 1. On the State configuration (DSC) page, click the **Nodes** tab.
+
+
+### DSC nodes status values
+
+The DSC node can take six different values.
+
+- **Unresponsive** - Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). 
+- **RefreshFrequencyMins** and **ConfigurationModeFrequencyMins** - The frequency of node contacting the agent service is defined using these two different values provided as part of onboarding to DSC. These take a maximum value of 10080 minutes. 
+
+>[!NOTE]
+>If the user uses a value > 1440, the node will be shown **Unresponsive** and gives false status of the nodes. 
 
 ## View reports for managed nodes
 
