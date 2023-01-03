@@ -100,7 +100,7 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 1. Select **Azure Active Directory Domain Services** then enable the feature by ticking the checkbox.
 1. Select **Save**.
 
-    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-adds-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-adds-highlight.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-ds-highlight.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
