@@ -17,6 +17,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure CLI. 
 ## Prerequisites
 
 - An Azure account for work or school and an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- The [Azure CLI](/cli/azure/install-azure-cli).
 - Minimum required role to create an instance: resource group Contributor.
 - Minimum required role to access an instance: resource group Owner.
     >[!NOTE]
