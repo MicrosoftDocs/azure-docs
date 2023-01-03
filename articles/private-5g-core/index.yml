@@ -115,18 +115,12 @@ landingContent:
         links:
           - text: Cloud monitoring with Azure Monitor platform metrics
             url: monitor-private-5g-core-with-platform-metrics.md
-          - text: Cloud monitoring with Log Analytics
-            url: monitor-private-5g-core-with-log-analytics.md
           - text: Local monitoring with distributed tracing
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
       - linkListType: how-to-guide
         links:
-          - text: Enable Log Analytics for Azure Private 5G Core
-            url: enable-log-analytics-for-private-5g-core.md
-          - text: Create an overview Log Analytics dashboard
-            url: create-overview-dashboard.md 
           - text: Modify a site's local access configuration
             url: modify-local-access-configuration.md      
           - text: Export, upload and share traces for diagnostics

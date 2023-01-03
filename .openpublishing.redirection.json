@@ -21324,6 +21324,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/private-5g-core/monitor-private-5g-core-with-log-analytics.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/enable-log-analytics-for-private-5g-core.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/create-overview-dashboard.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-resource-manager/resource-manager-template-lock.md",
             "redirect_url": "/azure/templates/microsoft.authorization/locks",
             "redirect_document_id": false

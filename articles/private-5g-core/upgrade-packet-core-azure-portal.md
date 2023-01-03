@@ -18,7 +18,7 @@ If your deployment contains multiple sites, we recommend upgrading the packet co
 
 ## Prerequisites
 
-- You must have a running packet core. Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally.
+- You must have a running packet core. Use Azure monitor platform metrics or the packet core dashboards to confirm your packet core instance is operating normally.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## View the current packet core version
@@ -101,7 +101,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 Once the upgrade completes, check if your deployment is operating normally.
 
 1. Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version). Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
-1. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
+1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
 ## Rollback
@@ -135,4 +135,4 @@ Note that any configuration you set while your packet core instance was running 
 You've finished upgrading your packet core instance.
 
 - If your deployment contains multiple sites, upgrade the packet core instance in another site.
-- Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md), [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to monitor your deployment.
+- Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to monitor your deployment.

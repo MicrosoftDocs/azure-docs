@@ -36,7 +36,7 @@ You can use the Azure portal to monitor your deployment's health and performance
 1. Select the **Monitoring** tab.
     <!-- TODO: add screenshot -->
 
-Under **Key Metrics**, you should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
+You should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
 
 You can select individual dashboards to open an expanded view where you can specify details such as the graph's time range and time granularity. You can also create additional dashboards using the platform metrics available. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started).
 
@@ -56,4 +56,3 @@ You can find more information on using the Azure Monitor REST API to construct q
 ## Next steps
 
 - [Learn more about the Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics)
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
