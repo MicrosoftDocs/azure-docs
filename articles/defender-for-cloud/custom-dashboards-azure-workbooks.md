@@ -177,11 +177,15 @@ You can see the details for that alert with the Open Alert View button.
 
 This workbook provides a customizable canvas for data analysis and the creation of rich visual reports. The new DevOps Security workbook in Microsoft Defender for Cloud provides you with a unified interactive experience enabling you to quickly gain visibility and insights into your DevOps security posture in coordination with the newest MDC service Defender for DevOps. The DevOps Security workbook provides you with a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you have configured. You can investigate credential exposure, including types of credentials and repo locations. Then you can do the same for code, dependencies, and hardening.
 
+> [!NOTE] You must have a [Github connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
+
 **To deploy the workbook**:
 
-1. Navigate to the [DevOps Security (Preview)](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/preview/Workbooks/DevOps%20Security%20(Preview)) page.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select **Deploy to Azure**. 
+1. Navigate to **Microsoft Defender for Cloud** > **Workbooks**.
+
+1. Select 
 
 
 
