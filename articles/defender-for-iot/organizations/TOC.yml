@@ -182,8 +182,14 @@
       href: how-to-manage-subscriptions.md
     - name: Onboard OT sensors
       href: onboard-sensors.md
-    - name: Install OT system software
-      href: how-to-install-software.md
+    - name: Install OT monitoring software
+      items:
+      - name: Install OT sensor software
+        href: ot-deploy/install-software-ot-sensor.md
+      - name: Install on-premises management console software
+        href: ot-deploy/install-software-on-premises-management-console.md
+      - name: Validate after installation
+        href: ot-deploy/post-install-validation-ot-software.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Deploy OT certificates
