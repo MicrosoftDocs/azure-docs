@@ -28,11 +28,11 @@ The following prerequisites are required:
 
 Set the following variables that will be used throughout this procedure:
 
-```console
-KEYVAULT_RESOURCE_GROUP=<name of your ARO resource group>
-KEYVAULT_LOCATION=<location for your key vault>
-KEYVAULT_NAME=<name for key vault>
-AZ_TENANT_ID=<tenant ID for your Azure account>
+```
+export KEYVAULT_RESOURCE_GROUP=${AZR_RESOURCE_GROUP:-"openshift"}
+export KEYVAULT_LOCATION=${AZR_RESOURCE_LOCATION:-"eastus"}
+export KEYVAULT_NAME=secret-store-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
+export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
 ```
 
 ## Install the Kubernetes Secrets Store CSI Driver
