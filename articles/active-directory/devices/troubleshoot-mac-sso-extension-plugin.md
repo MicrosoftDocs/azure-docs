@@ -24,6 +24,9 @@ Organizations that are opting to provide a better experience for their end users
 Apple has developed an **[SSO extension framework](https://devstreaming-cdn.apple.com/videos/tutorials/20190910/301fgloga45ths/introducing_extensible_enterprise_sso/introducing_extensible_enterprise_sso.pdf?dl=1)** where when deployed via Mobile Device Management (MDM) to a macOS device, functions as an authentication broker for a collection of applications secured by the same Identity provider (IdP). Microsoft has implemented a plugin built on top Apple's SSO framework, which provides brokered authentication (auth) for applications integrated with Microsoft Entra Azure Active Directory (AAD). For more details please see the article [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
 
 Microsoft has implementations for brokered authentication for the following client operating systems:
+
+
+
 |**OS**       |**Authentication Broker**  |
 |---------|---------|
 |Windows     |Web Account Manager (WAM)         |
@@ -98,6 +101,8 @@ The following table provides specific MDM installation guidance depending on whi
 |JAMF Pro     |[Use the Microsoft Enterprise SSO plug-in on iOS/iPadOS and macOS devices in Jamf Pro](https://learn.microsoft.com/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro)|Intune Company Portal needs to be installed. See JAMF documentation: [Deploy Company Portal](https://docs.jamf.com/technical-papers/jamf-pro/microsoft-intune/10.34.0/Deploy_the_Company_Portal_App_from_Microsoft_to_End_Users.html) Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac)          |
 |     |         |         |
 |Other 3rd Party MDM     |Please consult any vendor specific documentation for how to deploy SSO extension profiles and reference our documentation on [Manual Configuration for other MDM Services](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)|Intune Company Portal needs to be installed. See MDM vendor documentation. Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac)
+
+
 >[!NOTE]
 > At the present time the Microsoft SSO Extension broker plugin code is bundled into the Microsoft Intune Company Portal app.  In the future we might decide to separate this into its own app, thus requiring a separate app installation on the macOS device.            
 #### Validate SSO Configuration Profile on macOS Device 
@@ -106,7 +111,7 @@ Assuming the MDM administrator has followed the steps in the previous section [M
 1.  From the macOS device, click on the **spotlight icon** <img width="30" height="30" src="media/troubleshoot-mac-sso-extension-plugin/spotlight-icon.png" alt-text="screenshot showing the macOS spotlight icon">
 1. When the **Spotlight Search** appears type **Profiles** and hit **return**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/launch-profiles-from-spotlight.png" alt-text="screenshot showing Profiles being launched from spotlight":::
 1. This should bring up the **Profiles** panel within the **System Settings**
-:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/profiles-within-system-settings.png" alt-text="":::
+:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/profiles-within-system-settings.png" alt-text="Screenshot showing configuration profiles":::
     >[!NOTE] Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  By double-clicking each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
 1. Double-click on the configuration profile that matches a **Settings** value of **Single Sign On Extension**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-config-profile.png" alt-text="screnshot showing sso extension configuration profile":::
