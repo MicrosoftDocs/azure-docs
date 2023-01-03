@@ -96,10 +96,24 @@ Before you design your workload zone layout, consider the following questions:
 
 * How many workload zones does your scenario require?
 * In which regions do you need to deploy workloads?
+* How is DNS handled?
 * What storage type do you need for the shared storage?
 * What's your [deployment scenario](#supported-deployment-scenarios)?
 
 For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
+
+### Windows based deployments
+
+When doing Windows based deployments the Virtual Machines in the workload zone's Virtual Network need to be able to communicate with Active Directory in order to join the SAP Virtual Machines to the Active Directory Domain. The provided DNS name needs to be resolvable by the Active Directory.
+
+The workload zone key vault must contain the following secrets:
+
+| Credential                                             | Name                                      | Example                                 |
+| ------------------------------------------------------ | ----------------------------------------- | --------------------------------------- | 
+| Account that can perform domain join activities        | [IDENTIFIER]-ad-svc-account               | DEV-WEEU-SAP01-ad-svc-account           | 
+| Password for the account that performs the domain join | [IDENTIFIER]-ad-svc-account-password      | DEV-WEEU-SAP01-ad-svc-account-password  | 
+| sidadm account password                                | [IDENTIFIER]-winsidadm_password_id        | DEV-WEEU-SAP01-winsidadm_password_id    | 
+| SID Service account password                           | [IDENTIFIER]-svc-sidadm-password          | DEV-WEEU-SAP01-svc-sidadm-password      | 
 
 
 ## Credentials management
@@ -110,13 +124,15 @@ The automation framework uses [Service Principals](#service-principal-creation) 
 
 The automation framework will use the workload zone key vault for storing both the automation user credentials and the SAP system credentials. The virtual machine credentials are named as follows:
 
-| Credential         | Name                            | Example                         |
-| ------------------ | ------------------------------- | ------------------------------- | 
-| Private key        | [IDENTIFIER]-sshkey             | DEV-WEEU-SAP01-sid-sshkey       | 
-| Public key         | [IDENTIFIER]-sshkey-pub         | DEV-WEEU-SAP01-sid-sshkey-pub   | 
-| Username           | [IDENTIFIER]-username           | DEV-WEEU-SAP01-sid-username     | 
-| Password           | [IDENTIFIER]-password           | DEV-WEEU-SAP01-sid-password     | 
-| sidadm Password    | [IDENTIFIER]-[SID]-sap-password | DEV-WEEU-SAP01-X00-sap-password | 
+| Credential                   | Name                               | Example                              |
+| ---------------------------- | ---------------------------------- | ------------------------------------ | 
+| Private key                  | [IDENTIFIER]-sshkey                | DEV-WEEU-SAP01-sid-sshkey            | 
+| Public key                   | [IDENTIFIER]-sshkey-pub            | DEV-WEEU-SAP01-sid-sshkey-pub        | 
+| Username                     | [IDENTIFIER]-username              | DEV-WEEU-SAP01-sid-username          | 
+| Password                     | [IDENTIFIER]-password              | DEV-WEEU-SAP01-sid-password          | 
+| sidadm Password              | [IDENTIFIER]-[SID]-sap-password    | DEV-WEEU-SAP01-X00-sap-password      | 
+| sidadm account password      | [IDENTIFIER]-winsidadm_password_id | DEV-WEEU-SAP01-winsidadm_password_id | 
+| SID Service account password | [IDENTIFIER]-svc-sidadm-password   | DEV-WEEU-SAP01-svc-sidadm-password   | 
 
 
 ### Service principal creation
