@@ -4,7 +4,7 @@ description: Learn how to create and use Azure file shares with the Azure portal
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/24/2022
+ms.date: 01/03/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23, mode-ui, devx-track-azurecli 
@@ -137,15 +137,15 @@ az storage account create \
 To create an Azure file share:
 
 1. Select the storage account from your dashboard.
-1. On the storage account page, in the **Services** section, select **Files**.
+1. On the storage account page, in the **Data storage** section, select **File shares**.
 	
     ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-1. On the menu at the top of the **File service** page, select **+ File share**. The **New file share** page drops down.
-1. In **Name** type *myshare*. Leave **Transaction optimized** selected for **Tier**.
+1. On the menu at the top of the **File shares** page, select **+ File share**. The **New file share** page drops down.
+1. In **Name**, type *myshare*. Leave **Transaction optimized** selected for **Tier**.
 1. Select **Create** to create the Azure file share.
 
-Share names must be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+File share names must be all lower-case letters, numbers, and single hyphens, and must begin and end with a lower-case letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -225,7 +225,7 @@ First, you need to create or select a file to upload. Do this by whatever means 
 1. Select the **myDirectory** directory. The **myDirectory** panel opens.
 1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
 	
-    ![A screenshot of the upload files panel](media/storage-how-to-use-files-portal/upload-file-1.png)
+    :::image type="content" source="media/storage-how-to-use-files-portal/upload-file.png" alt-text="Screenshot showing the upload files panel in the Azure portal." border="true":::
 
 1. Select the folder icon to open a window to browse your local files. 
 1. Select a file and then select **Open**. 
