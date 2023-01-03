@@ -82,13 +82,13 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
    <!TODO: we should prob recomend doing this over FTP, it's more reliable than web upload through SCM site?>
 
-5. You can either point your WordPress to [use an existing MySQL database](./using_an_existing_mysql_database.md), or use the steps below to migrate the content to the new database server (an Azure Database for MySQL flexible server) created by the WordPress on Linux App Services offering.
+5. You can either point your WordPress to [use an existing MySQL database](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/using_an_existing_mysql_database.md), or use the steps below to migrate the content to the new database server (an Azure Database for MySQL flexible server) created by the WordPress on Linux App Services offering.
 
 	>**NOTE:** Azure Database for MySQL - Single Server is on the road to retirement by 16 September 2024. If your existing MySQL database is hosted on Azure Database for MySQL - Single Server, please consider migrating to Azure Database for MySQL - Flexible Server using the following steps, or using [Azure Database Migration Service (DMS)](https://learn.microsoft.com/azure/mysql/single-server/whats-happening-to-mysql-single-server#migrate-from-single-server-to-flexible-server).
 
 6. If you chose to migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at **\<sitename\>.azurewebsites.net/phpmyadmin**. Please note that if you are unable to one single large SQL file, please try to break it into multiple smaller parts and try uploading. Steps to import the database through phpmyadmin are described [here](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
 
-7. Launch the Azure Portal and navigate to your **App Service -> Configuration** blade. Update the database name in the **Application Settings** of App Service and save it. This will restart your App and the new changes will get reflected.  [Learn more: WordPress Application Settings](./wordpress_application_settings.md)
+7. Launch the Azure Portal and navigate to your **App Service -> Configuration** blade. Update the database name in the **Application Settings** of App Service and save it. This will restart your App and the new changes will get reflected.  [Learn more: WordPress Application Settings](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_application_settings.md)
 
     |    Application Setting Name    | Update Required?                         |
     |--------------------------------|------------------------------------------|
@@ -107,11 +107,11 @@ It is an optional step, after the site migration it is recommended to validate t
 
 - The W3TC plugin should be activated and configured properly to use the local Redis cache server and Azure CDN/Blob Storage (if it was configured to use them originally). For more information on how to configure these, please refer to the following documentations:
 
-  - [Local Redis Cache](./wordpress_local_redis_cache.md)
-  - [Azure CDN](./wordpress_azure_cdn.md)
-  - [Azure Blob Storage](./wordpress_azure_blob_storage.md)
+  - [Local Redis Cache](./https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_local_redis_cache.md)
+  - [Azure CDN](./https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_azure_cdn.md)
+  - [Azure Blob Storage](./https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_azure_blob_storage.md)
 
-- WP Smush plugin is activated and configured properly for image optimization. Please see [Image Compression](./wordpress_image_compression.md) for more information on configuration.
+- WP Smush plugin is activated and configured properly for image optimization. Please see [Image Compression](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_image_compression.md) for more information on configuration.
 
 ### Recommended WordPress Settings
 
@@ -128,15 +128,15 @@ One common issue that users face during migration is that some of the contents o
 
 ## Configuring Custom Domain
 
-If you plan to setup your site with a new Custom Domain please follow the steps described here: Tutorial: [Map existing custom DNS name - Azure App Service | Microsoft Docs](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)
+If you plan to setup your site with a new Custom Domain please follow the steps described here: Tutorial: [Map existing custom DNS name - Azure App Service | Microsoft Docs](app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)
 
 ## Migrating Custom Domain
 
-When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by binding the active DNS name to your App Service app pre-emptively as per the steps described here: [Migrate an active DNS name - Azure App Service | Microsoft Docs](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain)
+When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by binding the active DNS name to your App Service app pre-emptively as per the steps described here: [Migrate an active DNS name - Azure App Service | Microsoft Docs](manage-custom-dns-migrate-domain)
 
 ## Updating SSL Certificates
 
-If your site is configured with SSL certs, then we need to redo the setup following the instructions here: [Add and manage TLS/SSL certificates - Azure App Service | Microsoft Docs](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate?tabs=apex%2Cportal)
+If your site is configured with SSL certs, then we need to redo the setup following the instructions here: [Add and manage TLS/SSL certificates - Azure App Service | Microsoft Docs](configure-ssl-certificate?tabs=apex%2Cportal)
 
 Next steps:
 [At-scale assessment of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
