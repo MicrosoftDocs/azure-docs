@@ -23,7 +23,7 @@ Planning your Conditional Access deployment is critical to achieving your organi
 
 With this evaluation and enforcement, Conditional Access defines the basis of [Microsoft’s Zero Trust security posture management](https://www.microsoft.com/security/business/zero-trust).
 
-![Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
+![Diagram showing a high level Conditional Access overview](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
 Microsoft provides [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) that ensure a basic level of security enabled in tenants that don't have Azure AD Premium. With Conditional Access, you can create policies that provide the same protection as security defaults, but with granularity. Conditional Access and security defaults aren't meant to be combined as creating Conditional Access policies will prevent you from enabling security defaults.
 
@@ -140,7 +140,7 @@ Access control: Block access <br>
 
 Now when User B attempts to access the **PAYROLL APP** they're blocked.
 
-![Access token issuance diagram](media/plan-conditional-access/CA-policy-token-issuance.png)
+![Diagram showing access token issuance](media/plan-conditional-access/CA-policy-token-issuance.png)
 
 ## Recommendations
 
@@ -181,11 +181,11 @@ If you rely on a single access control such as multifactor authentication or a n
 * Who it applies to
 * When it applies (if applicable)
 
-![Screenshot that shows the naming standards for policies.](media/plan-conditional-access/11.png)
+![Diagram showing the example naming standards for policies.](media/plan-conditional-access/11.png)
 
 **Example**: A policy to require MFA for marketing users accessing the Dynamics CRP app from external networks might be:
 
-![Naming standard](media/plan-conditional-access/naming-example.png)
+![Diagram showing a naming standard](media/plan-conditional-access/naming-example.png)
 
 A descriptive name helps you to keep an overview of your Conditional Access implementation. The Sequence Number is helpful if you need to reference a policy in a conversation. For example, when you talk to an administrator on the phone, you can ask them to open policy CA01 to solve an issue.
 
@@ -263,7 +263,7 @@ If a user has an issue with a Conditional Access policy, collect the following i
 
 If the user received a message with a More details link, they can collect most of this information for you.
 
-![Can’t get to app error message](media/plan-conditional-access/cant-get-to-app.png)
+![Screenshots of an example error message and more details](media/plan-conditional-access/cant-get-to-app.png)
 
 Once you've collected the information, See the following resources:
 
