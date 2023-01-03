@@ -210,8 +210,8 @@ items:
     items:
     - name: Integration runtime overview
       href: concepts-integration-runtime.md
-    - name: Choosing the right IR configuration for your scenario
-      href: choosing-the-right-ir-configuration.md
+    - name: Choose the right integration-runtime configuration for your scenario
+      href: choose-the-right-integration-runtime-configuration.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
