@@ -14,7 +14,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # Tutorial: Understanding X.509 Public Key Certificates
 
-X.509 certificates are digital documents that represent a user, computer, service, or device. They are issued by a certification authority (CA), subordinate CA, or registration authority and contain the public key of the certificate subject. They do not contain the subject's private key, which must be stored securely. Public key certificates are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). They are digitally signed and, in general, contain the following information:
+X.509 certificates are digital documents that represent a user, computer, service, or device. They're issued by a certification authority (CA), subordinate CA, or registration authority and contain the public key of the certificate subject. They don't contain the subject's private key, which must be stored securely. Public key certificates are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). They're digitally signed and, in general, contain the following information:
 
 * Information about the certificate subject
 * The public key that corresponds to the subject's private key
@@ -41,11 +41,11 @@ Version 2 added the following fields containing information about the certificat
 
 Version 3 certificates added the following extensions:
 
-* **Authority Key Identifier**: This can be one of two values:
+* **Authority Key Identifier**: This extension can be set to one of two values:
   * The subject of the CA and serial number of the CA certificate that issued this certificate
   * A hash of the public key of the CA that issued this certificate
 * **Subject Key Identifier**: Hash of the current certificate's public key
-* **Key Usage** Defines the service for which a certificate can be used. This can be one or more of the following values:
+* **Key Usage** Defines the service for which a certificate can be used. This extension can be set to one or more of the following values:
   * **Digital Signature**
   * **Non-Repudiation**
   * **Key Encipherment**
@@ -61,7 +61,7 @@ Version 3 certificates added the following extensions:
 * **Subject Alternative Name**: List of alternate names for the subject
 * **Issuer Alternative Name**: List of alternate names for the issuing CA
 * **Subject Dir Attribute**: Attributes from an X.500 or LDAP directory
-* **Basic Constraints**: Allows the certificate to designate whether it is issued to a CA, or to a user, computer, device, or service. This extension also includes a path length constraint that limits the number of subordinate CAs that can exist.
+* **Basic Constraints**: Allows the certificate to designate whether it's issued to a CA, or to a user, computer, device, or service. This extension also includes a path length constraint that limits the number of subordinate CAs that can exist.
 * **Name Constraints**: Designates which namespaces are allowed in a CA-issued certificate
 * **Policy Constraints**: Can be used to prohibit policy mappings between CAs
 * **Extended Key Usage**: Indicates how a certificate's public key can be used beyond the purposes identified in the **Key Usage** extension
@@ -69,15 +69,15 @@ Version 3 certificates added the following extensions:
 * **Inhibit anyPolicy**: Inhibits the use of the **All Issuance Policies** OID (2.5.29.32.0) in subordinate CA certificates
 * **Freshest CRL**: Contains one or more URLs where the issuing CA's delta CRL is published
 * **Authority Information Access**: Contains one or more URLs where the issuing CA certificate is published
-* **Subject Information Access**: Contains information about how to retrieve additional details for a certificate subject
+* **Subject Information Access**: Contains information about how to retrieve more details for a certificate subject
 
 ## Certificate formats
 
-Certificates can be saved in a variety of formats. Azure IoT Hub authentication typically uses the PEM and PFX formats.
+Certificates can be saved in various formats. Azure IoT Hub authentication typically uses the Privacy-Enhanced Mail (PEM) and Personal Information Exchange (PFX) formats.
 
 ### Binary certificate
 
-This contains a raw form binary certificate using Distinguished Encoding Rules (DER) ASN.1 encoding.
+A raw form binary certificate using Distinguished Encoding Rules (DER) ASN.1 encoding.
 
 ### ASCII PEM format
 
@@ -85,11 +85,11 @@ A PEM certificate (.pem) file contains a Base64-encoded certificate beginning wi
 
 ### ASCII PEM key
 
-Contains a Base64-encoded DER key with possibly additional metadata about the algorithm used for password protection.
+Contains a Base64-encoded DER key, optionally with more metadata about the algorithm used for password protection.
 
 ### PKCS #7 certificate
 
-A format designed for the transport of signed or encrypted data. It is defined by [RFC 2315](https://tools.ietf.org/html/rfc2315). It can include the entire certificate chain.
+A format designed for the transport of signed or encrypted data. It's defined by [RFC 2315](https://tools.ietf.org/html/rfc2315). It can include the entire certificate chain.
 
 ### PKCS #8 key
 
@@ -97,7 +97,7 @@ The format for a private key store defined by [RFC 5208](https://tools.ietf.org/
 
 ### PKCS #12 key and certificate
 
-A complex format that can store and protect a key and the entire certificate chain. It is commonly used with a .pfx extension. PKCS #12 is synonymous with the PFX format.
+A complex format that can store and protect a key and the entire certificate chain. It's commonly used with a .pfx extension. PKCS #12 is synonymous with the PFX format.
 
 ## For more information
 
