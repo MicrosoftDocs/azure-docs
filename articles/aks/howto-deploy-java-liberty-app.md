@@ -136,7 +136,7 @@ Now that you've gathered the necessary properties, you can build the application
 ```bash
 cd <path-to-your-repo>/java-app
 
-# The following variables will be used for deployment file generation into target/
+# The following variables will be used for deployment file generation into target.
 export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
 export REGISTRY_NAME=<Azure_Container_Registery_Name>
 export USER_NAME=<Azure_Container_Registery_Username>
@@ -152,9 +152,9 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
+You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
-1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the above step.
+1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the previous step.
 
    ```bash
    cd <path-to-your-repo>/java-app
@@ -163,7 +163,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
-1. Press `Ctrl+C` to stop.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Build image for AKS deployment
 
@@ -181,17 +181,22 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 
 ### (Optional) Test the Docker image locally
 
-You can now test the Docker image locally before deploying to Azure.
+You can now use the following steps to test the Docker image locally before deploying to Azure.
 
 1. Run the image using the following command. Note we're using the environment variables defined previously.
 
-```bash
-docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD} javaee-cafe:v1
-```
+   ```bash
+   docker run -it --rm -p 9080:9080 \
+       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
+       -e DB_NAME=${DB_NAME} \
+       -e DB_USER=${DB_USER} \
+       -e DB_PASSWORD=${DB_PASSWORD} \
+       javaee-cafe:v1
+   ```
 
 1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
-1. Press `Ctrl+C` to stop.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Upload image to ACR
 
