@@ -1,5 +1,5 @@
 ---
-title: Progressive rollout of MLflow models
+title: Progressive rollout of MLflow models to Online Endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model progressively using MLflow SDK.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 ms.devlang: azurecli
 ---
 
-# Progressive rollout of MLflow models
+# Progressive rollout of MLflow models to Online Endpoints
 
 In this article, you'll learn how you can progressively update and deploy MLflow models to Online Endpoints without causing service disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
 
@@ -59,7 +59,7 @@ Additionally, you will need to:
     pip install mlflow azureml-mlflow
     ```
 
-- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
 
 ---
 
@@ -296,7 +296,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     __blue-deployment.yml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: default
     endpoint_name: heart-classifier-edp
@@ -432,7 +432,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     __sample.yml__
 
-    ```yml
+    ```yaml
     {
         "input_data": {
             "columns": [
@@ -562,7 +562,7 @@ Let's imagine that there is a new version of the model created by the developmen
     
     __green-deployment.yml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: xgboost-model
     endpoint_name: heart-classifier-edp
