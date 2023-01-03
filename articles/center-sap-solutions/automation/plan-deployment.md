@@ -76,15 +76,15 @@ enable_firewall_for_keyvaults_and_storage = true
 #use_custom_dns_a_registration=true
 ```
 
-For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-control-plane.md).
+For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
 
 ## SAP Library configuration
 
-The SAP library provides storage for SAP installation media, Bill of Material (BOM) files, Terraform state files and optionally a Private DNS Zone. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
+The SAP library provides storage for SAP installation media, Bill of Material (BOM) files, Terraform state files and optionally a Private DNS Zone. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](configure-control-plane.md).
 
 ## Workload zone planning
 
-Most SAP application landscapes are partitioned in different tiers. In SDAF these are called workload zones, for example, you might have different workload zones for development, quality assurance, and production. See [workload zones](automation-deployment-framework.md#deployment-components). 
+Most SAP application landscapes are partitioned in different tiers. In SDAF these are called workload zones, for example, you might have different workload zones for development, quality assurance, and production. See [workload zones](deployment-framework.md#deployment-components). 
 
 The workload zone provides the following services for the SAP Applications:
 
@@ -101,7 +101,7 @@ Before you design your workload zone layout, consider the following questions:
 * What storage type do you need for the shared storage?
 * What's your [deployment scenario](#supported-deployment-scenarios)?
 
-For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
+For more information, see [how to configure a workload zone deployment for automation](deploy-workload-zone.md).
 
 ### Windows based deployments
 
@@ -275,10 +275,6 @@ The deployment configuration file defines the region, environment name, and virt
 ```
 
 For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
-
-## SAP Library configuration
-
-The SAP library provides storage for SAP installation media, Bill of Material (BOM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](configure-control-plane.md).
 
 ## Workload zone structure
 

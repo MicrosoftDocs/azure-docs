@@ -95,13 +95,8 @@ To follow this chapter, read and understand the information presented in:
 
 For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../managed-disks-overview.md).
 
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-For Azure block storage, the usage of Azure managed disks is highly recommended. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../virtual-machines/managed-disks-overview.md).
 
-In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. Changing earlier recommendations, we recommend having separate Azure disks for:
-========
 In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. We recommend having separate Azure disks for:
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
 
 - The operating system (base VHD or OS VHD)
 - Database management system executables
@@ -168,22 +163,9 @@ For Azure premium storage v2 and Ultra disk, striping may not necessary since yo
 >
 
 ### Managed or nonmanaged disks
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-An Azure storage account is an administrative construct and also a subject of limitations. Limitations differ between standard storage accounts and premium storage accounts. For information on capabilities and limitations, see [Azure Storage scalability and performance targets](../../storage/common/scalability-targets-standard-account.md).
 
-For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription. Balance VHDs for the larger SAP landscape across different storage accounts to avoid hitting the limits of these storage accounts. This is tedious work when you're talking about a few hundred virtual machines with more than a thousand VHDs.
-
-Using standard storage for DBMS deployments in conjunction with an SAP workload isn't recommended. Therefore, references and recommendations to standard storage are limited to this short [article](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)
-
-To avoid the administrative work of planning and deploying VHDs across different Azure storage accounts, Microsoft introduced [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) in 2017. Managed disks are available for standard storage and premium storage. The major advantages of managed disks compared to nonmanaged disks are:
-
-- For managed disks, Azure distributes the different VHDs across different storage accounts automatically at deployment time. In this way, storage account limits for data volume, I/O throughput, and IOPS aren’t hit.
-- Using managed disks, Azure Storage honors the concepts of Azure availability sets. If the VM is part of an Azure availability set, the base VHD and attached disk of a VM are deployed into different fault and update domains.
-
-========
-An Azure storage account is an administrative construct and also a subject of limitations. For information on capabilities and limitations, see [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription. 
+An Azure storage account is an administrative construct and also a subject of limitations. For information on capabilities and limitations, see [Azure Storage scalability and performance targets](../../storage/common/scalability-targets-standard-account.md). For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription. 
 As of 2017, Azure introduced the concepts of [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) that relief you of taking care of any storage account administration. Using Azure managed disks is the default to deploy for SAP workload in Azure. 
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
 
 > [!IMPORTANT]
 > Given the advantages of Azure Managed Disks, it is mandatory that you use Azure Managed Disks for your DBMS deployments and SAP deployments in general.
@@ -216,11 +198,7 @@ For Azure premium storage v1, the following caching options exist:
 
 For premium storage v1, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
 
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-For M-Series deployments, we recommend that you use Azure Write Accelerator for your DBMS deployment. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
-========
-For M-Series deployments, we recommend that you use Azure Write Accelerator only for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../how-to-enable-write-accelerator.md).
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
+For M-Series deployments, we recommend that you use Azure Write Accelerator only for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
 
 For premium storage v2, Ultra disk and Azure NetApp Files, no caching options are offered.
 
@@ -256,11 +234,8 @@ There are other redundancy methods. For more information, see [Azure Storage rep
 
 
 ## VM node resiliency
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/availability.md) and [Manage the availability of Linux virtual machines in Azure](../../virtual-machines/availability.md).
-========
-Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../availability.md) and [Manage the availability of Linux virtual machines in Azure](../../availability.md).
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
+
+Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/availability.md) and [Manage the availability of Linux virtual machines in Azure](../../virtual-machines/availability.md).
 
 The minimum recommendation for production DBMS scenarios with an SAP workload is to:
 
@@ -281,30 +256,18 @@ These best practices are the result of thousands of customer deployments:
 
 - The virtual networks the SAP application is deployed into don't have access to the internet.
 - The database VMs run in the same virtual network as the application layer, separated in a different subnet from the SAP application layer.
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
 - The VMs within the virtual network have a static allocation of the private IP address. For more information, see [IP address types and allocation methods in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
-- Routing restrictions to and from the DBMS VMs are *not* set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../virtual-network/network-security-groups-overview.md).
+- Routing restrictions to and from the DBMS VMs **aren't** set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../virtual-network/network-security-groups-overview.md).
 - To separate and isolate traffic to the DBMS VM, assign different NICs to the VM. Every NIC gets a different IP address, and every NIC is assigned to a different virtual network subnet. Every subnet has different NSG rules. The isolation or separation of network traffic is a measure for routing. It's not used to set quotas for network throughput.
 
 > [!NOTE]
-> Assigning static IP addresses through Azure means to assign them to individual virtual NICs. Don't assign static IP addresses within the guest OS to a virtual NIC. Some Azure services like Azure Backup rely on the fact that at least the primary virtual NIC is set to DHCP and not to static IP addresses. For more information, see [Troubleshoot Azure virtual machine backup](../../backup/backup-azure-vms-troubleshoot.md#networking). To assign multiple static IP addresses to a VM, assign multiple virtual NICs to a VM.
-========
-- The VMs within the virtual network have a static allocation of the private IP address. For more information, see [IP address types and allocation methods in Azure](../../../virtual-network/ip-services/public-ip-addresses.md).
-- Routing restrictions to and from the DBMS VMs **aren't** set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../../virtual-network/network-security-groups-overview.md).
-- To separate and isolate traffic to the DBMS VM, assign different NICs to the VM. Every NIC gets a different IP address, and every NIC is assigned to a different virtual network subnet. Every subnet has different NSG rules. The isolation or separation of network traffic is a measure for routing. It's not used to set quotas for network throughput.
+> Assigning static IP addresses through Azure means to assign them to individual virtual NICs. Don't assign static IP addresses within the guest OS to a virtual NIC. Some Azure services like Azure Backup rely on the fact that at least the primary virtual NIC in the guest OS is set to DHCP and not to static IP addresses. For more information, see [Troubleshoot Azure virtual machine backup](../../backup/backup-azure-vms-troubleshoot.md#networking). To assign multiple static IP addresses to a VM, assign multiple virtual NICs to a VM.
 
-> [!NOTE]
-> Assigning static IP addresses through Azure means to assign them to individual virtual NICs. Don't assign static IP addresses within the guest OS to a virtual NIC. Some Azure services like Azure Backup rely on the fact that at least the primary virtual NIC in the guest OS is set to DHCP and not to static IP addresses. For more information, see [Troubleshoot Azure virtual machine backup](../../../backup/backup-azure-vms-troubleshoot.md#networking). To assign multiple static IP addresses to a VM, assign multiple virtual NICs to a VM.
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
->
 
 
 > [!WARNING]
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-> Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](../../virtual-network/network-security-groups-overview.md) if those ASG and NSG rules allow a direct communication path. 
-========
-> Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](../../../virtual-network/network-security-groups-overview.md) if those ASG and NSG rules allow a direct communication path. This also includes traffic to NFS shares that host DBMS data and redo log files.
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
+
+> Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](../../virtual-network/network-security-groups-overview.md) if those ASG and NSG rules allow a direct communication path. This also includes traffic to NFS shares that host DBMS data and redo log files.
 >
 > Other scenarios where network virtual appliances aren't supported are in:
 >
@@ -331,11 +294,8 @@ The use of private virtual IP addresses used in functionalities like SQL Server 
 
 If there's a failover of the database node, there's no need for the SAP application to reconfigure. Instead, the most common SAP application architectures reconnect against the private virtual IP address. Meanwhile, the load balancer reacts to the node failover by redirecting the traffic against the private virtual IP address to the second node.
 
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-Azure offers two different [load balancer SKUs](../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic is not routed through the load balancer itself.
-========
-Azure offers two different [load balancer SKUs](../../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic isn't routed through the load balancer itself.
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
+
+Azure offers two different [load balancer SKUs](../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic isn't routed through the load balancer itself.
 
 An example how you can configure an internal load balancer can be found in the article [Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet#create-an-azure-load-balancer)
 
@@ -343,34 +303,6 @@ An example how you can configure an internal load balancer can be found in the a
 > There are differences in behavior of the basic and standard SKU related to the access of public IP addresses. The way how to work around the restrictions of the Standard SKU to access public IP addresses is described in the document [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)
 
 
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-### Azure Accelerated Networking
-To further reduce network latency between Azure VMs, we recommend that you choose [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Use it when you deploy Azure VMs for an SAP workload, especially for the SAP application layer and the SAP DBMS layer.
-
-> [!NOTE]
-> Not all VM types support Accelerated Networking. The previous article lists the VM types that support Accelerated Networking.
->
-
----
-> ![Windows accelerated networking][Logo_Windows] Windows
->
-> To learn how to deploy VMs with Accelerated Networking for Windows, see [Create a Windows virtual machine with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-powershell.md).
->
-> ![Linux accelerated networking][Logo_Linux] Linux
->
-> For more information on Linux distribution, see [Create a Linux virtual machine with Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
->
->
-
----
-
-> [!NOTE]
-> In the case of SUSE, Red Hat, and Oracle Linux, Accelerated Networking is supported with recent releases. Older releases like SLES 12 SP2 or RHEL 7.2 don't support Azure Accelerated Networking.
->
-
-
-========
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
 ## Deployment of host monitoring
 For production use of SAP applications in Azure virtual machines, SAP requires the ability to get host monitoring data from the physical hosts that run the Azure virtual machines. A specific SAP Host Agent patch level is required that enables this capability in SAPOSCOL and SAP Host Agent. The exact patch level is documented in SAP Note [1409604](https://launchpad.support.sap.com/#/notes/1409604).
 
