@@ -104,6 +104,7 @@ The following table provides specific MDM installation guidance depending on whi
 
 
 >[!NOTE]At the present time the Microsoft SSO Extension broker plugin code is bundled into the Microsoft Intune Company Portal app.  In the future we might decide to separate this into its own app, thus requiring a separate app installation on the macOS device.            
+
 #### Validate SSO Configuration Profile on macOS Device 
 Assuming the MDM administrator has followed the steps in the previous section [MDM Deployment of SSO Extension Profile](#mdm-deployment-of-sso-extension-profile), we need to verify if the profile has been deployed.
 
@@ -116,7 +117,7 @@ Assuming the MDM administrator has followed the steps in the previous section [M
     >[!NOTE]Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  By double-clicking each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
 1. Double-click on the configuration profile that matches a **Settings** value of **Single Sign On Extension**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-config-profile.png" alt-text="screenshot showing sso extension configuration profile":::
-    >[!NOTE] The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
+    >[!NOTE]The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
 1. To verify that we have the correct profile for the Microsoft Apple SSO Extension the  **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**
 1. Take note of the **Installed** field in the configuration profile as it can be a useful troubleshooting indicator, when changes are made to its configuration
 
