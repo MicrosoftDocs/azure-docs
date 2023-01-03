@@ -64,6 +64,8 @@ Once the tracking is configured, you'll also need to configure how the authentic
 
 [!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
+---
+
 ### Registering the model
 
 We need a model registered in the Azure Machine Learning registry to perform inference. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
