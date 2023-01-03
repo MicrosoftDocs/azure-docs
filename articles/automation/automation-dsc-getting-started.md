@@ -196,9 +196,8 @@ The DSC node can take six different values.
 - **Compliant** - This status appears when a node has a valid configuration and no drift occurs presently.
 
 >[!NOTE]
->- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day).  
->- **RefreshFrequencyMins** and **ConfigurationModeFrequencyMins** - The frequency of node contacting the agent service is defined using these two different values provided as part of onboarding to DSC. These take a maximum value of 10080 minutes 
->- If the user uses a value > 1440, the node will be shown **Unresponsive** and gives false status of the nodes. 
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). If the user uses a value > 1440, the node will be shown **Unresponsive** and gives false status of the nodes. 
+>- **RefreshFrequencyMins** and **ConfigurationModeFrequencyMins** - The frequency of node contacting the agent service is defined using these two different values provided as part of onboarding to DSC. These take a maximum value of 10080 minutes.
 
 ## View reports for managed nodes
 
