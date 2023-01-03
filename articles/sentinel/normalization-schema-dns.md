@@ -63,24 +63,19 @@ _Im_Dns | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
 
-### Unifying parsers
+### Out-of-the-box parsers
 
-To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_Dns` filtering parser or the `_ASim_Dns` parameter-less parser. You can also use workspace deployed `ImDns` and `ASimDns` parsers.
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the unifying parser `_Im_Dns` as the table name in your query.
 
-### Out-of-the-box, source-specific parsers
-
-For the list of the DNS parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#dns-parsers) 
+For the list of the DNS parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#dns-parsers).
 
 ### Add your own normalized parsers
 
-When implementing custom parsers for the Dns information model, name your KQL functions in the following format:
-
-- `vimDns<vendor><Product>` for parametrized parsers
-- `ASimDns<vendor><Product>` for regular parsers
+When implementing custom parsers for the Dns information model, name your KQL functions using the format `vimDns<vendor><Product>`. Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the DNS unifying parser.
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
+The DNS parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 
@@ -89,7 +84,7 @@ The following filtering parameters are available:
 | **starttime** | datetime | Filter only DNS queries that ran at or after this time. |
 | **endtime** | datetime | Filter only DNS queries that finished running at or before this time. |
 | **srcipaddr** | string | Filter only DNS queries from this source IP address. |
-| **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain. The length of the list is limited to 10,000 items.
+| **domain_has_any**| dynamic/string | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain. The length of the list is limited to 10,000 items.
 | **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |
 | **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results aren't returned for sources that don't provide a response.|
 | **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results aren't returned for sources that don't provide a response. The length of the list is limited to 10,000 items. |
@@ -108,9 +103,8 @@ To filter only DNS queries for a specified list of domain names, use:
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_Dns (domain_has_any = torProxies)
 ```
-> [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
->
+
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
 
 ## Normalized content
 

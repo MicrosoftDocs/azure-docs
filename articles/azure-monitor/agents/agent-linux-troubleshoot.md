@@ -380,7 +380,7 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
         sudo systemctl start cron
         ```
     
-        **RHEL/CeonOS**
+        **RHEL/CentOS**
     
         ```
         # To Install the service binaries
