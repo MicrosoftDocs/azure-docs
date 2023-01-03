@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
-ms.date: 04/14/2022
+ms.date: 01/03/2023
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -18,10 +18,7 @@ This article covers common issues, workarounds, and diagnostic steps, when you u
 
 ## Dependencies
 
-The Azure Functions trigger and bindings for Azure Cosmos DB depend on the extension packages over the base Azure Functions runtime. Always keep these packages updated, as they might include fixes and new features that might address any potential issues you may encounter:
-
-* For Azure Functions V2, see [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
-* For Azure Functions V1, see [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+The Azure Functions trigger and bindings for Azure Cosmos DB depend on the extension package [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) over the base Azure Functions runtime. Always keep these packages updated, as they might include fixes and new features that might address any potential issues you may encounter.
 
 This article will always refer to Azure Functions V2 whenever the runtime is mentioned, unless explicitly specified.
 
@@ -92,10 +89,10 @@ When your Azure Function receives the changes, it often processes them, and coul
 
 If some changes are missing on the destination, this could mean that is some error happening during the Azure Function execution after the changes were received.
 
-In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry).
+In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). Alternatively, you can configure Azure Functions [retry policies](../azure-functions/functions-bindings-error-pages#retries).
 
 > [!NOTE]
-> The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
+> The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination might be because you are failing to process them.
 
 If the destination is another Azure Cosmos DB container and you are performing Upsert operations to copy the items, **verify that the Partition Key Definition on both the monitored and destination container are the same**. Upsert operations could be saving multiple source items as one in the destination because of this configuration difference.
 
