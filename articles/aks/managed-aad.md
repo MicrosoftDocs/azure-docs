@@ -29,7 +29,7 @@ Before getting started, make sure you have the following prerequisites:
 
 * Azure CLI version 2.29.0 or later.
 * `kubectl`, with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [`kubelogin`](https://github.com/Azure/kubelogin).
-* If you're using [helm](https://github.com/helm/helm), a minimum version of helm 3.3.
+* If you're using [helm](https://github.com/helm/helm), you need a minimum version of helm 3.3.
 
 > [!IMPORTANT]
 > You must use `kubectl` with a minimum version of 1.18.1 or `kubelogin`. The difference between the minor versions of Kubernetes and `kubectl` shouldn't be more than 1 version. You'll experience authentication issues if you don't use the correct version.
@@ -114,12 +114,12 @@ aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
 
-1. Configure [Azure role-based access control (Azure RBAC)](./azure-ad-rbac.md) to configure additional security groups for your clusters.
+1. Configure [Azure role-based access control (Azure RBAC)](./azure-ad-rbac.md) to configure other security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 
 > [!IMPORTANT]
-> The steps described below bypass the normal Azure AD group authentication. Use them only in an emergency.
+> The steps described in this section bypass the normal Azure AD group authentication. Use them only in an emergency.
 
 If you're permanently blocked by not having access to a valid Azure AD group with access to your cluster, you can still obtain the admin credentials to access the cluster directly.
 
@@ -185,7 +185,7 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 
 ## Disable local accounts
 
-When deploying an AKS cluster, local accounts are enabled by default. Even when enabling RBAC or Azure AD integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers the ability to disable local accounts via a flag, `disable-local-accounts`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
+When deploying an AKS cluster, local accounts are enabled by default. Even when enabling RBAC or Azure AD integration, `--admin` access still exists, essentially as a non-auditable backdoor option. AKS offers the ability to disable local accounts via a flag, `disable-local-accounts`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
 
 > [!NOTE]
 >
@@ -216,7 +216,7 @@ Attempting to get admin credentials will fail with an error message indicating t
 ```azurecli-interactive
 az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
 
-Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+Operation failed with status: 'Bad Request'. Details: Getting static credential isn't allowed because this cluster is set to disable local accounts.
 ```
 
 ### Disable local accounts on an existing cluster
@@ -242,7 +242,7 @@ Attempting to get admin credentials will fail with an error message indicating t
 ```azurecli-interactive
 az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
 
-Operation failed with status: 'Bad Request'. Details: Getting static credential is not allowed because this cluster is set to disable local accounts.
+Operation failed with status: 'Bad Request'. Details: Getting static credential isn't allowed because this cluster is set to disable local accounts.
 ```
 
 ### Re-enable local accounts on an existing cluster
@@ -361,7 +361,7 @@ Use the `kubectl get nodes` command to view nodes in the cluster:
 kubectl get nodes
 ```
 
-Note the authentication requirement and follow the steps to authenticate. If successful, you should see output similar to the following:
+Note the authentication requirement and follow the steps to authenticate. If successful, you should see an output similar to the following output:
 
 ```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
@@ -380,11 +380,11 @@ aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
 
-3. Associate the group you just configured at the namespace level with PIM to complete the configuration.
+1. Associate the group you configured at the namespace level with PIM to complete the configuration.
 
 ### Troubleshooting
 
-If `kubectl get nodes` returns an error similar to the following:
+If `kubectl get nodes` returns an error similar to the following error:
 
 ```output
 Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
