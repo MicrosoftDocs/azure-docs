@@ -96,6 +96,9 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 > * Direct management endpoint
 > * Git
 
+>	Specific reserved zone names (azure-api.net) will be blocked from creation to prevent disruption of services in Private DNS zone as mentioned [here](../dns/private-dns-privatednszone#restrictions).
+>	So for default APIM Gateway endpoint - <APIMName>.azure-api.net, create A-record in Custom DNS server associated to APIM Vnet.
+
 ### Access on default host names
 When you create an API Management service (`contosointernalvnet`, for example), the following endpoints are configured by default:
 
