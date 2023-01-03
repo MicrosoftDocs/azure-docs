@@ -16,7 +16,7 @@ The integration runtime is a very important part of the infrastructure for the d
 
 ## Comparison of different types of integration runtimes
 
-In Azure Data Factory, we have three kinds of integration runtimes: the Azure integration runtime, the self-hosted integration runtime and the Azure-SSIS integration runtime. For the Azure integration runtime, you can also enable a managed virtual network which makes its architecture different than the public Azure integration runtime.
+In Azure Data Factory, we have three kinds of integration runtimes: the Azure integration runtime, the self-hosted integration runtime and the Azure-SSIS integration runtime. For the Azure integration runtime, you can also enable a managed virtual network which makes its architecture different than the global Azure integration runtime.
 
 This table lists the differences in some aspects of all integration runtimes, you can choose the appropriate one according to your actual needs. For the Azure-SSIS integration runtime, you can learn more in the article [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).
 
@@ -25,7 +25,7 @@ This table lists the differences in some aspects of all integration runtimes, yo
 | Managed compute | Y | Y | N |
 | Auto-scale | Y | Y* | N |
 | Dataflow | Y | Y | N |
-| On-prem data access | N | Y** | Y |
+| On-premises data access | N | Y** | Y |
 | Private Link/Private Endpoint | N | Y*** | Y |
 | Custom component/driver | N | N | Y |
 
@@ -49,7 +49,7 @@ It is very important to choose an appropriate type of integration runtime. Not o
 
     - There is some additional setup needed such as Private Link Service and Load Balancer when using the Azure integration runtime with a managed virtual network to access a data store behind a firewall or in a private network.  You can refer to this tutorial [Access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md) as an example. If the data store is in an on-premises environment, then the on-premises must be connected to Azure via Express Route or an S2S VPN.
     - The self-hosted integration runtime is more flexible and does not require additional settings, Express Route, or VPN. But you need to provide and maintain the machine by yourself.
-    - You can also add the public IP addresses of the Azure integration runtime to the allow list of your firewall and allow it to access the data store, but it’s not a desirable solution in highly secure production environments.
+    - You can also add the public IP addresses of the Azure integration runtime to the allowlist of your firewall and allow it to access the data store, but it’s not a desirable solution in highly secure production environments.
 
 3.	What level of security do you require during data transmission?<br>
     If you need to process highly confidential data, you want to defend against, for example, man-in-the-middle attacks during data transmission. Then you can choose to use a Private Endpoint and Private Link to ensure data security.
@@ -88,7 +88,7 @@ The Azure integration runtime is a fully managed, auto-scaled compute that you c
 :::image type="content" source="media/choosing-the-right-ir-configuration/integration-runtime-with-fully-managed.png" alt-text="Screenshot of integration runtime is a fully managed.":::
 
 1. The traffic from the Azure integration runtime to data stores is through public network.
-1. We provide a range of static public IP addresses for the Azure integration runtime and these IP addresses can be added to the allow list of the target data store firewall. To learn more about how to get public IP addresses of the Azure Integration runtime, refer to the article [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).
+1. We provide a range of static public IP addresses for the Azure integration runtime and these IP addresses can be added to the allowlist of the target data store firewall. To learn more about how to get public IP addresses of the Azure Integration runtime, refer to the article [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).
 1. The Azure integration runtime can be auto-resolved according to the region of the data source and data sink. Or you can choose a specific region. We recommend you choose the region closest to your data source or sink, which can provide better execution performance. Learn more about performance considerations in the article [Troubleshoot copy activity on Azure IR](copy-activity-performance-troubleshooting.md#troubleshoot-copy-activity-on-azure-ir).
 
 ### Azure integration runtime with managed virtual network
