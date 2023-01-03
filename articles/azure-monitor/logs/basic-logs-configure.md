@@ -44,12 +44,13 @@ Configure a table for Basic logs if:
     
     These tables currently support Basic logs:
     
-    | Table | Details|
+    | Table | Details|
     |:---|:---|
     | Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
     | [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations) | Communication Services incoming requests Calls. |
     | [ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/acscallrecordingsummary) | Communication Services recording summary logs. |
     | [ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) | Communication Services Rooms incoming requests operations. |
+    | [AHDSMedTechDiagnosticLogs](/azure/azure-monitor/reference/tables/AHDSMedTechDiagnosticLogs) | Health Data Services operational logs. |
     | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | Application Insights Freeform traces. |
     | [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations) | Azure Media Services encoder connects, disconnects, or discontinues. |
     | [AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests) | Azure Media Services HTTP request details for key, or license acquisition. |
