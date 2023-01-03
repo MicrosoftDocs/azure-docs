@@ -34,9 +34,9 @@ Log Analytics workspace data export continuously exports data that's sent to you
 
 ## Limitations
 
-- All tables will be supported in export, but tables are currently limited to those specified in the [supported tables](#supported-tables) section.
-- Legacy custom logs by using the [HTTP Data Collector API](./data-collector-api.md) won't be supported in export. Data for [data collection rule-based custom logs](./logs-ingestion-api-overview.md) can be exported.
-- You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled.
+- Custom logs created via [HTTP Data Collector API](./data-collector-api.md), or 'dataSources' API won't be supported in export. Custom log created using [data collection rule](./logs-ingestion-api-overview.md) can be exported.
+- We are support more tables in data export gradually, but currently limited to those specified in the [supported tables](#supported-tables) section.
+- You can define up to 10 enabled rules in your workspace, each can include multiple tables. You can create more rules in workspace in disabled state. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - The storage account must be unique across rules in the workspace.
 - Table names can be 60 characters long when you're exporting to a storage account. They can be 47 characters when you're exporting to event hubs. Tables with longer names won't be exported.
