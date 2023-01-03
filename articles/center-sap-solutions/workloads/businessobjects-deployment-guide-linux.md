@@ -633,7 +633,7 @@ For more information, see [Manage the availability of Linux virtual machines](..
 
 If you're using Azure Database for MySQL for your CMS and audit databases, you have a locally redundant, high availability framework by default. You just need to select the region, and service inherent high availability, redundancy, and resiliency capabilities, without needing to configure any additional components. If the deployment strategy for the SAP BOBI platform is across availability zones, then you need to make sure you achieve zone redundancy for your CMS and audit databases. For more information, see [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla).
 
-For other deployments for the CMS database, see the high availability information in the [DBMS deployment guides for SAP Workload](dbms_guide_general.md).
+For other deployments for the CMS database, see the high availability information in the [DBMS deployment guides for SAP Workload](dbms-guide-general.md).
 
 ### High availability for filestore
 
@@ -737,4 +737,4 @@ The following table shows the recommendation for disaster recovery of each tier 
 - [Set up disaster recovery for a multi-tier SAP app deployment](../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
 - [Azure Virtual Machines deployment for SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
+- [Azure Virtual Machines DBMS deployment for SAP](./dbms-guide-general.md)

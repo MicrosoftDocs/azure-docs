@@ -105,7 +105,7 @@ Careful planning is essential in deploying a new infrastructure to take the plac
 The current SAP application servers' deployment region are typically close to the associated HLIs. However, HLIs are offered in fewer locations than available Azure regions. When migrating the physical HLI to an Azure VM, it's also a good time to fine-tune the proximity distance of all related services for performance optimization.  While doing so, ensure the chosen region has all the required resources. For instance, you may want to check on the availability of a certain VM family or the Azure Zones offering high availability setup.
 
 ### Virtual network 
-Do you want to run the new HANA database in an existing virtual network or create a new one? The primary deciding factor is the current networking layout for the SAP landscape. Also, when the infrastructure goes from one-zone to two-zones deployment and uses PPG, it imposes architectural change. For more information, see the article [Azure PPG for optimal network latency with SAP application](../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).   
+Do you want to run the new HANA database in an existing virtual network or create a new one? The primary deciding factor is the current networking layout for the SAP landscape. Also, when the infrastructure goes from one-zone to two-zones deployment and uses PPG, it imposes architectural change. For more information, see the article [Azure PPG for optimal network latency with SAP application](../../virtual-machines/workloads/sap/proximity-placement-scenarios.md).   
 
 ### Security
 Whether the new SAP HANA VM runs on a new or existing vnet/subnet, it's a new service critical to your business. It deserves safeguarding. Ensure access control compliant with your company's security policy.
@@ -122,7 +122,7 @@ Will you configure PPG for the new HANA VM and its associated severs? Then submi
 With HLI, storage replication was the default option for disaster recovery. This feature isn't the default option for SAP HANA on Azure VM. Consider HSR, backup/restore, or other supported solutions that satisfy your business needs.
 
 ### Availability sets, availability zones, and proximity placement groups 
-You can shorten the distance between the application layer and SAP HANA to keep network latency at a minimum. Place the new database VM and the current SAP application servers in a PPG. For more information on how Azure availability set and availability zones work with PPG for SAP deployments, see [Proximity Placement Group](../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+You can shorten the distance between the application layer and SAP HANA to keep network latency at a minimum. Place the new database VM and the current SAP application servers in a PPG. For more information on how Azure availability set and availability zones work with PPG for SAP deployments, see [Proximity Placement Group](../../virtual-machines/workloads/sap/proximity-placement-scenarios.md).
 
 If members of your HANA system are deployed in more than one Azure Zone, you should be aware of the latency profile of the chosen zones. Place SAP system components to lessen distance between the SAP application and the database. The public domain [Availability zone latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) helps make the measurement easier.  
 
@@ -200,4 +200,4 @@ As the VM servers are deployed and the HLIs are decommissioned, the OS subscript
 Plan your SAP deployment.
 
 > [!div class="nextstepaction"]
-> [SAP workloads on Azure: planning and deployment checklist](../../virtual-machines/workloads/sap/sap-deployment-checklist.md)
+> [SAP workloads on Azure: planning and deployment checklist](../../virtual-machines/workloads/sap/deployment-checklist.md)

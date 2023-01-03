@@ -38,7 +38,7 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 | [1597355] |Swap-space recommendation for Linux |
 
-As a pre-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
+As a pre-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 ## IBM Db2 for Linux, UNIX, and Windows Version Support
@@ -60,7 +60,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
  
 * Hosting Linux guest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files is supported!
 
-Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Db2 DBMS as well.
+Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
 
@@ -68,7 +68,7 @@ As long as the current IOPS quota per disk is sufficient, it is possible to stor
 
 For performance considerations, also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
-Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher)  as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) or LVM or mdadm on Linux to create one large logical device over multiple disks.
+Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher)  as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) or LVM or mdadm on Linux to create one large logical device over multiple disks.
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
@@ -227,28 +227,28 @@ Microsoft Cluster Server (MSCS) is not supported.
 
 Db2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
 
-Do not use Geo-Replication for the storage accounts that store the database disks. For more information, see the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
+Do not use Geo-Replication for the storage accounts that store the database disks. For more information, see the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 ### Accelerated Networking
-For Db2 deployments on Windows, it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
+For Db2 deployments on Windows, it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 
 ### Specifics for Linux deployments
 As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks.
 
-If the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
+If the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) to create one large logical device over multiple disks.
 For the disks containing the Db2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
 ### Other
-All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the IBM Database as well.
+All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) for deployments of VMs with the IBM Database as well.
 
 ## Next steps
 Read the article 
 
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md)
 
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -299,23 +299,23 @@ Read the article
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[dbms-guide]:dbms_guide_general.md 
-[dbms-guide-2.1]:dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
-[dbms-guide-2.2]:dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91 
-[dbms-guide-2.3]:dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152 
-[dbms-guide-2]:dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
-[dbms-guide-3]:dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3 
-[dbms-guide-5.5.1]:dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
-[dbms-guide-5.5.2]:dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b 
-[dbms-guide-5.6]:dbms_guide_general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
-[dbms-guide-5.8]:dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30 
-[dbms-guide-5]:dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737 
-[dbms-guide-8.4.1]:dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
-[dbms-guide-8.4.2]:dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
-[dbms-guide-8.4.3]:dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
-[dbms-guide-8.4.4]:dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818 
-[dbms-guide-900-sap-cache-server-on-premises]:dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
-[dbms-guide-managed-disks]:dbms_guide_general.md#f42c6cb5-d563-484d-9667-b07ae51bce29
+[dbms-guide]:dbms-guide-general.md 
+[dbms-guide-2.1]:dbms-guide-general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
+[dbms-guide-2.2]:dbms-guide-general.md#c8e566f9-21b7-4457-9f7f-126036971a91 
+[dbms-guide-2.3]:dbms-guide-general.md#10b041ef-c177-498a-93ed-44b3441ab152 
+[dbms-guide-2]:dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
+[dbms-guide-3]:dbms-guide-general.md#871dfc27-e509-4222-9370-ab1de77021c3 
+[dbms-guide-5.5.1]:dbms-guide-general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
+[dbms-guide-5.5.2]:dbms-guide-general.md#f9071eff-9d72-4f47-9da4-1852d782087b 
+[dbms-guide-5.6]:dbms-guide-general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
+[dbms-guide-5.8]:dbms-guide-general.md#9053f720-6f3b-4483-904d-15dc54141e30 
+[dbms-guide-5]:dbms-guide-general.md#3264829e-075e-4d25-966e-a49dad878737 
+[dbms-guide-8.4.1]:dbms-guide-general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
+[dbms-guide-8.4.2]:dbms-guide-general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
+[dbms-guide-8.4.3]:dbms-guide-general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
+[dbms-guide-8.4.4]:dbms-guide-general.md#f77c1436-9ad8-44fb-a331-8671342de818 
+[dbms-guide-900-sap-cache-server-on-premises]:dbms-guide-general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide-managed-disks]:dbms-guide-general.md#f42c6cb5-d563-484d-9667-b07ae51bce29
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png

@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 
-In this document, covers several different areas to consider when deploying SAP ASE in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) and other guides in the [SAP workload on Azure documentation](./get-started.md). This document covers SAP ASE running on Linux and on Windows Operating Systems. The minimum supported release on Azure is SAP ASE 16.0.02 (Release 16 Support Pack 2). It's recommended to deploy the latest version of SAP and the latest Patch Level.  As a minimum SAP ASE 16.0.03.07 (Release 16 Support Pack 3 Patch Level 7) is recommended.  The most recent version of SAP can be found in [Targeted ASE 16.0 Release Schedule and CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
+In this document, covers several different areas to consider when deploying SAP ASE in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) and other guides in the [SAP workload on Azure documentation](./get-started.md). This document covers SAP ASE running on Linux and on Windows Operating Systems. The minimum supported release on Azure is SAP ASE 16.0.02 (Release 16 Support Pack 2). It's recommended to deploy the latest version of SAP and the latest Patch Level.  As a minimum SAP ASE 16.0.03.07 (Release 16 Support Pack 3 Patch Level 7) is recommended.  The most recent version of SAP can be found in [Targeted ASE 16.0 Release Schedule and CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
 
 Additional information about release support with SAP applications or installation media location are found, besides in the SAP Product Availability Matrix in these locations:
 
@@ -241,7 +241,7 @@ SAP Software provisioning Manager (SWPM) is giving an option to encrypt the data
 - Consider using UltraDisk for x-large systems 
 - Run `saptune` SAP-ASE on SLES. Tune RHEL VMs per [69988](https://access.redhat.com/solutions/69988).
 - Secure the database with DB Encryption – manually store keys in Azure Key Vault 
-- Complete the [SAP on Azure Checklist](./sap-deployment-checklist.md) 
+- Complete the [SAP on Azure Checklist](./deployment-checklist.md) 
 - Configure log backup and full backup 
 - Test HA/DR, backup and restore and perform stress & volume test 
 - Confirm Automatic Database Extension is working 
@@ -337,4 +337,4 @@ A Monthly newsletter is published through [SAP support note #2381575](https://la
 
 
 ## Next steps
-Check the article [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
+Check the article [SAP workloads on Azure: planning and deployment checklist](./deployment-checklist.md)

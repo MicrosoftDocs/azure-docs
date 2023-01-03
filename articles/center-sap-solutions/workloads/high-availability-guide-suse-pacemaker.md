@@ -26,7 +26,7 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [virtual-machines-windows-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot

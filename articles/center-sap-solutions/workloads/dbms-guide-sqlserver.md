@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
 
-This document covers several different areas to consider when deploying SQL Server for SAP workload in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) and other guides in the [SAP workload on Azure documentation](./get-started.md). 
+This document covers several different areas to consider when deploying SQL Server for SAP workload in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-general.md) and other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 
@@ -43,7 +43,7 @@ Not all the content and statements made in the general SQL Server in Azure VM do
 There's some SQL Server in IaaS specific information you should know before continuing:
 
 * **SQL Version Support**: Even with SAP Note [#1928533](https://launchpad.support.sap.com/#/notes/1928533) stating that the minimum supported SQL Server release is SQL Server 2008 R2, the window of supported SQL Server versions on Azure is also dictated by SQL Server's lifecycle. SQL Server 2012 extended maintenance ended mid of 2022. As a result, the current minimum release for newly deployed systems should be [SQL Server 2014](/lifecycle/products/sql-server-2014). The more recent, the better. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure. 
-* **Using Images from Azure Marketplace**: The fastest way to deploy a new Microsoft Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace, which contain the most recent SQL Server releases. The images where SQL Server already is installed can't be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, check the steps documented in chapter [Using a SQL Server image out of the Microsoft Azure Marketplace](./dbms_guide_sqlserver.md). 
+* **Using Images from Azure Marketplace**: The fastest way to deploy a new Microsoft Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace, which contain the most recent SQL Server releases. The images where SQL Server already is installed can't be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, check the steps documented in chapter [Using a SQL Server image out of the Microsoft Azure Marketplace](./dbms-guide-sqlserver.md). 
 *  **SQL Server multi-instance support within a single Azure VM**: This deployment method is supported. However, be aware of resource limitations, especially around network and storage bandwidth of the VM type that you're using. Detailed information is available in article [Sizes for virtual machines in Azure](../../virtual-machines/sizes.md). These quota limitations might prevent you to implement the same multi-instance architecture as you can implement on-premises. As of the configuration and interference of sharing the resources available within a single VM, the same considerations as on-premises need to be taken into account.
 *  **Multiple SAP databases in one single SQL Server instance in a single VM**: Configurations like these are supported. Considerations of multiple SAP databases sharing the shared resources of a single SQL Server instance are the same as for on-premises deployments. Keep other limits like number of disks that can be attached to a specific VM type in mind. Or network and storage quota limits of specific VM types as detailed [Sizes for virtual machines in Azure](../../virtual-machines/sizes.md). 
 
@@ -64,7 +64,7 @@ A VM configuration, which runs SQL Server with an SAP database and where tempdb 
 
 ![Diagram of simple VM disk configuration for SQL Server](./media/dbms_sqlserver_deployment_guide/Simple_disk_structure.PNG)
 
-The diagram displays a simple case. As eluded to in the article [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md), Azure storage type, number, and size of disks is dependent from different factors. But in general we recommend:
+The diagram displays a simple case. As eluded to in the article [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md), Azure storage type, number, and size of disks is dependent from different factors. But in general we recommend:
 
 - For smaller and mid-range deployments, using one large volume, which contains the SQL Server data files. Reason behind this configuration is that it's easier to deal with different I/O workloads in case the SQL Server data files don't have the same free space. Whereas in large deployments, especially deployments where the customer moved with a heterogenous database migration to SQL Server in Azure, we used separate disks and then distributed the data files across those disks. Such an architecture is only successful when each disk has the same number of data files, all the data files are the same size, and roughly have the same free space.
 - Use the D:\drive for tempdb as long as performance is good enough. If the overall workload is limited in performance by tempdb located on the D:\ drive, you need to move tempdb to Azure premium storage v1 or v2, or Ultra disk as recommended in [this article](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
@@ -331,4 +331,4 @@ There are many recommendations in this guide and we recommend you read it more t
 ## Next steps
 Read the article 
 
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md)

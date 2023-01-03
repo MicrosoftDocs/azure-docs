@@ -282,7 +282,7 @@ The high-level procedure is as follows:
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 [sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide-general.md
 
 [deployment-guide]:deployment-guide.md
 

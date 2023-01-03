@@ -315,7 +315,7 @@ Install DBMS and SAP application Servers as described earlier.
 [azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 [load-balancer-multivip-overview]:../../load-balancer/load-balancer-multivip-overview.md
-[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide-general.md
 
 [deployment-guide]:deployment-guide.md
 

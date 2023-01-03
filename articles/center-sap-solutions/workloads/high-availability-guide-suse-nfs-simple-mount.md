@@ -20,7 +20,7 @@ ms.author: radeltch
 
 # High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs 
 
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
@@ -972,7 +972,7 @@ Thoroughly test your Pacemaker cluster. [Run the typical failover tests](./high-
 ## Next steps
 
 * [HA for SAP NetWeaver on Azure VMs on SLES for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
-* [SAP workload configurations with Azure availability zones](sap-ha-availability-zones.md)
+* [SAP workload configurations with Azure availability zones](high-availability-zones.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]

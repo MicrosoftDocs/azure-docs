@@ -20,7 +20,7 @@ ms.author: radeltch
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with NFS on Azure Files  
 
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 

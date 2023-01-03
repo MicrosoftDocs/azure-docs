@@ -270,7 +270,7 @@ ANF storage is currently supported for several SAP workload scenarios:
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 - SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - IBM Db2 in Suse or Red Hat Linux guest OS
-- Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
+- Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - SAP ASE in Suse or Red Hat Linux guest OS
 
 > [!NOTE]
@@ -465,5 +465,5 @@ For specific stripe size recommendations, read the documentation for the differe
 ## Next steps
 Read the articles:
 
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-general.md)
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)

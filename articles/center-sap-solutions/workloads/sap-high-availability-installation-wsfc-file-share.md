@@ -34,7 +34,7 @@ ms.custom: H1Hack27Feb2017
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
 [new-in-win-2016-storage]:/windows-server/storage/whats-new-in-storage
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide-general.md
 
 [deployment-guide]:deployment-guide.md
 

@@ -40,7 +40,7 @@ To achieve DR for highly available SAP Web Dispatcher setup in primary region, y
 
 ### SAP Central Services
 
-The SAP central services contain enqueue and message server, which is one of the SPOF of your SAP application. In an SAP system, there can be only one such instance, and it can be configured for high availability. Read [High Availability for SAP Central Service](sap-planning-supported-configurations.md#high-availability-for-sap-central-service) to understand the different high availability solution for SAP workload on Azure.
+The SAP central services contain enqueue and message server, which is one of the SPOF of your SAP application. In an SAP system, there can be only one such instance, and it can be configured for high availability. Read [High Availability for SAP Central Service](planning-supported-configurations.md#high-availability-for-sap-central-service) to understand the different high availability solution for SAP workload on Azure.
 
 Configuring high availability for SAP Central Services protects resources and processes from local incidents. To achieve DR for SAP Central Services, you can use Azure Site Recovery. Azure Site Recovery replicate VMs and the attached managed disks, but there are additional considerations for the DR strategy. Check the section below for more information, based on the operating system used for SAP central services.
 
@@ -106,7 +106,7 @@ For databases running SAP workload, use the native DBMS replication technology t
 | SAP HANA      | [HANA System Replication (HSR)](sap-hana-availability-across-regions.md) |
 | Oracle        | [Oracle Data Guard (FarSync)](../../virtual-machines/workloads/oracle/oracle-reference-architecture.md#disaster-recovery-for-oracle-databases) |
 | IBM DB2       | [High availability disaster recovery (HADR)](dbms-guide-ha-ibm.md) |
-| Microsoft SQL | [Microsoft SQL Always On](dbms_guide_sqlserver.md#sql-server-always-on) |
+| Microsoft SQL | [Microsoft SQL Always On](dbms-guide-sqlserver.md#sql-server-always-on) |
 | SAP ASE       | [ASE HADR Always On](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199) |
 | SAP MaxDB     | [Standby Database](https://wiki.scn.sap.com/wiki/pages/viewpage.action?pageId=72123826) |
 

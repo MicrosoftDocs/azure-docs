@@ -16,7 +16,7 @@ Business One supports two different databases:
 - SQL Server - see [SAP Note #928839 - Release Planning for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)
 - SAP HANA - for exact SAP Business One support matrix for SAP HANA, checkout  the [SAP Product Availability Matrix](https://support.sap.com/pam)
 
-Regarding SQL Server, the basic deployment considerations as documented in the [Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_general.md) applies. for SAP HANA, considerations are mentioned in this document.
+Regarding SQL Server, the basic deployment considerations as documented in the [Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-general.md) applies. for SAP HANA, considerations are mentioned in this document.
 
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:
@@ -94,7 +94,7 @@ A more sophisticated version of an Azure network configuration is based on the A
 For cases where the users are connecting through the internet without any private connectivity into Azure, the design of the network in Azure should be aligned with the principles documented in the Azure reference architecture for [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### Business One database server
-For the database type, SQL Server and SAP HANA are available. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) to get a general understanding of DBMS deployments in Azure VMs and the related networking and storage topics.
+For the database type, SQL Server and SAP HANA are available. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-general.md) to get a general understanding of DBMS deployments in Azure VMs and the related networking and storage topics.
 
 Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
@@ -112,7 +112,7 @@ In principle you should:
 
 
 #### SQL Server as DBMS
-For deploying SQL Server as DBMS for Business One, go along the document [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md). 
+For deploying SQL Server as DBMS for Business One, go along the document [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md). 
 
 Rough sizing estimates for the DBMS side for SQL Server are:
 

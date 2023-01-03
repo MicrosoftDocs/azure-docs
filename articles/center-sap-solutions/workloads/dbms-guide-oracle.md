@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017
 
 # Azure Virtual Machines Oracle DBMS deployment for SAP workload
 
-This document covers several different areas to consider when deploying Oracle Database for SAP workload in Azure IaaS. Before you read this document, we recommend you read [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md).
+This document covers several different areas to consider when deploying Oracle Database for SAP workload in Azure IaaS. Before you read this document, we recommend you read [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-general.md).
 We also recommend that you read other guides in the [SAP workload on Azure documentation](./get-started.md).
 
 You can find information about Oracle versions and corresponding OS versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619](https://launchpad.support.sap.com/#/notes/2039619).
@@ -437,4 +437,4 @@ The disk selection for hosting Oracle's online redo logs should be driven by IOP
 ### Next steps
 Read the article 
 
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md)

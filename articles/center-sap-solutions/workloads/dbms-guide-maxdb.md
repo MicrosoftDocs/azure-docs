@@ -70,23 +70,23 @@ ms.custom: H1Hack27Feb2017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:dbms_guide_general.md 
-[dbms-guide-2.1]:dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
-[dbms-guide-2.2]:dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91 
-[dbms-guide-2.3]:dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152 
-[dbms-guide-2]:dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
-[dbms-guide-3]:dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3 
-[dbms-guide-5.5.1]:dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
-[dbms-guide-5.5.2]:dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b 
-[dbms-guide-5.6]:dbms_guide_general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
-[dbms-guide-5.8]:dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30 
-[dbms-guide-5]:dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737 
-[dbms-guide-8.4.1]:dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
-[dbms-guide-8.4.2]:dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
-[dbms-guide-8.4.3]:dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
-[dbms-guide-8.4.4]:dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818 
-[dbms-guide-900-sap-cache-server-on-premises]:dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
-[dbms-guide-managed-disks]:dbms_guide_general.md#f42c6cb5-d563-484d-9667-b07ae51bce29
+[dbms-guide]:dbms-guide-general.md 
+[dbms-guide-2.1]:dbms-guide-general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
+[dbms-guide-2.2]:dbms-guide-general.md#c8e566f9-21b7-4457-9f7f-126036971a91 
+[dbms-guide-2.3]:dbms-guide-general.md#10b041ef-c177-498a-93ed-44b3441ab152 
+[dbms-guide-2]:dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
+[dbms-guide-3]:dbms-guide-general.md#871dfc27-e509-4222-9370-ab1de77021c3 
+[dbms-guide-5.5.1]:dbms-guide-general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
+[dbms-guide-5.5.2]:dbms-guide-general.md#f9071eff-9d72-4f47-9da4-1852d782087b 
+[dbms-guide-5.6]:dbms-guide-general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
+[dbms-guide-5.8]:dbms-guide-general.md#9053f720-6f3b-4483-904d-15dc54141e30 
+[dbms-guide-5]:dbms-guide-general.md#3264829e-075e-4d25-966e-a49dad878737 
+[dbms-guide-8.4.1]:dbms-guide-general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
+[dbms-guide-8.4.2]:dbms-guide-general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
+[dbms-guide-8.4.3]:dbms-guide-general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
+[dbms-guide-8.4.4]:dbms-guide-general.md#f77c1436-9ad8-44fb-a331-8671342de818 
+[dbms-guide-900-sap-cache-server-on-premises]:dbms-guide-general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide-managed-disks]:dbms-guide-general.md#f42c6cb5-d563-484d-9667-b07ae51bce29
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -299,7 +299,7 @@ ms.custom: H1Hack27Feb2017
 
 
 
-This document covers several different areas to consider when deploying MaxDB, liveCache, and Content Server in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](./get-started.md). 
+This document covers several different areas to consider when deploying MaxDB, liveCache, and Content Server in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) as well as other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 ## Specifics for the SAP MaxDB deployments on Windows
 ### SAP MaxDB Version Support on Azure
@@ -318,7 +318,7 @@ You can find the updated list of SAP MaxDB documentation in the following SAP No
 
 ### SAP MaxDB Configuration Guidelines for SAP Installations in Azure VMs
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Storage configuration
-Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Storage structure of a VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
+Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Like other databases, SAP MaxDB also has data and log files. However, in SAP MaxDB terminology the correct term is "volume" (not "file"). For example, there are SAP MaxDB data volumes and log volumes. Do not confuse these with OS disk volumes. 
@@ -327,11 +327,11 @@ Azure storage best practices for SAP MaxDB follow the general recommendations me
 
 In short you have to:
 
-* If you use Azure Storage accounts, set the Azure storage account that holds the SAP MaxDB data and log volumes (data and log files) to **Local Redundant Storage (LRS)** as specified in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md).
+* If you use Azure Storage accounts, set the Azure storage account that holds the SAP MaxDB data and log volumes (data and log files) to **Local Redundant Storage (LRS)** as specified in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md).
 * Separate the IO path for SAP MaxDB data volumes (data files) from the IO path for log volumes (log files). It means that SAP MaxDB data volumes (data files) have to be installed on one logical drive and SAP MaxDB log volumes (log files) have to be installed on another logical drive.
-* Set the proper caching type for each disk, depending on whether you use it for SAP MaxDB data or log volumes (data and log files), and whether you use Azure Standard or Azure Premium Storage, as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md).
+* Set the proper caching type for each disk, depending on whether you use it for SAP MaxDB data or log volumes (data and log files), and whether you use Azure Standard or Azure Premium Storage, as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md).
 * As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the data volumes on a single mounted disk, and also store all database log volumes on another single mounted disk.
-* If more IOPS and/or space are required, it is recommended to use Microsoft Window Storage Pools (only available in Microsoft Windows Server 2012 and higher) to create one large logical device over multiple mounted disks. For more details, see also [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). This approach simplifies the administration overhead to manage the disk space and avoids the effort of manually distributing files across multiple mounted disks.
+* If more IOPS and/or space are required, it is recommended to use Microsoft Window Storage Pools (only available in Microsoft Windows Server 2012 and higher) to create one large logical device over multiple mounted disks. For more details, see also [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). This approach simplifies the administration overhead to manage the disk space and avoids the effort of manually distributing files across multiple mounted disks.
 * it is highly recommended to use Azure Premium Storage for MaxDB deployments. 
 
 ![Reference Configuration of Azure IaaS VM for SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
@@ -357,10 +357,10 @@ To increase the number of targets to write to, there are two options that you ca
   * SAP MaxDB data volumes (i.e. files)
   * SAP MaxDB log volumes (i.e. files)
 
-Striping a volume over multiple mounted disks has been discussed earlier in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
+Striping a volume over multiple mounted disks has been discussed earlier in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 #### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Other considerations
-All other general areas such as Azure Availability Sets or SAP monitoring also apply as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md).  for deployments of VMs with the SAP MaxDB database.
+All other general areas such as Azure Availability Sets or SAP monitoring also apply as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md).  for deployments of VMs with the SAP MaxDB database.
 Other SAP MaxDB-specific settings are transparent to Azure VMs and are described in different documents listed in SAP Note [767598] and in these SAP Notes:
 
 * [826037] 
@@ -430,7 +430,7 @@ It is highly recommended to use the newest version of Microsoft Windows Server.
 #### Storage Configuration for Content Server in Azure
 If you configure SAP Content Server to store files in the SAP MaxDB database, all Azure storage best practices recommendation mentioned for SAP MaxDB in this document are also valid for the SAP Content Server scenario. 
 
-If you configure SAP Content Server to store files in the file system, it is recommended to use a dedicated logical drive. Using Windows Storage Spaces enables you to also increase logical disk size and IOPS throughput, as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
+If you configure SAP Content Server to store files in the file system, it is recommended to use a dedicated logical drive. Using Windows Storage Spaces enables you to also increase logical disk size and IOPS throughput, as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). 
 
 #### SAP Content Server Location
 SAP Content Server has to be deployed in the same Azure region and Azure VNET where the SAP system is deployed. You are free to decide whether you want to deploy SAP Content Server components on a dedicated Azure VM or on the same VM where the SAP system is running. 

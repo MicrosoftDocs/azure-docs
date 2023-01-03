@@ -201,7 +201,7 @@ You can also use these commands for cases where you're getting allocation errors
 ## Next steps
 Check out the documentation:
 
-- [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
+- [SAP workloads on Azure: planning and deployment checklist](./deployment-checklist.md)
 - [Deploy VMs to proximity placement groups using Azure CLI](../../virtual-machines/linux/proximity-placement-groups.md)
 - [Deploy VMs to proximity placement groups using PowerShell](../../virtual-machines/windows/proximity-placement-groups.md)
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms-guide-general.md)

@@ -20,34 +20,7 @@ This guide is part of the documentation on how to implement and deploy SAP softw
 
 The paper complements the SAP installation documentation and SAP Notes, which represent the primary resources for installations and deployments of SAP software on given platforms.
 
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-In this document, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this chapter. Instead, the specific DBMS systems are handled within this paper, after this document.
-
-## Definitions
-Throughout the document, these terms are used:
-
-* **IaaS**: Infrastructure as a service.
-* **PaaS**: Platform as a service.
-* **SaaS**: Software as a service.
-* **SAP component**: An individual SAP application such as ERP Central Component (ECC), Business Warehouse (BW), Solution Manager, or Enterprise Portal (EP). SAP components can be based on traditional ABAP or Java technologies or on a non-NetWeaver-based application such as Business Objects.
-* **SAP environment**: One or more SAP components logically grouped to perform a business function such as development, quality assurance, training, disaster recovery, or production.
-* **SAP landscape**: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and nonproduction environments.
-* **SAP system**: The combination of a DBMS layer and an application layer of, for example, an SAP ERP development system, an SAP Business Warehouse test system, or an SAP CRM production system. In Azure deployments, dividing these two layers between on-premises and Azure isn't supported. As a result, an SAP system is either deployed on-premises or it's deployed in Azure. You can deploy the different systems of an SAP landscape in Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but deploy the SAP CRM production system on-premises.
-* **Cross-premises**: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multisite, or Azure ExpressRoute connectivity between the on-premises data centers and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises scenarios. 
-
-    The reason for the connection is to extend on-premises domains, on-premises Active Directory, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. With this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and run services on those VMs, like DBMS services. Communication and name resolution between VMs deployed on-premises and VMs deployed in Azure is possible. This scenario is the most common scenario in use to deploy SAP assets on Azure. For more information, see [Planning and design for VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
-
-> [!NOTE]
-> Cross-premises deployments of SAP systems are where Azure virtual machines that run SAP systems are members of an on-premises domain and are supported for production SAP systems. Cross-premises configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires those VMs to be part of an on-premises domain and Active Directory/LDAP. 
->
-> In previous versions of the documentation, hybrid-IT scenarios were mentioned. The term *hybrid* is rooted in the fact that there's a cross-premises connectivity between on-premises and Azure. In this case, hybrid also means that the VMs in Azure are part of the on-premises Active Directory.
->
->
-
-Some Microsoft documentation describes cross-premises scenarios a bit differently, especially for DBMS high-availability configurations. In the case of the SAP-related documents, the cross-premises scenario boils down to site-to-site or private [ExpressRoute](https://azure.microsoft.com/services/expressroute/) connectivity and an SAP landscape that's distributed between on-premises and Azure.
-========
 In this document, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this document. Instead, the specific DBMS systems are handled in other database system specific documents. 
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
 
 ## Resources
 There are other articles available on SAP workload on Azure. Start with [SAP workload on Azure: Get started](./get-started.md) and then choose your area of interest.
@@ -90,10 +63,10 @@ To follow this chapter, read and understand the information presented in:
 
 - [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
 - [Azure Storage types for SAP workload](./planning-guide-storage.md)
-- [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
-- [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) 
+- [What SAP software is supported for Azure deployments](./supported-product-on-azure.md)
+- [SAP workload on Azure virtual machine supported scenarios](./planning-supported-configurations.md) 
 
-For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../managed-disks-overview.md).
+For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../virtual-machines/managed-disks-overview.md).
 
 
 In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. We recommend having separate Azure disks for:
@@ -312,19 +285,16 @@ For more information on the deployment of components that deliver host data to S
 ## Next steps
 For more information on a particular DBMS, see:
 
-- [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sqlserver.md)
-- [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_oracle.md)
-- [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_ibm.md)
+- [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-sqlserver.md)
+- [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-oracle.md)
+- [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-ibm.md)
 - [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](./dbms-guide-ha-ibm.md)
 - [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md)
-- [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sapase.md)
-- [SAP maxDB, Live Cache, and Content Server deployment on Azure](dbms_guide_maxdb.md)
+- [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-sapase.md)
+- [SAP maxDB, Live Cache, and Content Server deployment on Azure](dbms-guide-maxdb.md)
 - [SAP HANA on Azure operations guide](hana-vm-operations.md)
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - [SAP HANA high availability for Azure virtual machines](sap-hana-availability-overview.md)
-<<<<<<<< HEAD:articles/center-sap-solutions/workloads/dbms_guide_general.md
-- [Backup guide for SAP HANA on Azure virtual machines](../../backup/sap-hana-db-about.md)
-========
-- [Backup guide for SAP HANA on Azure virtual machines](../../../backup/sap-hana-db-about.md)
-- [SAP BW NLS implementation guide with SAP IQ on Azure](./sap-iq-deployment-guide.md)
->>>>>>>> be82805bced985b8e89abcec4ce0898135c520fb:articles/center-sap-solutions/workloads/dbms-guide-general.md
+
+- [Backup guide for SAP HANA on Azure virtual machines](../../backup/sap-hana-database-about.md)
+- [SAP BW NLS implementation guide with SAP IQ on Azure](./dbms-guide-sapiq.md)

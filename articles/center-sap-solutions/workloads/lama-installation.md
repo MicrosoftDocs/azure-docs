@@ -28,7 +28,7 @@ ms.custom: subject-rbac-steps
 [2815988]:https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [hana-ops-guide]:hana-vm-operations.md
