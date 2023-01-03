@@ -50,7 +50,7 @@ The REST APIs enable extension scenarios such as:
 - Programmatic management  of your IoT Central applications.
 - Tight integration with other applications.
 
-To learn more, see [Manage an IoT Central application with the REST API](/training/modules/manage-iot-central-apps-with-rest-api/).
+To learn more, see [Tutorial: Use the REST API to manage an Azure IoT Central application](tutorial-use-rest-api.md).
 
 ## Next steps
 

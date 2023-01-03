@@ -1,7 +1,7 @@
 ---
-title: Manage individual sensors
-description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
-ms.date: 11/07/2022
+title: Manage OT sensors from the sensor console - Microsoft Defender for IoT
+description: Learn how to manage individual Microsoft Defender for IoT OT network sensors directly from the sensor's console.
+ms.date: 11/28/2022
 ms.topic: how-to
 ---
 
@@ -57,6 +57,7 @@ A unique activation file is uploaded to each sensor that you deploy. For more in
 
 Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears in the System Messages window in the top-right corner of the console. The warning remains until after you've updated the activation file.
 
+You can continue to work with Defender for IoT features even if the activation file has expired.
 You can continue to work with Defender for IoT features even if the activation file has expired.
 
 ### About activation files for cloud-connected sensors
@@ -168,7 +169,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 8. In the on-premises management console, in the **Site Management** window, assign the sensor to a site and zone.
 
-Continue with additional configurations, such as adding users, configuring forwarding exclusion rules and more. For example, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md), [About Defender for IoT console users](how-to-create-and-manage-users.md), or [Forward alert information](how-to-forward-alert-information-to-partners.md).
+Continue with additional settings, such as [adding users](how-to-create-and-manage-users.md), [setting up an SMTP server](how-to-manage-individual-sensors.md#configure-smtp-settings), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), and more. For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
 ## Change the name of a sensor
 
@@ -254,21 +255,21 @@ You can automatically transfer this file to the internal network.
 > - The backup and restore procedure can be performed between the same versions only.
 > - In some architectures, the backup is disabled. You can enable it in the `/var/cyberx/properties/backup.properties` file.
 
-When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server.
+When you control a sensor by using the on-premises management console, you can use the sensor's backup schedule to collect these backups and store them on the management console or on an external backup server. For more information, see [Define sensor backup schedules](how-to-manage-sensors-from-the-on-premises-management-console.md#define-sensor-backup-schedules).
 
 **What is backed up**: Configurations and data.
 
-**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs.
+**What is not backed up**: PCAP files and logs. You can manually back up and restore PCAPs and logs. For more information, see [Upload and play PCAP files](#upload-and-play-pcap-files).
 
 Sensor backup files are automatically named through the following format: `<sensor name>-backup-version-<version>-<date>.tar`. An example is `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`.
 
 **To configure backup:**
 
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-backup`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-backup`.
 
 **To restore the latest backup file:**
 
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-restore`.
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
 
 **To save the backup to an external SMB server:**
 
@@ -310,19 +311,60 @@ Sensor backup files are automatically named through the following format: `<sens
 
 ### Restore sensors
 
-You can restore backups from the sensor console and by using the CLI.
+You can restore a sensor from a backup file using the sensor console or the CLI.
 
-**To restore from the console:**
+**To restore from the sensor console:**
 
-- Select **Restore Image** from the sensor's **System Settings** window.
+To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
-:::image type="content" source="media/how-to-manage-individual-sensors/restore-image-screen.png" alt-text="Restore your image by selecting the button.":::
+- **To download a backup file:**
 
-The console will display restore failures.
+    1. Access the sensor using an SFTP client.
 
-**To restore by using the CLI:**
+    1. Sign in to an administrative account and enter the sensor IP address.
 
-- Sign in to an administrative account and enter `$ sudo cyberx-management-system-restore`.
+    1. Download the backup file from your chosen location and save it. The default location for system backup files is `/var/cyberx/backups`.
+
+- **To restore the sensor**:
+
+     1. Sign in to the sensor console and go to **System settings** > **Sensor management** > **Backup & restore** > **Restore**. For example:
+
+        :::image type="content" source="media/how-to-manage-individual-sensors/restore-sensor-screen.png" alt-text="Screenshot of Restore tab in sensor console.":::
+
+     1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
+
+     1. When the restore process is complete, select **Close**.
+
+**To restore the latest backup file by using the CLI:**
+
+- Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
+
+## Configure SMTP settings
+
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers.
+
+You'll need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+
+**Prerequisites**:
+
+Make sure you can reach the SMTP server from the [sensor's management port](/azure/defender-for-iot/organizations/best-practices/understand-network-architecture). 
+
+**To configure an SMTP server on your sensor**:
+
+1. Sign in to the sensor as an **Admin** user and select **System settings** > **Integrations** > **Mail server**.
+
+1. In the **Edit Mail Server Configuration** pane that appears, define the values for your SMTP server as follows:
+
+    |Parameter  |Description  |
+    |---------|---------|
+    |**SMTP Server Address**     | Enter the IP address or domain address of your SMTP server.        |
+    |**SMTP Server Port**     | Default = 25. Adjust the value as needed.        |
+    |**Outgoing Mail Account**     | Enter an email address to use as the outgoing mail account from your sensor.        |
+    |**SSL**     | Toggle on for secure connections from your sensor.        |
+    |**Authentication**     | Toggle on and then enter a username and password for your email account.        |
+    |**Use NTLM**     | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
+
+1. Select **Save** when you're done.
 
 ## Forward sensor failure alerts
 
@@ -410,6 +452,18 @@ This feature is supported for the following sensor versions:
 
 1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
 
+## Retrieve forensics data stored on the sensor
+
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
+
+Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
+
 ## Clearing sensor data
 
 In cases where the sensor needs to be relocated or erased, the sensor can be reset.
@@ -421,7 +475,7 @@ Clearing data deletes all detected or learned data on the sensor. After clearing
 
 **To clear system data**:
 
-1. Sign in to the sensor as the **cyberx** user.
+1. Sign in to the sensor as the *cyberx* user.
 
 1. Select **Support** > **Clear data**.
 

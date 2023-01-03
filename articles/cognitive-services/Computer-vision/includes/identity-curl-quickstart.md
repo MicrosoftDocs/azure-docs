@@ -28,7 +28,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Identify faces
+## Identify and verify faces
 
 > [!NOTE]
 > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
@@ -70,6 +70,12 @@ Get started with facial recognition using the Face REST API. The Face service pr
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_identify":::
 
     The response should give you a **Person** ID indicating the person identified with the source face. It should be the ID that corresponds to the "Family1-Dad" person, because the source face is of that person.
+
+1. To do face verification, you'll use the **Person** ID returned in the previous step, the **LargePersonGroup** ID, and also the source face ID. Insert these values into the fields in the request body, and insert your key.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="verify":::
+
+    The response should give you a boolean verification result along with a confidence value.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>

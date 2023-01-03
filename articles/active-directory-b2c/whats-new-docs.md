@@ -15,6 +15,19 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
 
+## November 2022
+
+### New articles
+
+- [Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access](partner-akamai-secure-hybrid-access.md)
+
+### Updated articles
+
+- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+- [Roles and resource access control](roles-resource-access-control.md)
+- [Define an Azure Active Directory technical profile in an Azure Active Directory B2C custom policy](active-directory-technical-profile.md)
 
 ## October 2022
 
