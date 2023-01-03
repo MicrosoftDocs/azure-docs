@@ -188,11 +188,17 @@ account in the **Nodes** tab of the State configuration (DSC) page.
 
 The DSC node can take six different values.
 
-- **Unresponsive** - Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). 
-- **RefreshFrequencyMins** and **ConfigurationModeFrequencyMins** - The frequency of node contacting the agent service is defined using these two different values provided as part of onboarding to DSC. These take a maximum value of 10080 minutes. 
+- **Failed** - This status appears when an error occurs when applying one or more configuration on a node.
+- **Not complaint** - This status appears when drift occurs on a node.This must be reviewed more closely if systematic.
+- **Unresponsive** - This status appears when node has not been checked in for more than 24 hours.
+- **Pending** - This status appears when a node has a new configuration to apply and pull server is awaiting node check in.
+- **In-progress** - This status appears when a node applies configuration and the pull server is awaiting status.
+- **Compliant** - This status appears when a node has a valid configuration and no drift occurs presently.
 
 >[!NOTE]
->If the user uses a value > 1440, the node will be shown **Unresponsive** and gives false status of the nodes. 
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day).  
+>- **RefreshFrequencyMins** and **ConfigurationModeFrequencyMins** - The frequency of node contacting the agent service is defined using these two different values provided as part of onboarding to DSC. These take a maximum value of 10080 minutes 
+>- If the user uses a value > 1440, the node will be shown **Unresponsive** and gives false status of the nodes. 
 
 ## View reports for managed nodes
 
