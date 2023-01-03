@@ -76,8 +76,11 @@ ms.author: fasantia
     Use the Azure Machine Learning portal to get the tracking URI:
     
     1. Open the [Azure Machine Learning studio portal](https://ml.azure.com) and log in using your credentials.
+
     1. In the upper right corner, click on the name of your workspace to show the __Directory + Subscription + Workspace__ blade.
+
     1. Click on __View all properties in Azure Portal__.
+
     1. On the __Essentials__ section, you will find the property __MLflow tracking URI__.
     
     
