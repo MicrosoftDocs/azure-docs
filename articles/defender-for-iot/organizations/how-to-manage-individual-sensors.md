@@ -1,6 +1,6 @@
 ---
-title: Manage individual sensors
-description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
+title: Manage OT sensors from the sensor console - Microsoft Defender for IoT
+description: Learn how to manage individual Microsoft Defender for IoT OT network sensors directly from the sensor's console.
 ms.date: 11/28/2022
 ms.topic: how-to
 ---
