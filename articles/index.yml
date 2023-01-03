@@ -1492,7 +1492,7 @@ productDirectory:
         - storage
       url: storage/files/index.yml
     # Card
-    - title: Azure Elastic SAN
+    - title: Azure Elastic SAN (Preview)
       summary: Easily deploy, scale, manage, and configure a SAN in Azure.
       imageSrc: ./media/index/elastic-san.svg
       azureCategories:
