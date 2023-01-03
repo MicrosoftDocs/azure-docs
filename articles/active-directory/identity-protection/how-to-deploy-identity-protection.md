@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 12/22/2022
+ms.date: 01/03/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,41 +15,45 @@ ms.reviewer: jhenders, tracyyu, chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Plan an Azure Active Directory Identity Protection deployment
+# Plan an Identity Protection deployment
 
-Azure AD Identity Protection contributes both a registration policy for and automated risk detection and remediation policies to the Azure AD Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign in is deemed risky. If you use Azure AD Identity Protection, configure the Azure AD MFA registration policy to prompt your users to register the next time they sign in interactively.
+Azure Active Directory (Azure AD) Identity Protection enhances other capabilities like Conditional Access, self-service password reset, and logs. 
 
-To monitor your Azure multi factor authentication and self service password reset deployment check the Authentication methods activity tab in the Microsoft Entra portal.
+This deployment plan extends concepts introduced in the [Conditional Access deployment plan](../conditional-access/plan-conditional-access.md).
 
 ## Prerequisites
 
+* A working Azure AD tenant with Azure AD Premium P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+   * Azure AD Premium P2 is required to include Identity Protection risk in Conditional Access policies.
+* Conditional Access policies can be created or modified by anyone assigned the following roles:
+   * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
+   * [Security Administrator](../roles/permissions-reference.md#security-administrator)
+   * [Global Administrator](../roles/permissions-reference.md#global-administrator)
+* Identity Protection and Conditional Access policies and configuration can be read by anyone assigned the following roles:
+   * [Security Reader](../roles/permissions-reference.md#security-reader)
+   * [Global Reader](../roles/permissions-reference.md#global-reader)
+* Identity Protection can be managed by anyone assigned the following roles:
+   * [Security Operator](../roles/permissions-reference.md#security-operator)
+   * [Security Administrator](../roles/permissions-reference.md#security-administrator)
+   * [Global Administrator](../roles/permissions-reference.md#global-administrator)
+* A test user (non-administrator) that allows you to verify policies work as expected before you affect real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+* A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+
 ### Engage the right stakeholders
 
-CREATE AN INCLUDE BASED ON https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-deployment-plans#include-the-right-stakeholders AND PUT IT HERE
-
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you’re engaging the right stakeholders and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities. 
-
-### License requirements
-
-Azure Active Directory Identity protection requires an appropriate license for the features they use.
-To compare editions and features, see Azure Active Directory Identity Protection license requirement
-For more information about pricing, see Azure Active Directory pricing.
-
-### Permissions
-
-Identity Protection requires users be a Security Reader, Security Operator, Security Administrator, Global Reader, or Global Administrator to access. See Azure AD identity protection roles.
+When technology projects fail, they typically do so due to mismatched expectations on affect, outcomes, and responsibilities. To avoid these pitfalls, ensure that you’re engaging the right stakeholders and that stakeholder roles in the project are well understood by documenting the stakeholders, their project input, and accountability. 
 
 ### Communication plan
 
-Communication is critical to the success of any new service. You should proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Communication is critical to the success of any new functionality. You should proactively communicate with your users how their experience will change, when it will change, and how to get support if they experience issues.
 
 ## Step 1: Review existing reports
 
-It is important to understand your current Identity Protection reports before deploying risk based Conditional Access policies. This is to give you an understanding of your environment, investigate suspicious behavior you may have missed and to dismiss or confirm safe user who you have determined are not at risk. We recommend allowing users to self-remediate through policies that will be discussed in Step 3.
+It's important to understand your current Identity Protection reports before deploying risk based Conditional Access policies. This is to give you an understanding of your environment, investigate suspicious behavior you may have missed and to dismiss or confirm safe user who you have determined aren't at risk. We recommend allowing users to self-remediate through policies that will be discussed in [Step 3](#step-3-configure-your-policies).
 
 ### Existing risk detections
 
-If your users have not been remediating risk then they could have accumulated risk or the user may have reset their password on-premises, which does not remediate risk. Make sure before you bulk dismiss users, you have determined they are not at risk. You can see samples for bulk dismiss via Microsoft Graph API in our Identity Protection Tools.
+If your users haven't been remediating risk, then they may have accumulated risk. Users who reset their password on-premises don't remediate risk. Make sure before you dismiss risks, you've determined they aren't really at risk by [investigating risk detections](howto-identity-protection-investigate-risk.md). After investigating you can remediate user risk by following the steps in the article, [Remediate risks and unblock users](howto-identity-protection-remediate-unblock.md). Make bulk changes to user risk by following the samples in the article, [Azure Active Directory Identity Protection and the Microsoft Graph PowerShell](howto-identity-protection-graph-api.md).
 
 ## Step 2: Plan for Conditional Access risk policies
 
@@ -57,13 +61,13 @@ Conditional Access brings signals together to make decisions and enforce organiz
 
 ### Policy exclusions
 
-FIX THE INCLUDE AND PUT IT HERE
+[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ### Related features
 
-Azure MFA and Secure password reset is a pre-requisite for using Conditional Access risk policies. For users to be able to remediate risk your must have your users registered in Azure Active Directory self-service password reset and Azure Active Directory multi-factor authentication. 
+For users to self-remediate risk they must register for Azure Active Directory self-service password reset and Azure AD Multifactor Authentication. 
 
-We have guidance and deployment plans for both Azure AD self-service password reset and Azure Active Directory multi-factor authentication. 
+We have guidance and deployment plans for both Azure AD self-service password reset and Azure AD Multifactor Authentication. 
 
 Combined registration MFA registration and SSPR - Enable combined security information registration - Azure Active Directory - Microsoft Entra | Microsoft Docs
 
@@ -73,65 +77,40 @@ Plan your Azure Active Directory Multi-Factor Authentication deployment with Con
 
 ### Known network locations
 
-It is important to configure both trusted named locations in Conditional Access and to add your VPN ranges in Defender for Cloud Apps. Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted. This will reduce the amount of false positives for some of the detections in your environment as these locations are used in our analysis of risk.
+It's important to configure named locations in Conditional Access and add your VPN ranges to Defender for Cloud Apps. Sign-ins from named locations, marked as trusted or known, improve the accuracy of Azure AD Identity Protection's risk calculation. These sign-ins lower a user's risk when they authenticate from a location marked as trusted or known. This will reduce false positives for some detections in your environment.
 
 ### Report only mode 
 
 Report-only mode is a Conditional Access policy state that allows administrators to evaluate the impact of Conditional Access policies before enforcing them in their environment.
 
-## Step 3: Build Conditional Access risk policies
+## Step 3: Configure your policies
 
-### Conditional Access templates
+### Identity Protection MFA registration policy
 
-FIX THE INCLUDE AND PUT IT HERE
+Use the Identity Protection multifactor authentication registration policy to help get your users registered for Azure AD Multifactor Authentication before they need to use it. Follow the steps in the article [How To: Configure the Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md) to enable this policy.
 
 ### Conditional Access sign-in risk policy
 
-Most users have a normal behaviour that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are. You may want to start by scoping these policies to admins only. 
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they're really who they say they are. You may want to start by scoping these policies to admins only. 
 
-1.	Sign in to the Azure portal as a global administrator, security administrator, or Conditional Access administrator.
-2.	Browse to Azure Active Directory > Security > Conditional Access.
-3.	Select New policy.
-4.	Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-5.	Under Assignments, select Users and groups.
-   1.	Under Include, select All users.
-   2.	Under Exclude, select Users and groups and choose your organization's emergency access or break-glass accounts.
-   3.	Select Done.
-6.	Under Cloud apps or actions > Include, select All cloud apps.
-7.	Under Conditions > Sign-in risk, set Configure to Yes. Under Select the sign-in risk level this policy will apply to.
-   1.	Select High and Medium.
-   2.	Select Done.
-8.	Under Access controls > Grant.
-   1.	Select Grant access, Require multi-factor authentication.
-   2.	Select Select.
-9.	Confirm your settings and set Enable policy to Report-only.
-10.	Select Create to create to enable your policy.
+The guidance in the article [Common Conditional Access policy: Sign-in risk-based multifactor authentication](../conditional-access/howto-conditional-access-policy-risk.md) provides guidance to create a sign-in risk policy.
 
 ### Conditional Access user risk
 
-Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating Azure AD Identity Protection user risk detections.
+Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. When these vulnerable users are detected, we recommend requiring users perform multifactor authentication then reset their password.
 
-1.	Sign in to the Azure portal as a global administrator, security administrator, or Conditional Access administrator.
-2.	Browse to Azure Active Directory > Security > Conditional Access.
-3.	Select New policy.
-4.	Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-5.	Under Assignments, select Users and groups.
-1.	Under Include, select All users.
-2.	Under Exclude, select Users and groups and choose your organization's emergency access or break-glass accounts.
-3.	Select Done.
-6.	Under Cloud apps or actions > Include, select All cloud apps.
-7.	Under Conditions > User risk, set Configure to Yes.
-1.	Under Configure user risk levels needed for policy to be enforced, select High.
-2.	Select Done.
-8.	Under Access controls > Grant.
-1.	Select Grant access, Require password change.
-2.	Select Select.
-9.	Confirm your settings, and set Enable policy to Report-only.
-10.	Select Create to create to enable your policy.
-
-### ?Enable MFA registration policy?
+The guidance in the article [Common Conditional Access policy: User risk-based password change](../conditional-access/howto-conditional-access-policy-risk-user.md) provides guidance to create a user risk policy that requires password change.
 
 ### Migrating from older Identity Protection policies
+
+If you already deployed legacy Identity Protection risk policies we recommend migrating them to Conditional Access policies. Conditional Access policies provide the following benefits: 
+
+- Enhanced diagnostic data
+- Report-only mode integration
+- Graph API support
+- Ability to use more Conditional Access attributes like sign-in frequency in the policy
+
+For more information, see the section [Migrate risk policies from Identity Protection to Conditional Access](howto-identity-protection-configure-risk-policies.md#migrate-risk-policies-from-identity-protection-to-conditional-access).
 
 ## Step 4: Monitoring and continuous operational needs
 
@@ -142,15 +121,17 @@ Enable notifications so you can respond when a user is flagged as at risk so you
 ### Monitor and investigate
 
 Investigate risk with Identity Protection Alerts (in DRAFT)
-Identity Protection workbook to help monitor and look for patterns in your tenant. Monitor this for trends and also Conditional Access Report Only mode results to see if there are any tweaks that need to be made for example additions to named locations.
+Identity Protection workbook to help monitor and look for patterns in your tenant. Monitor this workbook for trends and also Conditional Access Report Only mode results to see if there are any tweaks that need to be made, for example,  additions to named locations.
  
 How to investigate anomaly detection with Defender for Cloud App Security Alerts 
-You can also use the Identity Protection API’s to export the risk to your SIEM tool so your security team can monitor and alert on risk events. 
+You can also use the Identity Protection APIs to export the risk to your SIEM tool so your security team can monitor and alert on risk events. 
 
-During this testing time you might want to simulate some threats Identity Protection protects against and you can see some of these here.
+During this testing time, you might want to simulate some threats Identity Protection protects against so you can see some of these risks.
 
 ## Step 5: Enable Conditional Access policies
 
-After you have completed all your analysis and evaluated the report only mode for Conditional Access and you have your stakeholders on board it is time to turn on your Conditional Access risk policies.
+After you've completed all your analysis, evaluated policies in report only mode, and you have your stakeholders on board it's time to turn on your Conditional Access risk policies.
 
 ## Next steps
+
+
