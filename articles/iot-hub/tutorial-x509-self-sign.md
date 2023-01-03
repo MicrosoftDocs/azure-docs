@@ -14,7 +14,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # Tutorial: Using OpenSSL to create self-signed certificates
 
-You can authenticate a device to your IoT hub using two self-signed device certificates. This is sometimes called *thumbprint authentication* because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps show you how to create two self-signed certificates. This type of certificate is mainly used for testing.
+You can authenticate a device to your IoT hub using two self-signed device certificates. This type of authentication is sometimes called *thumbprint authentication* because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps show you how to create two self-signed certificates. This type of certificate is typically used for testing.
 
 ## Step 1 - Create a key for the first certificate
 
@@ -38,7 +38,7 @@ Organizational Unit Name (eg, section) []:.
 Common Name (eg, your name or your server hostname) []:{your-device-id}
 Email Address []:.
 
-Please enter the following \'extra\' attributes
+Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:.
 An optional company name []:.
@@ -77,7 +77,7 @@ Organizational Unit Name (eg, section) []:.
 Common Name (eg, your name or your server hostname) []:{your-device-id}
 Email Address []:.
 
-Please enter the following \'extra\' attributes
+Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:.
 An optional company name []:.
