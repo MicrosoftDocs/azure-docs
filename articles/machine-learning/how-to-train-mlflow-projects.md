@@ -50,6 +50,8 @@ Once the tracking is configured, you'll also need to configure how the authentic
 
 [!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
+---
+
 ## Train MLflow Projects on local compute
 
 This example shows how to submit MLflow projects locally with Azure Machine Learning.
