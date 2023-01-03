@@ -63,9 +63,9 @@ You'll need the Azure Functions Core Tools for this step.
     func init --worker-runtime dotnet-isolated
 
     # Add extensions package references to the project
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.Http
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.Timer
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Http
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.SignalRService
+    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Timer
     ```
 
 1. Using your code editor, create a new file with the name *Function.cs*. Add the following code to *Function.cs*:
@@ -166,7 +166,7 @@ You'll need the Azure Functions Core Tools for this step.
         private static int StarCount = 0;
 
         [Function("index")]
-        public static HttpResponseData GetWebPage([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req)
+        public static HttpResponseData GetHomePage([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestData req)
         {
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.WriteString(File.ReadAllText("content/index.html"));
