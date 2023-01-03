@@ -79,7 +79,7 @@ You can use this base template as a starting point for creating Resource Health 
 
 ## Template to maximize the signal to noise ratio
 
-This a sample template that is configured to maximize the signal to noise ratio. Keep in mind that there can be instances cases where the currentHealthStatus, previousHealthStatus, and cause property values may be null in some events. 
+This sample template is configured to maximize the signal to noise ratio. Keep in mind that there can be instances cases where the currentHealthStatus, previousHealthStatus, and cause property values may be null in some events. 
 
 See [Configure resource health alerts using Resource Manager templates](../../service-health/resource-health-alert-arm-template-guide.md) for information about configuring resource health alerts using ARM templates.
 
