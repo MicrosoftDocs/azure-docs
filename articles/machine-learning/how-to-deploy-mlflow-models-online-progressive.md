@@ -296,7 +296,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     __blue-deployment.yml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: default
     endpoint_name: heart-classifier-edp
@@ -432,7 +432,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     
     __sample.yml__
 
-    ```yml
+    ```yaml
     {
         "input_data": {
             "columns": [
@@ -562,7 +562,7 @@ Let's imagine that there is a new version of the model created by the developmen
     
     __green-deployment.yml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: xgboost-model
     endpoint_name: heart-classifier-edp

@@ -597,7 +597,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    ```yml
+    ```yaml
     channels:
     - conda-forge
     dependencies:
@@ -624,7 +624,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
-    ```python
+    ```pythonS
     environment = Environment(
         conda_file="sklearn-diabetes/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
@@ -656,7 +656,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     Create a deployment configuration file:
     
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
     name: sklearn-diabetes-custom
     endpoint_name: my-endpoint
