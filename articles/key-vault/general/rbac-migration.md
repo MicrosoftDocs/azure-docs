@@ -27,7 +27,6 @@ Azure RBAC key benefits over vault access policies:
 Azure RBAC disadvantages:
 - Latency for role assignments - it can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
 - Limited number of role assignments - Azure RBAC allows only 2000 roles assignments across all services per subscription versus 1024 access policies per Key Vault
--Not able to fetch SSL certificates for an app service when used. [configure ssl certificate](../../app-service/configure-ssl-certificate.md)
 
 ## Access policies to Azure roles mapping
 
@@ -36,7 +35,7 @@ Azure RBAC has several Azure built-in roles that you can assign to users, groups
 Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Administrator
 - Key Vault Reader
-- Key Vault Certificate Officer
+- Key Vault Certificates Officer
 - Key Vault Crypto Officer
 - Key Vault Crypto User
 - Key Vault Crypto Service Encryption User
@@ -78,7 +77,7 @@ Access policy predefined permission templates:
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
 
 > [!NOTE]
-> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
+> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Secrets User** and **Key Vault Reader** role assignemnts for 'Microsoft Azure App Service' global indentity.
 
 ## Assignment scopes mapping  
 

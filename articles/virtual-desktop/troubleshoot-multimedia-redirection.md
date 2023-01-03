@@ -16,7 +16,7 @@ manager: femila
 >[!NOTE]
 >Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
->Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3573 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+>Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices. Multimedia redirection requires the [Windows Desktop client, version 1.2.3573 or later](users/connect-windows.md) with Insider features enabled.
 
 This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop (preview).
 
@@ -24,9 +24,11 @@ This article describes known issues and troubleshooting instructions for multime
 
 The following issues are ones we're already aware of, so you won't need to report them:
 
-- In the first browser tab a user opens, the extension pop-up might show a message that says, “The extension is not loaded”, or a message that says video playback or calling redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
+- In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or calling redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
 
-- Multimedia redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client.
+- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md).
+
+- While in preview, you must configure the Windows Desktop client to use Insider releases. For more information, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
 
 - Multimedia redirection doesn't currently support protected content, so videos from Netflix, for example, won't work.
 

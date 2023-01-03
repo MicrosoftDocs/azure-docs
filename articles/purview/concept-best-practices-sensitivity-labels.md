@@ -12,6 +12,9 @@ ms.custom: ignite-fall-2021
 
 # Labeling best practices for the data map
 
+>[!NOTE]
+>These best practices cover applying labels to the data map in [Microsoft Purview unified data governance solutions](how-to-automatically-label-your-content.md). For more information about labeling in Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/apply-sensitivity-label-automatically). For more information about Microsoft Purview in general, [go here](/purview/purview).
+
 The Microsoft Purview Data Map supports labeling structured and unstructured data stored across various data sources. Labeling data within the data map allows users to easily find data that matches predefined autolabeling rules that were configured in the Microsoft Purview compliance portal. The data map extends the use of sensitivity labels from Microsoft Purview Information Protection to assets stored in infrastructure cloud locations and structured data sources.
 
 ## Protect personal data with custom sensitivity labels for Microsoft Purview

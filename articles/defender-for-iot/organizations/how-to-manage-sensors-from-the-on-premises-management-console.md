@@ -1,11 +1,11 @@
 ---
-title: Manage sensors from the on-premises management console 
-description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
+title: Manage OT sensors from the on-premises management console
+description: Learn how to manage OT sensors from the on-premises management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
 ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
-# Manage sensors from the management console
+# Manage sensors from the on-premises management console
 
 This article describes how to manage OT sensors from an on-premises management console, such as pushing system settings to individual sensors, or enabling or disabling specific engines on your sensors.
 
@@ -114,6 +114,18 @@ Sensors are protected by Defender for IoT engines. You can enable or disable the
    A red exclamation mark appears if there's a mismatch of enabled engines on one of your enterprise sensors. The engine might have been disabled directly from the sensor.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines.":::
+
+## Retrieve forensics data stored on the sensor
+
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+
+- Device data
+- Alert data
+- Alert PCAP files
+- Event timeline data
+- Log files
+
+Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md).
 
 ## Define sensor backup schedules
 
@@ -273,4 +285,3 @@ For more information, see:
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 - [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
-- [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).

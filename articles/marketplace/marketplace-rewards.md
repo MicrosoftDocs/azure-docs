@@ -45,10 +45,11 @@ Your steps to get started are easy:
 1. You can use your technical benefit to request technical assistance during the pre-sales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
 1. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
->[!NOTE]
->If your offer has been live for more than four weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533).
+> [!NOTE]
+> If your offer has been live for more than three weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
+
 
 
 
