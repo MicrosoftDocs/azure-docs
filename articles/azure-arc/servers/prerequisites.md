@@ -35,7 +35,7 @@ The following versions of the Windows and Linux operating system are officially 
 * SUSE Linux Enterprise Server (SLES) 12 and 15
 * Red Hat Enterprise Linux (RHEL) 7 and 8
 * Amazon Linux 2
-* Oracle Linux 7 and 8
+* Oracle Linux 7
 
 > [!NOTE]
 > On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
@@ -84,6 +84,7 @@ To use Azure Arc-enabled servers, the following [Azure resource providers](../..
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 * **Microsoft.HybridConnectivity**
+* **Microsoft.AzureArcData** (if you plan to Arc-enable SQL Servers)
 
 If these resource providers are not already registered, you can register them using the following commands:
 

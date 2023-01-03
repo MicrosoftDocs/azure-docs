@@ -36,7 +36,7 @@ Usage of the `phoneme` element's attributes are described in the following table
 
 ### phoneme examples
 
-The supported values for attributes of the `phoneme` element were [described previously](#phoneme-element).
+The supported values for attributes of the `phoneme` element were [described previously](#phoneme-element). In the first two examples, the values of `ph="tə.ˈmeɪ.toʊ"` or `ph="təmeɪˈtoʊ"` are specified to stress the syllable `meɪ`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -45,7 +45,13 @@ The supported values for attributes of the `phoneme` element were [described pre
     </voice>
 </speak>
 ```
-
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural">
+        <phoneme alphabet="ipa" ph="təmeɪˈtoʊ"> tomato </phoneme>
+    </voice>
+</speak>
+```
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">

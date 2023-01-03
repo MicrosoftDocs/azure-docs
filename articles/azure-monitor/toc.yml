@@ -36,6 +36,8 @@ items:
     href: essentials/tutorial-resource-logs.md
   - name: Detect and analyze anomalies in Azure Monitor Logs
     href: logs/kql-machine-learning-azure-monitor.md
+  - name: Create a metric alert
+    href: alerts/tutorial-metric-alert.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
   - name: Virtual machines
@@ -82,6 +84,10 @@ items:
         href: alerts/resource-manager-alerts-log.md
       - name: Metric alert rules
         href: alerts/resource-manager-alerts-metric.md
+      - name: Activity log alert rules
+        href: alerts/resource-manager-alerts-activity-log.md
+      - name: Resource health alert rules
+        href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
         href: alerts/resource-manager-action-groups.md
     - name: Application Insights
@@ -156,16 +162,6 @@ items:
       href: vm/monitor-virtual-machine-workloads.md
   - name: Monitor Kubernetes
     href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Migrate from Operations Manager
-    href: azure-monitor-operations-manager.md
-  - name: System Center integration
-    items:
-    - name: Connect Operations Manager
-      href: agents/om-agents.md
-    - name: Assess Operations Manager
-      href: insights/scom-assessment.md
-    - name: Connect Configuration Manager
-      href: logs/collect-sccm.md
   - name: Forward syslog data to workspace
     href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Self-monitoring
@@ -344,6 +340,9 @@ items:
     - name: Overview
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-overview.md
+    - name: Best practices
+      displayName: data collection, data collection rules
+      href: essentials/data-collection-rule-best-practices.md
     - name: Edit
       displayName: data collection rules
       href: essentials/data-collection-rule-edit.md
@@ -573,6 +572,16 @@ items:
             href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
+  - name: System Center
+    items:
+    - name: Migrate from Operations Manager
+      href: azure-monitor-operations-manager.md
+    - name: SCOM Managed Instance (preview)
+      href: vm/scom-managed-instance-overview.md
+    - name: Connect Operations Manager
+      href: agents/om-agents.md
+    - name: Assess Operations Manager
+      href: insights/scom-assessment.md
 - name: Insights
   items:
   - name: Overview
@@ -725,8 +734,6 @@ items:
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
-    - name: Create a resource (classic)
-      href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
       href: app/create-workspace-resource.md
     - name: Migrate to a workspace-based resource
@@ -1039,8 +1046,6 @@ items:
       href: vm/vminsights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
-    - name: Configure workspace
-      href: vm/vminsights-configure-workspace.md
     - name: Enable and configure
       items:
       - name: Overview
@@ -1051,32 +1056,18 @@ items:
         href: vm/vminsights-enable-powershell.md
       - name: ARM templates
         href: vm/vminsights-enable-resource-manager.md
-      - name: Azure Policy
+      - name: Azure Policy 
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
       - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
+      - name: Configure workspace 
+        href: vm/vminsights-configure-workspace.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Monitor performance
       href: vm/vminsights-performance.md
-    - name: Monitor guest health (preview)
-      items:
-      - name: Overview
-        href: vm/vminsights-health-overview.md
-      - name: Migrate
-        href: vm/vminsights-health-migrate.md
-      - name: Enable
-        href: vm/vminsights-health-enable.md
-      - name: Alerts
-        href: vm/vminsights-health-alerts.md
-      - name: Configure monitors in portal
-        href: vm/vminsights-health-configure.md
-      - name: Configure monitors at scale
-        href: vm/vminsights-health-configure-dcr.md
-      - name: Troubleshoot
-        href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: vm/vminsights-log-query.md
     - name: Monitor changes
@@ -1342,16 +1333,12 @@ items:
       href: alerts/alerts-manage-alert-instances.md
     - name: Metric alert rules
       items:
-      - name: Create a metric alert
-        href: alerts/tutorial-metric-alert.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
         href: alerts/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
         href: alerts/alerts-metric-logs.md
-      - name: Using Resource Manager template
-        href: alerts/alerts-metric-create-templates.md
       - name: Troubleshoot metric alerts
         href: alerts/alerts-troubleshoot-metric.md
     - name: Log alert rules
@@ -1360,8 +1347,6 @@ items:
         href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
         href: alerts/alerts-log-query.md
-      - name: Using Resource Manager template
-        href: alerts/alerts-log-create-templates.md
       - name: Troubleshoot log alerts
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
@@ -1381,7 +1366,7 @@ items:
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
-      - name: Create action group
+      - name: Create an action group
         href: alerts/action-groups.md
       - name: Create action groups with Resource Manager
         href: alerts/action-groups-create-resource-manager-template.md
@@ -1389,10 +1374,8 @@ items:
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
         href: alerts/alerts-sms-behavior.md
-      - name: Common alert schema
+      - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Common alert schema definition
-        href: alerts/alerts-common-schema-definitions.md
       - name: Common alert schema definition for Test action group
         href: alerts/alerts-common-schema-test-action-definitions.md
       - name: Configure the schema to get activity log alerts
@@ -1534,8 +1517,6 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
-    - name: Dependency auto-collection
-      href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
     - name: Azure Functions
@@ -1679,7 +1660,9 @@ items:
           - name: Key Vault Analytics (deprecated)
             href: insights/azure-key-vault-deprecated.md
     - name: Application Insights Java 2.x
-      href: ./app/deprecated-java-2x.md    
+      href: ./app/deprecated-java-2x.md
+    - name: Create a new App Insights resource (classic)
+      href: app/create-new-resource.md
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics
