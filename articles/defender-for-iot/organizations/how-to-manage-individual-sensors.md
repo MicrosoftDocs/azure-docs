@@ -152,7 +152,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 3. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen.":::
+   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Screenshot of the Connection string screen.":::
 
 4. Sign in to the sensor console.
 
