@@ -76,7 +76,7 @@ Use the following steps to check the operating system (OS) version on the macOS 
 ##### User Interface
 1. From the macOS device, click on the Apple icon in the top left corner and select **About This Mac**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-this-mac.png" alt-text="Screenshot showing the about my mac":::
-1. This will result in a popup showing basic system information. The operating system version will be listed beside macOS
+1. This will result in a popup showing basic system information. Operating system version will be listed beside **macOS**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/about-this-mac-info.png" alt-text="Screenshot showing the about this mac basic system information":::
 ##### Terminal
 1.  From the macOS device, click on the **spotlight icon**
@@ -102,8 +102,8 @@ The following table provides specific MDM installation guidance depending on whi
 |JAMF Pro     |[Use the Microsoft Enterprise SSO plug-in on iOS/iPadOS and macOS devices in JAMF Pro](https://learn.microsoft.com/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro)|Intune Company Portal needs to be installed. See JAMF documentation: [Deploy Company Portal](https://docs.jamf.com/technical-papers/jamf-pro/microsoft-intune/10.34.0/Deploy_the_Company_Portal_App_from_Microsoft_to_End_Users.html) Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac) |          
 | Other 3rd Party MDM     |Please consult any vendor specific documentation for how to deploy SSO extension profiles and reference our documentation on [Manual Configuration for other MDM Services](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)|Intune Company Portal needs to be installed. See MDM vendor documentation. Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac)
 
-
->[!NOTE] At the present time the Microsoft SSO Extension broker plugin code is bundled into the Microsoft Intune Company Portal app.  In the future we might decide to separate this into its own app, thus requiring a separate app installation on the macOS device.            
+>[!NOTE] 
+>At the present time the Microsoft SSO Extension broker plugin code is bundled into the Microsoft Intune Company Portal app.  In the future we might decide to separate this into its own app, thus requiring a separate app installation on the macOS device.            
 
 #### Validate SSO Configuration Profile on macOS Device 
 Assuming the MDM administrator has followed the steps in the previous section [MDM Deployment of SSO Extension Profile](#mdm-deployment-of-sso-extension-profile), we need to verify if the profile has been deployed.
@@ -114,10 +114,12 @@ Assuming the MDM administrator has followed the steps in the previous section [M
 1. When the **Spotlight Search** appears type **Profiles** and hit **return**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/launch-profiles-from-spotlight.png" alt-text="screenshot showing Profiles being launched from spotlight":::
 1. This should bring up the **Profiles** panel within the **System Settings**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/profiles-within-system-settings.png" alt-text="Screenshot showing configuration profiles":::
-    >[!NOTE] Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  By double-clicking each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
+    >[!NOTE] 
+    >Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  By double-clicking each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
 1. Double-click on the configuration profile that matches a **Settings** value of **Single Sign On Extension**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-config-profile.png" alt-text="screenshot showing sso extension configuration profile":::
-    >[!NOTE] The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
+    >[!NOTE] 
+    >The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
 1. To verify that we have the correct profile for the Microsoft Apple SSO Extension the  **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**
 1. Take note of the **Installed** field in the configuration profile as it can be a useful troubleshooting indicator, when changes are made to its configuration
 
@@ -139,15 +141,5 @@ If the SSO extension configuration profile does not appear in the **Profiles** a
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/filter-console-message-extensible.png" alt-text="Screenshot showing the console being further filtered on the message field":::
 1. We should now see the MDM Console logs filtered on **Extensible SSO** configuration profile activities. The following screenshot shows a log entry **Installed configuration profile**, showing that the configuration profile was installed.
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png" alt-text="Screenshot showing a sample of an installed configuration profile in console logs" lightbox="media/troubleshoot-mac-sso-extension-plugin/console-logs-extensible-message.png":::
-
-
-
-
-  
-
-
-
-
-   
 
 ## Application Auth Flow Troubleshooting
