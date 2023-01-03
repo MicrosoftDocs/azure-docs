@@ -49,38 +49,38 @@ You'll need Azure Active Directory (Azure AD) defined as a service principal for
     - **Directory (tenant) ID**
 
 
-1. From the **Certificates & secrets** page, note the values of your client secret **Value** and *Secret ID**.
+1. From the **Certificates & secrets** page, note the values of your client secret **Value** and **Secret ID**.
 
-## Create an Azure Event Hub
+## Create an Azure event hub
 
-Create an Azure Event Hub to use as a bridge between Microsoft Sentinel and your partner SIEM. Start this step by creating an Azure Event Hub namespace, and then adding an Azure Event Hub.
+Create an Azure event hub to use as a bridge between Microsoft Sentinel and your partner SIEM. Start this step by creating an Azure event hub namespace, and then adding an Azure event hub.
 
-**To create your Event Hub namespace and Event Hub**:
+**To create your event hub namespace and event hub**:
 
-1. In Azure Event Hubs, create a new Event Hubs namespace. In your new namespace, create a new Azure event hub.
+1. In Azure Event Hubs, create a new event hub namespace. In your new namespace, create a new Azure event hub.
 
     In your event hub, make sure to define the **Partition Count** and **Message Retention** settings.
 
     For more information, see [Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create).
 
-1. In your Event Hubs namespace, select the **Access control (IAM)** page and add a new role assignment.
+1. In your event hub namespace, select the **Access control (IAM)** page and add a new role assignment.
 
     Select to use the **Azure Event Hubs Data Receiver** role, and add the Azure AD service principle app that you'd created [earlier](#register-an-application-in-azure-active-directory) as a member.
 
     For more information, see: [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-1. In your Event Hubs namespace's **Overview** page, make a note of the namespace's **Host name** value.
+1. In your event hub namespace's **Overview** page, make a note of the namespace's **Host name** value.
 
-1. In your Event Hubs namespace's **Event Hubs** page, make a note of your event hub's name.
+1. In your event hub namespace's **Event Hubs** page, make a note of your event hub's name.
 
-## Forward Microsoft Sentinel incidents to your Event Hub
+## Forward Microsoft Sentinel incidents to your event hub
 
-To forward Microsoft Sentinel incidents or alerts to Azure Event Hub, create a data export from Azure Log Analytics.
+To forward Microsoft Sentinel incidents or alerts to your event hub, create a data export rule from Azure Log Analytics.
 
 In your rule, make sure to define the following settings:
 
 - Configure the **Source** as **SecurityIncident**
-- Configure the **Destination** as **Event Type**, using the Event Hub namespace and Event Hub name you'd recorded earlier.
+- Configure the **Destination** as **Event Type**, using the event hub namespace and event hub name you'd recorded earlier.
 
 For more information, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal#create-or-update-a-data-export-rule).
 
