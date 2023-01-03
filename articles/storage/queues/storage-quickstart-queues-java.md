@@ -190,6 +190,9 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
 ---
 
 ## Object model
@@ -215,7 +218,7 @@ Use the following Java classes to interact with these resources:
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Java:
 
-- [Authorize access and create a client](#authorize-access-and-create-a-client)
+- [Authorize access and create a client object](#authorize-access-and-create-a-client-object)
 - [Create a queue](#create-a-queue)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
@@ -225,13 +228,13 @@ These example code snippets show you how to do the following actions with the Az
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-### Authorize access and create a client
+### Authorize access and create a client object
 
 [!INCLUDE [default-azure-credential-sign-in-no-vs](../../../includes/passwordless/default-azure-credential-sign-in-no-vs.md)]
 
-You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step. 
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step.
 
-Make sure to add the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the *App.java* file:
+To authorize using `DefaultAzureCredential`, make sure you've added the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the *App.java* file:
 
 ```java
 import com.azure.identity.*;
@@ -293,16 +296,13 @@ String queueName = "quickstartqueues-" + java.util.UUID.randomUUID();
 
 System.out.println("Creating queue: " + queueName);
 
-// Instantiate a QueueClient which will be
-// used to create and manipulate the queue
+// Instantiate a QueueClient
+// We'll use this client object to create and interact with the queue
 QueueClient queueClient = new QueueClientBuilder()
         .connectionString(connectStr)
         .queueName(queueName)
         .buildClient();
 ```
-
-> [!IMPORTANT]
-> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
 
 ---
 
@@ -313,7 +313,6 @@ Using the `QueueClient` object, call the [`create`](/java/api/com.azure.storage.
 Add this code to the end of the `main` method:
 
 ```java
-
 System.out.println("Creating queue: " + queueName);
 
 // Create the queue

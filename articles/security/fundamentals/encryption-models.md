@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2022
+ms.date: 12/16/2022
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -175,6 +175,7 @@ The Azure services that support each encryption model:
 | Automation                       | Yes                | Yes                | -                  |
 | Azure Functions                  | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Azure portal                     | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Azure VMware Solution            | Yes                | Yes, including Managed HSM | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
 | Azure-managed applications       | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |

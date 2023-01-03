@@ -218,7 +218,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
-<sup>3</sup> Also supported on Arm64-based machines.
+<sup>3</sup> Also supported on Arm64-based machines.<br>
 <sup>4</sup> Requires at least 4GB of disk space allocated (not provided by default).
 
 > [!NOTE]
