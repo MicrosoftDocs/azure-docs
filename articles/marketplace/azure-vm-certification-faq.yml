@@ -323,7 +323,7 @@ sections:
           |Error|Reason|Solution|
           |---|---|---|
           |Blob not found|The VHD might either be deleted or moved from the specified location.|| 
-          |Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it with an SAS URL.|
+          |Blob in use|The VHD is used by another internal process. Source blob storage of the VHD is modified while publishing is in the progress |The VHD should not be in a used state when you download it with an SAS URL.Also please do not use / change the VHD when publishing is in progress|
           |Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
           |Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
           |HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
