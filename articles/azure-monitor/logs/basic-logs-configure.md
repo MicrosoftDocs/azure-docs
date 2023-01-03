@@ -19,7 +19,7 @@ This article describes Azure Monitor's log data plans and explains how to config
 
 ## Compare the Basic and Analytics log data plans 
 
-The following table summarizes the Basic and Analytics log data plans. You can switch a table's plan once a week.
+The following table summarizes the Basic and Analytics log data plans. 
 
 | Category | Analytics | Basic |
 |:---|:---|:---|
@@ -38,7 +38,7 @@ By default, all tables in your Log Analytics workspace are Analytics tables, and
 Configure a table for Basic logs if:
 
 - You don't require more than eight days of data retention for the table.
-- You only require basic queries of the data using a limited version of the query language.
+- You only require basic queries of the data using a [limited version of the query language](basic-logs-query.md#limitations).
 - The cost savings for data ingestion over a month exceed the expected cost for any expected queries.
 - The table supports Basic logs. 
     
@@ -67,6 +67,8 @@ Configure a table for Basic logs if:
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
 
 ## Set a table's log data plan
+
+You can switch a table's plan once a week.
 
 # [Portal](#tab/portal-1)
 
