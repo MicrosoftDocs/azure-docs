@@ -13,6 +13,9 @@ ms.date: 10/28/2021
 
 ---
 # Sentiment analysis
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Language service](../language-service/index.yml) documentation.
 
 LUIS uses V2 of the API. 

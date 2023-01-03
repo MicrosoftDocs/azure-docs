@@ -8,7 +8,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/07/2022
+ms.date: 10/19/2022
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -25,6 +25,14 @@ ms.devlang: azurecli
 ## Prerequisites
 
 [!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+
+You must use the following versions:
+
+- `2018-09-01-preview` or later to assign an Azure role to a new service principal
+- `2020-04-01-preview` or later to assign an Azure role at resource scope
+- `2022-04-01` is the first stable version
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
 ## Get object IDs
 
@@ -100,7 +108,7 @@ To use the template, you must do the following:
     "resources": [
         {
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
+            "apiVersion": "2022-04-01",
             "name": "[guid(resourceGroup().id)]",
             "properties": {
                 "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
@@ -175,7 +183,7 @@ To use the template, you must specify the following inputs:
     "resources": [
         {
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
+            "apiVersion": "2022-04-01",
             "name": "[parameters('roleNameGuid')]",
             "properties": {
                 "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
@@ -277,7 +285,7 @@ To use the template, you must specify the following inputs:
         },
         {
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2020-04-01-preview",
+            "apiVersion": "2022-04-01",
             "name": "[parameters('roleNameGuid')]",
             "scope": "[concat('Microsoft.Storage/storageAccounts', '/', variables('storageName'))]",
             "dependsOn": [
@@ -310,7 +318,7 @@ The following shows an example of the Contributor role assignment to a user for 
 
 If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal in the same Azure Resource Manager template, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet.
 
-To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later.
+To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. `2022-04-01` is the first stable version.
 
 The following template demonstrates:
 
@@ -346,7 +354,7 @@ To use the template, you must specify the following inputs:
         },
         {
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
+            "apiVersion": "2022-04-01",
             "name": "[variables('bootstrapRoleAssignmentId')]",
             "dependsOn": [
                 "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"

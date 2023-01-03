@@ -5,8 +5,9 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
 ms.topic: conceptual
-ms.service: iot-dps
+ms.service: iot-hub
 services: iot-dps
+ms.subservice: azure-iot-hub-device-provisioning-service
 ---
 
 # Summary of customer data request features​

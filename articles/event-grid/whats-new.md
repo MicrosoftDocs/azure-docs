@@ -7,7 +7,7 @@ ms.date: 07/20/2022
 
 # What's new in Azure Event Grid?
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Event+Grid%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Event+Grid%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
@@ -35,11 +35,9 @@ This release corresponds to REST API version 2021-10-15-preview, which includes 
     - [Partner Events overview for partners](partner-events-overview-for-partners.md)
     - [Onboard as an Event Grid partner](onboard-partner.md)
     - [Subscribe to partner events](subscribe-to-partner-events.md)
-    - [Deliver events to partner destinations](deliver-events-to-partner-destinations.md)
 - New REST API
     - [Channels](/rest/api/eventgrid/controlplane-version2021-10-15-preview/channels)
     - [Partner Configurations](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-configurations)
-    - [Partner Destinations](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-destinations)
     - [Verified Partners](/rest/api/eventgrid/controlplane-version2021-10-15-preview/verified-partners)
 
 

@@ -11,6 +11,9 @@ manager: nitinme
 ---
 
 # Language understanding glossary of common vocabulary and concepts
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS service.
 
 ## Active version

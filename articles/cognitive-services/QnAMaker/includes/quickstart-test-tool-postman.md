@@ -82,7 +82,7 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
                 "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
                 "score": 68.76,
                 "id": 3,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [
                     {
                         "name": "link_in_answer",
@@ -136,7 +136,7 @@ Debug information helps you understand how the returned answer was determined. W
                 "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared.",
                 "score": 56.07,
                 "id": 5,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [],
                 "context": {
                     "isContextOnly": false,
@@ -385,7 +385,7 @@ You can request a minimum threshold for the answer. If the threshold is not met,
                 "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
                 "score": 71.1,
                 "id": 3,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
+                "source": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
                 "metadata": [
                     {
                         "name": "link_in_answer",

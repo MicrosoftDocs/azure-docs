@@ -53,7 +53,7 @@ The modules listed here are split into five parts following the life cycle of a 
 This skill-up training is a level-400 training that's based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310). If you don't want to go as deep, or you have a specific issue to resolve, other resources might be more suitable:
 
 * Although the skill-up training is extensive, it naturally has to follow a script and can't expand on every topic. See the referenced documentation for information about each article.
-* You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/learn/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/learn/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/learn/certifications/exams/az-500).
+* You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/certifications/exams/az-500).
 * If you're already skilled up on Microsoft Sentinel, keep track of [what's new](whats-new.md) or join the [Microsoft Cloud Security Private Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier view into upcoming releases. 
 * Do you have a feature idea to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Are you a premier customer? You might want the on-site or remote, four-day _Microsoft Sentinel Fundamentals Workshop_. Contact your Customer Success Account Manager for more details.
@@ -239,7 +239,7 @@ After it's imported, [threat intelligence](understand-threat-intelligence.md) is
 
 * View and manage the imported threat intelligence in **Logs** in the new **Threat Intelligence** area of Microsoft Sentinel.
 
-* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents by using your imported threat intelligence.
+* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-analytics) to generate security alerts and incidents by using your imported threat intelligence.
 
 * [Visualize key information about your threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators) in Microsoft Sentinel by using the threat intelligence workbook.
 
@@ -371,7 +371,7 @@ The next section on writing rules explains how to use KQL in the specific contex
 * [Must Learn KQL](https://aka.ms/MustLearnKQL): A 20-part KQL series that walks you through the basics of creating your first analytics rule (includes an assessment and certificate)
 
 * The Microsoft Sentinel KQL Lab: An interactive lab that teaches KQL with a focus on what you need for Microsoft Sentinel:
-    * [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
+    * [Learning module (SC-200 part 4)](/training/paths/sc-200-utilize-kql-for-azure-sentinel/)
     * [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp) or [lab URL](https://aka.ms/lademo)
     * A [Jupyter notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb) that lets you test the queries within the notebook
     * Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM) or [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-)

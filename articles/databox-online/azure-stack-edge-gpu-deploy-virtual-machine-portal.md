@@ -19,7 +19,7 @@ ms.author: alkohli
 You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge Pro GPU device by using the Azure portal.
 
 > [!IMPORTANT] 
-> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Manage authentication methods for Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-userdevicesettings).
+> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Manage authentication methods for Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-userdevicesettings.md).
         
 ## VM deployment workflow
 
@@ -223,4 +223,3 @@ Follow these steps to connect to a Windows VM.
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
 - [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
 - [Monitor CPU and memory on a VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
-

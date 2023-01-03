@@ -7,11 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 10/20/2022
 ms.author: vikurpad
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Configure secure access with managed identities and private endpoints
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 This how-to guide will walk you through the process of enabling secure connections for your Form Recognizer resource. You can secure the following connections:
 
@@ -268,7 +272,7 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
 * **AccessDenied**:
 
-  :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of a access denied error.":::
+  :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
   **Resolution**: Check to make sure there's connectivity between the computer accessing the form recognizer studio and the form recognizer service. For example, you may need to add the client IP address to the Form Recognizer service's networking tab.
 

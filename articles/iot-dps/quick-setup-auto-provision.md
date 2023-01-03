@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Set up IoT Hub Device Provisioning Service in the Microsoft Azure portal
+title: Quickstart - Set up Device Provisioning Service in portal
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) in the Microsoft Azure portal
 author: kgremban
 ms.author: kgremban
@@ -13,9 +13,7 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal
 
-The IoT Hub Device Provisioning Service enables zero-touch, just-in-time device provisioning to any IoT hub. The Device Provisioning Service enables customers to provision millions of IoT devices in a secure and scalable manner, without requiring human intervention. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key, and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](./about-iot-dps.md)
-
-In this quickstart, you'll learn how to set up the IoT Hub Device Provisioning Service in the Azure portal.
+In this quickstart, you will learn how to set up the IoT Hub Device Provisioning Service in the Azure portal. The IoT Hub Device Provisioning Service enables zero-touch, just-in-time device provisioning to any IoT hub. The Device Provisioning Service enables customers to provision millions of IoT devices in a secure and scalable manner, without requiring human intervention. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key, and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](about-iot-dps.md).
 
 To provision your devices, you will:
 
@@ -94,7 +92,7 @@ To clean up resources in the Azure portal:
 
 ## Next steps
 
-Provision a simulated device with IoT hub and the Device Provisioning Service:
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

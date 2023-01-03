@@ -157,8 +157,11 @@ conceptualContent:
           text: Migrate to neural voice
           url: migration-overview-neural-voice.md
         - itemType: how-to-guide
-          text: Migrate to the v3.0 REST API
-          url: migrate-v2-to-v3.md
+          text: Migrate to the v3.1 REST API
+          url: migrate-v3-0-to-v3-1.md
+        - itemType: how-to-guide
+          text: Migrate to Batch synthesis REST API
+          url: migrate-to-batch-synthesis.md
 
 tools:
   title: Software development kits (SDKs)
@@ -203,7 +206,7 @@ additionalContent:
         - text: Regions
           url: regions.md
         - text: Learn
-          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+          url: /training/browse/?products=azure-cognitive-services&term=Speech
       - title: Support
         links:
         - text: Support and help

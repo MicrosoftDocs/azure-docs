@@ -72,7 +72,7 @@ The following tables provide the settings for the default SIM policy and its ass
 |The default 5G QoS identifier (5QI) or QoS class identifier (QCI) value for this data network. The 5QI or QCI identifies a set of 5G or 4G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |
 |The default QoS Flow Allocation and Retention Policy (ARP) priority level for this data network. Flows with a higher ARP priority level preempt those with a lower ARP priority level.      | *1*        |
 |The default QoS Flow preemption capability for QoS Flows on this data network. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level.     | *May not preempt*        |
-|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptable*        |
+|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptible*        |
 
 ## Next steps
 

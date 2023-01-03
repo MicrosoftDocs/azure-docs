@@ -58,8 +58,8 @@ First we'll create our employee, Melva Prince.
   "displayName": "Melva Prince",
   "mailNickname": "mprince",
   "department": "sales",
-  "mail": "mpricne@<your tenant name here>",
-  "employeeHireDate": "2022-04-15T22:10:00Z"
+  "mail": "mprince@<your tenant name here>",
+  "employeeHireDate": "2022-04-15T22:10:00Z",
   "userPrincipalName": "mprince@<your tenant name here>",
   "passwordProfile" : {
     "forceChangePasswordNextSignIn": true,
@@ -84,7 +84,7 @@ Next, we'll create Britta Simon.  This is the account that will be used as our m
   "mailNickname": "bsimon",
   "department": "sales",
   "mail": "bsimon@<your tenant name here>",
-  "employeeHireDate": "2021-01-15T22:10:00Z"
+  "employeeHireDate": "2021-01-15T22:10:00Z",
   "userPrincipalName": "bsimon@<your tenant name here>",
   "passwordProfile" : {
     "forceChangePasswordNextSignIn": true,
@@ -229,7 +229,7 @@ The manager attribute is used for email notification tasks.  It's used by the li
 
        :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
-For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
+For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
 
 ### Enabling the Temporary Access Pass (TAP) 
 A Temporary Access Pass is a time-limited pass issued by an admin that satisfies strong authentication requirements.  

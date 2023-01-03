@@ -1,22 +1,23 @@
 ---
-title: Set up a self-hosted integration runtime for the SAP CDC solution (preview)
+title: Set up a self-hosted integration runtime for the SAP CDC connector
 titleSuffix: Azure Data Factory
-description: Learn how to create and set up a self-hosted integration runtime for your SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+description: Learn how to create and set up a self-hosted integration runtime for the SAP change data capture (CDC) connector in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Set up a self-hosted integration runtime for the SAP CDC solution (preview)
+# Set up a self-hosted integration runtime for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to create and set up a self-hosted integration runtime for the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+Learn how to create and set up a self-hosted integration runtime for the SAP CDC connector in Azure Data Factory.
 
-To prepare a self-hosted integration runtime to use with the SAP ODP (preview) linked service and the SAP data extraction template or the SAP data partition template, complete the steps that are described in the following sections.
+To prepare a self-hosted integration runtime to use with the SAP CDC connector, complete the steps that are described in the following sections.
 
 ## Create and set up a self-hosted integration runtime
 
@@ -58,13 +59,13 @@ On the computer running your self-hosted integration runtime, edit *C:\Windows\S
 
 ```ini
 # SAP ECC 
-52.149.66.239 sapids01 
+xxx.xxx.xxx.xxx sapecc01 
 # SAP BW 
-20.190.60.250 sapbwx01 
+yyy.yyy.yyy.yyy sapbw01 
 # SAP SLT 
-20.56.211.31 sapnwx01 
+zzz.zzz.zzz.zzz sapnw01 
 ```
 
 ## Next steps
 
-[Set up an SAP ODP linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)
+[Set up an SAP CDC linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)

@@ -21,7 +21,9 @@ Workflows can be created and customized for common scenarios using templates, or
 
 ## Prerequisites
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ## Create a Lifecycle workflow using a template in the Azure portal
 
@@ -36,13 +38,13 @@ If you are using the Azure portal to create a workflow, you can customize existi
 1. select **Workflows (Preview)** 
 
 1. On the workflows screen, select the workflow template that you want to use. 
- :::image type="content" source="media/create-lifecycle-workflow/template-list.png" alt-text="Screenshot of a list of lifecycle workflows templates.":::
+ :::image type="content" source="media/create-lifecycle-workflow/template-list.png" alt-text="Screenshot of a list of lifecycle workflows templates." lightbox="media/create-lifecycle-workflow/template-list.png":::
 1. Enter a unique display name and description for the workflow and select **Next**.
  :::image type="content" source="media/create-lifecycle-workflow/template-basics.png" alt-text="Screenshot of workflow template basic information.":::
 
 1. On the **configure scope** page select the **Trigger type** and execution conditions to be used for this workflow. For more information on what can be configured, see: [Configure scope](understanding-lifecycle-workflows.md#configure-scope).
 
-1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department.
+1. Under rules, select the **Property**, **Operator**, and give it a **value**. The following picture gives an example of a rule being set up for a sales department. For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
 
     :::image type="content" source="media/create-lifecycle-workflow/template-scope.png" alt-text="Screenshot of Lifecycle Workflows template scope configuration options.":::
 

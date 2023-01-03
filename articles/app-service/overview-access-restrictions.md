@@ -21,7 +21,7 @@ If the traffic is sent through the default endpoint (often a public endpoint), t
 
 ## App access
 
-App access allows you to configure if access is available thought the default (public) endpoint. If the setting has never been configured, the default behavior is to enable access unless a private endpoint exists after which it will be implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
+App access allows you to configure if access is available through the default (public) endpoint. If the setting has never been configured, the default behavior is to enable access unless a private endpoint exists after which it will be implicitly disabled. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
@@ -83,8 +83,8 @@ For any rule, regardless of type, you can add http header filtering. Http header
 
 * **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid CIDR values.
 * **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.
-* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the reverse proxy instance. Azure Front Door will send a guid identifying the instance, but it can also be used by third party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
-* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the health probe of the reverse proxy. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by third party proxies to identify health probes. Accepts any string up to 64 characters in length.
+* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the reverse proxy instance. Azure Front Door will send a guid identifying the instance, but it can also be used by third party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
+* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the health probe of the reverse proxy. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by third party proxies to identify health probes. Accepts any string up to 64 characters in length.
 
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name

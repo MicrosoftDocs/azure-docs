@@ -19,7 +19,7 @@ ms.reviewer: saumadan, marsma
 
 Security is an important concept when registering an application in Azure Active Directory (Azure AD) and is a critical part of its business use in the organization. Any misconfiguration of an application can result in downtime or compromise. Depending on the permissions added to an application, there can be organization-wide effects.
 
-Because secure applications are essential to the organization, any downtime to them because of security issues can affect the business or some critical service that the business depends upon. So, it's important to allocate time and resources to ensure applications stay in a healthy and secure state always. Conduct a periodical security and health assessment of applications much like a Security Threat Model assessment for code. For a broader perspective on security for organizations, see the [security development lifecycle](https://www.microsoft.com/securityengineering/sdl) (SDL).
+Because secure applications are essential to the organization, any downtime to them because of security issues can affect the business or some critical service that the business depends upon. So, it's important to allocate time and resources to ensure applications always stay in a healthy and secure state. Conduct a periodic security and health assessment of applications, much like a Security Threat Model assessment for code. For a broader perspective on security for organizations, see the [security development lifecycle](https://www.microsoft.com/securityengineering/sdl) (SDL).
 
 This article describes security best practices for the following application properties:
 
@@ -37,8 +37,8 @@ It's important to keep Redirect URIs of your application up to date. Under **Aut
 
 Consider the following guidance for redirect URIs:
 
-- Maintain ownership of all URIs. A lapse in the ownership of one of the redirect URIs can lead to an application compromise.
-- Make sure that all DNS records are updated and monitored periodically for changes.
+- Maintain ownership of all URIs. A lapse in the ownership of one of the redirect URIs can lead to application compromise.
+- Make sure all DNS records are updated and monitored periodically for changes.
 - Don't use wildcard reply URLs or insecure URI schemes such as http, or URN.
 - Keep the list small. Trim any unnecessary URIs. If possible, update URLs from Http to Https.
 
@@ -63,15 +63,15 @@ Certificates and secrets, also known as credentials, are a vital part of an appl
 Consider the following guidance related to certificates and secrets:
 
 - Always use [certificate credentials](./active-directory-certificate-credentials.md) whenever possible and don't use password credentials, also known as *secrets*. While it's convenient to use password secrets as a credential, when possible use x509 certificates as the only credential type for getting tokens for an application.
-- Use Key Vault with [Managed identities](../managed-identities-azure-resources/overview.md) to manage credentials for an application.
+- Use Key Vault with [managed identities](../managed-identities-azure-resources/overview.md) to manage credentials for an application.
 - If an application is used only as a Public Client App (allows users to sign in using a public endpoint), make sure that there are no credentials specified on the application object.
-- Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.
+- Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in a security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.
 - Monitor your production pipelines to prevent credentials of any kind from being committed into code repositories.
 - [Credential Scanner](../../security/develop/security-code-analysis-overview.md#credential-scanner) is a static analysis tool that can be used to detect credentials (and other sensitive content) in source code and build output.
 
 ## Application ID URI
 
-The **Application ID URI** property of the application specifies the globally unique URI used to identify the web API. It's the prefix for scopes and in access tokens, it's also the value of the audience claim and it must use a verified customer owned domain. For multi-tenant applications, the value must also be globally unique. Also referred to as an identifier URI. Under **Expose an API** for the application in the Azure portal, the **Application ID URI** property can be defined.
+The **Application ID URI** property of the application specifies the globally unique URI used to identify the web API. It's the prefix for scopes and in access tokens, it's also the value of the audience claim and it must use a verified customer owned domain. For multi-tenant applications, the value must also be globally unique. It's also referred to as an identifier URI. Under **Expose an API** for the application in the Azure portal, the **Application ID URI** property can be defined.
 
 :::image type="content" source="./media/active-directory-application-registration-best-practices/app-id-uri.png" alt-text="Screenshot that shows where the Application I D U R I is located.":::
 
@@ -80,7 +80,7 @@ Consider the following guidance related to defining the Application ID URI:
 - The api or https URI schemes are recommended. Set the property in the supported formats to avoid URI collisions in your organization. Don't use wildcards.
 - Use a verified domain in Line of Business (LoB) applications.
 - Keep an inventory of the URIs in your organization to help maintain security.
-- Use the Application ID URI to expose the WebApi in the organization and don't use the Application ID URI to identify the application, instead use the Application (client) ID property.
+- Use the Application ID URI to expose the WebApi in the organization. Don't use the Application ID URI to identify the application, and instead use the Application (client) ID property.
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 

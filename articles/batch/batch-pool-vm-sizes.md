@@ -59,6 +59,7 @@ For each VM series, the following table also lists whether the VM series and VM 
 | NCv2 | All sizes |
 | NCv3 | All sizes |
 | NCasT4_v3 | All sizes |
+| NC_A100_v4 | All sizes |
 | ND | All sizes |
 | NDv4 | All sizes |
 | NDv2 | None - not yet available |

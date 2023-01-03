@@ -8,17 +8,17 @@ ms.custom: seodec18
 
 # Use Spot VMs with Batch
 
-Azure Batch offers Spot virtual machines (VMs) to reduce the cost of Batch workloads. Spot VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a very low cost.
+Azure Batch offers Spot virtual machines (VMs) to reduce the cost of Batch workloads. Spot VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a low cost.
 
 Spot VMs take advantage of surplus capacity in Azure. When you specify Spot VMs in your pools, Azure Batch can use this surplus, when available.
 
 The tradeoff for using Spot VMs is that those VMs may not always be available to be allocated, or may be preempted at any time, depending on available capacity. For this reason, Spot VMs are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
 
-Spot VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+Spot VMs are offered at a reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 ## Differences between Spot and low-priority VMs
 
-Batch offers two types of low-cost preemptible VMs:
+Batch offers two types of low-cost pre-emptible VMs:
 
 - [Spot VMs](../virtual-machines/spot-vms.md), a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
 - Low-priority VMs, a legacy offering only available through Azure Batch.
@@ -27,8 +27,8 @@ The type of node you get depends on your Batch account's pool allocation mode, w
 
 Azure Spot VMs and Batch low-priority VMs are similar but have a few differences in behavior.
 
-|  | Spot VMs | Low-priority VMs |
-| -- | -- | -- |
+| | Spot VMs | Low-priority VMs |
+|-|-|-|
 | **Supported Batch accounts** | User-subscription Batch accounts | Batch-managed Batch accounts |
 | **Supported Batch pool configurations** | Virtual Machine Configuration | Virtual Machine Configuration and Cloud Service Configuration (deprecated) |
 | **Available regions** | All regions supporting [Spot VMs](../virtual-machines/spot-vms.md) | All regions except Microsoft Azure China 21Vianet |
@@ -55,21 +55,21 @@ Some examples of batch processing use cases well suited to use Spot VMs are:
 
 - **Development and testing**: In particular, if large-scale solutions are being developed, significant savings can be realized. All types of testing can benefit, but large-scale load testing and regression testing are great uses.
 - **Supplementing on-demand capacity**: Spot VMs can be used to supplement regular dedicated VMs. When available, jobs can scale and therefore complete quicker for lower cost; when not available, the baseline of dedicated VMs remains available.
-- **Flexible job execution time**: If there is flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated; however, with the addition of Spot VMs jobs frequently run faster and for a lower cost.
+- **Flexible job execution time**: If there's flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated; however, with the addition of Spot VMs jobs frequently run faster and for a lower cost.
 
 Batch pools can be configured to use Spot VMs in a few ways:
 
 - A pool can use only Spot VMs. In this case, Batch recovers any preempted capacity when available. This configuration is the cheapest way to execute jobs.
-- Spot VMs can be used in conjunction with a fixed baseline of dedicated VMs. The fixed number of dedicated VMs ensures there is always some capacity to keep a job progressing.
+- Spot VMs can be used with a fixed baseline of dedicated VMs. The fixed number of dedicated VMs ensures there's always some capacity to keep a job progressing.
 - A pool can use a dynamic mix of dedicated and Spot VMs, so that the cheaper Spot VMs are solely used when available, but the full-priced dedicated VMs are scaled up when required. This configuration keeps a minimum amount of capacity available to keep the jobs progressing.
 
-Keep in mind the following when planning your use of Spot VMs:
+Keep in mind the following practices when planning your use of Spot VMs:
 
 - To maximize use of surplus capacity in Azure, suitable jobs can scale out.
 - Occasionally VMs may not be available or are preempted, which results in reduced capacity for jobs and may lead to task interruption and reruns.
-- Tasks with shorter execution times tend to work best with Spot VMs. Jobs with longer tasks may be impacted more if interrupted. If long-running tasks implement checkpointing to save progress as they execute, this impact may be reduced. 
-- Long-running MPI jobs that utilize multiple VMs are not well suited to use Spot VMs, because one preempted VM can lead to the whole job having to run again.
-- Spot nodes may be marked as unusable if [network security group (NSG) rules](batch-virtual-network.md#network-security-groups-specifying-subnet-level-rules) are configured incorrectly.
+- Tasks with shorter execution times tend to work best with Spot VMs. Jobs with longer tasks may be impacted more if interrupted. If long-running tasks implement checkpointing to save progress as they execute, this impact may be reduced.
+- Long-running MPI jobs that utilize multiple VMs aren't well suited to use Spot VMs, because one preempted VM can lead to the whole job having to run again.
+- Spot nodes may be marked as unusable if [network security group (NSG) rules](batch-virtual-network.md#general-virtual-network-requirements) are configured incorrectly.
 
 ## Create and manage pools with Spot VMs
 
@@ -110,19 +110,19 @@ Spot VM:
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-VMs may occasionally be preempted. When this happens, tasks that were running on the preempted node VMs are requeued and run again.
+VMs may occasionally be preempted. When preemption happens, tasks that were running on the preempted node VMs are requeued and run again.
 
-For Virtual Machine Configuration pools, Batch also does the following:
+For Virtual Machine Configuration pools, Batch also performs the following behaviors:
 
-- The preempted VMs have their state updated to **Preempted**. 
+- The preempted VMs have their state updated to **Preempted**.
 - The VM is effectively deleted, leading to loss of any data stored locally on the VM.
 - A list nodes operation on the pool will still return the preempted nodes.
-- The pool continually attempts to reach the target number of Spot nodes available. When replacement capacity is found, the nodes keep their IDs, but are reinitialized, going through **Creating** and **Starting** states before they are available for task scheduling.
+- The pool continually attempts to reach the target number of Spot nodes available. When replacement capacity is found, the nodes keep their IDs, but are reinitialized, going through **Creating** and **Starting** states before they're available for task scheduling.
 - Preemption counts are available as a metric in the Azure portal.
 
 ## Scale pools containing Spot VMs
 
-As with pools solely consisting of dedicated VMs, it is possible to scale a pool containing Spot VMs by calling the Resize method or by using autoscale.
+As with pools solely consisting of dedicated VMs, it's possible to scale a pool containing Spot VMs by calling the Resize method or by using autoscale.
 
 The pool resize operation takes a second optional parameter that updates the value of **targetLowPriorityNodes**:
 
@@ -138,10 +138,10 @@ The pool autoscale formula supports Spot VMs as follows:
 
 ## Configure jobs and tasks
 
-Jobs and tasks require little additional configuration for Spot nodes. Keep in mind the following:
+Jobs and tasks may require some extra configuration for Spot nodes:
 
 - The JobManagerTask property of a job has an **AllowLowPriorityNode** property. When this property is true, the job manager task can be scheduled on either a dedicated or Spot node. If it's false, the job manager task is scheduled to a dedicated node only.
-- The AZ_BATCH_NODE_IS_DEDICATED [environment variable](batch-compute-node-environment-variables.md) is available to a task application so that it can determine whether it is running on a Spot or on a dedicated node.
+- The `AZ_BATCH_NODE_IS_DEDICATED` [environment variable](batch-compute-node-environment-variables.md) is available to a task application so that it can determine whether it's running on a Spot or on a dedicated node.
 
 ## View metrics for Spot VMs
 
@@ -159,9 +159,9 @@ To view these metrics in the Azure portal
 
 ## Limitations
 
-- Spot VMs in Batch do not support setting a max price and do not support price-based evictions. They can only be evicted for capacity reasons.
+- Spot VMs in Batch don't support setting a max price and don't support price-based evictions. They can only be evicted for capacity reasons.
 - Spot VMs are only available for Virtual Machine Configuration pools and not for Cloud Service Configuration pools, which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-- Spot VMs are not available for some clouds, VM sizes, and subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations).
+- Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations).
 
 ## Next steps
 

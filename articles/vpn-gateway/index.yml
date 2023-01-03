@@ -38,9 +38,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure VPN Gateway
-            url: /learn/modules/intro-to-azure-vpn-gateway/
+            url: /training/modules/intro-to-azure-vpn-gateway/
           - text: Connect your on-premises network to Azure with VPN Gateway
-            url: /learn/modules/connect-on-premises-network-with-vpn-gateway/
+            url: /training/modules/connect-on-premises-network-with-vpn-gateway/
   # Card
   - title: Get started
     linkLists:

@@ -47,7 +47,7 @@ Follow these steps:
 
 ## Next steps
 
-- [Protect against unauthorized (protected) operations](multi-user-authorization.md#protect-against-unauthorized-protected-operations)
+- [Protected operations using MUA](multi-user-authorization.md?pivots=vaults-recovery-services-vault#protected-operations-using-mua)
 - [Authorize critical (protected) operations using Azure AD Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
 - [Performing a protected operation after approval](multi-user-authorization.md#performing-a-protected-operation-after-approval)
 - [Disable MUA on a Recovery Services vault](multi-user-authorization.md#disable-mua-on-a-recovery-services-vault)

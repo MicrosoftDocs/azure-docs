@@ -2,12 +2,12 @@
 title: Enable geo-replication (preview)
 description: Learn how to use Azure App Configuration geo replication to create, delete, and manage replicas of your configuration store. 
 services: azure-app-configuration
-author: maud-lv
+author: mrm9084
 ms.service: azure-app-configuration
-ms.devlang: csharp
+ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 8/1/2022
-ms.author: malev
+ms.date: 10/10/2022
+ms.author: mametcal
 ms.custom: devx-track-azurecli
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
@@ -17,11 +17,11 @@ ms.custom: devx-track-azurecli
 
 This article covers replication of Azure App Configuration stores. You'll learn about how to create, use and delete a replica in your configuration store.
 
-To learn more about the concept of geo-replication, see [Geo-replication in Azure App Configuration](./concept-soft-delete.md).
+To learn more about the concept of geo-replication, see [Geo-replication in Azure App Configuration](./concept-geo-replication.md).
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Create and list a replica
@@ -88,12 +88,16 @@ To delete a replica in the portal, follow the steps below.
 
 Each replica you create has its dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
-When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests. You can update your application as the sample code below to take advantage of the failover feature.
+When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
+
+Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature.
 
 > [!NOTE]
 > You can only use Azure AD authentication to connect to replicas. Authentication with access keys is not supported during the preview.
 
-<!-- ### [.NET](#tab/dotnet) -->
+### [.NET](#tab/dotnet)
+
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
@@ -116,9 +120,21 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
-<!-- ### [Java Spring](#tab/spring)
-Placeholder for Java Spring instructions
---- -->
+### [Java Spring](#tab/spring)
+
+Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-replica-endpoint>.azconfig.io"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="https://<second-replica-endpoint>.azconfig.io"
+```
+> [!NOTE]
+> The failover support is available if you use version of **2.10.0-beta.1** or later of any of the following packages.
+> - `azure-spring-cloud-appconfiguration-config`
+> - `azure-spring-cloud-appconfiguration-config-web`
+> - `azure-spring-cloud-starter-appconfiguration-config`
+
+---
 
 The failover may occur if the App Configuration provider observes the following conditions.
 - Receives responses with service unavailable status (HTTP status code 500 or above).

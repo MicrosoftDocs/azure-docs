@@ -32,7 +32,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Bastion
-            url: /learn/modules/intro-to-azure-bastion/
+            url: /training/modules/intro-to-azure-bastion/
       - linkListType: video
         links:
           - text: Azure Bastion
@@ -55,7 +55,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Connect to a VM using Azure Bastion
-            url: /learn/modules/connect-vm-with-azure-bastion/
+            url: /training/modules/connect-vm-with-azure-bastion/
       - linkListType: video
         links:
           - text: Working with Azure Bastion

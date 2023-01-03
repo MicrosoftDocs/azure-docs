@@ -8,8 +8,8 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: Trial Playbook - Microsoft Entra Permissions Management
-      href: permissions-management-trial-playbook.md  
+    - name: Trial user guide - Microsoft Entra Permissions Management
+      href: permissions-management-trial-user-guide.md  
     - name: Onboard Permissions Management on the Azure AD tenant
       expanded: true
       items:
@@ -89,6 +89,8 @@
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
+      - name: Add or remove a user in Permissions Management
+        href: how-to-add-remove-user-to-group.md
       - name: Manage users and groups
         href: ui-user-management.md
       # - name: Define and manage users, roles, and access levels

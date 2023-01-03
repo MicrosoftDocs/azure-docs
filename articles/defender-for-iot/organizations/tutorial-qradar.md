@@ -2,60 +2,38 @@
 title: Integrate Qradar with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate Qradar with Microsoft Defender for IoT.
 ms.topic: tutorial
-ms.date: 02/07/2022
-ms.custom: template-tutorial
+ms.date: 06/20/2022
 ---
 
-# Tutorial: Integrate Qradar with Microsoft Defender for IoT
+# Integrate Qradar with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use QRadar with Microsoft Defender for IoT.
+This article describes how to integrate Microsoft Defender for IoT with QRadar.
 
-Defender for IoT delivers the only ICS, and IoT cybersecurity platform with patented ICS-aware threat analytics and machine learning.
+Integrating with QRadar supports:
 
-Defender for IoT has integrated its continuous ICS threat monitoring platform with IBM QRadar.
+- Forwarding Defender for IoT alerts to IBM QRadar for unified IT and OT security monitoring and governance.
 
-Some of the benefits of the integration include:
+- An overview of both IT and OT environments, allowing you to detect, and respond to multi-stage attacks that often cross IT, and OT boundaries.
 
-- The ability to forward Microsoft Defender for IoT alerts to IBM QRadar for unified IT, and OT security monitoring, and governance.
-
-- The ability to gain an overview of both IT, and OT environments. Allowing you to detect, and respond to multi-stage attacks that often cross IT, and OT boundaries.
-
-- Integrate with existing SOC workflows.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Configure Syslog listener for QRadar
-> * Deploy Defender for IoT platform QID
-> * Setup QRadar forwarding rules
-> * Map notifications to QRadar in the Management Console
-> * Add custom fields to alerts
+- Integrating with existing SOC workflows.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
-
-There are no prerequisites of this tutorial.
 
 ## Configure Syslog listener for QRadar
 
 **To configure the Syslog listener to work with QRadar**:
 
-1. Sign in to QRadar.
+1. Sign in to QRadar and select **Admin** > **Data Sources**.
 
-1. From the left pane, select **Admin** > **Data Sources**.
+1. In the Data Sources window, select **Log Sources**. For example:
 
-1. In the Data Sources window, select **Log Sources**.
+   [:::image type="content" source="media/tutorial-qradar/log.png" alt-text="Screenshot of selecting a log sources from the available options.":::](media/tutorial-qradar/log.png#lightbox)
 
-   [:::image type="content" source="media/tutorial-qradar/log.png" alt-text="Screenshot of, selecting a log sources from the available options.":::](media/tutorial-qradar/log.png#lightbox)
+1. In the **Modal** window, select **Add**. For example:
 
-1. In the **Modal** window, select **Add**.
+    [:::image type="content" source="media/tutorial-qradar/modal.png" alt-text="Screenshot of after selecting Syslog the modal window opens.":::](media/tutorial-qradar/modal.png#lightbox)
 
-    [:::image type="content" source="media/tutorial-qradar/modal.png" alt-text="Screenshot of, after selecting Syslog the modal window opens.":::](media/tutorial-qradar/modal.png#lightbox)
-
-1. In the **Add a log source** dialog box, set the following parameters:
-
-    :::image type="content" source="media/tutorial-qradar/source.png" alt-text="Screenshot of, adding a log source by filling in the appropriate fields.":::
+1. In the **Add a log source** dialog box, define the following parameters:
 
    - **Log Source Name**: `<Sensor name>`
 
@@ -68,46 +46,43 @@ There are no prerequisites of this tutorial.
    - **Log Source Identifier**: `<Sensor name>`
 
    > [!NOTE]
-   > The Log Source Identifier name must not include a white space. It is recommended to replace each white space character with an underscore.
+   > The Log Source Identifier name must not include white spaces. We recommend replacing any white spaces with an underscore.
 
-1. Select **Save**.
+1. Select **Save** > **Deploy Changes**. For example.
 
-1. Select **Deploy Changes**.
+   :::image type="content" source="media/tutorial-qradar/deploy.png" alt-text="Screenshot of the Deploy Changes view":::
 
-   :::image type="content" source="media/tutorial-qradar/deploy.png" alt-text="Screenshot of Deploy Changes view":::
+## Deploy a Defender for IoT QID
 
-## Deploy Defender for IoT platform QID
+A **QID** is a QRadar event identifier. Since all Defender for IoT reports are tagged under the same, **Sensor Alert** event, you can use the same QID for these events in QRadar.
 
-QID is an event identifier in QRadar. All of Defender for IoT platform reports are tagged under the same event (Sensor Alert).
-
-**To deploy Defender for IoT platform QID**:
+**To deploy a Defender for IoT QID**:
 
 1. Sign in to the QRadar console.
 
 1. Create a file named `xsense_qids`.
 
-1. In the file, using the following command: `,XSense Alert,XSense Alert Report From <XSense Name>,5,7001`.
+1. In the file, use the following command: `,XSense Alert,XSense Alert Report From <XSense Name>,5,7001`.
 
-1. Execute: `sudo /opt/qradar/bin/qidmap_cli.sh -i -f <path>/xsense_qids`. The message that the QID was deployed successfully appears.
+1. Run: `sudo /opt/qradar/bin/qidmap_cli.sh -i -f <path>/xsense_qids`. 
 
-## SetUp QRadar forwarding rules
+   A confirmation message appears, indicating that the QID was deployed successfully.
 
-For the integration to work, you will need to setup in the Defender for IoT appliance, a Qradar forwarding rule.
+## Create QRadar forwarding rules
 
-**To define QRadar notifications in the Defender for IoT appliance**:
+Create a forwarding rule from your on-premises management console to forward alerts to QRadar.
 
-1. In the side menu, select **Forwarding**.
+**To create a QRadar forwarding rule**:
 
-1. Select **Create new rule**.
-1. Define a rule name.
-1. Define the rule conditions.
-1. In the Actions section, select **QRadar** .
+1. Sign in to the on-premises management console and select **Forwarding** on the left.
 
-    :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of, create a Forwarding Rule window.":::
+1. Select the **+** to create a new rule.
 
-1. Define the QRadar IP address, and the timezone.
+1. Enter values for the rule name and conditions. In the **Actions** area, select **Add**, and then select **Qradar**. For example:
 
-1. Select **Save**.
+   :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window.":::
+
+1. Define the QRadar IP address and timezone, and then select **Save**.
 
 The following is an example of a payload sent to QRadar:
 
@@ -117,35 +92,46 @@ The following is an example of a payload sent to QRadar:
 
 ## Map notifications to QRadar
 
-The rule must then be mapped on the on-premises management console.
+1. Sign into your QRadar console, select **QRadar**> **Log Activity** .
 
-**To map the notifications to QRadar**:
+1. Select **Add Filter** and define the following parameters:
 
-1. Sign in to the management console.
+   - **Parameter**: `Log Sources [Indexed]`
+   - **Operator**: `Equals`
+   - **Log Source Group**: `Other`
+   - **Log Source**: `<Xsense Name>`
 
-1. From the left side pane, select **Forwarding**.
-
-1. In the Qradar GUI, under QRadar, select **Log Activity** .
-
-1. Select **Add Filter** and set the following parameters:
-   - Parameter: `Log Sources [Indexed]`
-   - Operator: `Equals`
-   - Log Source Group: `Other`
-   - Log Source: `<Xsense Name>`
-
-1. Double-click an unknown report from the sensor.
+1. Locate an unknown report detected from your Defender for IoT sensor and double-click it.
 
 1. Select **Map Event**.
 
-1. In the Modal Log Source Event page, select as follows:
-   - High-Level Category - Suspicious Activity + Low-Level Category - Unknown Suspicious Event + Log
-   - Source Type - any
+1. In the **Modal Log Source Event** page, select:
+
+   - **High-Level Category**: Suspicious Activity + Low-Level Category - Unknown Suspicious Event + Log
+   - **Source Type**: Any
 
 1. Select **Search**.
 
-1. From the results, choose the line in which the name XSense appears, and select **OK**.
+1. From the results, select the line in which the name XSense appears, and select **OK**.
 
 All of the sensor reports from now on are tagged as Sensor Alerts.
+
+The following new fields appear in QRadar:
+
+- **UUID**: Unique alert identifier, such as 1-1555245116250.
+
+- **Site**: The site where the alert was discovered.
+
+- **Zone**: The zone where the alert was discovered.
+
+For example:
+
+```rest
+<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
+```
+
+> [!NOTE]
+> The forwarding rule you create for QRadar uses the `UUID` API from the on-premises management console. For more information, see [UUID (Manage alerts based on the UUID)](api/management-alert-apis.md#uuid-manage-alerts-based-on-the-uuid).
 
 ## Add custom fields to the alerts
 
@@ -156,7 +142,9 @@ All of the sensor reports from now on are tagged as Sensor Alerts.
 1. Select **Regex Based**.
 
 1. Configure the following fields:
+
    - New Property: _choose from the list below_
+
       - Sensor Alert Description
       - Sensor Alert ID
       - Sensor Alert Score
@@ -167,14 +155,23 @@ All of the sensor reports from now on are tagged as Sensor Alerts.
       - Sensor Sender Name
       - Sensor Alert Engine
       - Sensor Source Device Name
+
    - Check **Optimize Parsing**
+
    - Field Type: `AlphaNumeric`
+
    - Check **Enabled**
+
    - Log Source Type: `Universal LEAF`
+
    - Log Source: `<Sensor Name>`
+
    - Event Name (should be already set as Sensor Alert)
+
    - Capture Group: 1
+
    - Regex:
+
       - Sensor Alert Description RegEx: `msg=(.*)(?=\t)`
       - Sensor Alert ID RegEx: `alertId=(.*)(?=\t)`
       - Sensor Alert Score RegEx: `Detected score=(.*)(?=\t)`
@@ -185,10 +182,6 @@ All of the sensor reports from now on are tagged as Sensor Alerts.
       - Sensor Sender Name RegEx: `senderName=(.*)(?=\t)`
       - Sensor Alert Engine RegEx: `engine =(.*)(?=\t)`
       - Sensor Source Device Name RegEx: `src`
-
-## Clean up resources
-
-There are no resources to clean up.
 
 ## Next steps
 

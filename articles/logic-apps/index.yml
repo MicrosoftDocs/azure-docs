@@ -42,7 +42,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
-            url: /learn/modules/intro-to-logic-apps/
+            url: /training/modules/intro-to-logic-apps/
       - linkListType: video
         links:
           - text: Introducing Azure Logic Apps
@@ -68,7 +68,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Route and process data automatically
-            url: /learn/modules/route-and-process-data-logic-apps
+            url: /training/modules/route-and-process-data-logic-apps
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -156,7 +156,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates
-            url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
+            url: /training/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
             url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)

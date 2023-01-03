@@ -1,15 +1,17 @@
 ---
 title: Deploy a vision AI model to Azure Percept DK
 description: Learn how to deploy a vision AI model to your Azure Percept DK from Azure Percept Studio
-author: nkhuyent
+author: yvonne-dq
 ms.author: tsampige
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Deploy a vision AI model to Azure Percept DK
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Follow this guide to deploy a vision AI model to your Azure Percept DK from within Azure Percept Studio.
 

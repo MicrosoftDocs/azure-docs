@@ -53,7 +53,7 @@ The set of optional claims available by default for applications to use are list
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
 | `groups`| Optional formatting for group claims |JWT, SAML| |For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md). Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well.
 | `idtyp`                    | Token type   | JWT access tokens | Special: only in app-only access tokens |  Value is `app` when the token is an app-only token. This claim is the most accurate way for an API to determine if a token is an app token or an app+user token.|
-| `login_hint`               | Login hint   | JWT | MSA, Azure AD | An opaque, reliable login hint claim.  This claim is the best value to use for the `login_hint` OAuth parameter in all flows to get SSO.  It can be passed between applications to help them silently SSO as well - application A can sign in a user, read the `login_hint` claim, and then send the claim and the current tenant context to application B in the query string or fragment when the user selects on a link that takes them to application B. To avoid race conditions and reliability issues, the `login_hint` claim *doesn't* include the current tenant for the user, and defaults to the user's home tenant when used.  If you're operating in a guest scenario where the user is from another tenant, you must provide a tenant identifier in the sign-in request, and pass the same to apps you partner with. This claim is intended for use with your SDK's existing `login_hint` functionality, however that it exposed. |
+| `login_hint`               | Login hint   | JWT | MSA, Azure AD | An opaque, reliable login hint claim that's base64 encoded. Do not modify this value. This claim is the best value to use for the `login_hint` OAuth parameter in all flows to get SSO.  It can be passed between applications to help them silently SSO as well - application A can sign in a user, read the `login_hint` claim, and then send the claim and the current tenant context to application B in the query string or fragment when the user selects on a link that takes them to application B. To avoid race conditions and reliability issues, the `login_hint` claim *doesn't* include the current tenant for the user, and defaults to the user's home tenant when used.  If you're operating in a guest scenario where the user is from another tenant, you must provide a tenant identifier in the sign-in request, and pass the same to apps you partner with. This claim is intended for use with your SDK's existing `login_hint` functionality, however that it exposed. |
 | `sid`                      | Session ID, used for per-session user sign-out. | JWT        |  Personal and Azure AD accounts.   |         |
 | `tenant_ctry`              | Resource tenant's country/region | JWT | | Same as `ctry` except set at a tenant level by an admin.  Must also be a standard two-letter value. |
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
@@ -305,9 +305,9 @@ This section covers the configuration options under optional claims for changing
    | **name:** | Must be "groups" |
    | **source:** | Not used. Omit or specify null |
    | **essential:** | Not used. Omit or specify false |
-   | **additionalProperties:** | List of additional properties.  Valid options are "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **additionalProperties:** | List of additional properties.  Valid options are "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" and “cloud_displayname” |
 
-   In additionalProperties only one of "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" are required.  If more than one is present, the first is used and any others ignored.
+   In additionalProperties only one of "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" are required.  If more than one is present, the first is used and any others ignored. Additionally you can add “cloud_displayname” to emit display name of the cloud group. Note, that this option works only when `“groupMembershipClaims”` is set to `“ApplicationGroup”`.
 
    Some applications require group information about the user in the role claim.  To change the claim type from a group claim to a role claim, add "emit_as_roles" to additional properties.  The group values will be emitted in the role claim.
 
@@ -361,6 +361,33 @@ This section covers the configuration options under optional claims for changing
                 "additionalProperties": [
                     "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
+                ]
+            }
+        ]
+    }
+    ```
+3) Emit group names in the format of samAccountName for on-prem synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
+    
+    **Application manifest entry:**
+
+    ```json
+    "groupMembershipClaims": "ApplicationGroup",
+    "optionalClaims": {
+        "saml2Token": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "sam_account_name",
+                    "cloud_displayname"
+                ]
+            }
+        ],
+        "idToken": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "sam_account_name",
+                    "cloud_displayname"
                 ]
             }
         ]

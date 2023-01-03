@@ -79,7 +79,8 @@ This step will add the following components to your subscription:
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
     ```
 
-1. Deploy the Azure Resource Manager template using `az cli`. The deployment might take up to 5 minutes.
+1. Deploy the Azure Resource Manager template using the Azure CLI. The deployment might take up to 5 minutes.
+
     ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"

@@ -32,15 +32,14 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
-|PowerShell Core 6| 4 September 2020|30 September 2022|
-|Python 3.6 |23 December 2021|30 September 2022|
+|Node 12|30 Apr 2022|13 December 2022|
 
 ## Language version support timeline
 
 To learn more about specific language version support policy timeline, visit the following external resources:
 * .NET - [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 * Node - [github.com](https://github.com/nodejs/Release#release-schedule)
-* Java - [azul.com](https://www.azul.com/products/azul-support-roadmap/)
+* Java - [Microsoft technical documentation](/azure/developer/java/fundamentals/java-support-on-azure)
 * PowerShell - [Microsoft technical documentation](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)
 * Python - [devguide.python.org](https://devguide.python.org/#status-of-python-branches)
 

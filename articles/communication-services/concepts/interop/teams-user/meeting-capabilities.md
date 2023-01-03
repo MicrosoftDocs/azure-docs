@@ -106,7 +106,7 @@ The following list of capabilities is allowed when Teams user participates in Te
 |                   | Interact with a Q&A                                                                                                 | ❌ |
 |                   | Interact with a OneNote                                                                                             | ❌ |
 |                   | Manage SpeakerCoach                                                                                                 | ❌ |
-| | [Include participant in Teams meeting attendance report](/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ❌ 
+| | [Include participant in Teams meeting attendance report](https://support.microsoft.com/office/view-and-download-meeting-attendance-reports-in-teams-ae7cf170-530c-47d3-84c1-3aedac74d310) | ❌ 
 | Accessibility     | Receive closed captions                                                                                             | ❌ |
 |                   | Communication access real-time translation (CART)                                                                   | ❌ |
 |                   | Language interpretation                                                                                             | ❌ |
@@ -162,16 +162,16 @@ Teams meeting organizers can configure the Teams meeting options to adjust the e
 | [Automatically admit people](/microsoftteams/meeting-policies-participants-and-guests#automatically-admit-people) | Teams user can bypass the lobby, if Teams meeting organizer set value to include "people in my organization" for single tenant meetings and "people in trusted organizations" for cross-tenant meetings. Otherwise, Teams users have to wait in the lobby until an authenticated user admits them.| ✔️ |
 | [Always let callers bypass the lobby](/microsoftteams/meeting-policies-participants-and-guests#allow-dial-in-users-to-bypass-the-lobby)| Participants joining through phone can bypass lobby | Not applicable |
 | Announce when callers join or leave| Participants hear announcement sounds when phone participants join and leave the meeting | ✔️ |
-| [Choose co-organizers](/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2)|  Teams user can be selected as co-organizer. It affects the availability of actions in Teams meetings. | ✔️ |
+| [Choose co-organizers](https://support.microsoft.com/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2)|  Teams user can be selected as co-organizer. It affects the availability of actions in Teams meetings. | ✔️ |
 | [Who can present in meetings](/microsoftteams/meeting-policies-in-teams-general#designated-presenter-role-mode) | Controls who in the Teams meeting can share screen.  | ❌ |
-|[Manage what attendees see](/office/spotlight-someone-s-video-in-a-teams-meeting-58be74a4-efac-4e89-a212-8d198182081e)|Teams organizer, co-organizer and presenter can spotlight videos for everyone. Azure Communication Services does not receive the spotlight signals. |❌|
-|[Allow mic for attendees](/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If Teams user is attendee, then this option controls whether Teams user can send local audio |✔️|
-|[Allow camera for attendees](/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If Teams user is attendee, then this option controls whether Teams user can send local video |✔️|
+|[Manage what attendees see](https://support.microsoft.com/office/spotlight-someone-s-video-in-a-teams-meeting-58be74a4-efac-4e89-a212-8d198182081e)|Teams organizer, co-organizer and presenter can spotlight videos for everyone. Azure Communication Services does not receive the spotlight signals. |❌|
+|[Allow mic for attendees](https://support.microsoft.com/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If Teams user is attendee, then this option controls whether Teams user can send local audio |✔️|
+|[Allow camera for attendees](https://support.microsoft.com/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If Teams user is attendee, then this option controls whether Teams user can send local video |✔️|
 |[Record automatically](/graph/api/resources/onlinemeeting)|Records meeting when anyone starts the meeting. The user in the lobby does not start a recording.|✔️|
 |Allow meeting chat|If enabled, Teams users can use the chat associated with the Teams meeting.|✔️|
 |[Allow reactions](/microsoftteams/meeting-policies-in-teams-general#meeting-reactions)|If enabled, Teams users can use reactions in the Teams meeting. Azure Communication Services don't support reactions. |❌|
 |[RTMP-IN](/microsoftteams/stream-teams-meetings)|If enabled, organizers can stream meetings and webinars to external endpoints by providing a Real-Time Messaging Protocol (RTMP) URL and key to the built-in Custom Streaming app in Teams. |Not applicable|
-|[Provide CART Captions](/office/use-cart-captions-in-a-microsoft-teams-meeting-human-generated-captions-2dd889e8-32a8-4582-98b8-6c96cf14eb47)|Communication access real-time translation (CART) is a service in which a trained CART captioner listens to the speech and instantaneously translates all speech to text. As a meeting organizer, you can set up and offer CART captioning to your audience instead of the Microsoft Teams built-in live captions that are automatically generated.|❌|
+|[Provide CART Captions](https://support.microsoft.com/office/use-cart-captions-in-a-microsoft-teams-meeting-human-generated-captions-2dd889e8-32a8-4582-98b8-6c96cf14eb47)|Communication access real-time translation (CART) is a service in which a trained CART captioner listens to the speech and instantaneously translates all speech to text. As a meeting organizer, you can set up and offer CART captioning to your audience instead of the Microsoft Teams built-in live captions that are automatically generated.|❌|
 
 
 ## Next steps

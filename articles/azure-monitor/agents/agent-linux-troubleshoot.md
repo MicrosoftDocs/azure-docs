@@ -2,8 +2,8 @@
 title: Troubleshoot Azure Log Analytics Linux Agent | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Linux in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 10/21/2021
 ms.reviewer: luki
 
@@ -11,7 +11,7 @@ ms.reviewer: luki
 
 # Troubleshoot issues with the Log Analytics agent for Linux
 
-This article provides help in troubleshooting errors you might experience with the Log Analytics agent for Linux in Azure Monitor and suggests possible solutions to resolve them.
+This article provides help in troubleshooting errors you might experience with the Log Analytics agent for Linux in Azure Monitor.
 
 ## Log Analytics Troubleshooting Tool
 
@@ -78,7 +78,7 @@ A clean reinstall of the agent fixes most issues. This task might be the first s
  Extra configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  > [!NOTE]
- > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [agent's configuration](../agents/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Agents configuration**. For a single agent, run the following script:
+ > Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [agent's configuration](../agents/agent-data-sources.md#configure-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from **Agents configuration**. For a single agent, run the following script:
 >
 > `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 
@@ -223,7 +223,7 @@ This is a known issue that occurs on the first upload of Linux data into a Log A
 
 ### Probable causes
 
-A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) caused a severe performance issue. We've been seeing this issue come up a lot in Redhat/Centos 7.x distributions. To learn more about this issue, see [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) caused a severe performance issue. We've been seeing this issue come up a lot in Redhat/CentOS 7.x distributions. To learn more about this issue, see [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
 Performance-related bugs don't happen all the time, and they're difficult to reproduce. If you experience such an issue with omiagent, use the script `omiHighCPUDiagnostics.sh`, which will collect the stack trace of the omiagent when it exceeds a certain threshold.
 
@@ -240,7 +240,7 @@ Performance-related bugs don't happen all the time, and they're difficult to rep
 1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html): <br/>
 `sudo yum upgrade nss-pem`
 
-1. If nss-pem isn't available for upgrade, which mostly happens on Centos, downgrade curl to 7.29.0-46. If you run "yum update" by mistake, curl will be upgraded to 7.29.0-51 and the issue will happen again: <br/>
+1. If nss-pem isn't available for upgrade, which mostly happens on CentOS, downgrade curl to 7.29.0-46. If you run "yum update" by mistake, curl will be upgraded to 7.29.0-51 and the issue will happen again: <br/>
 `sudo yum downgrade curl libcurl`
 
 1. Restart OMI: <br/>
@@ -334,7 +334,7 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
 * OMI is frozen, blocking the OMS agent.
 * DSC resource logs *class not found* error in `omsconfig.log` log file.
 * Log Analytics agent for data is backed up.
-* DSC logs *Current configuration does not exist. Execute Start-DscConfiguration command with -Path parameter to specify a configuration file and create a current configuration first.* in `omsconfig.log` log file, but no log message exists about `PerformRequiredConfigurationChecks` operations.
+* DSC logs *Current configuration doesn't exist. Execute Start-DscConfiguration command with -Path parameter to specify a configuration file and create a current configuration first.* in `omsconfig.log` log file, but no log message exists about `PerformRequiredConfigurationChecks` operations.
 
 ### Resolution
 
@@ -380,7 +380,7 @@ This error indicates that the Linux diagnostic extension (LAD) is installed side
         sudo systemctl start cron
         ```
     
-        **RHEL/CeonOS**
+        **RHEL/CentOS**
     
         ```
         # To Install the service binaries

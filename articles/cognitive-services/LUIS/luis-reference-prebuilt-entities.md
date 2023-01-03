@@ -15,6 +15,9 @@ ms.date: 05/05/2021
 
 # Entities per culture in your LUIS model
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Language Understanding (LUIS) provides prebuilt entities.
 
 ## Entity resolution

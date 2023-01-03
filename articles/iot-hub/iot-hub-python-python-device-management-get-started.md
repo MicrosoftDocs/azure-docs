@@ -6,9 +6,9 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/29/2022
 ms.author: kgremban
-ms.custom: mqtt, devx-track-python, devx-track-azurecli
+ms.custom: mqtt, devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Get started with device management (Python)
@@ -21,15 +21,18 @@ This article shows you how to create:
 
 * **dmpatterns_getstarted_service.py**: a Python console app that calls the direct method in the simulated device app through your IoT hub. It displays the response and updated reported properties.
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+> [!NOTE]
+> For more information about the SDK tools available to build both device and back-end apps, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 ## Prerequisites
+
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -41,11 +44,13 @@ This article shows you how to create:
 
 In this section, you:
 
-* Create a Python console app that responds to a direct method called by the cloud
+* Create a Python console app that responds to a direct method called by the cloud.
 
-* Simulate a device reboot
+* Simulate a device reboot.
 
-* Use the reported properties to enable device twin queries to identify devices and when they last rebooted
+* Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+In Azure Cloud Shell you used above or any other environment with Python, create the device code.
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 
@@ -152,6 +157,8 @@ In this section, you:
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
+In Azure Cloud Shell or any other environment with Python, create the console code.
+
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
     ```cmd/sh
@@ -238,15 +245,15 @@ In this section, you create a Python console app that initiates a remote reboot 
 
 ## Run the apps
 
-You're now ready to run the apps.
+You're now ready to run the device code and the service code that initiates a reboot of the device.
 
-1. At the command prompt, run the following command to begin listening for the reboot direct method.
+1. At the command prompt where you created the device, run the following command to begin listening for the reboot direct method.
 
     ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
-2. At another command prompt, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+2. At the command prompt where you create the service, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
 
     ```cmd/sh
     python dmpatterns_getstarted_service.py

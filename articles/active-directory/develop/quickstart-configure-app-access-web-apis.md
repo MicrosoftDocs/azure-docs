@@ -2,14 +2,14 @@
 title: "Quickstart: Configure an app to access a web API"
 description: In this quickstart, you configure an app registration representing a web API in the Microsoft identity platform to enable scoped resource access (permissions) to client applications.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 05/05/2022
-ms.author: marsma
+ms.author: cwerner
 ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: lenalepa, aragra, sureshja
 #Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.

@@ -8,14 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 10/13/2022
 ---
 
 # Create an Azure Cognitive Search service in the portal
 
 [**Azure Cognitive Search**](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps.
 
-You can create search service using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/), or a [Bicep file](search-get-started-bicep.md).
+If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials.
+
+The easiest way to create search service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/), or a [Bicep file](search-get-started-bicep.md).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -35,7 +37,7 @@ To try search for free, you have two options:
 
 + Alternatively, [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
 
-Paid (or billable) search becomes effective when you choose a billable tier (Basic or above) and create the resource.
+Paid (or billable) search becomes effective when you choose a billable tier (Basic or above) when creating the resource.
 
 ## Find the Azure Cognitive Search offering
 
@@ -49,7 +51,7 @@ Paid (or billable) search becomes effective when you choose a billable tier (Bas
 
 ## Choose a subscription
 
-If you have more than one subscription, choose one for your search service. If you are implementing [double encryption](search-security-overview.md#double-encryption) or other features that depend on managed service identities, choose the same subscription as the one used for Azure Key Vault or other services for which managed identities are used.
+If you've more than one subscription, choose one for your search service. If you're implementing [customer-managed encryption](search-security-manage-encryption-keys.md) or if you use other features that depend on managed service identities for [external data access](search-indexer-securing-resources.md), choose the same subscription as the one used for Azure Key Vault or other services for which managed identities are used.
 
 ## Set a resource group
 
@@ -75,7 +77,7 @@ Service name requirements:
 + It must be unique within the search.windows.net namespace
 + It must be between 2 and 60 characters in length
 + You must use lowercase letters, digits, or dashes ("-")
-+ Do not use dashes ("-") in the first 2 characters or as the last single character
++ Don't use dashes ("-") in the first 2 characters or as the last single character
 + You may not use consecutive dashes ("--") anywhere
 
 > [!TIP]
@@ -89,9 +91,9 @@ As a rule, if you're using multiple Azure services, putting all of them in the s
 
 Two notable exceptions might lead to provisioning one or more search services in a separate region:
 
-+ [Outbound connections from Cognitive Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you are enabling a firewall.
++ [Outbound connections from Cognitive Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
 
-+ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
++ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
 Some features are subject to regional availability. If you require any of following features, choose a region that provides them:
 
@@ -114,7 +116,7 @@ Basic and Standard are the most common choices for production workloads, but ini
 
 :::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page" border="true":::
 
-Remember, a pricing tier cannot be changed once the service is created. If you need a higher or lower tier, you will have to re-create the service.
+Remember, a pricing tier can't be changed once the service is created. If you need a higher or lower tier, you'll have to re-create the service.
 
 ## Create your service
 
@@ -128,19 +130,19 @@ Your service is deployed within minutes. You can monitor progress through Azure 
 
 ## Get a key and URL endpoint
 
-Unless you are using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authenticated connection. [Azure role-based access control with Azure Active Directory](search-security-rbac.md) is in public preview. [Key-based authentication](search-security-api-keys.md) is the default. It's also the only generally available authentication methodology for inbound connections to a search service. 
+Unless you're using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authenticated connection. [Azure role-based access control with Azure Active Directory](search-security-rbac.md) is in public preview. [Key-based authentication](search-security-api-keys.md) is the default. It's also the only generally available authentication methodology for inbound connections to a search service. 
 
 1. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-1. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin API keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
+1. On the **Keys** page, copy either one of the admin keys (they're equivalent). Admin API keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Service overview page with URL endpoint" border="false":::
 
-An endpoint and key are not needed for portal-based tasks. The portal is already linked to your Azure Cognitive Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md).
+An endpoint and key aren't needed for portal-based tasks. The portal is already linked to your Azure Cognitive Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md).
 
 ## Scale your service
 
-After your service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). If you chose the Standard tier for your Azure Cognitive Search service, you can scale your service in two dimensions: replicas and partitions. For the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
+After a search service is provisioned, you can [scale it to meet your needs](search-limits-quotas-capacity.md). If you chose the Standard tier, you can scale the service in two dimensions: replicas and partitions. For the Basic tier, you can only add replicas. For the free service, scale isn't available.
 
 ***Partitions*** allow your service to store and search through more documents.
 
@@ -163,7 +165,7 @@ Most customers use just one service provisioned at a tier [sufficient for expect
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure Cognitive Search doesn't provide instant failover in the event of an outage.
 
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -172,7 +174,7 @@ Although most customers use just one service, service redundancy might be necess
 > [!NOTE]
 > In Azure Cognitive Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
-A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+A second service isn't required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## Add more services to a subscription
 

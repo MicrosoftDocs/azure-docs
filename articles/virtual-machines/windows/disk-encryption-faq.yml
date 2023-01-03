@@ -91,7 +91,7 @@ sections:
       - question: |
           What size should I use for my key encryption key (KEK)?
         answer: |
-          Windows Server 2022 includes a newer version of BitLocker and currently does not work with RSA 2048 bit Key Encryption Keys. Until this is resolved, use an RSA 3072 or RSA 4096 bit keys, as described in [Supported operating systems](disk-encryption-overview.md#supported-operating-systems). 
+          Windows Server 2022 and Windows 11 include a newer version of BitLocker and currently does not work with RSA 2048 bit Key Encryption Keys. Until this is resolved, use an RSA 3072 or RSA 4096 bit keys, as described in [Supported operating systems](disk-encryption-overview.md#supported-operating-systems). 
 
           For earlier version of Windows, you may instead use RSA 2048 Key Encryption Keys.
 

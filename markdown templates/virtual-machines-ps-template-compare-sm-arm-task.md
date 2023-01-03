@@ -92,7 +92,7 @@ Here's an example that uses [cmdlet names)] to [task]. It includes commands that
 <!--use this format for links to other articles, such as the migration task list. -->
 [Manage Availability](../articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json)
 
-<!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
+<!--To link to an ACOM page outside the `/documentation/` subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 

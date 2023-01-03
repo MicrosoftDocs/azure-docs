@@ -5,7 +5,7 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/24/2022
+ms.date: 10/21/2022
 
 ms.author: sarahlipsey
 author: shlipsey3

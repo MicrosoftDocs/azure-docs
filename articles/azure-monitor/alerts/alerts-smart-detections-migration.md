@@ -34,7 +34,7 @@ A new set of alert rules is created when migrating an Application Insights resou
 | Potential security issue detected (preview)        | *discontinued* <sup>(3)</sup>  |
 | Abnormal rise in daily data volume (preview)       | *discontinued* <sup>(3)</sup>  |
 
-<sup>(1)</sup> Name of rule as appears in smart detection Settings blade  
+<sup>(1)</sup> Name of rule as appears in smart detection Settings pane  
 <sup>(2)</sup> Name of new alert rule after migration  
 <sup>(3)</sup> These smart detection capabilities aren't converted to alerts, because of low usage and reassessment of detection effectiveness. These detectors will no longer be supported for this resource once its migration is completed. 
 

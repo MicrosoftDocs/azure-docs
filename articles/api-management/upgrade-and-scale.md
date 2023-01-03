@@ -60,7 +60,7 @@ You can choose between four dedicated tiers: **Developer**, **Basic**,  **Standa
 1. Select **Apply**.
 
 > [!NOTE]
-> In the Premium service tier, you can optionally configure availability zones and a virtual network in a selected location. For more information, see [Deploy API Management service to an additional location](api-management-howto-deploy-multi-region.md#-deploy-api-management-service-to-an-additional-location).
+> In the Premium service tier, you can optionally configure availability zones and a virtual network in a selected location. For more information, see [Deploy API Management service to an additional location](api-management-howto-deploy-multi-region.md).
 
 ## Change your API Management service tier
 

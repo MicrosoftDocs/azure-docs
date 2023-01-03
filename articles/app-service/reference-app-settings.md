@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 02/15/2022
+ms.date: 11/01/2022
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -315,7 +315,6 @@ For more information on deployment slots, see [Set up staging environments in Az
 
 | Setting name| Description | Example |
 |-|-|-|
-|`WEBSITE_SLOT_NAME`| Read-only. Name of the current deployment slot. The name of the production slot is `Production`. ||
 |`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `0` on *all slots*. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this setting to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grain control for specific setting types. ||
 |`WEBSITE_SWAP_WARMUP_PING_PATH`| Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path over HTTP. | `/statuscheck` |
@@ -334,7 +333,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `true` for custom containers. ||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable is not passed on to the container. | `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
@@ -509,7 +508,7 @@ The following environment variables are related to [App Service authentication](
 | `WEBSITE_AUTH_DISABLE_WWWAUTHENTICATE` | `true` or `false`. The default value is `false`. When set to `true`, removes the [`WWW-Authenticate`](https://developer.mozilla.org/docs/Web/HTTP/Headers/WWW-Authenticate) HTTP response header from module-generated HTTP 401 responses. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `identityProviders.azureActiveDirectory.login.disableWwwAuthenticate` configuration value. |
 | `WEBSITE_AUTH_STATE_DIRECTORY`  | A local file system directory path where tokens are stored when the file-based token store is enabled. The default value is `%HOME%\Data\.auth`. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.fileSystem.directory` configuration value. |
 | `WEBSITE_AUTH_TOKEN_CONTAINER_SASURL` | A fully qualified blob container URL. Instructs the auth module to store and load all encrypted tokens to the specified blob storage container instead of using the default local file system.  |
-| `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number. The default value is `72` (hours). This setting controls the amount of time after a session token expires that the `/.auth/refresh` API can be used to refresh it. It's intended primarily for use with Azure Mobile Apps, which rely on session tokens. Refresh attempts after this period will fail and end users will be required to sign-in again. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.tokenRefreshExtensionHours` configuration value. |
+| `WEBSITE_AUTH_TOKEN_REFRESH_HOURS` | Any positive decimal number. The default value is `72` (hours). This setting controls the amount of time after a session token expires that the `/.auth/refresh` API can be used to refresh it. Refresh attempts after this period will fail and end users will be required to sign-in again. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.tokenStore.tokenRefreshExtensionHours` configuration value. |
 | `WEBSITE_AUTH_TRACE_LEVEL`| Controls the verbosity of authentication traces written to [Application Logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows). Valid values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. The default value is `Verbose`. |
 | `WEBSITE_AUTH_VALIDATE_NONCE`| `true` or `false`. The default value is `true`. This value should never be set to `false` except when temporarily debugging [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) validation failures that occur during interactive logins. This application setting is intended for use with the V1 (classic) configuration experience. If using the V2 authentication configuration schema, you should instead use the `login.nonce.validateNonce` configuration value. |
 | `WEBSITE_AUTH_V2_CONFIG_JSON` | This environment variable is populated automatically by the Azure App Service platform and is used to configure the integrated authentication module. The value of this environment variable corresponds to the V2 (non-classic) authentication configuration for the current app in Azure Resource Manager. It's not intended to be configured explicitly. |

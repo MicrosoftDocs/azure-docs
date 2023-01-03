@@ -17,7 +17,7 @@ AUTHORS: A single sentence intro about AML. Intro paragraph to explain the inten
 
 In this tutorial you will do X...
 
-AUTHORS: Quick read tutorial [here](https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=master). Also, don't forget to run Acrolinx to find issues before you commit.
+AUTHORS: Quick read tutorial [here](https://review.learn.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=main). Also, don't forget to run Acrolinx to find issues before you commit.
 
 In this tutorial, you use X to do Y or you learn how to:
 > [!div class="checklist"]

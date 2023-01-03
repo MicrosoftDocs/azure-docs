@@ -27,7 +27,7 @@ AzureML inference router is the front-end component (`azureml-fe`) which is depl
   
   * Routes incoming inference requests from cluster load balancer or ingress controller to corresponding model pods.
   * Load-balance all incoming inference requests with smart coordinated routing.
-  * manages model pods auto-scaling.
+  * Manages model pods auto-scaling.
   * Fault-tolerant and failover capability, ensuring inference requests is always served for critical business application.
 
 The following steps are how requests are processed by the front-end:
@@ -43,7 +43,7 @@ The following steps are how requests are processed by the front-end:
 
 The following diagram illustrates this flow:
 
-:::image type="content" source="./media/how-to-attach-arc-kubernetes/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
+:::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
 
 As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
@@ -70,7 +70,12 @@ scale_setting:
 # other deployment properties continue
 ```
 
-Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `target_utilization_percentage`, then more replicas are created. If it's lower, then replicas are reduced. By default, the target utilization is 70%.
+The decision to scale up or down is based off of ``utilization of the current container replicas``. 
+
+```
+utilization_percentage = (The number of replicas that are busy processing a request + The number of requests queued in azureml-fe) / The total number of current replicas
+```
+If this number exceeds `target_utilization_percentage`, then more replicas are created. If it's lower, then replicas are reduced. By default, the target utilization is 70%.
 
 Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
 
@@ -93,11 +98,20 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-If you have RPS requirements higher than 10K, consider following options:
+### Performance of azureml-fe
 
-* Increase resource requests/limits for `azureml-fe` pods, by default it has 2 vCPU and 2G memory request/limit.
-* Increase number of instances for `azureml-fe`, by default AzureML creates 3 `azureml-fe` instances per cluster.
-* Reach out to Microsoft experts for help.
+The `azureml-fe` can reach 5K requests per second (QPS) with good latency, having an overhead not exceeding 3ms on average and 15ms at 99% percentile.
+
+
+>[!Note]
+>
+>If you have RPS requirements higher than 10K, consider the following options:
+>
+>* Increase resource requests/limits for `azureml-fe` pods; by default it has 2 vCPU and 1.2G memory resource limit.
+>* Increase the number of instances for `azureml-fe`. By default, AzureML creates 3 or 1 `azureml-fe` instances per cluster.
+>   * This instance count depends on your configuration of `inferenceRouterHA` of the [AzureML entension](how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings).
+>   * The increased instance count cannot be persisted, since it will be overwritten with your configured value once the extension is upgraded.
+>* Reach out to Microsoft experts for help.
 
 ## Understand connectivity requirements for AKS inferencing cluster
 
@@ -109,11 +123,11 @@ For Kubenet networking, the network is created and configured properly for Azure
 
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
-![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-arc-kubernetes/azureml-kubernetes-network.png)
+![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-kubernetes-to-workspace/azureml-kubernetes-network.png)
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-For accessing Azure ML services behind a firewall, see [How to access azureml behind firewall](./how-to-access-azureml-behind-firewall.md).
+For accessing Azure ML services behind a firewall, see [How to access azureml behind firewall](./how-to-access-azureml-behind-firewall.md#kubernetes-compute).
 
 ### Overall DNS resolution requirements
 
@@ -124,7 +138,6 @@ DNS resolution within an existing VNet is under your control. For example, a fir
 | `<cluster>.hcp.<region>.azmk8s.io` | AKS API server |
 | `mcr.microsoft.com` | Microsoft Container Registry (MCR) |
 | `<ACR name>.azurecr.io` | Your Azure Container Registry (ACR) |
-| `<account>.table.core.windows.net` | Azure Storage Account (table storage) |
 | `<account>.blob.core.windows.net` | Azure Storage Account (blob storage) |
 | `api.azureml.ms` | Azure Active Directory (Azure AD) authentication |
 | `ingest-vienna<region>.kusto.windows.net` | Kusto endpoint for uploading telemetry |

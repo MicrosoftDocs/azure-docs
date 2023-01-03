@@ -16,6 +16,9 @@ ms.date: 01/10/2022
 
 # Plan your LUIS app
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 A Language Understanding (LUIS) app schema contains [intents](../luis-glossary.md#intent) and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. Intents and entities relevant to your subject domain. The intents classify user utterances.
 
 A LUIS app learns and performs most efficiently when you iteratively develop it. Here's a typical iteration cycle:

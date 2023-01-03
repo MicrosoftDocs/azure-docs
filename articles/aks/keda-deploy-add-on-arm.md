@@ -4,7 +4,7 @@ description: Use an ARM template to deploy the Kubernetes Event-driven Autoscali
 services: container-service
 author: jahabibi
 ms.topic: article
-ms.date: 05/24/2022
+ms.date: 10/10/2022
 ms.author: jahabibi
 ---
 
@@ -142,7 +142,7 @@ az group delete --name MyResourceGroup
 
 This article showed you how to install the KEDA add-on on an AKS cluster, and then verify that it's installed and running. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
 
-You can troubleshoot troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
+You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -150,7 +150,7 @@ You can troubleshoot troubleshoot KEDA add-on problems in [this article][keda-tr
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
-[keda-troubleshoot]: keda-troubleshoot.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 [aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
 
 <!-- LINKS - external -->

@@ -3,6 +3,7 @@ title: High CPU Utilization
 description: Troubleshooting guide for high cpu utilization in Azure Database for PostgreSQL - Flexible Server
 ms.author: sbalijepalli
 author: sarat0681
+ms.reviewer: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -11,14 +12,15 @@ ms.date: 08/03/2022
 
 #  Troubleshoot high CPU utilization in Azure Database for PostgreSQL - Flexible Server
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL - Flexible Server](overview.md). 
 
-In this article, you will learn: 
+In this article, you'll learn: 
 
 - About tools to identify high CPU utilization such as Azure Metrics, Query Store, and pg_stat_statements. 
 - How to identify root causes, such as long running queries and total connections. 
 - How to resolve high CPU utilization by using Explain Analyze, Connection Pooling, and Vacuuming tables. 
-
 
 ## Tools to identify high CPU utilization 
 
@@ -27,7 +29,6 @@ Consider these tools to identify high CPU utilization.
 ### Azure Metrics 
 
 Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with CPU utilization to find out times when the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
-
 
 ### Query Store
 
@@ -41,7 +42,6 @@ The pg_stat_statements extension helps identify queries that consume time on the
 
 ##### [Postgres v13 & above](#tab/postgres-13)
 
-
 For Postgres versions 13 and above, use the following statement to view the top five SQL statements by mean or average execution time: 
 
 ```postgresql
@@ -51,11 +51,9 @@ ORDER BY mean_exec_time
 DESC LIMIT 5;   
 ```
 
-
 ##### [Postgres v9.6-12](#tab/postgres9-12)
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by mean or average execution time: 
-
 
 ```postgresql
 SELECT userid::regrole, dbid, query 
@@ -63,7 +61,6 @@ FROM pg_stat_statements
 ORDER BY mean_time 
 DESC LIMIT 5;    
 ```
-
 ---
 
 #### Total execution time
@@ -115,7 +112,7 @@ ORDER BY duration DESC;
 
 ### Total number of connections and number connections by state 
 
-A large number of connections to the database is also another issue that might lead to increased CPU as well as memory utilization.
+A large number of connections to the database is also another issue that might lead to increased CPU and memory utilization.
 
 
 The following query gives information about the number of connections by state: 
@@ -139,7 +136,7 @@ For more information about the **EXPLAIN** command, review [Explain Plan](https:
 
 ### PGBouncer and connection pooling 
 
-In situations where there are lots of idle connections or lot of connections which are consuming the CPU consider use of a connection pooler like PgBouncer.
+In situations where there are lots of idle connections or lot of connections, which are consuming the CPU consider use of a connection pooler like PgBouncer.
 
 For more details about PgBouncer, review: 
 
@@ -149,12 +146,11 @@ For more details about PgBouncer, review:
 
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md)
 
-
 ### Terminating long running transactions
 
 You could consider killing a long running transaction as an option.
 
-To terminate a session's PID, you will need to detect the PID using the following query: 
+To terminate a session's PID, you'll need to detect the PID using the following query: 
 
 ```postgresql
 SELECT pid, usename, datname, query, now() - xact_start as duration 
@@ -165,7 +161,7 @@ ORDER BY duration DESC;
 
 You can also filter by other properties like `usename` (username), `datname` (database name) etc.  
 
-Once you have the session's PID you can terminate using the following query:
+Once you have the session's PID, you can terminate using the following query:
 
 ```postgresql
 SELECT pg_terminate_backend(pid);
@@ -175,7 +171,6 @@ SELECT pg_terminate_backend(pid);
 
 Keeping table statistics up to date helps improve query performance. Monitor whether regular autovacuuming is being carried out. 
 
-
 The following query helps to identify the tables that need vacuuming: 
 
 ```postgresql
@@ -183,7 +178,7 @@ select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_au
 from pg_stat_all_tables where n_live_tup > 0;   
 ```
 
-`last_autovacuum` and `last_autoanalyze` columns give the date and time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly, take steps to tune autovacuum. For more information about autovacuum troubleshooting and tuning, see [Autovacuum Troubleshooting](./how-to-autovacuum-tuning.md).
+`last_autovacuum` and `last_autoanalyze` columns give the date and time when the table was last autovacuumed or analyzed. If the tables aren't being vacuumed regularly, take steps to tune autovacuum. For more information about autovacuum troubleshooting and tuning, see [Autovacuum Troubleshooting](./how-to-autovacuum-tuning.md).
 
 
 A short-term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:

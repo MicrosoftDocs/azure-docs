@@ -6,12 +6,12 @@ documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 06/08/2022
+ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.custom: mode-ui
+ms.custom: template-tutorial, mode-ui, engagement-fy23
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -55,7 +55,7 @@ If you don't already have a web app, use the following steps to set up example w
 
 1. Select **Review + create**, review the **Summary**, and then select **Create**. It might take several minutes for the deployment to complete.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Review summary for web app." lightbox="./media/quickstart-create-front-door/create-web-app.png":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Screenshot showing Create Web App page." lightbox="./media/quickstart-create-front-door/create-web-app.png":::
 
 After your deployment is complete, create a second web app. Use the same procedure with the same values, except for the following values:
 
@@ -126,7 +126,7 @@ Finally, add a routing rule. A routing rule maps your frontend host to the backe
 
 1. In **Add a rule**, for **Name**, enter *LocationRule*. Accept all the default values, then select **Add** to add the routing rule.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Add a rule to your Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-a-rule.png":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Screenshot showing Add a rule when creating Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-a-rule.png":::
 
    >[!WARNING]
    > You **must** ensure that each of the frontend hosts in your Front Door has a routing rule with a default path (`/*`) associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path (`/*`). Failing to do so may result in your end-user traffic not getting routed correctly.

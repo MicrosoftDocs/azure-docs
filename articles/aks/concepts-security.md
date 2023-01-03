@@ -168,7 +168,7 @@ For more information on core Kubernetes and AKS concepts, see:
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- LINKS - External -->
-[kured]: https://github.com/weaveworks/kured
+[kured]: https://github.com/kubereboot/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md

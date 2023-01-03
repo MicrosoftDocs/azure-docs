@@ -2,10 +2,11 @@
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/17/2022
+ms.date: 09/19/2022
 
 ---
 # Configure data persistence for a Premium Azure Cache for Redis instance
@@ -14,8 +15,8 @@ ms.date: 05/17/2022
 
 > [!IMPORTANT]
 >
-> Check to see if your storage account has soft delete enabled before using hte data persistence feature. Using data persistence with soft delete will cause very high storage costs. For more information, see For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
-> 
+> Check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
+>
 
 Azure Cache for Redis offers Redis persistence using the Redis database (RDB) and Append only File (AOF):
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Automanage (preview)
-summary: Azure Automanage for virtual machines
+title: Azure Automanage
+summary: Azure Automanage Machine Best Practices
 
 metadata:
-  title: Azure Automanage (preview)
-  description: Learn about Azure Automanage for virtual machines.
+  title: Azure Automanage
+  description: Learn about Azure Automanage
   ms.service: automanage
   ms.topic: landing-page
   ms.date: 09/07/2022

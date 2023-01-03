@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 09/15/2022
 
 ms.author: justinha
 author: justinha
@@ -28,7 +28,7 @@ This following tables list Azure AD feature availability in Azure Government.
 |**Authentication, single sign-on, and MFA**|Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
 || Federated authentication (Active Directory Federation Services or federation with other identity providers) | &#x2705; |
 || Single sign-on (SSO) unlimited | &#x2705; | 
-|| Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Microsoft Authenticator only shows GUID and not UPN for compliance reasons. | 
+|| Multifactor authentication (MFA) <sup>1</sup>| &#x2705; | 
 || Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
 || Service-level agreement | &#x2705; | 
 |**Applications access**|SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
@@ -70,9 +70,10 @@ This following tables list Azure AD feature availability in Azure Government.
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |
 || Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
 |**Frontline workers**|SMS sign-in | Feature not available. |
-|| Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
+|| Shared device sign-out | Enterprise state roaming for Windows 10 devices isn't available. |
 || Delegated user management portal (My Staff) | Feature not available. |
 
+<sup>1</sup>Microsoft Authenticator only shows GUID and not UPN for compliance reasons.
 
 ## Identity protection
 

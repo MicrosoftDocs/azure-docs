@@ -6,10 +6,13 @@ ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
 ms.date: 09/07/2022
+ms.custom: engagement-fy23
 tags: connectors
 ---
 
 # Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 >
@@ -40,7 +43,7 @@ For technical information based on the connector's Swagger description, such as 
 
 * A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, review the following resources:
 
-  * [Learn: Create and manage Dataverse environments](/learn/modules/create-manage-environments/)
+  * [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
 
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 

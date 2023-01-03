@@ -2,14 +2,14 @@
 title: Register single-page applications (SPA)
 description: Learn how to build a single-page application (app registration)
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/10/2022
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---

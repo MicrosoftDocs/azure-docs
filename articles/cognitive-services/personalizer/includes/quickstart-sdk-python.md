@@ -77,11 +77,21 @@ Later in this quick-start, we'll define an example reward score. However, the re
 
 These code snippets demonstrate how to use the Personalizer client library for Python to:
 
-* [Authenticate the client](#authenticate-the-client)
-* [Define actions and their features](#define-actions-and-their-features)
-* [Define context features](#define-users-and-their-context-features)
-* [Define a reward score](#define-a-reward-score-based-on-user-behavior)
-* [Call the Rank and Reward APIs](#run-a-rank-and-reward-cycle)
+- [Prerequisites](#prerequisites)
+- [Setting Up](#setting-up)
+  - [Install the client library](#install-the-client-library)
+  - [Create a new Python application](#create-a-new-python-application)
+- [Object model](#object-model)
+- [Code examples](#code-examples)
+- [Authenticate the client](#authenticate-the-client)
+- [Define actions and their features](#define-actions-and-their-features)
+- [Define users and their context features](#define-users-and-their-context-features)
+- [Define a reward score based on user behavior](#define-a-reward-score-based-on-user-behavior)
+- [Run Rank and Reward calls for each user](#run-rank-and-reward-calls-for-each-user)
+  - [Request the best action](#request-the-best-action)
+  - [Send a reward](#send-a-reward)
+  - [Run a Rank and Reward cycle](#run-a-rank-and-reward-cycle)
+- [Run the program](#run-the-program)
 
 
 ## Authenticate the client
@@ -235,7 +245,7 @@ def get_random_users(k = 5):
     return random.choices(list(user_profiles.keys()), k=k)
 ```
 
-The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance
+The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance.
 
 
 ## Define a reward score based on user behavior
@@ -349,5 +359,28 @@ Once all the above code is included in your Python file, you can run it from you
 ```console
 python personalizer_quickstart.py
 ```
+
+## Generate sample events for analysis (Optional)
+
+You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace this code from above: 
+
+```python
+continue_loop = True
+while continue_loop:
+    run_personalizer_cycle()
+    
+    br = input("Press Q to exit, or any other key to run another loop: ")
+    if(br.lower()=='q'):
+        continue_loop = False
+```
+
+with the following:
+
+```python
+for i in range(0,1000):
+    run_personalizer_cycle()
+```
+
+then run the program.
 
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/quickstart/quickstart-program-feedback-cycle-example.png)

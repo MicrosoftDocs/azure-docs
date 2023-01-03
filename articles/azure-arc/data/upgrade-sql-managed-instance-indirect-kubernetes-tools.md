@@ -8,7 +8,7 @@ ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/07/2022    
+ms.date: 10/11/2022    
 ms.topic: how-to
 ---
 
@@ -31,7 +31,9 @@ You need an indirectly connected data controller with the `imageTag v1.0.0_2021-
 
 The Azure Arc Data Controller must be upgraded to the new version before the managed instance can be upgraded.
 
-The managed instance must be at the same version as the data controller before a data controller is upgraded.
+If Active Directory integration is enabled then Active Directory connector must be upgraded to the new version before the managed instance can be upgraded.
+
+The managed instance must be at the same version as the data controller and active directory connector before a data controller is upgraded.
 
 There's no batch upgrade process available at this time.
 
@@ -56,9 +58,7 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 
 ## Monitor
 
-You can monitor the progress of the upgrade with kubectl.
-
-### kubectl
+You can monitor the progress of the upgrade with kubectl as follows:
 
 ```console
 kubectl describe sqlmi --namespace <namespace>

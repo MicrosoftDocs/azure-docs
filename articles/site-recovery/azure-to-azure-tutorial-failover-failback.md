@@ -4,6 +4,8 @@ description: Tutorial to learn how to fail over and reprotect Azure VMs replicat
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
 ---
 

@@ -35,7 +35,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines/providers/configurationProfileAssignments",
-            "apiVersion": "2021-04-30-preview",
+            "apiVersion": "2022-05-04",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
                 "configurationProfile": "[parameters('configurationProfileName')]"
