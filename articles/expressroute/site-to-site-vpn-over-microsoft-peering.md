@@ -22,13 +22,12 @@ This article helps you configure secure encrypted connectivity between your on-p
 
 ## <a name="architecture"></a>Architecture
 
-
-  ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/ipsec-expressroute-overview.png" alt-text="Diagram of two IPsec tunnels over an ExpressRoute Microsoft peering connection.":::
 
 
 For high availability and redundancy, you can configure multiple tunnels over the two MSEE-PE pairs of a ExpressRoute circuit and enable load balancing between the tunnels.
 
-  ![high availability options](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/high-availability.png" alt-text="Diagram of multiple IPsec tunnels to create high availability over an ExpressRoute Microsoft peering connection.":::
 
 VPN tunnels over Microsoft peering can be terminated either using VPN gateway, or using an appropriate Network Virtual Appliance (NVA) available through Azure Marketplace. You can exchange routes statically or dynamically over the encrypted tunnels without exposing the route exchange to the underlying Microsoft peering. In the examples in this article, BGP (different from the BGP session used to create the Microsoft peering) is used to dynamically exchange prefixes over the encrypted tunnels.
 
@@ -111,15 +110,15 @@ In this section, IPsec VPN tunnels are created between the Azure VPN gateway and
 
 The following diagram shows the IPsec VPN tunnels established between on-premises VPN device 1, and the Azure VPN gateway instance pair. The two IPsec VPN tunnels established between the on-premises VPN device 2 and the Azure VPN gateway instance pair isn't illustrated in the diagram. The configuration details aren't listed. However, having more VPN tunnels improves high availability.
 
-  ![VPN tunnels](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/establish-tunnels.png" alt-text="Diagram of an established VPN tunnel over ExpressRoute.":::
 
 Over the IPsec tunnel pair, an eBGP session is established to exchange private network routes. The following diagram shows the eBGP session established over the IPsec tunnel pair:
 
-  ![eBGP sessions over tunnel pair](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/tunnel-bgp.png" alt-text="Diagram of an established eBGP session over the IPsec tunnel.":::
 
 The following diagram shows the abstracted overview of the example network:
 
-  ![example network](./media/site-to-site-vpn-over-microsoft-peering/OverviewRef.png)
+:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/overview-reference.png" alt-text="Diagram of a network environment once VPN gets established between on-premises and Azure.":::
 
 ### About the Azure Resource Manager template examples
 
@@ -127,7 +126,6 @@ In the examples, the VPN gateway and the IPsec tunnel terminations are configure
 
 >[!NOTE]
 >You do not need to use Azure Resource Manager templates in order to create this configuration. You can create this configuration using the Azure portal, or PowerShell.
->
 >
 
 ### <a name="variables3"></a>3.1 Declare the variables
