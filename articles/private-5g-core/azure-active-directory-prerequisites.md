@@ -18,7 +18,7 @@ In this how-to guide, you'll carry out the steps you need to complete before you
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. Roles that include the required permissions are, for example, [Application administrator](/azure/active-directory/roles/permissions-reference.md#application-administrator), [Application developer](/azure/active-directory/roles/permissions-reference.md#application-developer), and [Cloud application administrator](/azure/active-directory/roles/permissions-reference.md#cloud-application-administrator).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that include the required permissions are, for example, Application administrator, Application developer, and Cloud application administrator.
 - Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this. <!-- TODO: update this to remove need for support -->
 
 ## Configure domain system name (DNS) for local monitoring IP
@@ -29,7 +29,9 @@ When registering your application and configuring redirect URIs, you'll need you
 
 ## Register application
 
-1. Follow [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app) to register a new application for your local monitoring tools with the Microsoft identity platform. 
+You'll now register a new local monitoring application with Azure AD to establish a trust relationship with the Microsoft identity platform.
+
+1. Follow [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app) to register a new application for your local monitoring tools with the Microsoft identity platform.
     1. In [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri), select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
     
         - https://*\<local monitoring domain\>*/sas/auth/aad/callback
@@ -37,15 +39,12 @@ When registering your application and configuring redirect URIs, you'll need you
 
     1. In [Add credentials](/azure/active-directory/develop/quickstart-register-app#add-credentials), add a client secret with the following values:
 
-        - In **Description**, type **Grafana OAuth**.
+        - In **Description**, type **Grafana OAuth**. <!-- TODO: why Grafana? -->
         - In **Expires**, choose the option that best suits your deployment.
 
         Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Navigate to your new application. You can find it in the Azure portal's **Azure Active Directory** service, in **App registrations** and under **Owned applications**.
-
-
-1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer and Editor) with the following configuration:
+1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer and Editor) with the following configuration: <!-- TODO: check if this step and the next correctly replace the equivalent Manifest changes in the word doc -->
 
     - In **Allowed member types**, select **Users/Groups**.
     - In **Value**, enter one of **Admin**, **Viewer** and **Editor** for each role you're creating.
@@ -64,9 +63,6 @@ When registering your application and configuring redirect URIs, you'll need you
     | **Client secret** | You collected this when creating the client secret in the previous step. |
     | **Distributed tracing redirect URI root** | Make a note of the first part of the distributed tracing redirect URI: **https://*\<local monitoring domain\>*/sas**. |
     | **Packet core dashboards redirect URI root** | Make a note of the first part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. |
-<!--    
-    | OAuth 2.0 authorization endpoint (v2) | In the local monitoring app registration, select Endpoints. |
-    | OAuth 2.0 token endpoint (v2) | In app Endpoints. | -->
 
 ## Create Kubernetes Secret Objects
 

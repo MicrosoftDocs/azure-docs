@@ -16,6 +16,9 @@ Azure Private 5G Core Preview offers a *distributed tracing web GUI*, which you 
 
 ## Access the distributed tracing web GUI
 
+> [!TIP]
+> When signing in, if you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
+
 ### Azure Active Directory
 
 To sign in to the distributed tracing web GUI if you enabled Azure Active Directory authentication:
@@ -30,9 +33,6 @@ To sign in to the distributed tracing web GUI if you enabled local username and 
 1. In your browser, enter https://*\<local monitoring IP\>*/sas, where *\<local monitoring IP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
     :::image type="content" source="media\distributed-tracing\distributed-tracing-sign-in.png" alt-text="Screenshot of the distributed tracing web G U I sign in page, with fields for the username and password.":::
-
-    > [!TIP]
-    > If you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
 1. Sign in using your credentials. 
 

@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Modify the local access configuration in a site
 
-You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access.
+You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to authenticate access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). Additionally, you can use a self-signed certificate or provide your own to attest access to your local diagnostics tools.
 
 To improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords, as well as providing a certificate signed by a globally known and trusted certificate authority (CA).
 

@@ -18,7 +18,7 @@ Azure Private 5G Core Preview private mobile networks include one or more *sites
 
 - Carry out the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for your new site.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
-- If you decided to set up Azure AD for local monitoring access, follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
+- If you decided to set up Azure Active Directory (Azure AD) for local monitoring access, follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 - Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 

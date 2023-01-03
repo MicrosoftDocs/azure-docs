@@ -33,5 +33,4 @@ Once the disconnect ends, log analytics on Azure will update with the stored dat
 
 ## Next steps
 
-- [Configure username and password for the packet core dashboards](packet-core-dashboards.md)
-- [Configure username and password for distributed tracing](distributed-tracing.md)
+- [Change the authentication method for local monitoring tools](modify-local-access-configuration.md)

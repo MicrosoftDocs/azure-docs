@@ -70,16 +70,16 @@ For each data network that you want to configure, collect all the values in the 
 
 ## Choose the authentication method for local monitoring tools
 
-You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access distributed tracing and the packet core dashboards to monitor your site after you deploy it. We recommend setting up Azure AD authentication to improve security in your deployment.
+You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access distributed tracing and the packet core dashboards for monitoring your site after you deploy it. We recommend setting up Azure AD authentication to improve security in your deployment.
 
 If you want to access your local monitoring tools using Azure AD, before creating a site you'll need to follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 
-If you want to access your local monitoring tools using local username and passwords, you don't need to do anything at this stage. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
+If you want to access your local monitoring tools using local usernames and passwords, you don't need to do anything at this stage. After deploying the site, set up your username and password by following [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards).
 
 You'll be able to change the authentication method later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 > [!NOTE]
-> Azure AD based sign on won't be available while in [disconnected mode](disconnected-mode.md). If you expect to need access to your local monitoring tools while the ASE is disconnected on a regular basis, consider using the local username and password authentication method instead.
+> While in [disconnected mode](disconnected-mode.md), you won't be able to change the local monitoring authentication method or sign in using Azure AD. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
 
 ## Collect local monitoring values
 
