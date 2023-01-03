@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 12/30/2022
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperf-fy21q1, fasttrack-edit, iot]
 ---
@@ -14,14 +14,14 @@ ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperf-
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
 
-* [MQTT v3.1.1](https://mqtt.org/) on port 8883
-* MQTT v3.1.1 over WebSocket on port 443.
+* [MQTT v3.1.1](https://mqtt.org/) on TCP port 8883
+* MQTT v3.1.1 over WebSocket on TCP port 443.
 
 IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn't support non-secure connections over port 1883.
+All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn't support non-secure connections over TCP port 1883.
 
 ## Connecting to IoT Hub
 
@@ -30,25 +30,25 @@ A device can use the MQTT protocol to connect to an IoT hub using any of the fol
 * Libraries in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 * The MQTT protocol directly.
 
-The MQTT port (8883) is blocked in many corporate and educational networking environments. If you can't open port 8883 in your firewall, we recommend using MQTT over Web Sockets. MQTT over Web Sockets communicates over port 443, which is almost always open in networking environments. To learn how to specify the MQTT and MQTT over Web Sockets protocols when using the Azure IoT SDKs, see [Using the device SDKs](#using-the-device-sdks).
+The MQTT port (TCP port 8883) is blocked in many corporate and educational networking environments. If you can't open port 8883 in your firewall, we recommend using MQTT over WebSockets. MQTT over WebSockets communicates over port 443, which is almost always open in networking environments. To learn how to specify the MQTT and MQTT over WebSockets protocols when using the Azure IoT SDKs, see [Using the device SDKs](#using-the-device-sdks).
 
 ## Using the device SDKs
 
-[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the chosen [authentication mechanism](iot-concepts-and-iot-hub.md#device-identity-and-authentication) to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed nor acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
+[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the chosen [authentication mechanism](iot-concepts-and-iot-hub.md#device-identity-and-authentication) to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over WebSockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed nor acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
-The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT or the MQTT over Web Sockets protocol.
+The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT or the MQTT over WebSockets protocol.
 
-| Language | MQTT protocol parameter | MQTT over Web Sockets protocol parameter
+| Language | MQTT protocol parameter | MQTT over WebSockets protocol parameter
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt.h) | [MQTT_WebSocket_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt_websockets.h) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over WebSockets if MQTT fails. To specify MQTT over WebSockets only, use TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
 
-The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Node.js SDK:
+The following fragment shows how to specify the MQTT over WebSockets protocol when using the Azure IoT Node.js SDK:
 
 ```javascript
 var Client = require('azure-iot-device').Client;
@@ -56,7 +56,7 @@ var Protocol = require('azure-iot-device-mqtt').MqttWs;
 var client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
 
-The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Python SDK:
+The following fragment shows how to specify the MQTT over WebSockets protocol when using the Azure IoT Python SDK:
 
 ```python
 from azure.iot.device.aio import IoTHubDeviceClient
@@ -65,7 +65,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 ### Default keep-alive timeout
 
-In order to ensure a client/IoT Hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. The client using IoT SDK sends a keep-alive at the interval defined in this table below:
+In order to ensure a client/IoT Hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. The client using IoT SDK sends a keep-alive at the interval defined in the following table:
 
 |Language  |Default keep-alive interval  |Configurable  |
 |---------|---------|---------|
@@ -75,7 +75,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |C#     | 300 seconds* |  [Yes](/dotnet/api/microsoft.azure.devices.client.transport.mqtt.mqtttransportsettings.keepaliveinseconds)   |
 |Python   | 60 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/azure/iot/device/iothub/abstract_clients.py#L343)   |
 
-> *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds but in reality the SDK sends a ping request four times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
+> *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds. In reality, the SDK sends a ping request four times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
 
 Following the [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
 
@@ -291,7 +291,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > This `{property_bag}` element uses the same encoding as query strings in the HTTPS protocol.
 
 > [!NOTE]
-> If you are routing D2C messages to a Storage account and you want to levarage JSON encoding you need to specify the Content Type and Content Encoding
+> If you're routing D2C messages to a Storage account and you want to leverage JSON encoding you need to specify the Content Type and Content Encoding
 > information including `$.ct=application%2Fjson&$.ce=utf-8` as part of the `{property_bag}` mentioned above. 
 > 
 > These attributes format are protocol-specific and are translated by IoT Hub into the relative System Properties as described [here](./iot-hub-devguide-routing-query-syntax.md#system-properties)
@@ -454,4 +454,5 @@ To learn more about planning your IoT Hub deployment, see:
 
 To further explore the capabilities of IoT Hub, see:
 
+* [IoT Hub developer guide](iot-hub-devguide.md)
 * [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
