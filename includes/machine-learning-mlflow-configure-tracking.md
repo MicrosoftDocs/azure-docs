@@ -116,7 +116,7 @@ ms.author: fasantia
     ```bash
     MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | sed 's/"//g') 
     ```
-    
+
     ---
 
     > [!TIP]

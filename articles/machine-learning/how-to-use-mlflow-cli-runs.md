@@ -60,6 +60,7 @@ Once the tracking is configured, you'll also need to configure how the authentic
 
 [!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
+---
 
 ### Set experiment name
 
