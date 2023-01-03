@@ -36,8 +36,6 @@ Use MLflow to query and manage all the experiments in Azure Machine Learning. Th
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure Machine Learning tracking URI as explained at [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md).
-
 ## Getting all the experiments
 
 You can get all the active experiments in the workspace using MLFlow:

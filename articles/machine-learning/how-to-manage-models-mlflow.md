@@ -20,8 +20,6 @@ Azure Machine Learning supports MLflow for model management. This represents a c
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure Machine Learning tracking URI as explained at [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md).
-
 ## Registering new models in the registry
 
 ### Creating models from an existing run 
@@ -228,4 +226,4 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 
 - [Logging MLflow models](how-to-log-mlflow-models.md)
 - [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md)
-- [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models)
+- [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models.md)
