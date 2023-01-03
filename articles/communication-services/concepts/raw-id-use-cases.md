@@ -15,7 +15,7 @@ zone_pivot_groups: acs-js-csharp-python-java
 
 # Raw ID use cases in Communication SDKs
 
-This article provides use cases for choosing a Raw ID as a [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over other types of CommunicationIdentifier.
+This article provides use cases for choosing a string (Raw ID) as a representation type of the [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases you might want to choose a Raw ID over the CommunicationIdentifier and derived types.
 
 ## Use cases for choosing an identifier
 When using Communication Services SDKs and REST APIs, you need to identify the actors who are communicating. Using a *CommunicationIdentifier* is a way for tracking and managing users.
@@ -25,11 +25,11 @@ CommunicationIdentifier has the following advantages:
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
 
-In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or retrieving an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) you can implement even more scenarios:
+On top of that, using Raw ID to instantiate a *CommunicationIdentifier*, retrieving an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) you can implement even more scenarios:
+- Extract identifier details from Raw IDs to enable calling Graph API and provide a rich experience for communication participants.
 - Store identifiers in a database and use them as keys.
 - Use identifiers as key in dictionaries.
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
-- Map Raw IDs to Microsoft Azure Active Director (Azure AD) object IDs to enable calling Graph API and provide a rich experience for calling participants.
 - Use them as a key in declarative UI frameworks such as React to avoid unnecessary re-rendering.
 
 ::: zone pivot="programming-language-javascript"
@@ -49,19 +49,19 @@ In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or r
 ::: zone-end
 
 ## Storing CommunicationIdentifier in a database
-Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is either set when instantiating it or derived from other properties. Identity SDK guarantees that the value is consistent in both options.
+Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is stable, globally unique, and deterministic. The guaranteed uniqueness allows choosing it as a key in the storage. You can map ACS users' IDs to the users coming from the Contoso identity provider. 
 
-Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Identity, Calling, Chat API or a custom Contoso API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
+Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Communication Identity, Calling or Chat APIs or from a custom Contoso API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
 ```csharp
 public class ContosoUser
 {
     public string Name { get; set; }
     public string Email { get; set; }
-    public string CommunicationIdentifier { get; set; }
+    public string CommunicationId { get; set; }
 }
 ```
 
-You can access `RawId` property of the `CommunicationIdentifier` to get a string that can be stored in the database:
+You can access `RawId` property of the `CommunicationId` to get a string that can be stored in the database:
 ```csharp
 public void StoreToDatabase()
 {
@@ -71,7 +71,7 @@ public void StoreToDatabase()
     {
         Name = "John",
         Email = "john@doe.com",
-        CommunicationIdentifier = communicationIdentifier.RawId
+        CommunicationId = communicationIdentifier.RawId
     };
     SaveToDb(user);
 }
@@ -82,43 +82,54 @@ If you want to get `CommunicationIdentifier` from the stored Raw ID, you need to
 public void GetFromDatabase()
 {
     ContosoUser user = GetFromDb("john@doe.com");
-    CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRawId(user.CommunicationIdentifier);
+    CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRawId(user.CommunicationId);
 }
 ```
 It will return `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `MicrosoftTeamsUserIdentifier` or `UnknownIdentifier` based on the identifier type.
   
 ## Storing CommunicationIdentifier in collections
-If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The next example demonstrates adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for any custom identifiers that are converted to an *UnknownIdentifier* type.
+If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). This is useful, for example, for maintaining a list of call or chat participants. As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The next example demonstrates adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for any custom identifiers that are converted to an *UnknownIdentifier* type.
 ```csharp
-public void RawIdGeneratedIdentifiersSupportedAsKeysInCollections()
+public void StoreMessagesForContosoUsers()
     {
-        var dictionary = new Dictionary<CommunicationIdentifier, string>
+        // A dictionary with a CommunicationIdentifier as key might be used to store messages of a user.
+        var userMessages = new Dictionary<CommunicationIdentifier, List<Message>>
         {
-            { new CommunicationUserIdentifier("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130"), nameof(CommunicationUserIdentifier)},
-            { new MicrosoftTeamsUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130"), nameof(MicrosoftTeamsUserIdentifier) },
+            { new CommunicationUserIdentifier("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130"), new List<Message>() },
+            { new MicrosoftTeamsUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130"), new List<Message>() },
         };
 
-        var hashSet = new HashSet<CommunicationIdentifier>
+        // Retrieve messages for a user based on their Raw ID.
+        var messages = userMessages[CommunicationIdentifier.FromRawId("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130")];
+
+
+        // A hash set of unique users of a Contoso application.
+        var users = new HashSet<CommunicationIdentifier>
         {
             new PhoneNumberIdentifier("+14255550123"),
             new UnknownIdentifier("28:45ab2481-1c1c-4005-be24-0ffb879b1130")
         };
 
-        var list = new List<CommunicationIdentifier>
+        // Implement custom flow for a new communication user.
+         if (users.Contains(CommunicationIdentifier.FromRawId("4:+14255550123"))){
+            //...
+         }
+
+
+        // A list set of users that can be used in aggregate functions or statistics calculation.
+        var participants = new List<CommunicationIdentifier>
         {
             new MicrosoftTeamsUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130"),
             new UnknownIdentifier("28:45ab2481-1c1c-4005-be24-0ffb879b1130")
         };
 
-        Assert.That(dictionary, Does.ContainKey(CommunicationIdentifier.FromRawId("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130")).WithValue(nameof(CommunicationUserIdentifier)));
-        CollectionAssert.Contains(hashSet, CommunicationIdentifier.FromRawId("4:+14255550123"));
-        CollectionAssert.Contains(list, CommunicationIdentifier.FromRawId("8:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130"));
-        CollectionAssert.Contains(list, CommunicationIdentifier.FromRawId("28:45ab2481-1c1c-4005-be24-0ffb879b1130"));
+        // Add a new participant when having a Raw ID.
+        participants.Add(CommunicationIdentifier.FromRawId("8:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130"));
     }
 ```
 
 ## Using Raw ID as key in REST API paths
-When designing a REST API, you can have endpoints that have a unique identifier for your application user in a form of a Raw ID string. This way you don't need to pass this value in a POST request body and can have a more intuitive REST CRUD API.
+When designing a REST API, you can have endpoints that have a unique identifier for your application user in a form of a Raw ID string. If your composite identifier consists of several parts like (ID, cloud name, etc.), using Raw ID allows to address the entity int the URL path instead of  passing the whole object as a JSON in the body. So that you can have a more intuitive REST CRUD API.
 ```csharp
 public async Task DeserializationExample()
 {
@@ -129,8 +140,8 @@ public async Task DeserializationExample()
 }
 ```
 
-## Mapping Raw IDs to Azure AD object IDs.
-Consistent underlying Raw ID allows you using *CommunicationIdentifier* when calling Graph API and mapping Azure AD entities to *CommunicationIdentifier* types.
+## Extracting identifier details from Raw IDs.
+Consistent underlying Raw ID allows you using *CommunicationIdentifier* when extracting identifier details from Raw IDs. For example, you can benefit from this feature when calling Graph API and mapping Azure AD entities to *CommunicationIdentifier* types.
 ```csharp
 public void DeserializationExample()
 {
@@ -145,6 +156,7 @@ public void DeserializationExample()
             // ...
             break;
         case CommunicationIdentifier communicationUser:
+            string getPhotoUri = GetAvatarFromDB(communicationUser.Id);
             // ...
             break;
     }
@@ -162,11 +174,21 @@ const user = await addUserToThread(
     token,
     botId
 );
+
 setContainerProps({
     ...newPrerequisites,
     userId: getIdentifierRawId(user),
     avatar: args.avatar
 });
+
+// No need to call an API again when rendering components as Raw ID provides a reliable way to track entities.
+render() {
+    return (
+      <div>
+        <p>(ContosoUsers.GetName({this.props.userId})) joined the thread</p>
+      </div>
+    );
+}
 ```
 
 ## Using Raw IDs in mobile applications to identify participants
