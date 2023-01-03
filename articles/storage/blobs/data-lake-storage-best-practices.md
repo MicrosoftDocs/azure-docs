@@ -1,7 +1,9 @@
 ---
 title: Best practices for using Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
