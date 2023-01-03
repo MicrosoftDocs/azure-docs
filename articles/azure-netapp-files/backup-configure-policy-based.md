@@ -130,12 +130,7 @@ To enable the backup functionality for a volume:
 
     The Vault information is pre-populated.  
 
-<<<<<<< HEAD
-  :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot that shows Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
-=======
-    :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot that shows Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
-
->>>>>>> b0d0a300f88b19a27bf9f4bdcdde91603db898a9
+  :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot showing Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
 
 ## Next steps  
 
@@ -150,5 +145,3 @@ To enable the backup functionality for a volume:
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-
-
