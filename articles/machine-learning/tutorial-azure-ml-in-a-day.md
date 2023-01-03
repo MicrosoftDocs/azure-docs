@@ -46,6 +46,8 @@ The *training script* handles the data preparation, then trains and registers a 
 >
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb -->
+
 ## Connect to the workspace
 
 Before you dive in the code, you'll need to connect to your Azure ML workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
@@ -53,7 +55,27 @@ Before you dive in the code, you'll need to connect to your Azure ML workspace. 
 We're using `DefaultAzureCredential` to get access to workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=credential)]
+```python
+# Handle to the workspace
+from azure.ai.ml import MLClient
+
+# Authentication package
+from azure.identity import DefaultAzureCredential
+
+credential = DefaultAzureCredential()
+```
+
+However, in this If you want to use a browser to login and authenticate, you can use the following code instead. In this example, you'll use the `DefaultAzureCredential`.
+
+
+```python
+# Handle to the workspace
+# from azure.ai.ml import MLClient
+
+# Authentication package
+# from azure.identity import InteractiveBrowserCredential
+# credential = InteractiveBrowserCredential()
+```
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
@@ -63,7 +85,15 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/find-credentials.png" alt-text="Screenshot: find the credentials for your code in the upper right of the toolbar.":::
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=ml_client)]
+```python
+# Get a handle to the workspace
+ml_client = MLClient(
+    credential=credential,
+    subscription_id="<SUBSCRIPTION_ID>",
+    resource_group_name="<RESOURCE_GROUP>",
+    workspace_name="<AML_WORKSPACE_NAME>",
+)
+```
 
 The result is a handler to the workspace that you'll use to manage other resources and jobs.
 
@@ -78,7 +108,47 @@ You'll provision a Linux compute cluster. See the [full list on VM sizes and pri
 
 For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=cpu_compute_target)]
+
+```python
+from azure.ai.ml.entities import AmlCompute
+
+# Name assigned to the compute cluster
+cpu_compute_target = "cpu-cluster"
+
+try:
+    # let's see if the compute target already exists
+    cpu_cluster = ml_client.compute.get(cpu_compute_target)
+    print(
+        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
+    )
+
+except Exception:
+    print("Creating a new cpu compute target...")
+
+    # Let's create the Azure ML compute object with the intended parameters
+    cpu_cluster = AmlCompute(
+        name=cpu_compute_target,
+        # Azure ML Compute is the on-demand VM service
+        type="amlcompute",
+        # VM Family
+        size="STANDARD_DS3_V2",
+        # Minimum running nodes when there is no job running
+        min_instances=0,
+        # Nodes in cluster
+        max_instances=4,
+        # How many seconds will the node running after the job termination
+        idle_time_before_scale_down=180,
+        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
+        tier="Dedicated",
+    )
+
+    # Now, we pass the object to MLClient's create_or_update method
+    cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
+
+print(
+    f"AMLCompute with name {cpu_cluster.name} is created, the compute size is {cpu_cluster.size}"
+)
+```
 
 ## Create a job environment
 
@@ -90,17 +160,64 @@ In this example, you'll create a custom conda environment for your jobs, using a
 
 First, create a directory to store the file in.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=dependencies_dir)]
+
+```python
+import os
+
+dependencies_dir = "./dependencies"
+os.makedirs(dependencies_dir, exist_ok=True)
+```
 
 Now, create the file in the dependencies directory. The cell below uses IPython magic to write the file into the directory you just created.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_model)]
+
+```python
+%%writefile {dependencies_dir}/conda.yml
+name: model-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy=1.21.2
+  - pip=21.2.4
+  - scikit-learn=0.24.2
+  - scipy=1.7.1
+  - pandas>=1.1,<1.2
+  - pip:
+    - inference-schema[numpy-support]==1.3.0
+    - xlrd==2.0.1
+    - mlflow== 1.26.1
+    - azureml-mlflow==1.42.0
+    - psutil>=5.8,<5.9
+    - tqdm>=4.59,<4.60
+    - ipykernel~=6.0
+    - matplotlib
+```
+
 
 The specification contains some usual packages, that you'll use in your job (numpy, pip).
 
 Reference this *yaml* file to create and register this custom environment in your workspace:
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=custom_env_name)]
+
+```python
+from azure.ai.ml.entities import Environment
+
+custom_env_name = "aml-scikit-learn"
+
+pipeline_job_env = Environment(
+    name=custom_env_name,
+    description="Custom environment for Credit Card Defaults pipeline",
+    tags={"scikit-learn": "0.24.2"},
+    conda_file=os.path.join(dependencies_dir, "conda.yml"),
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+)
+pipeline_job_env = ml_client.environments.create_or_update(pipeline_job_env)
+
+print(
+    f"Environment with name {pipeline_job_env.name} is registered to workspace, the environment version is {pipeline_job_env.version}"
+)
+```
 
 ## What is a command job?
 
@@ -118,15 +235,127 @@ Let's start by creating the training script - the *main.py* Python file.
 
 First create a source folder for the script:
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=train_src_dir)]
+
+```python
+import os
+
+train_src_dir = "./src"
+os.makedirs(train_src_dir, exist_ok=True)
+```
 
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
-[MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run.
+[MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run. 
 
 The cell below uses IPython magic to write the training script into the directory you just created.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_main)]
+
+
+
+```python
+%%writefile {train_src_dir}/main.py
+import os
+import argparse
+import pandas as pd
+import mlflow
+import mlflow.sklearn
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
+
+def main():
+    """Main function of the script."""
+
+    # input and output arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data", type=str, help="path to input data")
+    parser.add_argument("--test_train_ratio", type=float, required=False, default=0.25)
+    parser.add_argument("--n_estimators", required=False, default=100, type=int)
+    parser.add_argument("--learning_rate", required=False, default=0.1, type=float)
+    parser.add_argument("--registered_model_name", type=str, help="model name")
+    args = parser.parse_args()
+   
+    # Start Logging
+    mlflow.start_run()
+
+    # enable autologging
+    mlflow.sklearn.autolog()
+
+    ###################
+    #<prepare the data>
+    ###################
+    print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
+
+    print("input data:", args.data)
+    
+    credit_df = pd.read_excel(args.data, header=1, index_col=0)
+
+    mlflow.log_metric("num_samples", credit_df.shape[0])
+    mlflow.log_metric("num_features", credit_df.shape[1] - 1)
+
+    train_df, test_df = train_test_split(
+        credit_df,
+        test_size=args.test_train_ratio,
+    )
+    ####################
+    #</prepare the data>
+    ####################
+
+    ##################
+    #<train the model>
+    ##################
+    # Extracting the label column
+    y_train = train_df.pop("default payment next month")
+
+    # convert the dataframe values to array
+    X_train = train_df.values
+
+    # Extracting the label column
+    y_test = test_df.pop("default payment next month")
+
+    # convert the dataframe values to array
+    X_test = test_df.values
+
+    print(f"Training with data of shape {X_train.shape}")
+
+    clf = GradientBoostingClassifier(
+        n_estimators=args.n_estimators, learning_rate=args.learning_rate
+    )
+    clf.fit(X_train, y_train)
+
+    y_pred = clf.predict(X_test)
+
+    print(classification_report(y_test, y_pred))
+    ###################
+    #</train the model>
+    ###################
+
+    ##########################
+    #<save and register model>
+    ##########################
+    # Registering the model to the workspace
+    print("Registering the model via MLFlow")
+    mlflow.sklearn.log_model(
+        sk_model=clf,
+        registered_model_name=args.registered_model_name,
+        artifact_path=args.registered_model_name,
+    )
+
+    # Saving the model to a file
+    mlflow.sklearn.save_model(
+        sk_model=clf,
+        path=os.path.join(args.registered_model_name, "trained_model"),
+    )
+    ###########################
+    #</save and register model>
+    ###########################
+    
+    # Stop Logging
+    mlflow.end_run()
+
+if __name__ == "__main__":
+    main()
+```
 
 As you can see in this script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
 
@@ -141,24 +370,52 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=registered_model_name)]
+```python
+from azure.ai.ml import command
+from azure.ai.ml import Input
+
+registered_model_name = "credit_defaults_model"
+
+job = command(
+    inputs=dict(
+        data=Input(
+            type="uri_file",
+            path="https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls",
+        ),
+        test_train_ratio=0.2,
+        learning_rate=0.25,
+        registered_model_name=registered_model_name,
+    ),
+    code="./src/",  # location of source code
+    command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
+    environment="aml-scikit-learn@latest",
+    compute="cpu-cluster",
+    experiment_name="train_model_credit_default_prediction",
+    display_name="credit_default_prediction",
+)
+```
 
 ## Submit the job 
 
 It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=create_job)]
+
+```python
+ml_client.create_or_update(job)
+```
 
 ## View job output and wait for job completion
 
-View the job in AzureML studio by selecting the link in the output of the previous cell.
+View the job in Azure ML studio by selecting the link in the output of the previous cell. 
 
-The output of this job will look like this in the AzureML studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training.
+The output of this job will look like this in Azure ML studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
 
 ![Screenshot that shows the job overview](media/tutorial-azure-ml-in-a-day/view-job.gif "Overview of the job.")
 
 > [!IMPORTANT]
 > Wait until the status of the job is complete before returning to this notebook to continue. The job will take 2 to 3 minutes to run. It could take longer (up to 10 minutes) if the compute cluster has been scaled down to zero nodes and custom environment is still building.
+
+
 
 ## Deploy the model as an online endpoint
 
@@ -175,25 +432,65 @@ To deploy a machine learning service, you usually need:
 Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=online_endpoint_name)]
+```python
+import uuid
+
+# Creating a unique name for the endpoint
+online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
+```
 
 > [!NOTE]
 > Expect the endpoint creation to take approximately 6 to 8 minutes.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=endpoint)]
+
+```python
+from azure.ai.ml.entities import (
+    ManagedOnlineEndpoint,
+    ManagedOnlineDeployment,
+    Model,
+    Environment,
+)
+
+# create an online endpoint
+endpoint = ManagedOnlineEndpoint(
+    name=online_endpoint_name,
+    description="this is an online endpoint",
+    auth_mode="key",
+    tags={
+        "training_dataset": "credit_defaults",
+        "model_type": "sklearn.GradientBoostingClassifier",
+    },
+)
+
+endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint).result()
+
+print(f"Endpoint {endpoint.name} provisioning state: {endpoint.provisioning_state}")
+```
 
 Once you've created an endpoint, you can retrieve it as below:
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=retrieve_endpoint)]
+
+```python
+endpoint = ml_client.online_endpoints.get(name=online_endpoint_name)
+
+print(
+    f'Endpoint "{endpoint.name}" with provisioning state "{endpoint.provisioning_state}" is retrieved'
+)
+```
 
 ## Deploy the model to the endpoint
 
 Once the endpoint is created, deploy the model with the entry script. Each endpoint can have multiple deployments. Direct traffic to these deployments can be specified using rules. Here you'll create a single deployment that handles 100% of the incoming traffic. We have chosen a color name for the deployment, for example, *blue*, *green*, *red* deployments, which is arbitrary.
 
-You can check the **Models** page on the Azure ML studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+You can check the **Models** page on Azure ML studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=latest_model_version)]
+```python
+# Let's pick the latest version of the model
+latest_model_version = max(
+    [int(m.version) for m in ml_client.models.list(name=registered_model_name)]
+)
+```
 
 Deploy the latest version of the model.  
 
@@ -201,8 +498,22 @@ Deploy the latest version of the model.
 > Expect this deployment to take approximately 6 to 8 minutes.
 
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=blue_deployment)]
+```python
+# picking the model to deploy. Here we use the latest version of our registered model
+model = ml_client.models.get(name=registered_model_name, version=latest_model_version)
 
+
+# create an online deployment.
+blue_deployment = ManagedOnlineDeployment(
+    name="blue",
+    endpoint_name=online_endpoint_name,
+    model=model,
+    instance_type="Standard_DS3_v2",
+    instance_count=1,
+)
+
+blue_deployment = ml_client.begin_create_or_update(blue_deployment).result()
+```
 
 ### Test with a sample query
 
@@ -210,22 +521,51 @@ Now that the model is deployed to the endpoint, you can run inference with it.
 
 Create a sample request file following the design expected in the run method in the score script.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=deploy_dir)]
+
+```python
+deploy_dir = "./deploy"
+os.makedirs(deploy_dir, exist_ok=True)
+```
 
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_sample)]
+```python
+%%writefile {deploy_dir}/sample-request.json
+{
+  "input_data": {
+    "columns": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22],
+    "index": [0, 1],
+    "data": [
+            [20000,2,2,1,24,2,2,-1,-1,-2,-2,3913,3102,689,0,0,0,0,689,0,0,0,0],
+            [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10, 9, 8]
+        ]
+  }
+}
+```
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=test)]
+
+```python
+# test the blue deployment with some sample data
+ml_client.online_endpoints.invoke(
+    endpoint_name=online_endpoint_name,
+    request_file="./deploy/sample-request.json",
+    deployment_name="blue",
+)
+```
 
 ## Clean up resources
 
 If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
 
+
 > [!NOTE]
 > Expect this step to take approximately 6 to 8 minutes.
 
-[!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=delete_endpoint)]
 
+```python
+ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
+```
+
+<!-- nbend -->
 
 ### Delete everything
 
