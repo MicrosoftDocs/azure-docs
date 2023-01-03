@@ -31,7 +31,7 @@ Before you start, make sure you have the following requirements on your workspac
 - A Defender for IoT plan on your Azure subscription with data streaming into Defender for IoT. For more information, see [Quickstart: Get started with Defender for IoT](getting-started.md).
 
 > [!IMPORTANT]
-> Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](/azure/sentinel/data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
+> Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](/azure/sentinel/data-connectors-reference#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
 >
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
@@ -48,7 +48,7 @@ Start by enabling the [Defender for IoT data connector](/azure/sentinel/data-con
 
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
-For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](/azure/sentinel/connect-azure-windows-microsoft-services.md).
+For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](/azure/sentinel/connect-azure-windows-microsoft-services).
 
 ## View Defender for IoT alerts
 

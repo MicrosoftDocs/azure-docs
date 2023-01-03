@@ -1,5 +1,5 @@
 ---
-title: Share link to request an access package in entitlement management - Microsoft Entra
+title: Share link to request an access package in entitlement management - Azure AD
 description: Learn how to share link to request an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
