@@ -48,7 +48,7 @@ With BizTalk Server 2013 and later, you can choose to run your BizTalk servers o
 Although BizTalk Server and Azure Integration Services capabilities might overlap, they work better when you use them together. Most organizations who don't move their entire infrastructure to the cloud mainly have the following reasons:
 
 - Company policies
-- Country policies  
+- Country/regional policies  
 - Industry domain-specific policies  
 
 Also, not all functionalities or applications exist in the cloud, or some that are available might not be as robust as those on premises. However, to keep pace with the cloud revolution and to extend business capabilities, many organizations start by using SaaS offerings alongside their on-premises systems. Many business processes can benefit from cloud-based development and implementation strategies.

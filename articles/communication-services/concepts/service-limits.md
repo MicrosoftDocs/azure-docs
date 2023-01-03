@@ -111,8 +111,10 @@ This sandbox setup is to help developers start building the application. You can
 |Update chat thread|Chat thread|5|-|
 |Add participants / remove participants|Chat thread|10|30|
 |Get chat thread / List chat threads|User|50|-|
-|Get chat message / List chat messages|User and chat thread|50|-|
-|Get chat message / List chat messages|Chat thread|250|-|
+|Get chat message|User and chat thread|50|-|
+|Get chat message|Chat thread|250|-|
+|List chat messages|User and chat thread|50|200|
+|List chat messages|Chat thread|250|400|
 |Get read receipts|User and chat thread|5|-|
 |Get read receipts|Chat thread|250|-|
 |List chat thread participants|User and chat thread|10|-|
