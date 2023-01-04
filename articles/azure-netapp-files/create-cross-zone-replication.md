@@ -50,7 +50,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Create the source volume with an availability zone  
 
-This process requires that your account is subscribed to the availability zone volume placement private preview. Contact your account team to request access to the availability zone volume placement private preview program.
+This process requires that your account is subscribed to the [availability zone volume placement feature](use-availability-zones.md).
 
 1.	Select **Volumes** from your capacity pool. Then select **+ Add volume** to create a volume.
 
