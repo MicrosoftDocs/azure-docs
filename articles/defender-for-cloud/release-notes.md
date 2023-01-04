@@ -16,6 +16,18 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## January 2023
+
+Updates in January include:
+
+- [Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts](#cleanup-of-deleted-azure-arc-machines-in-connected-aws-and-gcp-accounts)
+
+### Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts
+
+A machine connected to an AWS and GCP account and covered by Defender for Servers or Defender for SQL on machines is represented in Defender for Cloud as an Azure Arc machine. Until now, that machine wasn't deleted from the inventory when the machine was deleted from the AWS or GCP account. This leads to unnecessary Azure Arc resources left in Defender for Cloud that represent deleted machines.
+
+Defender for Cloud will now automatically delete Azure Arc machines when those machines are deleted in connected AWS or GCP account.
+
 ## December 2022
 
 Updates in December include:
