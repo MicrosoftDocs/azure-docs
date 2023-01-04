@@ -65,13 +65,6 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there might be network related issues and lags that are causing this error. Wait for the process to complete.  
 
 
-- **Message**: `Migration for Database <DatabaseName> failed with error 'Full backup <URL of backup in Azure Storage container> is missing checksum. Provide full backup with checksum.'.`
-
-- **Cause**: The database backups haven't been taken with checksum enabled.
-
-- **Recommendation**: See [Enable or disable backup checksums during backup or restore (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server) for taking backups with checksum enabled.  
-
-
 - **Message**: `Migration for Database <Database Name> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3234 Logical file <Name> isn't part of database <Database GUID>. Use RESTORE FILELISTONLY to list the logical file names. RESTORE DATABASE is terminating abnormally.'.`
 
 - **Cause**: You've specified a logical file name that isn't in the database backup.
