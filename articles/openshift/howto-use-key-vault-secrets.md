@@ -204,7 +204,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
 
 1. Create a pod that uses the `SecretProviderClass` created in the previous step:
 
-```
+    ```
     cat <<EOF | kubectl apply -f -
      kind: Pod
      apiVersion: v1
@@ -232,7 +232,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
              nodePublishSecretRef:
                name: secrets-store-creds
      EOF
-```
+    ```
 
 1. Check that the secret is mounted:
 
