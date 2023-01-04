@@ -50,7 +50,7 @@ This article describes how to configure your OT sensor or on-premises management
     |---------|---------|
     |**Minimal alert level**     | Select the minimum [alert severity level](alert-engine-messages.md#alert-severities) you want to forward. <br><br>  For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded.     |
     |**Any protocol detected**     | Toggle on to forward alerts from all protocol traffic or toggle off and select the specific protocols you want to include.        |
-    |**Traffic detected by any engine**     |  Toggle on to forward alerts from all [analytics engines](architecture.md#analytics-engines), or toggle off and select the specific engines you want to include.             |
+    |**Traffic detected by any engine**     |  Toggle on to forward alerts from all [analytics engines](architecture.md#defender-for-iot-analytics-engines), or toggle off and select the specific engines you want to include.             |
     |**Actions**     | Select the type of server you want to forward alerts to, and then define any other required information for that server type. <br><br>To add multiple servers to the same rule, select **+ Add server** and add more details. <br><br>For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).   |
 
 1. When you're done configuring the rule, select **Save**. The rule is listed on the **Forwarding** page.

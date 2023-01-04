@@ -33,7 +33,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
     |--|--|
     | **Severity** | A predefined alert severity assigned by the sensor that you can modify as needed, including: *Critical*, *Major*, *Minor*, *Warning*. |
     | **Name** | The alert title |
-    | **Engine** | The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. |
+    | **Engine** | The [Defender for IoT detection engine](architecture.md#defender-for-iot-analytics-engines) that detected the activity and triggered the alert. |
     | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
     | **Status** |The alert status: *New*, *Active*, *Closed*<br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source Device** | The source device IP address, MAC, or device name. |

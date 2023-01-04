@@ -44,7 +44,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 At the top of the **Alerts** page, use the **Free Search**, **Sites**, **Zones**, **Devices**, and **Sensors** options to filter the alerts displayed by specific parameters, or to help locate a specific alert.
 
-- [Acknowledged alerts](#manage-alert-status) aren't listed by default. Select **Show Acknowledged Alerts** to include them in the list.
+- [Acknowledged alerts](alerts.md#alert-statuses-and-triaging-options) aren't listed by default. Select **Show Acknowledged Alerts** to include them in the list.
 
 - Select **Clear** to remove all filters.
 
