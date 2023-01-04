@@ -139,7 +139,7 @@ After starting replication, Azure Migrate creates a replication job which can be
 
 In the **Target settings** blade, links to the Docker file and the Kubernetes manifests will be provided.
 
-    :::image type="content" source="./media/tutorial-modernize-asp-net-aks/target-target-settings.png" alt-text="Screenshot of the target settings in the target resource.":::
+:::image type="content" source="./media/tutorial-modernize-asp-net-aks/target-target-settings.png" alt-text="Screenshot of the target settings in the target resource.":::
 
 1. Click on the "Docker file" Review link to open the editor. Review and make changes as required. Click Save.
 
