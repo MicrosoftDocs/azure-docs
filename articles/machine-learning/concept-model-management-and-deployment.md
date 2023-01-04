@@ -21,7 +21,7 @@ ms.date: 01/04/2023
 > * [v1](./v1/concept-model-management-and-deployment.md)
 > * [v2 (current version)](concept-model-management-and-deployment.md)
 
-In this article, learn about how apply Machine Learning Operations (MLOps) practices in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
+In this article, learn about how to apply Machine Learning Operations (MLOps) practices in Azure Machine Learning to manage the lifecycle of your models. MLOps improves the quality and consistency of your machine learning solutions. 
 
 ## What is MLOps?
 
