@@ -78,11 +78,19 @@ Shared private link resources that have failed Azure Resource Manager deployment
 
 A private endpoint is created to the target Azure resource as specified in the shared private link creation request. This is one of the final steps in the asynchronous Azure Resource Manager deployment operation, but Azure Cognitive Search needs to link the private endpoint's private IP address as part of its network configuration. Once this link is done, the `provisioningState` of the shared private link resource will go to a terminal success state `Succeeded`. Customers should only approve or deny(or in general modify the configuration of the backing private endpoint) after the state has transitioned to `Succeeded`. Modifying the private endpoint in any way before this could result in an incomplete deployment operation and can cause the shared private link resource to end up (either immediately, or usually within a few hours) in a `Failed` state.
 
-## Resource stalled in an "Updating" or "Incomplete" state
+## Search service stalled in an "Updating" state
 
-Typically, a shared private link resource should go a terminal state (`Succeeded` or `Failed`) in a few minutes after the request has been accepted by the search RP.
+Before creating a shared private link, the search service **Public network access** should be **Disabled**. Typically, changing network access should succeed in a few minutes after the request has been accepted. In some circumstances, Azure Cognitive Search may take several hours to complete the connectivity change operation.
 
-In rare circumstances, Azure Cognitive Search can fail to correctly mark the state of the shared private link resource to a terminal state (`Succeeded` or `Failed`). This usually occurs due to an unexpected or catastrophic failure in the search RP. Shared private link resources are automatically transitioned to a `Failed` state if it has been "stuck" in a non-terminal state for more than a few hours.
+  :::image type="content" source="media/troubleshoot-shared-private-link-resources/update-network-access.png" alt-text="Screenshot of changing network access to disabled" border="true":::
+
+If you observe that the connectivity change operation is taking a significant amount of time, wait for a few hours. Connectivity change operations involve network operations such as updating DNS records which may take longer than expected.
+
+## Shared private link resource stalled in an "Updating" or "Incomplete" state
+
+Typically, a shared private link resource should go a terminal state (`Succeeded` or `Failed`) in a few minutes after the request has been accepted.
+
+In rare circumstances, Azure Cognitive Search can fail to correctly mark the state of the shared private link resource to a terminal state (`Succeeded` or `Failed`). This usually occurs due to an unexpected failure. Shared private link resources are automatically transitioned to a `Failed` state if it has been "stuck" in a non-terminal state for more than a few hours.
 
 If you observe that the shared private link resource has not transitioned to a terminal state, wait for a few hours to ensure that it becomes `Failed` before you can delete it and re-create it. Alternatively, instead of waiting you can try to create another shared private link resource with a different name (keeping all other parameters the same).
 
