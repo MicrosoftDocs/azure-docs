@@ -6,23 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/26/2022
+ms.date: 1/03/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. You can automate and standardized device configuration of one or more devices before they're activated.
+This article describes how to automate initial device configuration and activation of Azure Stack Edge devices using PowerShell. Use the steps in this article as alternatives to the local web user interface setup sequence.
 
-Use this method as an alternative to the local web user interface setup sequence. You can run as many rounds of device configuration as necessary, until the device is activated. After device activation, use the Azure portal user interface or the device local web user interface to modify device configuration.
+You can run as many rounds of device configuration as necessary. You can also use the Azure portal user interface or the device local web user interface to modify device configuration.
 
 ## Usage considerations
 
-- You can apply configuration changes to a device until it's activated. To change device configuration after activation or to manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
-- You can't change device authentication using this method. To change device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
-- You can only provision single-node devices using this method. Two-node cluster configuration isn't supported.
 - You can apply individual configuration changes to a device using PowerShell cmdlets, or you can apply bulk configuration changes using a JSON file.
+- To manage devices using the local web user interface, see [Connect to Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-connect.md?pivots=single-node).
+- You can't change device authentication using this method. To change device authentication settings, see [Change device password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password).
 
 ## About device setup and configuration
 
@@ -51,6 +50,10 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 |Get-DeviceDiagnostic|Fetch diagnostic status of the device.|
 |Start-DeviceDiagnostic|Start a new diagnostic run to verify status after a device setup configuration package is applied.|
 |To-json|A utility command that formats the cmdlet response in a JSON file.|
+|Get-DeviceLogConsent   |Fetch the proactive log consent setting for the device.|
+|Set-DeviceLogConsent   |Set the proactive log consent setting for the device.|
+|Get-DeviceVip   |Fetch the multi-node configuration settings for two devices.|
+|Set-DeviceVip   |Set multi-node configuration settings for two devices.|
 
 ## Prerequisites
 
@@ -72,7 +75,7 @@ Use the following steps to import the PowerShell module and sign into the device
    Import-Module "<Local path to PowerShell module>"\ZtpRestHelpers.ps1
    ```
 
-1. Sign into the device using the ```Set-Login``` cmdlet. First-time sign into the device requires password reset.
+1. Sign into the device using the ```Set-Login``` cmdlet. First-time sign in requires a password reset.
 
    ```azurepowershell
    Set-Login "https://<IP address>" "<Password1>" "<NewPassword>"
@@ -174,11 +177,11 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | To-json | Out-File "<Local path>\TestConfig2.json"
    ```
 
-1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices that aren't yet activated. 
+1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices.
 
 ## Apply a configuration to a device using a JSON file, without device activation
 
-Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices that aren't activated.
+Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
 
 > [!NOTE]
 > Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
@@ -319,7 +322,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 ## Quickly fetch or change device configuration settings
 
-Use the following steps to sign into the device, fetch the status of the webProxy properties, set the webProxy property to “isEnabled = true” and set the webProxy URI, and then fetch the status of the changed webProxy properties. After running the package, verify the new device configuration.
+Use the following steps to sign in to the device, fetch the status of the webProxy properties, set the webProxy property to “isEnabled = true” and set the webProxy URI, and then fetch the status of the changed webProxy properties. After running the package, verify the new device configuration.
 
 1. Sign into the device.
 
@@ -546,6 +549,74 @@ Use the following steps to sign into the device and run device diagnostics to ve
        }
 
    ```
+
+## Create a multi-node device configuration
+
+Use the following steps to create a multi-node configuration with two Azure Stack Edge devices.
+
+1. Sign into the device.
+
+   ```azurepowershell
+   Set-Login "https://<IP address>" "Password"
+   ```
+
+1.	Fetch the device configuration.
+
+   ```azurepowershell
+   Get-DeviceConfiguration | To-json
+   ```
+
+1.	Set the VIP configuration property, static configuration.
+
+   ```azurepowershell
+   $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+   ```
+
+1.	Create a VIP object with the VIP properties and DHCP configuration.
+
+   ```azurepowershell
+   $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "192.168.181.11"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+   ```
+   For a DHCP configuration:
+
+   ```azurepowershell
+   $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+   $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+   ```
+
+1.	Create a package.
+
+   ```azurepowershell
+   $p = New-Package -VIP $nfsvip
+   ```
+
+1.	Run the package.
+
+   ```azurepowershell
+   $newCfg = Set-DeviceVip -vip $nfsVip $p
+   ```
+
+   Here is a sample output:
+
+1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
+
+   ```azurepowershell
+   Get-DeviceConfigurationStatus | To-json
+   ```
+1.	Fetch the updated device configuration.
+
+   ```azurepowershell
+   Get-DeviceConfiguration | To-json
+   ```
+
+1.	Fetch the updated VIP configuration property.
+
+   ```azurepowershell
+   Get-DeviceVip | to-json
+   ```
+
+   Here is a sample output:
+
 
 ## Troubleshooting
 
