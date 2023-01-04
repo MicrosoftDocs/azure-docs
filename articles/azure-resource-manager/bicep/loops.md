@@ -2,7 +2,7 @@
 title: Iterative loops in Bicep
 description: Use loops to iterate over collections in Bicep
 ms.topic: conceptual
-ms.date: 11/09/2022
+ms.date: 12/09/2022
 ---
 
 # Iterative loops in Bicep
@@ -63,9 +63,10 @@ Loops can be declared by:
 
 Using loops in Bicep has these limitations:
 
+- Bicep loops only work with values that can be determined at the start of deployment.
 - Loop iterations can't be a negative number or exceed 800 iterations.
 - Can't loop a resource with nested child resources. Change the child resources to top-level resources.  See [Iteration for a child resource](#iteration-for-a-child-resource).
-- Can't loop on multiple levels of properties.
+- To loop on multiple levels of properties, use the [lambda map function](./bicep-functions-lambda.md#map).
 
 ## Integer index
 

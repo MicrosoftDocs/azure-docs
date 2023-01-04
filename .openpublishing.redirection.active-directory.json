@@ -46,8 +46,23 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/lifecycle-workflows-developer-reference.md",
+      "redirect_url": "/graph/api/resources/identitygovernance-workflow",
       "redirect_document_id": false
     },
     {
@@ -112,7 +127,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -1897,7 +1912,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/azure-ad-endpoint-comparison.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -4335,6 +4350,21 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-find-activity-reports.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-access-activity-logs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-data-download.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-audit-data.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/customize-branding.md",
@@ -10912,6 +10942,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-install-use-log-analytics-views.md",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-create-azure-portal.md",
       "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
       "redirect_document_id": false
@@ -10948,7 +10983,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
-      "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal",
       "redirect_document_id": false
     },
     {

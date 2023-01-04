@@ -285,7 +285,7 @@ For Example:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ADConnectorAccountDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN 'CN=ADConnectorAccount,OU=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 This cmdlet will set the following permissions: 

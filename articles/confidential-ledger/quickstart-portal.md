@@ -3,7 +3,7 @@ title: Quickstart – Microsoft Azure confidential ledger with the Azure portal
 description: Learn to use the Microsoft Azure confidential ledger through the Azure portal
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/18/2021
+ms.date: 11/14/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, mode-ui

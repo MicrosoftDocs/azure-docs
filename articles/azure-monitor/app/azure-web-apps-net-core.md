@@ -2,7 +2,7 @@
 title: Monitor Azure App Service performance in .NET Core | Microsoft Docs
 description: Application performance monitoring for Azure App Service using ASP.NET Core. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 11/09/2022
+ms.date: 11/15/2022
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
@@ -37,8 +37,6 @@ See the following [Enable monitoring](#enable-monitoring) section to begin setti
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-> [!NOTE]
-> Linux auto-instrumentation App Service portal enablement is in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
 See the following [Enable monitoring](#enable-monitoring) section to begin setting up Application Insights with your App Service resource.
 

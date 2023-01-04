@@ -111,7 +111,8 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
 | API portal for VMware Tanzu®                        | ✔️                                     | ✔️                                   | Enterprise tier only.                                                                                                       |
 | Spring Cloud Gateway for VMware Tanzu®              | ✔️                                     | ✔️                                   | Enterprise tier only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
+| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise tier only.         
+| Application Live View for VMware Tanzu®             | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
 | VMware Tanzu® Service Registry                      | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
 | VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
 | Outgoing IP Address                                 | ✔️                                     | ✔️                                   |                                                                                                                             |
@@ -245,7 +246,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
 
 ### Switch between JAR deployment and container deployment
 

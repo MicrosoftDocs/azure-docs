@@ -56,11 +56,12 @@ Each PostgreSQL database role can be mapped to one of the following Azure AD obj
 ### List Azure AD roles using SQL
 
 ```sql
-select * from pgaadauth_list_principals(isAdmin);
+select * from pgaadauth_list_principals(true);
 ```
 
 **Parameters:**
-- *isAdmin* - Boolean flag if the function should only return Admin users, or all users.
+- *true*  -will return Admin users.
+- *false* -will return all AAD user both AAD admins and Non AAD admins.
 
 ## Create a role using Azure AD principal name
 
@@ -97,12 +98,15 @@ Azure Database for PostgreSQL Flexible Servers uses Security Labels associated w
 You can use the following SQL to assign security label:
 
 ```sql
-SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>'
+SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>,type=<user|group|service>,admin';
 ```
 
 **Parameters:**
 - *roleName* - Name of an existing PostgreSQL role to which Azure AD authentication needs to be enabled.
 - *objectId* - Unique object identifier of the Azure AD object.
+- *user* - End user principals.
+- *service* - Applications or Managed Identities connecting under their own service credentials.
+- *group* - Name of Azure AD Group.
 
 ## Next steps
 

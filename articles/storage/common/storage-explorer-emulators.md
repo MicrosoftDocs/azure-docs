@@ -1,5 +1,5 @@
 ---
-title: Connect an emulator to Azure Storage Explorer | Microsoft Docs
+title: Connect an emulator to Azure Storage Explorer
 description: Documentation on using an emulator with Azure Storage Explorer
 services: storage
 author: MRayermannMSFT

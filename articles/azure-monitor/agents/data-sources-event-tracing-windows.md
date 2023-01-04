@@ -46,9 +46,9 @@ Ensure the *Windows diagnostics extension* is [installed](./diagnostics-extensio
 
 ### Step 3: Configure ETW log collection
 
-1. Navigate to the **Diagnostic Settings** blade of the virtual machine
+1. From the pane on the left, navigate to the **Diagnostic Settings** for the virtual machine
 
-2. Select the **Logs** tab
+2. Select the **Logs** tab.
 
 3. Scroll down and enable the **Event tracing for Windows (ETW) events** option
 ![Screenshot of diagnostics settings](./media/data-sources-event-tracing-windows/enable-event-tracing-windows-collection.png)

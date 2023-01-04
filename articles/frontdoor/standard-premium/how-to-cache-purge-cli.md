@@ -49,6 +49,9 @@ az afd endpoint purge \
 ```
 Cache purges on the Azure Front Door profile are case-insensitive. Additionally, they're query string agnostic, which means to purge a URL will purge all query-string variations of it. 
 
+> [!NOTE]
+> Cache purging can takes up to 10 mins to propagate throughout the network and across all edge locations.
+
 ## Next steps
 
 Learn how to [create an Azure Front Door profile](../create-front-door-portal.md).

@@ -109,7 +109,7 @@ You can [provision and manage your Azure Cosmos DB account](how-to-manage-databa
 | Maximum number of accounts per subscription | 50 by default. <sup>1</sup> |
 | Maximum number of regional failovers | 10/hour by default. <sup>1</sup> <sup>2</sup> |
 
-<sup>1</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md).
+<sup>1</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max.
 
 <sup>2</sup> Regional failovers only apply to single region writes accounts. Multi-region write accounts don't require or have any limits on changing the write region.
 

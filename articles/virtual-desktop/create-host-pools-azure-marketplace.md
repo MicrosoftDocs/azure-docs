@@ -25,6 +25,7 @@ You can create host pools in the following Azure regions:
 - Australia East
 - Canada Central
 - Canada East
+- Central India
 - Central US
 - East US
 - East US 2
@@ -38,6 +39,9 @@ You can create host pools in the following Azure regions:
 - West Europe
 - West US
 - West US 2
+
+>[!IMPORTANT]
+>This list refers to the list of regions where the _metadata_ for the host pool will be stored.  Virtual machines (hosts) in a host pool can be located in any region, as well as [on-premises](azure-stack-hci-overview.md).
 
 ## Prerequisites
 

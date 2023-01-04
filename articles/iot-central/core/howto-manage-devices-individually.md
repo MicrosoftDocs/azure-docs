@@ -32,9 +32,11 @@ To view an individual device:
 
 1. Choose a device template.
 
-1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template. Choose an individual device to see the device details page for that device:
+1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template:
 
-    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing device list.":::
+    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing the device list." lightbox="media/howto-manage-devices-individually/device-list.png":::
+
+    Choose an individual device to see the device details page for that device.
 
     > [!TIP]
     > You can use the filter tool on this page to view devices in a specific organization.
@@ -136,7 +138,7 @@ To move a device to a different organization, you must have access to both the s
 
 1. Select the new organization for the device:
 
-    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to a new organization.":::
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to another organization." lightbox="media/howto-manage-devices-individually/change-device-organization.png":::
 
 1. Select **Save**.
 
@@ -146,17 +148,13 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Choose **Devices** on the left pane.
 
-1. On the left panel, choose **All devices**:
+1. On the left panel, choose **All devices**.
 
-    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices-1.png" alt-text="Screenshot showing unassigned devices.":::
-
-1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassigned** for any of your devices.
-
-1. Select the devices you want to assign to a template.
+1. Select the **unassigned** devices you want to assign to a template:
 
 1. Select **Migrate**:
 
-    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices-2.png" alt-text="Screenshot showing how to assign a device.":::
+    :::image type="content" source="media/howto-manage-devices-individually/unassociated-devices.png" alt-text="Screenshot showing how to assign a device to a device template." lightbox="media/howto-manage-devices-individually/unassociated-devices.png":::
 
 1. Choose the template from the list of available templates and select **Migrate**.
 

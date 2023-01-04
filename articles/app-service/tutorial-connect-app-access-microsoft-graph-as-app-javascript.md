@@ -5,7 +5,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/21/2022
@@ -14,6 +14,7 @@ ms.reviewer: stsoneff
 ms.devlang: javascript
 ms.custom: azureday1, devx-track-azurepowershell
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Access Microsoft Graph from a secured JavaScript app as the app

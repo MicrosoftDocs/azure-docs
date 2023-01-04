@@ -40,7 +40,7 @@ With the [Custom Keyword portal on Speech Studio](https://speech.microsoft.com/c
 
 ### Pricing
 
-There's no cost to use custom keyword to generate models, including both Basic and Advanced models. There's also no cost to run models on-device with the Speech SDK.
+There's no cost to use custom keyword to generate models, including both Basic and Advanced models. There's also no cost to run models on-device with the Speech SDK when used in conjunction with other Speech service features such as speech-to-text.
 
 ### Types of models
 

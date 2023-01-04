@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 01/03/2023
 
 ms.author: justinha
 author: calui
@@ -66,7 +66,6 @@ In the current preview state, the following limitations apply to email as an alt
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business
-    * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 
@@ -153,7 +152,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 ### PowerShell
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 

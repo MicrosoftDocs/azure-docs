@@ -115,7 +115,7 @@ Get-AzIoTDeviceProvisioningService `
 
 ## Next steps
 
-Now that you have an instance of the Device Provisioning Service, continue to the next quickstart to provision a simulated device to IoT hub:
+In this quickstart, you deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

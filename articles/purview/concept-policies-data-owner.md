@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/20/2022
 ---
 
-# Concepts for Microsoft Purview data owner policies
+# Concepts for Microsoft Purview data owner policies (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 

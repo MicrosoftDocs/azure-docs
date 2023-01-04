@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---

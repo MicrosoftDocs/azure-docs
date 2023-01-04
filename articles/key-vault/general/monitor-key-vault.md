@@ -83,6 +83,17 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 Here are some queries that you can enter into the **Log search** bar to help you monitor your Key Vault resources. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
+* Are there any clients using old TLS version (<1.2)?
+
+    ```kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(90d) 
+    | where ResourceProvider =="MICROSOFT.KEYVAULT" 
+    | where isnotempty(tlsVersion_s) and strcmp(tlsVersion_s,"TLS1_2") <0
+    | project TimeGenerated,Resource, OperationName, requestUri_s, CallerIPAddress, OperationVersion,clientInfo_s,tlsVersion_s,todouble(tlsVersion_s)
+    | sort by TimeGenerated desc
+    ```
+
 * Are there any slow requests?
 
     ```Kusto

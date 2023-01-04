@@ -75,7 +75,7 @@ The passwords used by DirSync for the service accounts cannot be retrieved and a
 ### High-level steps for upgrading from DirSync to Azure AD Connect
 1. Welcome to Azure AD Connect
 2. Analysis of current DirSync configuration
-3. Collect Azure AD global admin password
+3. Collect Azure AD Hybrid Identity Administrator password
 4. Collect credentials for an enterprise admin account (only used during the installation of Azure AD Connect)
 5. Installation of Azure AD Connect
    * Uninstall DirSync (or temporarily disable it)
