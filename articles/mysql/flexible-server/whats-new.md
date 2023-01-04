@@ -30,7 +30,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Support for Data-out Replication**
 
-  Azure Database for MySQL- Flexible Server now supports Data-out replication. This capability will allow customers to synchronize data out of Azure Database for MySQL - Flexible Server (source) to another MySQL (replica) which could be either be on-premises, in virtual machines, or a database service hosted ouside of Azure. Learn more about [How to configure Data-out Replication](how-to-data-out-replication.md).
+  Azure Database for MySQL- Flexible Server now supports Data-out replication. This capability will allow customers to synchronize data out of Azure Database for MySQL - Flexible Server (source) to another MySQL (replica) which could be either be on-premises, in virtual machines, or a database service hosted outside of Azure. Learn more about [How to configure Data-out Replication](how-to-data-out-replication.md).
 
 
 
