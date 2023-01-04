@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperf-fy21q1, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 12/16/2022
+ms.date: 01/04/2023
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -78,15 +78,13 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
     Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
 
-1. Open *Program.cs*, add the `using TestAppConfig;` statement and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
+1. Open *Program.cs* and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
     #### [.NET 6.x](#tab/core6x)
 
     ```csharp
     // Existing code in Program.cs
     // ... ...
-
-    using TestAppConfig;
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -150,9 +148,11 @@ In this example, you'll update a web page to display its content using the setti
 
     #### [.NET 6.x](#tab/core6x)
 
-    Update *Program.cs* with the following code.
+    Update *Program.cs* with the following code and add the `TestAppConfig` namespace at the beginning of the file.
 
     ```csharp
+    using TestAppConfig;
+
     // Existing code in Program.cs
     // ... ...
 
@@ -183,25 +183,26 @@ In this example, you'll update a web page to display its content using the setti
 
     ---
 
-1. Open *Index.cshtml.cs* in the *Pages* directory. Add the [Microsoft.Extensions.Options](/dotnet/api/microsoft.extensions.options) namespace and update the `IndexModel` class with the following code.
+1. Open *Index.cshtml.cs* in the *Pages* directory and update it with the following code.
 
     ```csharp
-    // Existing code in Index.cshtml.cs
-    // ... ...
-
+    using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Extensions.Options;
 
-    public class IndexModel : PageModel
+    namespace TestAppConfig.Pages
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public Settings Settings { get; }
-
-        public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
-        {
-            Settings = options.Value;
-            _logger = logger;
-        }
+       public class IndexModel : PageModel
+       {
+           private readonly ILogger<IndexModel> _logger;
+    
+           public Settings Settings { get; }
+    
+           public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
+           {
+               Settings = options. Value;
+               _logger = logger;
+           }
+       }
     }
     ```
 
@@ -249,7 +250,7 @@ In this example, you'll update a web page to display its content using the setti
     :::image type="content" source="./media/quickstarts/cloud-shell-web-preview.png" alt-text="Screenshot of Azure Cloud Shell. Locate Web Preview.":::
 
     The web page looks like this:
-       :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local-navbar.png" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
+    :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local-navbar.png" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
 
 ## Clean up resources
 
