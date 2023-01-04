@@ -64,7 +64,7 @@ The docker container supports English language, model version 2022-03-01.
 Additional languages are also supported when using a docker container to deploy the API: Spanish, French, German Italian, Portuguese and Hebrew. This functionality is currently in preview, model version 2022-08-15-preview.
 Full details for deploying the service in a container can be found [here](../text-analytics-for-health/how-to/use-containers.md).
 
-In order to download the new container images from the Microsoft public container registry, use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command, as follows :
+In order to download the new container images from the Microsoft public container registry, use the following [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command.
 
 For English, Spanish, Italian, French, German and Portuguese:
 
