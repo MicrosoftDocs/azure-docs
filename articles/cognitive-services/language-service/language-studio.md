@@ -30,14 +30,14 @@ Once you choose a feature, you'll be able to send several text examples to the s
 
 ## Use Language Studio with your own text
 
-When you're ready to use Language Studio features on your own text data, you will need an Azure Language resource for authentication and billing. You can also use this resource to call the REST APIs and client libraries programmatically. Follow these steps to get started. 
+When you're ready to use Language Studio features on your own text data, you will need an Azure Language resource for authentication and [billing](https://aka.ms/unifiedLanguagePricing). You can also use this resource to call the REST APIs and client libraries programmatically. Follow these steps to get started. 
 
 > [!IMPORTANT] 
 > The setup process and requirements for custom features are different. If you're using one of the following custom features, we recommend using the quickstart articles linked below to get started more easily.  
-> * [Conversational Language Understanding](../conversational-language-understanding/quickstart.md)
-> * [Custom Text Classification](../custom-classification/quickstart.md)
-> * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 
-> * [Orchestration workflow](../orchestration-workflow/quickstart.md)
+> * [Conversational Language Understanding](./conversational-language-understanding/quickstart.md)
+> * [Custom Text Classification](./custom-classification/quickstart.md)
+> * [Custom Named Entity Recognition (NER)](./custom-named-entity-recognition/quickstart.md) 
+> * [Orchestration workflow](./orchestration-workflow/quickstart.md)
 
 1. Create an Azure Subscription. You can [create one for free](https://azure.microsoft.com/free/ai/). 
 
