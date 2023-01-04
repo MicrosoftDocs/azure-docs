@@ -134,9 +134,9 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     |Field  |Description  |
     |---------|---------|
-    |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`. <br><br> If you encounter an issue entering the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN.      |
+    |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.      |
     |**Domain Controller Port**     |  The port on which your LDAP is configured.       |
-    |**Primary Domain**     |  The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
+    |**Primary Domain**     |  The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
     |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users.|
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
@@ -151,7 +151,7 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     For example: 
 
-    :::image type="content" source="media/manage-users-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration." lightbox="media/manage-users-on-premises-management-console/active-directory-config-example.png":::
+    :::image type="content" source="media/manage-users-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration on the on-premises management console." lightbox="media/manage-users-on-premises-management-console/active-directory-config-example.png":::
 
 1. Create access group rules for on-premises management console users.
 
