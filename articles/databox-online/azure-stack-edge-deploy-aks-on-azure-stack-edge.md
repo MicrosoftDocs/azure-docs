@@ -1,33 +1,30 @@
 ---
-title: Deploy Azure Kubernetes Service on Azure Stack Edge
-description: Learn how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
+title: Deploy Azure Kubernetes service on Azure Stack Edge
+description: Learn how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 01/04/2023
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
+# Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
-# Deploy Azure Kubernetes Service on Azure Stack Edge
+# Deploy Azure Kubernetes service on Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to deploy and manage Azure Kubernetes Service (AKS) on your Azure Stack Edge device. Also documented, steps to create persistent volumes, use GitOps to manage an Arc-enabled Kubernetes cluster, and remove AKS and Azure Arc.
+> [!NOTE]
+> Use this procedure only if you are an SAP or a PMEC customer.
+
+This article describes how to deploy and manage Azure Kubernetes Service (AKS) on your Azure Stack Edge device. You can also use this article to create persistent volumes, use GitOps to manage an Arc-enabled Kubernetes cluster, and remove AKS and Azure Arc.
 
 The intended audience for this article is IT administrators who are familiar with setup and deployment of workloads on the Azure Stack Edge device.
 
-> [!NOTE]
->- Use this feature for a single node device implementation only if you are an SAP or a PMEC customer.
->- Use this feature for a two node device implementation only if you are an SAP customer.
-
 ## About Azure Kubernetes Service on Azure Stack Edge
 
-Azure Stack Edge Pro with GPU is an AI-enabled edge computing device with high performance network I/O capabilities. Microsoft ships you a cloud-managed device that acts as a network storage gateway and has a built-in Graphical Processing Unit (GPU) that enables accelerated AI-inferencing.
-
-After you configure compute on your Azure Stack Edge device, you can use the Azure portal to deploy the Kubernetes cluster including infrastructure VMs. The cluster is then used for workload deployment via `kubectl` or Azure Arc.
+Azure Stack Edge is an AI-enabled edge computing device with high performance network I/O capabilities. After you configure compute on your Azure Stack Edge device, you can use the Azure portal to deploy Azure Kubernetes service, including infrastructure VMs. The AKS cluster is then used for workload deployment via Azure Arc.
 
 ## Prerequisites
 
@@ -41,7 +38,7 @@ Before you begin, ensure that:
 
   To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
 
-    ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)
+    ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)lightbox="./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png"
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed:
  
@@ -214,7 +211,7 @@ Follow these steps to deploy the AKS cluster.
 
    1. Specify a unique resource group name. You can also choose to use the same resource group in which you deployed your Azure Stack Edge resource. **You must have owner level access to this resource group.** To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you must be listed as an Owner.
 
-      ![Screenshot that shows My assignments in the Access control page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-my-iam-assignments.png)
+      ![Screenshot that shows My assignments in the Access control page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)
 
    1. Specify a name for your Arc enabled Kubernetes cluster or accept the provided default.
 
