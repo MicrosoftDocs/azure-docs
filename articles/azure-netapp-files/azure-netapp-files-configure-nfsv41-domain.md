@@ -11,7 +11,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/11/2021
+ms.date: 01/04/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
@@ -26,7 +26,40 @@ Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `l
 
 As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default.  This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
 
+
+## Register the feature
+
+Azure NetApp Files now supports the ability to set the NFSv4.1 domain using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+
+1.  Register the feature
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFNFSV4IDDomain
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFNFSV4IDDomain
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
 ## Configure NFSv4.1 domain  
+
+<!-- Portal -->
+
+1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
+1. Select **Configure.**
+1. Check the box next to **Use Default NFSv4 ID Domain**. In the text box, provide the name of the NFSv4 domain.
+
+  :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
+
+1. Select **Save**.
+
+<!-- OLD -->
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
@@ -89,6 +122,16 @@ The following example shows the resulting user/group change:
 ![Screenshot that shows an example of the resulting user/group change.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
+
+<!-- preview -->
+
+## Edit
+
+  :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
+
+  :::image type="content" source="../media/azure-netapp-files/nfsv4-edit-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-edit-domain.png":::
+
+<!-- preview -->
 
 ## Behavior of other (non-root) users and groups
 
