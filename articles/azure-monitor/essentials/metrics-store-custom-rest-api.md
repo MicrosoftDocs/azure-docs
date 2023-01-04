@@ -24,9 +24,9 @@ A service principal is an application whose tokens can be used to authenticate a
 
 1. Save the tenant ID, new client ID, and client secret value for your app to use when requesting a token.
 
-1. Give the app created as part of the previous step, **Monitoring Metrics Publisher** permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.
-
-1. On your resource's overview page, select **Access Control (IAM)**
+1. Give the app created as part of the previous step, **Monitoring Metrics Publisher** permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
+ 
+    On your resource's overview page, select **Access Control (IAM)**
 1. Select **Add**, then **Add role assignment** from the dropdown.
     :::image type="content" source="./media/metrics-store-custom-rest-api/access-contol-add-role-assignment.png" alt-text="A screenshot showing the Access control(IAM) page for a virtual machine.":::
 1. Search for *Monitoring Metrics* in the search field.
@@ -45,8 +45,8 @@ A service principal is an application whose tokens can be used to authenticate a
 Send the following request in the command prompt or using a client like Postman.
 
 ```shell
-curl --location --request POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
+curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
 --data-urlencode 'client_secret=<your apps client secret' \
@@ -66,6 +66,7 @@ The response body appears as follows:
     "access_token": "eyJ0eXAiOiJKV1Qi....gpHWoRzeDdVQd2OE3dNsLIvUIxQ"
 }
 ```
+
 Save the access token from the response for use in the following HTTP requests.
 
 ## Send a metric via the REST API
@@ -101,13 +102,16 @@ Save the access token from the response for use in the following HTTP requests.
     ```
 
 1. Submit the following HTTP POST request using the following variables:
-   - **azureRegion** Deployment region of the resource you're emitting metrics for.
-   - **resourceID**  Resource ID of the Azure resource you're tracking the metric against.  
+   - **location** Deployment region of the resource you're emitting metrics for.
+   - **resourceId**  Resource ID of the Azure resource you're tracking the metric against.  
    - **AccessToken** The authorization token acquired from the previous step.
     
-    ```Shell
-      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-      ```
+```Shell
+curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <AccessToken>' \
+-d @custommetric.json 
+```
 
 1. Change the timestamp and values in the JSON file.
 1. Repeat the previous two steps a number of times, to create data for several minutes.
