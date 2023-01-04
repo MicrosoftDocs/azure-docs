@@ -1,6 +1,6 @@
 ---
 title: 'Application Insights telemetry data model: Telemetry context | Microsoft Docs'
-description: Application Insights telemetry context data model
+description: Learn about the Application Insights telemetry context data model.
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: osrosado
@@ -36,7 +36,7 @@ Maximum length: 128
 
 ## Parent operation ID
 
-The unique identifier of the telemetry item's immediate parent. For more information, see [Telemetry correlation](./correlation.md).
+This field is the unique identifier of the telemetry item's immediate parent. For more information, see [Telemetry correlation](./correlation.md).
 
 Maximum length: 128
 
@@ -48,7 +48,7 @@ Maximum length: 1,024
 
 ## Synthetic source of the operation
 
-This field is the name of synthetic source. Some telemetry from the application might represent synthetic traffic. It might be the web crawler indexing the website, site availability tests, or traces from diagnostic libraries like the Application Insights SDK itself.
+This field is the name of the synthetic source. Some telemetry from the application might represent synthetic traffic. It might be the web crawler indexing the website, site availability tests, or traces from diagnostic libraries like the Application Insights SDK itself.
 
 Maximum length: 1,024
 
@@ -77,7 +77,7 @@ Maximum length: 128
 
 An authenticated user ID is the opposite of an anonymous user ID. This field represents the user with a friendly name. This ID is only collected by default with the ASP.NET Framework SDK's [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs).
 
-Use the Application Insights SDK to initialize the authenticated user ID with a value identifying the user persistently across browsers and devices. In this way, all telemetry items are attributed to that unique ID. This ID enables querying for all telemetry collected for a specific user (subject to [sampling configurations](./sampling.md) and [telemetry filtering](./api-filtering-sampling.md)).
+Use the Application Insights SDK to initialize the authenticated user ID with a value that identifies the user persistently across browsers and devices. In this way, all telemetry items are attributed to that unique ID. This ID enables querying for all telemetry collected for a specific user (subject to [sampling configurations](./sampling.md) and [telemetry filtering](./api-filtering-sampling.md)).
 
 User IDs can be cross referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
 
@@ -97,7 +97,7 @@ Maximum length: 256
 
 ## Cloud role instance
 
-This field is the name of the instance where the application is running. Examples are the computer name for on-premises or the instance name for Azure.
+This field is the name of the instance where the application is running. For example, it's the computer name for on-premises or the instance name for Azure.
 
 Maximum length: 256
 
@@ -116,5 +116,5 @@ Maximum length: 256
 ## Next steps
 
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
-- See [data model](data-model.md) for Application Insights types and data model.
+- See [Application Insights telemetry data model](data-model.md) for Application Insights types and data model.
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
