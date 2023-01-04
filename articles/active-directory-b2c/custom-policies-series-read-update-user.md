@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 # Read or update a user account by using Azure Active Directory B2C custom policy 
 
-In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, the custom policy doesn't handle a scenario of trying to create an account of a user who already exists. You can write an Azure Active Directory B2C (Azure AD B2C) Technical Profile that checks if a users exists before a new user account is added. The Azure AD Technical Profile can use the *email* claim as a unique identifier to query Azure AD storage.     
+In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, the custom policy doesn't handle a scenario of trying to create an account of a user who already exists. You can write an Azure Active Directory B2C (Azure AD B2C) Technical Profile that checks if a user exists before a new user account is added. The Azure AD Technical Profile can use the *email* claim as a unique identifier to query Azure AD storage.     
 
 In this article, you'll learn how to write an Azure AD B2C custom policy to create a new user account or update an existing one.
 
@@ -97,7 +97,7 @@ You need to define two Azure AD Technical Profiles. One technical profile makes 
 
 ## Step 2 - Update the User Journey Orchestration Steps  
 
-Now that you've the configures the Azure AD Technical Profiles, you need to update your user journey orchestration steps to use the technical profiles. 
+Now that you've the configured the Azure AD Technical Profiles, you need to update your user journey orchestration steps to use the technical profiles. 
    
 1. In your policy file, locate the *AADUserWriterExchange* orchestration step, and then replace it with new orchestration steps by using the following code:  
 

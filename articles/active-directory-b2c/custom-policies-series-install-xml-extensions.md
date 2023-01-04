@@ -43,7 +43,7 @@ TrustFrameworkPolicy schema is a custom policy XML schema that allows you to val
 
 1. Install [XML extension support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml) in your VS Code editor
 
-1. Follow the steps in [Troubleshoot policy validity](troubleshoot.md?pivots=b2c-custom-policy#troubleshoot-policy-validity) to set up fileAssociations your VS Code editor. The instructions also includes the procedure to validate your policy file.
+1. Follow the steps in [Troubleshoot policy validity](troubleshoot.md?pivots=b2c-custom-policy#troubleshoot-policy-validity) to set up fileAssociations your VS Code editor. The instructions also include the procedure to validate your policy file.
 
 ## Use Azure AD B2C extension    
 

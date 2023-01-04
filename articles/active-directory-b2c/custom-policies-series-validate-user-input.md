@@ -1,7 +1,7 @@
 ---
 title: Validate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to validate user inputs by using by using Azure Active Directory B2C custom policy. Learn how to validate user input by providing user input options. Learn how to validate user input by using Predicates. Learn how t validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
+description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by providing user input options. Learn how to validate user input by using Predicates. Learn how t validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -19,13 +19,13 @@ ms.subservice: B2C
 
 Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you'll learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
 
-- Restrict the data a user enters by providing a list of options to pick from. This approach uses *Enumerated Values*, which add when you declare a claim.
+- Restrict the data a user enters by providing a list of options to pick from. This approach uses *Enumerated Values*, which you add when you declare a claim.
  
-- Define a pattern that a user input must match. This approach uses *Regular Expressions*, which add when you declare a claim. 
+- Define a pattern that a user input must match. This approach uses *Regular Expressions*, which you add when you declare a claim. 
 
-- Define a set of rules and require that a user input obeys one or more of the rules. This approach uses *Predicates*,which add when you declare a claim.
+- Define a set of rules and require that a user input obeys one or more of the rules. This approach uses *Predicates*,which you add when you declare a claim.
 
-- Configure a *Validation Technical Profile* that define complex business rules rules that aren't possible to define at claim declaration level. For example, you collect a user input, which need to be validated against a set of other values in another claim.      
+- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a set of other values in another claim.      
 
 ## Prerequisites
 
@@ -278,7 +278,7 @@ While the *Predicates* define the validation to check against a claim type, the 
     ```
     We've three defined Predicate Validation, *StrongPassword*, *CustomPassword* and *SimplePassword*. Depending on the characteristics of the password you want your users to input, you can use any on the Predicate Validations. In this article, we'll use a strong password. 
 
-1. Locate the *password* Claim Type declaration and add the *StrongPassword* Predicate Validation just after the UserInputType element declaration it contains byt using the following code: 
+1. Locate the *password* Claim Type declaration and add the *StrongPassword* Predicate Validation just after the UserInputType element declaration it contains by using the following code: 
 
     ```xml
         <PredicateValidationReference Id="StrongPassword" />
@@ -311,15 +311,15 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 1. Select **Run now** button.
 1. Enter **Given Name** and **Surname**. 
 1. Select **Account Type**.
-1. For **Email Address**, enter an email values that's not well formatted such as *maurice@contoso*. 
-1. For **Password**, enter password value that does'nt obey all the characteristics of a strong password as set. 
+1. For **Email Address**, enter an email value that's not well formatted such as *maurice@contoso*. 
+1. For **Password**, enter password value that doesn't obey all the characteristics of a strong password as set. 
 1. Select **Continue** button. You'll see a screen similar to the one shown below:
 
     :::image type="content" source="media/custom-policies-series-validate-user-input/screenshot-of-user-input-validation.png" alt-text="screenshot of validating user inputs.":::
 
     You must correct your inputs before you continue.
 
-1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. The token looks similar to the following JWT token snippet:: 
+1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. The token looks similar to the following JWT token snippet: 
 
 ```json
     {
@@ -409,7 +409,7 @@ Use the following steps to learn how to validate user input by using Validation 
             </OutputClaimsTransformations>
         </TechnicalProfile>
     ```   
-    We've declared Claims Transformation Technical Profile, which execute the *GetDomainFromEmail* and *LookupDomain* Claims Transformations. 
+    We've declared Claims Transformation Technical Profile, which executes the *GetDomainFromEmail* and *LookupDomain* Claims Transformations. 
 
 1. Locate the technical profile with `Id=UserInformationCollector`, and a `ValidationTechnicalProfile` just after the `OutputClaims` element by using the following code:
 
@@ -435,13 +435,13 @@ Use the following steps to learn how to validate user input by using Validation 
         <Item Key="LookupNotFound">The provided email address isn't a valid Contoso Employee email.</Item>
      ```
     
-    We've set up a custom error incase the user doesn't use a valid email.
+    We've set up a custom error in case the user doesn't use a valid email.
 
 1. Follow the instructions in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file.
 
 1. Follow the instructions in [step 5](#step-5---test-the-custom-policy) to test your custom policy:
     1. For **Account Type**, select **Contoso Employee Account**
-    1. For **Email Address**, enter an invalid email address such as such as *maurice@fourthcoffee.com*.
+    1. For **Email Address**, enter an invalid email address such as *maurice@fourthcoffee.com*.
     1. Enter the rest of the details as required and select **Continue**
     
     Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT token. 

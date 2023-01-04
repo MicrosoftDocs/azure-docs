@@ -47,7 +47,7 @@ Use the steps outlined in [Create the Facebook key](identity-provider-facebook.m
 
 ## Step 3 - Configure sign-in with Facebook
 
-To configure sign-in with Facebook, you need to perform the following steps:
+To configure sign in with Facebook, you need to perform the following steps:
 
 - Declare additional claims
 - Define additional Claims transformations to help with claims manipulations such as creating *AlternativeSecurityId*.
@@ -212,7 +212,7 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 ### Step 3.4 - Create Azure AD Technical Profiles
 
-Just like in sign in with a local account, you need to configure the [Azure AD Technical Profiles](active-directory-technical-profile.md), which you use to connect to Azure AD storage, to store or read a user social account. 
+Just like in sign-in with a local account, you need to configure the [Azure AD Technical Profiles](active-directory-technical-profile.md), which you use to connect to Azure AD storage, to store or read a user social account. 
 
 1. In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserUpdate* technical profile and then add a new technical profile by using the following code: 
 
@@ -252,7 +252,7 @@ Just like in sign in with a local account, you need to configure the [Azure AD T
     ```
     We've added a new Azure AD Technical Profile *AAD-UserWriteUsingAlternativeSecurityId* that writes a new social account into Azure AD. 
 
-1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key yuo created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
+1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
  
 1. In the `ContosoCustomPolicy.XML` file add another Azure AD Technical Profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
 
@@ -285,7 +285,7 @@ Just like in sign in with a local account, you need to configure the [Azure AD T
 
     We've added a new Azure AD Technical Profile *AAD-UserReadUsingAlternativeSecurityId* that reads a new social account from Azure AD. It uses `alternativeSecurityId` as a unique identifier for the social account. 
 
-1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key yuo created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
+1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
 
 ### Step 3.5 - Configure Content Definition 
 
@@ -425,7 +425,7 @@ In the orchestration we've used make reference to technical profiles that enable
 
 When the custom policy runs:
 
-- **Orchestration Step 1** - This step includes a *ClaimsProviderSelections* element, which lists the available sign in options a user can choose from. In this case, we've one option only, *FacebookExchange*.
+- **Orchestration Step 1** - This step includes a *ClaimsProviderSelections* element, which lists the available sign-in options a user can choose from. In this case, we've one option only, *FacebookExchange*.
 
 -  **Orchestration Step 2** - The *Facebook-OAUTH* Technical Profile executes, so the user is redirected to Facebook to sign in. 
 
@@ -449,7 +449,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and th
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
     <OutputClaim ClaimTypeReferenceId="identityProvider" />
 ```
-We've included the identity provider (*identityProvider*) as an output claim, so it it will be available in the JWT token returned to the relying party application. 
+We've included the identity provider (*identityProvider*) as an output claim, so it will be available in the JWT token returned to the relying party application. 
  
 ## Step 6 - Upload policy
 
@@ -460,11 +460,11 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy. 
 
 You're redirected to a Facebook sign-in page. Enter your Facebook credentials, and then select **Log In**. 
-You're directly redirected to Facebook as we set it so in our orchestration steps since we don't have multiple sign in options to choose from. Typically, in an app, you'd add a button like **Sign in with Facebook**, which when selected, runs the policy. 
+You're directly redirected to Facebook as we set it so in our orchestration steps since we don't have multiple sign-in options to choose from. Typically, in an app, you'd add a button like **Sign in with Facebook**, which when selected, runs the policy. 
 
 If it's the first time running this policy (social account doesn't already exist), you see a screen such as the one shown below. You won't see this screen in subsequent policy execution (social account already exist).  
 
-:::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-of-sign-in-social-account.png" alt-text="Screenshot of sign in flow with social account."::: 
+:::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-of-sign-in-social-account.png" alt-text="Screenshot of sign-in flow with social account."::: 
 
 Enter or update **Display Name**, **Given Name** and the **Surname**, and then select **Continue** button.  
 

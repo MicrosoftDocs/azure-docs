@@ -23,7 +23,7 @@ Your custom policies can access Azure AD storage by using Azure AD Technical Pro
 
 ## Scenario overview
 
-In [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md) we collected information from the user, validated the data, called a REST API, and finally returned a JWT without creating a user account. We must store the user information so that we don't loose the information, when the policy finishes execution. This time, once we collect the user information and validate it, we need to store the user information in Azure AD B2C storage before we return the JWT token. However, we create a user account, and if it doesn't exist, otherwise, we return an error. 
+In [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md) we collected information from the user, validated the data, called a REST API, and finally returned a JWT without creating a user account. We must store the user information so that we don't lose the information, when the policy finishes execution. This time, once we collect the user information and validate it, we need to store the user information in Azure AD B2C storage before we return the JWT token. However, we create a user account, and if it doesn't exist, otherwise, we return an error. 
 
 
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-create-user-record.png" alt-text="A flowchart of creating a user account in Azure AD.":::   
@@ -131,7 +131,7 @@ You need to configure the [Azure AD Technical Profile](active-directory-technica
 
     We've added a new Azure AD Technical Profile, *AAD-UserWrite*. You need to take note of the following important parts of the technical profile: 
     
-    -  *Operation*: The operation specifies the operation to be performed, in this case, *Write*. Learn more about other [operations in an Azure AD technical provider](active-directory-technical-profile.md#azure-ad-technical-provider-operations).
+    -  *Operation*: The operation specifies the operation to be performed, in this case, *Write*. Learn more about other [operations in an Azure AD technical provider](active-directory-technical-profile.md#azure-ad-technical-profile-operations). 
     
     - *Persisted claims*: The *PersistedClaims* element contains all of the values that should be stored into Azure AD storage.
     
@@ -184,7 +184,7 @@ Follow these steps to create a copy of the password:
         <ValidationTechnicalProfile ReferenceId="CreatePasswordCopy"/>
     ```  
 
-1. In the *UserInformationCollector* Technical Profile, add *passwordText* as a output claim by using the following code:   
+1. In the *UserInformationCollector* Technical Profile, add *passwordText* as an output claim by using the following code:   
 
     ```xml
         <OutputClaim ClaimTypeReferenceId="passwordText"/>

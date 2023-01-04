@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
 
-In this article, you learn how  to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either sign in into or creates an Azure AD B2C local account. A local account refers to an account that is created in your Azure AD B2C tenant when a user signs up for your application. 
+In this article, you learn how  to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either sign in into or create an Azure AD B2C local account. A local account refers to an account that is created in your Azure AD B2C tenant when a user signs up for your application. 
 
 ## Overview
 
@@ -98,7 +98,7 @@ Azure AD B2C requires you to register two applications that it uses to sign up a
 
 ### Step 1.3 - Configure OpenID Connect Technical Profile
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a  Claims Provider element, that holds your OpenID Connect Technical Profile by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a  Claims Provider element that holds your OpenID Connect Technical Profile by using the following code: 
 
 ```xml
     <ClaimsProvider>
@@ -150,7 +150,7 @@ Replace both instances of:
 
 When your policy runs, the user needs to see a user interface that allows them to sign in. The user interface also has an option to sign up if they don't already have an account. To do so, you need to perform two steps: 
 
-- Configure a SelfAsserted Technical Profile, which displays the sign-in form UI to the user.  
+- Configure a SelfAsserted Technical Profile, which displays the sign-in form to the user.  
 - Configure content definition for the sign-in user interface.
 
 ### Step 2.1 - Configure a sign-in user interface Technical Profile 
@@ -178,9 +178,9 @@ In the `ContosoCustomPolicy.XML` file, locate the *SignInUser* technical profile
     </TechnicalProfile>
 ```
 
-We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form UI to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign in form UI includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
+We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign in form includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
 
-Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. So, the *SignInUser* Technical Profile executes when the user selects the **Sign in** button (see screenshot in [ste 7](#step-7---test-policy)).    
+Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. So, the *SignInUser* Technical Profile executes when the user selects the **Sign in** button (see screenshot in [step 7](#step-7---test-policy)).    
 
 In the next step ([step 2.2](#step-22---configure-sign-in-interface-content-definition)), we configure a content definition that we'll use in this SelfAsserted Technical Profile.    
 
@@ -235,7 +235,7 @@ We've broken the technical profile into two separate technical profiles, *UserIn
 
 ## Step 4 - Update AAD-UserRead Technical Profile 
 
-When users sign in, they don't provide as many details details as they do when they sign up. However, we need to return more account details in the token, than is input by the user during sign in. Therefore, we need to add more output claims in out *AAD-UserRead* technical profile. At the moment, we only have *objectId* and *userPrincipalName* as output claims.     
+When users sign in, they don't provide as many details as they do when they sign up. However, we need to return more account details in the token, than is input by the user during sign-in. Therefore, we need to add more output claims in out *AAD-UserRead* technical profile. At the moment, we only have *objectId* and *userPrincipalName* as output claims.     
 
 In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserRead* technical profile, and then add three more output claims, *givenName*, *surname* and *displayName*, by using the following code:
 
@@ -247,7 +247,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserRead* technical profi
 
 ## Step 5 - Update the User Journey Orchestration Steps
 
-In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all it's Orchestration Steps with the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all its Orchestration Steps with the following code: 
 
 ```xml
     <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="SignupOrSigninContentDefinition">
@@ -357,7 +357,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy. Once the policy runs, you'll see an interface similar to the screenshot below:
 
-:::image type="content" source="media/custom-policies-series-sign-up-or-sign-in/screenshot-sign-up-or-sign-in-interface.png" alt-text="screenshot of sign up or sign in interface."::: 
+:::image type="content" source="media/custom-policies-series-sign-up-or-sign-in/screenshot-sign-up-or-sign-in-interface.png" alt-text="screenshot of sign-up or sign-in interface."::: 
 
 You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't already have an account, you need to select the **Sign up now** link to create a new user account. 
 

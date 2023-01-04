@@ -23,7 +23,7 @@ A Technical Profile also provides a `EnabledForUserJourneys` element to allow yo
 
 ## Scenario overview
 
-In [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), a user needs to select either *Contoso Employee Account* or *Personal Account*. Users who select *Contoso Employee Account* can proceed without providing further information, they just need to use a valid email address. However, users who select *Personal Account* needs to provide a valid invitation access code to proceed. Hence, users who use *Personal Account* account type see an extra screen to complete their journey.  
+In [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md), a user needs to select either *Contoso Employee Account* or *Personal Account*. Users who select *Contoso Employee Account* can proceed without providing further information, they just need to use a valid email address. However, users who select *Personal Account* need to provide a valid invitation access code to proceed. Hence, users who use *Personal Account* account type see an extra screen to complete their journey.  
 
 :::image type="content" source="media/custom-policies-series-branch-in-user-journey-using-pre-conditions/screenshot-of-branching-in-user-journey.png" alt-text="A flowchart of branching in user journey.":::
 
@@ -148,7 +148,7 @@ We now need a self-asserted technical profile to collect the access code from th
 
     We've configured two technical profiles, *AccessCodeInputCollector* and *CheckAccessCodeViaClaimsTransformationChecker*. We call the *CheckAccessCodeViaClaimsTransformationChecker* technical profile as a validation technical profile from within the *AccessCodeInputCollector* technical profile. The *CheckAccessCodeViaClaimsTransformationChecker* itself is of type Claims Transformation technical Profile, which executes the Claims Transformations we defined in [step 2](#step-2---define-claims-transformations). 
 
-    *AccessCodeInputCollector* is a Self-Asserted Technical Profile used to collect an access code from the user. It includes `EnabledForUserJourneys` element that's set to *OnClaimsExistence*. It's `Metadata` element includes a claim (*accountType*) and it's value (*personal*) that activates this technical profile.    
+    *AccessCodeInputCollector* is a Self-Asserted Technical Profile used to collect an access code from the user. It includes `EnabledForUserJourneys` element that's set to *OnClaimsExistence*. Its `Metadata` element includes a claim (*accountType*) and its value (*personal*) that activates this technical profile.    
 
 ## Step 4 - Update the User Journey Orchestration Steps
 
@@ -163,7 +163,7 @@ Now that you've set up your technical profile, you need to update your User Jour
         </ClaimsExchanges>
         </OrchestrationStep>
     ``` 
-1. Update the the *Order* of the Orchestration Steps that follows as *3* and *4*. 
+1. Update the *Order* of the Orchestration Steps that follows as *3* and *4*. 
 
 ## Step 5 - Upload custom policy file
 
