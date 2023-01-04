@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 01/04/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -46,14 +46,13 @@ To complete this article, you need the following resources:
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Security settings**.
 1. Click **Enable** or **Disable** for the following settings:
-   - **TLS 1.2 only mode**
-   - **NTLM authentication**
-   - **Password synchronization from on-premises**
-   - **NTLM password synchronization from on-premises**
-   - **RC4 encryption**
-   - **Kerberos armoring**
-   - **LDAP signing**
-   - **LDAP channel binding**
+   - **TLS 1.2 Only Mode**
+   - **NTLM v1 Authentication**
+   - **NTLM Password Synchronization**
+   - **Kerberos RC4 Encryption**
+   - **Kerberos Armoring**
+   - **LDAP Signing**
+   - **LDAP Channel Binding**
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
