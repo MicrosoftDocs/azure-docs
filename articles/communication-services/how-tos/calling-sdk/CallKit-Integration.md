@@ -83,7 +83,7 @@
   }
   ```
 
-  ### Configure audio session.
+  ### Configure audio session
 
   Configure audio session will be called before placing or accepting incoming call and bfore resuming the call after it has been put on hold.
   
@@ -164,6 +164,42 @@
     }
   }
   ```
+  
+ ## CallKit Integration (within App)
+  
+  If you wist to integrate the CallKit within the app and not use the CallKit implementation in the SDK , please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
+  But one of the important thing to take care of is to start the call with muted audio. Like following
+  
+ ```Swift
+let mutedAudioOptions = AudioOptions()
+mutedAudioOptions.speakerMuted = true
+mutedAudioOptions.muted = true
+
+let copyStartCallOptions = StartCallOptions()
+copyStartCallOptions.audioOptions = mutedAudioOptions
+
+callAgent.startCall(participants: participants,
+                    options: copyStartCallOptions,
+                    completionHandler: completionBlock)
+```
+This will ensure that physical audio devices are not used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`
+
+```Swift
+func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
+   activeCall.unmute { error in
+       if error == nil {
+           print("Successfully unmuted mic")
+           activeCall.speaker(mute: false) { error in
+               if error == nil {
+                   print("Successfully unmuted speaker")
+               }
+           }
+       }
+   }
+}
+```
+
+NOTE: In some cases CallKit does not call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is recieved. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
 
   ## Next steps
   - [Learn how to manage video](./manage-video.md)
