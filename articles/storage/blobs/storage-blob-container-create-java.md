@@ -61,7 +61,7 @@ The following example creates a new `BlobContainerClient` object with the contai
 
 ## REST API operations
 
-The Azure SDK for Java libraries build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for creating a container use the following REST API operation:
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for creating a container use the following REST API operation:
 
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
 
