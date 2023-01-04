@@ -314,6 +314,8 @@ items:
   items:
   - name: Reference architecture
     href: reference-architecture.md
+  - name: Deploy to multiple regions
+    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference
   items:
   - name: API breaking changes
