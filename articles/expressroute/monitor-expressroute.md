@@ -165,18 +165,6 @@ The following table lists common and recommended alert rules for ExpressRoute.
 
 1. Select **Review + create** and then **Create** to deploy the alert into your subscription.
 
-### Alerts based on each peering
-
-After you select a metric, certain metrics allow you to set up dimensions based on peering or a specific peer (virtual networks).
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerts-peering-dimensions.png" alt-text="Screenshot of an alert rule based on ExpressRoute peering set up.":::
-
-### Configure alerts for activity logs on circuits
-
-When selecting signals to be alerted on, you can select **Activity Log** signal type.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/activity-log.png" alt-text="Screenshot of activity log signals from the select a signal page.":::
-
 ## Next steps
 
 * See [Monitoring ExpressRoute data reference](monitor-expressroute-reference.md) for a reference of the metrics, logs, and other important values created by ExpressRoute.
