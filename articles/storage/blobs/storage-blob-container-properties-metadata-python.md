@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/04/2023
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -29,7 +29,7 @@ Metadata name/value pairs are valid HTTP headers, and should adhere to all restr
 
 To retrieve container properties, use the following method:
 
-- [BlobContainerClient.getProperties](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-getproperties())
+- [ContainerClient.get_container_properties](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-get-container-properties)
 
 The following code example fetches a container's system properties and writes the property values to a console window:
 
@@ -39,7 +39,7 @@ The following code example fetches a container's system properties and writes th
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, use the following method:
 
-- [BlobContainerClient.setMetadata](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-setmetadata(java-util-map(java-lang-string-java-lang-string)))
+- [ContainerClient.set_container_metadata](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-set-container-metadata)
 
 The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob Storage comma-separates and concatenates the two values and return HTTP response code `200 (OK)`. 
 
@@ -51,7 +51,7 @@ The following code example sets metadata on a container:
 
 To retrieve metadata, call the following method:
 
-- [BlobContainerClient.getProperties](/java/api/com.azure.storage.blob.BlobContainerClient#com-azure-storage-blob-blobcontainerclient-getproperties())
+- [ContainerClient.get_container_properties](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-get-container-properties)
 
 The following example reads in metadata values: 
 

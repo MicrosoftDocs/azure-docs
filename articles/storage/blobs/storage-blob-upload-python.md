@@ -1,5 +1,6 @@
 ---
-title: Upload a blob using Python - Azure Storage
+title: Upload a blob using Python
+titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Python client library.
 services: storage
 author: pauljewellmsft
@@ -22,13 +23,11 @@ This article shows how to upload a blob using the [Azure Storage client library 
 
 To upload a blob using a stream or a binary object, use the following method:
 
-- [BlobClient.upload](/java/api/com.azure.storage.blob.blobclient#com-azure-storage-blob-blobclient-upload(com-azure-core-util-binarydata))
+- [BlobClient.upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob)
 
-To upload a blob using a file path, use the following method:
+To upload a blob from a given URL, use the following method:
 
-- [BlobClient.uploadFromFile](/java/api/com.azure.storage.blob.blobclient#com-azure-storage-blob-blobclient-uploadfromfile(java-lang-string-boolean))
-
-Each of these methods can also be called using a [BlockBlobClient] object if you're working with block blobs.
+- [BlobClient.upload_blob_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob-from-url)
 
 ## Upload data to a blob
 

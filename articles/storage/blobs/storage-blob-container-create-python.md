@@ -1,12 +1,13 @@
 ---
-title: Create a blob container with Python - Azure Storage 
+title: Create a blob container with Python
+titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the Python client library.
 services: storage
 author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/04/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: python
@@ -16,9 +17,6 @@ ms.custom: devx-track-python, devguide-python
 # Create a container in Azure Storage using the Python client library
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
-
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md) article.
 
 ## Name a container
 
@@ -34,15 +32,13 @@ The URI for a container is in this format:
 
 ## Create a container
 
-To create a container, call one of the following methods from the `BlobServiceClient` class:
+To create a container, call the following method from the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class:
 
-- [BlobServiceClient.createBlobContainer](/java/api/com.azure.storage.blob.BlobServiceClient#com-azure-storage-blob-blobserviceclient-createblobcontainer(java-lang-string))
-- [BlobServiceClient.createBlobContainerIfNotExists](/java/api/com.azure.storage.blob.BlobServiceClient#com-azure-storage-blob-blobserviceclient-createblobcontainerifnotexists(java-lang-string))
+- [BlobServiceClient.create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-create-container)
 
-You can also create a container using one of the following methods from the `BlobContainerClient` class:
+You can also create a container using one of the following methods from the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class:
 
-- [BlobContainerClient.create](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-create())
-- [BlobContainerClient.createIfNotExists](/java/api/com.azure.storage.blob.blobcontainerclient#com-azure-storage-blob-blobcontainerclient-createifnotexists())
+- [ContainerClient.create_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-create-container)
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
 
@@ -58,7 +54,7 @@ You can reference a blob stored in the root container without including the root
 
 `https://accountname.blob.core.windows.net/default.html`
 
-The following example creates a new `BlobContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
+The following example creates a new `ContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-create.py" id="Snippet_CreateRootContainer":::
 

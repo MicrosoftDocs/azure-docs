@@ -1,12 +1,13 @@
 ---
-title: List blob containers with Python - Azure Storage 
+title: List blob containers with Python
+titleSuffix: Azure Storage
 description: Learn how to list blob containers in your Azure Storage account using the Python client library.
 services: storage
 author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/04/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: python
@@ -17,16 +18,11 @@ ms.custom: devx-track-python, devguide-python
 
 When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md) article.
-
 ## Understand container listing options
 
 To list containers in your storage account, call the following method:
 
-- BlobServiceClient.[listBlobContainers](/java/api/com.azure.storage.blob.blobserviceclient#com-azure-storage-blob-blobserviceclient-listblobcontainers())
-
-The overloads for this method provide additional options for managing how containers are returned by the listing operation. These options are described in the following sections.
+- BlobServiceClient.[list_containers](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-list-containers)
 
 ### Manage how many results are returned
 
