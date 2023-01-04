@@ -99,7 +99,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
         });
     ```
     
-    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allow you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse`. The source of the accessCode in the app could be coming from a database. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
+    You can observe that when a user submits a wrong access code, you can return an error directly from the REST API. Custom policies allow you to return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code with a response JSON body formatted as shown in `errorResponse` variable. The source of the accessCode in the app could be read from a database. Learn more about [Returning validation error message](restful-technical-profile.md#returning-validation-error-message).   
 
 1. To test the app works as expected, use the following steps:
     1. In your terminal, run the `node index.js` command to start your app server on port `3000`. 
@@ -149,7 +149,7 @@ Follow the steps in [Deploy your app to Azure](../app-service/quickstart-nodejs.
 
 - Service endpoint looks similar to `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode`.
 
-You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview?view=powershell-7.2) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode` as the endpoint. 
+You can test the app you've deployed by using an HTTP client such as [Microsoft PowerShell](https://learn.microsoft.com/powershell/scripting/overview) or [Postman](https://www.postman.com/). This time, use `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode` as the endpoint. 
 
 ## Step 2 - Call the REST API
 
