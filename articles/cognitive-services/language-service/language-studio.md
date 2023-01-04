@@ -18,7 +18,7 @@ ms.custom: ignite-fall-2021
 
 Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
-## Try the Language Studio before signing up
+## Try Language Studio before signing up
 
 Language Studio lets you try available features without needing to create an Azure account or an Azure resource. From the main page of the studio, select one of the listed categories to see [available features](overview.md#available-features) you can try.
 
