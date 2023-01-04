@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-author: sdgilley
-ms.author: sgilley
+author: lebaro-msft
+ms.author: lebaro
 ms.reviewer: sgilley
 ms.date: 01/04/2023
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
