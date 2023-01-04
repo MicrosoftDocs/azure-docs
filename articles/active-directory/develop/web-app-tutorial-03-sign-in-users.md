@@ -12,9 +12,9 @@ ms.date: 10/18/2022
 
 # Tutorial: Add sign-in to an application
 
-<!-- Remove AAD replace with IDE -->
+In the previous tutorial, an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign-in and sign-out experience.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 > * Identify and install the NuGet packages that are needed for authentication
@@ -31,9 +31,9 @@ In this tutorial, you learn how to:
 
 ## Install identity packages
 
-### [Visual Studio](#tab/visual-studio)
-
 Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application.
+
+### [Visual Studio](#tab/visual-studio)
 
 1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
 1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Click the **Project** checkbox, and then select **Install**.
@@ -42,7 +42,7 @@ Identity related **NuGet packages** must be installed in the project for authent
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In Visual Studio Code, select **Terminal** then **New Terminal.**
-1. Ensure that the correct directory is selected (*NewApp1*), then enter the following into the terminal to install the relevant NuGet packages;
+1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages;
 
 ```powershell
 dotnet add package Microsoft.Identity.Web --version 2.0.5-preview
@@ -101,7 +101,11 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
     app.UseRouting();
     ```
 
-## Create the *_LoginPartial.cshtml* file to enable the Login experience
+## Display the sign-in and sign-out experience
+
+After installing the NuGet packages and adding necessary code for authentication, sign-in and sign-out experiences need to be added.
+
+### Create the *_LoginPartial.cshtml* file to enable the login experience
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -121,7 +125,7 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 ---
 
-## Display the sign-in and sign-out experience
+### Display the sign-in and sign-out experience
 
 1. Open *_LoginPartial.cshtml* and add the following code for adding the sign-in and sign-out experience:
 
@@ -155,7 +159,7 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
     </div>
     ```
 
-<!-- Suitable links required for See also-->
+<!-- Suitable links required for See also TBD -->
 
 ## Next steps
 

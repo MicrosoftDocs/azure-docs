@@ -12,18 +12,18 @@ ms.date: 10/18/2022
 
 # Tutorial: Register an application with the Microsoft identity platform
 
-This tutorial shows how to register a web app using the Azure portal so that it can be configured with the Microsoft identity platform.
+Before an application can be authenticated with the Microsoft identity platform, it must be registered with a tenant on the Azure portal. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web application on the Azure portal.
 
 In this tutorial:
 
 > [!div class="checklist"]
-> * Register a web application in an Azure AD tenant
+> * Register a web application in a tenant
 > * Record the web application's unique identifiers
 
 ## Prerequisites
 
-* An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* The Azure account must have permission to manage applications in Azure AD. Use the least privileged of the following Azure AD role that you need to register the application:
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* This Azure account must have permissions to manage applications. Use the least privileged of the following roles that you need to register the application::
   * Application administrator
   * Application developer
   * Cloud application administrator
@@ -31,9 +31,11 @@ In this tutorial:
 
 ## Register the application
 
+The application needs to be registered on the Azure portal before continuing. Once registered, the application identifiers can be used to complete the application configuration steps.
+
 ### Enter a registration name and select the account type
 
-Provide a name for the application, specify the type of supported accounts and register the application.
+Give the application a name, specify the type of supported accounts and register the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Azure Active Directory**.
@@ -58,8 +60,8 @@ For this tutorial series, the **Directory (tenant) ID** and the **Application (c
 
 The following articles are related to the concepts presented in this tutorial:
 
-* For more information about the kinds of applications that are supported by the Microsoft identity platform, see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
-* For more information about the application registration process, see [Application model](application-model.md)
+* For more information about the kinds of applications that are supported by the Microsoft identity platform, see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md).
+* For more information about the application registration process, see [Application model](application-model.md).
 * For more information about adding applications to Azure AD, see [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md).
 
 ## Next steps

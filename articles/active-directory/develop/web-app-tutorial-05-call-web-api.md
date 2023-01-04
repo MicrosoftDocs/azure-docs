@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Call an API and display the results"
 description: Call an API and display the results.
-author: davidmu1
-ms.author: davidmu
+author: cilwerner
+ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
@@ -12,14 +12,14 @@ ms.date: 10/18/2022
 
 # Tutorial: Call an API and display the results
 
-At this point, the application can be configured to call an API. For the purposes of this tutorial, the Microsoft Graph API will be called to display the profile information of the logged-in user. 
+The application can now be configured to call an API. For the purposes of this tutorial, the Microsoft Graph API will be called to display the profile information of the logged-in user. 
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
-> * Configure the application to know about the API
-> * Add authorization to a class
-> * Add code to call the API
+> * Add the API configuration
+> * Retrieve defined scopes and acquire a token
+> * Call the API and display the results
 > * Test the application
 
 ## Prerequisites
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 Open the *appsettings.json* file and add a reference to `"DownstreamAPI"` to configure the API. The *.json* file should take the following format:
 
-```csharp
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
@@ -146,21 +146,21 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 ## Test the application
 
 ### [Visual Studio](#tab/visual-studio)
-1. In Visual Studio, start the application by selecting **Start without debugging**.
+1. Start the application by selecting **Start without debugging**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
-1. In Visual Studio Code, start the application by typing the following in the terminal;
+1. Start the application by typing the following in the terminal;
 
     ```powershell
     dotnet run
     ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
-1. In Visual Studio, start the application by selecting the **Play the executing solution**.
+1. Start the application by selecting **Play the executing solution**.
 
 ---
 
-2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7141`. After the sign-in window appears, select the account with which to sign-in.
+2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7100`. After the sign-in window appears, select the account with which to sign-in.
 
     :::image type="content" source="./media/web-app-tutorial-05-call-web-api/pick-account.png" alt-text="Screenshot depicting account options to sign-in.":::
  
