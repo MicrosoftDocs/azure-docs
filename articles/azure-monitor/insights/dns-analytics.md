@@ -4,7 +4,7 @@ description: Set up and use the DNS Analytics solution in Azure Monitor to gathe
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/20/2018
+ms.date: 11/23/2022
 ms.reviewer: shijain
 
 ---
@@ -24,6 +24,9 @@ DNS Analytics helps you to:
 - View dynamic DNS registration failures.
 
 The solution collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers.
+
+> [!IMPORTANT]  
+> The Log Analytics agent will be **retired on 31 August, 2024**. If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](../..//sentinel/ama-migrate.md).
 
 ## Connected sources
 

@@ -14,6 +14,9 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 
 Some data connectors are deployed only via solutions. For more information, see the [Discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md). You can also find other, community-built data connectors in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
 
+> [!IMPORTANT]
+> For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+
 ## How to use this guide
 
 1. First, locate and select the connector for your product, service, or device in the headings menu to the right.
@@ -699,10 +702,10 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Vendor documentation/<br>installation instructions** | [Get a Cyberpion subscription](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br>[Integrate Cyberpion security alerts into Microsoft Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) |
 | **Supported by** | [Cyberpion](https://www.cyberpion.com/) |
 
-
-
-
 ## DNS (Preview)
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 **See [Windows DNS Events via AMA (Preview)](#windows-dns-events-via-ama-preview) or [Windows DNS Server (Preview)](#windows-dns-server-preview).**
 
@@ -1565,6 +1568,9 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 ## Security events via Legacy Agent (Windows)
 
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
@@ -1832,7 +1838,8 @@ Follow the instructions to obtain the credentials.
 
 ## Windows DNS Server (Preview)
 
-This connector uses the legacy agent. We recommend that you use the DNS over AMA connector above.
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 | Connector attribute | Description |
 | --- | --- |

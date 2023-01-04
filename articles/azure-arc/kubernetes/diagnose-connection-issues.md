@@ -1,6 +1,6 @@
 ---
 title: "Diagnose connection issues for Azure Arc-enabled Kubernetes clusters"
-ms.date: 11/22/2022
+ms.date: 12/06/2022
 ms.topic: how-to
 description: "Learn how to resolve common issues when connecting Kubernetes clusters to Azure Arc."
 
@@ -23,11 +23,11 @@ Review this flowchart in order to diagnose your issue when attempting to connect
 
 Review the [prerequisites for connecting a cluster](quickstart-connect-cluster.md?tabs=azure-cli#prerequisites) and make sure that the identity you're using to connect the cluster has the necessary permissions.
 
-### Is Azure CLI version above 2.30.0?
+### Are you running the latest version of Azure CLI?
 
 Make sure you [have the latest version installed](/cli/azure/install-azure-cli).
 
-If you connected your cluster by using Azure PowerShell, make sure you are running [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-az-ps).
 
 ### Is the `connectedk8s` extension the latest version?
 
@@ -46,7 +46,6 @@ az extension add --name connectedk8s
 ### Is kubeconfig pointing to the right cluster?
 
 Run `kubectl config get-contexts` to confirm the target context name. Then set the default context to the right cluster by running `kubectl config use-context <target-cluster-name>`.
-
 
 ### Are all required resource providers registered?
 
