@@ -20,11 +20,11 @@ To send metrics for resources in other environments or on-premises, use [Applica
 
 A service principal is an application whose tokens can be used to authenticate and grant access to specific Azure resources using Azure Active Directory. This includes user-apps, services or automation tools.
 
-1. Register application and create a service principal in your Azure Active Directory tenant by using the instructions found at [Register an application with Azure Active Directory](../logs/api/register-app-for-token.md).  
+1. [Register an application with Azure Active Directory](../logs/api/register-app-for-token.md) to create a service principal.
 
 1. Save the tenant ID, new client ID, and client secret value for your app to use when requesting a token.
 
-1. Give the app created as part of the previous step, **Monitoring Metrics Publisher** permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
+1. Give the app created as part of the previous step **Monitoring Metrics Publisher** permissions to the resource you wish to emit metrics against. If you plan to use the app to emit custom metrics against many resources, you can grant these permissions at the resource group or subscription level.  
  
     On your resource's overview page, select **Access Control (IAM)**
 1. Select **Add**, then **Add role assignment** from the dropdown.
@@ -106,12 +106,12 @@ Save the access token from the response for use in the following HTTP requests.
    - **resourceId**:   Resource ID of the Azure resource you're tracking the metric against.  
    - **accessToken**:  The authorization token acquired from the previous step.
     
-```Shell
-curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer <accessToken>' \
--d @custommetric.json 
-```
+    ```Shell
+    curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer <accessToken>' \
+    -d @custommetric.json 
+    ```
 
 1. Change the timestamp and values in the JSON file. 
 1. Repeat the previous two steps a number of times, to create data for several minutes.
@@ -120,9 +120,9 @@ curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
 
 If you receive an error message with some part of the process, consider the following troubleshooting information:
 
-* You can't issue metrics against a subscription or resource group, or resource, check that your application or Service Principal has the **Monitoring Metrics Publisher** role assigned in Access control (IAM).
-* The number of dimension names must match the values. Check the values and dimentions.
-* You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](./metrics-custom-overview.md#supported-regions).
+- If you can't issue metrics against a subscription or resource group, or resource, check that your application or Service Principal has the **Monitoring Metrics Publisher** role assigned in Access control (IAM).
+- Check that the number of dimension names matches the number values.
+- Check that you are not emitting metrics against a region that doesn’t support custom metrics. See [supported regions](./metrics-custom-overview.md#supported-regions).
 
 ## View your metrics
 

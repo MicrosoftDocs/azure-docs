@@ -9,7 +9,7 @@ ms.topic: article
 
 # Register an App to request authorization tokens and work with APIs
 
-To access Azure REST APIs such as the Log analytics API, or to send custom metrics, you can generate an authorization token based on a client ID and secret. The token is then passed in your REST API request. This article shows you how to register a client app and assign permissions to access so that you can generate a token.
+To access Azure REST APIs such as the Log analytics API, or to send custom metrics, you can generate an authorization token based on a client ID and secret. The token is then passed in your REST API request. This article shows you how to register a client app and create a client secret so that you can generate a token.
 
 ## Register an App
 
@@ -41,13 +41,15 @@ To access Azure REST APIs such as the Log analytics API, or to send custom metri
 ## Next steps
 
 Before you can generate a token using your app, client ID, and secret, assign the app to a role using Access control (IAM) for resource that you want to access.
-The role will depend on the resource time, and the API that you want to use.  
+The role will depend on the resource type and the API that you want to use.  
+For example,
+- To grant your app read from a Log Analytics Workspace, add your app as a member to the **Reader** role using Access control (IAM) for your Log Analytics Workspace. For more information, see [Access the API](./access-api.md)
 
-* To grant your app read from a Log Analytics Workspace, add your app as a member to the **Reader** role using Access control (IAM) for your Log Analytics Workspace. For more information, see [Access the API](./access-api.md)
+- To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [ Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
 
-* To grant access to send custom metrics for a resource,  add your app as a member to the **Monitoring Metrics Publisher** role using Access control (IAM) for your resource. For more information, see [ Send metrics to the Azure Monitor metric database using REST API](../../essentials/metrics-store-custom-rest-api.md)
+For more information see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal)  
 
-Once you have roles and permission setup, you can use your client ID and client secret to generate a bearer token to access the REST API.
+Once you have assigned a role you can use your app, client ID, and client secret to generate a bearer token to access the REST API.
 
 > [!NOTE]
 > When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403.
