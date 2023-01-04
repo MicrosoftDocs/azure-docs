@@ -39,7 +39,7 @@ The search results table schema is based on the source table schema and the spec
 | _OriginalType          | *Type* value from source table. |
 | _OriginalItemId        | *_ItemID* value from source table. |
 | _OriginalTimeGenerated | *TimeGenerated* value from source table. |
-| TimeGenerated          | Time at which the search job retrieved the record from the original table. |
+| TimeGenerated          | Time at which the search job ran. |
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
