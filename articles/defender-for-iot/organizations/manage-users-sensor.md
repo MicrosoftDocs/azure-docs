@@ -51,6 +51,7 @@ Your new user is added and is listed on the sensor **Users** page.
 To edit a user, select the **Edit** :::image type="icon" source="media/manage-users-on-premises-management-console/icon-edit.png" border="false"::: icon for the user you want to edit, and change any values as needed.
 
 To delete a user, select the **Delete** button for the user you want to delete.
+
 ## Integrate OT sensor users with Active Directory
 
 Configure an integration between your sensor and Active Directory to:
@@ -74,9 +75,9 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     |Name  |Description  |
     |---------|---------|
-    |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.        |
+    |**Domain Controller FQDN**     | The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.contoso.com`. <br><br> If you encounter an issue with the integration using the FQDN, check your DNS configuration. You can also enter the explicit IP of the LDAP server instead of the FQDN when setting up the integration.        |
     |**Domain Controller Port**     | The port where your LDAP is configured.        |
-    |**Primary Domain**     | The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
+    |**Primary Domain**     | The domain name, such as `subdomain.contoso.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**        |
     |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>        When you enter a group name, make sure that you enter the group name exactly as it's defined in your Active Directory configuration on the LDAP server. You'll use these group names when [adding new sensor users](#add-new-ot-sensor-users) with Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.        |
 
 
@@ -92,6 +93,9 @@ For more information, see [Active Directory support on sensors and on-premises m
 
 1. When you've added all your Active Directory servers, select **Save**.
 
+    For example: 
+    
+    :::image type="content" source="media/manage-users-sensor/active-directory-integration-example.png" alt-text="Screenshot of the active directory integration configuration on the sensor.":::
 
 ## Change a sensor user's password
 
