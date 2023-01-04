@@ -65,3 +65,5 @@ The following example creates a new `BlobContainerClient` object with the contai
 - [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md)
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
 - [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guide-resources-java.md)]
