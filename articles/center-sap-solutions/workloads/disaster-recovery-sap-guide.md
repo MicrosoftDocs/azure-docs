@@ -6,6 +6,7 @@ author: dennispadia
 manager: rdeltcheva
 ms.author: depadia
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/22/2022

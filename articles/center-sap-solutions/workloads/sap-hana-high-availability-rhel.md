@@ -7,6 +7,7 @@ author: rdeltcheva
 manager: juergent
 editor:
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

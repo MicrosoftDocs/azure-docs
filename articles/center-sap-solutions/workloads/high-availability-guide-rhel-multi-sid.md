@@ -9,6 +9,7 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.custom: kr2b-contr-experiment
 ms.tgt_pltfrm: vm-windows

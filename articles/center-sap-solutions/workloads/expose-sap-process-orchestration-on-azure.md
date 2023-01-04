@@ -4,6 +4,7 @@ description: Learn about securely exposing SAP Process Orchestration on Azure.
 author: MartinPankraz
 
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/19/2022
