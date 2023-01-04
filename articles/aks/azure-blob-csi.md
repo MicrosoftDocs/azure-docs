@@ -220,6 +220,7 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 [csi-blob-storage-open-source-driver]: https://github.com/kubernetes-sigs/blob-csi-driver
 [csi-blob-storage-open-source-driver-uninstall-steps]: https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/docs/install-csi-driver-master.md#clean-up-blob-csi-driver
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
 [compare-access-with-nfs]: ../storage/common/nfs-comparison.md
@@ -230,3 +231,4 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [azure-csi-blob-storage]: azure-csi-blob-storage-provision.md
 [azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md
+[install-azure-cli]: /cli/azure/install_azure_cli

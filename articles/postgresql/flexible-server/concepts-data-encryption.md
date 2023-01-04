@@ -14,8 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-> [!NOTE]
-> Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key is currently in preview.
+
 
 Azure PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using Microsoft-managed keys. For Azure PostgreSQL users, it's similar to Transparent Data Encryption (TDE) in other databases such as SQL Server. Many organizations require full control of access to the data using a customer-managed key. Data encryption with customer-managed keys for Azure Database for PostgreSQL Flexible server - Preview enables you to bring your key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
@@ -137,9 +136,6 @@ To monitor the database state, and to enable alerting for the loss of transparen
 ## Restore and replicate with a customer's managed key in Key Vault
 
 After Azure Database for PostgreSQL - Flexible Server is encrypted with a customer's managed key stored in Key Vault, any newly created server copy is also encrypted. You can make this new copy through a [PITR restore](concepts-backup-restore.md) operation or read replicas.
-
-> [!NOTE]  
-> At this time we don't support revoking the original encryption key after restoring CMK enabled server to another server
 
 Avoid issues while setting up customer-managed data encryption during restore or read replica creation by following these steps on the primary and restored/replica servers:
 
@@ -264,8 +260,6 @@ The following are current limitations for configuring the customer-managed key i
 - Once enabled, CMK encryption can't be removed. If customer desires to remove this feature, it can only be done via restore of the server to non-CMK server.
 
 - CMK encryption isn't available on Burstable SKU.
-
-- **No support for revoking key after restoring CMK enabled server to another server**
 
 - No support for Geo backup enabled servers
 

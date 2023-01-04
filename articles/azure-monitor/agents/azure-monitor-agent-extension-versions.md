@@ -4,7 +4,7 @@ description: This article describes the version details for the Azure Monitor ag
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 11/14/2022
+ms.date: 12/19/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -20,7 +20,7 @@ We strongly recommended to update to the latest version at all times, or opt in 
 ## Version details
 | Release Date | Release notes | Windows | Linux |
 |:---|:---|:---|:---|
-| Oct 2022 | <ul><li>Increased default retry timeout for data upload from 4 to 8 hours</li><li>Data quality improvements</li></ul>  | 1.10.0.0 | None | 
+| Oct 2022 | **Windows** <ul><li>Increased default retry timeout for data upload from 4 to 8 hours</li><li>Data quality improvements</li></ul> **Linux** <ul><li>Support for `http_proxy` and `https_proxy` environment variables for [network proxy configurations](./azure-monitor-agent-data-collection-endpoint.md#proxy-configuration) for the agent</li><li>[Text logs](./data-collection-text-log.md) <ul><li>Network proxy support enabled</li><li>Fixed missing `_ResourceId`</li><li>Increased maximum line size support to 1MB</li></ul></li><li>Support ingestion of syslog events whose timestamp is in the future</li><li>Performance improvements</li><li>Fixed `diskio` metrics instance name dimension to use the disk mount path(s) instead of the device name(s)</li></ul>  | 1.10.0.0 | 1.24.2 | 
 | Sep 2022 | Reliability improvements | 1.9.0.0 | None | 
 | August 2022 | **Common updates** <ul><li>Improved resiliency: Default lookback (retry) time updated to last 3 days (72 hours) up from 60 minutes, for agent to collect data post interruption. This is subject to default offline cache size of 10gigabytes</li><li>Fixes the preview custom text log feature that was incorrectly removing the *TimeGenerated* field from the raw data of each event. All events are now additionally stamped with agent (local) upload time</li><li>Reliability and supportability improvements</li></ul> **Windows** <ul><li>Fixed datetime format to UTC</li><li>Fix to use default location for firewall log collection, if not provided</li><li>Reliability and supportability improvements</li></ul> **Linux** <ul><li>Support for OpenSuse 15, Debian 11 ARM64</li><li>Support for coexistence of Azure Monitor agent with legacy Azure Diagnostic extension for Linux (LAD)</li><li>Increased max-size of UDP payload for Telegraf output to prevent dimension truncation</li><li>Prevent unconfigured upload to Azure Monitor Metrics destination</li><li>Fix for disk metrics wherein *instance name* dimension will use the disk mount path(s) instead of the device name(s), to provide parity with legacy agent</li><li>Fixed *disk free MB* metric to report megabytes instead of bytes</li></ul> | 1.8.0.0 | 1.22.2 |
 | July 2022 | Fix for mismatch event timestamps for Sentinel Windows Event Forwarding | 1.7.0.0 | None |

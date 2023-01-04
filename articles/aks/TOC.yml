@@ -2,7 +2,7 @@
   href: ./index.yml
 - name: Overview
   items:
-    - name: About AKS
+    - name: What is AKS?
       href: intro-kubernetes.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
@@ -178,6 +178,8 @@
   items:
     - name: Cluster operations
       items:
+        - name: Maintaining and upgrading an AKS cluster
+          href: upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
@@ -571,7 +573,7 @@
     - name: PowerShell
       href: /powershell/module/az.aks/#aks
     - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
+      href: /dotnet/api/overview/azure/container-service
     - name: Python
       href: /python/api/overview/azure/container-service
     - name: Java

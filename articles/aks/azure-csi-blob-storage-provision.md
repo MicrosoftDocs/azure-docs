@@ -323,7 +323,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
     kubectl create -f pv-blob-nfs.yaml
     ```
 
-3. Create a `pvc-blob-nfs.yaml` file with a *PersistentVolume*. For example:
+3. Create a `pvc-blob-nfs.yaml` file with a *PersistentVolumeClaim*. For example:
 
     ```yml
     kind: PersistentVolumeClaim
