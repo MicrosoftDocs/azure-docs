@@ -3,7 +3,7 @@ title: Train R models in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to train R models in Azure Machine Learning.'
 ms.service: machine-learning
-ms.date: 01/03/2023
+ms.date: 01/04/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -22,11 +22,11 @@ This article explains how to take the R script that you [adapted to run in produ
 
 ## Prerequisites
 
-- Azure [CLI and ml extension installed](how-to-configure-cli.md)
-- An [Azure Machine Learning workspace and a compute instance](quickstart-create-resources.md)
-- [A registered data asset](how-to-create-data-assets.md) that your training job will use
-- [A compute cluster](how-to-create-attach-compute-cluster.md) to run your training job
-- [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
+- [A registered data asset](how-to-create-data-assets.md) that your training job will use.
+- Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
+- [A compute cluster](how-to-create-attach-compute-cluster.md) to run your training job.
+- [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job.
 
 ## Create a folder with this structure
 
@@ -50,7 +50,7 @@ Create this folder structure for your project:
 
 ## Prepare the job YAML
 
-AzureML CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You'll use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the `job.yml` file that is a part of this project.
+AzureML CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You'll use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the **job.yml** file that is a part of this project.
 
 You'll need to gather specific pieces of information to put into the YAML:
 
@@ -65,7 +65,7 @@ You'll need to gather specific pieces of information to put into the YAML:
 
 ### Sample YAML schema to submit a job
 
-Edit your **job.yml** file to contain the following.  Make sure to replace values shown <IN-BRACKETS-AND-CAPS> and remove the brackets.
+Edit your **job.yml** file to contain the following.  Make sure to replace values shown `<IN-BRACKETS-AND-CAPS>` and remove the brackets.
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -105,7 +105,7 @@ Find these values from [Azure Machine Learning studio](https://ml.azure.com):
 
 :::image type="content" source="media/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command.":::
 
-In a terminal window, change directories into the `r-job-azureml`.  Then use the CLI to submit the job, after replacing the <VALUES-IN-BRACKETS> with their values (also remove the brackets `<>`).
+In a terminal window, change directories into the `r-job-azureml`.  Then use the CLI to submit the job, after replacing the `<VALUES-IN-BRACKETS>` with their values (also remove the brackets `<>`).
 
 ```bash
 az ml job create -f job.yml  --workspace-name <WORKSPACE-NAME> --resource-group <RG-NAME> --subscription <SUBSCRIPTION-ID>
