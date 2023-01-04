@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 services: container-service
 ms.topic: article
-ms.date: 09/26/2022
+ms.date: 12/14/2022
 ---
 
 # Use ImageCleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
@@ -91,7 +91,7 @@ In addition to choosing between manual and automatic mode, there are several opt
 |----|-----------|--------|
 |--enable-image-cleaner|Enable the ImageCleaner feature for an AKS cluster|Yes, unless disable is specified|
 |--disable-image-cleaner|Disable the ImageCleaner feature for an AKS cluster|Yes, unless enable is specified|
-|--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value is one week, the minimum value is 24 hours and the maximum is three months.|No|
+|--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
 
 > [!NOTE]
 > After disabling ImageCleaner, the old configuration still exists. This means that if you enable the feature again without explicitly passing configuration, the existing value will be used rather than the default.

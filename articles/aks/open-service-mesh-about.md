@@ -60,17 +60,17 @@ After enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep t
 * [Deploy a sample application][osm-deploy-sample-app]
 * [Onboard an existing application][osm-onboard-app]
 
-[ip-tables-redirection]: https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
-[global-exclusion]: https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
+[ip-tables-redirection]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
+[global-exclusion]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
 [osm-azure-cli]: open-service-mesh-deploy-addon-az-cli.md
 [osm-bicep]: open-service-mesh-deploy-addon-bicep.md
-[osm-deploy-sample-app]: https://release-v1-0.docs.openservicemesh.io/docs/getting_started/install_apps/
-[osm-onboard-app]: https://release-v1-0.docs.openservicemesh.io/docs/guides/app_onboarding/
+[osm-deploy-sample-app]: https://release-v1-2.docs.openservicemesh.io/docs/getting_started/install_apps/
+[osm-onboard-app]: https://release-v1-2.docs.openservicemesh.io/docs/guides/app_onboarding/
 [ip-tables-redirection]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
 [global-exclusion]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
 [nginx]: https://github.com/kubernetes/ingress-nginx
 [contour]: https://projectcontour.io/
-[osm-ingress]: https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/ingress/
-[osm-contour]: https://release-v1-0.docs.openservicemesh.io/docs/demos/ingress_contour
-[osm-nginx]: https://release-v1-0.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx
+[osm-ingress]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/
+[osm-contour]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_contour
+[osm-nginx]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx
 [web-app-routing]: web-app-routing.md

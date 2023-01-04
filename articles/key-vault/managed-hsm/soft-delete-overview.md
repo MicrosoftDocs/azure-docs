@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 author: mbaldwin
 ms.author: mbaldwin
-ms.date: 06/01/2021
+ms.date: 11/14/2022
 ---
 
 # Managed HSM soft-delete overview

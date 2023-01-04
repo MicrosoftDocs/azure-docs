@@ -1,5 +1,5 @@
 ---
-title: Upload files to Azure Blob storage by using AzCopy v10 | Microsoft Docs
+title: Upload files to Azure Blob storage by using AzCopy v10
 description: This article contains a collection of AzCopy example commands that help you upload files to Azure Blob storage. 
 author: normesta
 ms.service: storage

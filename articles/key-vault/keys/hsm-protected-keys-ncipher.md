@@ -427,7 +427,7 @@ To validate the downloaded package:
         ```
 
      > [!TIP]
-     > The nCipher nShield software includes python at %NFAST_HOME%\python\bin
+     > The nCipher nShield software includes Python at %NFAST_HOME%\python\bin
      >
      >
 2. Confirm that you see the following, which indicates successful validation: **Result: SUCCESS**

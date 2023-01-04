@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 10/27/2022
+ms.date: 11/03/2022
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -87,6 +87,10 @@ Azure Arc resource bridge currently supports the following Azure regions:
 
 * East US
 * West Europe
+* UK South
+* Canada Central
+* Australia East
+* Southeast Asia
 
 ### Regional resiliency
 

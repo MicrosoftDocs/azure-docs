@@ -281,7 +281,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
    ```
 
    > [!NOTE]
-   > Now Azure API management is able respond to cross origin requests from  your JavaScript SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
+   > Now Azure API management is able to respond to cross origin requests from  your JavaScript SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
    > 
    > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API!
 

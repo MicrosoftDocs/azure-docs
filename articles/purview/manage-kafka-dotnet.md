@@ -7,32 +7,31 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: csharp
-ms.date: 09/29/2022
+ms.date: 12/13/2022
 ms.custom: mode-other
 ---
 
 # Use Event Hubs and .NET to send and receive Atlas Kafka topics messages
+
 This quickstart teaches you how to send and receive *Atlas Kafka* topics events.  We'll make use of *Azure Event Hubs* and the **Azure.Messaging.EventHubs** .NET library.
 
-> [!IMPORTANT]
-> A managed event hub is created automatically when your *Microsoft Purview* account is created. See, [Microsoft Purview account creation](create-catalog-portal.md). You can publish messages to Event Hubs Kafka topic, ATLAS_HOOK. Microsoft Purview will receive it, process it and notify Kafka topic ATLAS_ENTITIES of entity changes. This quickstart uses the new **Azure.Messaging.EventHubs** library.
-
-
 ## Prerequisites
+
 If you're new to Event Hubs, see [Event Hubs overview](../event-hubs/event-hubs-about.md) before you complete this quickstart.
 
 To follow this quickstart, you need certain prerequisites in place:
 
 - **A Microsoft Azure subscription**. To use Azure services, including Event Hubs, you need an Azure subscription.  If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2022**. The Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# versions, but the new syntax won't be available. To make use of the full syntax, it's recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using a Visual Studio version prior to Visual Studio 2019, it doesn't have the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
-- An active [Microsoft Purview account](create-catalog-portal.md) with an Event Hubs namespace enabled. This option can be enabled during account creation or in **Managed Resources** under settings on your Microsoft Purview account page in the [Azure portal](https://portal.azure.com). Select the toggle to enable, then save. It can take a few minutes for the namespace to be available after it's enabled.
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
+- An active [Microsoft Purview account](create-catalog-portal.md).
+- [An Event Hubs configured with your Microsoft Purview account to sent and receive messages](configure-event-hubs-for-kafka.md):
+  - Your account may already be configured. You can check your Microsoft Purview account in the [Azure portal](https://portal.azure.com) under **Settings**, **Kafka configuration**. If it is not already configured, [follow this guide](configure-event-hubs-for-kafka.md).
 
-    >[!NOTE]
-    >Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/pricing/details/purview/).
+## Publish messages to Microsoft Purview
 
-## Publish messages to Microsoft Purview 
 Let's create a .NET Core console application that sends events to Microsoft Purview via Event Hubs Kafka topic, **ATLAS_HOOK**.
+
+To publish messages to Microsoft Purview, you'll need either a [managed Event Hubs](configure-event-hubs-for-kafka.md#configure-event-hubs), or [at least one Event Hubs with a hook configuration.](configure-event-hubs-for-kafka.md#configure-event-hubs-to-publish-messages-to-microsoft-purview).
 
 ## Create a Visual Studio project
 
@@ -79,20 +78,14 @@ Next create a C# .NET console application in Visual Studio:
     using Azure.Messaging.EventHubs.Producer;
     ```
 
-2. Add constants to the `Program` class for the Event Hubs connection string and Event Hubs name.
+1. Add constants to the `Program` class for the Event Hubs connection string and Event Hubs name.
 
     ```csharp
     private const string connectionString = "<EVENT HUBS NAMESPACE - CONNECTION STRING>";
     private const string eventHubName = "<EVENT HUB NAME>";
     ```
 
-    You can get the Event Hubs namespace associated with the Microsoft Purview account by looking at the Atlas kafka endpoint primary/secondary connection strings. These can be found in **Properties** tab of your account.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that shows an Event Hubs Namespace.":::
-
-    The event hub name for sending messages to Microsoft Purview is **ATLAS_HOOK**.
-
-3. Replace the `Main` method with the following `async Main` method and add an `async ProduceMessage` to push messages into Microsoft Purview. See the comments in the code for details.
+1. Replace the `Main` method with the following `async Main` method and add an `async ProduceMessage` to push messages into Microsoft Purview. See the comments in the code for details.
 
     ```csharp
         static async Task Main()
@@ -123,8 +116,8 @@ Next create a C# .NET console application in Visual Studio:
 			 
 		}
     ```
-5. Build the project. Ensure that there are no errors.
-6. Run the program and wait for the confirmation message.
+1. Build the project. Ensure that there are no errors.
+1. Run the program and wait for the confirmation message.
 
     > [!NOTE]
     > For the complete source code with more informational comments, see [this file in GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
@@ -241,15 +234,18 @@ Next create a C# .NET console application in Visual Studio:
 ```
 
 ## Receive Microsoft Purview messages
+
 Next learn how to write a .NET Core console application that receives messages from event hubs using an event processor. The event processor manages persistent checkpoints and parallel receptions from event hubs. This simplifies the process of receiving events. You need to use the ATLAS_ENTITIES event hub to receive messages from Microsoft Purview.
+
+To receive messages from Microsoft Purview, you'll need either a [managed Event Hubs](configure-event-hubs-for-kafka.md#configure-event-hubs), or [an Event Hubs notification configuration.](configure-event-hubs-for-kafka.md#configure-event-hubs-to-receive-messages-from-microsoft-purview).
 
 > [!WARNING]
 > Event Hubs SDK uses the most recent version of Storage API available. That version may not necessarily be available on your Stack Hub platform. If you run this code on Azure Stack Hub, you will experience runtime errors unless you target the specific version you are using. If you're using Azure Blob Storage as a checkpoint store, review the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and in your code, target that version.
 >
 > The highest available version of the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). If you are using Azure Stack Hub version 2005, in addition to following the steps in this section, you will also need to add code that targets the Storage service API version 2019-02-02. To learn how to target a specific Storage API version, see [this sample in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/).
- 
 
 ### Create an Azure Storage and a blob container
+
 We'll use Azure Storage as the checkpoint store. Use the following steps to create an Azure Storage account.
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
@@ -257,7 +253,6 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
 3. [Get the connection string for the storage account](../storage/common/storage-configure-connection-string.md)
 
     Make note of the connection string and the container name. You'll use them in the receive code.
-
 
 ### Create a Visual Studio project for the receiver
 
@@ -292,6 +287,7 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
     using Azure.Messaging.EventHubs.Consumer;
     using Azure.Messaging.EventHubs.Processor;
     ```
+
 1. Add constants to the `Program` class for the Event Hubs connection string and the event hub name. Replace placeholders in brackets with the real values that you got when you created the event hub and the storage account (access keys - primary connection string). Make sure that the `{Event Hubs namespace connection string}` is the namespace-level connection string, and not the event hub string.
 
     ```csharp
@@ -301,13 +297,9 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
         private const string blobContainerName = "<BLOB CONTAINER NAME>";
     ```
 
-    You can get event hub namespace associated with your Microsoft Purview account by looking at your Atlas kafka endpoint primary/secondary connection strings. This can be found in the **Properties** tab of your Microsoft Purview account.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/properties.png" alt-text="A screenshot that shows an Event Hubs Namespace.":::
-
     Use **ATLAS_ENTITIES** as the event hub name when sending messages to Microsoft Purview.
 
-3. Replace the `Main` method with the following `async Main` method. See the comments in the code for details.
+1. Replace the `Main` method with the following `async Main` method. See the comments in the code for details.
 
     ```csharp
         static async Task Main()
@@ -335,6 +327,7 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
             await processor.StopProcessingAsync();
         }    
     ```
+
 1. Now add the following event and error handler methods to the class.
 
     ```csharp
@@ -355,11 +348,13 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
             return Task.CompletedTask;
         }    
     ```
+
 1. Build the project. Ensure that there are no errors.
 
     > [!NOTE]
     > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
-6. Run the receiver application.
+
+1. Run the receiver application.
 
 ### An example of a Message received from Microsoft Purview
 
@@ -397,8 +392,8 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
 }
 ```
 
-
 ## Next steps
+
 Check out more examples in GitHub.
 
 - [Event Hubs samples in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)

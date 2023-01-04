@@ -1,12 +1,12 @@
 ---
 title: Deployment Planner for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
-ms.author: v-pgaddala
+ms.author: ankitadutta
 
 ---
 # About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure

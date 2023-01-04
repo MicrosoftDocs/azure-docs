@@ -49,4 +49,4 @@ To report data model or schema problems and suggestions, use our [GitHub reposit
 - [Write custom telemetry](./api-custom-events-metrics.md).
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - Use [sampling](./sampling.md) to minimize the amount of telemetry based on data model.
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

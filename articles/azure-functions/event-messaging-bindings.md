@@ -11,7 +11,7 @@ ms.service: azure-functions
 
 As a cloud computing service, Azure Functions is frequently used to move data between various Azure services. To make it easier for you to connect your code to other services, Functions implements a set of binding extensions to connect to these services. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-By definition, Azure Functions executions are stateless. If you need to connect your code to services in a more stateful way, consider instead using [Durable Functions](durable/durable-functions-overview.md) or [Azure Logic Apps?](../logic-apps/logic-apps-overview.md). 
+By definition, Azure Functions executions are stateless. If you need to connect your code to services in a more stateful way, consider instead using [Durable Functions](durable/durable-functions-overview.md) or [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
 
 Triggers and bindings are provided to consuming and emitting data easier. There may be cases where you need more control over the service connection, or you just feel more comfortable using a client library provided by a service SDK. In those cases, you can use a client instance from the SDK in your function execution to access the service as you normally would. When using a client directly, you need to pay attention to the effect of scale and performance on client connections. To learn more, see the [guidance on using static clients](manage-connections.md#static-clients). 
 
