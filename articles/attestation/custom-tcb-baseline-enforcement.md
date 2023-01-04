@@ -53,6 +53,60 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ## How to configure an attestation policy with custom TCB baseline using Azure portal experience
 
+### New users
+1 Create an attestation provider using Azure portal experience. Details here 
+
+2. Go to overview page and view the current default policy of the attestation provider. Details here 
+
+3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
+
+4 Click Configure, set **x-ms-sgx-tcbidentifier** claim value in the policy to the desired value and click Save 
+
+### Existing shared provider users  
+
+Shared provider users need to migrate to custom providers to be able to perform attestation against custom TCB baseline 
+
+1. Create an attestation provider using Azure portal experience. Details here 
+
+2. Go to overview page and view the current default policy of the attestation provider. Details here 
+
+3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
+
+4. Click Configure, set **x-ms-sgx-tcbidentifier** claim value in the policy to the desired value and click Save 
+
+5. Needs code deployment to send attestation requests to the custom attestation provider 
+
+### Existing custom provider users with default/custom attestation policy 
+
+1. Go to overview page and view the current default policy of the attestation provider. Details here 
+
+2. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
+
+3. Click Configure, and use the sample below for configuring an attestation policy with a custom TCB baseline.  
+
+```
+version = 1.1;  
+configurationrules  
+{  
+=> issueproperty (  
+type = "x-ms-sgx-tcbidentifier", value = "11”  
+);  
+};  
+
+authorizationrules  
+{  
+=> permit();  
+};  
+Issuancerules  
+{  
+c:[type=="x-ms-sgx-is-debuggable"] => issue(type="is-debuggable", value=c.value);  
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);  
+c:[type=="x-ms-sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);  
+c:[type=="x-ms-sgx-product-id"] => issue(type="product-id", value=c.value);  
+c:[type=="x-ms-sgx-svn"] => issue(type="svn", value=c.value);  
+c:[type=="x-ms-attestation-type"] => issue(type="tee", value=c.value);  
+};  
+```
 
 ## Key considerations:
 - It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
