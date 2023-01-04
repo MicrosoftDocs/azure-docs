@@ -584,7 +584,7 @@
           items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
-            - name: Input data for batch endpoints jobs
+            - name: Create jobs and input data for batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
             - name: Author scoring scripts for batch scoring
               href: how-to-batch-scoring-script.md

@@ -66,6 +66,8 @@
         href: ot-virtual-appliances.md
     - name: Supported OT protocols
       href: concept-supported-protocols.md
+    - name: Defender for IoT alerts
+      href: alerts.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
       displayName: Microsoft Sentinel, modernize SOC
@@ -94,17 +96,13 @@
     - name: Azure portal
       href: how-to-manage-cloud-alerts.md
     - name: Sensor console
-      items:
-      - name: View alerts from a sensor console
-        href: how-to-view-alerts.md
-      - name: Manage alerts from a sensor console
-        href: how-to-manage-the-alert-event.md
-      - name: Manage alert workflows from a sensor console
-        href: how-to-accelerate-alert-incident-response.md
-      - name: Forward alert data from a sensor console
-        href: how-to-forward-alert-information-to-partners.md
+      href: how-to-view-alerts.md
     - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Accelerate on-premises alert workflows
+      href: how-to-accelerate-alert-incident-response.md
+    - name: Forward on-premises alert data
+      href: how-to-forward-alert-information-to-partners.md
   - name: Visualize and monitor data
     items:
     - name: Visualize data with workbooks

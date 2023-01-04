@@ -34,6 +34,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Data Explorer
 - Azure Data Factory
 - Azure Database for MySQL
+- Azure Database for MySQL Flexible Server
 - Azure Database for PostgreSQL
 - Azure Databricks
 - Azure Edge Zone Platform Storage
