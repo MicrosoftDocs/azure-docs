@@ -113,7 +113,7 @@ Run ID: ca8 was successful after 10s
 
 Now quickly run the image you built and pushed to your registry. Here you use [az acr run][az-acr-run] to run the container command. In your container development workflow, this might be a validation step before you deploy the image, or you could include the command in a [multi-step YAML file][container-registry-tasks-multi-step]. 
 
-The following example uses `$Registry` to specify the registry where you run the command:
+The following example uses $Registry to specify the endpoint of the registry where you run the command:
 
 ```azurecli-interactive
 az acr run --registry myContainerRegistry008 \
