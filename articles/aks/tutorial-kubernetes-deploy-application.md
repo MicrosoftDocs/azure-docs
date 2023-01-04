@@ -3,8 +3,7 @@ title: Kubernetes on Azure tutorial - Deploy an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using a custom image stored in Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/28/2022
-
+ms.date: 01/04/2023
 ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As a developer, I want to learn how to deploy apps to an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
@@ -141,7 +140,7 @@ If the application doesn't load, it might be an authorization problem with your 
 In this tutorial, you deployed a sample Azure vote application to a Kubernetes cluster in AKS. You learned how to:
 
 > [!div class="checklist"]
-> 
+>
 > * Update a Kubernetes manifest file.
 > * Run an application in Kubernetes.
 > * Test the application.
