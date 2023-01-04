@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/12/2022
+ms.date: 11/04/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -362,11 +362,11 @@ For more information about this compliance standard, see
 |Requirement 4 |PCI DSS v3.2.1 4.1 |PCI DSS requirement 4.1 |[Secure transfer to storage accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 |Requirement 6 |PCI DSS v3.2.1 6.5.3 |PCI DSS requirement 6.5.3 |[Secure transfer to storage accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-## PCI v3.2.1 2018
+## PCI v3.2.1:2018
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for PCI v3.2.1 2018](../../../../articles/governance/policy/samples/PCIv3_2_1_2018_audit.md).
+[Azure Policy Regulatory Compliance details for PCI v3.2.1:2018](../../../../articles/governance/policy/samples/PCIv3_2_1_2018_audit.md).
 For more information about this compliance standard, see
 [PCI v3.2.1 2018](https://www.commerce.uwo.ca/pdf/PCI_DSS_v3-2-1.pdf).
 

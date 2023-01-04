@@ -4,7 +4,8 @@ description: Learn about running a test failover from on-premises to Azure, usin
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 # Run a test failover (disaster recovery drill) to Azure 

@@ -33,7 +33,7 @@ You must use the following credentials in the drone partner software to link Far
 
 ## API development
 
-The APIs contain Swagger technical documentation. For information about the APIs and corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The APIs contain Swagger technical documentation.
 
 ## Authentication
 

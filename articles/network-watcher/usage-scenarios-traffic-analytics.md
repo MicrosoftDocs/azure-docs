@@ -8,9 +8,9 @@ ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 05/11/2022
+ms.date: 05/30/2022
 ms.author: harshacs
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, engagement-fy23
 ---
 # Usage scenarios
 

@@ -1,20 +1,17 @@
 ---
 title: "Azure Arc-enabled Kubernetes validation"
-services: azure-arc
-ms.service: azure-arc
-ms.date: 03/03/2021
+ms.date: 12/07/2022
 ms.topic: how-to
 description: "Describes Arc validation program for Kubernetes distributions"
-keywords: "Kubernetes, Arc, Azure, K8s, validation"
 ---
 
 # Azure Arc-enabled Kubernetes validation
 
-Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
+Azure Arc-enabled Kubernetes works with any Kubernetes clusters that are certified by the Cloud Native Computing Foundation (CNCF). The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
 
 ## Validated distributions
 
-The following Microsoft provided Kubernetes distributions and infrastructure providers have successfully passed the conformance tests for Azure Arc-enabled Kubernetes:
+The following Microsoft-provided Kubernetes distributions and infrastructure providers have successfully passed the conformance tests for Azure Arc-enabled Kubernetes:
 
 | Distribution and infrastructure provider | Version |
 | ---------------------------------------- | ------- |
@@ -33,7 +30,7 @@ The following providers and their corresponding Kubernetes distributions have su
 | Nutanix      | [Nutanix Kubernetes Engine](https://www.nutanix.com/products/kubernetes-engine)    | Version [2.5](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Engine-v2_5:Nutanix-Kubernetes-Engine-v2_5); upstream K8s v1.23.11 |
 | Platform9      | [Platform9 Managed Kubernetes (PMK)](https://platform9.com/managed-kubernetes/)    | PMK Version [5.3.0](https://platform9.com/docs/kubernetes/release-notes#platform9-managed-kubernetes-version-53-release-notes); Kubernetes versions: v1.20.5, v1.19.6, v1.18.10 |
 | Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution | Upstream K8s Version: 1.22.10 <br> Upstream K8s Version: 1.21.3 |
-| Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version [3.5.5](https://docs.mirantis.com/mke/3.5/release-notes/3-5-5.html) <br> MKE Version [3.4.7](https://docs.mirantis.com/mke/3.4/release-notes/3-4-7.html) |
+| Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version [3.6.0](https://docs.mirantis.com/mke/3.6/release-notes/3-6-0.html) <br> MKE Version [3.5.5](https://docs.mirantis.com/mke/3.5/release-notes/3-5-5.html) <br> MKE Version [3.4.7](https://docs.mirantis.com/mke/3.4/release-notes/3-4-7.html) |
 | Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 22.06; Upstream K8s version: 1.23.1 <br>Wind River Cloud Platform 21.12; Upstream K8s version: 1.21.8 <br>Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
@@ -47,17 +44,16 @@ The Azure Arc team also ran the conformance tests and validated Azure Arc-enable
 
 The conformance tests run as part of the Azure Arc-enabled Kubernetes validation cover the following scenarios:
 
-1. Connect Kubernetes clusters to Azure Arc: 
+1. Connect Kubernetes clusters to Azure Arc:
     * Deploy Azure Arc-enabled Kubernetes agent Helm chart on cluster.
     * Agents send cluster metadata to Azure.
 
-2. Configuration: 
+2. Configuration:
     * Create configuration on top of Azure Arc-enabled Kubernetes resource.
     * [Flux](https://docs.fluxcd.io/), needed for setting up GitOps workflow, is deployed on the cluster.
     * Flux pulls manifests and Helm charts from demo Git repo and deploys to cluster.
 
 ## Next steps
 
-Learn how to connect your existing Kubernetes cluster to Azure Arc.
-> [!div class="nextstepaction"]
-> [Connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)
+* [Learn how to connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)
+* Learn about the [Azure Arc agents](conceptual-agent-overview.md) deployed on Kubernetes clusters when connecting them to Azure Arc.

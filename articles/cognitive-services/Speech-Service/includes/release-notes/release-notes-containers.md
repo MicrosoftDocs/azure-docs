@@ -2,9 +2,41 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/22/2022
+ms.date: 11/29/2022
 ms.author: eur
 ---
+
+
+### 2022-December release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.9.0
+- Speech-to-text 3.9.0
+- Text-to-speech 2.8.0
+
+Fix ipv4/ipv6 issue
+
+Fix vulnerability issue
+
+### 2022-November release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.8.0
+- Speech-to-text 3.8.0
+- Text-to-speech 2.7.0
+
+### 2022-October release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.7.0
+- Speech-to-text 3.7.0
+- Text-to-speech 2.6.0
 
 ### 2022-September release
 

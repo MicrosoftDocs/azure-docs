@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer support lifecycle | Microsoft Docs
+title: Azure Storage Explorer support lifecycle
 description: Overview of the support policy and lifecycle for Azure Storage Explorer
 services: storage
 author: MRayermannMSFT
@@ -36,6 +36,10 @@ This table describes the release date and the end of support date for each relea
 
 | Storage Explorer version  | Release date       | End of support date |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.27.0                   | December 2, 2022   | December 2, 2023    |
+| v1.26.1                   | October 17, 2022   | October 17, 2023    |
+| v1.26.0                   | October 5, 2022    | October 5, 2023     |
+| v1.25.1                   | August 12, 2022    | August 12, 2023     |
 | v1.25.0                   | August 3, 2022     | August 3, 2023      |
 | v1.24.3                   | June 21, 2022      | June 21, 2023       |
 | v1.24.2                   | May 27, 2022       | May 27, 2023        |

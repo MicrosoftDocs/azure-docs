@@ -5,7 +5,7 @@ author: emaher
 ms.topic: how-to
 ms.date: 04/25/2022
 ms.custom: devdivchpfy22
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Set up lab for React on Linux

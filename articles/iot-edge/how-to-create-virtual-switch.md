@@ -12,7 +12,7 @@ ms.author: patricka
 
 # Azure IoT Edge for Linux on Windows virtual switch creation
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 Azure IoT Edge for Linux on Windows uses a virtual switch on the host machine to communicate with the virtual machine. Windows desktop versions come with a default switch that can be used, but Windows Server *doesn't*. Before you can deploy IoT Edge for Linux on Windows to a Windows Server device, you need to create a virtual switch. Furthermore, you can use this guide to create your custom virtual switch, if needed. 
 
@@ -105,6 +105,9 @@ Note that if you're using an Azure VM, the virtual switch can't be **External**.
 The switch is now created. Next, you'll set up the DNS.
 
 ## Create DHCP Server 
+
+>[!NOTE]
+> It is possible to continue the installation without a DHCP server as long as the EFLOW VM is deployed using Static IP parameters (`ip4Address`, `ip4GatewayAddress`, `ip4PrefixLength`). If dynamic IP allocation will be used, ensure to continue with the DHCP server installation. 
 
 >[!WARNING]
 >Authorization might be required to deploy a DHCP server in a corporate network environment. Check if the virtual switch configuration complies with your corporate network's policies. For more information, see [Deploy DHCP Using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps). 

@@ -44,7 +44,7 @@ Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host N
 | Compliance with Kubernetes specification | All policy types supported |  All policy types supported |
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
 | Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
-| Logging                                  | Logs available with **kubectl log -n kube-system <network-policy-pod>** command | For more information, see [Calico component logs][calico-logs] |
+| Logging                                  | Logs available with **kubectl log -n kube-system \<network-policy-pod\>** command | For more information, see [Calico component logs][calico-logs] |
 
 ## Limitations:
 
@@ -57,6 +57,10 @@ Azure Network Policy Manager(NPM) doesn't support IPv6. Otherwise, Azure NPM ful
 
 >[!NOTE]
 > * Azure NPM pod logs will record an error if an unsupported policy is created.
+
+## Scale:
+
+With the current limits set on Azure NPM for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
 
 ## Create an AKS cluster and enable Network Policy
 
@@ -108,7 +112,6 @@ Please execute the following commands prior to creating a cluster:
 ```azurecli
  az extension add --name aks-preview
  az extension update --name aks-preview
- az feature register --namespace Microsoft.ContainerService --name AKSWindows2022Preview
  az feature register --namespace Microsoft.ContainerService --name WindowsNetworkPolicyPreview
  az provider register -n Microsoft.ContainerService
 ```
@@ -323,6 +326,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [calico-support]: https://www.tigera.io/tigera-products/calico/
 [calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
+[aks-acn-github]: https://github.com/Azure/azure-container-networking/issues
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to access Azure Storage for a .NET 
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 02/16/2022
@@ -13,6 +13,7 @@ ms.reviewer: stsoneff
 ms.devlang: csharp, azurecli
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Access Azure services from a .NET web app

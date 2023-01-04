@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.service: dedicated-hsm
 ms.devlang: azurecli
-ms.date: 01/06/2021
+ms.date: 11/14/2022
 ms.custom: devx-track-azurecli, mode-api
 ---
 
