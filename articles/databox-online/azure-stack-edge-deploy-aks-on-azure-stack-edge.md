@@ -18,11 +18,11 @@ ms.author: alkohli
 > [!NOTE]
 > Use this procedure only if you are an SAP or a PMEC customer.
 
-This article describes how to deploy and manage Azure Kubernetes Service (AKS) on your Azure Stack Edge device. You can also use this article to create persistent volumes, use GitOps to manage an Arc-enabled Kubernetes cluster, and remove AKS and Azure Arc.
+This article describes how to deploy and manage Azure Kubernetes service (AKS) on your Azure Stack Edge device. You can also use this article to create persistent volumes, use GitOps to manage an Arc-enabled Kubernetes cluster, and remove AKS and Azure Arc.
 
 The intended audience for this article is IT administrators who are familiar with setup and deployment of workloads on the Azure Stack Edge device.
 
-## About Azure Kubernetes Service on Azure Stack Edge
+## About Azure Kubernetes service on Azure Stack Edge
 
 Azure Stack Edge is an AI-enabled edge computing device with high performance network I/O capabilities. After you configure compute on your Azure Stack Edge device, you can use the Azure portal to deploy Azure Kubernetes service, including infrastructure VMs. The AKS cluster is then used for workload deployment via Azure Arc.
 
@@ -36,54 +36,76 @@ Before you begin, ensure that:
 - Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription. For detailed steps, see [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
 - If you intend to deploy Azure Arc for Kubernetes cluster, you’ll need to create a resource group. You must have owner level access to the resource group.
 
-  To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
+  To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you must be listed as an Owner.
 
-    ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)lightbox="./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png"
+    ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png) lightbox="./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png"
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed:
  
-- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription. You'll also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
+- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription.
+ 
+  You'll also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
+
+   ```azurepowershell
+   az login
+   az ad sp show --id 'bc313c14-387c-4e7d-a58e-70417303ee3b' --query id -o tsv
+   ```
 
    Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
 
    ```azurepowershell
-   az login
-   az ad sp show --id 'bc313c14-387c-4e7d-a58e-70417303ee3b' --query objectId -o tsv
+    [1d9nhq2.microsoftdatabox.com]: PS>Enable-HcsAzureKubernetesService -f
+	 [1d9nhq2.microsoftdatabox.com]: P> Set-HcsKubeClusterArcInfo –CustomLocationsObjectId 51dfe1e8-70c6-4de5-a08e-e18aff23d815
+    [1d9nhq2.microsoftdatabox.com]: PS>
    ```
 
   For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
 - If deploying Kubernetes or PMEC workloads, you may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
 
-- Get the logical processor indexes for HPN VMs:
+- If you are using HPN VMs as your infrastructure VMs, the vCPUs should be automatically reserved. Run the following command to verify the reservation:
 
      ```azurepowershell
-     Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName (hostname)
+     Get-HcsNumaLpMapping
      ```
-     Here's an example output where all the vCPUs were reserved:
+     Here's an example output:
 
      ```azurepowershell
-     [10.126.77.42]: PS>hostname
-     1DGNHQ2
-     [10.126.77.42]: PS>Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1DGNHQ2
-     { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
-     { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
-     [10.126.77.42]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39" -AssignAllCpusToRoot $false
-    ```
+     Hardware:
+      { Numa Node #0 : CPUs [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
+      { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
 
-## Deploy Azure Kubernetes Service on your Azure Stack Edge device
+     HpnCapableLpMapping:
+      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
+      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
 
-Use the following steps for single node or two node deployments.
+     BNVGF33:
+     HpnLpMapping:
+      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
+      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+
+     HpnLpAvailable:
+      { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] }
+      { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
+     ```
+
+## Deploy Azure Kubernetes Service on Azure Stack Edge
+
+There are multiple steps to deploy AKS on Azure Stack Edge. SOme steps are optional, as noted below.
  
-## Enable AKS and custom locations
+## Set custom locations (optional)
 
 1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
 
-1.	**Optionally** you can run the following command to set custom locations. Input the custom location object ID that you fetched when completing your prerequisites.
+1.	Run the following command **as an option** to set custom locations. Input the custom location object ID that you fetched when completing your prerequisites.
 
     ```azurepowershell
     Set-HcsKubeClusterArcInfo –CustomLocationsObjectId <custom_location_object_id>
     ```
+
+## Enable the Azure Kubernetes service
+
+1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
 
 1.	Run the following command to enable AKS:
 
@@ -97,9 +119,9 @@ Use the following steps for single node or two node deployments.
 
     ![Screenshot showing the Azure Kubernetes Service tile in the Overview pane of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png)
 
-## Specify static IP pools for Kubernetes pods
+## Specify static IP pools for Kubernetes pods (optional)
 
-This is an optional step where you can assign IP pools for the virtual network that will be used by Kubernetes pods. 
+This is an **optional** step where you can assign IP pools for the virtual network that will be used by Kubernetes pods. 
 
 You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes will generate a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
 
@@ -137,7 +159,7 @@ Use the following steps to assign static IP pools in the local UI of your device
 
 ## Configure the compute virtual switch
 
-You’ll now configure the virtual switch that you create for Kubernetes compute traffic.
+Use this step to configure the virtual switch for Kubernetes compute traffic.
 
 1. In the local UI of your device, go to the **Kubernetes** page.
 
@@ -157,7 +179,7 @@ You’ll now configure the virtual switch that you create for Kubernetes compute
 
      For a single node device, the above results in six IPs to deploy a Kubernetes cluster. For a two node cluster, you need seven IPs.
 
-1. For the Kubernetes external service IPs, supply static IPs for services that are exposed outside the Kubernetes cluster. Each such service would need one IP. 
+1. For the Kubernetes external service IPs, supply static IPs for services that are exposed outside the Kubernetes cluster. Each such service requires one IP. 
 
     ![Screenshot that shows the Compute virtual switch options on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png)
 
@@ -181,12 +203,12 @@ This step is required to allow the Azure Stack Edge portal to deploy the infrast
 
 ## Set up Kubernetes cluster and enable Arc
 
-You’ll now set up and deploy the Kubernetes cluster and enable it for management via Arc.
+Use this step to set up and deploy the Kubernetes cluster, and enable it for management via Arc.
 
    > [!IMPORTANT]
-   > Before you proceed to create the Kubernetes cluster, keep in mind that:
+   > Before you create the Kubernetes cluster, keep in mind that:
    >- You can't modify the IP pool settings after the AKS cluster is deployed.
-   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom locations](#enable-aks-and-custom-locations) in this article. If you didn’t enable custom locations, you can still choose to do this before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
+   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom locations](#set-custom-locations-(optional) in this article. If you didn’t enable custom locations, you can still choose to do so before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
 
 Follow these steps to deploy the AKS cluster.
 
