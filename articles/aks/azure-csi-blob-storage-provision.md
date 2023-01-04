@@ -233,6 +233,7 @@ This section provides guidance for cluster administrators who want to create one
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
+|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`.<br> Note: The `#` character is reserved for internal use and can't be used in a volume handle. | Yes ||
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver uses the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify an existing Azure storage account name. | storageAccountName | Yes ||
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
@@ -292,6 +293,10 @@ The following example demonstrates how to mount a Blob storage container as a pe
 
 1. Create a file named `pv-blob-nfs.yaml` and copy in the following YAML. Under `storageClass`, update `resourceGroup`, `storageAccount`, and `containerName`.
 
+   > [!NOTE]
+   > `volumeHandle` value should be a unique volumeID for every identical storage blob container in the cluster.
+   > The character `#` is reserved for internal use and cannot be used.
+
     ```yml
     apiVersion: v1
     kind: PersistentVolume
@@ -307,8 +312,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-        # make sure this volumeid is unique in the cluster
-        # `#` is not allowed in self defined volumeHandle
+        # make sure volumeid is unique for every identical storage blob container in the cluster
+        # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           resourceGroup: resourceGroupName
@@ -373,6 +378,10 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
 2. Create a `pv-blobfuse.yaml` file. Under `volumeAttributes`, update `containerName`. Under `nodeStateSecretRef`, update `name` with the name of the Secret object created earlier. For example:
 
+   > [!NOTE]
+   > `volumeHandle` value should be a unique volumeID for every identical storage blob container in the cluster.
+   > The character `#` is reserved for internal use and cannot be used.
+
     ```yml
     apiVersion: v1
     kind: PersistentVolume
@@ -391,8 +400,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-        # make sure this volumeid is unique in the cluster
-        # `#` is not allowed in self defined volumeHandle
+        # volumeid has to be unique for every identical storage blob container in the cluster
+        # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           containerName: containerName
