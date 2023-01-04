@@ -10,7 +10,7 @@ author: dem108
 ms.author:  sehan
 ms.reviewer: mopeakande
 ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
-ms.date: 08/18/2022
+ms.date: 01/04/2023
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
