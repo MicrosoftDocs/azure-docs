@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 01/04/2023
 ms.author: kgremban
 ms.custom: devx-track-python, py-fresh-zinc
 ---
