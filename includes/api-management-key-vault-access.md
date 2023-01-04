@@ -12,14 +12,16 @@ ms.author: danlep
     
     To configure Azure RBAC access:
 
+    
     1. In the left menu, select **Access control (IAM)**.
     1. On the **Access control (IAM)** page, select **Add role assignment**.
-        1. On the **Role** tab, select **Key Vault Reader**.
-        1. On the **Members** tab, select **Managed identity** > **+ Select members**.
-        1. On the **Select managed identity** page, select a managed identity associated with your API Management instance, and then select **Select**.
-        1. Select **Review + assign**.
+    1. On the **Role** tab, select **Key Vault Reader**.
+    1. On the **Members** tab, select **Managed identity** > **+ Select members**.
+    1. On the **Select managed identity** page, select a managed identity associated with your API Management instance, and then select **Select**.
+    1. Select **Review + assign**.
     
     To add a key vault access policy:
+    
 
     1. In the left menu, select **Access policies**.
     1. On the **Access policies** page,select **+ Create**.
