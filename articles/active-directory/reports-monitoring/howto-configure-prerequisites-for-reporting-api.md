@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. Authentication must  be enabled with the reporting API using one of two methods: app-only access and delegated access.
+The Azure Active Directory (Azure AD) [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. Authentication must  be enabled with the reporting API using one of two methods: app-only access and delegated access.
 
-This article describes how to enable MS Graph to access the Azure AD reporting API using both authentication methods. For more information on the authentication methods, see [Introduction to permissions and consent](../develop/permissions-consent-overview.md).
+This article describes how to enable MS Graph to access the Azure AD reporting APIs using both authentication methods. For more information on the authentication methods, see [Introduction to permissions and consent](../develop/permissions-consent-overview.md).
 
 ## Roles and license requirements
 
