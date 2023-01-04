@@ -26,6 +26,14 @@ To determine if you're eligible to buy a plan, [check your billing type](../mana
 
 Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement (MPA).
 
+## Change agreement type to one supported by savings plan
+
+If your current agreement type isn't supported by a savings plan, you might be able to transfer or migrate it to one that's supported. For more information, see the following articles.
+
+- [Transfer Azure products between different billing agreements](../manage/subscription-transfer.md)
+- [Product transfer support](../manage/subscription-transfer.md#product-transfer-support)
+- [From MOSA to the Microsoft Customer Agreement](https://www.microsoft.com/licensing/news/from-mosa-to-microsoft-customer-agreement)
+
 ### Enterprise Agreement customers
 
 -	EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No specific permission for a subscription is needed.

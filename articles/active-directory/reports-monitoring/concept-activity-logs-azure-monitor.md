@@ -8,44 +8,50 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2022
+ms.date: 12/02/2022
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 # Azure AD activity logs in Azure Monitor
 
-You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
-* Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
+* Archive Azure AD activity logs to an Azure storage account.
 * Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools such as Splunk, QRadar, and Microsoft Sentinel.
 * Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
-* Send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data.
+* Send Azure AD activity logs to Azure Monitor to enable rich visualizations, monitoring, and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## Supported reports
 
-You can route Azure AD audit logs and sign-in logs to your Azure Storage account, event hub, Azure Monitor logs, or custom solution by using this feature.
+You can route Azure AD audit logs and sign-in logs to your Azure Storage account, an event hub, Azure Monitor, or a custom solution.
 
-* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to information about changes applied to your tenant, such as users and group management, or updates applied to your tenant’s resources.
+* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+* **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
+* **Risky users logs**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
+* **Risk detections logs**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-## Prerequisites
+## Getting started
 
-To use this feature, you need:
+To use this feature, you need the appropriate license and roles.
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD audit logs in the Azure portal. 
-* An Azure AD tenant.
-* A user who's a **Global Administrator** or **Security Administrator** for the Azure AD tenant.
+* Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
 * Azure AD Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD sign-in logs in the Azure portal. 
+* **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
 
-Depending on where you want to route the audit log data, you need one of the following endpoints:
+Depending on where you want to route the audit log data, you also need one of the following endpoints:
 
-* An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An Azure Event Hubs namespace to integrate with third-party solutions.
-* An Azure Log Analytics workspace to send logs to Azure Monitor logs.
+* An **[Azure Log Analytics workspace](tutorial-log-analytics-wizard.md)** to send Azure AD logs to Azure Monitor. 
+* An **[Azure storage account](../../storage/common/storage-account-create.md)** that you have `ListKeys` permissions for.
+    - We recommend that you use a general storage account and not a Blob storage account.
+    - For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* An **[Azure Event Hubs namespace](../../event-hubs/event-hubs-create.md)** to integrate with third-party solutions.
+
+Once you have your endpoint established, go to **Azure AD** and then **Diagnostic settings.** From here you can choose what logs to send to the endpoint of your choice. For more information, see the **Create diagnostic settings** section of the [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings) article.
 
 ## Cost considerations
 
@@ -67,13 +73,18 @@ The following table contains a cost estimate of, depending on the size of the te
 | Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 |
  
 
+If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
+
+
+
+
 ### Event Hubs messages for activity logs
 
 Events are batched into approximately five-minute intervals and sent as a single message that contains all the events within that timeframe. A message in the Event Hubs has a maximum size of 256 KB. If the total size of all the messages within the timeframe exceeds that volume, multiple messages are sent. 
 
-For example, about 18 events per second ordinarily occur for a large tenant of more than 100,000 users, a rate that equates to 5,400 events every five minutes. Because audit logs are about 2 KB per event, this equates to 10.8 MB of data. Therefore, 43 messages are sent to the Event Hub in that five-minute interval. 
+For example, about 18 events per second ordinarily occur for a large tenant of more than 100,000 users, a rate that equates to 5,400 events every five minutes. Because audit logs are about 2 KB per event, this equates to 10.8 MB of data. Therefore, 43 messages are sent to the event hub in that five-minute interval. 
 
-The following table contains estimated costs per month for a basic Event Hub in West US, depending on the volume of event data which can vary from tenant to tenant as per many factors like user sign-in behavior etc. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hubs pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
+The following table contains estimated costs per month for a basic event hub in West US, depending on the volume of event data which can vary from tenant to tenant as per many factors like user sign-in behavior etc. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hubs pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Log category | Number of users | Events per second | Events per five-minute interval | Volume per interval | Messages per interval | Messages per month | Cost per month (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
@@ -169,6 +180,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 ## Next steps
 
+* [Create a storage account](../../storage/common/storage-account-create.md)
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

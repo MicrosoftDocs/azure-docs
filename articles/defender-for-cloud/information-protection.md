@@ -24,9 +24,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|You'll need a Microsoft Purview account to create the data sensitivity classifications and run the scans. The integration between Purview and Microsoft Defender for Cloud doesn't incur extra costs, but the data is shown in Microsoft Defender for Cloud only for enabled plans.|
 |Required roles and permissions:|**Security admin** and **Security contributor**|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
-
-
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Regions: East US, East US 2, West US 2, West Central US, South Central US, Canada Central, Brazil South, North Europe, West Europe, UK South, Southeast Asia, Central India, Australia East) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 
 ## The triage problem and Defender for Cloud's solution
 Security teams regularly face the challenge of how to triage incoming issues. 
@@ -44,9 +42,10 @@ Microsoft Purview's data sensitivity classifications and data sensitivity labels
 ## Discover resources with sensitive data
 To provide information about discovered sensitive data and help ensure you have that information when you need it, Defender for Cloud displays information from Microsoft Purview in multiple locations.
 
-> [!TIP]
-> If a resource is scanned by multiple Microsoft Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
+Purview scans produce insights into the nature of the sensitive information so you can take action to protect that information:
 
+- If a resource is scanned by multiple Microsoft Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
+- Classifications and labels are shown for resources that were scanned within the last 3 months.
 
 ### Alerts and recommendations pages
 When you're reviewing a recommendation or investigating an alert, the information about any potentially sensitive data involved is included on the page. You can also filter the list of alerts by **Data sensitivity classifications** and **Data sensitivity labels** to help you focus on the alerts that relate to sensitive data.

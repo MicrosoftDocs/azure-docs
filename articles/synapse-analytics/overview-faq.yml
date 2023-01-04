@@ -217,3 +217,5 @@ additionalContent: |
      * [Get started with Azure Synapse Analytics](get-started.md)
      * [Create a workspace](quickstart-create-workspace.md)
      * [Use serverless SQL pool](quickstart-sql-on-demand.md)
+     * [Azure Synapse Analytics known issues](known-issues.md)
+     * [What's New in Azure Synapse Analytics](whats-new.md)

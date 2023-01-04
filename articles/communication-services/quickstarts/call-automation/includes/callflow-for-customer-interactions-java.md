@@ -12,6 +12,10 @@ ms.custom: include file
 ms.author: askaur
 ---
 
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_SimpleIvr)
+
 ## Prerequisites
 
 - Azure account with an active subscription.
@@ -119,7 +123,7 @@ public class ActionController {
     private Environment environment;
     private CallAutomationAsyncClient client;
  
-    private String connectionString = "<resource_connection_string>"); //noted from pre-requisite step
+    private String connectionString = "<resource_connection_string>"; //noted from pre-requisite step
     private String callbackUri = "<public_url_generated_by_ngrok>";
     private Uri mediaFileSource = new Uri("<link_to_media_file>");
     private String applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";

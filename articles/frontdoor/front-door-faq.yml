@@ -122,8 +122,7 @@ sections:
           > [!Note]  
           > Most custom TLS/SSL certificate updates take from several minutes to an hour to be deployed globally.
           
-          Any updates to routes or backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage, unless switching from 'AFD Managed' to 'Use your own cert' or vice versa.
-          
+          Any updates to routes or origin groups/backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage.
           
   - name: Configuration
     questions:

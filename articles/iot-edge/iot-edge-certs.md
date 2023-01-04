@@ -12,7 +12,7 @@ services: iot-edge
 
 # Understand how Azure IoT Edge uses certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 IoT Edge uses different types of certificates for different purposes. This article walks you through the different ways that IoT Edge uses certificates with Azure IoT Hub and IoT Edge gateway scenarios.
 
@@ -374,7 +374,7 @@ For proof of concept development, you can create test certificates. For more inf
 
 ### Certificate authority
 
-The certificate authority (CA) is an entity that issues digital certificates. A certificate authority acts as a trusted third party between the owner and the receiver of the certificate. A digital certificate certifies the ownership of a public key by the receiver of the certificate. The certificate chain of trust works by initially issuing a root certificate, which is the basis for trust in all certificates issued by the authority. The root certificate owner can then issue additional intermediate certificates (*leaf* certificates).
+The certificate authority (CA) is an entity that issues digital certificates. A certificate authority acts as a trusted third party between the owner and the receiver of the certificate. A digital certificate certifies the ownership of a public key by the receiver of the certificate. The certificate chain of trust works by initially issuing a root certificate, which is the basis for trust in all certificates issued by the authority. The root certificate owner can then issue additional intermediate certificates (downstream device certificates).
 
 ### Root CA certificate
 

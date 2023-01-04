@@ -34,8 +34,7 @@ Use MLflow to query and manage all the experiments in Azure Machine Learning. Th
 
 ### Prerequisites
 
-* Install `azureml-mlflow` plug-in.
-* If you're running in a compute not hosted in Azure ML, configure MLflow to point to the Azure ML tracking URL. You can follow the instruction at [Track runs from your local machine](how-to-use-mlflow-cli-runs.md).
+[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
 ## Getting all the experiments
 
@@ -245,10 +244,10 @@ To compare and evaluate the quality of your jobs and models in AzureML Studio, u
 :::image type="content" source="media/how-to-track-experiments-mlflow/compare.gif" alt-text="Screenshot of the preview panel showing how to compare jobs and models in AzureML studio.":::
 
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/notebooks/using-mlflow) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/using-mlflow) demonstrate and expand upon concepts presented in this article.
 
-  * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
-  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/run-history/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
+  * [Training and tracking a classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb): Demonstrates how to track experiments using MLflow, log models and combine multiple flavors into pipelines.
+  * [Manage experiments and runs with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/run-history/run_history.ipynb): Demonstrates how to query experiments, runs, metrics, parameters and artifacts from Azure ML using MLflow.
 
 
 ## Support matrix for querying runs and experiments

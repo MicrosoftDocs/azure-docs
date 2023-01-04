@@ -92,7 +92,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 			"warnings": []
 		}],
 		"errors": [],
-		"modelVersion": "2021-11-20"
+		"modelVersion": "2022-10-01"
 	}
 }
 ```

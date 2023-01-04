@@ -61,6 +61,8 @@ landingContent:
           url: install-vmware-hcx.md
         - text: 5 - Configure on-premises VMware HCX Connector
           url: configure-vmware-hcx.md
+        - text: 6 - Uninstall VMware HCX in Azure VMware Solution
+          url: uninstall-vmware-hcx.md
       - linkListType: tutorial
         links:
         - text: 1 - Network planning checklist

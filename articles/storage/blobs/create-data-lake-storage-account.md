@@ -1,12 +1,13 @@
 ---
 title: Create a storage account for Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn how to create a storage account for use with Azure Data Lake Storage Gen2.
-author: normesta
+author: jimmart-dev
+
 ms.topic: how-to
-ms.author: normesta
+ms.author: jammart
 ms.date: 10/14/2021
 ms.service: storage
-ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
 ---
 
