@@ -86,7 +86,7 @@ Shared private links and private endpoints are used when search service **Public
 
 If you observe that the connectivity change operation is taking a significant amount of time, wait for a few hours. Connectivity change operations involve operations such as updating DNS records which may take longer than expected.
 
-If **Public Network Access** is changed, existing shared private links and private endpoints may not work correctly. If existing shared private links and private endpoints stop working after a network connectivity change operation, try deleting and recreating them.
+If **Public Network Access** is changed, existing shared private links and private endpoints may not work correctly. If existing shared private links and private endpoints stop working during a connectivity change operation, wait a few hours for the operation to complete. If they are still not working, try deleting and recreating them.
 
 ## Shared private link resource stalled in an "Updating" or "Incomplete" state
 
