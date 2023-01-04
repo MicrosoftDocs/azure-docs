@@ -37,8 +37,6 @@ You can define a single data collection rule to send data from multiple machines
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
 
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 ### [Portal](#tab/portal)
 
 To create the data collection rule in the Azure portal:
@@ -98,6 +96,8 @@ To create the data collection rule in the Azure portal:
 1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
 
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 ### [Resource Manager template](#tab/arm)
 
 1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
@@ -282,6 +282,9 @@ To create the data collection rule in the Azure portal:
     1. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Select **Apply**.
     
         :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
+
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 
 ---
 
