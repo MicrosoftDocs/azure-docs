@@ -556,66 +556,66 @@ Use the following steps to create a multi-node configuration with two Azure Stac
 
 1. Sign into the device.
 
-   ```azurepowershell
-   Set-Login "https://<IP address>" "Password"
-   ```
+    ```azurepowershell
+    Set-Login "https://<IP address>" "Password"
+    ```
 
 1.	Fetch the device configuration.
 
-   ```azurepowershell
-   Get-DeviceConfiguration | To-json
-   ```
+    ```azurepowershell
+    Get-DeviceConfiguration | To-json
+    ```
 
 1.	Set the VIP configuration property, static configuration.
 
-   ```azurepowershell
-   $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
-   ```
+    ```azurepowershell
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = "192.168.181.10"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+    ```
 
 1.	Create a VIP object with the VIP properties and DHCP configuration.
 
-   ```azurepowershell
-   $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "192.168.181.11"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
-   ```
-   For a DHCP configuration:
+    ```azurepowershell
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = "192.168.181.11"; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $false }
+    ```
+    For a DHCP configuration:
 
-   ```azurepowershell
-   $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
-   $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
-   ```
+    ```azurepowershell
+    $acsVip = New-Object PSObject  -Property @{ Type = "ACS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    $nfsVip = New-Object PSObject  -Property @{ Type = "NFS"; VipAddress = $null; ClusterNetworkAddress = "192.168.0.0"; IsDhcpEnabled = $true }
+    ```
 
 1.	Create a package.
 
-   ```azurepowershell
-   $p = New-Package -VIP $nfsvip
-   ```
+    ```azurepowershell
+    $p = New-Package -VIP $nfsvip
+    ```
 
 1.	Run the package.
 
-   ```azurepowershell
-   $newCfg = Set-DeviceVip -vip $nfsVip $p
-   ```
+    ```azurepowershell
+    $newCfg = Set-DeviceVip -vip $nfsVip $p
+    ```
 
-   Here is a sample output:
+    Here is a sample output:
 
 1. Monitor status of the operation. It may take 10 minutes or more for the changes to complete.
 
-   ```azurepowershell
-   Get-DeviceConfigurationStatus | To-json
-   ```
+    ```azurepowershell
+    Get-DeviceConfigurationStatus | To-json
+    ```
 1.	Fetch the updated device configuration.
 
-   ```azurepowershell
-   Get-DeviceConfiguration | To-json
-   ```
+    ```azurepowershell
+    Get-DeviceConfiguration | To-json
+    ```
 
 1.	Fetch the updated VIP configuration property.
 
-   ```azurepowershell
-   Get-DeviceVip | to-json
-   ```
+    ```azurepowershell
+    Get-DeviceVip | to-json
+    ```
 
-   Here is a sample output:
+    Here is a sample output:
 
 
 ## Troubleshooting
