@@ -621,7 +621,7 @@
         - name: Inference HTTP server
           displayName: local debug
           href: how-to-inference-server-http.md
-    - name: MLflow
+    - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
           href: how-to-use-mlflow-configure-tracking.md
