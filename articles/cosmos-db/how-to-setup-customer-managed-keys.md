@@ -285,7 +285,7 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 1.	If the system-assigned managed identity wasn't configured during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-a-system-assigned-identity) on your account and copy the `principalId` that got assigned.
 
-1.	Add the correspondent permissions to your Azure Key Vault account as described above. If you are using access policies please refer [to this section](#add-an-access-policy-to-your-azure-key-vault-instance), if you are using role-bases authentication please refer [to this section](#adding-the-roles-to-your-azure-key-vault-instance) otherwise. But instead of using the Cosmos DB principal, use the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
+1.	Add the correspondent permissions to your Azure Key Vault account as described above. If you are using access policies please refer [to this section](#add-access-policy), if you are using role-bases authentication please refer [to this section](#add-roles) otherwise. But instead of using the Cosmos DB principal, use the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
 
 1.	Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You have two options:
 
