@@ -848,7 +848,7 @@ batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
 batch, channel, height_onnx, width_onnx
 ```
 
-For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items).
 
 ```python
 import glob
