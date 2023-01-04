@@ -149,11 +149,11 @@ The data collected on each package includes:
 
 ## Peripheral events (event-based collector)
 
-Collects connections and disconnections of USB and Ethernet.
+The Peripheral events collector collect connections and disconnections of USB and Ethernet events.
 
 Collected fields depend on the type of event:
 
-**USB event**
+**USB events**
 
 | Parameter | Description|
 |--|--|
@@ -161,14 +161,14 @@ Collected fields depend on the type of event:
 | **ActionType** | Whether the event was a connection or disconnection event. |
 | **bus_number** | Specific controller identifier, each USB device can have several. |
 | **kernel_device_number** | Representation in the kernel of the device, not unique and can each time the device is connected. |
-| **device_class** | Identifier specifying the type of device.  |
+| **device_class** | Identifier specifying the class of device.  |
 | **device_subclass** | Identifier specifying the type of device. |
-| **device_protocol** | Identifier specifying the protocol of device. |
+| **device_protocol** | Identifier specifying the device protocol. |
 | **interface_class** | In case device class is 0, indicate the type of device. |
 | **interface_subclass** | In case device class is 0, indicate the type of device. |
 | **interface_protocol** | In case device class is 0, indicate the type of device. |
 
-**Ethernet event**
+**Ethernet events**
 
 | Parameter | Description|
 |--|--|
@@ -179,22 +179,22 @@ Collected fields depend on the type of event:
 
 ## File system events (event-based collector)
 
-Collects events whenever there are changes under watch directories for: creation, deletion, move and modification of directories and files.
-To define which directories and files you would like to monitor please see [System information collector specific settings](concept-micro-agent-configuration.md).
+The file system events collector collects events whenever there are changes under watch directories for: creation, deletion, move, and modification of directories and files.
+To define which directories and files you would like to monitor, see [System information collector specific settings](concept-micro-agent-configuration.md).
 
 The following data is collected:
 
 | Parameter | Description|
 |--|--|
 | **Timestamp** | The time the event occurred. |
-| **Mask** | Linux inotify mask related to the file system event, the mask identify the type of the action and can be one of the following: Access/Modified/Metadata changed/Closed/Opened/Moved/Created/Deleted. |
+| **Mask** | Linux inotify mask related to the file system event, the mask identifies the type of the action and can be one of the following: Access/Modified/Metadata changed/Closed/Opened/Moved/Created/Deleted. |
 | **Path** | Directory/file path the event was generated to. |
 | **Hitcount** | Number of times this event was aggregated. |
 
 ## Statistics data (trigger-based collector)
 
-The Statistics collector generates various statistics on the different micro agent collectors, these statistics provide information about the performance of the collectors in the previous collection cycle.
-Examples of possible statistics include the number of events that were successfully sent and the number of events that were dropped, along with the reasons for the failures.
+The Statistics collector generates various statistics on the different micro agent collectors. These statistics provide information about the performance of the collectors in the previous collection cycle.
+Examples of possible statistics include the number of events that were successfully sent, and the number of events that were dropped, along with the reasons for the failures.
 
 Collected fields:
 

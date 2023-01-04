@@ -152,7 +152,9 @@ A compute instance is considered inactive if the below conditions are met:
 * No SSH connections
 * No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
 
-Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of three days.
+Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of three days. 
+
+Also, if a CI has already been idle for a certain amount of time, and the idle shutdown settings are updated to shut the CI off after an amount of time shorter than the current idle duration, then the idle time clock on the CI will be reset to 0. For example, if the CI has already been idle for 20 minutes, and the idle shutdown settings are updated to shut the CI off after 15 minutes of idle time, the idle time clock will be reset to 0.
 
 This setting can be configured during CI creation or for existing CIs via the following interfaces:
 * AzureML Studio
