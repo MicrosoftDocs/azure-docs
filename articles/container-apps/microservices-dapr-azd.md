@@ -92,7 +92,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
 
    **Expected output:**
    
-   A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to a SQL database using the PostgreSQL Dapr binding.
+   A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to an SQL database using the PostgreSQL Dapr binding.
    
    ```
    == APP == {"sql": "insert into orders (orderid, customer, price) values (1, 'John Smith', 100.32);"}
@@ -139,7 +139,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. For more informaiton, refer to [What is an Environment Name in `azd`?](/developer/azure-developer-cli/faq.yml#what-is-an-environment-name) |
+   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. For more information, refer to [What is an Environment Name in `azd`?](/developer/azure-developer-cli/faq.yml#what-is-an-environment-name) |
    | `Azure Location`   | The Azure location where your resources are deployed. |
    | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
 
