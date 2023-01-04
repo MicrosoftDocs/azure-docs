@@ -449,6 +449,8 @@ In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and th
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
     <OutputClaim ClaimTypeReferenceId="identityProvider" />
 ```
+We've included the identity provider (*identityProvider*) as an output claim, so it it will be available in the JWT token returned to the relying party application. 
+ 
 ## Step 6 - Upload policy
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
@@ -457,13 +459,36 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 Follow the steps in [Test the custom policy](custom-policies-series-validate-user-input.md#step-5---test-the-custom-policy) to test your custom policy. 
 
-Once the policy runs, you're redirected to a Facebook sign-in page. We set this as so from our orchestration steps since we don't have multiple sign in options to choose from. 
+You're redirected to a Facebook sign-in page. Enter your Facebook credentials, and then select **Log In**. 
+You're directly redirected to Facebook as we set it so in our orchestration steps since we don't have multiple sign in options to choose from. Typically, in an app, you'd add a button like **Sign in with Facebook**, which when selected, runs the policy. 
 
-Observation: 
+If it's the first time running this policy (social account doesn't already exist), you see a screen such as the one shown below. You won't see this screen in subsequent policy execution (social account already exist).  
 
-On running the policy, you're redirected to facebook. Typically, in an app, you'd add a button, that, when selected, runs the policy. If it's the first time (using facebook), you see a screen to collect more information <add an image>. you don't see this in subsequent sign in. 
+:::image type="content" source="media/custom-policies-series-sign-up-or-sign-in-federation/screenshot-of-sign-in-social-account.png" alt-text="Screenshot of sign in flow with social account."::: 
+
+Enter or update **Display Name**, **Given Name** and the **Surname**, and then select **Continue** button.  
+
+After the policy finishes execution, you're redirected to https://jwt.ms, and you see a decoded JWT token. It looks similar to the following JWT token snippet:
+
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "pxLOMWFgP4T..."
+}.{
+   ...
+  "acr": "b2c_1a_contosocustompolicy",
+   ...
+  "given_name": "Maurice",
+  "family_name": "Paulet",
+  "name": "Maurice Paulet",
+  "email": "maurice.p@contoso.com",
+  "idp": "facebook.com"
+}.[Signature]
+```
+
+Notice the identity provider, `"idp": "facebook.com"`, has been included in the JWT token.  
 
 ## Next steps 
 
-We made references only to social sign in artifacts. it means we've some elements or code that we don't need use.  
-How to read an existing custom policy file to remove code that's not needed.
+- Learn more about how to [Define an OAuth2 technical profile in an Azure Active Directory B2C custom policy](oauth2-technical-profile.md).

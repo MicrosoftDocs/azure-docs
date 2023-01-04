@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 30/12/2022
+ms.date: 01/30/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

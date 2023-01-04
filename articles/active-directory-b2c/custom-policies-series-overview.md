@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.custom: b2c-docs-improvements
-ms.date: 12/30/2022
+ms.date: 01/30/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -43,7 +43,6 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Read or update a user account by using Azure Active Directory B2C custom policy](custom-policies-series-read-update-user.md)| Learn how to read or update user details in Azure AD storage by using Azure AD B2C custom policy. You use the Azure Active Directory Technical profile.|
 |[Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md). | Learn how to configure a sign-up and sign-in flow with  a local account, (using email and password) by using Azure Active Directory B2C custom policy. You show a user a sign-in interface for them to sign in by using their existing account, but they can create a new account if they don't already have one.|
 | [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md) | Learn how to configure a sign-up and sign-in flow with  a social account, Facebook. |
-|[How to read Azure Active Directory B2C custom policy files ](custom-policies-series-how-to-read.md)| Learn how to read and understand existing Azure Active Directory B2C custom policy files. |
 
 
 ## Next steps 
