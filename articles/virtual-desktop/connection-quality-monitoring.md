@@ -3,11 +3,11 @@ title: Collect and query Azure Virtual Desktop connection quality data (preview)
 description: How to set up and query the connection quality data table for Azure Virtual Desktop to diagnose connection issues.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 01/05/2023
 ms.author: helohr
 manager: femila
 ---
-# Collect and query connection quality data (preview)
+# Collect and query connection quality data
 
 >[!IMPORTANT]
 >The Connection Graphics Data Logs are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
