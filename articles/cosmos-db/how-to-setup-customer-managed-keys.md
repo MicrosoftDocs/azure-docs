@@ -315,7 +315,7 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 ### To use a user-assigned managed identity
 
-1.	When creating the new access policy as described [above](#add-access-policy) or role assignment as described [above](#adding-the-roles-to-your-azure-key-vault-instance) in your Azure Key Vault account, use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
+1.	When creating the new access policy as described [above](#add-access-policy) or role assignment as described [above](#add-roles) in your Azure Key Vault account, use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
 
 
 1.	When creating your Azure Cosmos DB account, you must enable the user-assigned managed identity and specify that you want to use this identity when accessing your encryption keys in Azure Key Vault. Options include:
