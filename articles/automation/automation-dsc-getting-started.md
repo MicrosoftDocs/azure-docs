@@ -197,7 +197,7 @@ The DSC node can take any of the following six values as follows:
 
 >[!NOTE]
 >- **RefreshFrequencyMins** - It defines the frequency of node contacting the agent service and can be provided as part of onboarding to DSC. It takes a maximum value of 10080 minutes.
->- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use values **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state. 
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state. 
 
 ## View reports for managed nodes
 
