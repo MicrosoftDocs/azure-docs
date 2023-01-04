@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
+Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-chat) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 
