@@ -19,13 +19,13 @@ ms.date: 12/08/2022
 To simplify this process even further, you can deploy a Dapr application using the developer-focused [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md).
 In this guide, you:
 > [!div class="checklist"]
-> * Deploy a Dapr bindings API microservice application locally using the Dapr CLI. 
+> * Use the Dapr CLI to run a microservice application that leverages the Dapr bindings APIs. 
 > * Redeploy the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
 > * Explore how `azd` works with the Dapr application template with just one command.
 
 The Dapr service you deploy:
-1. Listens to input binding events from a system CRON (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
-1. Outputs the contents of local data to a [PostgreSQL](https://www.postgresql.org/) output binding.  
+1. Listens to input binding events from a system CRON component (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
+1. Outputs the contents of local data to a [PostgreSQL](https://www.postgresql.org/) component output binding.  
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-application.png" alt-text="Diagram of the Dapr binding application.":::
 
@@ -39,7 +39,7 @@ The Dapr service you deploy:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
 
-## Deploy a Dapr application locally
+## Run the Dapr application locally
 
 ### Prepare the project
 
@@ -76,7 +76,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    cd bindings-dapr-nodejs-cron-postgres/batch
    ```
 
-1. Update `npm`:
+1. Install the dependencies:
 
    ```bash
    npm install
@@ -88,7 +88,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    dapr run --app-id batch-sdk --app-port 5002 --dapr-http-port 3500 --components-path ../components -- node index.js
    ```
 
-   The `dapr run` command kicks off the local deployment of the Dapr binding application. Upon successful deployment, the terminal window will show the output binding data.
+   The `dapr run` command runs the Dapr binding application locally. Once the application is running successfully, the terminal window shows the output binding data.
 
    **Expected output:**
    
@@ -121,13 +121,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git) to your local machine.
-
-   ```bash
-   git clone https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git
-   ```
-
-1. Navigate into the sample's root directory.
+1. Navigate into the [sample's](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git) root directory.
 
    ```bash
    cd bindings-dapr-nodejs-cron-postgres
@@ -150,7 +144,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
 
 
-1. Provision the Bicep infrastructure and deploy the Dapr application to Azure Container Apps:
+1. Provision the infrastructure and deploy the Dapr application to Azure Container Apps:
 
    ```azdeveloper
    azd up
@@ -159,9 +153,7 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    This process may take some time to complete, as the `azd up` command:
 
    - Initializes your project (azd init)
-   - Creates and configures all necessary Azure resources (azd provision), including:
-     - Access policies and roles for your account
-     - Service-to-service communication with Managed Identities
+   - Creates and configures all necessary Azure resources (azd provision)
    - Deploys the code (azd deploy)
    
    As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
