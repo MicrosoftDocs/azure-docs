@@ -114,6 +114,9 @@ Relation of type: DosageOfMedication has the following roles
 ...Role 'Medication' with entity 'ibuprofen'
 ```
 
+> [!TIP]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.

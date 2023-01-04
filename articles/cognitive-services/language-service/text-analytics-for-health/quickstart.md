@@ -51,9 +51,6 @@ This article contains Text Analytics for health quickstarts that help with using
 
 ::: zone-end
 
-> [!TIP]
-> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
-
 ## Next steps
 
 * [How to call the hosted API](./how-to/call-api.md)

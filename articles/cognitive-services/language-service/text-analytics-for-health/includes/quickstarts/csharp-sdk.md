@@ -181,6 +181,9 @@ Results of Azure Text Analytics for health async model, version: "2022-03-01"
       Associated Entity Category: Frequency
 ```
 
+> [!TIP]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
