@@ -15,4 +15,4 @@ ms.custom: include file
 - [Client library reference documentation](/java/api/overview/azure/storage-blob-readme)
 - [Client library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 - [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-- [Samples](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json#blob-samples)
+- [Blob Storage code samples](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json#blob-samples)

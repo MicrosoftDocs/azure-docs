@@ -62,8 +62,7 @@ The following example creates a new `BlobContainerClient` object with the contai
 ## See also
 
 - [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
-- [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md)
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
 - [Delete Container](/rest/api/storageservices/delete-container) (REST API)
 
-[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guide-resources-java.md)]
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
