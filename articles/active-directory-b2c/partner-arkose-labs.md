@@ -4,13 +4,12 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Arkose Labs to identify risky and fraudulent users
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 1/4/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
