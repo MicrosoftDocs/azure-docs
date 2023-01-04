@@ -93,6 +93,9 @@ Now that your app is registered and has permissions to use the API, grant your a
 
 1. After completing the Active Directory setup and workspace permissions, request an authorization token.
 
+>[!Note]
+> For this example we applied the  **Reader** role. This role is one of many built-in roles and may include more permissions than you require. More granular roles and permissions can be created. For more information see [Manage access to Log Analytics workspaces](../../logs/manage-access.md).
+
 ## Request an Authorization Token
 
 Before beginning, make sure you have all the values required to make the request successfully. All requests require:
