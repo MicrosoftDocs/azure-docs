@@ -429,7 +429,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Bug fixes | Related information |
 | :------------------- | :------------------------------- |
-| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Functions](./../healthcare-apis/iot/how-to-use-calculated-functions-mappings.md)  |
+| MedTech service normalized improvements with calculations to support and enhance health data standardization. | See [Use Device mappings](./../healthcare-apis/iot/how-to-use-device-mappings.md) and [Calculated Content Templates](./../healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings.md)  |
 
 ## Next steps
 
