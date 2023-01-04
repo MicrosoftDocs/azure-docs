@@ -1,21 +1,21 @@
 ---
-title: Manage your Azure Native New Relic Service 
-description: Learn how to manage your Azure Native New Relic Service
+title: Manage Azure Native New Relic Service 
+description: Learn how to manage your Azure Native New Relic Service settings.
 ms.topic: how-to
 
 ms.date: 12/31/2022
 
 ---
 
-# Manage the Azure Native New Relic Service
+# Manage Azure Native New Relic Service
 
 This article describes how to manage the settings for Azure Native New Relic Service.
 
 ## Resource overview
 
-To see the details of your New Relic resource, select Overview in the left pane.
+To see the details of your New Relic resource, select **Overview** on the left pane.
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot showing overview for New Relic resource in resource menu.":::
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot that shows an overview for a New Relic resource on the resource menu.":::
 
 The details include:
 
@@ -34,7 +34,7 @@ At the bottom, you see:
 - **Get started** tab provides deep links to New Relic dashboards, logs, and Alerts.
 - **Monitoring** tab provides a summary of the resources sending logs and metrics to New Relic.
 
-If you select the Monitoring pane, you see a table with information about the Azure resources sending logs and metrics to New Relic.
+If you select the **Monitoring** pane, you see a table with information about the Azure resources sending logs and metrics to New Relic.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot showing a table of monitored resources below properties.":::
 
@@ -49,33 +49,33 @@ The columns in the table denote valuable information for your resource:
 
 ## Reconfigure rules for logs or metrics
 
-To change the configuration rules for logs or metrics, select **Metrics and logs** in the Resource menu on the left.
+To change the configuration rules for logs or metrics, select **Metrics and logs** in the **Resource** menu on the left.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-metrics.png" alt-text="Screenshot showing metrics and logs for New Relic resource selected in the Resource menu.":::
 
-For more information, see Configure metrics and logs.
+For more information, see [Configure metrics and logs](new-relic-how-to-configure-prereqs.md).
 
 ## View monitored resources
 
-To see the list of resources emitting logs and metrics to New Relic, select Monitored Resources in the left pane.
+To see the list of resources emitting logs and metrics to New Relic, select **Monitored Resources** on the left pane.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot showing monitored resources for New Relic resource selected in the Resource menu.":::
 
-You can filter the list of resources by resource type, resource group name, region and whether the resource is sending logs and metrics.
+You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and metrics.
 
 The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource is not sending logs, the reasons could be:
 
-- Resource does not support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
-- Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
-- Error - The resource is configured to send logs to New Relic but is blocked by an error.
-- Logs not configured - Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
-- Agent not configured - Virtual machines or App Services without the New Relic Agent installed do not emit logs to New Relic.
+- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
+- **Error**: The resource is configured to send logs to New Relic but is blocked by an error.
+- **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
+- **Agent not configured**: Virtual machines or app services without the New Relic Agent installed do not emit logs to New Relic.
 
-The column 'Metrics to New Relic' indicates whether New Relic is receiving metrics corresponding to this resource.
+The column **Metrics to New Relic** indicates whether New Relic is receiving metrics that correspond to this resource.
 
-## Monitor virtual machines using New Relic Agent
+## Monitor virtual machines by the using New Relic agent
 
-You can install New Relic Agent on Windows App Services as an extension. Select **App Services** in the Resource menu. In the working pane, you see a list of all Windows App Services in the subscription.
+You can install the New Relic agent on Windows App Services as an extension. Select **App Services** in the **Resource** menu. In the working pane, you see a list of all Windows App Services in the subscription.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot showing virtual machines for New Relic resource selected in the resource menu.":::
 
@@ -128,9 +128,9 @@ If only one New Relic resource is mapped to a New Relic account, logs and metric
 
 For a New Relic organization where billing is managed through Azure Marketplace, deletion of last associated New Relic resource also removes the corresponding Azure Marketplace billing relationship.
 
-If more than one New Relic resource is mapped to the New Relic account using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated to that New Relic resource. However, since there are other Azure Native New Relic Service resources linked with this New Relic account, billing continues through the Azure Marketplace.
+If you map more than one New Relic resource to the New Relic account by using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated to that New Relic resource. But because other Azure Native New Relic Service resources are linked with this New Relic account, billing continues through Azure Marketplace.
 
 ## Next steps
 
 - [Troubleshoot Azure Native New Relic Service](new-relic-troubleshoot.md)
-- [QuickStart: Get started with New Relic](new-relic-create.md)
+- [Quickstart: Get started with New Relic](new-relic-create.md)
