@@ -7,6 +7,7 @@ author: lauradolan
 manager: gwallace
 editor:
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

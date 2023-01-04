@@ -4,6 +4,7 @@ description: Learn how to automate an SAP HANA database failover using a Pacemak
 author: jaawasth
 ms.author: jaawasth
 ms.service: azure-center-sap-solutions
+ms.subservice: sap-large-instances
 ms.topic: how-to
 ms.date: 04/19/2021
 ---
