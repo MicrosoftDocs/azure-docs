@@ -168,7 +168,7 @@
  ## CallKit Integration (within App)
   
   If you wist to integrate the CallKit within the app and not use the CallKit implementation in the SDK , please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
-  But one of the important thing to take care of is to start the call with muted audio. Like following
+  But one of the important thing to take care of is to start the audio at the right time. Like following
   
  ```Swift
 let mutedAudioOptions = AudioOptions()
@@ -182,7 +182,8 @@ callAgent.startCall(participants: participants,
                     options: copyStartCallOptions,
                     completionHandler: completionBlock)
 ```
-This will ensure that physical audio devices are not used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`
+
+This will ensure that physical audio devices are not used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`. Otherwise the call may get dropped or no audio will be flowing.
 
 ```Swift
 func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
