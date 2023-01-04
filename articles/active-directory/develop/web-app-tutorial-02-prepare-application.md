@@ -7,33 +7,43 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
+#Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
 ---
 
 # Tutorial: Prepare an application for authentication
 
-In this tutorial, you learn how to:
+This tutorial demonstrates how to create an ASP.NET Core project in a supported integrated development environment. You will create and upload a self-signed certificate and configure the application for authentication.
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Create an ASP.NET Core project
 > * Create a self-signed certificate
 > * Configure the settings for the application
+> * Define platform settings
+> * Define the URLs needed for the application
 
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Register an application](web-app-tutorial-01-register-application.md).
-* Although any integrated development environment (IDE) that supports .NET applications can be used, this tutorial uses Visual Studio 2022. A free version can be downloaded at [Downloads](https://visualstudio.microsoft.com/downloads).
+* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+    - Visual Studio 2022
+    - Visual Studio Code
+    - Visual Studio 2022 for Mac
 * Some steps in this tutorial use the .NET CLI. For more information about this tool, see [dotnet command](/dotnet/core/tools/dotnet).
 
 ## Create an ASP.NET Core project
 
+After registering an application on the Azure portal, a .NET web application needs to be created using an IDE. Use the tabs below to create an ASP.NET Core project with your IDE.
+
 ### [Visual Studio](#tab/visual-studio)
 
-This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. Additions are made to show what needs to be added to an application for authentication with Azure Active Directory (Azure AD).
+This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. Additions are made to show what needs to be added to an application for authentication.
 
 1. Open Visual Studio, and then select **Create a new project**.
 1. Search for and choose the **ASP.NET Core Web App** template, and then select **Next**.
-1. Enter a name for the project, such as **NewApp1**.
-1. Accept the default location for the project or choose a different location, and then select **Next**.
+1. Enter a name for the project, such as *NewWebAppLocal*.
+1. Choose a location for the project or accept the default option, and then select **Next**.
 1. Accept the default for the **Framework**, **Authentication type**, and **Configure for HTTPS**.
 
 > [!NOTE]
@@ -43,17 +53,25 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
-1. Navigate to the directory where you wish to set up your project. You can use the **Explorer** bar or the **Terminal**
-1. Create a new folder, and give it the same name that you gave the app when you registered it online, for example *NewWebApp1*.
+1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
+1. Open a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
+1. Create a new folder using either the terminal or the **New Folder...** icon at the top of the left panel. Provide a similar name to the one registered on the Azure portal, for example, *NewWebAppLocal*.
+1. Using the terminal, run the following commands to change into the folder directory and create the project;
 1. Run the following command in the terminal:
+
 ```powershell
+cd NewWebAppLocal
 dotnet new webapp --framework net6.0
 ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-Information with Visual Studio for Mac instructions in progress.
+1. Open Visual Studio, and then select **New**.
+1. Under **Web and Console** in the left navigation bar, select **App**.
+1. Under **ASP.NET Core**, select **APP** and ensure **C#** is selected in the drop down menu, then select **Continue**.
+1. Accept the default for the **Target Framework and Advanced**, then select **Continue**.
+1. Enter a name for **Project name**, this will be reflected in **Solution Name**. Provide a similar name to the one registered on the Azure portal, such as *NewWebAppLocal*.
+1. Accept the default location for the project or choose a different location, and then select **Create**.
 
 ---
 
@@ -66,54 +84,56 @@ The use of certificates is suggested for securing the application. When using ce
 1. In Visual Studio, select **Tools > Command Line > Developer Command Prompt**.
 1. Enter the following command to clear the HTTPS development certificates from the machine:
 
-    ```dotnet dev-certs https --clean```
+    ```powershell
+    dotnet dev-certs https --clean
+    ```
 
 1. Enter the following command to create a new self-signed certificate:
 
-    ```dotnet dev-certs https -ep ./certificate.crt --trust```
+    ```powershell
+    dotnet dev-certs https -ep ./certificate.crt --trust
+    ```
 
 ### [PowerShell](#tab/powershell)
 
 1. In the PowerShell command window, run the following commands replacing the `{certificateName}` value with the name of the certificate.
 
-    ```PowerShell
+    ```powershell
     $certname = "{certificateName}"    ## Replace {certificateName}
     $cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
     ```
 
 2. Run the following command to export the certificate to be uploaded to the Azure portal. Replace `{projectLocation}` with the location of the application project:
 
-    ```PowerShell
+    ```powershell
     Export-Certificate -Cert $cert -FilePath "C:\{projectLocation}\$certname.cer"
     ```
 ---
 
 ### Upload certificate to the portal
 
-To make the certificate available to the application, it must be uploaded into the Azure AD tenant.
+To make the certificate available to the application, it must be uploaded into the tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
+1. Starting from the **Overview** page of the app created earlier, under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
 1. Select **Upload certificate**.
 
-    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant.":::
+:::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::
 
 1. Browse for and select the certificate that was previously created.
 1. Enter a description for the certificate.
 1. Select **Add**.
-1. Double-click the thumbprint, select the verticle ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
+1. Double-click the thumbprint, select the vertical ellipsis, and then select **Copy** to record the thumbprint for the certificate to be used later.
 
-    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot of copying the certificate thumbprint.":::
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/copy-certificate-thumbprint.png" alt-text="Screenshot showing copying the certificate thumbprint.":::
 
 ## Configure the application for authentication
 
-The application that was created earlier needs to be configured for authentication with Azure AD.
+Now that the certificate is uploaded, the application needs to be configured for authentication.
 
-1. Open the *appsettings.json* file in the project that was previously created.
-1. Add the following configuration settings for Azure AD:
+1. Open the *appsettings.json* file and add the following configuration settings:
   
     ``` json
+    {
     "AzureAd": {
       "Instance": "https://login.microsoftonline.com/",
       "TenantId": "Enter the tenant ID here",
@@ -127,24 +147,33 @@ The application that was created earlier needs to be configured for authenticati
       ],
       "CallbackPath": "/signin-oidc"
     },
+    }
     ```
 
-    * **Instance** - Is the endpoint of the cloud provider. For this tutorial, accept the default endpoint for Azure AD.
-    * **TenantId** - Is the identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-    * **ClientId** - Is the identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * **ClientCertificates** - A self-signed certificate is used for authentication in the application. Replace the text of the **CertificateThumbprint** with the thumbprint of the certificate that was previously recorded.
-    * **CallbackPath** - Is an identifier to help the server redirect a response to the appropriate application. This value shouldn’t be changed.
-1. Save the changes to the file.
-1. Record the value of the **CallbackPath**. This will be used later to define the **Redirect URI**
+    * `Instance` - The endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+    * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
+    * `ClientCertificates` - A self-signed certificate is used for authentication in the application. Replace the text of the `CertificateThumbprint` with the thumbprint of the certificate that was previously recorded.
+    * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application. This value shouldn’t be changed.
+1. Save changes to the file.
+1. Record the value of the `CallbackPath`. This will be used later to define the **Redirect URI** on the Azure portal.
 1. Under **Properties**, open the *launchSettings.json* file.
-1. Record the https URL listed in the value of **applicationURL**. This will be used alongside the **CallbackPath** when defining the **Redirect URI**.
+1. Record the https URL listed in the value of `applicationURL`, for example `https://localhost:7100` This will also be used when defining the **Redirect URI**.
 
-## See also
 
-The following articles are related to the concepts presented in this tutorial:
+## Define the platform
 
-* For more information about the differences of authentication versus authorization, see [Authentication vs. authorization](authentication-vs-authorization.md)
-* For more information about the Microsoft Authentication Library (MSAL), see [Overview of the Microsoft Authentication Library (MSAL)](msal-overview.md)
+1. In the Azure portal, under **Manage**, select **App registrations**, and then select the application that was previously created.
+1. In the left menu, under **Manage**, select **Authentication**.
+1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
+
+    :::image type="content" source="./media/web-app-tutorial-02-prepare-application/select-platform-inline.png" alt-text="Screenshot on how to select the platform for the application." lightbox="./media/web-app-tutorial-02-prepare-application/select-platform-expanded.png":::
+
+## Define URLs
+
+1. Under **Redirect URIs**, enter the **applicationURL** and the **CallbackPath** that was recorded when configuring the application. For example, `https://localhost:7100/signin-oidc`.
+1. Under **Front-channel logout URL**, enter the application URL and a callback path for signing out. For example, `https://localhost:7100/signout-oidc`.
+1. Under **Implicit grant and hybrid flows**, select **ID tokens**.
 
 ## Next steps
 

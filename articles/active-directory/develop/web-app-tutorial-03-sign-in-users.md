@@ -7,11 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
 ms.date: 10/18/2022
+#Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
 ---
 
-# Tutorial: Add sign-in to an application in Azure Active Directory
+# Tutorial: Add sign-in to an application
 
-In this tutorial, you learn how to:
+In the previous tutorial, an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign-in and sign-out experience.
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Identify and install the NuGet packages that are needed for authentication
@@ -21,22 +24,25 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](web-app-tutorial-02-prepare-application.md).
-* Although any integrated development environment (IDE) that supports .NET applications can be used, this tutorial uses Visual Studio 2022. A free version can be downloaded at [Downloads](https://visualstudio.microsoft.com/downloads).
+* Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+    - Visual Studio 2022
+    - Visual Studio Code
+    - Visual Studio 2022 for Mac
 
 ## Install identity packages
 
+Identity related **NuGet packages** must be installed in the project for authentication of users to be enabled for the application.
+
 ### [Visual Studio](#tab/visual-studio)
 
-Identity related NuGet packages must be installed in the project for authentication of users to be enabled for the application.
-
 1. Open the project that was previously created in Visual Studio. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
-1. With the **Browse** tab selected, search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Install**.
+1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Click the **Project** checkbox, and then select **Install**.
 1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In Visual Studio Code, select **Terminal** then **New Terminal.**
-1. Ensure that you are in the correct directory (WebApp1), then enter the following into the terminal to install the relevant NuGet packages;
+1. Ensure that the correct directory is selected (*NewWebAppLocal*), then enter the following into the terminal to install the relevant NuGet packages;
 
 ```powershell
 dotnet add package Microsoft.Identity.Web --version 2.0.5-preview
@@ -46,7 +52,12 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-The same steps can be implemented in Visual Studio for Windows.
+<!-- Needs testing for confirmation -->
+1. In the top menu, select **Tools** > **Manage NuGet Packages**.
+1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
+1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
+1. In the pop-up, ensure the correct project is selected, then click **Ok**.
+1. Click **Accept** if additional **License Acceptance** windows appear. 
 
 ---
 
@@ -71,6 +82,7 @@ The same steps can be implemented in Visual Studio for Windows.
 1. Modify the `AddRazorPages()` function to add authentication:
 
     ```csharp
+    // Add services to the container.
     builder.Services.AddRazorPages().AddMvcOptions(options =>
     {
       var policy = new AuthorizationPolicyBuilder()
@@ -85,102 +97,37 @@ The same steps can be implemented in Visual Studio for Windows.
     ```csharp
     app.UseAuthentication();
     app.MapControllers();
+
+    app.UseRouting();
     ```
 
 ## Display the sign-in and sign-out experience
+
+After installing the NuGet packages and adding necessary code for authentication, sign-in and sign-out experiences need to be added.
+
+### Create the *_LoginPartial.cshtml* file to enable the login experience
 
 ### [Visual Studio](#tab/visual-studio)
 
 1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
 1. Select **Razor Page - Empty**, and then select **Add**.
-1. Enter `_LoginPartial.cshtml` for the name, and then select **Add**.
-1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
-
-    ```csharp
-    @using System.Security.Principal
-
-    <ul class="navbar-nav">
-      @if (User.Identity?.IsAuthenticated == true)
-      {
-        <li class="nav-item">
-          <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
-        </li>
-      }
-      else
-      {
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
-        </li>
-      }
-    </ul>
-    ```
-
-1. Open the `_Layout.cshtml` file and add a reference to the `_LoginPartial` file that was previously created. This code should go between the `</header` and `<footer` lines.
-
-    ```csharp
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-      <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-        </li>
-      </ul>
-      <partial name="_LoginPartial" />
-    </div>
-    ```
+1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In the Explorer bar, select **Pages**, then right-click **Shared**, and then select **New File**, and name it *_LoginPartial.cshtml*.
-1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
-
-    ```csharp
-    @using System.Security.Principal
-
-    <ul class="navbar-nav">
-      @if (User.Identity?.IsAuthenticated == true)
-      {
-        <li class="nav-item">
-          <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
-        </li>
-      }
-      else
-      {
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
-        </li>
-      }
-    </ul>
-    ```
-
-1. Open the `_Layout.cshtml` file and add a reference to the `_LoginPartial` file that was previously created. This code should go between the `</header` and `<footer` lines.
-
-    ```csharp
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-      <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-        </li>
-      </ul>
-      <partial name="_LoginPartial" />
-    </div>
-    ```
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. Steps for Mac
-1. Open the `_LoginPartial.cshtml` page, and then add the following code for adding sign-in and sign-out to the page:
+<!-- Confirmation and testing needed here -->
+1. Expand **Pages**, right-click **Shared**, and then select **Add > Razor page**.
+1. Select **Razor Page - Empty**, and then select **Add**.
+1. Enter *_LoginPartial.cshtml* for the name, and then select **Add**.
+---
+
+### Display the sign-in and sign-out experience
+
+1. Open *_LoginPartial.cshtml* and add the following code for adding the sign-in and sign-out experience:
 
     ```csharp
     @using System.Security.Principal
@@ -204,27 +151,17 @@ The same steps can be implemented in Visual Studio for Windows.
     </ul>
     ```
 
-1. Open the `_Layout.cshtml` file and add a reference to the `_LoginPartial` file that was previously created. This code should go between the `</header` and `<footer` lines.
+1. Open *_Layout.cshtml* and add a reference to `_LoginPartial` created in the previous step. This single line is best placed between `</ul>` and `</div>`.
 
     ```csharp
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-      <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-        </li>
       </ul>
       <partial name="_LoginPartial" />
     </div>
     ```
----
 
-
-
+<!-- Suitable links required for See also TBD -->
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-04-prepare-tenant-app.md)
+> [Tutorial: Call an API and display results](web-app-tutorial-04-call-web-api.md)
