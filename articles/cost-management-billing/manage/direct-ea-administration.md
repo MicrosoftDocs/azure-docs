@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/16/2022
+ms.date: 01/04/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -353,7 +353,7 @@ An Azure EA account is an organizational unit in the Azure portal. In the Azure 
 
 ## Enable the Enterprise Dev/Test offer
 
-As an EA admin, you can allow account owners in your organization to create subscriptions based on the EA Dev/Test offer. To do so, select the **Dev/Test** option in the account properties. After you've selected the Dev/Test option, let the account owner know so that they can create EA Dev/Test subscriptions needed for their teams of Dev/Test subscribers. The offer enables active Visual Studio subscribers to run development and testing workloads on Azure at special Dev/Test rates. It provides access to the full gallery of Dev/Test images including Windows 8.1 and Windows 10.
+As an EA admin, you can allow account owners in your organization to create subscriptions based on the EA Dev/Test offer. To do so, select the **Dev/Test** option in the Edit account window. After you've selected the Dev/Test option, let the account owner know so that they can create EA Dev/Test subscriptions needed for their teams of Dev/Test subscribers. The offer enables active Visual Studio subscribers to run development and testing workloads on Azure at special Dev/Test rates. It provides access to the full gallery of Dev/Test images including Windows 8.1 and Windows 10.
 
 ### To set up the Enterprise Dev/Test offer
 
@@ -362,8 +362,10 @@ As an EA admin, you can allow account owners in your organization to create subs
 1. In the left menu, select **Billing scopes** and then select a billing account scope.
 1. In the left menu, select **Accounts**.
 1. Select the account where you want to enable Dev/Test access.
-1. On the enrollment account page, select **Edit**.
-1. On the Edit account page, select **Dev/Test** and then select **Save**.
+1. On the enrollment account Overview page, select **Edit Account detail**.
+1. In the Edit account window, select **Dev/Test** and then select **Save**.
+
+:::image type="content" source="./media/direct-ea-administration/dev-test-option.png" alt-text="Screenshot showing navigation to the Dev/Test option." lightbox="./media/direct-ea-administration/dev-test-option.png" :::
 
 When a user is added as an account owner, any Azure subscriptions associated with the user that are based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as pay-as-you-go, that are associated with the account owner get converted to Microsoft Azure Enterprise offers.
 
