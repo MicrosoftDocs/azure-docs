@@ -622,37 +622,37 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_general.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/dbms_guide_general",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-general",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_ibm.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/dbms_guide_ibm",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-ibm",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_maxdb.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/dbms_guide_maxdb",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-maxdb",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_oracle.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/dbms_guide_oracle",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-oracle",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sapase.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/dbms_guide_sapase",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sapase",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sqlserver.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/dbms_guide_sqlserver",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sqlserver",
       "redirect_document_id": true
     },
 
@@ -916,13 +916,13 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-certifications",
+      "redirect_url": "/azure/center-sap-solutions/workloads/certifications",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-deployment-checklist",
+      "redirect_url": "/azure/center-sap-solutions/workloads/deployment-checklist",
       "redirect_document_id": true
     },
 
@@ -934,7 +934,7 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-ha-availability-zones",
+      "redirect_url": "/azure/center-sap-solutions/workloads/high-availability-zones",
       "redirect_document_id": true
     },
 
@@ -1084,31 +1084,31 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-iq-deployment-guide.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-iq-deployment-guide",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sapiq",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-planning-supported-configurations.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-planning-supported-configurations",
+      "redirect_url": "/azure/center-sap-solutions/workloads/planning-supported-configurations",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-proximity-placement-scenarios",
+      "redirect_url": "/azure/center-sap-solutions/workloads/proximity-placement-scenarios",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-rise-integration.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-rise-integration",
+      "redirect_url": "/azure/center-sap-solutions/workloads/rise-integration",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-supported-product-on-azure.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-supported-product-on-azure",
+      "redirect_url": "/azure/center-sap-solutions/workloads/supported-product-on-azure",
       "redirect_document_id": true
     },
 
@@ -1130,6 +1130,95 @@
       "redirect_document_id": true
     },
 
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/enable-tls-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/center-sap-solutions/monitor/enable-tls-azure-monitor-sap-solutions",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/certifications.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/certifications",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-general.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-general",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-ibm.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-ibm",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-maxdb.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-maxdb",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-oracle.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-oracle",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sapase.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sapase",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sapiq.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sapiq",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sqlserver.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sqlserver",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/deployment-checklist.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/deployment-checklist",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-zones.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/high-availability-zones",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/planning-supported-configurations.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/planning-supported-configurations",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/proximity-placement-scenarios.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/proximity-placement-scenarios",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/rise-integration.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/rise-integration",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/supported-product-on-azure.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/supported-product-on-azure",
+      "redirect_document_id": false
+    },
 
   ]
 }
