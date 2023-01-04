@@ -103,7 +103,7 @@ Find these values from [Azure Machine Learning studio](https://ml.azure.com):
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
 1. Copy the values from the section that opens.  
 
-:::image type="content" source="media/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command.":::
+:::image type="content" source="media/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/find-values.png":::
 
 In a terminal window, change directories into the `r-job-azureml`.  Then use the CLI to submit the job, after replacing the `<VALUES-IN-BRACKETS>` with their values (also remove the brackets `<>`).
 
