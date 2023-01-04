@@ -194,7 +194,7 @@ Invoke-AzRestMethod -Path "/subscriptions/ContosoSID/resourcegroups/ContosoRG/pr
 }
 ```
 
-Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet to set table properties.
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet to set table properties.
 
 ---
 
