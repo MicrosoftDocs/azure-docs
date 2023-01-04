@@ -5,7 +5,7 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/09/2022

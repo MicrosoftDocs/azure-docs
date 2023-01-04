@@ -5,7 +5,7 @@ services: virtual-machines-linux,virtual-network,storage
 author: dennispadia
 manager: rdeltcheva
 ms.author: depadia
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/22/2022

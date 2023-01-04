@@ -4,7 +4,7 @@ description: Describes SAP HANA operations on Azure native VMs.
 author: msjuergent
 manager: patfilot
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/05/2018
