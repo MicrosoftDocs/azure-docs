@@ -48,9 +48,7 @@
       displayName: break glass account, emergence account
     - name: Find tenant name and ID  
       href: tenant-management-read-tenant-name.md
-      displayName: tenant name, tenant ID, tenant details
-    - name: Find tenant directory size quota
-      href: tenant-management-directory-size-quota.md      
+      displayName: tenant name, tenant ID, tenant details    
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
