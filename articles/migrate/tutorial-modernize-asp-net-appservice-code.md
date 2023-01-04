@@ -47,36 +47,36 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 To migrate the web apps, perform these steps:
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration tools** > **Migration and modernization**, select **Replicate**.
 
-    :::image type="content" source="./media/tutorial-migrate-webapps/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
+    :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
 1. In **Specify intent**, > **What do you want to migrate?**, select **ASP.NET web apps**.
 1. In **Where do you want to migrate to?**, select **Azure App Service native**.
 1. In **Virtualization type**, select **VMware vSphere**.
 1. In **Select assessment**, select the assessment you want to use to migrate web apps and then select the **Continue** button. Specify the Azure App Service details where the apps will be hosted.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/specify-intent.png" alt-text="Screenshot of selected intent."::: 
+   :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/specify-intent.png" alt-text="Screenshot of selected intent."::: 
 
 1. In **Basics**, under **Project details**, select the **Subscription**, **Resource Group**, and **Region** where the web apps will be hosted, from the drop-down. Under **Storage**, select the **Storage account** for an intermediate storage location during the migration process. Select **Next: Web Apps >**.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-basics.png" alt-text="Screenshot of Azure Migrate Web Apps Basics screen.":::
+   :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/web-apps-basics.png" alt-text="Screenshot of Azure Migrate Web Apps Basics screen.":::
 
 1. In the **Web Apps** section, review the web apps you'd like to migrate.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen.":::
+   :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen.":::
 
    > [!NOTE]
    > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by selecting **Yes** in **Will migrate?**.
 
    1. Select the web apps to migrate and select **Edit**.
 
-      :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps.":::
+      :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps.":::
 
    1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
 
       > [!NOTE]
       > Up to five App Service plans can be migrated at a time.
 
-      :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps.":::
+      :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps.":::
 
       Select the **Next: App Service Plans >** button.
 1. In the **App Service Plans** section, verify the App Service Plan details.
@@ -85,7 +85,7 @@ To migrate the web apps, perform these steps:
      > Depending on your web app requirements, you can edit the number of apps in an App Service plan or update the pricing tier. Follow these steps to update these details:
      > 1. Select the **Edit** button.
      > 1. In **Edit plan**, select the **Target name** and **Pricing tier**, then select **Ok**.
-     >    :::image type="content" source="./media/tutorial-migrate-webapps/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details.":::
+     >    :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details.":::
 
 1. Once the App Service Plans are verified, select **Next: Review + create**.
 1. Azure Migrate will now validate the migration settings. Validation may take a few minutes to run. Once complete, review the details and select **Migrate**. 
@@ -95,7 +95,7 @@ To migrate the web apps, perform these steps:
 
 Once the migration is initiated, you can track the status using the Azure Resource Manager Deployment Experience as shown below:
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-deployments.png" alt-text="Screenshot of Azure Migrate deployment.":::
+   :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/web-apps-deployments.png" alt-text="Screenshot of Azure Migrate deployment.":::
 
 ## Post-migration steps
 

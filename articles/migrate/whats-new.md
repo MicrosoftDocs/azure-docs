@@ -54,7 +54,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (June 2022)
 
-- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
+- Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-modernize-asp-net-appservice-code.md)
 
 ## Update (May 2022)
 - Upgraded the Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM, and Azure SQL DB:
