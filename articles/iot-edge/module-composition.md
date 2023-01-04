@@ -115,7 +115,7 @@ The $edgeAgent properties follow this structure:
 }
 ```
 
-The IoT Edge agent schema version 1.4 was released along with IoT Edge version 1.0.10, and enables module startup order. Schema version 1.4 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge agent schema version 1.1 was released along with IoT Edge version 1.0.10, and enables module startup order. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 ### Module configuration and management
 
@@ -215,7 +215,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 }
 ```
 
-The IoT Edge hub schema version 1.4 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.4 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge hub schema version 1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 Every route needs a *source* where the messages come from and a *sink* where the messages go. The *condition* is an optional piece that you can use to filter messages.
 
@@ -284,7 +284,7 @@ Option 1:
    "route1": "FROM <source> WHERE <condition> INTO <sink>",
    ```
 
-Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version 1.4:
+Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version 1.1:
 
    ```json
    "route2": {
