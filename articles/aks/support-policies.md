@@ -23,7 +23,7 @@ Base infrastructure as a service (IaaS) cloud components, such as compute or net
 
 With AKS, you get a fully managed *control plane*. The control plane contains all of the components and services you need to operate and provide Kubernetes clusters to end users. All Kubernetes components are maintained and operated by Microsoft.
 
-Microsoft manages and monitors the following components through the control pane:
+Microsoft manages and monitors the following components through the control plane:
 
 * Kubelet or Kubernetes API servers
 * Etcd or a compatible key-value store, providing Quality of Service (QoS), scalability, and runtime
