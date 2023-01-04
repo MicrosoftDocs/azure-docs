@@ -117,6 +117,6 @@ You can add an action as the next step after the HTTP request trigger to run sub
 Select **Run Trigger** to execute the workflow and test if it actually inserts the row into the table. You can use any MySQL client to check if the row was inserted into the table. 
     
 ## Next Steps
-[Create Schedule based workflows](../../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
-[Create approval based workflows](../../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+- [Create Schedule based workflows](../../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+- [Create approval based workflows](../../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     
