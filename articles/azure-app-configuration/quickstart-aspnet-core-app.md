@@ -83,9 +83,6 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     #### [.NET 6.x](#tab/core6x)
 
     ```csharp
-    // Existing code in Program.cs
-    // ... ...
-
     var builder = WebApplication.CreateBuilder(args);
 
     // Retrieve the connection string
@@ -183,26 +180,25 @@ In this example, you'll update a web page to display its content using the setti
 
     ---
 
-1. Open *Index.cshtml.cs* in the *Pages* directory and update it with the following code.
+1. Open *Index.cshtml.cs* in the *Pages* directory and update it with the following code. Add the `using Microsoft.Extensions.Options` namespace.
 
     ```csharp
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Extensions.Options;
 
-    namespace TestAppConfig.Pages
+    namespace TestAppConfig.Pages;
+
+    public class IndexModel : PageModel
     {
-       public class IndexModel : PageModel
-       {
-           private readonly ILogger<IndexModel> _logger;
-    
-           public Settings Settings { get; }
-    
-           public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
-           {
-               Settings = options. Value;
-               _logger = logger;
-           }
-       }
+        private readonly ILogger<IndexModel> _logger;
+        
+        public Settings Settings { get; }
+        
+        public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
+        {
+            Settings = options.Value;
+            _logger = logger;
+        }
     }
     ```
 
