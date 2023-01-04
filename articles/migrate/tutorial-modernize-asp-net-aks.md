@@ -166,8 +166,11 @@ If the test migration failed:
 
 1. Navigate to **Azure Migrate: Server Migration** hub > **Modernization (Preview)** > **Jobs**.
 2. Click on the "Initiate test migrate" job that failed.
+
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/migration-hub-jobs-failed-test-migrate.png" alt-text="Screenshot of the failed test migrate job.":::
+
 3. Click on the failed task link possible failure causes and recommendations.
+
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/test-migrate-failed-task.png" alt-text="Screenshot of the failed test migrate task.":::
 
 ## Migrate your applications to AKS
@@ -175,7 +178,9 @@ If the test migration failed:
 The application is finally ready for migration:
 
 1. In the **Overview** blade, click **Migrate**, then click "Yes" to confirm.
+
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/target-migrate.png" alt-text="Screenshot of the target resource ready for migration.":::
+    
 2. Similar to the test migration workflow, verify that the workloads are running on the AKS cluster.
 3. The application has now successfully been migrated. If you wish for the appliance to discover it again and make it available for migration, click **Complete migration**.
 
