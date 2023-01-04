@@ -71,7 +71,7 @@ Save the access token from the response for use in the following HTTP requests.
 
 ## Send a metric via the REST API
 
-1. Paste the following JSON into a file, and save it as **custommetric.json** on your local computer. Update the time parameter so that it is within the last 30 minutes.
+1. Paste the following JSON into a file, and save it as **custommetric.json** on your local computer. Update the time parameter so that it is within the last 20 minutes.  You can't put a metric into the store that's over 20 minutes old. The metric store is optimized for alerting and real-time charting.
     
     ```JSON
     { 
@@ -102,28 +102,27 @@ Save the access token from the response for use in the following HTTP requests.
     ```
 
 1. Submit the following HTTP POST request using the following variables:
-   - **location** Deployment region of the resource you're emitting metrics for.
-   - **resourceId**  Resource ID of the Azure resource you're tracking the metric against.  
-   - **AccessToken** The authorization token acquired from the previous step.
+   - **location**: Deployment region of the resource you're emitting metrics for.
+   - **resourceId**:   Resource ID of the Azure resource you're tracking the metric against.  
+   - **accessToken**:  The authorization token acquired from the previous step.
     
 ```Shell
 curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
 -H 'Content-Type: application/json' \
--H 'Authorization: Bearer <AccessToken>' \
+-H 'Authorization: Bearer <accessToken>' \
 -d @custommetric.json 
 ```
 
-1. Change the timestamp and values in the JSON file.
+1. Change the timestamp and values in the JSON file. 
 1. Repeat the previous two steps a number of times, to create data for several minutes.
 
 ## Troubleshooting
 
 If you receive an error message with some part of the process, consider the following troubleshooting information:
 
-1. You can't issue metrics against a subscription or resource group as your Azure resource. Check that your application or Service Principal has **Monitoring Metrics Publisher** permissions for the resource.
-1. You can't put a metric into the store that's over 20 minutes old. The metric store is optimized for alerting and real-time charting. 
-1. The number of dimension names should match the values and vice versa. Check the values.
-1. You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](./metrics-custom-overview.md#supported-regions).
+* You can't issue metrics against a subscription or resource group, or resource, check that your application or Service Principal has the **Monitoring Metrics Publisher** role assigned in Access control (IAM).
+* The number of dimension names must match the values. Check the values and dimentions.
+* You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](./metrics-custom-overview.md#supported-regions).
 
 ## View your metrics
 
