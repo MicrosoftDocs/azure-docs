@@ -53,8 +53,6 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-<!-- Add summary -->
-
 1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
 1. Open a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
 1. Create a new folder using either the terminal or the **New Folder...** icon at the top of the left panel. Provide a similar name to the one registered on the Azure portal, for example, *NewWebAppLocal*.
@@ -68,7 +66,6 @@ dotnet new webapp --framework net6.0
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-<!-- Checks needed here -->
 1. Open Visual Studio, and then select **New**.
 1. Under **Web and Console** in the left navigation bar, select **App**.
 1. Under **ASP.NET Core**, select **APP** and ensure **C#** is selected in the drop down menu, then select **Continue**.
@@ -163,7 +160,6 @@ Now that the certificate is uploaded, the application needs to be configured for
 1. Under **Properties**, open the *launchSettings.json* file.
 1. Record the https URL listed in the value of `applicationURL`, for example `https://localhost:7100` This will also be used when defining the **Redirect URI**.
 
-<!-- See also -->
 
 ## Define the platform
 
