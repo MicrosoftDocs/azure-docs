@@ -1,6 +1,6 @@
 ---
 title: Archive for What's new in Azure Automation
-description: The What's new release notes in the Overview section of this content set contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
+description: The What's new release notes in the Overview section of this content set contain six months of activity. Thereafter, the items are removed from the main article and put into this article.
 services: automation
 ms.topic: overview
 ms.date: 10/27/2021
