@@ -114,7 +114,7 @@ In this release, we've made some significant updates to the shared underlying co
 
 - You can now drag IME candidate window in the client.
 - Integrated Kerberos support in the CredSSP security protocol sequence.
-- Added support for HTTP proxies in Azure Virtual Desktop and on-prem scenarios.
+- Added support for HTTP proxies in Azure Virtual Desktop and on-premises scenarios.
 - Made updates to improve interoperability with current and upcoming features in the Azure Virtual Desktop service.
 
 ## Updates for version 10.2.5
