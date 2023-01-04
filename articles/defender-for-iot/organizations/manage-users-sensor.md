@@ -51,6 +51,7 @@ Your new user is added and is listed on the sensor **Users** page.
 To edit a user, select the **Edit** :::image type="icon" source="media/manage-users-on-premises-management-console/icon-edit.png" border="false"::: icon for the user you want to edit, and change any values as needed.
 
 To delete a user, select the **Delete** button for the user you want to delete.
+
 ## Integrate OT sensor users with Active Directory
 
 Configure an integration between your sensor and Active Directory to:
@@ -94,7 +95,7 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     For example: 
     
-    :::image type="content" source="media/manage-users-sensor/active-directory-integration-example.png" alt-text="Screenshot of the active directory integration configuration on the sensor." lightbox="media/manage-users-sensor/active-directory-integration-example.png":::
+    :::image type="content" source="media/manage-users-sensor/active-directory-integration-example.png" alt-text="Screenshot of the active directory integration configuration on the sensor.":::
 
 ## Change a sensor user's password
 

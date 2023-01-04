@@ -151,7 +151,7 @@ For more information, see [Active Directory support on sensors and on-premises m
 
     For example: 
 
-    :::image type="content" source="media/manage-users-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration on the on-premises management console." lightbox="media/manage-users-on-premises-management-console/active-directory-config-example.png":::
+    :::image type="content" source="media/manage-users-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration on the on-premises management console.":::
 
 1. Create access group rules for on-premises management console users.
 
