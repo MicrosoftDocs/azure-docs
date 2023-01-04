@@ -54,6 +54,7 @@ Minimum PSW Windows version: "2.7.101.2"
 ## How to configure an attestation policy with custom TCB baseline using Azure portal experience
 
 ### New users
+
 1 Create an attestation provider using Azure portal experience. Details here 
 
 2. Go to overview page and view the current default policy of the attestation provider. Details here 
