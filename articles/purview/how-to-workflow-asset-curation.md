@@ -1,5 +1,5 @@
 ---
-title: Asset Curation approval workflow
+title: Asset curation approval workflow
 description: This article describes how to create and manage workflows to approve data asset curation in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
@@ -32,7 +32,7 @@ This guide will take you through the creation and management of approval workflo
 
 1. To create a new workflow, select **+New** button. 
 
-    :::image type="content" source="./media/how-to-workflow-business-terms-approval/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the + New button highlighted.":::
+    :::image type="content" source="./media/how-to-workflow-business-terms-approval/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the plus sign New button highlighted.":::
 
 1. To create **Approval workflows for asset curation** Select **Data Catalog** and select **Continue**
 
@@ -66,7 +66,7 @@ This guide will take you through the creation and management of approval workflo
 
 1. You can also modify the template by adding more connectors to suit your organizational needs. Add a new step to the end of the template by selecting the **New step** button. Add steps between any already existing steps by selecting the arrow icon between any steps.
 
-    :::image type="content" source="./media/how-to-workflow-asset-curation/modify-template-inline.png" alt-text="Screenshot showing the workflow authoring canvas, with a + button highlighted on the arrow between the two top steps, and the Next Step button highlighted at the bottom of the workspace." lightbox="./media/how-to-workflow-asset-curation/modify-template-inline.png":::
+    :::image type="content" source="./media/how-to-workflow-asset-curation/modify-template-inline.png" alt-text="Screenshot showing the workflow authoring canvas, with a plus sign button highlighted on the arrow between the two top steps, and the Next Step button highlighted at the bottom of the workspace." lightbox="./media/how-to-workflow-asset-curation/modify-template-inline.png":::
 
 1. Once you're done defining a workflow, you need to bind the workflow to a collection hierarchy path. The binding implies that this workflow is triggered only for update operation on data assets in that collection. A workflow can be bound to only one hierarchy path. To bind a workflow or to apply a scope to a workflow, you need to select ‘Apply workflow’. Select the scopes you want this workflow to be associated with and select **OK**.
 
