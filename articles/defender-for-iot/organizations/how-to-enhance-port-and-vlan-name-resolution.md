@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Enrich device resolution by customizing port and VLAN names on your sensors.
 
-For example, you might assign a name to a non-reserved port because that port shows unusually high activity. Similarly, you might assign a name to a VLAN number for better visibility in the device inventory reports.
+For example, you might assign a name to a non-reserved port that shows unusually high activity, or assign a name to a VLAN number for better visibility in the device inventory reports.
 
 ## Prerequisites
 
@@ -27,9 +27,7 @@ Port names appear when you view device groups from the device map, or when you c
 
 1. Sign in to your network sensor as an **Admin** user and select **System Settings**.
 
-1. Under **Network monitoring**, select **Port Naming**.
-
-1. In the **Port naming** pane, select **Add port**.
+1. Under **Network monitoring**, select **Port Naming**, then select **Add port**.
 
 1. Enter the port number, select the protocol (**TCP**, **UDP**, or **BOTH**), and type in a name. For example:
 
@@ -52,9 +50,7 @@ VLANs support is based on 802.1q (up to VLAN ID 4094).
 
 1. Sign in to your network sensor and select **System Settings**.
 
-1. Under **Network monitoring**, select **VLAN Naming**.
-
-1. In **VLAN naming** pane, select **Add VLAN**.
+1. Under **Network monitoring**, select **VLAN Naming**, then select **Add VLAN**.
 
 1. Add a VLAN ID and unique VLAN name. VLAN names can contain up to 50 ASCII characters. For example:
 
