@@ -45,7 +45,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242) |
+| **IBM QRadar** | Send Defender for IoT alerts to IBM QRadar | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
 |**IBM QRadar**     |   Forward Defender for IoT alerts to IBM QRadar.       |   - OT networks<br>- Locally managed sensors and on-premises management consoles      |      Microsoft   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)   |
 
 ## LogRhythm
@@ -106,7 +106,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
-| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Microsoft Defender for IoT alerts to a 3rd party SIEM](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot-blog/stream-microsoft-defender-for-iot-alerts-to-a-3rd-party-siem/ba-p/3581242) |
+| **Splunk** | Send Defender for IoT alerts to Splunk | - OT networks <br>- Cloud connected sensors | Microsoft | [Stream Defender for IoT cloud alerts to a partner SIEM](integrations/send-cloud-data-to-partners.md) |
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)   |
 
 

@@ -292,8 +292,6 @@
           href: automation-solution-vm-management.md
         - name: Support regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
-        - name: Enable Start/Stop VMs during off-hours
-          href: automation-solution-vm-management-enable.md
         - name: Configure Stop/Start VMs during off-hours
           href: automation-solution-vm-management-config.md
         - name: Query logs from Start/Stop VMs during off-hours
