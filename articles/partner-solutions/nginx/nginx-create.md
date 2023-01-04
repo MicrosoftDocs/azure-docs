@@ -4,7 +4,7 @@ description: This article describes how to use the Azure portal to create an ins
 ms.topic: quickstart
 author: flang-msft
 ms.author: franlanglois
-ms.date: 05/12/2022
+ms.date: 01/05/2023
 ms.custom: references_regions, event-tier1-build-2022
 
 ---
