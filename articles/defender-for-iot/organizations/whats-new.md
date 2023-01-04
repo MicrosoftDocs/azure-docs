@@ -35,7 +35,24 @@ For more information, see [Manage individual sensors](how-to-manage-individual-s
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | - **Cloud feature**: [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)  |
+| **OT networks** | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans) |
+|**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
+
+### Enterprise IoT sensor alerts and recommendations (Public Preview)
+
+The Azure portal now provides the following additional security data for traffic detected by Enterprise IoT network sensors:
+
+|Data type  |Description  |
+|---------|---------|
+|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
+|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: <br>**Disable insecure administration protocol**        |
+
+For more information, see:
+
+- [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Enhance security posture with security recommendations](recommendations.md)
+- [Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ### New purchase experience for OT plans
 
