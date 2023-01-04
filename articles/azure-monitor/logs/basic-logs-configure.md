@@ -179,6 +179,14 @@ For example:
     az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Analytics
     ```
 
+# [PowerShell](#tab/azure-powershell)
+
+To configure a table's log data plan, use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet:
+
+```powershell
+Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WORKSPACE-NAME -Plan Basic|Analytics
+```
+
 ---
 
 ## Next steps
