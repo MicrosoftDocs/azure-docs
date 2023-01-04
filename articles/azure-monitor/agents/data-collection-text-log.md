@@ -96,8 +96,6 @@ To create the data collection rule in the Azure portal:
 1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
 
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 ### [Resource Manager template](#tab/arm)
 
 1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
@@ -283,11 +281,10 @@ To create the data collection rule in the Azure portal:
     
         :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
-
 ---
 
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 

@@ -72,9 +72,6 @@ You can define a single data collection rule to send data from multiple machines
 1. Select **Add data source** and then select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
 
-> [!NOTE]
-> It might take up to 5 minutes for data to be sent to the destinations after you create the data collection rule and associations.
-
 ### [API](#tab/api)
 
 1. Create a DCR file by using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
@@ -112,6 +109,9 @@ This capability is enabled as part of the Azure CLI monitor-control-service exte
 For sample templates, see [Azure Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md).
 
 ---
+
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 
 ## Filter events using XPath queries
 
