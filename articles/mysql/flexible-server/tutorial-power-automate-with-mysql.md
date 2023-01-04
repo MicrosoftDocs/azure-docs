@@ -77,7 +77,13 @@ First, you will need to select what event, or *trigger*, starts your flow.
 
 1. Select the **Create** button at the bottom of the screen.
 
-## Specify an action
+## Specify an operation
+
+You can add an action as the next step after the HTTP request trigger to run subsequent operations in your workflow. You can add an action get, insert or update or delete data in the MySQL database. For this tutorial we will insert a new row into the orders table.
+
+Add a New Step in the workflow
+
+Search for Azure database for MySQL connector.
 
 ## Test your flow
 
