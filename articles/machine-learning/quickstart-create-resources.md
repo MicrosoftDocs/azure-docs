@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Set up your cloud workstation"
 titleSuffix: Azure Machine Learning
-description: Upload files, install packages,  and run code on your Azure Machine Learning on a compute instance, your cloud workstation. 
+description: Add and edit files, install packages, and run code from your workstation in the cloud. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 12/19/2022
+ms.date: 01/04/2023
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
 ---
 
@@ -18,7 +18,7 @@ ms.date: 12/19/2022
 In this quickstart, you'll create and work with:
 
 * A *workspace*.  The workspace is the central place to view and manage all the artifacts and resources you create while using Azure Machine Learning.
-* A *compute instance*.  The compute instance is your cloud development environment, a pre-configured cloud-computing resource you can use to train, automate, manage, and track machine learning models.
+* A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models.
 
 Once you've created the workspace and compute, you'll use them to:
 
@@ -56,11 +56,11 @@ If you don't yet have a workspace, create one now:
 
 ## Create a compute instance
 
-You'll use a *compute instance* as your online development environment. The compute instance provides a pre-configured cloud-computing resource you can use to train, automate, manage, and track machine learning models.
+You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials.
 
 If you already have a compute instance, skip this section and continue to [Upload files](#upload-files).  
 
-Create a compute instance now.  You'll also use this cloud-computing resource to run Jupyter notebooks and Python scripts in the rest of the tutorials.
+Create a compute instance now.  
 
 1. On the left navigation, select **Notebooks**.
 1. Select **Create compute** in the middle of the page.  (You'll only see this if you don't yet have a compute instance in your workspace.)
@@ -144,7 +144,7 @@ The notebook kernel on the compute instance has all the basics for running your 
     > Always use notebook magic, `%pip install`, to install packages in a Jupyter notebook, which installs the package  on the kernel (the Python environment used by the notebook).
 
 1. Run the cell to install the package.  
-1. After the package is installed, change the cell to a comment.  When you rerun the notebook, you don't need to install again.  But if you later run the notebook on a different compute resource or environment, you'll have a reminder of the install that will be needed.
+1. After the package is installed, comment out the installation line.  When you rerun the notebook, you don't need to install again in that kernel.  But if you later run the notebook on a different compute resource or environment, you'll have a reminder of the package installation that will be needed.
 
     ```python
     # %pip install seaborn
@@ -199,15 +199,18 @@ If  you didn't comment out the `%pip install seaborn` cell before, you'll see `g
 
 ### Run the script
 
-1. From the toolbar above the script, select **Save and run script in terminal**.  
+From the toolbar above the script, select **Save and run script in terminal**.  
 
-    :::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
-    
-    A new tab opens to show the terminal window.  You'll see some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
-    
-    You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
-    
-    Finally you'll see the text output from the execution.
+:::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
+
+A new tab opens to show the terminal window.  You'll see some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
+
+You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
+
+Finally you'll see the text output from the execution.
+
+> [!NOTE]
+> If you see an error that `seaborn` is not found, your terminal may be using a different conda environment than the notebook.  In this case, you should `pip install seaborn` first, then re-run `python visualize-sample-data.py`.
 
 ### Save the plot
 
@@ -224,7 +227,7 @@ When you run the script in a terminal, you'll see text output, but not the plots
 1. Save the file (**Ctrl + S**) if necessary. 
 
     > [!TIP]
-    > Files you're actively working on are automatically saved approximately every 30 seconds.  When there are unsaved changes, you'll see a * next to the name in the tab.
+    > Files you're actively working on are automatically saved approximately every 60 seconds.  When there are unsaved changes, you'll see a * next to the name in the tab.
 
 1. Now select the terminal tab and rerun `python visualize-sample-data.py` to run the modified script.
 
