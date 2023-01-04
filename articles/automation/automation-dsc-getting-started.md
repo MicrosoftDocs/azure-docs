@@ -189,15 +189,15 @@ account in the **Nodes** tab of the State configuration (DSC) page.
 The DSC node can take any of the following six values as follows:
 
 - **Failed** - This status is displayed when an error occurs while applying one or more configurations on a node.
-- **Not complaint** - This status is displayed when drift occurs on a node and it requires a close review if it is systematic.
+- **Not compliant** - This status is displayed when drift occurs on a node and it requires a close review if it is systematic.
 - **Unresponsive** - This status is displayed when a node has not been checked in for more than 24 hours.
 - **Pending** - This status is displayed when a node has a new configuration to apply and the pull server is awaiting node check in.
-- **In-progress** - This status is displayed when a node applies configuration, and the pull server is awaiting status.
+- **In progress** - This status is displayed when a node applies configuration, and the pull server is awaiting status.
 - **Compliant** - This status is displayed when a node has a valid configuration, and no drift occurs presently.
 
 >[!NOTE]
->- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use values < 1440 minutes, else the node would be in **Unresponsive**state. 
->- **RefreshFrequencyMins** and **ConfigurationModeFrequencyMins** - The frequency of node contacting the agent service is defined using these two different values provided as part of onboarding to DSC. These take a maximum value of 10080 minutes.
+>- **RefreshFrequencyMins** - It defines the frequency of node contacting the agent service and can be provided as part of onboarding to DSC. It takes a maximum value of 10080 minutes.
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use values **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state. 
 
 ## View reports for managed nodes
 
