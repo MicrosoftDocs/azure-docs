@@ -21,7 +21,7 @@ In this article, you learn to start, stop, download, and delete a packet capture
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Packet capture requires the following outbound TCP connectivity:
+- A virtual machine with the following outbound TCP connectivity:
     - to the chosen storage account over port 443
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
@@ -56,7 +56,7 @@ If a network security group is associated to the network interface, or subnet th
    | Time limit (seconds) | Enter the time limit of the packet capture session in seconds. Once the value is reached the packet capture stops. Up to 5 hours (18,000 seconds) is captured if left blank. |
    | **Filtering (optional)** |  |   
    | Add filter criteria | Select **Add filter criteria** to add a new filter. |
-   | Protocol | Select **TCP**, **UDP**, or **Any** to filter for the packet capture. |   
+   | Protocol | Filters the packet capture based on the selected protocol. Available values are **TCP**, **UDP**, or **Any**. |   
    | Local IP address | Filters the packet capture for packets where the local IP address matches this value. |
    | Local port | Filters the packet capture for packets where the local port matches this value. |
    | Remote IP address | Filters the packet capture for packets where the remote IP address matches this value. |
