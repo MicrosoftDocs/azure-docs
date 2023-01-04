@@ -115,8 +115,7 @@ You can learn more about troubleshooting guidelines here: ["Troubleshooting in A
 
 | Calling screen | Diagnostic info menu | Share CallID |
 | ------------------| ------------------------| ----------- |
- | :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot of the 
- call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot of the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot of showing share Call ID with Contoso.":::|
+| :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot of the call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot of the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot of showing share Call ID with Contoso.":::|
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)
