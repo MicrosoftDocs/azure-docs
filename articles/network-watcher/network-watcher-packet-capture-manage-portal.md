@@ -1,7 +1,7 @@
 ---
 title: Manage packet captures in VMs with Network Watcher - Azure portal
 titleSuffix: Azure Network Watcher
-description: Learn how to manage the packet capture feature of Network Watcher using the Azure portal.
+description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using the Azure portal.
 services: network-watcher
 author: shijaiswal
 ms.service: network-watcher
@@ -27,9 +27,9 @@ In this article, you learn to start, stop, download, and delete a packet capture
     - to 168.63.129.16 over port 8037
 
 > [!NOTE]
-> The ports mentioned in the latter two cases above are common across all Network Watcher features that involve the Network Watcher extension and might occasionally change.
+> The ports mentioned in the latter two cases are common across all Network Watcher features that involve the Network Watcher extension and might occasionally change.
 
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, adding user-defined routes to your network may prevent connectivity to the above mentioned IPs and ports. Please ensure they are reachable. 
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
 
 ## Start a packet capture
 
@@ -50,10 +50,10 @@ If a network security group is associated to the network interface, or subnet th
    | **Packet capture configuration** |  |
    | Capture location | Select **Storage account**, **File**, or **Both**. |
    | Storage account | Select your **Standard** storage account. <br> This option is available if you selected **Storage account** or **Both**. |
-   | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. If you are using a Linux machine, the path must start with */var/captures*. <br> This option is available if you selected **File** or **Both**. |
-   | Maximum bytes per packet | Enter the maximum number of bytes to be captured per each packet . All bytes are captured if left blank or 0 entered. |
-   | Maximum bytes per session | Enter the total number of bytes that are captured before . Once the value is reached the packet capture stops. Up to 1 GB is captured if left blank. |
-   | Time limit (seconds) | Enter the time limit of the packet capture session in seconds. Once the value is reached the packet capture stops. Up to 5 hours (18000 seconds) is captured if left blank. |
+   | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. If you're using a Linux machine, the path must start with */var/captures*. <br> This option is available if you selected **File** or **Both**. |
+   | Maximum bytes per packet | Enter the maximum number of bytes to be captured per each packet. All bytes are captured if left blank or 0 entered. |
+   | Maximum bytes per session | Enter the total number of bytes that are captured. Once the value is reached the packet capture stops. Up to 1 GB is captured if left blank. |
+   | Time limit (seconds) | Enter the time limit of the packet capture session in seconds. Once the value is reached the packet capture stops. Up to 5 hours (18,000 seconds) is captured if left blank. |
    | **Filtering (optional)** |  |   
    | Add filter criteria | Select **Add filter criteria** to add a new filter. |
    | Protocol | Select **TCP**, **UDP**, or **Any** to filter for the packet capture. |   
