@@ -2,9 +2,12 @@
 title: Troubleshooting over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services UI Library for Mobile native to get debug information.
+author: pprystinka
+ms.author: pprystinka
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.custom: template-how-to
+ms.date: 11/23/2022
 zone_pivot_groups: acs-plat-web-ios-android
 
 #Customer intent: As a developer, I want to get debug information for troubleshooting 
@@ -21,6 +24,12 @@ When troubleshooting happens for voice or video calls, you may be asked to provi
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/access-tokens.md)
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
+::: zone pivot="platform-web"
+> [!NOTE]
+> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library).
+### You can access the following link to learn more
+- [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/troubleshooting--page)
+::: zone-end
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Troubloshooting Android UI library](./includes/troubleshooting/android.md)]
