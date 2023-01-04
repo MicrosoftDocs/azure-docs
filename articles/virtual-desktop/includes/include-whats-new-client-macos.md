@@ -200,13 +200,13 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Removed a double prompt for credentials that occurred in some scenarios when users tried to connect with an Remote Desktop Gateway.
+- Removed a double prompt for credentials that occurred in some scenarios when users tried to connect with a Remote Desktop Gateway.
 
 ## Updates for version 10.6.1
 
 *Date published: April 20, 2021*
 
-In this update, we fixed an issue that caused the client to stop responding when connecting to an Remote Desktop Gateway.
+In this update, we fixed an issue that caused the client to stop responding when connecting to a Remote Desktop Gateway.
 
 ## Updates for version 10.6.0
 
@@ -232,7 +232,7 @@ In this release we've made some significant updates to the shared underlying cod
 In this release, we've made the following changes:
 
 - Added HTTP proxy support for Remote Desktop Gateway connections.
-- Fixed an issue where an Remote Desktop Gateway connection would disconnect and a message with error code 0x3000064 would appear.
+- Fixed an issue where a Remote Desktop Gateway connection would disconnect and a message with error code 0x3000064 would appear.
 - Addressed a bug where workspace discovery and download wouldn't work if you included the port number in HTTP GET requests.
 - Refreshed the application icon
 
@@ -262,7 +262,7 @@ In this release, we've made the following changes:
 - Fixed an issue where an RDP file specifying a gatewayusagemethod value of 0 or 4 was incorrectly imported.
 - The Edit Workspace sheet now shows the exact time at which the workspace was last updated.
 - Removed trace spew that was output when using the *--script* parameter.
-- Addressed an issue where the client would return a 0x30000066 error when connecting using an Remote Desktop Gateway server.
+- Addressed an issue where the client would return a 0x30000066 error when connecting using a Remote Desktop Gateway server.
 - Fixed an issue that caused the client to repeatedly prompt users for credentials if Extended Protection for Authentication was set on the server.
 - Addressed reliability issues that users identified through crash reporting.
 - Addressed keyboard and VoiceOver-related accessibility bugs.
@@ -277,7 +277,7 @@ In this release, we've made the following changes:
 - Addressed keyboard and VoiceOver-related accessibility bugs.
 - Fixed an issue where the client would hang on reconnect when resuming from sleep.
 - Fixed an audio artifact heard when playing back the first chunk of a redirected audio stream.
-- Addressed an issue where the client would report a 0x5000007 error message when connecting using an Remote Desktop Gateway server.
+- Addressed an issue where the client would report a 0x5000007 error message when connecting using a Remote Desktop Gateway server.
 - Corrected the aspect ratio of PC thumbnails displayed in the Connection Center.
 - Improved smart card redirection heuristics to better handle nested transactions.
 - Fixed a bug that prevented bookmark export if the bookmark's display name contained the "/" character.
@@ -391,7 +391,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- When connecting via an Remote Desktop Gateway with multi-factor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
+- When connecting via a Remote Desktop Gateway with multi-factor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
 - All the client UI is now fully keyboard-accessible with Voiceover support.
 - Files copied to the clipboard in the remote session are now only transferred when pasting to the local computer.
 - URLs copied to the clipboard in the remote session now paste correctly to the local computer.
@@ -469,7 +469,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Fixed a hang that occurred when connecting via an Remote Desktop Gateway.
+- Fixed a hang that occurred when connecting via a Remote Desktop Gateway.
 - Added a privacy notice to the "Add Feed" dialog.
 
 ## Updates for version 10.2.12
@@ -478,7 +478,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Resolved random disconnects (with error code 0x904) that took place when connecting via an Remote Desktop Gateway.
+- Resolved random disconnects (with error code 0x904) that took place when connecting via a Remote Desktop Gateway.
 - Fixed a bug that caused the resolutions list in application preferences to be empty after installation.
 - Fixed a bug that caused the client to crash if certain resolutions were added to the resolutions list.
 - Addressed an ADAL authentication prompt loop when connecting to Azure Virtual Desktop deployments.
@@ -498,8 +498,8 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Fixed an Remote Desktop Gateway connectivity issue that can occur when server redirection takes place.
-- We also addressed an Remote Desktop Gateway regression caused by the 10.2.8 update.
+- Fixed a Remote Desktop Gateway connectivity issue that can occur when server redirection takes place.
+- We also addressed a Remote Desktop Gateway regression caused by the 10.2.8 update.
 
 ## Updates for version 10.2.8
 
@@ -507,7 +507,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Resolved connectivity issues that surfaced when using an Remote Desktop Gateway.
+- Resolved connectivity issues that surfaced when using a Remote Desktop Gateway.
 - Fixed incorrect certificate warnings that were displayed when connecting.
 - Addressed some cases where the menu bar and dock would needlessly hide when launching remote apps.
 - Reworked the clipboard redirection code to address crashes and hangs that have been plaguing some users.
@@ -559,7 +559,7 @@ In this release, we've made the following changes:
 - The title of the session window now includes the name of the RDP file (and server name) when launched from an RDP file.
 - Fixed reported Remote Desktop Gateway performance issues.
 - Fixed reported Remote Desktop Gateway crashes.
-- Fixed issues where the connection would hang when connecting through an Remote Desktop Gateway.
+- Fixed issues where the connection would hang when connecting through a Remote Desktop Gateway.
 - Better handling of full-screen remote apps by intelligently hiding the menu bar and dock.
 - Fixed scenarios where remote apps remained hidden after being launched.
 - Addressed slow rendering updates when using "Fit to Window" with hardware acceleration disabled.
@@ -617,12 +617,12 @@ In this release, we've made the following changes:
 - MicrosoftAccount\username@domain is now accepted as a valid username.
 - Clipboard sharing has been rewritten to be faster and support more formats.
 - Copy and pasting text, images, or files between sessions now bypasses the local machine's clipboard.
-- You can now connect via an Remote Desktop Gateway server with an untrusted certificate (if you accept the warning prompts).
+- You can now connect via a Remote Desktop Gateway server with an untrusted certificate (if you accept the warning prompts).
 - Metal hardware acceleration is now used (where supported) to speed up rendering and optimize battery usage.
 - When using Metal hardware acceleration, we try to work some magic to make the session graphics appear sharper.
 - Got rid of some instances where windows would hang around after being closed.
 - Fixed bugs that were preventing the launch of RemoteApp programs in some scenarios.
-- Fixed an Remote Desktop Gateway channel synchronization error that was resulting in 0x204 errors.
+- Fixed a Remote Desktop Gateway channel synchronization error that was resulting in 0x204 errors.
 - The mouse cursor shape now updates correctly when moving out of a session or RemoteApp window.
 - Fixed a folder redirection bug that was causing data loss when copy and pasting folders.
 - Fixed a folder redirection issue that caused incorrect reporting of folder sizes.
