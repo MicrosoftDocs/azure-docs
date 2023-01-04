@@ -3,7 +3,7 @@ title: Train R models in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to train R models in Azure Machine Learning.'
 ms.service: machine-learning
-ms.date: 11/10/2022
+ms.date: 01/03/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -49,7 +49,7 @@ Create this folder structure for your project:
 
 ## Prepare the job YAML
 
-When using the AzureML CLI V2, you can use different [different YAML schemas](reference-yaml-overview.md) for different operations. You will use the [job YAML schema] to submit a job. This is the `job.yml` file that is a part of this project.
+When using the AzureML CLI V2, you can use different [different YAML schemas](reference-yaml-overview.md) for different operations. You will use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the `job.yml` file that is a part of this project.
 
 You will need to gather specific pieces of information to put into the YAML:
 
