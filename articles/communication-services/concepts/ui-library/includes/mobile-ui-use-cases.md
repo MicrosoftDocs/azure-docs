@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 09/14/2021
 ---
 
-Use the call composite in the Azure Communication Services UI Library to create call experiences in your for iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call experience in your application. Composites in Communication Services manage the entire lifecycle of the call, from setup until the call ends.
+Use the call composite in the Azure Communication Services UI Library to create call experiences in your iOS and Android applications. By using a couple lines of code, you can easily integrate an entire call experience in your application. Composites in Communication Services manage the entire lifecycle of the call, from setup until the call ends.
 
 ## Call use cases
 
@@ -102,6 +102,20 @@ Call and chat client libraries must have the context for the call they join. Lik
 |---------|---------|
 | iOS     | iOS 14 and later |
 | Android | API 21 and later |
+
+## Troubleshooting guide
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
+
+When troubleshooting happens for voice or video calls, you may be asked to provide a **CallID**; this ID is used to identify Communication Services calls.
+
+This CallID can be retrieved via the action bar on the bottom of the call screen; you'll see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostics info"***; the user will have the capability to share **the diagnostics info** that will be required to track  any issues by the support team.
+
+You can learn more about troubleshooting guidelines here: ["Troubleshooting in Azure Communication Services"](../../troubleshooting-info.md) page.
+
+| Calling screen | Diagnostic info menu | Share CallID |
+| ------------------| ------------------------| ----------- |
+| :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot of the call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot of the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot of showing share Call ID with Contoso.":::|
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

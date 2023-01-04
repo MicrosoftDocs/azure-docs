@@ -5,6 +5,7 @@ description: Learn how to register and work with different model types in Azure 
 services: machine-learning
 author: abeomor
 ms.author: osomorog
+ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
