@@ -12,7 +12,7 @@ This article is designed to help you choose the right OT appliances for your sen
 [Physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-appliances.md) appliances can be used; results depend on hardware and resources available to the monitoring sensor.
 
 > [!NOTE]
-> The performance, capacity, and activity of an OT/IoT network vary depending on its size, capacity, protocols distribution, and overall activity. For deployments, it is important to factor in raw network speed, the size of the network to monitor, and application configuration. The selection of processors, memory, and network cards is heavily influenced by these deployment configurations. The amount of space needed on your disk will differ depending on how long you store data, and the amount and type of data you store.
+> The performance, capacity, and activity of an OT/IoT network may vary depending on its size, capacity, protocols distribution, and overall activity. For deployments, it is important to factor in raw network speed, the size of the network to monitor, and application configuration. The selection of processors, memory, and network cards is heavily influenced by these deployment configurations. The amount of space needed on your disk will differ depending on how long you store data, and the amount and type of data you store.
 >
 >*Performance values are presented as upper thresholds under the assumption of intermittent traffic profiles, such as those found in OT/IoT systems and machine-to-machine communication networks.*
 
