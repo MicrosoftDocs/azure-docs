@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 9/5/2022
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -119,9 +119,9 @@ json
 
 | Language Code       | Model Version: |  Featured Tag | Specific Tag |
 |:--------------------|:-------------:|:-------------------:|:------------------:|
-| en                  |  2022-03-01   |      latest         |   3.0.59413252-onprem-amd64    | 
-| en,es,it,fr,de,pt   |  2022-08-15-preview  |      latin         |   3.0.60903415-latin-onprem-amd64    | 
-| he                  |  2022-08-15-preview   |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
+| `en`                  |  2022-03-01   |      latest         |   3.0.59413252-onprem-amd64    | 
+| `en`, `es`, `it`, `fr`, `de`, `pt`   |  2022-08-15-preview  |      latin         |   3.0.60903415-latin-onprem-amd64    | 
+| `he`                  |  2022-08-15-preview   |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
 
 
 

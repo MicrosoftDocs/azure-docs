@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -21,7 +21,7 @@ Text Analytics for health is one of the prebuilt features offered by [Azure Cogn
 
 This documentation contains the following types of articles:
 * The [**quickstart article**](quickstart.md) provides a short tutorial that guides you with making your first request to the service.
-* The [**how-to guides**](how-to/call-api.md) contain detailed instructions on how to make calls to the service using the hosted API or using the on-premise Docker container.
+* The [**how-to guides**](how-to/call-api.md) contain detailed instructions on how to make calls to the service using the hosted API or using the on-premises Docker container.
 * The [**conceptual articles**](concepts/health-entity-categories.md) provide in-depth information on each of the service's features, named entity recognition, relation extraction, entity linking, and assertion detection.
 
 ## Text Analytics for health features

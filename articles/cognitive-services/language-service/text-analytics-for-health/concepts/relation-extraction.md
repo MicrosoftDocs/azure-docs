@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # Relation extraction
 
-Text Analytics for health features relation extraction which is used to  identify meaningful connections between concepts, or entities, mentioned in the text. For example, a "time of condition" relation is found by associating a condition name with a time. Another example is a "dosage of medication" relation which is found by relating an extracted medication to its extracted dosage. The following example shows how relations are expressed in the JSON output.
+Text Analytics for health features relation extraction, which is used to  identify meaningful connections between concepts, or entities, mentioned in the text. For example, a "time of condition" relation is found by associating a condition name with a time. Another example is a "dosage of medication" relation, which is found by relating an extracted medication to its extracted dosage. The following example shows how relations are expressed in the JSON output.
 
 > [!NOTE]
 > * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 09/05/2022
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -64,7 +64,7 @@ The Text Analytics for health supports English in addition to multiple languages
 
 ## Submitting data
 
-To send an API request, You will need your Language resource endpoint and key.
+To send an API request, you will need your Language resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 

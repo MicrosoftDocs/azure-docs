@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
@@ -19,7 +19,7 @@ Named entity recognition is used to perform a semantic extraction of words and p
 
 # [Relation Extraction](#tab/relation-extraction)
 
-Relation extraction is used to identify meaningful connections between concepts mentioned in text that are associated with any of the [supported relations](../concepts/relation-extraction.md), such as the "time of condition" relation which connects a condition name with a time. 
+Relation extraction is used to identify meaningful connections between concepts mentioned in text that are associated with any of the [supported relations](../concepts/relation-extraction.md), such as the "time of condition" relation, which connects a condition name with a time. 
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health relation extraction](../media/call-api/health-relation-extraction.png)

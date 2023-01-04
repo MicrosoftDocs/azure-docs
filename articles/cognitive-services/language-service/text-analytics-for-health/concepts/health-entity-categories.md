@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -58,7 +58,7 @@ Text Analytics for health detects medical concepts that fall under the following
 
 ### Entities
 
-**COURSE** - Description of a change in another entity over time, such as condition progression (e.g., improvement, worsening, resolution, remission), a course of treatment or medication (e.g., increase in medication dosage). 
+**COURSE** - Description of a change in another entity over time, such as condition progression (for example: improvement, worsening, resolution, remission), a course of treatment or medication (for example: increase in medication dosage). 
 
 :::image type="content" source="../media/entities/course-entity.png" alt-text="An example of a course entity." lightbox="../media/entities/course-entity.png":::
 
