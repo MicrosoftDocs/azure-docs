@@ -87,6 +87,5 @@ Once you create your emergency accounts, you need to do the following:
 ## Next steps 
 
 - [Read tenant name and ID](tenant-management-read-tenant-name.md)
-- [Read tenant directory size quota](tenant-management-directory-size-quota.md)
 - [Clean up resources and delete tenant](tutorial-delete-tenant.md)
 
