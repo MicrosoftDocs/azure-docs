@@ -3,14 +3,14 @@ title: Introduction to Network Configuration Diagnostics in Azure Network Watche
 description: This page provides an overview of the Network Watcher - Network Configuration Diagnostics
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: shijaiswal
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/18/2022
 ms.custom: engagement-fy23
-ms.author: damendo
+ms.author: shijaiswal
 ---
 
 # Introduction to Network Configuration Diagnostics in Azure Network Watcher
