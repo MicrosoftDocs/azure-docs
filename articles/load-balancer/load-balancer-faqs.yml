@@ -21,7 +21,7 @@ sections:
           
           External load balancers, which load balance external traffic to an internet connected endpoint. For more information, see [Azure Load Balancer Types](./load-balancer-overview.md). 
           
-          For both of the types, Azure offers a basic SKU and standard SKU that have different functional, performance, security and health tracking capabilities. For more information about the different load balancer SKUs, see [SKU Comparison](skus.md).
+          For both of the types, Azure offers a Basic SKU and Standard SKU that have different functional, performance, security and health tracking capabilities. For more information about the different load balancer SKUs, see [SKU Comparison](skus.md).
           
       - question: |
           How can I upgrade from a basic to a standard load balancer?
@@ -121,6 +121,11 @@ sections:
           Why are certain ports restricted for HTTP health probes?
         answer: |
           The following ports are restricted for HTTP health probes: 19, 21, 25, 70, 110, 119, 143, 220, 993. These ports are blocked for security reasons by WinHTTP, meaning that Load Balancer health probes are unable to use these ports. For more information, see [What's New in WinHTTP 5.1](/windows/win32/winhttp/what-s-new-in-winhttp-5-1#changes-to-default-settings).
+    
+      - question: |
+          How can I ping my load balancer?
+        answer: |
+          ICMP ping is currently not supported by Azure Load Balancer. You can use any tool that supports TCP ping instead to test your load balancer's connectivity. 
 
 additionalContent: |
 
