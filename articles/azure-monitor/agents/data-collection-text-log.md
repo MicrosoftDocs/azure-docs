@@ -32,7 +32,10 @@ The data collection rule defines:
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
 
-Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
+You can define a single data collection rule to send data from multiple machines to multiple destinations across regions and tenants.
+
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
 
 > [!NOTE]
 > It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
