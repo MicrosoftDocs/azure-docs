@@ -22,57 +22,59 @@ This article explains how to take the R script that you [adapted to run in produ
 
 ## Prerequisites
 
-- Azure CLI and ml extension installed
-- An AzureML workspace
-- [A registered data asset](how-to-create-data-assets.md)
-- [A compute cluster](how-to-create-attach-compute-cluster.md)
-- [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment)
+- Azure [CLI and ml extension installed](how-to-configure-cli.md)
+- An [Azure Machine Learning workspace and a compute instance](quickstart-create-resources.md)
+- [A registered data asset](how-to-create-data-assets.md) that your training job will use
+- [A compute cluster](how-to-create-attach-compute-cluster.md) to run your training job
+- [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job
 
 ## Create a folder with this structure
 
 Create this folder structure for your project:
-> ```
-> 📁 r-job-azureml
-> ├─ src
-> │  ├─ azureml_utils.R
-> │  ├─ r-source.R
-> ├─ job.yml
-> ```
+
+```
+📁 r-job-azureml
+├─ src
+│  ├─ azureml_utils.R
+│  ├─ r-source.R
+├─ job.yml
+```
 
 > [!IMPORTANT]
 > All source code goes in the `src` directory.
 
-* The `r-source.R` file is the R script that you adapted to run in production
-* The `azureml_utils.R` file is necessary. The source code is shown [here](how-to-razureml-modify-script-for-prod.md#source-the-azureml_utilsr-helper-script)
+* The **r-source.R** file is the R script that you adapted to run in production
+* The **azureml_utils.R** file is necessary. The source code is shown [here](how-to-razureml-modify-script-for-prod.md#source-the-azureml_utilsr-helper-script)
 
 
 
 ## Prepare the job YAML
 
-When using the AzureML CLI V2, you can use different [different YAML schemas](reference-yaml-overview.md) for different operations. You will use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the `job.yml` file that is a part of this project.
+AzureML CLI v2 has different [different YAML schemas](reference-yaml-overview.md) for different operations. You'll use the [job YAML schema](reference-yaml-job-command.md) to submit a job. This is the `job.yml` file that is a part of this project.
 
-You will need to gather specific pieces of information to put into the YAML:
+You'll need to gather specific pieces of information to put into the YAML:
 
-- The URI of the registered data asset you will use as the data input (with version): `azureml:<REGISTERED-DATA-ASSET>:<VERSION>`
-- The URI of the environment you created (with version): `azureml:<R-ENVIRONMENT-NAME>:<VERSION>`
-- The URI of the compute cluster: `azureml:<COMPUTE-CLUSTER-NAME>`
+- The name of the registered data asset you'll use as the data input (with version): `azureml:<REGISTERED-DATA-ASSET>:<VERSION>`
+- The name of the environment you created (with version): `azureml:<R-ENVIRONMENT-NAME>:<VERSION>`
+- The name of the compute cluster: `azureml:<COMPUTE-CLUSTER-NAME>`
 
 
 > [!TIP]
-> For AzureML artifacts that require versions (data assets, environments), you can use the shortcut URI `azureml:<AZUREML-ASSET>@latest` to get the latest version of that artifact unless you need to set a specific version.
+> For AzureML artifacts that require versions (data assets, environments), you can use the shortcut URI `azureml:<AZUREML-ASSET>@latest` to get the latest version of that artifact if you don't need to set a specific version.
 
 
 ### Sample YAML schema to submit a job
 
-Modify any value shown below <IN-BRACKETS-AND-CAPS> (remove the brackets).
+Edit your **job.yml** file to contain the following.  Make sure to replace values shown <IN-BRACKETS-AND-CAPS> and remove the brackets.
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 # the Rscript command goes in the command key below. Here you also specify 
 # which parameters are passed into the R script and can reference the input
 # keys and values further below
+# Modify any value shown below <IN-BRACKETS-AND-CAPS> (remove the brackets)
 command: >
-Rscript <name-of-r-script>.R
+Rscript <NAME-OF-R-SCRIPT>.R
 --data_file ${{inputs.datafile}}  
 --other_input_parameter ${{inputs.other}}
 code: src   # this is the code directory
@@ -89,14 +91,26 @@ description: <DESCRIPTION>
 
 ## Submit the job
 
-You will also need to gather other pieces of information about your AzureMl workspace to use in the job submission:
+Gather other pieces of information about your AzureMl workspace to use in the job submission:
 
 - The AzureML workspace name
 - The resource group name where the workspace is
-- The subscription id where the workspace is
+- The subscription ID where the workspace is
 
-Using the AzureML CLI v2, change directories into the `r-job-azureml` and submit the job.
+Find these values from [Azure Machine Learning studio](https://ml.azure.com):
+
+1. Sign in and open your workspace.
+1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
+1. Copy the values from the section that opens.  
+
+:::image type="content" source="media/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command.":::
+
+In a terminal window, change directories into the `r-job-azureml`.  Then use the CLI to submit the job, after replacing the <VALUES-IN-BRACKETS> with their values (also remove the brackets `<>`).
 
 ```bash
 az ml job create -f job.yml  --workspace-name <WORKSPACE-NAME> --resource-group <RG-NAME> --subscription <SUBSCRIPTION-ID>
 ```
+
+## Next steps
+
+[How to deploy an R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md)
