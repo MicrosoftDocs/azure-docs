@@ -16,11 +16,11 @@ In this tutorial, you learn how to connect a container app to Azure App Configur
 
 ## Prerequisites
 
-- An App Configuration store
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - This tutorial assumes that you have completed the quickstart [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- The [Azure CLI](/cli/azure/install-azure-cli)
 
-## Build a docker image and test it locally
+## Build the container
 
 1. Navigate to the project folder *TestAppConfig* created in the ASP.NET quickstart.
 
@@ -38,20 +38,16 @@ In this tutorial, you learn how to connect a container app to Azure App Configur
 
 1. Navigate to the URL displayed in the output to check that the deployment was successful. For example `https://localhost:5001`
 
-### Create a Dockerfile
+1. Create a file named *Dockerfile* in the directory containing your .csproj, open it in a text editor and enter the content below. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
 
-A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
+    ```docker
+    FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+    WORKDIR /app
+    COPY published/ ./
+    ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
+    ```
 
-Create a file named *Dockerfile* in the directory containing your .csproj, open it in a text editor and enter the content below.
-
-```docker
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
-WORKDIR /app
-COPY published/ ./
-ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
-```
-
-### Build and run the container
+### Run the container
 
 1. Navigate to the folder containing the Dockerfile and build the container by running the command below
 
@@ -270,7 +266,7 @@ In the next step, deploy the container image to [Azure Container Apps](../contai
 
  ---
 
-## Connect the app to Azure App Configuration
+## Connect the container app to Azure App Configuration
 
 In the next step, connect the container app to Azure App Configuration using [Service Connector](../service-connector/overview.md). Service Connector helps you to connect several Azure services together in a few steps without having to manage the configuration of the network settings and connection information yourself.
 
@@ -317,7 +313,7 @@ az containerapp connection create appconfig \
 | `--container`            | `mycontainerapp`         | Enter the name of the container app.                                                    |
 | `--target-resource-group`| `AppConfigTestResources` | Enter the resource group that contains the App Configuration store.                     |
 | `--app-config`           | `MyAppConfiguration`     | Enter the name of the App Configuration store.                                          |
-| `--system-identity`      | Leave blank              | Enter ``--system-identity` to authenticate with with a system-assigned managed identity |
+| `--system-identity`      | Leave blank              | Enter `--system-identity` to authenticate with with a system-assigned managed identity |
 
 ---
 
@@ -328,4 +324,4 @@ In the Azure portal, browse to the container app you've created and in the **Ove
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sync your GitHub repository to App Configuration](./concept-github-action.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
