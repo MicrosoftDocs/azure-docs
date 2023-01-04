@@ -178,7 +178,7 @@ NAT gateway selects a port at random out of the available inventory of ports to 
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.142: 80 |
+| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.143: 80 |
 
 A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
