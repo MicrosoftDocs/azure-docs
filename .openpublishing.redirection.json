@@ -5229,6 +5229,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/tutorial-migrate-webapps.md",
+            "redirect_url": "/articles/migrate/tutorial-modernize-asp-net-appservice-code",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-resource-manager/resource-manager-subscription-governance.md",
             "redirect_url": "/azure/architecture/cloud-adoption-guide/subscription-governance",
             "redirect_document_id": false
