@@ -1,6 +1,6 @@
 ---
-title: Manage individual sensors
-description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
+title: Manage OT sensors from the sensor console - Microsoft Defender for IoT
+description: Learn how to manage individual Microsoft Defender for IoT OT network sensors directly from the sensor's console.
 ms.date: 11/28/2022
 ms.topic: how-to
 ---
@@ -23,13 +23,29 @@ The **Overview** page shows the following widgets:
 
 | Name | Description |
 |--|--|
-| **General Settings** | Displays a list of the sensor's basic configuration settings |
+| **General Settings** | Displays a list of the sensor's basic configuration settings and [connectivity status](#validate-connectivity-status). |
 | **Traffic Monitoring** | Displays a graph detailing traffic in the sensor. The graph shows traffic as units of Mbps per hour on the day of viewing. |
 | **Top 5 OT Protocols** | Displays a bar graph that details the top five most used OT protocols. The bar graph also provides the number of devices that are using each of those protocols. |
 | **Traffic By Port** | Displays a pie chart showing the types of ports in your network, with the amount of traffic detected in each type of port. |
 | **Top open alerts** | Displays a table listing any currently open alerts with high severity levels, including critical details about each alert. |
 
 Select the link in each widget to drill down for more information in your sensor.
+
+### Validate connectivity status
+
+Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page. 
+
+If there are any connection issues, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
+
+1. Find more information about the issue by hovering over the :::image type="icon" source="media/how-to-manage-individual-sensors/information-icon.png" border="false"::: information icon. For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
+
+1. Take action by selecting the **Learn more** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**. For example:
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
 ## Manage sensor activation files
 
@@ -41,6 +57,7 @@ A unique activation file is uploaded to each sensor that you deploy. For more in
 
 Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears in the System Messages window in the top-right corner of the console. The warning remains until after you've updated the activation file.
 
+You can continue to work with Defender for IoT features even if the activation file has expired.
 You can continue to work with Defender for IoT features even if the activation file has expired.
 
 ### About activation files for cloud-connected sensors
@@ -138,7 +155,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 3. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen.":::
+   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Screenshot of the Connection string screen.":::
 
 4. Sign in to the sensor console.
 
@@ -370,7 +387,6 @@ To send notifications:
 1. Select **Report System Notifications**.
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
-
 
 ## Upload and play PCAP files
 
