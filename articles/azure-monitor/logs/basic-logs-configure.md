@@ -93,7 +93,7 @@ To configure a table for Basic logs or Analytics logs in the Azure portal:
 
 # [API](#tab/api-1)
 
-To configure a table for Basic logs or Analytics logs, call the **Tables - Update** API:
+To configure a table for Basic logs or Analytics logs, call the [Tables - Update API](/rest/api/loganalytics/tables/create-or-update):
 
 ```http
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview

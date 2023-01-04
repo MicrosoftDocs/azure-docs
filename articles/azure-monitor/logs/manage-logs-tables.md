@@ -35,8 +35,8 @@ Your Log Analytics workspace can contain the following types of tables:
 ### Log data plan
 
 [Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
-- The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. 
 - The **Analytics** plan makes log data available for interactive queries and use by features and services. 
+- The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. 
 
 ### Retention and archive
 
@@ -70,7 +70,7 @@ To view and set table properties in the Azure portal:
 
 # [API](#tab/api)
 
-To view table properties, call the **Tables - Get** API:
+To view table properties, call the [Tables - Get API](/rest/api/loganalytics/tables/get):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
@@ -111,6 +111,8 @@ Status code: 200
 }
 ```
 
+To set table properties, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update). 
+
 # [Azure CLI](#tab/azure-cli)
 
 To view table properties using Azure CLI, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
@@ -120,6 +122,8 @@ For example:
 ```azurecli 
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --output table  
 ```
+
+To set table properties using Azure CLI, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -189,6 +193,8 @@ Invoke-AzRestMethod -Path "/subscriptions/ContosoSID/resourcegroups/ContosoRG/pr
   "name": "Heartbeat"
 }
 ```
+
+Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable?view=azps-9.1.0) cmdlet to set table properties.
 
 ---
 
