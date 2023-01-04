@@ -94,7 +94,7 @@ The advanced editor can be used to select virtual network during the creation of
     {
        "allOf": [
           {
-             "field": "tags['Environment']",
+             "field": "tags['environment']",
              "exists": true
           },
           {
@@ -113,7 +113,7 @@ The advanced editor can be used to select virtual network during the creation of
     {
        "allOf": [
           {
-             "field": "tags['Environment']",
+             "field": "tags['environment']",
              "exists": true
           },
           {
@@ -206,7 +206,7 @@ In this example, a conditional statement is created that finds virtual networks 
   {
     "allOf": [
           {
-             "field": "tags['Environment']",
+             "field": "tags['environment']",
              "exists": true
           },
       {
