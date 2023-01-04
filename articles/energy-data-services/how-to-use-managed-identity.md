@@ -35,7 +35,7 @@ Before you begin, make sure:
 
 3.	You've created a [Python Azure Function using portal](../azure-functions/create-first-function-vs-code-python.md) or using [command line.](../azure-functions/create-first-function-cli-python.md)
 
-4.	You have created [user assigned managed identity](../managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+4.	You have created [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 
 ## Steps for Azure Functions to access Microsoft Energy Data Services using Managed Identity
@@ -56,7 +56,7 @@ There are five important steps to configure Azure Functions to access Microsoft 
 
 1.	You can get the *Object ID* of system assigned identity associated with Azure Functions by navigating to *Identity* blade of the Azure Function. 
 
-[![Screenshot of objectid for system assigned identity.](media/how-to-use-managed-identity/1-objectid-system-assigned-identity.png)](media/how-to-use-managed-identity/1-objectid-system-assigned-identity#lightbox) 
+[![Screenshot of objectid for system assigned identity.](media/how-to-use-managed-identity/1-objectid-system-assigned-identity.png)](media/how-to-use-managed-identity/1-objectid-system-assigned-identity.png#lightbox) 
  
 2.	Similarly, you can find the *Object ID* for the user assigned identity associated with the Azure function by navigating to the *Overview* tab of the user assigned identity.
   
@@ -95,13 +95,13 @@ g.	Application ID of the managed identity
 
 
 2.	Next, use the [add-member-api](https://microsoft.github.io/meds-samples/rest-apis/index.html?page=/meds-samples/rest-apis/entitlements_openapi.yaml#/add-member-api/addMemberUsingPOST) to add the Application ID of the user managed identity to appropriate entitlement groups. For example, in this case, we'll add the Application ID to two groups:
-a.	users@<partitionid>.dataservices.energy
-b.	users.datalake.editors@<partitionid>.dataservices.energy
+a.	users@[partitionid].dataservices.energy
+b.	users.datalake.editors@[partitionid].dataservices.energy
  
 > [!NOTE]
 > In the below commands use the Application ID of the managed identity and not the ObjectId of the managed identity in the below command. 
 
-a.	Adding Application ID of the managed identity to users@<partitionid>.dataservices.energy
+a.	Adding Application ID of the managed identity to users@[partitionid].dataservices.energy
 Run the following CURL command on Azure bash:
 
 ```bash
@@ -122,7 +122,7 @@ Sample response:
     "role": "MEMBER"
     }
 ```
-a.	Adding Application ID of the managed identity to users.datalake.editors@<partitionid>.dataservices.energy
+a.	Adding Application ID of the managed identity to users.datalake.editors@[partitionid].dataservices.energy
 
 Run the following CURL command on Azure bash:
 ```bash
