@@ -54,9 +54,9 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ### New users
 
-1. Create an attestation provider using Azure portal experience. Details here 
+1. Create an attestation provider using Azure portal experience. [Details here](/azure/attestation/quickstart-portal#create-and-configure-the-provider-with-unsigned-policies) 
 
-2. Go to overview page and view the current default policy of the attestation provider. Details here 
+2. Go to overview page and view the current default policy of the attestation provider. [Details here]((https://learn.microsoft.com/en-us/azure/attestation/quickstart-portal#view-an-attestation-policy)
 
 3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
@@ -66,9 +66,9 @@ Minimum PSW Windows version: "2.7.101.2"
 
 Shared provider users need to migrate to custom providers to be able to perform attestation against custom TCB baseline 
 
-1. Create an attestation provider using Azure portal experience. Details here 
+1. Create an attestation provider using Azure portal experience. [Details here](/azure/attestation/quickstart-portal#create-and-configure-the-provider-with-unsigned-policies) 
 
-2. Go to overview page and view the current default policy of the attestation provider. Details here 
+2. Go to overview page and view the current default policy of the attestation provider. [Details here]((https://learn.microsoft.com/en-us/azure/attestation/quickstart-portal#view-an-attestation-policy)
 
 3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
@@ -78,11 +78,11 @@ Shared provider users need to migrate to custom providers to be able to perform 
 
 ### Existing custom provider users  
 
-1. Go to overview page and view the current default policy of the attestation provider. Details here 
+1. Go to overview page and view the current default policy of the attestation provider. [Details here]((https://learn.microsoft.com/en-us/azure/attestation/quickstart-portal#view-an-attestation-policy)
 
 2. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
-3. Click Configure, and use the below sample for configuring an attestation policy with a custom TCB baseline.  
+3. Click Configure, and use the below **sample** for configuring an attestation policy with a custom TCB baseline.  
 
 ```
 version = 1.1;  
