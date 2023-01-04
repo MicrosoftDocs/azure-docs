@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Bicep file deployments
 description: Learn how to monitor and troubleshoot Bicep file deployments. Shows activity logs and deployment history.
-ms.date: 09/14/2022
+ms.date: 01/03/2023
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, mode-api
 ---
