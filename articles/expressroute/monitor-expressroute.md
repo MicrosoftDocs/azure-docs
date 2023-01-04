@@ -159,7 +159,7 @@ The following table lists common and recommended alert rules for ExpressRoute.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/signal.png" alt-text="Screenshot of list of signals that can be alerted for ExpressRoute gateways.":::
 
-1. Select **+ Select action groups** to chose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who will receive them.
+1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who will receive them.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/action-group.png" alt-text="Screenshot of add action groups page.":::
 
