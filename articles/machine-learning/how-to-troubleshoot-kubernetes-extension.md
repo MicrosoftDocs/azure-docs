@@ -250,15 +250,20 @@ volcano-scheduler.conf: |
         - name: nodeorder
         - name: binpack
 ```
- 
- And you need to skip the resource validation when install the extension by configuring `--config amloperator.skipResourceValidation=true`.
 
- [!NOTE]
- > Since the gang plugin is removed, there's potential that the deadlock happens when volcano schedules the job. 
- > 
- > * To avoid this situation, you can **use same instance type across the jobs**.
- >
- > Note that you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**.
+To use this config after you install the Azureml extension with the configuration setting of `installVolcano=true`, you need to follow the steps below:  
+1. Create a configmap file with the above config in the azureml namespace. This namespace will generally be created when you install the AzureML extension.
+1. Set `volcanoSchedulerConfig=<configmap name>` in the extension config to apply this configmap. And you need to skip the resource validation when install the extension by configuring `amloperator.skipResourceValidation=true`. For example:
+    ```azurecli
+    az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config volcanoSchedulerConfig=<configmap name> amloperator.skipResourceValidation=true --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+    ```
+
+> [!NOTE]
+> Since the gang plugin is removed, there's potential that the deadlock happens when volcano schedules the job. 
+> 
+> * To avoid this situation, you can **use same instance type across the jobs**.
+>
+> Note that you need to disable `job/validate` webhook in the volcano admission if your **volcano version is lower than 1.6**.
 
 
 
