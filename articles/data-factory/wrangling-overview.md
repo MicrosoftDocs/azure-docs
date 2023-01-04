@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 09/26/2022
 ---
 
 # What is data wrangling?

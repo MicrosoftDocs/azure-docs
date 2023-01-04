@@ -5,10 +5,10 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: larryfr
-author: blackmist
-manager: cgronlun
-ms.date: 10/21/2021
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---
@@ -65,7 +65,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
+The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](how-to-configure-environment-v1.md). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
 
 ### Configure your storage and compute target
 
@@ -98,7 +98,7 @@ compute_target = ws.compute_targets[compute_name]
 
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
-After that, the code checks if the AzureML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu). 
+After that, the code checks if the AzureML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md). 
 
 The code blocks until the target is provisioned and then prints some details of the just-created compute target. Finally, the named compute target is retrieved from the workspace and assigned to `compute_target`. 
 

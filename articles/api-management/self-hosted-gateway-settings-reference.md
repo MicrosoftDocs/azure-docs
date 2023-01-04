@@ -23,16 +23,18 @@ This article provides a reference for required and optional settings that are us
 |----|------|----------|-------------------|
 | config.service.endpoint | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             |
 | config.service.auth | Access token (authentication key) of the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**. | Yes | N/A |
-
+| neighborhood.host | DNS name used to resolve all instances of a self-hosted gateway deployment for cross-instance synchronization. In Kubernetes, it can be achieved by using a headless Service. | No | N/A |
+| neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 |
+| policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 |
 
 ##  Metrics
 
 | Name                           | Description              | Required | Default           |
 |----|------|----------|-------------------|
-| telemetry.metrics.local | Enable [local metrics collection](how-to-configure-local-metrics-logs.md) through StatsD. Value is one of the following: `none`, `statsd`. | No | `none` |
+| telemetry.metrics.local | Enable [local metrics collection](how-to-configure-local-metrics-logs.md) through StatsD. Value is one of the following options: `none`, `statsd`. | No | `none` |
 | telemetry.metrics.local.statsd.endpoint | StatsD endpoint. | Yes, if `telemetry.metrics.local` is set to `statsd`; otherwise no.  | N/A |
 | telemetry.metrics.local.statsd.sampling | StatsD metrics sampling rate. Value must be between 0 and 1, for example, 0.5. |  No | N/A |
-| telemetry.metrics.local.statsd.tag-format | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value is one of the following: `ibrato`, `dogStatsD`, `influxDB`. | No | N/A |
+| telemetry.metrics.local.statsd.tag-format | StatsD exporter [tagging format](https://github.com/prometheus/statsd_exporter#tagging-extensions). Value is one of the following options: `ibrato`, `dogStatsD`, `influxDB`. | No | N/A |
 | telemetry.metrics.cloud | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No |    `true` |
 | observability.opentelemetry.enabled | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` |
 | observability.opentelemetry.collector.uri | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A |
@@ -42,8 +44,10 @@ This article provides a reference for required and optional settings that are us
 
 | Name   | Description | Required | Default |
 | ------------- | ------------- | ------------- | ----|
-| telemetry.logs.std  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following: `none`, `text`, `json`. | No |  `text` | 
-| telemetry.logs.local  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` |
+| telemetry.logs.std  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following options: `none`, `text`, `json`. | No |  `text` | 
+| telemetry.logs.std.level  | Defines the log level of logs sent to standard stream. Value is one of the following options: `all`, `debug`, `info`, `warn`, `error` or `fatal`. | No |  `info` | 
+| telemetry.logs.std.color  | Indication whether or not colored logs should be used in standard stream. | No |  `true` | 
+| telemetry.logs.local  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following options: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` |
 | telemetry.logs.local.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A |
 | telemetry.logs.local.localsyslog.facility  | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility), for example, `7`. | No | N/A |
 | telemetry.logs.local.rfc5424.endpoint  |  rfc5424 endpoint.  | Yes if `telemetry.logs.local` is set to `rfc5424`; otherwise no. | N/A |
@@ -55,7 +59,7 @@ This article provides a reference for required and optional settings that are us
 
 | Name  | Description | Required | Default |
 | ------------- | ------------- | ------------- | ----|
-| certificates.local.ca.enabled | Indication whether or not to the self-hosted gateway should use local CA certificates that are mounted. This requires the self-hosted gateway to run as root or with user ID 1001. | No | `false` |
+| certificates.local.ca.enabled | Indication whether or not to the self-hosted gateway should use local CA certificates that are mounted. It's required to run the self-hosted gateway as root or with user ID 1001. | No | `false` |
 | net.server.tls.ciphers.allowed-suites |   Comma-separated list of ciphers to use for TLS connection between API client and the self-hosted gateway. | No | N/A |
 | net.client.tls.ciphers.allowed-suites | Comma-separated list of ciphers to use for TLS connection between the self-hosted gateway and the backend. | No | N/A |
 

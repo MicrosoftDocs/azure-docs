@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/09/2021
-ms.custom: mode-other, devx-track-azurecli, contperf-fy22q3
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23, devx-track-azurecli
 ---
 
 # Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -204,7 +204,7 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
     |Constant name|Value|
     |-------------|-----|
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
-    |`IOT_DPS_REGISTRATION_ID` |{*Your Device ID value*}|
+    |`IOT_HUB_DEVICE_ID` |{*Your Device ID value*}|
     |`IOT_DEVICE_SAS_KEY` |{*Your Primary key value*}|
 
 1. Save and close the file.

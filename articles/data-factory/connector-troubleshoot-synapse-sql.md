@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot the Azure Synapse Analytics, Azure SQL Database, and SQL Server connectors
+title: Troubleshoot the Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server connectors
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot issues with the Azure Synapse Analytics, Azure SQL Database, and SQL Server connectors in Azure Data Factory and Azure Synapse Analytics.
+description: Learn how to troubleshoot issues with the Azure Synapse Analytics, Azure SQL Database, SQL Server connectors, Azure SQL Managed Instance, and Amazon RDS for SQL Server in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 09/02/2022
+ms.date: 10/18/2022
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.custom:
   - synapse
 ---
 
-# Troubleshoot the Azure Synapse Analytics, Azure SQL Database, and SQL Server connectors in Azure Data Factory and Azure Synapse
+# Troubleshoot the Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server connectors in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides suggestions to troubleshoot common problems with the Azure Synapse Analytics, Azure SQL Database, and SQL Server connectors in Azure Data Factory and Azure Synapse.
+This article provides suggestions to troubleshoot common problems with the Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server connectors in Azure Data Factory and Azure Synapse.
 
 ## Error code: SqlFailedToConnect
 
@@ -33,7 +33,8 @@ This article provides suggestions to troubleshoot common problems with the Azure
     | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities](./concepts-pipelines-activities.md#activity-policy). |
     | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](/azure/azure-sql/database/firewall-configure). |
-
+    |If the error message contains `Login failed for user '<token-identified principal>'`, this error is usually caused by not granting enough permission to your service principal or system-assigned managed identity or user-assigned managed identity (depends on which authentication type you choose) in your database. |Grant enough permission to your service principal or system-assigned managed identity or user-assigned managed identity in your database.  <br/><br/> **For Azure SQL Database**:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use service principal authentication, follow [Service principal authentication](connector-azure-sql-database.md#service-principal-authentication).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use system-assigned managed identity authentication, follow [System-assigned managed identity authentication](connector-azure-sql-database.md#managed-identity).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use user-assigned managed identity authentication, follow [User-assigned managed identity authentication](connector-azure-sql-database.md#user-assigned-managed-identity-authentication). <br/>&nbsp;&nbsp;&nbsp;<br/>**For Azure Synapse Analytics**:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use service principal authentication, follow [Service principal authentication](connector-azure-sql-data-warehouse.md#service-principal-authentication).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use system-assigned managed identity authentication, follow [System-assigned managed identities for Azure resources authentication](connector-azure-sql-data-warehouse.md#managed-identity).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use user-assigned managed identity authentication, follow [User-assigned managed identity authentication](connector-azure-sql-data-warehouse.md#user-assigned-managed-identity-authentication).<br/>&nbsp;&nbsp;&nbsp;<br/>**For Azure SQL Managed Instance**: <br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use service principal authentication, follow [Service principal authentication](connector-azure-sql-managed-instance.md#service-principal-authentication).<br/>&nbsp;&nbsp;&nbsp;- If you use system-assigned managed identity authentication, follow [System-assigned managed identity authentication](connector-azure-sql-managed-instance.md#managed-identity).<br/>&nbsp;&nbsp;&nbsp;- If you use user-assigned managed identity authentication, follow [User-assigned managed identity authentication](connector-azure-sql-managed-instance.md#user-assigned-managed-identity-authentication).|
+    
 ## Error code: SqlOperationFailed
 
 - **Message**: `A database operation failed. Please search error to get more details.`
@@ -291,6 +292,18 @@ This article provides suggestions to troubleshoot common problems with the Azure
 - **Cause**: Currently, ingesting data using the COPY command into an Azure Storage account that is using the new DNS partitioning feature results in an error. DNS partition feature enables customers to create up to 5000 storage accounts per subscription.  
 - **Resolutions**: Provision a storage account in a subscription that does not use the new [Azure Storage DNS partition feature](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466) (currently in Public Preview).
 
+## Error code: SqlDeniedPublicAccess
+
+- **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', Reason: Connection was denied since Deny Public Network Access is set to Yes. To connect to this server, 1. If you persist public network access disabled, please use Managed Vritual Network IR and create private endpoint. https://docs.microsoft.com/en-us/azure/data-factory/managed-virtual-network-private-endpoint; 2. Otherwise you can enable public network access, set "Public network access" option to "Selected networks" on Auzre SQL Networking setting.`
+
+- **Causes**: Azure SQL Database is set to deny public network access. This requires to use managed virtual network and create private endpoint to access.
+
+- **Recommendation**:
+
+    1. If you insist on disabling public network access, use managed virtual network integration runtime and create private endpoint. For more information, see [Azure Data Factory managed virtual network](managed-virtual-network-private-endpoint.md).
+    
+    2. Otherwise, enable public network access by setting **Public network access** option to **Selected networks** on Azure SQL Database **Networking** setting page.
+    
 ## Next steps
 
 For more troubleshooting help, try these resources:

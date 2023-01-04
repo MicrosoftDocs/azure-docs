@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: kgremban
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Get started with IoT Hub module identity and module twin (Python)
@@ -16,7 +16,8 @@ ms.custom: devx-track-python
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable a back-end application to configure a device and provide visibility on the device's conditions, module identities and module twins provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, they allow for isolated configuration and conditions for each component.
->
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 At the end of this article, you have three Python apps:
 
@@ -26,13 +27,16 @@ At the end of this article, you have three Python apps:
 
 * **ReceiveModuleTwinDesiredPropertiesPatch**: receives the module twin, desired properties patch on your device.
 
+> [!NOTE]
 > See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 ## Get the IoT hub connection string
 
@@ -193,37 +197,40 @@ In this section, you create a Python app to get the module twin desired properti
 
 1. Add the following code to your Python file. Replace *YourModuleConnectionString* with the module connection string you copied in step 1.
 
-    ```python
-    import time
-    from azure.iot.device import IoTHubModuleClient
+   ```python
+   import time
+   from azure.iot.device import IoTHubModuleClient
 
-    def twin_patch_handler(twin_patch):
-        print("")
-        print("Twin desired properties patch received:")
-        print(twin_patch)
+   CONNECTION_STRING = "YourIotHubConnectionString"
 
 
-    def main():
-        print ("Starting the IoT Hub Python sample...")
-        client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
+   def twin_patch_handler(twin_patch):
+       print("")
+       print("Twin desired properties patch received:")
+       print(twin_patch)
 
-        print ("Waiting for commands, press Ctrl-C to exit")
-        try:
-            # Attach the handler to the client
-            client.on_twin_desired_properties_patch_received = twin_patch_handler
 
-            while True:
-                time.sleep(1000)
-        except KeyboardInterrupt:
-            print("IoTHubModuleClient sample stopped")
-        finally:
-            # Graceful exit
-            print("Shutting down IoT Hub Client")
-            client.shutdown()
+   def main():
+       print ("Starting the IoT Hub Python sample...")
+       client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
 
-    if __name__ == '__main__':
-        main()
-    ```
+       print ("Waiting for commands, press Ctrl-C to exit")
+       try:
+           # Attach the handler to the client
+           client.on_twin_desired_properties_patch_received = twin_patch_handler
+
+           while True:
+               time.sleep(1000)
+       except KeyboardInterrupt:
+           print("IoTHubModuleClient sample stopped")
+       finally:
+           # Graceful exit
+           print("Shutting down IoT Hub Client")
+           client.shutdown()
+
+   if __name__ == '__main__':
+       main()
+   ```
 
 ## Run the apps
 

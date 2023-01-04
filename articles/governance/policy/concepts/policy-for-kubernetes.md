@@ -27,7 +27,7 @@ Azure Policy for Kubernetes supports the following cluster environments:
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
 
 > [!IMPORTANT]
-> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Instructions can be found below for [removal of those add-ons](#remove-the-add-on). The Azure Policy Extension for Azure Arc enabled Kubernetes is in _preview_. 
+> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Instructions can be found below for [removal of those add-ons](#remove-the-add-on). 
 
 ## Overview
 
@@ -71,8 +71,8 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 - [AKS Pod security policy](../../../aks/use-pod-security-policies.md) and the Azure Policy Add-on
   for AKS can't both be enabled. For more information, see
   [AKS pod security limitation](../../../aks/use-azure-policy.md).
-- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
-  _gatekeeper-system_, and _aks-periscope_.
+- Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_ and
+  _gatekeeper-system_.
 
 ## Recommendations
 
@@ -197,7 +197,7 @@ similar to the following output:
         "identity": null
 }
 ```
-## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes (preview)
+## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
 [Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
 
@@ -426,7 +426,6 @@ In a Kubernetes cluster, if a namespace has the cluster-appropriate label, the a
 with violations aren't denied. Compliance assessment results are still available.
 
 - Azure Arc-enabled Kubernetes cluster: `admission.policy.azure.com/ignore`
-- Azure Kubernetes Service cluster: `control-plane`
 
 > [!NOTE]
 > While a cluster admin may have permission to create and update constraint templates and

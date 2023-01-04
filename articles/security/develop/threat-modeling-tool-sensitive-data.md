@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-js, devx-track-csharp, ignite-2022
 ---
 
 # Security Frame: Sensitive Data | Mitigations 
@@ -239,7 +239,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Cosmos DB
+## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Azure Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |

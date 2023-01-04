@@ -57,9 +57,27 @@ In addition to a new set of features, Question Answering provides many technical
 
 When you are looking at migrating to Question Answering, please consider the following:
 
-- Knowledge base/project content or size has no implications on pricing
+|Component                      |QnA Maker|Question Answering|Details                                                                                                  |
+|-------------------------------|---------|------------------|---------------------------------------------------------------------------------------------------------|
+|QnA Maker Service cost         |✔️      |➖                |The fixed cost per resource per month. Only applicable for QnAMaker.                                     |
+|Question Answering service cost|➖      |✔️                |The Question Answering cost according to the pay as you go model. Only applicable for Question Answering.|
+|Azure Search cost              |✔️      |✔️                |Applicable for both QnA Maker and Question Answering.                                                    |
+|App Service cost               |✔️      |➖                |Only applicable for QnA Maker. This is the biggest cost savings for users moving to Question Answering.  |
 
-- “Text Records” in Question Answering features refer to the query submitted by the user to the runtime, and it is a concept common to all features within Language service
+- Users may select a higher tier with higher capacity, which will impact overall price they pay. It doesn’t impact the price on language component of Custom Question Answering.
+
+- “Text Records” in Question Answering features refers to the query submitted by the user to the runtime, and it is a concept common to all features within Language service. Sometimes a query may have more text records when the query length is higher. 
+
+**Example price estimations**
+
+|Usage |Number of resources in QnA Maker|Number of app services in QnA Maker (Tier)|Monthly inference calls in QnA Maker|Search Partitions x search replica (Tier)|Relative cost in Question Answering                        |
+|------|--------------------------------|------------------------------------------|------------------------------------|--------------------------|--------------------------------------------------------------------------|
+|High  |5                               |5(P1)                                     |8M                                  |9x3(S2)                                  |More expensive                     |
+|High  |100                             |100(P1)                                   |6M                                  |9x3(S2)                                  |Less expensive                     |
+|Medium|10                              |10(S1)                                    |800K                                |4x3(S1)                                  |Less expensive                     |
+|Low   |4                               |4(B1)                                     |100K                                |3x3(S1)                                  |Less expensive                     |
+
+ Summary : Customers should save cost across the most common configurations as seen in the relative cost column.
 
 Here you can find the pricing details for [Question Answering](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) and [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 

@@ -239,7 +239,7 @@ After it's imported, [threat intelligence](understand-threat-intelligence.md) is
 
 * View and manage the imported threat intelligence in **Logs** in the new **Threat Intelligence** area of Microsoft Sentinel.
 
-* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents by using your imported threat intelligence.
+* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-analytics) to generate security alerts and incidents by using your imported threat intelligence.
 
 * [Visualize key information about your threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators) in Microsoft Sentinel by using the threat intelligence workbook.
 

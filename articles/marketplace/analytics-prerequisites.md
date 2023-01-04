@@ -37,7 +37,7 @@ The Azure AD application you created in the Azure portal needs to be linked to y
 
 ## Generate an Azure AD token
 
-You need to Generate an Azure AD token using the Application (client) ID. This ID helps to uniquely identify your client application in the Microsoft identity platform and the client secret from the previous step. For the steps to generate an Azure AD token, see [Service to service calls using client credentials (shared secret or certificate)](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md).
+You need to Generate an Azure AD token using the Application (client) ID. This ID helps to uniquely identify your client application in the Microsoft identity platform and the client secret from the previous step. For the steps to generate an Azure AD token, see [Service to service calls using client credentials (shared secret or certificate)](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 > [!NOTE]
 > The token is valid for one hour.

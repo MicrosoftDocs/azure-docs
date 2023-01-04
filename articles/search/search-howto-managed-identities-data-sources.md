@@ -7,8 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 12/08/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -180,7 +181,7 @@ A managed identity must be paired with an Azure role that determines permissions
 
 + Contributor (write) permissions are needed for AI enrichment features that use Azure Storage for hosting debug session data, enrichment caching, and long-term content storage in a knowledge store. 
 
-The following steps are for Azure Storage. If your resource is Cosmos DB or Azure SQL, the steps are similar.
+The following steps are for Azure Storage. If your resource is Azure Cosmos DB or Azure SQL, the steps are similar.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and [find your Azure resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) to which the search service must have access.
 
@@ -188,14 +189,17 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 1. Select **Add role assignment**.
 
-1. On the **Role** page, choose a role:
+1. On the **Role** page, select the roles needed for your search service:
 
-   | Role | Usage |
-   |------|-------|
-   | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
-   | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
-   | **Storage Blob Data Contributor** | Grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache. |
-   | **Storage Table Data Contributor** | Grants write permissions necessary for knowledge store table projections. |
+   | Task | Role assignment |
+   |------|-----------------|
+   | Blob indexing using an indexer | Add **Storage Blob Data Reader** |
+   | ADLS Gen2 indexing using an indexer | Add **Storage Blob Data Reader** |
+   | Table indexing using an indexer | Add **Reader and Data Access** |
+   | File indexing using an indexer | Add **Reader and Data Access** |
+   | Write to a knowledge store | Add **Storage Blob DataContributor** for object and file projections, and **Reader and Data Access** for table projections. |
+   | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
+   | Save debug session state | Add **Storage Blob Data Contributor**  |
 
 1. On the **Members** page, select **Managed Identity**.
 
@@ -236,11 +240,12 @@ A search request to Azure Storage can also be made under a user-assigned managed
 
 [**Knowledge store:**](knowledge-store-create-rest.md)
 
-A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string does not include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
+A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string doesn't include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
 
 ```json
 "knowledgeStore": {
-  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};",
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+}
 ```
 
 [**Enrichment cache:**](search-howto-incremental-index.md)
@@ -251,7 +256,7 @@ An indexer creates, uses, and remembers the container used for the cached enrich
 "cache": {
   "enableReprocessing": true,
   "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
-},
+}
 ```
 
 [**Debug session:**](cognitive-search-debug-session.md)

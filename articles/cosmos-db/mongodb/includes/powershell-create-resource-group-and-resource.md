@@ -1,9 +1,10 @@
 ---
 author: diberry
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 10/31/2022
 ms.author: diberry
 ---
 1. Create shell variables for *ACCOUNT_NAME*, *RESOURCE_GROUP_NAME*, and **LOCATION**.
@@ -30,14 +31,14 @@ ms.author: diberry
     New-AzResourceGroup @parameters    
     ```
 
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB MongoDB API account with default settings. 
+1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB for MongoDB account with default settings. 
 
     ```azurepowershell-interactive
     $parameters = @{
         ResourceGroupName = $RESOURCE_GROUP_NAME
         Name = $ACCOUNT_NAME
         Location = $LOCATION
-        Kind = "MongoDB"
+        ApiKind = "MongoDB"
     }
     New-AzCosmosDBAccount @parameters
     ```

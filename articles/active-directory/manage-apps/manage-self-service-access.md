@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 11/24/2022
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
@@ -42,7 +42,7 @@ To enable self-service application access, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users cannot add self-service apps.
+- An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users can't add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications
 
@@ -67,18 +67,16 @@ To enable self-service application access to an application, follow the steps be
 
 1. **Optional:** To require business approval before users are allowed access, set **Require approval before granting access to this application?** to **Yes**.
 
-1. **Optional: For applications using password single-sign on only,** to allow business approvers to specify the passwords that are sent to this application for approved users, set **Allow approvers to set user’s passwords for this application?** to **Yes**.
-
-1. **Optional:** To specify the business approvers who are allowed to approve access to this application, select **Select approvers**, select up to 10 individual business approvers, and then select **Select**.
+1. **Optional:** Next to **Who is allowed to approve access to this application?** Select **Select approvers** to specify the business approvers who are allowed to approve access to this application. Select up to 10 individual business approvers, and then select **Select**.
 
     >[!NOTE]
     >Groups are not supported. You can select up to 10 individual business approvers. If you specify multiple approvers, any single approver can approve an access request.
 
-1. **Optional:** **For applications that expose roles**, to assign self-service approved users to a role, select **Select Role**, choose the role to which these users should be assigned, and then select **Select**.
+1. **Optional:** Next to **To which role should users be assigned in this application?**, select **Select Role** to assign self-service approved users to a role. Choose the role to which these users should be assigned, and then select **Select**. This option is for applications that expose roles.
 
 1. Select the **Save** button at the top of the pane to finish.
 
-Once you complete self-service application configuration, users can navigate to their My Apps portal and select **Add self-service apps** to find the apps that are enabled with self-service access. Business approvers also see a notification in their My Apps portal. You can enable an email notifying them when a user has requested access to an application that requires their approval.
+Once you complete self-service application configuration, users can navigate to their My Apps portal, and select **Request new apps** to find the apps that are enabled with self-service access. Business approvers also see a notification in their My Apps portal. You can enable an email notifying them when a user has requested access to an application that requires their approval.
 
 ## Next steps
 

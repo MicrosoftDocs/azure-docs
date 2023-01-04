@@ -27,7 +27,7 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Example: en-de:**
 
-Source input: `The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.`
+Source input: `The word <mstrans:dictionary translation=\"wordomatic\">wordomatic</mstrans:dictionary> is a dictionary entry.`
 
 Target output: `Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 

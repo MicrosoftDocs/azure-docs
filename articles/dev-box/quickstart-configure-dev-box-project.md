@@ -1,19 +1,20 @@
 ---
-title: Configure a Microsoft Dev Box project
-description: 'This quickstart shows you how to configure a Microsoft Dev Box project, create a dev box pool and provide access to dev boxes for your users.'
+title: Configure a Microsoft Dev Box Preview project
+titleSuffix: Microsoft Dev Box Preview
+description: 'This quickstart shows you how to configure a Microsoft Dev Box Preview project, create a dev box pool and provide access to dev boxes for your users.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/03/2022
+ms.date: 10/12/2022
 ---
 <!-- 
   Customer intent:
 	As a Dev Box Project Admin I want to configure projects so that I can provide Dev Boxes for my users.
  -->
 
-# Quickstart: Configure a Microsoft Dev Box project
+# Quickstart: Configure a Microsoft Dev Box Preview project
 To enable developers to self-serve dev boxes in projects, you must configure dev box pools that specify the dev box definitions and network connections used when dev boxes are created. Dev box users create dev boxes using the dev box pool. 
 
 In this quickstart, you'll perform the following tasks:
@@ -26,7 +27,7 @@ A dev box pool is a collection of dev boxes that you manage together. You must h
 
 The following steps show you how to create a dev box pool associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure a dev box pool. 
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box service](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure the Microsoft Dev Box Preview service](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -42,7 +43,7 @@ If you don't have an available dev center with an existing dev box definition an
  
    :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-grid-empty.png" alt-text="Screenshot of the list of dev box pools within a project. The list is empty.":::
 
-5. On the **Create a dev box pool** page, enter the following values:
+1. On the **Create a dev box pool** page, enter the following values:
 
    |Name|Value|
    |----|----|
@@ -50,9 +51,13 @@ If you don't have an available dev center with an existing dev box definition an
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes created within this pool.|
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes created within this pool.|
    |**Dev Box Creator Privileges**|Select Local Administrator or Standard User.|
-   |**Licensing**| Select this check box if your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
+   |**Enable Auto-stop**|Yes is the default. Select No to disable an Auto-stop schedule. You can configure an Auto-stop schedule after the pool has been created.|
+   |**Stop time**| Select a time to shutdown all the dev boxes in the pool. All Dev Boxes in this pool will be shut down at this time, everyday.|
+   |**Time zone**| Select the time zone that the stop time is in.|
+   |**Licensing**| Select this check box to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-projects/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
+
+   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
 
 6. Select **Add**.
  
@@ -96,6 +101,8 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 1. On the Add role assignment page, select **Review + assign**.
 
 The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+
+[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
 ## Project admins
 

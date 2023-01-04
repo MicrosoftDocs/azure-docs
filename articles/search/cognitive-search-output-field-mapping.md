@@ -6,6 +6,7 @@ description: Export the enriched content created by a skillset by mapping its ou
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/14/2022
 ---
@@ -140,7 +141,7 @@ If your source data is composed of nested or hierarchical JSON, you can't use fi
 
 This section walks you through an import process that produces a one-to-one reflection of a complex document on both the source and target sides. Next, it uses the same source document to illustrate the retrieval and flattening of individual nodes into string collections.
 
-Here's an example of a document in Cosmos DB with nested JSON:
+Here's an example of a document in Azure Cosmos DB with nested JSON:
 
 ```json
 {
@@ -216,7 +217,7 @@ Here's a sample indexer definition that executes the import (notice there are no
 }
 ```
 
-The result is the following sample search document, similar to the original in Cosmos DB.
+The result is the following sample search document, similar to the original in Azure Cosmos DB.
 
 ```json
 {

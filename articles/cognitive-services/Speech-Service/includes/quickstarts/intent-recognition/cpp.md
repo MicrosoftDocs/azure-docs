@@ -49,7 +49,7 @@ Insert this code in the `recognizeIntent()` method. Make sure you update these v
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp" id="create_speech_configuration":::
 

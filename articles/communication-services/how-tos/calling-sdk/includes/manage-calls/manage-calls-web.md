@@ -47,6 +47,17 @@ const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
 ```
 
+### Join a room call
+
+To join a `room` call, you can instantiate a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
+
+```js
+const context = { roomId: '<RoomId>' }
+const call = callAgent.join(context);
+```
+
+A `room` offers application developers better control over **who** can join a call, **when** they meet and **how** they collaborate. To learn more about `rooms`, you can read the [conceptual documentation](../../../../concepts/rooms/room-concept.md) or follow the [quick start guide](../../../../quickstarts/rooms/join-rooms-call.md).
+
 ### Join a group call
 
 > [!NOTE]
@@ -126,7 +137,7 @@ await call.muteIncomingAudio();
 await call.unmuteIncomingAudio();
 ```
 
-When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not paly in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not play in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Manage remote participants
 
@@ -197,12 +208,14 @@ The state can be:
 - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
-
     ```js
     const callEndReason = remoteParticipant.callEndReason;
     const callEndReasonCode = callEndReason.code // (number) code associated with the reason
     const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
     ```
+    Note: 
+    - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
+    - In the scenario where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 

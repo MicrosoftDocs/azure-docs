@@ -10,4 +10,4 @@
  ms.custom: include file
 ---
 >[!NOTE]
->The features described in this article are available only in the standard tier of IoT Hub. For more information about the basic and standard/free IoT Hub tiers, see [Choose the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
+>The features described in this article are available only in the standard tier of IoT Hub. For more information about the basic and standard/free IoT Hub tiers, see [Choose the right IoT Hub tier for your solution](../articles/iot-hub/iot-hub-scaling.md).

@@ -1,9 +1,9 @@
 ---
 title: Deploy S/4HANA infrastructure (preview)
-description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions (ACSS) through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
+description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -13,16 +13,14 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions (ACSS)*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
+In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
 
 ## Prerequisites
 
 - An Azure subscription.
 - Register the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- The ACSS application **Azure SAP Workloads Management** also needs Contributor role access to the resource groups for the SAP system. There are two options to grant access:
-    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when deploying or registering the SAP system.
-    - If your Azure account doesn't have Owner or User Access Admin role access, you must enable access for the ACSS application. 
+- A **User-assigned managed identity** which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 
 ## Deployment types
@@ -40,7 +38,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 1. In the search bar, enter and select **Azure Center for SAP solutions**.
 
-1. On the ACSS landing page, select **Create a new SAP system**.
+1. On the Azure Center for SAP solutions landing page, select **Create a new SAP system**.
 
 1. On the **Create Virtual Instance for SAP solutions** page, on the **Basics** tab, fill in the details for your project.
 
@@ -91,14 +89,30 @@ There are three deployment options that you can select for your infrastructure, 
     1. If you choose to use an **Existing public key**, you can either Provide the SSH public key from **local file** stored on your computer or **copy paste** the public key.
     
     1. Provide the corresponding SSH private key from **local file** stored on your computer or **copy paste** the private key.
+
+1. Under **SAP Transport Directory**, enter how you want to set up the transport directory on this SID. This is applicable for Distributed with High Availability and Distributed deployments only.
+
+    1. For **SAP Transport Options**, you can choose to **Create a new SAP transport Directory** or **Use an existing SAP transport Directory** or completely skip the creation of transport directory by choosing **Dont include SAP transport directory** option. Currently, only NFS on AFS storage account fileshares are supported.
+
+    1. If you choose to **Create a new SAP transport Directory**, this will create and mount a new transport fileshare on the SID. By Default, this option will create an NFS on AFS storage account and a transport fileshare in the resource group where SAP system wil be deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**. You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** will create the storage account with service default name **""SIDname""nfs""random characters""** in the chosen transport resource group. Creating a new transport directory will create a ZRS based replication for zonal deployments and LRS based replication for non-zonal deployments. If your region doesnt support ZRS replication deploying a zonal VIS will lead to a failure. In such cases, you can deploy a transport fileshare outside ACSS with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the pre-created fileshare.
    
+    1. If you choose to **Use an existing SAP transport Directory**, select the pre - existing NFS fileshare under **File share name** option. The existing transport fileshare will be only mounted on this SID. The selected fileshare shall be in the same region as that of SAP system being created . Currently, file shares existing in a different region can not be selected. Provide the associated privated endpoint of the  storage account where the selected fileshare exists under **Private Endpoint** option.
+    
+    1. You can skip the creation of transport file share by selecting **Dont include SAP transport directory** option . The transport fileshare will neither be created or mounted for this SID.
+    
 1. Under **Configuration Details**, enter the FQDN for you SAP System .
 
-    1. For **SAP FQDN**, provide FQDN for you system such "sap.contoso.com"
+    1. For **SAP FQDN**, provide only the domain name for you system such "sap.contoso.com"
+
+1. Under **User assigned managed identity**, provide the identity which Azure Center for SAP solutions will use to deploy infrastructure.
+
+    1. For **Managed identity source**, choose if you want the service to create a new managed identity or you can instead use an existing identity. If you wish to allow the service to create a managed identity, acknowledge the checkbox which asks for your consent for the identity to be created and the contributor role access to be added for all resource groups.
+
+    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY. If you wish to later install the SAP system using ACSS, we also recommend to give the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account which has the SAP software media.
 
 1. Select **Next: Virtual machines**.
 
-1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from ACSS. 
+1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from Azure Center for SAP solutions. 
 
     1. For **Generate Recommendation based on**, under **Get virtual machine recommendations**, select **SAP Application Performance Standard (SAPS)**.
 
@@ -116,11 +130,11 @@ There are three deployment options that you can select for your infrastructure, 
     
         The number of VMs for ASCS and Database instances aren't editable. The default number for each is **2**.
 
-        ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
+        Azure Center for SAP solutions automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure to select a VM SKU. Then, select **View disk configuration**. If there's more than one database server, the layout applies to each server. 
 
     1. Select **Next: Tags**.
 
-1. Optionally, enter tags to apply to all resources created by the ACSS process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
+1. Optionally, enter tags to apply to all resources created by the Azure Center for SAP solutions process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
 
 1. Select **Review + Create**.
 

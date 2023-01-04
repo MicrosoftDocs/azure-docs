@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 03/01/2022
+ms.date: 09/26/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -50,7 +50,7 @@ Role-assignable groups are designed to help prevent potential breaches by having
 - Only Global Administrators and Privileged Role Administrators can create a role-assignable group.
 - The membership type for role-assignable groups must be Assigned and can't be an Azure AD dynamic group. Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
 - By default, only Global Administrators and Privileged Role Administrators can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
-- RoleManagement.ReadWrite.Directory Microsoft Graph permission is required to be able to manage the membership of such groups; Group.ReadWrite.All won't work.
+- For Microsoft Graph, the *RoleManagement.ReadWrite.Directory* permission is required to be able to manage the membership of role-assignable groups. The *Group.ReadWrite.All* permission won't work.
 - To prevent elevation of privilege, only a Privileged Authentication Administrator or a Global Administrator can change the credentials or reset MFA or modify sensitive attributes for members and owners of a role-assignable group.
 - Group nesting is not supported. A group can't be added as a member of a role-assignable group.
 

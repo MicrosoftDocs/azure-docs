@@ -2,7 +2,7 @@
 title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on Apache Kafka support by Azure Event Hubs. 
 ms.topic: overview
-ms.date: 06/27/2022
+ms.date: 10/14/2022
 ---
 
 # Use Azure Event Hubs from Apache Kafka applications
@@ -96,6 +96,12 @@ The Event Hubs for Apache Kafka feature is one of three protocols concurrently a
 
 Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.md), which enables extremely cost efficient long-term archival via Azure Blob Storage and Azure Data Lake Storage, and [Geo Disaster-Recovery](event-hubs-geo-dr.md) also work with the Event Hubs for Kafka feature.
 
+## Idempotency
+
+Event Hubs for Apache Kafka supports both idempotent producers and idempotent consumers. 
+
+One of the core tenets of Azure Event Hubs is the concept of **at-least once** delivery. This approach ensures that events will always be delivered. It also means that events can be received more than once, even repeatedly, by consumers such as a function. For this reason, it's important that the consumer supports the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. 
+
 ## Apache Kafka feature differences 
 
 The goal of Event Hubs for Apache Kafka is to provide access to Azure Event Hubs capabilities to applications that are locked into the Apache Kafka API and would otherwise have to be backed by an Apache Kafka cluster. 
@@ -113,10 +119,6 @@ The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/
 This feature is fundamentally at odds with Azure Event Hubs' multi-protocol model, which allows for messages, even those sent in batches, to be individually retrievable from the broker and through any protocol. 
 
 The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing. The Apache Avro encoding format supports compression natively.
-
-### Log Compaction
-
-Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. This feature is presently not implemented by Azure Event Hubs. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/introduction.md). For more information, see [Log Projection](event-hubs-federation-overview.md#log-projections). 
 
 ### Kafka Streams
 

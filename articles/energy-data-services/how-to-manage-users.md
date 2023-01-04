@@ -9,19 +9,16 @@ ms.date: 08/19/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# How to manage users?
-This article describes how to manage users in Microsoft Energy Data Services Preview. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. For more information about Microsoft Energy Data Services Preview entitlements, see [entitlement services](concepts-entitlements.md).
+# How to manage users
+In this article, you'll know how to manage users in Microsoft Energy Data Services Preview. It uses the [entitlements API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/master/) and acts as a group-based authorization system for data partitions within Microsoft Energy Data Service instance. For more information about Microsoft Energy Data Services Preview entitlements, see [entitlement services](concepts-entitlements.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-Create a Microsoft Energy Data Services Preview instance using guide at [How to create Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md).
+Create a Microsoft Energy Data Services Preview instance using the tutorial at [How to create Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md).
 
-Keep the following values handy. These values will be used to: 
-
-* Generate the access token, which you'll need to make valid calls to the Entitlements API of your Microsoft Energy Data Services Preview instance
-* Pass as parameters for different user management requests to the Entitlements API. 
+You will need to pass parameters for generating the access token, which you'll need to make valid calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. You will also need these parameters for different user management requests to the Entitlements API. Hence Keep the following values handy for these actions.
 
 #### Find `tenant-id`
 Navigate to the Azure Active Directory account for your organization. One way to do so is by searching for "Azure Active Directory" in the Azure portal's search bar. Once there, locate `tenant-id` under the basic information section in the *Overview* tab. Copy the `tenant-id` and paste in an editor to be used later.  
@@ -33,15 +30,17 @@ Navigate to the Azure Active Directory account for your organization. One way to
 #### Find `client-id`
 Often called `app-id`, it's the same value that you used to register your application during the provisioning of your [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md). You'll find the `client-id` in the *Essentials* pane of Microsoft Energy Data Services Preview *Overview* page. Copy the `client-id` and paste in an editor to be used later. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > The 'client-id' that is passed as values in the entitlement API calls needs to be the same which was used for provisioning of your Microsoft Energy Data Services Preview instance.
+
 :::image type="content" source="media/how-to-manage-users/client-id-or-app-id.png" alt-text="Screenshot of finding the client-id for your registered App.":::
 
 #### Find `client-secret`
-Sometimes called an application password, a `client-secret` is a string value your app can use in place of a certificate to identity itself. Navigate to *App Registrations*. Once there, open 'Certificates & secrets' under the *Manage* section.Create a `client-secret` for the `client-id` that you used to create your Microsoft Energy Data Services Preview instance, you can add one now by clicking on *New Client Secret*. Record the secret's `value` for use in your client application code. 
+Sometimes called an application password, a `client-secret` is a string value your app can use in place of a certificate to identity itself. Navigate to *App Registrations*. Once there, open 'Certificates & secrets' under the *Manage* section. Create a `client-secret` for the `client-id` that you used to create your Microsoft Energy Data Services Preview instance, you can add one now by clicking on *New Client Secret*. Record the secret's `value` for use in your client application code. 
 
-> [!NOTE]
+> [!CAUTION]
 > Don't forget to record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page at the time of creation of 'client secret'.
+
 :::image type="content" source="media/how-to-manage-users/client-secret.png" alt-text="Screenshot of finding the client secret.":::
 
 #### Find the `url`for your Microsoft Energy Data Services Preview instance
@@ -51,11 +50,11 @@ Navigate to your Microsoft Energy Data Services Preview *Overview* page on Azure
 
 #### Find the `data-partition-id` for your group
 You have two ways to get the list of data-partitions in your Microsoft Energy Data Services Preview instance. 
-- By navigating *Data Partitions* menu-item under the Advanced section of your Microsoft Energy Data Services Preview UI.
+- One option is to navigate *Data Partitions* menu item under the Advanced section of your Microsoft Energy Data Services Preview UI.
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services Preview instance.":::
 
-- By clicking on the *view* below the *data partitions* field in the essentials pane of your Microsoft Energy Data Services Preview *Overview* page. 
+- Another option is by clicking on the *view* below the *data partitions* field in the essentials pane of your Microsoft Energy Data Services Preview *Overview* page. 
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Microsoft Energy Data Services Preview instance overview page.":::
 
@@ -89,7 +88,7 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 Copy the `access_token` value from the response. You'll need it to pass as one of the headers in all calls to the Entitlements API of your Microsoft Energy Data Services Preview instance. 
 
 ## User management activities
-You can manage user's access to your Microsoft Energy Data Services instance or data partitions. As a prerequisite for the same, you need to find the 'object-id' (OID) of the user(s) first. 
+You can manage user's access to your Microsoft Energy Data Services instance or data partitions. As a prerequisite for this step, you need to find the 'object-id' (OID) of the user(s) first. 
 
 You'll need to input `object-id` (OID) of the users as parameters in the calls to the Entitlements API of your Microsoft Energy Data Services Preview Instance. `object-id`(OID) is the Azure Active Directory User Object ID.
 
@@ -121,8 +120,9 @@ Run the below curl command in Azure Cloud Bash to add user(s) to the "Users" gro
                     "role": "MEMBER"
                 }'
 ```
-> [!NOTE]
-> The value to be sent for the param "email" is the Object ID of the user and not the user's email
+
+The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email
+
 **Sample request**
 
 ```bash
@@ -159,8 +159,8 @@ Run the below curl command in Azure Cloud Bash to add user(s) to an entitlement 
                 "role": "MEMBER"
     }'
 ```
-> [!NOTE]
-> The value to be sent for the param "email" is the Object ID of the user and not the user's email
+The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email
+
 **Sample request**
 
 ```bash
@@ -225,8 +225,8 @@ Run the below curl command in Azure Cloud Bash to get all the groups associated 
 
 Run the below curl command in Azure Cloud Bash to delete a given user to your Microsoft Energy Data Services instance data partition.
 
-> [!NOTE]
-> As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER that can manage users in that group.
+As stated above, **DO NOT** delete the OWNER of a group unless you have another OWNER that can manage users in that group.
+
 ```bash
     curl --location --request DELETE 'https://<URI>/api/entitlements/v2/members/<OBJECT_ID>' \
     --header 'data-partition-id: <data-partition-id>' \

@@ -2,19 +2,14 @@
 title: Azure Active Directory recommendation - Migrate to Microsoft authenticator | Microsoft Docs
 description: Learn why you should migrate your users to the Microsoft authenticator app in Azure AD.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: hafowler
 
 ms.collection: M365-identity-device-management

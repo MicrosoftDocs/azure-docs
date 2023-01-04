@@ -89,7 +89,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## Create an Azure Databricks workspace and add Key Vault secret scope
 
-This section can't be completed through the command line. Follow this [guide](/azure/key-vault/general/integrate-databricks-blob-storage#create-an-azure-databricks-workspace-and-add-a-secret-scope). You'll need to access the [Azure portal](https://portal.azure.com/#home) to:
+This section can't be completed through the command line. You'll need to access the [Azure portal](https://portal.azure.com/#home) to:
 
 1. Create your Azure Databricks resource
 1. Launch your workspace
@@ -97,7 +97,7 @@ This section can't be completed through the command line. Follow this [guide](/a
 
 ## Access your blob container from Azure Databricks workspace
 
-This section can't be completed through the command line. Follow this [guide](/azure/key-vault/general/integrate-databricks-blob-storage#access-your-blob-container-from-azure-databricks). You'll need to use the Azure Databricks workspace to:
+This section can't be completed through the command line. You'll need to use the Azure Databricks workspace to:
 
 1. Create a **New Cluster**
 1. Create a **New Notebook**

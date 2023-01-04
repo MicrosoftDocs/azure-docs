@@ -2,6 +2,7 @@
 title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/03/2022
 ---
 
@@ -110,6 +111,12 @@ Learn more about [Front Door Profile - UpgradeCDNToLatestSDKLanguage (Upgrade SD
 
 ## Cognitive Services
 
+### 429 Throttling Detected on this resource
+
+We observed that there have been 1,000 or more 429 throttling errors on this resource in a one day timeframe.  Consider enabling autoscale to better handle higher call volumes and reduce the number of 429 errors.
+
+Learn more about [Cognitive Service - AzureAdvisor429LimitHit (429 Throttling Detected on this resource)](/azure/cognitive-services/autoscale?tabs=portal).
+
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
 Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability. Also there are new features available as new endpoints starting from V3.0 such as personally identifiable information recognition, entity recognition and entity linking available as separate endpoints. In terms of changes in preview endpoints we have opinion mining in SA endpoint, redacted text property in personally identifiable information endpoint
@@ -186,17 +193,17 @@ Learn more about [Communication service - UpgradeTurnSdk (Use recommended versio
 
 ## Compute
 
+### Update Automanage to the latest API Version
+
+We have identified sdk calls from outdated API for resources under this subscription. We recommend switching to the latest sdk versions. This ensures you receive the latest features and performance improvements.
+
+Learn more about [Virtual machine - UpdateToLatestApi (Update Automanage to the latest API Version)](/azure/automanage/reference-sdk).
+
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
 We have determined that your VMs are located in a region different or far from where your users are connecting from, using Azure Virtual Desktop. This may lead to prolonged connection response times and will impact overall user experience on Azure Virtual Desktop.
 
 Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user experience and connectivity by deploying VMs closer to user’s location.)](../virtual-desktop/connection-latency.md).
-
-### Consider increasing the size of your NVA to address persistent high CPU
-
-When NVAs run at high CPU, packets can get dropped resulting in connection failures or high latency due to network retransmits. Your NVA is running at high CPU, so you should consider increasing the VM size as allowed by the NVA vendor's licensing requirements.
-
-Learn more about [Virtual machine - NVAHighCPU (Consider increasing the size of your NVA to address persistent high CPU)](https://aka.ms/NVAHighCPU).
 
 ### Use Managed disks to prevent disk I/O throttling
 
@@ -222,83 +229,11 @@ We noticed that you are using SSD disks while also using Standard HDD disks on t
 
 Learn more about [Virtual machine - MixedDiskTypeToSSDPublic (Use SSD Disks for your production workloads)](/azure/virtual-machines/windows/disks-types#disk-comparison).
 
-### Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.
-
-We have identified that your Virtual Machine might be running a version of Barracuda Networks NextGen Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Barracuda Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - BarracudaNVAAccelNet (Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.
-
-We have identified that your Virtual Machine might be running a version of Arista Networks vEOS Router Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Arista Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - AristaNVAAccelNet (Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.
-
-We have identified that your Virtual Machine might be running a version of Cisco Cloud Services Router 1000V Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Cisco for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - CiscoCSRNVAAccelNet (Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.
-
-We have identified that your Virtual Machine might be running a version of Palo Alto Networks VM-Series Firewall Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact Palo Alto Networks for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - PaloAltoNVAAccelNet (Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.
-
-We have identified that your Virtual Machine might be running a version of NetApp Cloud Volumes ONTAP Image that is running older drivers for Accelerated Networking, which may cause the product to revert to using the standard, synthetic network interface which does not use Accelerated Networking. It is recommended that you upgrade to a newer version of the image that addresses this issue and enable Accelerated Networking. Contact NetApp for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - NetAppNVAAccelNet (NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
 ### Match production Virtual Machines with Production Disk for consistent performance and better latency
 
 Production virtual machines need production disks if you want to get the best performance. We see that you are running a production level virtual machine, however, you are using a low performing disk with standard HDD. Upgrading your disks that are attached to your production disks, either Standard SSD or Premium SSD, will benefit you with a more consistent experience and improvements in latency.
 
 Learn more about [Virtual machine - MatchProdVMProdDisks (Match production Virtual Machines with Production Disk for consistent performance and better latency)](/azure/virtual-machines/windows/disks-types#disk-comparison).
-
-### Update to the latest version of your Arista VEOS product for Accelerated Networking support.
-
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - AristaVeosANUpgradeRecommendation (Update to the latest version of your Arista VEOS product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Update to the latest version of your Barracuda NG Firewall product for Accelerated Networking support.
-
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - BarracudaNgANUpgradeRecommendation (Update to the latest version of your Barracuda NG Firewall product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Update to the latest version of your Cisco Cloud Services Router 1000V product for Accelerated Networking support.
-
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - Cisco1000vANUpgradeRecommendation (Update to the latest version of your Cisco Cloud Services Router 1000V product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Update to the latest version of your F5 BigIp product for Accelerated Networking support.
-
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - F5BigIpANUpgradeRecommendation (Update to the latest version of your F5 BigIp product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Update to the latest version of your NetApp product for Accelerated Networking support.
-
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - NetAppANUpgradeRecommendation (Update to the latest version of your NetApp product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Update to the latest version of your Palo Alto Firewall product for Accelerated Networking support.
-
-We have identified that your Virtual Machine might be running a version of software image that is running older drivers for Accelerated Networking (AN). It has a synthetic network interface which, either, is not AN capable or is not compatible with all Azure hardware. It is recommended that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - PaloAltoFWANUpgradeRecommendation (Update to the latest version of your Palo Alto Firewall product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-### Update to the latest version of your Check Point product for Accelerated Networking support.
-
-We have identified that your Virtual Machine (VM) might be running a version of software image that is running older drivers for Accelerated Networking (AN). Your VM has a synthetic network interface that is either not AN capable or is not compatible with all Azure hardware. We recommend that you upgrade to the latest version of the image that addresses this issue and enable Accelerated Networking. Contact your vendor for further instructions on how to upgrade your Network Virtual Appliance Image.
-
-Learn more about [Virtual machine - CheckPointCGANUpgradeRecommendation (Update to the latest version of your Check Point product for Accelerated Networking support.)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 ### Accelerated Networking may require stopping and starting the VM
 
@@ -306,17 +241,17 @@ We have detected that Accelerated Networking is not engaged on VM resources in y
 
 Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking may require stopping and starting the VM)](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-### NVA may see traffic loss due to hitting the maximum number of flows.
-
-Packet loss has been observed for this Virtual Machine due to hitting or exceeding the maximum number of flows for a VM instance of this size on Azure
-
-Learn more about [Virtual machine - NvaMaxFlowLimit (NVA may see traffic loss due to hitting the maximum number of flows.)](../virtual-network/virtual-machine-network-throughput.md).
-
 ### Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.
 
 Ultra disk is available in the same region as your database workload. Ultra disk offers high throughput, high IOPS, and consistent low latency disk storage for your database workloads: For Oracle DBs, you can now use either 4k or 512E sector sizes with Ultra disk depending on your Oracle DB version. For SQL server, leveraging Ultra disk for your log disk might offer more performance for your database. See instructions here for migrating your log disk to Ultra disk.
 
 Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal).
+
+### Upgrade the size of your virtual machines close to resource exhaustion
+
+We analyzed data for the past 7 days and identified virtual machines (VMs) with high utilization across different metrics (i.e., CPU, Memory, and VM IO). Those VMs may experience performance issues since they are nearing/at their SKU's limits. Consider upgrading their SKU to improve performance.
+
+Learn more about [Virtual machine - Improve the performance of highly used VMs using Azure Advisor](https://aka.ms/aa_resizehighusagevmrec_learnmore)
 
 ## Kubernetes
 
@@ -326,7 +261,7 @@ Unsupported Kubernetes version is detected. Ensure Kubernetes cluster runs with 
 
 Learn more about [Kubernetes service - UnsupportedKubernetesVersionIsDetected (Unsupported Kubernetes version is detected)](https://aka.ms/aks-supported-versions).
 
-## Data Factory
+## DataFactory
 
 ### Review your throttled Data Factory Triggers
 
@@ -460,17 +395,17 @@ Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlReadR
 
 ## PostgreSQL
 
-### Scale the storage limit for PostgreSQL server
-
-Our internal telemetry shows that the server may be constrained because it is approaching limits for the currently provisioned storage values. This may result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
-
-Learn more about [PostgreSQL server - OrcasPostgreSqlStorageLimit (Scale the storage limit for PostgreSQL server)](https://aka.ms/postgresqlstoragelimits).
-
 ### Increase the work_mem to avoid excessive disk spilling from sort and hash
 
 Our internal telemetry shows that the configuration work_mem is too small for your PostgreSQL server which is resulting in disk spilling and degraded query performance. To improve this, we recommend increasing the work_mem limit for the server which will help to reduce the scenarios when the sort or hash happens on disk, thereby improving the overall query performance.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlWorkMem (Increase the work_mem to avoid excessive disk spilling from sort and hash)](https://aka.ms/runtimeconfiguration).
+
+### Scale the storage limit for PostgreSQL server
+
+Our internal telemetry shows that the server may be constrained because it is approaching limits for the currently provisioned storage values. This may result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount or turning ON the "Auto-Growth" feature for automatic storage increases
+
+Learn more about [PostgreSQL server - OrcasPostgreSqlStorageLimit (Scale the storage limit for PostgreSQL server)](https://aka.ms/postgresqlstoragelimits).
 
 ### Distribute data in server group to distribute workload among nodes
 
@@ -630,7 +565,7 @@ Our internal telemetry shows that there is high churn in the buffer pool for thi
 
 Learn more about [PostgreSQL server - OrcasMeruMemoryUpsell (Move your PostgreSQL Flexible Server to Memory Optimized SKU)](https://aka.ms/azure_postgresql_flexible_server_pricing).
 
-## Desktop Virtualization
+## DesktopVirtualization
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
 
@@ -644,39 +579,45 @@ Depth first load balancing uses the max session limit to determine the maximum n
 
 Learn more about [Host Pool - ChangeMaxSessionLimitForDepthFirstHostPool (Change the max session limit for your depth first load balanced host pool to improve VM performance )](../virtual-desktop/configure-host-pool-load-balancing.md).
 
-## Cosmos DB
-
-### Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK
-
-We noticed that your Azure Cosmos DB applications are using Gateway mode via the Cosmos DB .NET or Java SDKs. We recommend switching to Direct connectivity for lower latency and higher scalability.
-
-Learn more about [Cosmos DB account - CosmosDBGatewayMode (Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK)](/azure/cosmos-db/performance-tips#networking).
+## Azure Cosmos DB
 
 ### Configure your Azure Cosmos DB query page size (MaxItemCount) to -1
 
-You are using the query page size of 100 for queries for your Azure Cosmos container. We recommend using a page size of -1 for faster scans.
+You are using the query page size of 100 for queries for your Azure Cosmos DB container. We recommend using a page size of -1 for faster scans.
 
-Learn more about [Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](/azure/cosmos-db/sql-api-query-metrics#max-item-count).
+Learn more about [Azure Cosmos DB account - CosmosDBQueryPageSize (Configure your Azure Cosmos DB query page size (MaxItemCount) to -1)](/azure/cosmos-db/sql-api-query-metrics#max-item-count).
 
 ### Add composite indexes to your Azure Cosmos DB container
 
 Your Azure Cosmos DB containers are running ORDER BY queries incurring high Request Unit (RU) charges. It is recommended to add composite indexes to your containers' indexing policy to improve the RU consumption and decrease the latency of these queries.
 
-Learn more about [Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](../cosmos-db/index-policy.md#composite-indexes).
+Learn more about [Azure Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](../cosmos-db/index-policy.md#composite-indexes).
 
 ### Optimize your Azure Cosmos DB indexing policy to only index what's needed
 
 Your Azure Cosmos DB containers are using the default indexing policy, which indexes every property in your documents. Because you're storing large documents, a high number of properties get indexed, resulting in high Request Unit consumption and poor write latency. To optimize write performance, we recommend overriding the default indexing policy to only index the properties used in your queries.
 
-Learn more about [Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths (Optimize your Azure Cosmos DB indexing policy to only index what's needed)](../cosmos-db/index-policy.md).
+Learn more about [Azure Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths (Optimize your Azure Cosmos DB indexing policy to only index what's needed)](../cosmos-db/index-policy.md).
 
 ### Use hierarchical partition keys for optimal data distribution
 
 This account has a custom setting that allows the logical partition size in a container to exceed the limit of 20 GB. This setting was applied by the Azure Cosmos DB team as a temporary measure to give you time to re-architect your application with a different partition key. It is not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. You can now use hierarchical partition keys (preview) to re-architect your application. The feature allows you to exceed the 20 GB limit by setting up to three partition keys, ideal for multi-tenant scenarios or workloads that use synthetic keys.
 
-Learn more about [Cosmos DB account - CosmosDBHierarchicalPartitionKey (Use hierarchical partition keys for optimal data distribution)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/).
+Learn more about [Azure Cosmos DB account - CosmosDBHierarchicalPartitionKey (Use hierarchical partition keys for optimal data distribution)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/).
+
+### Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK
+
+We noticed that your Azure Cosmos DB applications are using Gateway mode via the Azure Cosmos DB .NET or Java SDKs. We recommend switching to Direct connectivity for lower latency and higher scalability.
+
+Learn more about [Azure Cosmos DB account - CosmosDBGatewayMode (Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK)](/azure/cosmos-db/performance-tips#networking).
 
 ## HDInsight
+
+### Unsupported Kubernetes version is detected
+
+Unsupported Kubernetes version is detected. Ensure Kubernetes cluster runs with a supported version.
+
+Learn more about [HDInsight Cluster Pool - UnsupportedHiloAKSVersionIsDetected (Unsupported Kubernetes version is detected)](https://aka.ms/aks-supported-versions).
 
 ### Reads happen on most recent data
 
@@ -692,6 +633,7 @@ You are seeing this advisor recommendation because HDInsight team's system log s
 
 These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.
 To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase.  The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications.
+To read more on this feature, please visit link:
 
 Learn more about [HDInsight cluster - AccWriteCandidate (Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance.)](../hdinsight/hbase/apache-hbase-accelerated-writes.md).
 
@@ -717,9 +659,17 @@ Learn more about [HDInsight cluster - FlushQueueCandidate (Consider increasing t
 
 The compaction queue in your region servers is more than 2000 suggesting that more data requires compaction. Slower compactions can impact read performance as the number of files to read are more. More files without compaction can also impact the heap usage related to how files interact with Azure file system.
 
-Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](../hdinsight/hbase/apache-hbase-advisor.md).
+Learn more about [HDInsight cluster - CompactionQueueCandidate (Consider increasing your compaction threads for compactions to complete faster)](/azure/hdinsight/hbase/apache-hbase-advisor).
 
-## Key Vault
+## Automanage
+
+### Update Automanage to the latest API Version
+
+We have identified sdk calls from outdated API for resources under this subscription. We recommend switching to the latest sdk versions. This ensures you receive the latest features and performance improvements.
+
+Learn more about [Machine - Azure Arc - UpdateToLatestApiHci (Update Automanage to the latest API Version)](/azure/automanage/reference-sdk).
+
+## KeyVault
 
 ### Update Key Vault SDK Version
 
@@ -757,6 +707,12 @@ Reducing the table cache policy will free up unused data from the resource's cac
 Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesToImprovePerformance (Reduce Data Explorer table cache policy for better performance)](https://aka.ms/adxcachepolicy).
 
 ## Networking
+
+### Configure DNS Time to Live to 60 seconds
+
+Time to Live (TTL) affects how recent of a response a client will get when it makes a request to Azure Traffic Manager. Reducing the TTL value means that the client will be routed to a functioning endpoint faster in the case of a failover. Configure your TTL to 60 seconds to route traffic to a health endpoint as quickly as possible.
+
+Learn more about [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds)](https://aka.ms/Um3xr5).
 
 ### Configure DNS Time to Live to 20 seconds
 
@@ -870,10 +826,6 @@ Because you are running IaaS virtual machine workloads on Standard HDD managed d
 
 Learn more about [Storage Account - StandardSSDForNonPremVM (Upgrade to Standard SSD Disks for consistent and improved performance)](/azure/virtual-machines/windows/disks-types#standard-ssd).
 
-### Upgrade your Storage Client Library to the latest version for better reliability and performance
-
-The latest version of Storage Client Library/ SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Storage.
-
 ### Use premium performance block blob storage
 
 One or more of your storage accounts has a high transaction rate per GB of block blob data stored. Use premium performance block blob storage instead of standard performance storage for your workloads that require fast storage response times and/or high transaction rates and potentially save on storage costs.
@@ -903,12 +855,6 @@ Clustered columnstore tables are organized in data into segments. Having high se
 
 Learn more about [Synapse workspace - SynapseCCIGuidance (Tables with Clustered Columnstore Indexes (CCI) with less than 60 million rows)](https://aka.ms/AzureSynapseCCIGuidance).
 
-### CCI Tables with Deleted Records Over the Recommended Threshold
-
-Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
-
-Learn more about [Synapse workspace - SynapseCCIHealthDeletedRowgroups (CCI Tables with Deleted Records Over the Recommended Threshold)](https://aka.ms/AzureSynapseCCIDeletedRowGroups).
-
 ### Update SynapseManagementClient SDK Version
 
 New SynapseManagementClient is using .NET SDK 4.0 or above.
@@ -928,6 +874,170 @@ Learn more about [App service - AppServiceMoveToPremiumV2 (Move your App Service
 Your app has opened too many TCP/IP socket connections. Exceeding ephemeral TCP/IP port connection limits can cause unexpected connectivity issues for your apps.
 
 Learn more about [App service - AppServiceOutboundConnections (Check outbound connections from your App Service resource)](https://aka.ms/antbc-socket).
+
+## SAP on Azure Workloads
+
+### For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter
+
+The parameter net.ipv4.tcp_wmem specifies minimum, default, and maximum send buffer sizes that are used for a TCP socket. Set the parameter as per SAP note: 302436 to certify HANA DB to run with ANF and improve file system performance. The maximum value should not exceed net.core.wmem_max parameter
+
+Learn more about [Database Instance - WriteBuffersAllocated (For improved file system performance in HANA DB with ANF, optimize tcp_wmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF, optimize wmem_max OS parameter
+
+In HANA DB with ANF storage type, the maximum write socket buffer, defined by the parameter, net.core.wmem_max must be set large enough to handle outgoing network packets. This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346
+
+Learn more about [Database Instance - MaxWriteBuffer (For improved file system performance in HANA DB with ANF, optimize wmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter
+
+The parameter net.ipv4.tcp_rmem specifies minimum, default, and maximum receive buffer sizes used for a TCP socket. Set the parameter as per SAP note 3024346 to certify HANA DB to run with ANF and improve file system performance. The maximum value should not exceed net.core.rmem_max parameter
+
+Learn more about [Database Instance - OptimizeReadTcp (For improved file system performance in HANA DB with ANF, optimize tcp_rmem OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter
+
+In HANA DB with ANF storage type, the maximum read socket buffer, defined by the parameter, net.core.rmem_max must be set large enough to handle incoming network packets. This configuration certifies HANA DB to run with ANF and improves file system performance. See SAP note: 3024346.
+
+Learn more about [Database Instance - MaxReadBuffer (For improved file system performance in HANA DB with ANF, optimize rmem_max OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF, set receiver backlog queue size to 300000
+
+The parameter net.core.netdev_max_backlog specifies the size of the receiver backlog queue, used if a Network interface receives packets faster than the kernel can process. Set the parameter as per SAP note: 3024346. This configuration certifies HANA DB to run with ANF and improves file system performance.
+
+Learn more about [Database Instance - BacklogQueueSize (For improved file system performance in HANA DB with ANF, set receiver backlog queue size to 300000)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### To improve file system performance in HANA DB with ANF, enable the TCP window scaling OS parameter
+
+Enable the TCP window scaling parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - EnableTCPWindowScaling (To improve file system performance in HANA DB with ANF, enable the TCP window scaling OS parameter )](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF, disable IPv6 protocol in OS
+
+Disable IPv6 as per recommendation for SAP on Azure for HANA DB with ANF to improve file system performance
+
+Learn more about [Database Instance - DisableIPv6Protocol (For improved file system performance in HANA DB with ANF, disable IPv6 protocol in OS)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+
+### To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle
+
+The parameter net.ipv4.tcp_slow_start_after_idle disables the need to scale-up incrementally the TCP window size for TCP connections which were idle for some time. By setting this parameter to zero as per SAP note: 302436, the maximum speed is used from beginning for previously idle TCP connections
+
+Learn more about [Database Instance - ParamterSlowStart (To improve file system performance in HANA DB with ANF, disable parameter for slow start after idle)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter
+
+To prevent the kernel from using SYN cookies in a situation where lots of connection requests are sent in a short timeframe and to prevent a warning about a potential SYN flooding attack in the system log, the size of the SYN backlog should be set to a reasonably high value. See SAP note 2382421
+
+Learn more about [Database Instance - TCPMaxSynBacklog (For improved file system performance in HANA DB with ANF optimize tcp_max_syn_backlog OS parameter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+
+### For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter
+
+Enable the tcp_sack parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - TCPSackParameter (For improved file system performance in HANA DB with ANF, enable the tcp_sack OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### In high-availaility scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter
+
+Disable the tcp_timestamps parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in high-availability scenarios for HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - DisableTCPTimestamps (In high-availaility scenario for HANA DB with ANF, disable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance in HANA DB with ANF, enable the tcp_timestamps OS parameter
+
+Enable the tcp_timestamps parameter as per SAP note: 302436. This configuration certifies HANA DB to run with ANF and improves file system performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - EnableTCPTimestamps (For improved file system performance in HANA DB with ANF, enable the tcp_timestamps OS parameter)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size
+
+The parameter net.ipv4.tcp_moderate_rcvbuf enables  TCP to perform receive buffer auto-tuning, to automatically size the buffer (no greater than tcp_rmem to match the size required by the path for full throughput. Enable this parameter as per SAP note: 302436 for improved file system performance
+
+Learn more about [Database Instance - EnableAutoTuning (To improve file system performance in HANA DB with ANF, enable auto-tuning TCP receive buffer size)](https://launchpad.support.sap.com/#/notes/3024346).
+
+### For improved file system performance  in HANA DB with ANF, optimize net.ipv4.ip_local_port_range
+
+As HANA uses a considerable number of connections for the internal communication, it makes sense to have as many client ports available as possible for this purpose. Set the OS parameter, net.ipv4.ip_local_port_range parameter as per SAP note 2382421 to ensure optimal internal HANA communication.
+
+Learn more about [Database Instance - IPV4LocalPortRange (For improved file system performance  in HANA DB with ANF, optimize net.ipv4.ip_local_port_range)](https://launchpad.support.sap.com/#/notes/2382421).
+
+### To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries
+
+Set the parameter sunrpc.tcp_slot_table_entries to 128 as per recommendation  for improved file system performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - TCPSlotTableEntries (To improve file system performance in HANA DB with ANF, optimize sunrpc.tcp_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+
+### All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB
+
+If multiple disk types are selected in the /hana/data volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
+
+Learn more about [Database Instance - HanaDataDiskTypeSame (All disks in LVM for /hana/data volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Configuration%20for%20SAP%20/hana/data%20volume).
+
+### Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads
+
+If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. Based on experience with recentLinux versions, Azure recommends using stripe size of 256 kb for /hana/data filesystem for better performance of HANA DB
+
+Learn more about [Database Instance - HanaDataStripeSize (Stripe size for /hana/data should be 256 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
+
+### To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness
+
+Set the OS parameter vm.swappiness to 10 as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - VmSwappiness (To improve file system performance in HANA DB with ANF, optimize the parameter vm.swappiness)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+
+### To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter
+
+Disable the reverse path filter linux OS parameter, net.ipv4.conf.all.rp_filter as per recommendation for improved file system performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - DisableIPV4Conf (To improve file system performance in HANA DB with ANF, disable net.ipv4.conf.all.rp_filter)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+
+### If using Ultradisk, the IOPS for /hana/data volume should be >=7000 for better HANA DB performance
+
+IOPS of at least 7000 in /hana/data volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/data volume as per this requirement to ensure high performance of the DB
+
+Learn more about [Database Instance - HanaDataIOPS (If using Ultradisk, the IOPS for /hana/data volume should be >=7000 for better HANA DB performance)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
+
+### To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries
+
+Set the OS parameter tcp_max_slot_table_entries to 128 as per SAP note: 302436 for improved file transfer performance in HANA DB with ANF in SAP workloads
+
+Learn more about [Database Instance - OptimizeTCPMaxSlotTableEntries (To improve file system performance in HANA DB with ANF, change parameter tcp_max_slot_table_entries)](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#:~:text=Create%20configuration%20file%20/etc/sysctl.d/ms%2Daz.conf%20with%20Microsoft%20for%20Azure%20configuration%20settings).
+
+### Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB
+
+Read activity of at least 400 MB/sec for /hana/data for 16 MB and 64 MB I/O sizes is recommended for SAP workloads on Azure. Select the disk type for /hana/data as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA
+
+Learn more about [Database Instance - HanaDataVolumePerformance (Ensure the read performance of /hana/data volume is >=400 MB/sec for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Read%20activity%20of%20at%20least%20400%20MB/sec%20for%20/hana/data).
+
+### Read/write performance of /hana/log volume should be >=250 MB/sec for better performance in HANA DB
+
+Read/Write activity of at least 250 MB/sec for /hana/log for 1 MB I/O size is recommended for SAP workloads on Azure. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB and to meet minimum storage requirements for SAP HANA
+
+Learn more about [Database Instance - HanaLogReadWriteVolume (Read/write performance of /hana/log volume should be >=250 MB/sec for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=Read/write%20on%20/hana/log%20of%20250%20MB/sec%20with%201%20MB%20I/O%20sizes).
+
+### If using Ultradisk, the IOPS for /hana/log volume should be >=2000 for better performance in HANA DB
+
+IOPS of at least 2000 in /hana/log volume is recommended for SAP workloads when using Ultradisk. Select the disk type for /hana/log volume as per this requirement to ensure high performance of the DB
+
+Learn more about [Database Instance - HanaLogIOPS (If using Ultradisk, the IOPS for /hana/log volume should be >=2000 for better performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#azure-ultra-disk-storage-configuration-for-sap-hana:~:text=1%20x%20P6-,Azure%20Ultra%20disk%20storage%20configuration%20for%20SAP%20HANA,-Another%20Azure%20storage).
+
+### All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB
+
+If multiple disk types are selected in the /hana/log volume, performance of HANA DB in SAP workloads might get restricted. Ensure all HANA Data volume disks are of the same type and are configured as per recommendation for SAP on Azure
+
+Learn more about [Database Instance - HanaDiskLogVolumeSameType (All disks in LVM for /hana/log volume should be of the same type to ensure high performance in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=For%20the%20/hana/log%20volume.%20the%20configuration%20would%20look%20like).
+
+### Enable Write Accelerator on /hana/log volume with Premium disk for improved write latency in HANA DB
+
+Azure Write Accelerator is a functionality for Azure M-Series VMs. It improves I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is to be used against the /hana/log volume only.
+
+Learn more about [Database Instance - WriteAcceleratorEnabled (Enable Write Accelerator on /hana/log volume with Premium disk for improved write latency in HANA DB)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=different%20SAP%20applications.-,Solutions%20with%20premium%20storage%20and%20Azure%20Write%20Accelerator%20for%20Azure%20M%2DSeries%20virtual%20machines,-Azure%20Write%20Accelerator).
+
+### Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads
+
+If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. To get enough throughput with larger I/O sizes, Azure recommends using stripe size of 64 kb for /hana/log filesystem for better performance of HANA DB
+
+Learn more about [Database Instance - HanaLogStripeSize (Stripe size for /hana/log should be 64 kb for improved performance of HANA DB in SAP workloads)](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#:~:text=As%20stripe%20sizes%20the%20recommendation%20is%20to%20use).
 
 ## Next steps
 

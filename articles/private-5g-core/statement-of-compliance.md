@@ -33,6 +33,17 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 - TS 33.401: 3GPP System Architecture Evolution (SAE); Security architecture.
 - TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP).
 
+### 5G handover procedures
+
+- TS 23.502: Procedures for the 5G System (5GS):
+  - 4.9.1.2: Xn based inter NG-RAN handover.
+  - 4.9.1.3: Inter NG-RAN node N2 based handover.
+
+### 4G handover procedures
+
+- TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access: 
+  - 5.5.1.1 X2-based handover.
+
 ### Policy and charging control (PCC) framework
 
 - TS 23.503: Policy and charging control framework for the 5G System (5GS); Stage 2.

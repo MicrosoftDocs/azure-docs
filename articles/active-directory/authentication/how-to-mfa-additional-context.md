@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 10/07/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -36,7 +36,7 @@ The additional context can be combined with [number matching](how-to-mfa-number-
 
 ### Policy schema changes 
 
-You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following name mapping for each features:
+You can enable and disable application name and geographic location separately. Under featureSettings, you can use the following name mapping for each feature:
 
 - Application name: displayAppInformationRequiredState
 - Geographic location: displayLocationInformationRequiredState
@@ -275,7 +275,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 In **featureSettings**, change the states of **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** from **default** to **enabled.** 
 Inside the **includeTarget** for each featureSetting, change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
 
-In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This will exclude that group from seeing application name or geographic location.
+In addition, for each of the features, you'll change the id of the excludeTarget to the ObjectID of the group from the Azure AD portal. This change excludes that group from seeing application name or geographic location.
 
 You need to PATCH the entire schema to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The following example shows an update to **displayAppInformationRequiredState** and **displayLocationInformationRequiredState** under **featureSettings**. 
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 12/14/2022
 keywords: 
 ---
 
@@ -30,6 +30,9 @@ keywords:
 ```console
 pip install openai
 ```
+
+> [!NOTE]
+> This library is maintained by OpenAI and is currently a preview release. Use the [version.py commit history](https://github.com/openai/openai-python/commits/main/openai/version.py) to track the latest updates to the library.
 
 ## Retrieve key and endpoint
 
@@ -60,7 +63,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
     openai.api_key = "REPLACE_WITH_YOUR_API_KEY_HERE"
     openai.api_base =  "REPLACE_WITH_YOUR_ENDPOINT_HERE" # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     openai.api_type = 'azure'
-    openai.api_version = '2022-06-01-preview' # this may change in the future
+    openai.api_version = '2022-12-01' # this may change in the future
 
     deployment_id='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
@@ -93,6 +96,8 @@ Run the code a few more times to see what other types of responses you get as th
 ### Understanding your results
 
 Since our example of `Write a tagline for an ice cream shop.` provides very little context, it's normal for the model to not always return expected results. You can adjust the maximum number of tokens if the response seems unexpected or truncated.
+
+The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 

@@ -12,7 +12,7 @@ manager: femila
 > Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-windows-7-10.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-windows.md).
 
 You can access Azure Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Windows 8 or Windows 8.1.
 

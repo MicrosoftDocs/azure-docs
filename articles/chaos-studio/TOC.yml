@@ -38,6 +38,8 @@
     href: chaos-studio-targets-capabilities.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
+  - name: Private networking
+    href: chaos-studio-private-networking.md
   - name: Regional availability
     href: chaos-studio-region-availability.md
 - name: How-to guides
@@ -60,6 +62,10 @@
       href: chaos-studio-tutorial-aks-portal.md
     - name: CLI
       href: chaos-studio-tutorial-aks-cli.md
+  - name: Create and run experiment - Dynamic targeting
+    items:
+    - name: CLI 
+      href: chaos-studio-tutorial-dynamic-target-cli.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference

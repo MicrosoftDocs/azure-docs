@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
-ms.author: sehan
 author: dem108
-ms.reviewer: larryfr
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.date: 09/07/2022
 ---
 
@@ -192,7 +192,7 @@ Use the following steps to delete an individual deployment from a managed online
 In this article, you learned how to use Azure Machine Learning managed online endpoints. See these next steps:
 
 - [What are endpoints?](concept-endpoints.md)
-- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy online endpoints with the Azure CLI](how-to-deploy-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Troubleshooting managed online endpoints deployment and scoring](./how-to-troubleshoot-online-endpoints.md)

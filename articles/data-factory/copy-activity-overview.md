@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/20/2022
 ms.author: jianleishen
 ---
 
@@ -37,6 +37,9 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 3. Writes data to the sink/destination data store.
 
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
+
+> [!NOTE]
+> In case if a self-hosted integration runtime is used in either source or sink data store within a copy activity, than both the source and sink must be accessible from the server hosting the integartion runtime for the copy activity to be successful.
 
 ## Supported data stores and formats
 

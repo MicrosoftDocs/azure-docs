@@ -28,8 +28,7 @@ The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8370C (Ice Lake) 
 
 > [!IMPORTANT]
 > - Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 VMs. 
-> - Accelerated networking can be applied to two NICs. 
->-  Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
+> - Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
 
 ## Ebdsv5 series
 
@@ -44,15 +43,15 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processo
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 - Nested virtualization: Supported
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached Premium v1 SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max burst uncached Premium v1 SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium v2 SSD disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium v2 SSD disk throughput: IOPS/MBps | Max NICs | Network bandwidth |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps | Max NICs | Network bandwidth |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_E2bds_v5 | 2 | 16 | 75 | 4 | 9000/125 | 5500/156 | 10000/1200 | 7370/156 | 15000/1200 | 2 | 12500 |
 | Standard_E4bds_v5 | 4 | 32 | 150 | 8 | 19000/250 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 12500 |
 | Standard_E8bds_v5 | 8 | 64 | 300 | 16 | 38000/500 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 12500 |
 | Standard_E16bds_v5 | 16 | 128 | 600 | 32 | 75000/1000 | 44000/1250 | 64000/2000 |58960/1250 |96000/2000 |  8 | 12500 |
-| Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/1250 | 88000/2500 | 120000/4000 | 117920/2500|160000/4000|  8 | 16000 | 
-| Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/2000 | 120000/4000 | 120000/4000 | 160000/4000|160000/4000 | 8 | 16000 | 
-| Standard_E64bds_v5 | 64 | 512 | 2400 | 32 | 300000/4000 | 120000/4000 | 120000/4000 |160000/4000 | 160000/4000| 8 | 20000 |
+| Standard_E32bds_v5 | 32 | 256 | 1200 | 32 | 150000/1250 | 88000/2500 | 120000/4000 | 117920/2500|120000/4000|  8 | 16000 | 
+| Standard_E48bds_v5 | 48 | 384 | 1800 | 32 | 225000/2000 | 120000/4000 | 120000/4000 | 120000/4000|120000/4000 | 8 | 16000 | 
+| Standard_E64bds_v5 | 64 | 512 | 2400 | 32 | 300000/4000 | 120000/4000 | 120000/4000 |120000/4000 | 120000/4000| 8 | 20000 |
 
 
 ## Ebsv5 series
@@ -68,15 +67,15 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
 - Nested virtualization: Supported
 
-| Size | vCPU | Memory: GiB | Max data disks |  Max uncached Premium v1 SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max burst uncached Premium v1 SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium v2 SSD disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium v2 SSD disk throughput: IOPS/MBps  | Max NICs | Network bandwidth |
+| Size | vCPU | Memory: GiB | Max data disks |  Max uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2bs_v5 | 2 | 16 | 4 | 5500/156 | 10000/1200 | 7370/156|15000/1200 | 2 | 12500 |
 | Standard_E4bs_v5 | 4 | 32 | 8 | 11000/350 | 20000/1200 | 14740/350|30000/1200 | 2 | 12500 |
 | Standard_E8bs_v5 | 8 | 64 | 16 | 22000/625 | 40000/1200 |29480/625 |60000/1200 | 4 | 12500 |
 | Standard_E16bs_v5 | 16 | 128 | 32 | 44000/1250 | 64000/2000 |58960/1250 |96000/2000 | 8 | 12500 
-| Standard_E32bs_v5 | 32 | 256 | 32 | 88000/2500 | 120000/4000 |117920/2500 |160000/4000 | 8 | 16000 |
-| Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 160000/4000| 160000/4000| 8 | 16000 |
-| Standard_E64bs_v5 | 64 | 512 | 32 | 120000/4000 | 120000/4000 | 160000/4000|160000/4000 | 8 | 20000 | 
+| Standard_E32bs_v5 | 32 | 256 | 32 | 88000/2500 | 120000/4000 |117920/2500 |120000/4000 | 8 | 16000 |
+| Standard_E48bs_v5 | 48 | 384 | 32 | 120000/4000 | 120000/4000 | 120000/4000| 120000/4000| 8 | 16000 |
+| Standard_E64bs_v5 | 64 | 512 | 32 | 120000/4000 | 120000/4000 | 120000/4000|120000/4000 | 8 | 20000 | 
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

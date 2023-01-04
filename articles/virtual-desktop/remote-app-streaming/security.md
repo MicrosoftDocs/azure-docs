@@ -43,7 +43,7 @@ Azure Virtual Desktop has features like [Reverse Connect](../network-connectivit
 
 ## Defense in depth
 
-Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls "defense in depth." To learn more about defense in depth, go to [the CISA website](https://us-cert.cisa.gov/bsi/articles/knowledge/principles/defense-in-depth).
+Today's threat landscape requires designs with security approaches in mind. Ideally, you'll want to build a series of security mechanisms and controls layered throughout your computer network to protect your data and network from being compromised or attacked. This type of security design is what the United States Cybersecurity and Infrastructure Security Agency (CISA) calls "defense in depth".
 
 ## Security boundaries
 

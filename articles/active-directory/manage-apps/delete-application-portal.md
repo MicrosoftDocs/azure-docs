@@ -84,16 +84,18 @@ To delete an enterprise application, you need:
 1. Get the list of enterprise applications in your tenant.
    
    ```powershell
-   Get-MgServicePrincipal   
+   Get-MgServicePrincipal
    ```
+
 1. Record the object ID of the enterprise app you want to delete.
+
 1. Delete the enterprise application.
    
    ```powershell
    Remove-MgServicePrincipal -ServicePrincipalId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   ```
 
 :::zone-end
-
 
 :::zone pivot="ms-graph"
 

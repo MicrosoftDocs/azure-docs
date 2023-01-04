@@ -35,11 +35,9 @@ This release corresponds to REST API version 2021-10-15-preview, which includes 
     - [Partner Events overview for partners](partner-events-overview-for-partners.md)
     - [Onboard as an Event Grid partner](onboard-partner.md)
     - [Subscribe to partner events](subscribe-to-partner-events.md)
-    - [Deliver events to partner destinations](deliver-events-to-partner-destinations.md)
 - New REST API
     - [Channels](/rest/api/eventgrid/controlplane-version2021-10-15-preview/channels)
     - [Partner Configurations](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-configurations)
-    - [Partner Destinations](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-destinations)
     - [Verified Partners](/rest/api/eventgrid/controlplane-version2021-10-15-preview/verified-partners)
 
 

@@ -2,13 +2,14 @@
 title: Delete a role/policy in the Remediation dashboard in Permissions Management
 description: How to delete a role/policy in the Just Enough Permissions (JEP) Controller.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Delete a role/policy in the Remediation dashboard

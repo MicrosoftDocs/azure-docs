@@ -67,7 +67,6 @@ If successful, this method returns a `204 No Content` response code and does not
 ##### Request
 Here is an example of the request.
 
-
 ```http
 PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app-under-APP-Registrations}
 Content-type: application/json

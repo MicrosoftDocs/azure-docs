@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/25/2022
+ms.date: 11/03/2022
 ms.author: radeltch
 ---
 
@@ -224,7 +224,8 @@ This documentation assumes that:
         params ip=10.3.1.16 \
         op monitor interval=10 timeout=20
    
-      sudo crm configure primitive nc_NW2_ASCS azure-lb port=62010
+      sudo crm configure primitive nc_NW2_ASCS azure-lb port=62010 \
+        op monitor timeout=20s interval=10
    
       sudo crm configure group g-NW2_ASCS fs_NW2_ASCS nc_NW2_ASCS vip_NW2_ASCS \
          meta resource-stickiness=3000
@@ -238,7 +239,8 @@ This documentation assumes that:
        params ip=10.3.1.13 \
        op monitor interval=10 timeout=20
    
-      sudo crm configure primitive nc_NW3_ASCS azure-lb port=62020
+      sudo crm configure primitive nc_NW3_ASCS azure-lb port=62020 \
+       op monitor timeout=20s interval=10
    
       sudo crm configure group g-NW3_ASCS fs_NW3_ASCS nc_NW3_ASCS vip_NW3_ASCS \
         meta resource-stickiness=3000
@@ -270,7 +272,8 @@ This documentation assumes that:
       params ip=10.3.1.17 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW2_ERS azure-lb port=62112
+    sudo crm configure primitive nc_NW2_ERS azure-lb port=62112 \
+      op monitor timeout=20s interval=10
    
     sudo crm configure group g-NW2_ERS fs_NW2_ERS nc_NW2_ERS vip_NW2_ERS
 
@@ -283,7 +286,8 @@ This documentation assumes that:
       params ip=10.3.1.19 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW3_ERS azure-lb port=62122
+    sudo crm configure primitive nc_NW3_ERS azure-lb port=62122 \
+      op monitor timeout=20s interval=10
    
     sudo crm configure group g-NW3_ERS fs_NW3_ERS nc_NW3_ERS vip_NW3_ERS
    ```

@@ -4,10 +4,9 @@ titleSuffix: Azure Files
 description: Learn how to save costs on Azure file share deployments by using Azure Files reserved capacity.
 services: storage
 author: khdownie
-
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 11/21/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -37,8 +36,11 @@ Azure Files reserved capacity is available for a single subscription, multiple s
 
 A capacity reservation for Azure Files covers only the amount of data that is stored in a subscription or shared resource group. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
+### Reserved capacity and snapshots
+If you're taking snapshots of Azure file shares, there are differences in how capacity reservations work for standard versus premium file shares. If you're taking snapshots of standard file shares, then the snapshot differentials count against the reserved capacity and are billed as part of the normal used storage meter. However, if you're taking snapshots of premium file shares, then the snapshots are billed using a separate meter and don't count against the capacity reservation. For more information, see [Snapshots](understanding-billing.md#snapshots).
+
 ### Supported tiers and redundancy options
-Azure Files reserved capacity is available for premium, hot, and cool file shares. Reserved capacity is not available for Azure file shares in the transaction optimized tier. All storage redundancies support reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
+Azure Files reserved capacity is available for premium, hot, and cool file shares. Reserved capacity isn't available for Azure file shares in the transaction optimized tier. All storage redundancies support reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
 
 ### Security requirements for purchase
 To purchase reserved capacity:

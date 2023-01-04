@@ -27,20 +27,21 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20/DL20 Plus (4SFF)
+          - text: HPE ProLiant DL20 Gen10 Plus (4SFF)
             url: hpe-proliant-dl20-plus-enterprise.md
-
+          - text: Dell Edge 5200 (Rugged MIL-STD-810G)
+            url: dell-edge-5200.md
+          - text: Dell PowerEdge R350 
+            url: dell-poweredge-r350-e1800.md
 
   # Card
   - title: Production line
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
+          - text: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-plus-smb.md
-          - text: Dell Edge 5200 (Rugged MIL-STD-810G)
-            url: dell-edge-5200.md
-          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-8106)
+          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
             url: ys-techsystems-ys-fit2.md
 
   # Card
@@ -48,11 +49,11 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: OT sensor (VMWare ESXi)
+          - text: OT sensor (VMware ESXi)
             url: virtual-sensor-vmware.md
           - text: OT sensor (Microsoft Hyper-V)
             url: virtual-sensor-hyper-v.md
-          - text: On-premises management console (VMWare ESXi)
+          - text: On-premises management console (VMware ESXi)
             url: virtual-management-vmware.md
           - text: On-premises management console (Microsoft Hyper-V)
             url: virtual-management-hyper-v.md
@@ -62,12 +63,17 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Dell PowerEdge R340 XL (Enterprise)
-            url: dell-poweredge-r340-xl-legacy.md
-          - text: HPE Edgeline El300 (SMB rugged)
+          - text: HPE ProLiant DL20 Gen10 
+            url: hpe-proliant-dl20-legacy.md              
+          - text: Dell PowerEdge R340 XL 
+            url: dell-poweredge-r340-xl-legacy.md            
+          - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) 
+            url: hpe-proliant-dl20-smb-legacy.md                  
+          - text: HPE Edgeline EL300 
             url: hpe-edgeline-el300.md
-          - text: Neousys Nuvo-500LP (SMB rugged)
+          - text: Neousys Nuvo-500LP
             url: neousys-nuvo-5006lp.md
+    
       # - linkListType: reference
       #   links:
       #     - text: Security recommendations for GCP resources

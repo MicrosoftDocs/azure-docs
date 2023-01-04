@@ -1,12 +1,12 @@
 ---
 title: Run scripts in a Linux VM in Azure using action Run Commands
-description: This topic describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
+description: This article describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
 author: nikhilpatel909
 ms.author: erd
-ms.date: 09/08/2022
+ms.date: 10/25/2022
 ms.topic: how-to  
 ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -32,7 +32,7 @@ The following restrictions apply when you're using Run Command:
 * The minimum time to run a script is about 20 seconds.
 * Scripts run by default as an elevated user on Linux.
 * You can run one script at a time.
-* Scripts that prompt for information (interactive mode) are not supported.
+* Scripts that prompt for information (interactive mode) aren't supported.
 * You can't cancel a running script.
 * The maximum time a script can run is 90 minutes. After that, the script will time out.
 * Outbound connectivity from the VM is required to return the results of the script.
@@ -42,7 +42,7 @@ The following restrictions apply when you're using Run Command:
 
 ## Available commands
 
-This table shows the list of commands available for Linux VMs. You can use the **RunShellScript** command to run any custom script that you want. When you're using the Azure CLI or PowerShell to run a command, the value that you provide for the `--command-id` or `-CommandId` parameter must be one of the following listed values. When you specify a value that is not an available command, you receive this error:
+This table shows the list of commands available for Linux VMs. You can use the **RunShellScript** command to run any custom script that you want. When you're using the Azure CLI or PowerShell to run a command, the value that you provide for the `--command-id` or `-CommandId` parameter must be one of the following listed values. When you specify a value that isn't an available command, you receive this error:
 
 ```error
 The entity was not found in this Azure location
@@ -89,11 +89,37 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
 
 Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
+
+## Action Run Command Linux troubleshooting
+
+When troubleshooting action run command for Linux environments, refer to the *handler* log file typically located in the following directory: `/var/log/azure/run-command/handler.log` for further details.
+
+### Known issues
+The Linux action run command logs have a few notable differences compared to the action run command Windows logs:
+
+- The sequence number is reported with each line of the log as 'seq=#'
+- There won't be a line that contains `Awaiting completion...` as this will be in action run command Windows only.
+- The line `Command existed with code: #` is also only present in action run command Windows logging.
+
+### Action Run Command Removal
+
+If needing to remove your action run command Linux extension, refer to the below steps for Azure PowerShell and CLI:
+
+ Replace *rgname* and *vmname* with your relevant resource group name and virtual machine name in the following removal examples.
+
+
+```powershell-interactive
+ Invoke-AzVMRunCommand -ResourceGroupName 'rgname' -VMName 'vmname' -CommandId 'RemoveRunCommandLinuxExtension'
+```
+
+```azurecli-interactive
+az vm run-command invoke  --command-id RemoveRunCommandLinuxExtension --name vmname -g rgname
+```
 
 ## Next steps
 

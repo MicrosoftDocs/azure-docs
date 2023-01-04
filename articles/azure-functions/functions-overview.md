@@ -4,14 +4,14 @@ description: Learn how Azure Functions can help build robust serverless apps.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 05/27/2022
-ms.custom: contperf-fy21q2, devdivchpfy22
+ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 ---
 
 # Introduction to Azure Functions
 
 Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 
-You focus on the pieces of code that matter most to you, and Azure Functions handles the rest.<br /><br />
+You focus on the code that matters most to you, in the most productive language for you, and Azure Functions handles the rest.<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
 
@@ -37,12 +37,14 @@ The following are a common, _but by no means exhaustive_, set of scenarios for A
 | --- | --- |
 | **Build a web API** | Implement an endpoint for your web applications using the [HTTP trigger](./functions-bindings-http-webhook.md) |
 | **Process file uploads** | Run code when a file is uploaded or changed in [blob storage](./functions-bindings-storage-blob.md) |
-| **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable/durable-functions-overview.md) |
-| **Respond to database changes** | Run custom logic when a document is created or updated in [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
+| **Build a serverless workflow** | Create an event-driven workflow from a series of functions using [durable functions](./durable/durable-functions-overview.md) |
+| **Respond to database changes** | Run custom logic when a document is created or updated in [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Run scheduled tasks** | Execute code on [pre-defined timed intervals](./functions-bindings-timer.md) |
 | **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |
 | **Process data in real time** | Use [Functions and SignalR](./functions-bindings-signalr-service.md) to respond to data in the moment |
+
+These scenarios allow you to build event-driven systems using modern architectural patterns.
 
 As you build your functions, you have the following options and resources available:
 

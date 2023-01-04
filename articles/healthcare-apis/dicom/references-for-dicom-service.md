@@ -1,12 +1,12 @@
 ---
 title: References for DICOM service - Azure Health Data Services
 description: This reference provides related resources for the DICOM service.
-author: aersoy
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # DICOM service open-source projects

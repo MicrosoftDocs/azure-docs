@@ -84,7 +84,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## Configure the infrastructure
 
-Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, frontend IP config, backend pool, HTTP settings, certificate, port, and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -131,7 +131,7 @@ $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType bas
 
 Now you can specify the autoscale configuration for the application gateway. Two autoscaling configuration types are supported:
 
-* **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
+* **Fixed capacity mode**. In this mode, the application gateway doesn't autoscale and operates at a fixed Scale Unit capacity.
 
    ```azurepowershell
    $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2

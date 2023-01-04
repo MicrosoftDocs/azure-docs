@@ -209,7 +209,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName
@@ -395,7 +395,7 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [New-AzNetworkSecurityRuleConfig]: /powershell/module/az.network/new-aznetworksecurityruleconfig
 [New-AzNetworkSecurityGroup]: /powershell/module/az.network/new-aznetworksecuritygroup
 [Set-AzVirtualNetworkSubnetConfig]: /powershell/module/az.network/set-azvirtualnetworksubnetconfig

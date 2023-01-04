@@ -14,6 +14,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. Review [Connectivity architecture](./concepts-connectivity-architecture.md#connectivity-architecture) to learn more about gateways in Azure Database for MySQL service architecture.
 
 As Azure Database for MySQL supports major version v5.7 and v8.0, the default port 3306 to connect to Azure Database for MySQL runs MySQL client version 5.6 (least common denominator) to support connections to servers of all 2 supported major versions. However, if your application has a requirement to connect to specific major version say v5.7 or v8.0, you can do so by changing the port in your server connection string.

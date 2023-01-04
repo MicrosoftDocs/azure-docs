@@ -5,7 +5,7 @@ author: raorugan
 ms.author: raorugan
 ms.service: container-service
 ms.topic: article
-ms.date: 06/08/2022
+ms.date: 10/10/2022
 ms.custom: template-how-to 
 ---
 
@@ -165,18 +165,17 @@ az aks update \
 ## Next steps
 This article showed you how to install the KEDA add-on on an AKS cluster using Azure CLI. The steps to verify that KEDA add-on is installed and running are included. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
 
-You can troubleshoot troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
+You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
-[keda-troubleshoot]: keda-troubleshoot.md
+[keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
 [aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda]: https://keda.sh/
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
-

@@ -1,13 +1,13 @@
 ---
 
 title: Tutorial for bulk inviting B2B collaboration users - Azure AD
-description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users. You'll use the Microsoft.Graph.Users PowerShell module.
+description: In this tutorial, you learn how to send bulk invitations using a CSV file to external Azure AD B2B collaboration users. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 02/16/2022
+ms.date: 10/24/2022
 
 ms.author: mimart
 author: msmimart
@@ -16,18 +16,63 @@ manager: celestedg
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
 ms.collection: M365-identity-device-management
+ms.custom: engagement-fy23
 ---
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
+If you use [Azure Active Directory (Azure AD) B2B collaboration](what-is-b2b.md) to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
 
 > [!div class="checklist"]
+>
 > * Use **Bulk invite users** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
 > * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
 If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
+## Prerequisites
+
+You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
+
+
+## Invite guest users in bulk
+
+1. Sign in to the Azure portal with an account that is a global administrator in the organization.
+2. In the navigation pane, select **Azure Active Directory**.
+3. Under **Manage**, select **All Users**.
+4. Select **Bulk operations** > **Bulk invite**.
+
+    :::image type="content" source="media/tutorial-bulk-invite/bulk-invite-button.png" alt-text="Screenshot of the bulk invite button.":::
+
+
+4. On the **Bulk invite users** page, select **Download** to get a [valid .csv template](tutorial-bulk-invite.md#understand-the-csv-template) with invitation properties.
+
+    :::image type="content" source="media/tutorial-bulk-invite/download-button.png" alt-text="Screenshot of the download the csv file button.":::
+
+1. Open the .csv template and add a line for each guest user. Required values are:
+
+   * **Email address to invite** - the user who will receive an invitation
+
+   * **Redirection url** - the URL to which the invited user is forwarded after accepting the invitation. If you want to forward the user to the My Apps page, you must change this value to https://myapps.microsoft.com or https://myapplications.microsoft.com.
+
+    :::image type="content" source="media/tutorial-bulk-invite/bulk-invite-csv.png" alt-text="Screenshot of the example csv file with guest users entered.":::
+
+   > [!NOTE]
+   > Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
+
+6. Save the file.
+7. On the **Bulk invite users** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
+8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
+9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
+10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results** in the **Activity** section. For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+
+    :::image type="content" source="media/tutorial-bulk-invite/bulk-operation-results.png" alt-text="Screenshot of the bulk operation results." lightbox="media/tutorial-bulk-invite/bulk-operation-results.png":::
+
+
+11. When the job completes, you'll see a notification that the bulk operation succeeded.
+
 
 ## Understand the CSV template
 
@@ -50,43 +95,6 @@ The rows in a downloaded CSV template are as follows:
 - We don't recommend adding new columns to the template. Any columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 
-## Prerequisites
-
-You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
-
-## Invite guest users in bulk
-
-1. Sign in to the Azure portal with an account that is a global administrator in the organization.
-2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **All Users**.
-4. Select **Bulk operations** > **Bulk invite**.
-
-    ![Bulk invite button](media/tutorial-bulk-invite/bulk-invite-button.png)
-
-4. On the **Bulk invite users** page, select **Download** to get a valid .csv template with invitation properties.
-
-     ![Download the CSV file](media/tutorial-bulk-invite/download-button.png)
-
-1. Open the .csv template and add a line for each guest user. Required values are:
-
-   * **Email address to invite** - the user who will receive an invitation
-
-   * **Redirection url** - the URL to which the invited user is forwarded after accepting the invitation. If you want to forward the user to the My Apps page, you must change this value to https://myapps.microsoft.com or https://myapplications.microsoft.com.
-
-    ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
-
-   > [!NOTE]
-   > Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
-
-6. Save the file.
-7. On the **Bulk invite users** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
-8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
-9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
-10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results** in the **Activity** section. For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
-
-    ![Example of bulk operation results](media/tutorial-bulk-invite/bulk-operation-results.png)
-
-11. When the job completes, you'll see a notification that the bulk operation succeeded.
 
 ## Verify guest users in the directory
 
@@ -128,7 +136,8 @@ For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicroso
 
 ## Next steps
 
-In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works.
+In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works, and how to enforce multi-factor authentication for guest users.
 
-> [!div class="nextstepaction"]
-> [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
+
+- [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
+- [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)

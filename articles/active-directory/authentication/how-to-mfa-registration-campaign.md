@@ -5,6 +5,7 @@ description: Learn how to move your organization away from less secure authentic
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/23/2022
 
@@ -13,8 +14,7 @@ author: mjsantani
 manager: amycolannino
 
 ms.collection: M365-identity-device-management
-
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+#Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
 # How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator
 
@@ -277,7 +277,7 @@ The feature aims to empower admins to get users set up with MFA using the Authen
 
 If this user doesn’t have the Authenticator app set up for push notifications and is enabled for it by policy, yes, the user will see the nudge. 
 
-**Will a user who has a the Authenticator app setup only for TOTP codes see the nudge?** 
+**Will a user who has the Authenticator app setup only for TOTP codes see the nudge?** 
 
 Yes. If the Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
 

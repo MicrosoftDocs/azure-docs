@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Enable accidental deletions prevention in the Azure AD provisioning service (Preview)
+# Enable accidental deletions prevention in the Azure AD provisioning service
 
 The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in an application unexpectedly.
 
@@ -32,7 +32,7 @@ threshold. Also, be sure the notification email address is completed. If the del
 When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
 ## Recovering from an accidental deletion
-If you encounter an accidental deletion you'll see it on the provisioning status page.  It will say **Provisioning has been quarantined. See quarantine details for more information.**.
+If you encounter an accidental deletion you'll see it on the provisioning status page.  It will say **Provisioning has been quarantined. See quarantine details for more information**.
 
 You can click either **Allow deletes** or **View provisioning logs**.
 
