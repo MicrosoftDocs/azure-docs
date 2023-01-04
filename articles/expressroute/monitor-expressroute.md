@@ -6,8 +6,8 @@ author: duongau
 ms.author: duau
 ms.service: expressroute
 ms.topic: how-to
-ms.custom: subject-monitoring
-ms.date: 01/04/2022
+ms.custom: subject-monitoring, FY 23 content-maintenance
+ms.date: 01/04/2023
 ---
 
 # Monitoring Azure ExpressRoute
