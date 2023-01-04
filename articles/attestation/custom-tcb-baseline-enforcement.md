@@ -61,7 +61,7 @@ Minimum PSW Windows version: "2.7.101.2"
 
 3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
-4 Click Configure, set **x-ms-sgx-tcbidentifier** claim value in the policy to the desired value and click Save 
+4. Click Configure, set **x-ms-sgx-tcbidentifier** claim value in the policy to the desired value and click Save 
 
 ### Existing shared provider users  
 
@@ -77,7 +77,7 @@ Shared provider users need to migrate to custom providers to be able to perform 
 
 5. Needs code deployment to send attestation requests to the custom attestation provider 
 
-### Existing custom provider users with default/custom attestation policy 
+### Existing custom provider users  
 
 1. Go to overview page and view the current default policy of the attestation provider. Details here 
 
