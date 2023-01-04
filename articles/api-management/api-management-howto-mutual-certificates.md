@@ -8,9 +8,9 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/26/2021
+ms.date: 01/04/2023
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Secure backend services using client certificate authentication in Azure API Management
@@ -42,21 +42,22 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ### Prerequisites for key vault integration
 
-1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+1. If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+
 1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
-1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list secrets from the vault. To add the policy:
-    1. In the portal, navigate to your key vault.
-    1. Select **Settings > Access policies > + Add Access Policy**.
-    1. Select **Secret permissions**, then select **Get** and **List**.
-    1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
+
+[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
+
 1. Create or import a certificate to the key vault. See [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
-1. When adding a key vault certificate to your API Management instance, you must have permissions to list secrets from the key vault.
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## Add a key vault certificate
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
+> [!IMPORTANT]
+> When adding a key vault certificate to your API Management instance, you must have permissions to list secrets from the key vault.
 
 > [!CAUTION]
 > When using a key vault certificate in API Management, be careful not to delete the certificate, key vault, or managed identity used to access the key vault.
