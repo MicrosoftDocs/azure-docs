@@ -11,6 +11,7 @@ ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 12/15/2022
+show_latex: true
 ---
 
 # Lagged features for time series forecasting in AutoML
@@ -21,7 +22,7 @@ AutoML generates lags with respect to the forecast horizon. The example in this 
 
 Table 1: Original time series <a name="tab:original-ts"></a> 
 
-| Date     | _y_<sub>_t_</sub> | 
+| Date     | $y_t$ | 
 |:---      |:---   |
 | 1/1/2001 | 0     |
 | 2/1/2001 | 10    |
@@ -30,11 +31,11 @@ Table 1: Original time series <a name="tab:original-ts"></a>
 | 5/1/2001 | 40    | 
 | 6/1/2001 | 50    |
 
-First, we generate the lag feature for the horizon _h_=1 only. As you continue reading, it will become clear why we use individual horizons in each table.
+First, we generate the lag feature for the horizon $h=1$ only. As you continue reading, it will become clear why we use individual horizons in each table.
 
-Table 2: Lag featurization for _h_=1 <a name="tbl:classic-lag-1"></a>
+Table 2: Lag featurization for $h=1$ <a name="tbl:classic-lag-1"></a>
 
-| Date       | _y_<sub>_t_</sub> | Origin    | _y_<sub>_t-1_</sub> | _h_ |
+| Date       | $y_t$ | Origin    | $y_{t-1}$ | $h$ |
 |:---        |:---   |:---       |:---       |:---     | 
 | 1/1/2001   | 0     | 12/1/2000 | -         | 1       |
 | 2/1/2001   | 10    | 1/1/2001  | 0         | 1       |
@@ -43,11 +44,11 @@ Table 2: Lag featurization for _h_=1 <a name="tbl:classic-lag-1"></a>
 | 5/1/2001   | 40    | 4/1/2001  | 30        | 1       |
 | 6/1/2001   | 50    | 4/1/2001  | 40        | 1       |
 
-Table 2 is generated from Table 1 by shifting the _y_<sub>_t_</sub> column down by a single observation. We've added a column named `Origin` that has the dates that the lag features originate from. Next, we generate the lagging feature for the forecast horizon _h_=2 only.
+Table 2 is generated from Table 1 by shifting the $y_t$ column down by a single observation. We've added a column named `Origin` that has the dates that the lag features originate from. Next, we generate the lagging feature for the forecast horizon $h=2$ only.
 
-Table 3: Lag featurization for _h_=2 <a name="tbl:classic-lag-2"></a>
+Table 3: Lag featurization for $h=2$ <a name="tbl:classic-lag-2"></a>
 
-| Date       | _y_<sub>_t_</sub> | Origin    | _y_<sub>_t-2_</sub> | _h_ |
+| Date       | $y_t$ | Origin    | $y_{t-2}$ | $h$ |
 |:---        |:---   |:---       |:---       |:---     | 
 | 1/1/2001   | 0     | 11/1/2000 | -         | 2       |
 | 2/1/2001   | 10    | 12/1/2000 | -         | 2       |
@@ -56,11 +57,11 @@ Table 3: Lag featurization for _h_=2 <a name="tbl:classic-lag-2"></a>
 | 5/1/2001   | 40    | 3/1/2001  | 20        | 2       |
 | 6/1/2001   | 50    | 4/1/2001  | 30        | 2       |
 
-Table 3 is generated from Table 1 by shifting the _y_<sub>_t_</sub> column down by two observations. Finally, we will generate the lagging feature for the forecast horizon _h_=3 only.
+Table 3 is generated from Table 1 by shifting the $y_t$ column down by two observations. Finally, we will generate the lagging feature for the forecast horizon $h=3$ only.
 
-Table 4: Lag featurization for _h_=3 <a name="tbl:classic-lag-3"></a>
+Table 4: Lag featurization for $h=3$ <a name="tbl:classic-lag-3"></a>
 
-| Date       | _y_<sub>_t_</sub> | Origin    | _y_<sub>_t-3_</sub> | _h_ |
+| Date       | $y_t$ | Origin    | $y_{t-3}$ | $h$ |
 |:---        |:---   |:---       |:---       |:---     | 
 | 1/1/2001   | 0     | 10/1/2000 | -         | 3       |
 | 2/1/2001   | 10    | 11/1/2000 | -         | 3       |
@@ -73,7 +74,7 @@ Next, we concatenate Tables 1, 2, and 3 and rearrange the rows. The result is in
 
 Table 5: Lag featurization complete <a name="tbl:automl-lag-complete"></a>
 
-| Date       | _y_<sub>_t_</sub> | Origin    | _y_<sub>_t-1_</sub><sup>(_h_)</sup> | _h_ |
+| Date       | $y_t$ | Origin    | $y_{t-1}^{(h)}$ | $h$ |
 |:---        |:---   |:---       |:---       |:---     | 
 | 1/1/2001   | 0     | 12/1/2000 | -         | 1       |
 | 1/1/2001   | 0     | 11/1/2000 | -         | 2       |
@@ -95,9 +96,9 @@ Table 5: Lag featurization complete <a name="tbl:automl-lag-complete"></a>
 | 6/1/2001   | 50    | 3/1/2001  | 20        | 3       |
 
 
-In the final table, we've changed the name of the lag column to _y_<sub>_t-1_</sub><sup>(_h_)</sup> to reflect that the lag is generated with respect to a specific horizon. The table shows that the lags we generated with respect to the horizon can be mapped to the conventional ways of generating lags in the previous tables.
+In the final table, we've changed the name of the lag column to $y_{t-1}^{(h)}$ to reflect that the lag is generated with respect to a specific horizon. The table shows that the lags we generated with respect to the horizon can be mapped to the conventional ways of generating lags in the previous tables.
 
-Table 5 is an example of the data augmentation that AutoML applies to training data to enable direct forecasting from regression models. When the configuration includes lag features, AutoML creates horizon dependent lags along with an integer-valued horizon feature. This enables AutoML's forecasting regression models to make a prediction at horizon _h_ without regard to the prediction at _h-1_, in contrast to recursively defined models like ARIMA.
+Table 5 is an example of the data augmentation that AutoML applies to training data to enable direct forecasting from regression models. When the configuration includes lag features, AutoML creates horizon dependent lags along with an integer-valued horizon feature. This enables AutoML's forecasting regression models to make a prediction at horizon $h$ without regard to the prediction at $h-1$, in contrast to recursively defined models like ARIMA.
 
 > [!NOTE]
 > Generation of horizon dependent lag features adds new _rows_ to the dataset. The number of new rows is proportional to forecast horizon. This dataset size growth can lead to out-of-memory errors on smaller compute nodes or when dataset size is already large. See the [frequently asked questions](./how-to-automl-forecasting-faq.md#how-do-i-fix-an-out-of-memory-error) article for solutions to this problem.       
