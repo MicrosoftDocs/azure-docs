@@ -27,18 +27,7 @@ In this quickstart shows how to create an automated workflow usingPower automate
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free).
 
 - Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
--  Populate the database server with a new database `orderdb` and a table `orders` using the SQL script
-
-```sql
-CREATE DATABASE `orderdb`;
-USE `orderdb`;
-CREATE TABLE `orders` (
-  `orderNumber` int(11) NOT NULL,
-  `orderDate` date NOT NULL,
-  `status` varchar(15) NOT NULL,
-  PRIMARY KEY (`orderNumber`),
- ) ;
-```
+-  Populate the database server with this [sample data](https://raw.githubusercontent.com/Azure-Samples/mysql-database-samples/main/mysqltutorial.org/mysql-classicmodesl.sql).
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
