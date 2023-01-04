@@ -61,12 +61,11 @@ The following example creates a new `BlobContainerClient` object with the contai
 
 ## REST API operations
 
-The Azure SDK for Java client libraries build on top of the Azure REST API, allowing you to interact with REST API operations using familiar Java paradigms. The following REST API operations are used when creating and deleting containers:
+The Azure SDK for Java libraries build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for creating a container use the following REST API operation:
 
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
-- [Delete Container](/rest/api/storageservices/delete-container) (REST API)
 
 ## Resources
 
-[View code samples from this article](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
+- [View code samples from this article](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerCreate.java)
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
