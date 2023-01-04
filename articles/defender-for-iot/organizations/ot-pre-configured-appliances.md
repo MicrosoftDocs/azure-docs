@@ -33,14 +33,14 @@ You can [order](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsof
 |Hardware profile  |Appliance  |SPAN/TAP throughput  |Physical specifications  |
 |---------|---------|---------|---------|
 |**C5600**   | [HPE ProLiant DL360](appliance-catalog/hpe-proliant-dl360.md)         |   **Max bandwidth**: Up to 3 Gbps <br>**Max devices**: 12K    <br> 32 Cores/32G RAM/5.6TB     |  **Mounting**: 1U <br>**Ports**: 15x RJ45 or 8x SFP (OPT)     |
-|**E1800**    | [HPE ProLiant DL20 Gen10 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md)  <br> (4SFF)     |  **Max bandwidth**: Up to 1 Gbps<br>**Max devices**: 10K <br> 8 Cores/32G RAM/1.8TB     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
+|**E1800**    | [HPE ProLiant DL20 Gen10 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) (4SFF) <br><br> [Dell PowerEdge R350](appliance-catalog/dell-poweredge-r350-e1800.md)   |  **Max bandwidth**: Up to 1 Gbps<br>**Max devices**: 10K <br> 8 Cores/32G RAM/1.8TB     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 |**E500**    |  [Dell Edge 5200](appliance-catalog/dell-edge-5200.md)  <br> (Rugged MIL-STD-810G)    |      **Max bandwidth**: Up to 1 Gbps<br>**Max devices**:  10K   <br> 8 Cores/32G RAM/512GB     |  **Mounting**: Wall Mount<br>**Ports**: 3x RJ45         |
 |**L500**    |  [HPE ProLiant DL20 Gen10 Plus](appliance-catalog/hpe-proliant-dl20-plus-smb.md)  <br> (NHP 2LFF)    |      **Max bandwidth**: Up to 200 Mbps<br>**Max devices**:  1,000  <br> 4 Cores/8G RAM/500GB       |  **Mounting**: 1U<br>**Ports**: 4x RJ45         |
 |**L100**     |  [YS-Techsystems YS-FIT2](appliance-catalog/ys-techsystems-ys-fit2.md) <br>(Rugged MIL-STD-810G)       |      **Max bandwidth**: Up to 10 Mbps <br>**Max devices**: 100   <br> 4 Cores/8G RAM/128GB      |  **Mounting**: DIN/VESA<br>**Ports**: 2x RJ45          |
 
 
 > [!NOTE]
-> The performance, capacity, and activity of an OT/IoT network vary depending on its size, capacity, protocols distribution, and overall activity. For deployments, it is important to factor in raw network speed, the size of the network to monitor, and application configuration. The selection of processors, memory, and network cards is heavily influenced by these deployment configurations. The amount of space needed on your disk will differ depending on how long you store data, and the amount and type of data you store. <br><br>
+> The performance, capacity, and activity of an OT/IoT network may vary depending on its size, capacity, protocols distribution, and overall activity. For deployments, it is important to factor in raw network speed, the size of the network to monitor, and application configuration. The selection of processors, memory, and network cards is heavily influenced by these deployment configurations. The amount of space needed on your disk will differ depending on how long you store data, and the amount and type of data you store. <br><br>
 > *Performance values are presented as upper thresholds under the assumption of intermittent traffic profiles, such as those found in OT/IoT systems and machine-to-machine communication networks.*
 
 ## Appliances for on-premises management consoles
@@ -49,7 +49,7 @@ You can purchase any of the following appliances for your OT on-premises managem
 
 |Hardware profile |Appliance  |Max sensors  |Physical specifications  |
 |---------|---------|---------|---------|
-|**E1800**    | [HPE ProLiant DL20 Gen10 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) <br> (4SFF)       | 300     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
+|**E1800**    | [HPE ProLiant DL20 Gen10 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) (4SFF) <br><br> [Dell PowerEdge R350](appliance-catalog/dell-poweredge-r350-e1800.md)       | 300     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 
 For information about previously supported legacy appliances, see the [appliance catalog](/azure/defender-for-iot/organizations/appliance-catalog/).
 
