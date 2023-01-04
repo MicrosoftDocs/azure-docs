@@ -125,11 +125,14 @@ As the example shows, the user/group has now changed from `nobody` to `root`.
 
 <!-- preview -->
 
-## Edit
+## Edit the NFSv4 domain
 
+1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
+1. Choose the domain name you want to edit. Select the the three dots `...` next to the name and choose **Edit.**
+ :::image type="content" source="../media/azure-netapp-files/nfsv4-edit-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-edit-domain.png":::
+1. Check or uncheck the box next to **Use Default NFSv4 ID Domain**. In the text box, provide the name of the NFSv4 domain.
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
-
-  :::image type="content" source="../media/azure-netapp-files/nfsv4-edit-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-edit-domain.png":::
+1. Select **Save**.
 
 <!-- preview -->
 
