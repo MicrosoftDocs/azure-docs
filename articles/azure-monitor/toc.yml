@@ -6,28 +6,25 @@ items:
   - name: What is Azure Monitor?
     href: overview.md
   - name: What is observability?
-    href: observability-data.md  
+    href: observability-data.md
   - name: What can you monitor?
     href: monitor-reference.md
   - name: What's new?
     href: whats-new.md
-  - name: View and estimate charges
-    href: usage-estimated-costs.md
-  - name: Cost optimization
-    href: best-practices-cost.md     
-  - name: Partner integrations
-    href: partners.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: .//security-controls-policy.md
-  - name: FAQ
-    href: faq.yml
 - name: Tutorials
   items:
+  - name: End to end deployment
+    items:
+    - name: Overview
+      href: best-practices.md
+    - name: Planning
+      href: best-practices-plan.md
+    - name: Configure data collection
+      href: best-practices-data-collection.md
+    - name: Analysis and visualizations
+      href: best-practices-analysis.md
+    - name: Alerts and automated actions
+      href: best-practices-alerts.md
   - name: Monitor an Azure Resource - Overview
     href: essentials/monitor-azure-resource.md
   - name: Analyze metric data
@@ -42,6 +39,20 @@ items:
     href: alerts/tutorial-log-alert.md
   - name: Virtual machines
     items:
+    - name: Monitor a virtual machine
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Configure monitoring
+        href: vm/monitor-virtual-machine-configure.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Monitor security
+        href: vm/monitor-virtual-machine-security.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
+      - name: Monitor workloads
+        href: vm/monitor-virtual-machine-workloads.md
     - name: Enable recommended alerts
       href: vm/tutorial-monitor-vm-alert-recommended.md
     - name: Create availability alert
@@ -70,6 +81,21 @@ items:
     items:
       - name: Track web outages
         href: change/tutorial-outages.md
+  - name: Monitor Kubernetes
+    href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+  - name: Data collection rules
+    items:
+      - name: Edit a data collection rules
+        displayName: data collection rules
+        href: essentials/data-collection-rule-edit.md
+      - name: Workspace transformations in the Azure portal
+        href: logs/tutorial-workspace-transformations-portal.md
+      - name: Workspace transformations using ARM templates
+        href: logs/tutorial-workspace-transformations-api.md
+  - name: Forward syslog data to workspace
+    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
+  - name: Self-monitoring
+    href: monitor-azure-monitor.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -132,40 +158,23 @@ items:
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
     href: azure-cli-metrics-alert-sample.md
-- name: Scenarios
+- name: Concepts
   items:
-  - name: End to end deployment
+  - name: Security
     items:
-    - name: Overview
-      href: best-practices.md
-    - name: Planning
-      href: best-practices-plan.md
-    - name: Configure data collection
-      href: best-practices-data-collection.md
-    - name: Analysis and visualizations
-      href: best-practices-analysis.md
-    - name: Alerts and automated actions
-      href: best-practices-alerts.md
-  - name: Monitor a virtual machine
-    items:
-    - name: Overview
-      href: vm/monitor-virtual-machine.md
-    - name: Configure monitoring
-      href: vm/monitor-virtual-machine-configure.md
-    - name: Analyze data
-      href: vm/monitor-virtual-machine-analyze.md
-    - name: Monitor security
-      href: vm/monitor-virtual-machine-security.md
-    - name: Create alerts
-      href: vm/monitor-virtual-machine-alerts.md
-    - name: Monitor workloads
-      href: vm/monitor-virtual-machine-workloads.md
-  - name: Monitor Kubernetes
-    href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Forward syslog data to workspace
-    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
-  - name: Self-monitoring
-    href: monitor-azure-monitor.md 
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: .//security-controls-policy.md
+  - name: Partner integrations
+    href: partners.md
+  - name: View and estimate charges
+    href: usage-estimated-costs.md
+  - name: Cost optimization
+    href: best-practices-cost.md     
+  - name: FAQ
+    href: faq.yml
 - name: Data collection
   items: 
   - name: Overview
@@ -343,30 +352,21 @@ items:
     - name: Best practices
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-best-practices.md
-    - name: Edit
-      displayName: data collection rules
-      href: essentials/data-collection-rule-edit.md
     - name: Structure
       displayName: Data collection rules
       href: essentials/data-collection-rule-structure.md
-    - name: Migrate retention to Azure Storage lifecycle
-      href: essentials/migrate-to-azure-storage-lifecycle-policy.md
-  - name: Transformations
-    items:
-    - name: Overview
-      displayName: Transformations
-      href: essentials/data-collection-transformations.md
-    - name: Structure
-      displayName: Transformations
-      href: essentials/data-collection-transformations-structure.md
-    - name: Tutorials
+    - name: Transformations
       items:
-      - name: Workspace transformations in the Azure portal
-        href: logs/tutorial-workspace-transformations-portal.md
-      - name: Workspace transformations using ARM templates
-        href: logs/tutorial-workspace-transformations-api.md
-  - name: Data collection endpoints
-    href: essentials/data-collection-endpoint-overview.md
+      - name: Overview
+        displayName: Transformations
+        href: essentials/data-collection-transformations.md
+      - name: Structure
+        displayName: Transformations
+        href: essentials/data-collection-transformations-structure.md
+      - name: Migrate retention to Azure Storage lifecycle
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+      - name: Data collection endpoints
+        href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
     items:
     - name: Private Link overview
