@@ -13,7 +13,6 @@ ms.author: mbaldwin
 
 # Custom TCB baseline enforcement for SGX attestation
 
-
 Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](/azure/security/fundamentals/trusted-hardware-identity-management) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID).  The default TCB baseline from THIM lags the latest baseline offered by Intel and is expected to remain at tcbEvaluationDataNumber 10. 
 
 The custom TCB baseline enforcement feature in Azure Attestation will enable you to perform SGX attestation against a desired TCB baseline, as opposed to the Azure default TCB baseline which is applied across [Azure Confidential Computing](/solutions/confidential-compute/) (ACC) fleet today.
@@ -83,7 +82,7 @@ Shared provider users need to migrate to custom providers to be able to perform 
 
 2. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
-3. Click Configure, and use the sample below for configuring an attestation policy with a custom TCB baseline.  
+3. Click Configure, and use the below sample for configuring an attestation policy with a custom TCB baseline.  
 
 ```
 version = 1.1;  
