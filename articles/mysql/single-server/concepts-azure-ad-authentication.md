@@ -86,6 +86,9 @@ Please note that management operations, such as adding new users, are only suppo
 - If the Azure AD admin is removed from the server, the server will no longer be associated with an Azure AD tenant, and therefore all Azure AD logins will be disabled for the server. Adding a new Azure AD admin from the same tenant will re-enable Azure AD logins.
 - Azure Database for MySQL matches access tokens to the Azure Database for MySQL user using the user’s unique Azure AD user ID, as opposed to using the username. This means that if an Azure AD user is deleted in Azure AD and a new user created with the same name, Azure Database for MySQL considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name added, the new user will not be able to connect with the existing user.
 
+> [!NOTE]  
+> The subscriptions of an Azure MySQL with Azure AD authentication enabled cannot be transferred to another tenant or directory.
+
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](how-to-configure-sign-in-azure-ad-authentication.md).
