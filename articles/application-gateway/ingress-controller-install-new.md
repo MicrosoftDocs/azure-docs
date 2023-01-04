@@ -46,9 +46,9 @@ Follow the steps below to create an Azure Active Directory (Azure AD) [service p
     The `appId` and `password` values from the JSON output will be used in the following steps
 
 
-1. Use the `appId` from the previous command's output to get the `objectId` of the new service principal:
+1. Use the `appId` from the previous command's output to get the `id` of the new service principal:
     ```azurecli
-    objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
+    objectId=$(az ad sp show --id $appId --query "id" -o tsv)
     ```
     The output of this command is `objectId`, which will be used in the Azure Resource Manager template below
 
