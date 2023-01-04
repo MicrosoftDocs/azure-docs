@@ -6,7 +6,7 @@ documentationcenter:
 author: jaawasth
 manager: hrushib
 editor:
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
