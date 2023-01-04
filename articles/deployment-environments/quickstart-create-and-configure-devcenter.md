@@ -26,7 +26,7 @@ In this quickstart, you learn how to:
 > - Create environment types
 
 > [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -73,7 +73,11 @@ After you create a dev center, attach an [identity](concept-environments-key-con
 - System-assigned managed identity
 - User-assigned managed identity
 
-For more information, see [Configure a managed identity](how-to-configure-managed-identity.md).
+You can use a system-assigned managed identity or a user-assigned managed identity. You don't have to use both. For more information, review [Configure a managed identity](how-to-configure-managed-identity.md).
+
+> [!NOTE]
+> In Azure Deployment Environments Preview, if you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity is used.
+
 
 ### Attach a system-assigned managed identity
 
@@ -125,7 +129,7 @@ To add a catalog to your dev center:
     |**Folder path**|Enter the repository relative path where the [catalog item](concept-environments-key-concepts.md#catalog-items) exists.|
     |**Secret identifier**|Enter the secret identifier that contains your personal access token for the repository.|
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-form.png" alt-text="Screenshot that shows the Add new catalog pane.":::
+   :::image type="content" source="media/how-to-configure-catalog/add-new-catalog-form.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
 
 1. Confirm that the catalog is successfully added by checking your Azure portal notifications.
 

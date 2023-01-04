@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
-# Quickstart: Manage blobs with JavaScript SDK in Node.js
+# Quickstart: Azure Blob Storage client library for Node.js
 
-In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. 
+Get started with the Azure Blob Storage client library for Node.js to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks.
 
 [API reference](/javascript/api/@azure/storage-blob) |
 [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples)
@@ -125,7 +125,7 @@ Sample code is also available on [GitHub](https://github.com/Azure-Samples/Azure
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
 
-For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
 
@@ -178,7 +178,7 @@ You can authorize access to data in your storage account using the following ste
     :::image type="content" source="./media/storage-quickstart-blobs-python/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
-    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/javascript/sdk/authentication-azure-hosted-apps) tutorial.
+    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/javascript/sdk/authentication/azure-hosted-apps) tutorial.
 
 ### [Connection String](#tab/connection-string)
 
@@ -304,10 +304,6 @@ The preceding code cleans up the resources the app created by removing the entir
 
 Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
 
-## Use the storage emulator
-
-This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](../common/storage-use-emulator.md) for development and testing. 
-
 ## Clean up 
 
 1. When you're done with this quickstart, delete the `blob-quickstart` directory.
@@ -317,11 +313,10 @@ This quickstart created a container and blob on the Azure cloud. You can also us
 
 In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
 
-For tutorials, samples, quickstarts, and other documentation, visit:
+To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript developer center](/azure/developer/javascript/)
+> [Azure Blob Storage library for JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
-- To learn how to deploy a web app that uses Azure Blob storage, see [Tutorial: Upload image data in the cloud with Azure Storage](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)
-- To see Blob storage sample apps, continue to [Azure Blob storage package library JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
-- To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+- To learn more, see the [Azure Blob Storage client libraries for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
+- For tutorials, samples, quickstarts, and other documentation, visit [Azure for JavaScript and Node.js developers](/azure/developer/javascript/).

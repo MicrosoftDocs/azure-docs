@@ -75,9 +75,9 @@ Localization is key to making products for users around the world and who speak 
 
 Accessibility is a key focus of the call libraries. You can use a screen reader to make important announcements about call status and to help ensure that visually impaired users can effectively participate when they use the application.
 
-## Participant view data injection
+## View Data Injection
 
-Use the UI Library for mobile native platforms to give local and remote participants the option to modify how they appear as users in a call. A local participant can choose a local avatar and custom display name when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize participant views](../../../how-tos/ui-library-sdk/data-model.md).
+Use the UI Library for mobile native platforms to give local and remote participants the option to customize how they appear as users in a call. A local participant can choose a local avatar, custom display name, navigation's title and subtitle on Setup screen when a call begins. A remote user can create a customized avatar when they join the meeting. For more information, see [How to customize pre-meeting view](../../../how-tos/ui-library-sdk/data-model.md).
 
 :::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="GIF animation that shows the pre-meeting experience and joining experience on iOS.":::
 
@@ -115,7 +115,7 @@ You can learn more about troubleshooting guidelines here: ["Troubleshooting in A
 
 | Calling screen | Diagnostic info menu | Share CallID |
 | ------------------| ------------------------| ----------- |
- | :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Callscreen Diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Share Call ID with Contoso.":::|
+| :::image type="content" source="media/ui-library-callscreen.png" border="false" alt-text="Screenshot of the call screen during the call."::: | :::image type="content" source="media/ui-library-callscreen-diagnostics-info.png" border="false" alt-text="Screenshot of the call screen with the diagnostic options location."::: |  :::image type="content" source="media/ui-library-callscreen-diagnostics-info-share.png" border="false" alt-text="Screenshot of showing share Call ID with Contoso.":::|
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

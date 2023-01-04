@@ -122,7 +122,7 @@ Perform DAST, preferably with the assistance of a security professional (a [pene
 
 ### Perform fuzz testing
 
-In [fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), you induce program failure by deliberately introducing malformed or random data to an application. Inducing program failure helps reveal potential security issues before the application is released.
+In [fuzz testing](https://www.microsoft.com/security/blog/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), you induce program failure by deliberately introducing malformed or random data to an application. Inducing program failure helps reveal potential security issues before the application is released.
 
 [Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is the Microsoft unique fuzz testing service for finding security-critical bugs in software.
 

@@ -59,7 +59,7 @@ If you want to reset the value of a parameter, you simply choose to leave out th
 az postgres flexible-server parameter set --name log_min_messages --resource-group myresourcegroup --server-name mydemoserver
 ```
 
-This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/12/config-setting.html).
+This command resets the **log\_min\_messages** parameter to the default value **WARNING**. For more information on server parameters and permissible values, see PostgreSQL documentation on [Setting Parameters](https://www.postgresql.org/docs/current/config-setting.html).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Move across region dashboard
 description: Monitor your resources moving across regions using Move across region dashboard.
 author: Aarthi-Vijayaraghavan
 manager: sutalasi
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: how-to
 ms.date: 08/30/2021
 ms.author: AarthiV

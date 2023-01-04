@@ -32,9 +32,11 @@ The first step is to add code to handle a response from the resource API rejecti
 For example:
 
 ```console
+// Line breaks for legibility only
+
 HTTP 401; Unauthorized
-WWW-Authenticate=Bearer
-  authorization_uri="https://login.windows.net/common/oauth2/authorize",
+
+Bearer authorization_uri="https://login.windows.net/common/oauth2/authorize",
   error="insufficient_claims",
   claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
 ```

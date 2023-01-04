@@ -20,10 +20,11 @@ Private mobile networks provide high performance, low latency, and secure connec
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
 - Collect all of the information listed in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md). You may also need to take the following steps based on the decisions you made when collecting this information.
 
-    - If you decided you wanted to provision SIMs using a JSON file, ensure you've prepared this file and made it available on the machine you'll use to access the Azure portal. For more information on the file format, see [JSON file format for provisioning SIMs](collect-required-information-for-private-mobile-network.md#json-file-format-for-provisioning-sims).
-    - If you decided you want to use the default service and SIM policy, identify the name of the data network to which your private mobile network will connect. 
+  - If you decided you wanted to provision SIMs using a JSON file, ensure you've prepared this file and made it available on the machine you'll use to access the Azure portal. For more information on the file format, see [JSON file format for provisioning SIMs](collect-required-information-for-private-mobile-network.md#json-file-format-for-provisioning-sims).
+  - If you decided you want to use the default service and SIM policy, identify the name of the data network to which you want to assign the policy.
 
 ## Deploy your private mobile network
+
 In this step, you'll create the Mobile Network resource representing your private mobile network as a whole. You can also provision one or more SIMs, and / or create the default service and SIM policy.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

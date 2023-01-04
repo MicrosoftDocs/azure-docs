@@ -98,7 +98,7 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 ### Model generation for batch scoring
 
-By default, AutoML for Images supports batch scoring for classification.But object detection and instance segmentation models don't support batch inferencing. In case of batch inference for object detection and instance segmentation, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
+By default, AutoML for Images supports batch scoring for classification. But object detection and instance segmentation models don't support batch inferencing. In case of batch inference for object detection and instance segmentation, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
 
 
 ```python
@@ -124,9 +124,9 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](../how-to-auto-train-image-models.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) and for supported object detection model names refer to the [supported model algorithm section](../how-to-auto-train-image-models.md#supported-model-algorithms).
 
-To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the Automl training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
+To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
 # [Multi-class image classification ](#tab/multi-class)
 For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 
@@ -411,7 +411,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -560,7 +560,7 @@ Perform the following preprocessing steps for the ONNX model inference. These st
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
 Get the input shape needed for the ONNX model.
 
@@ -822,7 +822,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 4. Convert to float type.
 5. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](../how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask R-CNN.
+For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](../how-to-auto-train-image-models.md#configure-experiments) for Mask R-CNN.
 
 ```python
 import glob

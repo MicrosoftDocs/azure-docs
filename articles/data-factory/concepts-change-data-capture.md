@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 01/04/2023
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -33,7 +33,7 @@ The changed data including inserted, updated and deleted rows can be automatical
 **Supported connectors**
 -   [SAP CDC](connector-sap-change-data-capture.md)
 -   [Azure SQL Database](connector-azure-sql-database.md)
--   [Azure SQL Server](connector-sql-server.md)
+-   [SQL Server](connector-sql-server.md)
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
 
@@ -46,7 +46,7 @@ The newly updated rows or updated files can be automatically detected and extrac
 -   [ADLS Gen2](load-azure-data-lake-storage-gen2.md)
 -   [ADLS Gen1](load-azure-data-lake-store.md)
 -   [Azure SQL Database](connector-azure-sql-database.md)
--   [Azure SQL Server](connector-sql-server.md)
+-   [SQL Server](connector-sql-server.md)
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Database for MySQL](connector-azure-database-for-mysql.md)
 -   [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md)
@@ -85,6 +85,12 @@ The followings are the tutorials to start the change data capture in Azure Data 
 
 - [SAP CDC tutorial in ADF](sap-change-data-capture-introduction-architecture.md#sap-cdc-capabilities)
 - [Incrementally copy data from a source data store to a destination data store tutorials](tutorial-incremental-copy-overview.md)
+
+## Templates
+
+The followings are the templates to use the change data capture in Azure Data Factory and Azure Synapse Analytics.
+
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
 
 
 ## Next steps

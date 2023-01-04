@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/10/2022
+ms.date: 11/18/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
 ---
 
- # Get started with Form Recognizer
+# Get started with Form Recognizer
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]

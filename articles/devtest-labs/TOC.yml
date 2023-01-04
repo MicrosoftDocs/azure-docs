@@ -243,7 +243,7 @@
         href: devtest-lab-guidance-governance-policy-compliance.md
       - name: Application migration and integration
         href: devtest-lab-guidance-governance-application-migration-integration.md
-  - name: Set up an app for testing
+  - name: Publish an app for testing
     href: test-app-azure.md
   - name: Troubleshoot
     items:
@@ -279,7 +279,7 @@
     href: https://azure.microsoft.com/updates/?product=devtest-lab
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-  - name: Microsoft Q&A page
-    href: /answers/topics/azure-devtestlabs.html
+  - name: DevTest Labs Developer Community
+    href: https://aka.ms/dtl/communityforum  
   - name: Frequently asked questions
     href: devtest-lab-faq.yml

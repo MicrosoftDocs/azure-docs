@@ -101,15 +101,15 @@ To get the Log Analytics gateway from the Azure portal, follow these steps:
 
 1. Browse the list of services, and then select **Log Analytics**. 
 1. Select a workspace.
-1. In your workspace blade, under **General**, select **Quick Start**. 
+1. In your workspace pane, from the pane on the left, under **General**, select **Quick Start**. 
 1. Under **Choose a data source to connect to the workspace**, select **Computers**.
-1. In the **Direct Agent** blade, select **Download Log Analytics gateway**.
+1. In the **Direct Agent** pane, select **Download Log Analytics gateway**.
  
    ![Screenshot of the steps to download the Log Analytics gateway](./media/gateway/download-gateway.png)
 
 or 
 
-1. In your workspace blade, under **Settings**, select **Advanced settings**.
+1. In your workspace pane, from the pane on the left, under **Settings**, select **Advanced settings**.
 1. Go to **Connected Sources** > **Windows Servers** and select **Download Log Analytics gateway**.
 
 ## Install Log Analytics gateway using setup wizard

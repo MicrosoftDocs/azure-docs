@@ -200,7 +200,7 @@ If you add the following content to the request body, the API will train with do
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
 * [Train a model and extract document data using the client library or REST API](../quickstarts/get-started-sdks-rest-api.md)
-* [Train with labels using the sample labeling tool](../label-tool.md)
+* [Train with labels using the Sample Labeling tool](../label-tool.md)
 
 ## See also
 

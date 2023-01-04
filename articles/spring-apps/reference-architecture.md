@@ -112,7 +112,7 @@ The following list describes the infrastructure requirements for public applicat
 * A subnet must only have one instance of Azure Spring Apps.
 * Adherence to at least one Security Benchmark should be enforced.
 * Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
-* Azure DDoS Protection standard should be enabled.
+* Azure DDoS Protection should be enabled.
 * Azure service dependencies should communicate through Service Endpoints or Private Link.
 * Data at rest should be encrypted.
 * Data in transit should be encrypted.
