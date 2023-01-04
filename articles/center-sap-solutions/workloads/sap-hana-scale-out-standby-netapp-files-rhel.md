@@ -15,7 +15,7 @@ ms.author: radeltch
 
 # Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux 
 
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 

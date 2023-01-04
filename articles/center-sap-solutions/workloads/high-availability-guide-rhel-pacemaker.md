@@ -22,7 +22,7 @@ ms.author: radeltch
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553

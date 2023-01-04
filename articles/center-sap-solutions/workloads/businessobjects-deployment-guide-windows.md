@@ -432,7 +432,7 @@ Currently, not all Azure regions offer availability zones, so you need to adopt 
 
 If you're using an Azure database as a solution for your CMS and audit database, a locally redundant high-availability framework is provided by default. Select the region and service inherent high-availability, redundancy, and resiliency capabilities without requiring you to configure any more components. If the deployment strategy for an SAP BOBI platform is across an availability zone, make sure you achieve zone redundancy for your CMS and audit database. For more information on high availability for supported database offerings in Azure, see [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md). 
 
-For other database management system (DBMS) deployment for a CMS database, see [DBMS deployment guides for SAP workload](dbms_guide_general.md) for insight on a different DBMS deployment and its approach to achieving high availability.
+For other database management system (DBMS) deployment for a CMS database, see [DBMS deployment guides for SAP workload](dbms-guide-general.md) for insight on a different DBMS deployment and its approach to achieving high availability.
 
 ### High availability for filestore
 
@@ -553,4 +553,4 @@ The following table lists the recommendations for DR for each tier used in this 
 - [Set up disaster recovery for a multi-tier SAP app deployment](../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
 - [Azure Virtual Machines deployment for SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
+- [Azure Virtual Machines DBMS deployment for SAP](./dbms-guide-general.md)

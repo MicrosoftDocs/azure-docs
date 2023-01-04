@@ -62,7 +62,7 @@ Before you begin an installation, see the following SAP notes and documentation:
 
 
 ## Overview
-To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [Azure availability set](../../virtual-machines/windows/tutorial-availability-sets.md) or across [Azure Availability Zones](./sap-ha-availability-zones.md). 
+To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [Azure availability set](../../virtual-machines/windows/tutorial-availability-sets.md) or across [Azure Availability Zones](./high-availability-zones.md). 
 
 The following graphics display a setup of two database server Azure VMs. Both database server Azure VMs have their own storage attached and are up and running. In HADR, one database instance in one of the Azure VMs has the role of the primary instance. All clients are connected to primary instance. All changes in database transactions are persisted locally in the Db2 transaction log. As the transaction log records are persisted locally, the records are transferred via TCP/IP to the database instance on the second database server, the standby server, or standby instance. The standby instance updates the local database by rolling forward the transferred transaction log records. In this way, the standby server is kept in sync with the primary server.
 
@@ -878,7 +878,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
 [db2-hadr-10.5]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
-[dbms-db2]:dbms_guide_ibm.md
+[dbms-db2]:dbms-guide-ibm.md
 
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [rhel-ha-addon]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index
@@ -892,7 +892,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
 [rhel-pcs-azr]:high-availability-guide-rhel-pacemaker.md
 [anf-rhel]:high-availability-guide-rhel-netapp-files.md
 
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
-[azr-sap-plancheck]:sap-deployment-checklist.md
+[azr-sap-plancheck]:deployment-checklist.md

@@ -20,7 +20,7 @@ ms.author: radeltch
 
 # High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications
 
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [dfs-n-reference]:high-availability-guide-windows-dfs.md

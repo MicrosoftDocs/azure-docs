@@ -19,7 +19,7 @@ items:
     - name: How do you run SAP workloads on Azure?
       href: workloads/get-started.md
     - name: What SAP workloads run on Azure?
-      href: workloads/sap-certifications.md
+      href: workloads/certifications.md
     - name: Using SAP on Linux VMs
       href: workloads/sap-get-started-classic.md
     - name: Disaster recovery overview and infrastructure
@@ -29,11 +29,11 @@ items:
     - name: Deployment
       items:
       - name: Supported scenarios
-        href: workloads/sap-planning-supported-configurations.md
+        href: workloads/planning-supported-configurations.md
       - name: Supported SAP software for Azure deployments
-        href: workloads/sap-supported-product-on-azure.md
+        href: workloads/supported-product-on-azure.md
       - name: Checklist for deploying SAP workloads on Azure
-        href: workloads/sap-deployment-checklist.md
+        href: workloads/deployment-checklist.md
       - name: Deploy SAP NetWeaver applications
         href: workloads/deployment-guide.md
       - name: Plan and implement SAP NetWeaver on Azure
@@ -49,7 +49,7 @@ items:
       - name: SAP ILM
         href: workloads/sap-information-lifecycle-management.md
       - name: SAP RISE integration
-        href: workloads/sap-rise-integration.md
+        href: workloads/rise-integration.md
       - name: Azure VM extension for SAP
         items:
         - name: Prerequisites Azure VM Extension for SAP
@@ -89,9 +89,9 @@ items:
       - name: Azure VM restart for higher availability
         href: workloads/sap-higher-availability-architecture-scenarios.md
       - name: Azure Availability Zones for SAP workloads
-        href: workloads/sap-ha-availability-zones.md
+        href: workloads/high-availability-zones.md
       - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
-        href: workloads/sap-proximity-placement-scenarios.md
+        href: workloads/proximity-placement-scenarios.md
       - name: Public endpoint connectivity with Azure Load Balancer
         href: workloads/high-availability-guide-standard-load-balancer-outbound-connections.md
       - name: HANA
@@ -241,19 +241,19 @@ items:
     - name: DBMS
       items:
       - name: General DBMS deployment
-        href: workloads/dbms_guide_general.md
+        href: workloads/dbms-guide-general.md
       - name: SQL Server on Azure VMs
-        href: workloads/dbms_guide_sqlserver.md
+        href: workloads/dbms-guide-sqlserver.md
       - name: Oracle on Azure VMs
-        href: workloads/dbms_guide_oracle.md
+        href: workloads/dbms-guide-oracle.md
       - name: IBM Db2 on Azure VMs
-        href: workloads/dbms_guide_ibm.md
+        href: workloads/dbms-guide-ibm.md
       - name: SAP ASE on Azure VMs
-        href: workloads/dbms_guide_sapase.md
+        href: workloads/dbms-guide-sapase.md
       - name: SAP MaxDB, liveCache and Content Server on Azure
-        href: workloads/dbms_guide_maxdb.md
+        href: workloads/dbms-guide-maxdb.md
       - name: SAP IQ on Azure VMs
-        href: workloads/sap-iq-deployment-guide.md
+        href: workloads/dbms-guide-sapiq.md
     - name: HANA
       items:
       - name: Install SAP HANA on Azure VMs

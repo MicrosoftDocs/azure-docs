@@ -74,6 +74,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
+| Azure Functions | [Monitoring Azure Functions Data Reference Resource Logs](https://learn.microsoft.com/azure/azure-functions/monitor-functions-reference#resource-logs) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Azure IoT Hub Device Provisioning Service| [Device Provisioning Service operations](../../iot-dps/monitor-iot-dps-reference.md#resource-logs) |
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |

@@ -33,4 +33,4 @@ This article should help setting up Azure SUSE Linux VMs for running SAP and giv
 
 Updated: December 2015
 
-[This article can be found here](./sap-deployment-checklist.md?toc=/azure/virtual-machines/linux/toc.json)
+[This article can be found here](./deployment-checklist.md?toc=/azure/virtual-machines/linux/toc.json)

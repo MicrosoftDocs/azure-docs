@@ -45,7 +45,7 @@ Read the following SAP Notes and papers first:
 - [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 - [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
 - [Azure Virtual Machines deployment for SAP on Linux](./deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP on Linux](./dbms_guide_general.md)
+- [Azure Virtual Machines DBMS deployment for SAP on Linux](./dbms-guide-general.md)
 - General SLES documentation
 	- [Setting up SAP HANA Cluster](https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-cluster.html).
 	- [SLES High Availability Extension 15 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/15-SP3/index.html)
@@ -698,5 +698,5 @@ We recommend testing the SAP HANA cluster configuration thoroughly, by also doin
 
 * [Azure Virtual Machines planning and implementation for SAP](./planning-guide.md)
 * [Azure Virtual Machines deployment for SAP](./deployment-guide.md)
-* [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
+* [Azure Virtual Machines DBMS deployment for SAP](./dbms-guide-general.md)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)

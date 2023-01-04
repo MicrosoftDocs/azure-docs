@@ -14759,6 +14759,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/update-load-balancer-with-vm-scale-set.md",
+            "redirect_url": "/azure/load-balancer/configure-inbound-nat-rules-vm-scale-set",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
             "redirect_document_id": false
@@ -18327,6 +18333,16 @@
             "source_path_from_root": "/articles/sentinel/monitor-sentinel-health.md",
             "redirect_url": "/azure/sentinel/enable-monitoring",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-dns",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-file-event",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/service-bus/index.md",

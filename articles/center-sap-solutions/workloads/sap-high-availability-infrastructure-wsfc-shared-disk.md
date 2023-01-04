@@ -33,7 +33,7 @@ ms.custom: H1Hack27Feb2017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide-general.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -203,7 +203,7 @@ The steps mentioned in the document remain same for both deployment type. But if
 > [!Note]
 > [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
 > - If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
-> -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
+> -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
 ## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 

@@ -52,7 +52,7 @@ ms.custom: H1Hack27Feb2017
 [high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
 [high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide-general.md
 
 [deployment-guide]:deployment-guide.md
 

@@ -13,7 +13,7 @@ ms.author: radeltch
 
 # Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
 
-[dbms-guide]:dbms_guide_general.md
+[dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 

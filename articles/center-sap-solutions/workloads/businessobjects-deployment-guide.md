@@ -139,7 +139,7 @@ This document illustrates the guidelines to deploy **SAP BOBI Platform on Window
 
 Sizing is a process of determining the hardware requirement to run the application efficiently. For SAP BOBI Platform, sizing needs to be done using SAP sizing tool called [Quick Sizer](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer). The tool provides the SAPS based on the input, which then needs to be mapped to certified Azure virtual machines types for SAP. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) provides the list of supported SAP products and Azure VM types along with SAPS. For more information on sizing, check [SAP BI Sizing Guide](https://wiki.scn.sap.com/wiki/display/BOBJ/Sizing+and+Deploying+SAP+BusinessObjects+BI+4.x+Platform+and+Add-Ons).
 
-For storage need for SAP BOBI Platform, Azure offers different types of [Managed Disks](../../virtual-machines/managed-disks-overview.md). For SAP BOBI Installation directory, it's recommended to use premium managed disk and for the database that runs on virtual machines, follow the guidance that is provided in [DBMS deployment for SAP workload](dbms_guide_general.md).
+For storage need for SAP BOBI Platform, Azure offers different types of [Managed Disks](../../virtual-machines/managed-disks-overview.md). For SAP BOBI Installation directory, it's recommended to use premium managed disk and for the database that runs on virtual machines, follow the guidance that is provided in [DBMS deployment for SAP workload](dbms-guide-general.md).
 
 Azure supports two DBaaS offering for SAP BOBI Platform data tier - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) (BI Application running on Windows) and [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) (BI Application running on Linux and Windows). So based on the sizing result, you can choose purchasing model that best fits your need.
 
@@ -227,7 +227,7 @@ To understand the concept of Azure availability sets and the way availability se
 
 Azure Virtual Machine is a service offering that enables you to deploy custom images to Azure as Infrastructure-as-a-Service (IaaS) instances. It simplifies maintaining and operating applications by providing on-demand compute and storage to host, scale, and manage web application and connected applications.
 
-Azure offers varieties of virtual machines for all your application needs. But for SAP workload, Azure has narrowed the selection to different VM families that are suitable for SAP workload and SAP HANA workload more specifically. For more insight, check [What SAP software is supported for Azure deployments](sap-supported-product-on-azure.md).
+Azure offers varieties of virtual machines for all your application needs. But for SAP workload, Azure has narrowed the selection to different VM families that are suitable for SAP workload and SAP HANA workload more specifically. For more insight, check [What SAP software is supported for Azure deployments](supported-product-on-azure.md).
 
 Based on the SAP BI Platform sizing, you need to map your requirement to Azure Virtual Machine, which is supported in Azure for SAP product. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) is a good starting point that list out supported Azure VM types for SAP Products on Windows and Linux. Also a point to keep in mind that beyond the selection of purely supported VM types, you also need to check whether those VM types are available in specific region. You can check the availability of VM type on [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. For choosing the pricing model, you can refer to [Azure virtual machines for SAP workload](planning-guide.md#azure-virtual-machines-for-sap-workload)
 
@@ -262,4 +262,4 @@ For Database-as-a-Service offering, any newly created database (Azure SQL Databa
 - [SAP BusinessObjects BI Platform Deployment on Linux](businessobjects-deployment-guide-linux.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
 - [Azure Virtual Machines deployment for SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
+- [Azure Virtual Machines DBMS deployment for SAP](./dbms-guide-general.md)

@@ -20,10 +20,11 @@ Blob containers support system properties and user-defined metadata, in addition
 
 ## About properties and metadata
 
-| Type|Description|
-|--|--|
-|[System properties](/javascript/api/@azure/storage-blob/containerproperties#@azure-storage-blob-containerproperties-lastmodified)|System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you. <br><br>Examples:<br>* lastModified<br>* leaseStatus|
-|**User-defined metadata**|User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.<br><br>Examples:<br>`project`:`metrics-reporting`<br>`manager`:`johnh`|
+- **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you.
+
+- **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
+
+- **Metadata names**: Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 ## Retrieve container properties
 
@@ -49,10 +50,6 @@ async function getContainerProperties(containerClient) {
 You can specify metadata as one or more name-value pairs container resource. To set metadata, create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object then use the following method:
 
 - ContainerClient.[setMetadata](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-setmetadata)
-
-Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
-
-Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
 The following code example sets metadata on a container.
 
