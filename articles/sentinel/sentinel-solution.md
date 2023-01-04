@@ -28,7 +28,7 @@ While only Microsoft Sentinel is required to get started, the solution is enhanc
 For more information, see [Guiding principles of Zero Trust](/azure/security/integrated/zero-trust-overview#guiding-principles-of-zero-trust).
 
 > [!NOTE]
-> Microsoft Sentinel solutions are sets of bundled content, pre-configured for a specific set of data. For more information, see [Microsoft Sentinel solutions documentation](sentinel-solutions).
+> Microsoft Sentinel solutions are sets of bundled content, pre-configured for a specific set of data. For more information, see [Microsoft Sentinel solutions documentation](sentinel-solutions.md).
 >
 
 ## The Zero Trust solution and the TIC 3.0 framework
@@ -53,7 +53,7 @@ The Microsoft Sentinel solution for **Zero Trust (TIC 3.0)** is useful for any o
 
 Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the following prerequisites:
 
-- **Onboard Microsoft services**: Make sure that you have both [Microsoft Sentinel](quickstart-onboard) and [Microsoft Defender for Cloud](/azure/defender-for-cloud/get-started) enabled in your Azure subscription.
+- **Onboard Microsoft services**: Make sure that you have both [Microsoft Sentinel](quickstart-onboard.md) and [Microsoft Defender for Cloud](/azure/defender-for-cloud/get-started) enabled in your Azure subscription.
 
 - **Microsoft Defender for Cloud requirements**: In Microsoft Defender for Cloud:
 
@@ -73,7 +73,7 @@ Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the 
 
     When you're done, select **Review + Create** to install the solution.
 
-For more information, see [Deploy out-of-the-box content and solutions](sentinel-solutions-deploy).
+For more information, see [Deploy out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
 ## Sample usage scenario
 
@@ -99,7 +99,7 @@ After [installing](#install-the-zero-trust-tic-30-solution) the **Zero Trust (TI
     > Use the **Guides** toggle at the top left to view or hide recommendations and guide panes. For example, these may be helpful when you first access the workbook, but unnecessary once you've understood the relevant concepts.
     >
 
-1. **Explore queries**. For example, at the top right of the **Adaptive Access Control** card, select the **:** *More* button, and then select the :::image type="icon" source="../media/integrate/sentinel-workbook/icon-open-in-logs.png" border="false"::: **Open the last run query in the Logs view.** option.
+1. **Explore queries**. For example, at the top right of the **Adaptive Access Control** card, select the **:** *More* button, and then select the :::image type="icon" source="media/sentinel-workbook/icon-open-in-logs.png" border="false"::: **Open the last run query in the Logs view.** option.
 
     The query is opened in the Microsoft Sentinel **Logs** page:
 
@@ -117,7 +117,7 @@ For example, if your workload's resiliency posture falls below a specified perce
 
 :::image type="content" source="media/sentinel-workbook/edit-rule.png" alt-text="Screenshot of the Analytics rule wizard.":::
 
-For more information, see [Create custom analytics rules to detect threats](detect-threats-custom).
+For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 ### Respond with SOAR
 
@@ -127,7 +127,7 @@ Use this playbook to automatically monitor CMMC alerts, and notify the governanc
 
 :::image type="content" source="media/sentinel-workbook/logic-app-sample.png" alt-text="Screenshot of the Logic app designer showing a sample playbook.":::
 
-For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions).
+For more information, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
 
 ## Frequently asked questions
 
@@ -135,7 +135,7 @@ For more information, see [Use triggers and actions in Microsoft Sentinel playbo
 
 Yes. You can customize your **Zero Trust (TIC 3.0)** workbook to view data by subscription, workspace, time, control family, or maturity level parameters, and you can export and print your workbook.
 
-For more information, see [Use Azure Monitor workbooks to visualize and monitor your data](monitor-your-data).
+For more information, see [Use Azure Monitor workbooks to visualize and monitor your data](monitor-your-data.md).
 
 ### Are additional products required?
 
@@ -151,13 +151,13 @@ Panels with no data provide a starting point for addressing Zero Trust and TIC 3
 
 Yes. You can use workbook parameters, Azure Lighthouse, and Azure Arc to leverage the **Zero Trust (TIC 3.0)** solution across all of your subscriptions, clouds, and tenants.
 
-For more information, see [Use Azure Monitor workbooks to visualize and monitor your data](monitor-your-data) and [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers).
+For more information, see [Use Azure Monitor workbooks to visualize and monitor your data](monitor-your-data.md) and [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md).
 
 ### Is partner integration supported?
 
 Yes. Both workbooks and analytics rules are customizable for integrations with partner services. 
 
-For more information, see [Use Azure Monitor workbooks to visualize and monitor your data](monitor-your-data) and [Surface custom event details in alerts](surface-custom-details-in-alerts).
+For more information, see [Use Azure Monitor workbooks to visualize and monitor your data](monitor-your-data.md) and [Surface custom event details in alerts](surface-custom-details-in-alerts.md).
 
 ### Is this available in government regions?
 
@@ -169,14 +169,14 @@ Yes. The **Zero Trust (TIC 3.0)** solution is in Public Preview and deployable t
 
 - [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader) users can view data, incidents, workbooks, and other Microsoft Sentinel resources.
 
-For more information, see [Permissions in Microsoft Sentinel](roles).
+For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
 ## Next steps
 
 For more information, see:
 
 - [Get Started with Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
-- [Visualize and monitor your data with workbooks](monitor-your-data)
+- [Visualize and monitor your data with workbooks](monitor-your-data.md)
 - [Microsoft Zero Trust Model](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Center](/security/zero-trust/?WT.mc_id=Portal-fx)
 
