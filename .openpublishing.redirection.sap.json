@@ -1139,91 +1139,91 @@
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/certifications.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/certifications",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-general.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-general",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-ibm.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-ibm",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-maxdb.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-maxdb",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-oracle.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-oracle",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sapase.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sapase",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sapiq.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sapiq",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sqlserver.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/dbms-guide-sqlserver",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/deployment-checklist.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/deployment-checklist.md",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-zones.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/high-availability-zones",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/planning-supported-configurations.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/planning-supported-configurations",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/proximity-placement-scenarios.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/proximity-placement-scenarios",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/rise-integration.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/rise-integration",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/supported-product-on-azure.md",
       "redirect_url": "/azure/center-sap-solutions/workloads/supported-product-on-azure",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/.md",
       "redirect_url": "/azure/center-sap-solutions/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
   ]
