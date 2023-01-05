@@ -9,9 +9,9 @@ ms.date: 01/03/2023
 
 # Select SAP ingestion profile
 
-This article explains how to select the profile for you SAP solution. You select the profile when you [add context about when/why you do this].
+This article explains how to select the profile for you SAP solution. We recommend that you select an ingestion profile that maximizes your security coverage while meeting your budget requirements. As one way to select a profile, you can turn on all logs for a while, and then reevaluate the ingestion profile according the expected cost related to the ingestion. If needed, you can [simulate expected costs](billing-monitor-costs.md).
 
-The following sections show typical customer configuration profiles for SAP log ingestion. Microsoft updates these profiles from time to time.
+The following sections show typical customer configuration profiles for SAP log ingestion.
 
 ### Default profile (recommended)
 
@@ -19,7 +19,7 @@ This profile includes complete coverage for:
 
 - Built-in analytics
 - The SAP user authorization master data tables, with users and privilege information
-- The ability to track changes and activities on the SAP landscape. This mode provides additional logging to allow for post-breach investigations and extended hunting abilities.
+- The ability to track changes and activities on the SAP landscape. This profile provides additional logging to allow for post-breach investigations and extended hunting abilities.
 
 ### systemconfig.ini file
 
@@ -129,8 +129,6 @@ USRACL_FULL = False
 ## Minimal profile
 
 The SAP Security Audit Log is the most important source of data the Microsoft Sentinel Solution for SAP uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.  
-
-The configuration profiles above can be archived by setting the relevant logs using the *systemconfig.ini* file.
 
 ### systemconfig.ini file
 
