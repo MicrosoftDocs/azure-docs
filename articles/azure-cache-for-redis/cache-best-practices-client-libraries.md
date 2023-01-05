@@ -84,7 +84,7 @@ clusterServersConfig:
   tcpNoDelay: true
 ```
 
-For an article demonstrating how to use Redisson's support for JCache as the store for Http session state in IBM Liberty on Azure, see [/azure/developer/java/ee/how-to-deploy-java-liberty-jcache](Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster).
+For an article demonstrating how to use Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 ## How to use client libraries
 
