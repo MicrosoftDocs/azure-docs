@@ -13,7 +13,7 @@ ms.reviewer: sngun
 
 # Reservation of Executors as part of Dynamic Allocation in Synapse Spark Pools
 
-Users create Spark pools and size them based on their workload requirements. In scenarios where the usage of the pools could vary as they could be used for compute intensive data transformation and also for carrying out data exploratory processes, users can enable the Autoscale option and specify a minimum and maximum number of nodes and the platform handles scaling the number of active nodes within these limits based on the demand.
+Users create Spark pools in Azure Synapse Analytics and size them based on their analytics workload requirements. It is common among enterprise teams to use spark pools for multiple data engineering process and the usage of the pools could vary based on data ingestion rates, data volume and other factors. A spark pools could be used for compute intensive data transformation and also for carrying out data exploratory processes, and in these cases users can enable the Autoscale option and specify a minimum and maximum number of nodes and the platform handles scaling the number of active nodes within these limits based on the demand.
 
 Going one level further by looking at application level executor requirements, users find it hard to tune the executor configurations as they are vastly different across different stages of a Spark Job Execution process which are also dependent on the volume of data processed which changes from time to time. Users can enable Dynamic Allocation of Executors option as part of the pool configuration, which would enable automatic allocation of executors to the spark application based on the nodes available in the Spark Pool. 
 
@@ -26,7 +26,7 @@ When Dynamic Allocation option is enabled, for every spark application submitted
 
 ### What does the reservation of executors mean?
 
-In scenarios where the Dynamic Allocation option is enabled in a Synapse Spark Pool, the platform reserve executors based on the maximum limit specified by the user for any spark application submitted. A new job submitted by the user will only be accepted when there are available executors is > than the max number of reserved executors. 
+In scenarios where the Dynamic Allocation option is enabled in a Synapse Spark Pool, the platform reserves the number of executors based on the maximum limit specified by the user for any spark application submitted. A new job submitted by the user will only be accepted when there are available executors is > than the max number of reserved executors. 
 
 > [!IMPORTANT]
 > This reservation activity however does not impact the billing where the users are billed only for the cores used and not for the number of cores in the reserved state. 
