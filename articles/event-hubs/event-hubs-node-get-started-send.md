@@ -4,7 +4,7 @@ description: This article provides a walkthrough for creating a JavaScript appli
 ms.topic: quickstart
 ms.date: 01/04/2023
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, passwordless-js
 ---
 
 # Send events to or receive events from event hubs by using JavaScript
