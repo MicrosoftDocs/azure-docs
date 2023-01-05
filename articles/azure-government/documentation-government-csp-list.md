@@ -346,7 +346,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Protected Trust](https://www.proarch.com/)|
 |[Protera Technologies](https://www.protera.com)|
 |[Pueo Business Solutions, LLC](https://www.pueo.com/)|
-|[Quad M Tech](https://quadmtechnologies.com/quad.html)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
