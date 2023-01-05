@@ -14,13 +14,13 @@ ms.author: sujaj
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You'll install the HA agent, then create the provider for Azure Monitor for SAP solutions. 
+In this how-to guide, you'll learn to create a High Availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You'll install the HA agent, then create the provider for Azure Monitor for SAP solutions.
 
 This content applies to both Azure Monitor for SAP solutions and Azure Monitor for SAP solutions (classic) versions.
 
 ## Prerequisites
 
-- An Azure subscription. 
+- An Azure subscription.
 - An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
 
 ## Install HA agent
@@ -33,28 +33,42 @@ For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pm
 
 For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.com/articles/6139852) in each node.
 
+### Steps to install HA Cluster Exporter on RHEl system:
+1. Install the required packages on the system.
+    1. yum install pcp pcp-pmda-hacluster
+1. Enable and start the required PCP Collector Services.
+    1. systemctl enable pmcd
+    1. systemctl start pmcd
+1. Install and enable the HA Cluster PMDA. (replace $PCP_PMDAS_DIR with the path where hacluster is installed, use find command in linux to find it)
+    1. cd $PCP_PMDAS_DIR/hacluster
+    1. ./install
+1. Enable and start the pmproxy service.
+    1. sstemctl start pmproxy
+    1. systemctl enable pmproxy
+1. Data will then be collected by PCP on the system and can be exported via pmproxy at the following address:
+    1. http://<'servername or ip address'>:44322/metrics?names=ha_cluster
 
 ## Create provider for Azure Monitor for SAP solutions
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to the Azure Monitor for SAP solutions service. 
+1. Go to the Azure Monitor for SAP solutions service.
 1. Open your Azure Monitor for SAP solutions resource.
 1. In the resource's menu, under **Settings**, select **Providers**.
 1. Select **Add** to add a new provider.
 
-    ![Diagram of Azure Monitor for SAP solutions resource in the Azure portal, showing button to add a new provider.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-start.png)  
+    ![Diagram of Azure Monitor for SAP solutions resource in the Azure portal, showing button to add a new provider.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-start.png)
 
 1. For **Type**, select **High-availability cluster (Pacemaker)**.
-1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**. 
+1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**.
 
-    1. For SUSE-based clusters, enter `http://<'IP address'> :9664/metrics`. 
+    1. For SUSE-based clusters, enter `http://<'IP address'> :9664/metrics`.
 
-    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)  
+    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)
 
-    
+
     1. For RHEL-based clusters, enter `http://<'IP address'>:44322/metrics?names=ha_cluster`.
 
-    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)  
+    ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-rhel.png)
 
 
 1. Enter the system identifiers, host names, and cluster names. For the system identifier, enter a unique SAP system identifier for each cluster. For the hostname, the value refers to an actual hostname in the VM. Use `hostname -s` for SUSE- and RHEL-based clusters.
