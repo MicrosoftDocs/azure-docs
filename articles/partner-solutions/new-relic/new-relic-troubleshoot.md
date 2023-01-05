@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot the Azure Native New Relic Service
-description: Learn about troubleshooting the Azure Native New Relic Service
+title: Troubleshoot Azure Native New Relic Service
+description: Learn about troubleshooting Azure Native New Relic Service.
 ms.topic: conceptual
 
 ms.date: 12/31/2022
@@ -9,8 +9,7 @@ ms.date: 12/31/2022
 
 # Troubleshoot Azure Native New Relic Service
 
-This article describes how to contact support when working with Azure Native New Relic Service resource. Before contacting support, see [Fix common errors.](#fix-common-errors)
-
+This article describes how to contact support when you're working with Azure Native New Relic Service resources. Before you contact support, see [Fix common errors](#fix-common-errors).
 
 ## Contact support
 To contact support regarding the Azure Native New Relic service, select **New Support Request** in the left pane of the resource. Select the link to go to the New Relic support website and raise a request.

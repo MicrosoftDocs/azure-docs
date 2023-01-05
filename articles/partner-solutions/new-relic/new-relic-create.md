@@ -15,11 +15,8 @@ When you use the integrated New Relic experience in Azure portal by using Azure 
 :::image type="content" source="media/new-relic-create/new-relic-subscription.png" alt-text="Conceptual diagram that shows the relationship between Azure and New Relic.":::
 
 - **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account in Azure. The resource is created in the Azure subscription and resource group that you select during the creation process or linking process.
-
 - **New Relic organization**: The New Relic organization on New Relic software as a service (SaaS) is used for user management and billing.
-
 - **New Relic account**: The New Relic account on New Relic SaaS is used to store and process telemetry data.
-
 - **Azure Marketplace SaaS resource**: When you set up a new account and organization on New Relic by using Azure Native New Relic Service, the SaaS resource is created automatically, based on the plan that you select from the Azure New Relic offer in Azure Marketplace. This resource is used for billing.
 
 ## Prerequisites
@@ -32,7 +29,7 @@ Use the Azure portal to find the Azure Native New Relic Service application.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
-1. If you've visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **Marketplace** and select the result.
+1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **Marketplace** and select the result.
 
    :::image type="content" source="media/new-relic-create/new-relic-search.png" alt-text="Screenshot that shows entering the word Marketplace in a search box.":::
 
@@ -45,15 +42,15 @@ Use the Azure portal to find the Azure Native New Relic Service application.
 
 ## Create a New Relic resource in Azure
 
-1. When you're creating a New Relic resource, you see two options: create a New Relic account, or link an Azure subscription to an existing New Relic account. Select **Create** under the **Create a New Relic resource** option.
+1. When you're creating a New Relic resource, you have two options: one creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Create a New Relic resource** option.
 
    :::image type="content" source="media/new-relic-create/new-relic-create.png" alt-text="Screenshot that shows New Relic resources.":::
 
-    You see a form to create a New Relic resource on the working pane.
+1. A form to create a New Relic resource appears on the **Basics** tab.
 
    :::image type="content" source="media/new-relic-create/new-relic-basics.png" alt-text="Screenshot that shows the tab for basic information about a New Relic resource.":::
 
-1. Provide the following values:
+   Provide the following values:
 
    |  Property | Description |
    |--|--|
@@ -73,7 +70,7 @@ Use the Azure portal to find the Azure Native New Relic Service application.
 
 ## Configure metrics and logs
 
-Your next step is to configure metrics and logs. When you're creating the New Relic resource, you can set up automatic log forwarding for two types of logs:
+Your next step is to configure metrics and logs on the **Logs** tab. When you're creating the New Relic resource, you can set up automatic log forwarding for two types of logs:
 
 - **Subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events. 
 
@@ -81,7 +78,7 @@ Your next step is to configure metrics and logs. When you're creating the New Re
 
 - **Azure resource logs**: These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-   :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for metrics and logs in a New Relic resource.":::
+   :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource.":::
 
 1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs will be sent to New Relic.
 
@@ -93,7 +90,7 @@ Your next step is to configure metrics and logs. When you're creating the New Re
    - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
    - If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
     
-1. Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](/azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](/azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
