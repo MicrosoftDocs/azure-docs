@@ -125,13 +125,13 @@ Notes:
 
 1. From the menu on the top, select **Settings** > **Admin**.
    
-    ![Screenshot of Veracode Administration, with Settings icon and Admin highlighted](./media/veracode-tutorial/admin.png "Administration")
+    ![Screenshot of Veracode Administration, with Settings icon and Admin highlighted.](./media/veracode-tutorial/admin.png "Administration")
 
 1. Select the **SAML** tab.
 
 1. In the **SAML Certificate** section, perform the following steps:
 
-    ![Screenshot of Organization SAML Settings section](./media/veracode-tutorial/saml.png "Administration")
+    ![Screenshot of Organization SAML Settings section.](./media/veracode-tutorial/saml.png "Administration")
 
     a.  For **Issuer**, paste the value of the **Azure AD Identifier** that you've copied from the Azure portal.
 
@@ -145,7 +145,7 @@ Notes:
 
 1. Select the **JIT Provisioning** tab.
 
-    ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/just-in-time.png "JIT Provisioning")
+    ![Screenshot of JIT Provisioning tab, with various options highlighted.](./media/veracode-tutorial/just-in-time.png "JIT Provisioning")
 
 1. In the **Organization Settings** section, toggle the **Configure Default Settings for Just-in-Time user provisioning** setting to **On**. 
 
