@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 01/04/2023
 ---
 
 # REST code samples for Azure Cognitive Search

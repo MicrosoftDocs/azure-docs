@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Best practices for Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This collection of best practices provides guidance to use when deploying, managing, and using Microsoft Sentinel, including links to other articles for more information.
 
 > [!IMPORTANT]

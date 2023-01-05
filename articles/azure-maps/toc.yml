@@ -163,6 +163,8 @@ items:
       href: rest-sdk-developer-guide.md
     - name: C# REST SDK Developers Guide
       href: how-to-dev-guide-csharp-sdk.md
+    - name: Python REST SDK Developers Guide
+      href: how-to-dev-guide-py-sdk.md
     - name: JavaScript / TypeScript REST SDK Developers Guide
       href: how-to-dev-guide-js-sdk.md
   - name: Develop with the Web SDK
@@ -467,6 +469,10 @@ items:
       href: /javascript/api/azure-maps-spatial-io/
     - name: Indoor module
       href: /javascript/api/azure-maps-indoor/
+    - name: Release notes
+      items:
+      - name: Map control
+        href: release-notes-map-control.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
