@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 05/01/2023
 ms.author: sujaj
 #Customer intent: As a developer, I want to create a High Availability Pacemaker cluster so I can use the resource with Azure Monitor for SAP solutions.
 ---
