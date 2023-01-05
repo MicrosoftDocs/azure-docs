@@ -65,7 +65,7 @@ An operation is an action. Power automate flow allows you to add one or more adv
 
 >[!NOTE] If you get an error **Test connection failed. Details: Authentication to host '<servername>' for user '<username>' using method 'mysql_native_password' failed with message: Access denied for user '<username>'@'<IP address>' (using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
  
-5. After the connection is successfully added, provide the **servername, database name and table name** parameters for **Get Rows** operation using the newly added connection. 
+5. After the connection is successfully added, provide the **servername, database name and table name** parameters for **Get Rows** operation using the newly added connection.  Select **advanced options** to add more filters or limit the number of rows returned.
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/get-rows-from-table.png" alt-text="Screenshot that shows configuring Get Rows operation":::
 
 6. Select **Save**.
