@@ -35,13 +35,16 @@ To create a new registry, see [Quickstart: Create a container registry using the
 Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
+# Login to Azure
+az login
+
+# Login to ACR, using a token based on your Azure identity
 USER_NAME="00000000-0000-0000-0000-000000000000"
 PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
 ```
 
 > [!NOTE]
 > ACR and ORAS support multiple authentication options for users and system automation. This article uses individual identity, using an Azure token. For more authentication options see [Authenticate with an Azure container registry][acr-authentication]
-
 
 ### Sign in with ORAS
 
@@ -125,12 +128,7 @@ az acr repository delete \
 * Learn more about [the ORAS Library](https://github.com/deislabs/oras), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
-
-
 <!-- LINKS - external -->
-[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
 [acr-authentication]: /articles/container-registry/container-registry-authentication.md?tabs=azure-cli
