@@ -116,6 +116,10 @@
       href: check-usage-against-limits.md
     - name: View network topology
       href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Security
+    items:
+    - name: Create a Zero Trust network for web applications
+      href: create-zero-trust-network-web-apps.md
   - name: Sample scripts
     items:
     - name: Azure CLI
