@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 01/04/2023
 ms.custom: devx-track-azurecli, mode-api
 ---
 
