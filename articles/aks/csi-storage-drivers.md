@@ -18,7 +18,7 @@ The CSI storage driver support on AKS allows you to natively use:
 - [**Azure Blob storage**](azure-blob-csi.md) can be used to mount Blob storage (or object storage) as a file system into a container or pod. Using Blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
 
 > [!IMPORTANT]
-> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. While existing in-tree persistent volumes continue to function, starting with version 1.26, AKS will no longer support volumes created using in-tree driver and storage provisioned for files and disk. 
+> Starting with Kubernetes version 1.25, in-tree persistent volume types *kubernetes.io/azure-disk* and *kubernetes.io/azure-file* are deprecated and will no longer be supported. Removing these drivers following their deprecation is not planned, however you should migrate to the corresponding CSI drivers *disks.csi.azure.com* and *file.csi.azure.com*.
 >
 > *In-tree drivers* refers to the storage drivers that are part of the core Kubernetes code opposed to the CSI drivers, which are plug-ins.
 
