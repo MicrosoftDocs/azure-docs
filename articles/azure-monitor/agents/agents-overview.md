@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 1/3/2022
+ms.date: 1/3/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
