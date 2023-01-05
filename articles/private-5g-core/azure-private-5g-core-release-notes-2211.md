@@ -56,9 +56,8 @@ The following table provides a summary of known issues in this release.
 
   |No.  |Feature  | Issue |
   |-----|-----|-----|
-  | 1 | Packet forwarding | If Azure Private 5G Core is deployed into a network where the gNodeB is on the same subnet as the Packet Core's N3 interface address (that is, there is no gateway router between them) then all downstream traffic is broken.   | 
-  | 2 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network.  | 
-  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
+  | 1 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network.  | 
+  | 2 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
 
 
 ## Known issues from previous releases
@@ -68,10 +67,7 @@ The following table provides a summary of known issues carried over from the pre
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
-  | 2 | Packet forwarding  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server.   | 
-  | 3 | Local dashboards  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server.   | 
-
-
+  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
 
 
 ## Next steps

@@ -49,4 +49,5 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 
 ## Next steps
 
-Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+* Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
+* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
