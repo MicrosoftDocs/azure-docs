@@ -35,6 +35,8 @@ The incident **activity log** tracks all the actions taken on an incident, wheth
 
 First things first: As an analyst, he most basic question you want to answer is, why is this incident being brought to my attention? Entering an incident’s details page will answer that question: right in the center of the screen, you’ll see the incident’s **Timeline** panel. The timeline is the diary of all the alerts that represent all the logged events that are relevant to the investigation, in the order in which they happened. See the full details of any item on this list by selecting it. Many of these details appear as links that you can select to dive still deeper and learn more.
 
+
+
 ### Learn from experience
 
 If anything you’ve seen so far in your incident looks familiar, there may be good reason. Microsoft Sentinel stays one step ahead of you by showing you the incidents most similar to the open one, so that you can spot concurrent incidents that may be part of a larger attack strategy, use similar incidents as reference points for your current investigation, or identify owners of past similar incidents to benefit from their knowledge. The **Similar incidents** panel shows you the 20 most similar incidents, based on common elements including entities, the source analytics rule, and alert details. From this panel you can jump directly to any of these incidents' full details pages, while keeping the connection to the current incident intact.
@@ -65,15 +67,17 @@ Each of these actions is currently supported for certain entity types and not fo
 
 ### Examine top insights
 
-Next, having the broad outlines of what happened (or is still happening), and knowing who and what is involved, you’ll be curious about what interesting information can be learned but might be difficult to find out. Microsoft Sentinel automatically surfaces the most important information in your incident in the Top insights panel, visible on the right side of the incident details page. This panel shows a collection of results based on both machine-learning analysis and the curation of top teams of security experts.
+Next, having the broad outlines of what happened (or is still happening), and knowing who and what is involved, you’ll be curious about what interesting information can be learned but might be difficult to find out. Microsoft Sentinel automatically surfaces the most important information in your incident in the **Top insights** panel, visible on the right side of the incident details page. This panel shows a collection of insights based on both machine-learning analysis and the curation of top teams of security experts.
+
+Most of these insights contain links to more information. These links open the Logs panel in-context, where you'll see the source query for that insight along with its results. 
 
 ### Explore logs
 
-Now you’ll want to get down into the details to know what exactly happened? You can drill down into the individual alerts contained in the incident, viewing the original query results. These results are displayed in the Logs (log analytics) screen that appears here as a panel extension of the incident details page, so you don’t leave the context of the investigation. 
+Now you’ll want to get down into the details to know *what exactly happened?* You can drill down into the individual alerts contained in the incident, viewing the original query results. These results are displayed in the Logs (log analytics) screen that appears here as a panel extension of the incident details page, so you don’t leave the context of the investigation. 
 
-### See what’s been done
+### Keep your records in order
 
-Finally, you’ll want a record of all the actions that have been taken on the incident – whether by automated processes or by people. The incident activity log shows you all of these activities. You can also see any comments that have been made and add your own.
+Finally, in the interests of transparency, accountability, and continuity, you’ll want a record of all the actions that have been taken on the incident – whether by automated processes or by people. The incident **activity log** shows you all of these activities. You can also see any comments that have been made and add your own.
 
 ## Take actions to remediate threats
 

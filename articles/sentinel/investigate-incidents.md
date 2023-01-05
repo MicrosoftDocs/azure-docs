@@ -26,9 +26,12 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
 ## Navigate and triage incidents
 
+### The Incidents page
+
 1. From the Microsoft Sentinel navigation menu, under **Threat management**, select **Incidents**. 
 
     The **Incidents** page gives you basic information about all of your open incidents.
+
     - Across the top of the screen you have the counts of open incidents, whether new or active, and the counts of open incidents by severity. You also have the **banner** with actions you can take outside of a specific incident - either on the grid as a whole, or on multiple selected incidents.
 
     - In the central pane, you have the **incident grid**, a list of incidents as filtered by the filtering controls at the top of the list, and a search bar to find specific incidents.
@@ -43,21 +46,21 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     Otherwise, you can perform basic triage yourself. You can start by filtering the list of incidents by available filtering criteria, whether status, severity, or product name. For more information, see [Search for incidents](#search-for-incidents).
 
-1. Triage a specific incident by selecting it in the grid. View the incident in the **details pane** on the right. 
+1. Triage a specific incident and take some actions on it immediately, right from the **details pane** on the **Incidents** page, without having to enter the incident’s full details page.
 
-    - At the top you can see basic information for the incident including its current owner, status, and severity. 
-    - Below that, you have more administrative information including a description, the product for which the alert was generated, and any existing tasks assigned for the incident (in Preview). 
-    - Then you'll see the evidence accumulated so far: alerts that generated this incident, the incident’s unique ID and a direct hyperlink to it, and any tags or comments that have been applied.
+    - **Investigate Microsoft 365 Defender incidents in Microsoft 365 Defender:** Follow the [**Investigate in Microsoft 365 Defender**](microsoft-365-defender-sentinel-integration.md) link to pivot to the parallel incident in the Defender portal. Any changes you make to the incident in Microsoft 365 Defender will be synchronized to the same incident in Microsoft Sentinel.
 
-1. Take some triage actions on this incident, as appropriate. 
+    - **Open the list of assigned tasks:** Incidents for which any tasks have been assigned will display a count of completed and total tasks and a **View full details** link. Follow the link to open the [**Incident tasks**](incident-tasks.md) panel to see the list of tasks for this incident.
 
-    - Assign ownership of the incident to a user or group by selecting from the **Owner** drop-down list.
+    - **Assign ownership of the incident** to a user or group by selecting from the **Owner** drop-down list.
 
-    - Change the incident's status (for example, from **New** to **Active** or **Closed**).
+    - **Update the incident’s status** (for example, from **New** to **Active** or **Closed**) by selecting from the **Status** drop-down list. When closing an incident, you’ll be required to specify a reason. [See below for instructions](#closing-an-incident).
 
-    - Update the incident's severity if required.
+    - **Change the incident’s severity** by selecting from the **Severity** drop-down list.
 
-1. Dive deeper into the information presented in the **details pane** by selecting the links representing **entities** in the alert.
+    - **Add tags** to categorize your incidents. You may need to scroll down to the bottom of the details pane to see where to add tags.
+
+    - **Add comments** to log your actions, ideas, questions, and more. You may need to scroll down to the bottom of the details pane to see where to add comments.
 
 1. If the information in the **details pane** is sufficient to prompt further remediation or mitigation actions, select the **Actions** button at the bottom of the **details pane** to do one of the following:
 
