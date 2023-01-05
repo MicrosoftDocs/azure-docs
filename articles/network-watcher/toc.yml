@@ -13,10 +13,10 @@
     href: diagnose-vm-network-traffic-filtering-problem-powershell.md
   - name: Diagnose VM traffic filter problem - Azure CLI
     href: diagnose-vm-network-traffic-filtering-problem-cli.md
-  - name: Configure NSG flow logs using Bicep
+  - name: Configure NSG flow logs - Bicep
     displayName: Resource Manager,arm,template
     href: quickstart-configure-network-security-group-flow-logs-from-bicep.md
-  - name: Configure NSG flow logs using ARM template
+  - name: Configure NSG flow logs - ARM template
     displayName: Resource Manager
     href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutorials
@@ -25,7 +25,7 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: connection-monitor.md
-  - name: Monitor communication with virtual machine scale set
+  - name: Monitor communication with Virtual Machine Scale Set
     href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
@@ -33,13 +33,13 @@
     href: network-watcher-nsg-flow-logging-portal.md
   - name: Configure NSG flow logs
     items:
-    - name: Azure PowerShell
+    - name: PowerShell
       href: network-watcher-nsg-flow-logging-powershell.md
-    - name: The Azure CLI
+    - name: Azure CLI
       href: network-watcher-nsg-flow-logging-cli.md
     - name: REST
       href: network-watcher-nsg-flow-logging-rest.md
-    - name: Azure Resource Manager
+    - name: ARM template
       href: network-watcher-nsg-flow-logging-azure-resource-manager.md
     - name: Built-in Policy
       href: nsg-flow-logs-policy-portal.md
@@ -99,11 +99,11 @@
       href: connection-monitor-install-azure-monitor-agent.md
   - name: Create a connection monitor
     items:
-    - name: Using Azure portal
+    - name: Portal
       href: connection-monitor-create-using-portal.md
-    - name: Using ARMClient
+    - name: ARMClient
       href: connection-monitor-create-using-template.md
-    - name: Using PowerShell
+    - name: PowerShell
       href: connection-monitor-create-using-powershell.md
   - name: Migrate to Connection Monitor
     items:
@@ -121,17 +121,17 @@
         href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Diagnose a routing problem
       items:
-      - name: Azure PowerShell
+      - name: PowerShell
         href: diagnose-vm-network-routing-problem-powershell.md
-      - name: The Azure CLI
+      - name: Azure CLI
         href: diagnose-vm-network-routing-problem-cli.md
     - name: Diagnose outbound connection problems
       items:
-      - name: Azure portal
+      - name: Portal
         href: network-watcher-connectivity-portal.md
-      - name: Azure PowerShell
+      - name: PowerShell
         href: network-watcher-connectivity-powershell.md
-      - name: The Azure CLI
+      - name: Azure CLI
         href: network-watcher-connectivity-cli.md
       - name: REST
         href: network-watcher-connectivity-rest.md
@@ -139,19 +139,19 @@
       items:
       - name: Manage a packet capture
         items:
-        - name: Virtual machine - portal
+        - name: Virtual machine - Portal
           href: network-watcher-packet-capture-manage-portal.md
-        - name: Virtual machine scale set - portal
+        - name: Virtual Machine Scale Set - Portal
           href: network-watcher-packet-capture-manage-portal-vmss.md
         - name: Virtual machine - PowerShell
           href: network-watcher-packet-capture-manage-powershell.md
-        - name: Virtual machine scale set - PowerShell
+        - name: Virtual Machine Scale Set - PowerShell
           href: network-watcher-packet-capture-manage-powershell-vmss.md
         - name: Virtual machine - Azure CLI
           href: network-watcher-packet-capture-manage-cli.md
         - name: Virtual machine - REST
           href: network-watcher-packet-capture-manage-rest.md
-        - name: Virtual machine scale set - REST
+        - name: Virtual Machine Scale Set - REST
           href: network-watcher-packet-capture-manage-rest-vmss.md
       - name: Analyze a packet capture
         items:
@@ -189,9 +189,9 @@
         href: traffic-analytics-schema-update.md
     - name: View network security groups
       items:
-      - name: Azure PowerShell
+      - name: PowerShell
         href: network-watcher-security-group-view-powershell.md
-      - name: The Azure CLI
+      - name: Azure CLI
         href: network-watcher-security-group-view-cli.md
       - name: REST
         href: network-watcher-security-group-view-rest.md
@@ -201,9 +201,9 @@
     items:
     - name: Troubleshoot
       items:
-      - name: Azure PowerShell
+      - name: PowerShell
         href: network-watcher-troubleshoot-manage-powershell.md
-      - name: The Azure CLI
+      - name: Azure CLI
         href: network-watcher-troubleshoot-manage-cli.md
       - name: REST
         href: network-watcher-troubleshoot-manage-rest.md
@@ -223,7 +223,7 @@
       href: resource-move.md
 - name: Reference
   items:
-  - name: The Azure CLI
+  - name: Azure CLI
     href: /cli/azure/network/watcher
   - name: Azure PowerShell
     href: /powershell/module/az.network/#network_watcher
@@ -252,6 +252,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=network-watcher
   - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/
+    href: https://azure.microsoft.com/en-us/support/legal/sla/network-watcher/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher
