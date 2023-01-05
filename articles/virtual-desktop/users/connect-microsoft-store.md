@@ -14,7 +14,7 @@ The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop 
 > [!IMPORTANT]
 > We're no longer updating the Microsoft Store client with new features.
 >
-> For the best Azure Virtual Desktop experience that includes the latest features and fixes, we recommend you download the [Remote Desktop client for Windows](users/connect-windows.md) instead.
+> For the best Azure Virtual Desktop experience that includes the latest features and fixes, we recommend you download the [Remote Desktop client for Windows](connect-windows.md) instead.
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
