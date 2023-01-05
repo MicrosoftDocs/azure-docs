@@ -9,7 +9,6 @@ ms.date: 1/5/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
-
 ms.collection: M365-identity-device-management
 ---
 
