@@ -373,7 +373,7 @@ assigning following Azure Policy definitions:
 
 ### 1431 Denial-of-service attack prevention and mitigation strategies are discussed with service providers, specifically: their capacity to withstand denial-of-service attacks, any costs likely to be incurred by customers resulting from denial-of-service attacks, thresholds for notifying customers or turning off their online services during denial-of-service attacks, pre-approved actions that can be undertaken during denial-of-service attacks, denial-of-service attack prevention arrangements with upstream providers to block malicious traffic as far upstream as possible
 
-- DDoS Protection Standard should be enabled
+- DDoS Protection should be enabled
 
 > [!NOTE]
 > Availability of specific Azure Policy definitions may vary in Azure Government and other national

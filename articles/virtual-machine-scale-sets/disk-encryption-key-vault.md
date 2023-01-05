@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 05/23/2022
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli 
 ms.devlang: azurecli
@@ -46,6 +46,6 @@ Connect-AzAccount
 ## Next steps
 
 - [Azure Disk Encryption overview](disk-encryption-overview.md)
-- [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
-- [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
+- [Encrypt a Virtual Machine Scale Sets using the Azure CLI](disk-encryption-cli.md)
+- [Encrypt a Virtual Machine Scale Sets using the Azure PowerShell](disk-encryption-powershell.md)
 

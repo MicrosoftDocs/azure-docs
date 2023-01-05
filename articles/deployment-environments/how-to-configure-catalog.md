@@ -108,7 +108,7 @@ To store the personal access token you generated as a [key vault secret](../key-
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.|
 
-   :::image type="content" source="media/how-to-configure-catalog/catalog-item-add.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
+   :::image type="content" source="media/how-to-configure-catalog/add-new-catalog-form.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
@@ -144,7 +144,7 @@ An ignored catalog item error occurs if you add two or more catalog items that h
 
 ### Resolve invalid catalog item errors
 
-An invalid catalog item error might occur for a variety of reasons:
+An invalid catalog item error might occur for various reasons:
 
 - **Manifest schema errors**. Ensure that your catalog item manifest matches the [required schema](./configure-catalog-item.md#add-a-catalog-item).
 

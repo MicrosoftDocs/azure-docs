@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 08/05/2021
+ms.date: 11/22/2022
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
 ---
@@ -23,7 +23,7 @@ Scale set orchestration modes allow you to have greater control over how virtual
 ## Scale sets with Uniform orchestration
 Optimized for large-scale stateless workloads with identical instances.
 
-Virtual Machine Scale Sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands. Individual instances aren't compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, and automatic OS upgrades.
+Virtual Machine Scale Sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the Virtual Machine Scale Set VM API commands. Individual instances aren't compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, and automatic OS upgrades.
 
 
 ## Scale sets with Flexible orchestration
@@ -39,7 +39,7 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 
 
 ## What has changed with Flexible orchestration mode?
-One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with Uniform orchestration. There are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
+One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the Virtual Machine Scale Set VM APIs you use with Uniform orchestration. There are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
 
 Flexible orchestration mode can be used with all VM sizes. Flexible orchestration mode provides the highest scale and configurability for VM sizes that support memory preserving updates or live migration such as when using the B, D, E and F-series or when the scale set is configured for maximum spreading between instances `platformFaultDomainCount=1`. Currently, the Flexible orchestration mode has additional constraints for VM sizes that don't support memory preserving updates including the G, H, L, M, and N-series VMs and instances are spread across multiple fault domains. You can use the Compute Resource SKUs API to determine whether a specific VM SKU support memory preserving updates. 
 
@@ -58,7 +58,7 @@ Flexible orchestration mode can be used with all VM sizes. Flexible orchestratio
 | Single Placement Group | Optional. This will be set to false based on first VM deployed | Optional. This will be set to true based on first VM deployed | 
 
 ### Scale out with standard Azure virtual machines
-Virtual Machine Scale Sets in Flexible Orchestration mode manage standard Azure VMs. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure APIs and commands. Virtual machines created with Uniform orchestration mode are exposed and managed via the virtual machine scale set VM API commands. Individual instances aren't compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery.
+Virtual Machine Scale Sets in Flexible Orchestration mode manage standard Azure VMs. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure APIs and commands. Virtual machines created with Uniform orchestration mode are exposed and managed via the Virtual Machine Scale Set VM API commands. Individual instances aren't compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery.
 
 ### Assign fault domain during VM creation
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
@@ -139,12 +139,12 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | List VMs in Set | Yes | Yes | Yes, list VMs in AvSet |
 | Automatic Scaling (manual, metrics based, schedule based) | Yes | Yes | No |
 | Auto-Remove NICs and Disks when deleting VM instances | Yes | Yes | No |
-| Upgrade Policy (virtual machine scale set) | No, upgrade policy must be null or [] during create | Automatic, Rolling, Manual | N/A |
-| Automatic OS Updates (virtual machine scale set) | No | Yes | N/A |
+| Upgrade Policy (Virtual Machine Scale Set) | No, upgrade policy must be null or [] during create | Automatic, Rolling, Manual | N/A |
+| Automatic OS Updates (Virtual Machine Scale Set) | No | Yes | N/A |
 | In Guest Security Patching | Yes, read [Auto VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) | No | Yes |
-| Terminate Notifications (virtual machine scale set) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | N/A |
+| Terminate Notifications (Virtual Machine Scale Set) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | N/A |
 | Monitor Application Health | Application health extension | Application health extension or Azure load balancer probe | Application health extension |
-| Instance Repair (virtual machine scale set) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
+| Instance Repair (Virtual Machine Scale Set) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) | Yes | No |
 | Scale In Policy | No | Yes | No |
 | VMSS Get Instance View | No | Yes | N/A |
@@ -187,17 +187,17 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 
 ### Unsupported parameters
 
-The following virtual machine scale set parameters aren't currently supported with Virtual Machine Scale Sets in Flexible orchestration mode:
+The following Virtual Machine Scale Set parameters aren't currently supported with Virtual Machine Scale Sets in Flexible orchestration mode:
 - Single placement group - you must choose `singlePlacementGroup=False`
 - Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
-- Virtual machine scale set Overprovisioning
+- Virtual Machine Scale Set Overprovisioning
 - Image-based Automatic OS Upgrades
 - Application health via SLB health probe - use Application Health Extension on instances
-- Virtual machine scale set upgrade policy - must be null or empty
+- Virtual Machine Scale Set upgrade policy - must be null or empty
 - Deployment onto Azure Dedicated Host
 - Unmanaged disks
-- Virtual machine scale set Scale in Policy
-- Virtual machine scale set Instance Protection
+- Virtual Machine Scale Set Scale in Policy
+- Virtual Machine Scale Set Instance Protection
 - Basic Load Balancer
 - Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules to specific instances
 
@@ -248,7 +248,7 @@ OutboundConnectivityNotEnabledOnVM. No outbound connectivity configured for virt
 ```
 **Cause:** Trying to create a Virtual Machine Scale Set in Flexible Orchestration Mode with no outbound internet connectivity.
 
-**Solution:** Enable secure outbound access for your virtual machine scale set in the manner best suited for your application. Outbound access can be enabled with a NAT Gateway on your subnet, adding instances to a Load Balancer backend pool, or adding an explicit public IP per instance. For highly secure applications, you can specify custom User Defined Routes through your firewall or virtual network applications. See [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md) for more details.
+**Solution:** Enable secure outbound access for your Virtual Machine Scale Set in the manner best suited for your application. Outbound access can be enabled with a NAT Gateway on your subnet, adding instances to a Load Balancer backend pool, or adding an explicit public IP per instance. For highly secure applications, you can specify custom User Defined Routes through your firewall or virtual network applications. See [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md) for more details.
 
 ## Get started with Flexible orchestration mode
 
