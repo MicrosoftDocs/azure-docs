@@ -1,6 +1,6 @@
 ---
-title: Azure AD B2C Deployment
-description: Azure Active Directory B2C Deployment guide
+title: Azure Active Directory B2C deployment plans
+description: Azure Active Directory B2C deployment guide for planning, implementation, and monitoring
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -15,137 +15,111 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory B2C deployment plans
 
-Azure Active Directory B2C is a scalable identity and access management solution. Its high flexibility to meet your business expectations and smooth integration with existing infrastructure enables further digitalization.
+Azure Active Directory B2C (Azure AD B2C) is an identity and access management solution that can ease integration with your infrastructure. Use the following guidance to help understand requirements and compliance throughout an Azure AD B2C deployment.
 
-To help organizations understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment.
-
-| Capability | Description |
-|:-----|:------|
-| [Plan](#plan-an-azure-ad-b2c-deployment) | Prepare Azure AD B2C projects for deployment. Start by identifying the stakeholders and later defining a project timeline. |
-| [Implement](#implement-an-azure-ad-b2c-deployment) | Start with enabling authentication and authorization and later perform full application onboarding. |
-| [Monitor](#monitor-an-azure-ad-b2c-solution) | Enable logging, auditing, and reporting once an Azure AD B2C solution is in place. |
+Learn more: [Azure Active Directory B2C deployment plans](#plan-an-azure-ad-b2c-deployment)
 
 ## Plan an Azure AD B2C deployment
 
-This phase includes the following capabilities:
+### Requirements
 
-| Capability | Description |
-|:------------|:------------|
-|[Business requirements review](#business-requirements-review) | Assess your organization’s status and expectations |
-| [Stakeholders](#stakeholders) |Build your project team |
-|[Communication](#communication) | Communicate with your team about the project |
-| [Timeline](#timeline) | Reminder of key project milestones  |
+- Assess the primary reason to turn off systems
+  - See, [What is Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
+- For a new application, plan the design of the Customer Identity Access Management (CIAM) system
+  -  See, [Planning and design](../../active-directory-b2c/best-practices.md#planning-and-design) 
+- Identify customer locations and create a tenant in the corresponding datacenter
+  - See, [Tutorial: Create an Azure Active Directory B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md)
+- Confirm your application types and supported technologies:
+  -  [Overview of the Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
+  -  [Develop with open source languages, frameworks, databases, and tools in Azure](https://azure.microsoft.com/free/open-source/search/?OCID=AID2200277_SEM_f63bcafc4d5f1d7378bfaa2085b249f9:G:s&ef_id=f63bcafc4d5f1d7378bfaa2085b249f9:G:s&msclkid=f63bcafc4d5f1d7378bfaa2085b249f9).
+  - For back-end services, use the [client credentials](../develop/msal-authentication-flows.md#client-credentials) flow
+- To migrate from an Identity Provider (IdP)
+  - [Seamless migration](../../active-directory-b2c/user-migration.md#seamless-migration)
+  - Go to [azure-ad-b2c-user-migration](https://github.com/azure-ad-b2c/user-migration)
+- Select protocols
+  - If you use Kerberos, Microsoft Windows NT LAN Manager (NTLM), and Web Services Federation (WS-Fed), see the video, [Azure Active Directory: Application and identity migration to Azure AD B2C](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE). 
 
-### Business requirements review
-
-- Assess the primary reason to switch off existing systems and [move to Azure AD B2C](../../active-directory-b2c/overview.md).
-
-- For a new application, [plan and design](../../active-directory-b2c/best-practices.md#planning-and-design) the Customer Identity Access Management (CIAM) system
-
-- Identify customer's location and [create a tenant in the corresponding datacenter](../../active-directory-b2c/tutorial-create-tenant.md).
-
-- Check the type of applications you have
-  - Check the platforms that are currently supported - [MSAL](../develop/msal-overview.md) or [Open source](https://azure.microsoft.com/free/open-source/search/?OCID=AID2200277_SEM_f63bcafc4d5f1d7378bfaa2085b249f9:G:s&ef_id=f63bcafc4d5f1d7378bfaa2085b249f9:G:s&msclkid=f63bcafc4d5f1d7378bfaa2085b249f9).
-  - For backend services, use the [client credentials flow](../develop/msal-authentication-flows.md#client-credentials).
-
-- If you intend to migrate from an existing Identity Provider (IdP)
-
-  - Consider using the [seamless migration approach](../../active-directory-b2c/user-migration.md#seamless-migration)
-  - Learn [how to migrate the existing applications](https://github.com/azure-ad-b2c/user-migration)
-  - Ensure the coexistence of multiple solutions at once.
-
-- Decide the protocols you want to use
-
-  - If you're currently using Kerberos, NTLM, and WS-Fed, [migrate and refactor your applications](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE). Once migrated, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC) to enable further identity protection and security.
+After migration, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC).
 
 ### Stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right
-stakeholders](./active-directory-deployment-plans.md#include-the-right-stakeholders) and that stakeholders understand their roles.
+Technology project success depends on managing expectations, outcomes, and responsibilities. See, [Include the right
+stakeholders](./active-directory-deployment-plans.md#include-the-right-stakeholders)
 
-- Identify the primary architect, project manager, and owner for the application.
+- Identify the application architect, technical program manager, and owner
+- Create a distribution list (DL) to communicate with the Microsoft account or engineering teams
+  - Ask questions, get answers, and receive notifications
+- Identify a partner or resource outside your organization to support you
 
-- Consider providing a Distribution List (DL). Using this DL, you can communicate product issues with the Microsoft account team or engineering. You can ask questions, and receive important notifications.
+### Communications
 
-- Identify a partner or resource outside of your organization who can support you.
+Communicate proactively and regularly with your users about pending and current changes. Inform them about how the experience changes, when it changes, and provide a contact for support.
 
-### Communication
+### Timelines
 
-Communication is critical to the success of any new service. Proactively communicate to your users about the change. Timely inform them about how their experience will change, when it will change, and how to gain support if they experience issues.
+Help set realistic expectations and contingency plans to meet key milestones:
 
-### Timeline
-
-Define clear expectations and follow up plans to meet key milestones:
-
-- Expected pilot date
-
-- Expected launch date
-
-- Any dates that may affect project delivery date
+- Pilot date
+- Launch date
+- Dates that affect delivery
 
 ## Implement an Azure AD B2C deployment
 
-This phase includes the following capabilities:
-
-| Capability | Description |
-|:-------------|:--------------|
-| [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Understand the [authentication and authorization](../develop/authentication-vs-authorization.md) scenarios |
-| [Deploy applications and user identities](#deploy-applications-and-user-identities) | Plan to deploy client application and migrate user identities  |
-| [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Onboard the client application and test the solution |
-| [Security](#security) | Enhance the security of your Identity solution |
-|[Compliance](#compliance) | Address regulatory requirements |
-|[User experience](#user-experience) | Enable a user-friendly service |
+* **Deploy applications and user identities** - Deploy client application and migrate user identities 
+* **Client application onboarding and deliverables** - Onboard the client application and test the solution
+* **Security** - Enhance the identity solution security
+* **Compliance** Address regulatory requirements 
+* **User experience** - Enable a user-friendly service 
 
 ### Deploy authentication and authorization
 
-- Start with [setting up an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
+* Before your applications interact with Azure AD B2C, register them in a tenant you manage
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md)
+* For authorization, use the Identity Experience Framework (IEF) sample user journeys
+  * See, [Azure Active Directory B2C: Custom CIAM User Journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements)
+* Use policy-based control for cloud-native environments
+  * Go to openpolicyagent.org to learn about [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
 
-- For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements)
+Learn more with the Microsoft Identity PDF, [Gaining expertise with Azure AD B2C](https://aka.ms/learnaadb2c), a course for developers.
 
-- Try [Open  policy agent](https://www.openpolicyagent.org/).
+### Checklist for personas, permissions, delegation, and calls
 
-Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
-
-Follow this sample checklist for more guidance:
-
-- Identify the different personas that need access to your application.  
-
-- Define how you manage permissions and entitlements in your existing system today and how to plan for the future.
-
-- Check if you have a permission store and if there any permissions that need to be added to the directory.
-
-- If you need delegated administration define how to solve it. For example, your customers' customers management.
-
-- Check if your application calls directly an API Manager (APIM). There may be a need to call from the IdP before issuing a token to the application.
+* Identify the personas that access to your application 
+* Define how you manage system permissions and entitlements today, and in the future
+* Confirm you have a permission store and if there are permissions to add to the directory
+* Define how you manage delegated administration 
+  * For example, your customers' customers management
+* Verify your application calls an API Manager (APIM)
+  * There might be a need to call from the IdP before the application is issued a token
 
 ### Deploy applications and user identities
 
-All Azure AD B2C projects start with one or more client applications, which may have different business goals.
+Azure AD B2C projects start with one or more client applications.
 
-1. [Create or configure client applications](../../active-directory-b2c/app-registrations-training-guide.md). Refer to these [code samples](../../active-directory-b2c/integrate-with-app-code-samples.md) for implementation.
+* [The new App registrations experience for Azure Active Directory B2C](../../active-directory-b2c/app-registrations-training-guide.md)
+  * Refer to [Azure Active Directory B2C code samples](../../active-directory-b2c/integrate-with-app-code-samples.md) for implementation
+*  Set up your user journey based on custom user flows
+  *  [Comparing user flows and custom policies](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies)
+*  [Add an identity provider to your Azure Active Directory B2C tenant](../../active-directory-b2c/add-identity-provider.md)
+*  [Migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md). 
+  *  See, [Azure Active Directory B2C: Custom CIAM User Journeys](https://github.com/azure-ad-b2c/samples) for advanced scenarios.  
 
-2. Next, setup your user journey based on built-in or custom user flows. [Learn when to use user flows vs. custom policies](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies).
+### Application deployment checklist
 
-3. Setup IdPs based on your business need. [Learn how to add Azure Active Directory B2C as an IdP](../../active-directory-b2c/add-identity-provider.md).
+* Applications included in the CIAM deployment
+* Applications in use:
+  * For example, web applications, APIs, single-page apps (SPA), or native mobile applications
+* Authentication in use:
+  * For example, forms, federated with SAML, or federated with OIDC
+  * If OIDC, confirm the response type: code or id_token
+* Determine where front-end and back-end applications are hosted: on-premises, cloud, or hybrid-cloud
+* Confirm the platforms or languages in use:
+  * For example ASP.NET, Java, and Node.js
+  * See, [Quickstart: Set up sign in for an ASP.NET application using Azure AD B2C](../../active-directory-b2c/quickstart-web-app-dotnet.md)
+* Verify where user attributes are stored:
+  * For exaple, Lightweight Directory Access Protocol (LDAP) or databases
 
-4. Migrate your users. [Learn about user migration approaches](../../active-directory-b2c/user-migration.md). Refer to [Azure AD B2C IEF sample user journeys](https://github.com/azure-ad-b2c/samples) for advanced scenarios.  
-
-Consider this sample checklist as you **deploy your applications**:
-
-- Check the number of applications that are in scope for the CIAM deployment.
-
-- Check the type of applications that are in use. For example, traditional web applications, APIs, Single page apps (SPA), or Native mobile applications.
-
-- Check the kind of authentication that is in place. For example, forms based, federated with SAML, or federated with OIDC.
-  - If OIDC, check the response type - code or id_token.
-
-- Check if all the frontend and backend applications are hosted in on-premises, cloud, or hybrid-cloud.
-
-- Check the platforms/languages used such as, [ASP.NET](../../active-directory-b2c/quickstart-web-app-dotnet.md), Java, and Node.js.
-
-- Check where the current user attributes are stored. It could be Lightweight Directory Access Protocol (LDAP) or databases.
-
-Consider this sample checklist as you **deploy user identities**:
+### User identity deployment checklist
 
 - Check the number of users accessing the applications.
 
