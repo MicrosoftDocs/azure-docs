@@ -77,11 +77,11 @@ To create a virtual network, use the following steps:
 
     Leave the other fields at the default values.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config.":::
 
 1. Select __IP Addresses__. The default settings should be similar to the following image:
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen.":::
 
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
@@ -97,28 +97,28 @@ To create a virtual network, use the following steps:
 
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
-        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet.":::
 
     1. To create a subnet to contain the workspace, dependency services, and resources used for _training_, select __+ Add subnet__ and set the subnet name, starting address, and subnet size. The following are the values used in this tutorial:
         * __Name__: Training
         * __Starting address__: 172.16.0.0
         * __Subnet size__: /24 (256 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet.":::
 
     1. To create a subnet for compute resources used to _score_ your models, select __+ Add subnet__ again, and set the name and address range:
         * __Subnet name__: Scoring
         * __Starting address__: 172.16.1.0
         * __Subnet size__: /24 (256 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet.":::
 
     1. To create a subnet for _Azure Bastion_, select __+ Add subnet__ and set the template, starting address, and subnet size:
         * __Subnet template__: Azure Bastion
         * __Starting address__: 172.16.2.0
         * __Subnet size__: /26 (64 addresses)
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-azure-bastion-subnet.png" alt-text="Screenshot of Azure Bastion subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-azure-bastion-subnet.png" alt-text="Screenshot of Azure Bastion subnet.":::
 
 1. Select __Review + create__.
 
