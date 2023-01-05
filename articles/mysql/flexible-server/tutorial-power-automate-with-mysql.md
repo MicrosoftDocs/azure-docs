@@ -27,7 +27,7 @@ In this quickstart shows how to create an automated workflow usingPower automate
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free).
 
 - Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
--  Populate the database server with this [sample data](https://raw.githubusercontent.com/Azure-Samples/mysql-database-samples/main/mysqltutorial.org/mysql-classicmodesl.sql).
+- Populate the database server with this [sample data](https://raw.githubusercontent.com/Azure-Samples/mysql-database-samples/main/mysqltutorial.org/mysql-classicmodesl.sql).
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
@@ -47,34 +47,36 @@ For this tutorial, we will use instant cloud flow which can be triggered manuall
 First, you will need to select what event, or *trigger*, starts your flow.
 
 1. In [Power Automate](https://flow.microsoft.com), select **Create** from the navigation bar on the left.
-
 2. Under **Start from blank*, select **Instant cloud flow**.
-
 3. Give your flow a name in the **Flow name" field and select **Manually trigger a flow**. 
-
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/create-instant-cloud-flow.png" alt-text="Screenshot that shows how to create instant cloud flow app":::
 4. Select the **Create** button at the bottom of the screen.
 
-## Create a MySQL get operation 
+## Create a MySQL operation 
 An operation is an action. Power automate flow allows you to add one or more advanced options and multiple actions for the same trigger. For example, add an advanced option that sends an email message as high priority. In addition to sending mail when an item is added to a list created in Microsoft Lists, create a file in Dropbox that contains the same information.
 
 1. Once the flow app is created, select **Next Step** to create an operation. 
-2. In the box that shows Search connectors and actions, enter **Azure database for MySQL**.  
+2. In the box that shows Search connectors and actions, enter **Azure database for MySQL**.
 3. Select **Azure database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
-4. Add a new MySQL connection and enter the **authentication type**,**server name**, **database name**, **username**, **password** . Select **encrypt connection** if SSL is enabled on your MySQL server.
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/azure-mysql-connector-add-action.png" alt-text="Screenshot that shows how to view all the actions for Azure database for MySQL connector":::
+
+5. Add a new MySQL connection and enter the **authentication type**,**server name**, **database name**, **username**, **password** . Select **encrypt connection** if SSL is enabled on your MySQL server.
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/add-mysql-connection-information.png" alt-text="Screenshot that adding a new MySQL connection for Azure Database for MySQL server":::
 
 >[!NOTE] If you get an error **Test connection failed. Details: Authentication to host '<servername>' for user '<username>' using method 'mysql_native_password' failed with message: Access denied for user '<username>'@'<IP address>' (using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
-   
+ 
 5. After the connection is successfully added, provide the **servername, database name and table name** parameters for **Get Rows** operation using the newly added connection. 
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/get-rows-from-table.png" alt-text="Screenshot that shows configuring Get Rows operation":::
+
 6. Select **Save**.
 
 ## Test your flow
 After saving the flow, we need to test it and run the flow app. 
-   
+
 1. Select **Flow checker** to see if there are any errors that need to be resolved. 
 2. Select **Test** to test the workflow. Select **Manually** as this is a manual trigger workflow.
 3. Select **Run flow**.
 4.You will receive a message **Your flow run successfully started. To monitor it, go to the Flow Runs Page**. Go to the flow runs page to see the result.
-    
+
 ## Next Steps
 [Azure database for MySQL connector](/connectors/azuremysql/) reference 
-    
