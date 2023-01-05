@@ -151,7 +151,7 @@ Attach the upgrade media for the target Windows Server version to the VM which w
 
 To initiate the in-place upgrade the VM must be in the `Running` state. Once the VM is in a running state use the following steps to perform the upgrade.
 
-1. Connect to the VM using [RDP](./windows/connect-rdp#connect-to-the-virtual-machine.md) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
+1. Connect to the VM using [RDP](./windows/connect-rdp.md#connect-to-the-virtual-machine) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
 
 1. Determine the drive letter for the upgrade disk (typically E: or F: if there are no other data disks).
 
