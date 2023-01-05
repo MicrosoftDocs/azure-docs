@@ -26,7 +26,7 @@ Migration from in-tree to CSI is supported using two migration options:
 * Create a static volume
 * Create a dynamic volume
 
-### Migrate by creating a static volume
+### Create a static volume
 
 Using this option, you create a PV by statically assigning `claimRef` to a new PVC that you'll create later, and specify the `volumeName` for the *PersistentVolumeClaim*.
 
@@ -44,7 +44,7 @@ The following are important considerations to evaluate:
 * Transition to static volumes from original dynamic-style volumes requires constructing and managing PV objects manually for all options.
 * Potential application downtime when redeploying the new application with reference to the new PVC object.
 
-#### Migration steps
+#### Migration
 
 1. Update the existing PV `ReclaimPolicy` from **Delete** to **Retain** by running the following command:
 
@@ -170,7 +170,7 @@ The following are important considerations to evaluate:
 
 5. Update your application to use the new PVC.
 
-### Migrate by creating a dynamic volume
+### Create a dynamic volume
 
 Using this option, you dynamically create a Persistent Volume from a Persistent Volume Claim.
 
@@ -192,7 +192,7 @@ The following are important considerations to evaluate:
 
 * Perform data validation/verification as new disks are created from snapshots.
 
-#### Migration steps
+#### Migration
 
 Before proceeding, verify the following:
 
@@ -337,11 +337,11 @@ Before proceeding, verify the following:
 
 5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate more cost.
 
-## File share volumes
+## Migrate File share volumes
 
 Migration from in-tree to CSI is supported by creating a dynamic volume.
 
-### Migration steps
+### Migration
 
 1. Update the existing PV `ReclaimPolicy` from **Delete** to **Retain** by running the following command:
 
