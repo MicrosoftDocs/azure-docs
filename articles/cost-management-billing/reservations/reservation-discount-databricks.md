@@ -2,11 +2,11 @@
 title: How an Azure Databricks pre-purchase discount is applied
 description: Learn how an Azure Databricks pre-purchase discount applies to your usage. You can use these Databricks at any time during the purchase term.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

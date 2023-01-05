@@ -1,9 +1,9 @@
 ---
 title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs 
 description: Use automatic deployments in Azure IoT Edge to manage groups of devices based on shared tags
-author: lizross
+author: PatAltimore
 
-ms.author: lizross
+ms.author: patricka
 ms.date: 10/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -12,11 +12,13 @@ services: iot-edge
 
 # Understand IoT Edge automatic deployments for single devices or at scale
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices.
 
 Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) in the device twin.
+
+You can't combine per-device and automatic deployments. Once you start targeting IoT Edge devices with automatic deployments (with or without layered deployments), per-device deployments are no longer supported.
 
 This article focuses on configuring and monitoring fleets of devices, collectively referred to as *IoT Edge automatic deployments*. The basic deployment steps are as follows:
 
@@ -187,6 +189,10 @@ A phased rollout is executed in the following phases and steps:
 Deployments can be rolled back if you receive errors or misconfigurations. Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
 
 Deleting a deployment doesn't remove the modules from targeted devices. There must be another deployment that defines a new configuration for the devices, even if it's an empty deployment.
+
+However, deleting a deployment may remove modules from the targeted device if it was a layered deployment. A layered deployment updates the underlying deployment, potentially adding modules. Removing a layered deployment removes its update to the underlying deployment, potentially removing modules.
+
+For example, a device has base deployment A and layered deployments O and M applied onto it (so that the A, O, and M deployments are deployed onto the device). If layered deployment M is then deleted, A and O are applied onto the device, and the modules unique to deployment M are removed.
 
 Perform rollbacks in the following sequence:
 

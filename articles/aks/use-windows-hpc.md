@@ -76,7 +76,7 @@ spec:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"
           command:
-            - pwsh.exe
+            - powershell.exe
             - -command
             - |
               $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")

@@ -138,9 +138,9 @@ To catalog more data sources or to catalog your own data source, consider the fo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Kubernetes Service [Container Security](/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
-- API Management Service [Security baseline](/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
-- [Azure Database for PostgreSQL Security](/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
+- Azure Kubernetes Service [Container Security](../aks/concepts-security.md) implementation ensures the processors are built and run as containers are secure.
+- API Management Service [Security baseline](../aks/concepts-security.md) provides recommendations on how to secure your cloud solutions on Azure.
+- [Azure Database for PostgreSQL Security](../postgresql/flexible-server/concepts-security.md) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
 
 ### Cost optimization
 

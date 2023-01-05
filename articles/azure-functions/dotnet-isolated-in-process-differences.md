@@ -8,7 +8,7 @@ recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
 
-# Differences between in-process and isolate worker process .NET Azure Functions
+# Differences between in-process and isolated worker process .NET Azure Functions
 
 Functions supports two process models for .NET class library functions:
 
