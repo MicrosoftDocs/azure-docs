@@ -53,7 +53,7 @@ To unlink from your Automation account, perform the following steps.
 
 3. On the **Unlink workspace** page, select **Unlink workspace** and respond to prompts.
 
-   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+   ![Screenshot showing how to unlink a workspace page.](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
 
     While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -89,7 +89,7 @@ To delete Start/Stop VMs during off-hours from your Automation account, perform 
 
 5. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu.
 
-    ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
+    ![Screenshot showing the delete VM management feature.](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
 6. In the Delete Solution window, confirm that you want to delete the feature.
 
