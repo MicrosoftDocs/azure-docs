@@ -19,7 +19,7 @@ This feature can only be set at cluster creation or node pool creation time.
 > Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### Limitations
-- See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Ultra disks can't be used with some features and functionality like availability sets, or Azure disk encryption. It's recommended to review [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations) before proceeding further.
 - The supported size range for a Ultra disks is between 100 and 1500
 
 ## Create a new cluster that can use Ultra disks
