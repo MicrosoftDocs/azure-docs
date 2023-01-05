@@ -38,6 +38,7 @@ In this article, we'll take you through the different options for availability z
     * South Central US
     * Southeast Asia
     * Switzerland North
+    * UAE North
     * UK South
     * West Europe
     * West US 2
