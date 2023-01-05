@@ -153,7 +153,7 @@ Notes:
 
 1. In the **Access Settings** section, under **User Roles**, select from the following For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions):
 
-    ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/user-roles.png "JIT Provisioning")
+    ![Screenshot of JIT Provisioning User Roles, with various options highlighted](./media/veracode-tutorial/user-roles.png "JIT Provisioning")
 
       * **Policy Administrator**
       * **Reviewer**
