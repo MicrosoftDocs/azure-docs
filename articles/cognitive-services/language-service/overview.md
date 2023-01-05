@@ -36,7 +36,7 @@ This Language service unifies the known Microsoft services of Text Analytics, Qn
       :::image type="content" source="media/studio-examples/named-entity-recognition.png" alt-text="A screenshot of a named entity recognition example."  lightbox="media/studio-examples/named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that identifies entities in unstructured text across several pre-defined categories. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
+      [Named entity recognition](./named-entity-recognition/overview.md) is a pre-configured feature that categorizes entities (words or phrases) in unstructured text across several pre-defined category groups. For example: people, events, places, dates, [and more](./named-entity-recognition/concepts/named-entity-categories.md).
 
    :::column-end:::
 :::row-end:::
@@ -106,7 +106,7 @@ This Language service unifies the known Microsoft services of Text Analytics, Qn
       :::image type="content" source="media/studio-examples/entity-linking.png" alt-text="A screenshot of an entity linking example." lightbox="media/studio-examples/entity-linking.png":::
    :::column-end:::
    :::column span="":::
-      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities found in unstructured text and returns links to Wikipedia. 
+      [Entity linking](./entity-linking/overview.md) is a pre-configured feature that disambiguates the identity of entities (words or phrases) found in unstructured text and returns links to Wikipedia. 
    :::column-end:::
 :::row-end:::
 
@@ -140,7 +140,7 @@ This Language service unifies the known Microsoft services of Text Analytics, Qn
       :::image type="content" source="media/studio-examples/custom-named-entity-recognition.png" alt-text="A screenshot of a custom NER example." lightbox="media/studio-examples/custom-named-entity-recognition.png":::
    :::column-end:::
    :::column span="":::
-      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories, using unstructured text that you provide. 
+      [Custom NER](custom-named-entity-recognition/overview.md) enables you to build custom AI models to extract custom entity categories (labels for words or phrases), using unstructured text that you provide. 
    :::column-end:::
 :::row-end:::
 
