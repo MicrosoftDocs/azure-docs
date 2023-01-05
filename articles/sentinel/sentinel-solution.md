@@ -6,6 +6,8 @@ ms.service: network-access
 author: batamig
 ms.author: bagol
 ms.topic: how-to
+ms.collection:
+  -       zerotrust-services
 ---
 
 # Build and monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel

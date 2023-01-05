@@ -13,8 +13,6 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to create a Text Analytics for health application with the client library for Python. In the following example, you will create a Python application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
-
 
 ## Prerequisites
 
@@ -115,6 +113,9 @@ Relation of type: DosageOfMedication has the following roles
 ...Role 'Dosage' with entity '50 mg'
 ...Role 'Medication' with entity 'ibuprofen'
 ```
+
+> [!TIP]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](../../how-to/call-api.md) on how to use FHIR structuring in your API call.
 
 ## Clean up resources
 
