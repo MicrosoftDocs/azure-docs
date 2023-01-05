@@ -3,7 +3,7 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop (preview).
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 01/06/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -187,13 +187,23 @@ During the preview, multimedia redirection is limited to the sites listed in [We
 
 ## Redirected video outlines
 
-Redirected video outlines will allow you to highlight the currently redirected video elements. When this is enabled, you will see a bright highlighted boarder around the video element that is being redirected. To enable redirected video outlines:
+Redirected video outlines will allow you to highlight the currently redirected video elements. When this is enabled, you will see a bright highlighted border around the video element that is being redirected. To enable redirected video outlines:
 
 1. Select the extension icon in your browser.
 
 1. Select **Show Advanced Settings**.
 
 1. Toggle **Redirected video outlines** to **on**. You will need to refresh the webpage for the change to take effect.
+
+### Video status overlay
+
+When you enable video status overlay, you'll see a short message at the top of the video player that indicates the redirection status of the current video. The message will disappear after five seconds.  To enable video status overlay:
+
+1. Select the extension icon in your browser.
+
+2. Select **Show Advanced Settings**.
+
+3. Toggle **Video Status Overlay** to **On**. You'll need to refresh the webpage for the change to take effect.
 
 ## Next steps
 

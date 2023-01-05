@@ -3,7 +3,7 @@ title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
 description: An overview of multimedia redirection on Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 01/06/2023
 ms.author: helohr
 manager: femila
 ---
@@ -64,6 +64,15 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - Yahoo
       - Yammer
       - YouTube (including sites with embedded YouTube videos).
+   :::column-end:::
+   :::column span="":::
+      - The Wall Street Journal
+      - The New York Times
+      - Politico
+      - Twitter
+      - NBC Sports
+      - Bleacher Report
+      - Fox Sports
    :::column-end:::
 :::row-end:::
 
