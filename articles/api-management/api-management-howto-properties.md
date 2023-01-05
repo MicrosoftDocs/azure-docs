@@ -50,8 +50,11 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 ### Prerequisites for key vault integration
 
-1. If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
-1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
+ - If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+
+    To create or import a secret to the key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
+
+- Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
 
 [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
@@ -63,8 +66,6 @@ Using key vault secrets is recommended because it helps improve API Management s
 ### Add a key vault secret to API Management
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
-
-To create or import a secret to the key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
 
 
 > [!IMPORTANT]
