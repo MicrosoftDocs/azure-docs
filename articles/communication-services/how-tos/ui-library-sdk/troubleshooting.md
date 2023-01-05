@@ -2,8 +2,8 @@
 title: Troubleshooting over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services UI Library for Mobile native to get debug information.
-author: pprystinka
-
+author: pavelprystinka
+ms.author: pprystinka
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.custom: template-how-to
