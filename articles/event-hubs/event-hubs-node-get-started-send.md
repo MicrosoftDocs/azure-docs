@@ -176,7 +176,7 @@ Note the connection string and the container name. You'll use them in the receiv
 
 ---
 
-### Install the npm package to receive events
+### Install the npm packages to receive events
 
 For the receiving side, you need to install two more packages. In this quickstart, you use Azure Blob storage to persist checkpoints so that the program doesn't read the events that it has already read. It performs metadata checkpoints on received messages at regular intervals in a blob. This approach makes it easy to continue receiving messages later from where you left off.
 
