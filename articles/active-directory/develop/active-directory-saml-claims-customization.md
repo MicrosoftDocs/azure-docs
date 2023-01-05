@@ -145,6 +145,8 @@ If you need other transformations, submit your idea in the [feedback forum in Az
 
 ## Regex-based claims transformation
 
+The following image shows an example of the first level of transformation:
+
 :::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform1.png" alt-text="Screenshot of the first level of transformation.":::
 
 The following table provides information about the first level of transformations. The actions listed in the table correspond to the labels in the previous image. Select **Edit** to open the claims transformation blade.
@@ -156,8 +158,9 @@ The following table provides information about the first level of transformation
 | 3 | Treat source as multivalued | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to select **Treat source as multivalued**. If selected, all values are used for the regex match, otherwise only the first value is used. |
 | 4 |  Regex pattern | A regular expression that is evaluated against the value of user attribute selected as *Parameter 1*. For example a regular expression to extract the user alias from the user's email address would be represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
 | 5 | Add additional parameter | More than one user attribute can be used for the transformation. The values of the attributes would then be merged with regex transformation output. Up to five additional parameters are supported. |
-| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome. All group names must be wrapped inside the curly braces such as {group-name}. Let's say the administration wants to use user alias with some other domain name, for example "xyz.com" and merge country name with it. In this case, the replacement pattern would be "{country}.{domain}@xyz.com", where {country} is the value of input parameter and {domain} is the group output from the regular expression evaluation. In such a case, the expected outcome is "US.swmal@xyz.com".
-transformation**. |
+| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
+
+The following image shows an example of the second  level of transformation:
 
 :::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform2.png" alt-text="Screenshot of second level of claims transformation.":::
 
@@ -170,8 +173,10 @@ The following table provides information about the second level of transformatio
 | 3 | Regex pattern | **Regex pattern** is the regular expression for the second level transformation. |
 | 4 | Parameter input | User attribute inputs for the second level transformations. |
 | 5 | Parameter input | Administrators can delete the selected input parameter if they don't need it anymore. |
-| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome group name, input parameter group name, and static text value. All group names must be wrapped inside the curly braces such as {group-name}. Let's say the administration wants to use user alias with some other domain name, for example "xyz.com" and merge country name with it. In this case, the replacement pattern would be "{country}.{domain}@xyz.com", where {country} is the value of input parameter and {domain} is the group output from the regular expression evaluation. In such a case, the expected outcome is "US.swmal@xyz.com". |
+| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome group name, input parameter group name, and static text value. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and {domain} is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
 | 7 | Test transformation | The RegexReplace() transformation is evaluated only if the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. If they don't match, the default claim value is added to the token. To validate regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on dummy values only. When additional input parameters are used, the name of the parameter is added to the test result instead of the actual value. To access the test section, select **Test transformation**. |
+
+The following image shows an example of testing the transformations:
 
 :::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform3.png" alt-text="Screenshot of testing the transformation.":::
 
