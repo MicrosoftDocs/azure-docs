@@ -32,7 +32,7 @@ There are many security benefits of using Azure AD-based authentication to log i
    - When users join or leave your team, you can update the Azure RBAC policy for the VM to grant access as appropriate. 
    - When employees leave your organization and their user accounts are disabled or removed from Azure AD, they no longer have access to your resources.
 - Configure Conditional Access policies to require multifactor authentication (MFA) and other signals, such as user sign-in risk, before you can RDP into Windows VMs. 
-- Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
+- Use Azure Policy to deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
 - Use Intune to automate and scale Azure AD join with mobile device management (MDM) auto-enrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
   
   MDM auto-enrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.

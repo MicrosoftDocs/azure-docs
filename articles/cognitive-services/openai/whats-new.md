@@ -15,7 +15,7 @@ keywords:
 
 # What's new in Azure OpenAI
 
-## December 2022 - Azure OpenAI General Availability (GA)
+## December 2022
 
 ### New features
 
@@ -59,7 +59,7 @@ keywords:
 }
 ```
 
-**GA API 2022-12-01:**
+**API version 2022-12-01:**
 
 ```json
 {​
