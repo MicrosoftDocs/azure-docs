@@ -278,7 +278,7 @@ Azure ML Inferencing HTTP server v0.8.0
 
 Server Settings
 ---------------
-Entry Script Name: /home/shohei/azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py
+Entry Script Name: /home/user-name/azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py
 Model Directory: ./
 Worker Count: 1
 Worker Timeout (seconds): None
@@ -300,7 +300,7 @@ Score:          POST  127.0.0.1:5001/score
 2022-12-24 07:37:53,322 I [32756] gunicorn.error - Booting worker with pid: 32756
 Initializing logger
 2022-12-24 07:37:53,779 I [32756] azmlinfsrv - Starting up app insights client
-2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - Found user script at /home/shohei/azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py
+2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - Found user script at /home/user-name/azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py
 2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - run() is not decorated. Server will invoke it with the input in JSON string.
 2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - Invoking user's init function
 2022-12-24 07:37:55,974 I [32756] azmlinfsrv.user_script - Users's init has completed successfully
