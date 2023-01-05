@@ -13,11 +13,11 @@ ms.reviewer: sngun
 
 # Reservation of Executors as part of Dynamic Allocation in Synapse Spark Pools
 
-Users create Spark pools and size them based on their workload requirements. In scenarios where the usage of the pools could vary as they could be used for compute intensive data transformation and also for carrying out data exploratory processes, users can enable the Autoscale option and specify a minimum and maximum number of nodes and the platform handles scaling the number of active nodes withing these limits based on the demand.
+Users create Spark pools and size them based on their workload requirements. In scenarios where the usage of the pools could vary as they could be used for compute intensive data transformation and also for carrying out data exploratory processes, users can enable the Autoscale option and specify a minimum and maximum number of nodes and the platform handles scaling the number of active nodes within these limits based on the demand.
 
-Going one level further by looking at application level executor requirements, users find it hard to tune the executor configurations as they are vastly different across different stages of a Spark Job Execution process. These are also dependent on thevolume of data processed which changes from time to time. Users can enable Dynamic Allocation as part of the spark pool configuration which would manage the allocation of number of executors for every spark application from the nodes available in the Spark Pool. 
+Going one level further by looking at application level executor requirements, users find it hard to tune the executor configurations as they are vastly different across different stages of a Spark Job Execution process which are also dependent on the volume of data processed which changes from time to time. Users can enable Dynamic Allocation of Executors option as part of the pool configuration, which would enable automatic allocation of executors to the spark application based on the nodes available in the Spark Pool. 
 
-When the Dynamic Allocation is enabled, for every spark application submitted, the system *reserves* the executors based on the Max Nodes specified by the user to support successful auto scale scenarios in advance as part accepting the job request.
+When Dynamic Allocation option is enabled, for every spark application submitted, the system *reserves* executors during the job submission step based on the Max Nodes which were specified by the user to support successful auto scale scenarios.
 
 > [!NOTE]
 > **This conservative approach allows the platform to enable scaling from say 3 to 10 Nodes without running out of capacity, thereby providing users with greater reliability for job execution.**
@@ -37,7 +37,7 @@ In scenarios where the Dynamic Allocation option is enabled in a Synapse Spark P
 Lets look at an example scenario of a single user who creates a Spark Pool A with Auto Scale enabled with minimum of 5 to maximum of 50 nodes.
 Since the user is not sure how much compute his spark job would require, the user enables Dynamic Allocation to allow the executors to scale. 
 + The user starts by submitting the application App1, which starts with 3 executors, and it can scale from 3 to 10 executors.
-+ The maximum number of nodes allocated for the Spark Pool is 50 and now that App1 is submitted which reserves 10 executors, and the available set of executors in the spark pool reduces to 40. 
++ The maximum number of nodes that are allocated for the Spark Pool is 50. With the submission of App1 resulting in reservation of 10 executors, the number of available executors in the spark pool reduces to 40. 
 + The user submits another Spark Application App2 with the same compute configurations as that of App1 where the application starts with 3 which can scale up to 10 executors and thereby reserving 10 more executors from the total available executors in the spark pool.
 + Total number of available executors in the spark pool has reduced to 30. 
 + The user submits a application App3, App4 and App5 with the same as the other applications, for the 6th job would get queued because, as part of accepting App3, the number of available executors  reduces to 20, and similarly reduces to 10 and then to 0  when App5 is accepted as part of the reservation of 10 Executors  from the available set of executors  in the pool. 
