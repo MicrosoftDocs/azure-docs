@@ -10,9 +10,8 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-### Azure Blob Storage client library for Java resources
+### Client library resources
 
 - [Client library reference documentation](/java/api/overview/azure/storage-blob-readme)
 - [Client library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 - [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-- [Blob storage code samples](../../articles/storage/common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json#blob-samples)
