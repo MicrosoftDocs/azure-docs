@@ -767,7 +767,7 @@
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
       "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
-      "branch": "main",
+      "branch": "reference-architecture",
       "branch_mapping": {}
     },
     {
