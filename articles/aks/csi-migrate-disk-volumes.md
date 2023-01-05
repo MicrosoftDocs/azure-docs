@@ -337,6 +337,129 @@ Before proceeding, verify the following:
 
 5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate more cost.
 
+## Migration options for file share volumes
+
+Migration from in-tree to CSI is supported by creating a dynamic volume. 
+
+1. Update the existing PV `ReclaimPolicy` from **Delete** to **Retain** by running the following command:
+
+   ```bash
+   kubectl patch pv pvName -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+   ```
+
+    Replace **pvName** with the name of your selected Persistent Volume.
+
+2. Create a new Storage Class with the provisioner set to `file.csi.azure.com`, or you can use one of the default StorageClasses with the CSI file provisioner.
+
+3. Get the `secretName` and `shareName` from the existing *PersistentVolumes* by running the following command:
+
+    ```bash
+    kubectl describe pv pvName
+    ```
+
+4. Create a new PV using the new StorageClass, and the `shareName` and `secretName` from the in-tree PV. Create a file named *azurefile-mount-pv.yaml* and copy in the following code.
+
+   The default value for `fileMode` and `dirMode` is **0777**.
+
+    ```yml
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: azurefile
+    spec:
+      capacity:
+        storage: 5Gi
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: azurefile-csi
+      csi:
+        driver: file.csi.azure.com
+        readOnly: false
+        volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
+        volumeAttributes:
+          resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, only set this when storage account is not in the same resource group as the cluster nodes
+          shareName: aksshare
+        nodeStageSecretRef:
+          name: azure-secret
+          namespace: default
+      mountOptions:
+        - dir_mode=0777
+        - file_mode=0777
+        - uid=0
+        - gid=0
+        - mfsymlinks
+        - cache=strict
+        - nosharesock
+        - nobrl
+    ```
+
+5. Create a file named *azurefile-mount-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume* using the following code.
+
+    ```yml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: azurefile
+    spec:
+      accessModes:
+        - ReadWriteMany
+      storageClassName: azurefile-csi
+      volumeName: azurefile
+      resources:
+        requests:
+          storage: 5Gi
+    ```
+
+6. Use the `kubectl` command to create the *PersistentVolume*.
+
+    ```bash
+    kubectl apply -f azurefile-mount-pv.yaml
+    ```
+
+7. Use the `kubectl` command to create the *PersistentVolumeClaim*.
+
+    ```bash
+    kubectl apply -f azurefile-mount-pvc.yaml
+    ```
+
+8. Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume* by running the following command.
+
+    ```bash
+    kubectl get pvc azurefile
+    ```
+
+   The output resembles the following:
+
+    ```output
+    NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+    azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
+    ```
+
+9. Update your container spec to reference your *PersistentVolumeClaim* and update your pod. For example:
+
+    ```yml
+    ...
+      volumes:
+      - name: azure
+        persistentVolumeClaim:
+          claimName: azurefile
+    ```
+
+10. The pod spec can't be updated in place. Use `kubectl` commands to delete and then re-create the pod.
+
+   Delete the pod.
+
+    ```bash
+    kubectl delete pod mypod
+    ```
+
+   Recreate the pod.
+
+    ```bash
+    kubectl apply -f azure-files-pod.yaml
+    ```
+
 ## Next steps
 
 For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
