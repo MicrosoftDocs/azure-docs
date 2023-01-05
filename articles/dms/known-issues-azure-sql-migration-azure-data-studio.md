@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: troubleshooting
-ms.date: 12/19/2022
+ms.date: 01/05/2023
 ---
 
 # Known issues, and troubleshooting

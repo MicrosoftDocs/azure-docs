@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 01/05/2023
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio
