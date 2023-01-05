@@ -167,7 +167,7 @@ To modify the `classify` function to classify an image based on its contents, yo
     torchvision==0.14.0+cpu
     ```
 
-    > [!NOTE]
+    > [!Tip]
     > The versions of torch and torchvision must match values listed in the version table of the [PyTorch vision repo](https://github.com/pytorch/vision).
 
 1. Save *requirements.txt*, then run the following command from the *start* folder to install the dependencies.
