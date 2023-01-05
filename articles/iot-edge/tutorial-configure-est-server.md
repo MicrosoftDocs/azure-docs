@@ -220,7 +220,10 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     [provisioning.attestation]
     method = "x509"
     registration_id = "myiotedgedevice"
-    identity_cert = { method = "est", common_name = "myiotedgedevice" }
+
+    [provisioning.attestation.identity_cert]
+    method = "est"
+    common_name = "myiotedgedevice"
 
     # Auto renewal settings for the identity cert
     # Available only from IoT Edge 1.3 and above
