@@ -51,14 +51,14 @@ The following examples show how to copy an archived blob to a blob in the Hot ti
 3. In storage browser, navigate to the location of the archived blob, select the checkbox that appears beside the blob, and then select the **Copy** button. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/copy-button.png)
+   > ![Screenshot of the checkbox next to an archived blob and then the location of the copy button](./media/archive-rehydrate-to-online-tier/copy-button.png)
 
 4. Navigate to the container where you would like to place the rehydrated blob, and then select the **Paste** button.
 
    The **Paste archive blob** dialog box appears.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
+   > ![Image of the paste archive blob dialog box](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
 
    > [!NOTE]
    > If you select the **Paste** button while in the same location as the source blob, then the name the default name that appears in the **Destination blob name** field contains a numeric suffix. This ensures the the source and destination blobs have different names. You can change this name if you want as long as the name is different than the source name.
@@ -125,10 +125,6 @@ The following examples show how to copy an archived blob to a blob in the Hot ti
 
 #### [Portal](#tab/azure-portal)
 
-The following examples show how to copy an archived blob to a blob in the Hot tier in the same storage account.
-
-#### [Portal](#tab/azure-portal)
-
 1. Navigate to the source storage account in the Azure portal.
 
 2. In the navigation pane for the storage account, select **Storage browser**.
@@ -139,22 +135,22 @@ The following examples show how to copy an archived blob to a blob in the Hot ti
 3. In storage browser, navigate to the location of the archived blob, select the checkbox that appears beside the blob, and then select the **Copy** button. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/copy-button.png)
+   > ![Screenshot of selecting the checkbox next to an archived blob and then the location of the copy button](./media/archive-rehydrate-to-online-tier/copy-button.png)
 
 4. Navigate to the destination storage account, and in the navigation pane, select **Storage browser**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/open-storage-browser-2.png)
+   > ![Screenshot of Storage explorer button in the navigation pane of the destination storage account](./media/archive-rehydrate-to-online-tier/open-storage-browser-2.png)
 
 1. Navigate to the container where you would like to place the rehydrated blob, and then select the **Paste** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/paste-button.png)
+   > ![Screenshot of the location of the paste button](./media/archive-rehydrate-to-online-tier/paste-button.png)
 
    The **Paste archive blob** dialog box appears.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
+   > ![Screenshot of the paste archive blob dialog box](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
 
 5. In the **Paste archive blob** dialog box, choose an access tier and a rehydration priority. Then, select **Paste** to rehydrate the blob.
 
