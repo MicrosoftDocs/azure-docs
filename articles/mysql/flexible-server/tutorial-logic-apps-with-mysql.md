@@ -68,7 +68,7 @@ Follow this section to create a new logic app starting with a **When an HTTP Req
 
 1. After Azure successfully deploys your app, select **Go to resource**. Or, find and select your logic app resource by typing the name in the Azure search box.
     
-  :::image type="content" source="./media/tutorial-logic-apps-with-mysql/go-to-new-logic-app-resource.png" alt-text="Screenshot showing the resource deployment page and selected button" :::
+   :::image type="content" source="./media/tutorial-logic-apps-with-mysql/go-to-new-logic-app-resource.png" alt-text="Screenshot showing the resource deployment page and selected button" :::
 
 2. Scroll down past the video and the section named **Start with a common trigger**.
 
@@ -90,7 +90,7 @@ Follow this section to create a new logic app starting with a **When an HTTP Req
     
 5. A HTTP request body payload will be generated. 
     
- :::image type="content" source="./media/tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png" alt-text="Screenshot showing sample payload is generated":::
+   :::image type="content" source="./media/tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png" alt-text="Screenshot showing sample payload is generated":::
     
 ## Add a MySQL database action
 You can add an action as the next step after the HTTP request trigger to run subsequent operations in your workflow. You can add an action get, insert or update or delete data in the MySQL database. For this tutorial we will insert a new row into the `orders` table.
@@ -99,19 +99,19 @@ You can add an action as the next step after the HTTP request trigger to run sub
 
 2. Search for **Azure database for MySQL** connector. 
     
-   > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/search-for-azure-db-for-mysql.png" alt-text="Screenshot searching for azure database for mysql":::
+   :::image type="content" source="./media/tutorial-logic-apps-with-mysql/search-for-azure-db-for-mysql.png" alt-text="Screenshot searching for azure database for mysql":::
 
-3.  View all the actions for Azure database for MySQL connector. 
+3. View all the actions for Azure database for MySQL connector. 
     
    :::image type="content" source="./media/tutorial-logic-apps-with-mysql/azure-db-for-mysql-connector-actions.png" alt-text="Screenshot Azure database for mysql action listed":::
 
 4. Select the **Insert Row** action. Select **Change connection** to add a new connection 
    
-  :::image type="content" source="./media/tutorial-logic-apps-with-mysql/insert-row-action-mysql-database.png" alt-text="Screenshot Insert row action for Azure database for MySQL":::
+   :::image type="content" source="./media/tutorial-logic-apps-with-mysql/insert-row-action-mysql-database.png" alt-text="Screenshot Insert row action for Azure database for MySQL":::
     
 5. Add a new connection to the existing Azure database for MySQL database. 
      
-  :::image type="content" source="./media/tutorial-logic-apps-with-mysql/azure-mysql-database-add-connection.png" alt-text="Screenshot add new connection for Azure database for MySQL":::
+   :::image type="content" source="./media/tutorial-logic-apps-with-mysql/azure-mysql-database-add-connection.png" alt-text="Screenshot add new connection for Azure database for MySQL":::
    
 ## Run your workflow
 Select **Run Trigger** to execute the workflow and test if it actually inserts the row into the table. You can use any MySQL client to check if the row was inserted into the table. 
