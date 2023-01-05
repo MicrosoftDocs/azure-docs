@@ -101,6 +101,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | 9.0 CU2<br>9.0.1056.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | August 19, 2022 |
 | 9.0 CU1<br>9.0.1035.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | August 19, 2022 |
 | 9.0 RTO<br>9.0.1018.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 6.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | August 19, 2022 |
+| 8.2 CU8<br>8.2.1521.1 | 8.0 CU3<br>8.0.527.1 | N/A | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU6<br>8.2.1485.1 | 8.0 CU3<br>8.0.527.1 | N/A | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU5.1<br>8.2.1483.1 | 8.0 CU3<br>8.0.527.1 | N/A | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
 | 8.2 CU4<br>8.2.1458.1 | 8.0 CU3<br>8.0.527.1 | 8.0 | Less than or equal to version 5.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2022 |
