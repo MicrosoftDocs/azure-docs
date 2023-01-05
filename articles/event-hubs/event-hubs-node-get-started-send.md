@@ -206,7 +206,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com).
 1. Create a file called *receive.js*, and paste the following code into it:
 
-    ### [Passwordless](#tab/passwordless)
+    ### [Passwordless (Recommended)](#tab/passwordless)
 
     In the code, use real values to replace the following values:
     - `EVENT HUBS RESOURCE NAME`
