@@ -25,7 +25,7 @@ highlightedContent:
     - title: About the Speech SDK
       itemType: overview
       url: speech-sdk.md
-    - title: Speech service release notes
+    - title: What's new
       itemType: whats-new
       url: releasenotes.md
     - title: Language support in the Speech service
