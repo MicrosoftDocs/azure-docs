@@ -33,7 +33,7 @@ The upgrade media provided by Azure requires the VM to be configured for Windows
 
 ## Upgrade to Managed Disks 
 
-The in-place upgrade process requires the use of Managed Disks on the VM to be upgraded. If the VM is currently using unmanaged disks, then follow these steps to [migrate to Managed Disks](/azure/virtual-machines/snapshot-copy-managed-disk).
+The in-place upgrade process requires the use of Managed Disks on the VM to be upgraded. Most VMs in Azure are using Managed Disks, and retirement for unmanaged disks support was announced in November of 2022. If the VM is currently using unmanaged disks, then follow these steps to [migrate to Managed Disks](../windows/migrate-to-managed-disks.md).
 
  
 
@@ -56,59 +56,73 @@ To perform an in-place upgrade the upgrade media must be attached to the VM as a
 |  | 
 
 ## Script contents 
-
+ New:
 ```azurepowershell-interactive
+#
+# Customer specific parameters 
+#
+$resourceGroup = "WindowsServerUpgrades"
+$location = "WestUS2"
+$diskName = "WindowsServer2022UpgradeDisk"
+$zone = "" 
 
-# Customer specific parameters  
- 
-$resourceGroup = "WindowsServerUpgrades" 
-$location = "WestUS2" 
-$diskName = "WindowsServer2022UpgradeDisk" 
-$zone = ""  
+#
+# Selection of upgrade target version
+#
+$sku = "server2022Upgrade"
 
+#
+# Common parameters
+#
+$publisher = "MicrosoftWindowsServer"
+$offer = "WindowsServerUpgrade"
+$managedDiskSKU = "Standard_LRS"
 
-# Select upgrade target version 
+#
+# Get the latest version of the image
+#
+$versions = Get-AzVMImage -PublisherName $publisher -Location $location -Offer $offer -Skus $sku | sort-object -Descending {[version] $_.Version	}
+$latestString = $versions[0].Version
 
-$sku = "server2022Upgrade" 
+#
+# Get Image
+#
 
-# Common parameters 
+$image = Get-AzVMImage -Location $location `
+                       -PublisherName $publisher `
+                       -Offer $offer `
+                       -Skus $sku `
+                       -Version $latestString
 
-$publisher = "MicrosoftWindowsServer" 
-$offer = "WindowsServerUpgrade" 
-$sku = "server2022Upgrade" 
-$managedDiskSKU = "Standard_LRS" 
+#
+# Create Resource Group if it doesn't exist
+#
 
-# Get the latest version of the image 
+if (-not (Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue)) {
+    New-AzResourceGroup -Name $resourceGroup -Location $location    
+}
 
-$versions = Get-AzVMImage -PublisherName $publisher -Location $location -Offer $offer -Skus $sku | sort-object -Descending {[version] $_.Version} 
+#
+# Create Managed Disk from LUN 0
+#
 
-$latestString = $versions[0].Version 
+if ($zone){
+    $diskConfig = New-AzDiskConfig -SkuName $managedDiskSKU `
+                                   -CreateOption FromImage `
+                                   -Zone $zone `
+                                   -Location $location
+} else {
+    $diskConfig = New-AzDiskConfig -SkuName $managedDiskSKU `
+                                   -CreateOption FromImage `
+                                   -Location $location
+} 
 
-# Get Image 
+Set-AzDiskImageReference -Disk $diskConfig -Id $image.Id -Lun 0
 
-$image = Get-AzVMImage -Location $location ` 
-   -PublisherName $publisher ` 
-   -Offer $offer ` 
-   -Skus $sku ` 
-   -Version $latestString 
+New-AzDisk -ResourceGroupName $resourceGroup `
+           -DiskName $diskName `
+           -Disk $diskConfig  
 
-# Create Resource Group if it doesn't exist 
-
-if (-not (Get-AzResourceGroup -Name $resourceGroup -ErrorAction SilentlyContinue)) { 
-
-    New-AzResourceGroup -Name $resourceGroup -Location $location     
-
-   } 
-
-# Create Managed Disk from LUN 0 
-
-$diskConfig = New-AzDiskConfig -SkuName $managedDiskSKU -CreateOption FromImage -Location $location 
-
-Set-AzDiskImageReference -Disk $diskConfig -Id $image.Id -Lun 0 
-
-New-AzDisk -ResourceGroupName $resourceGroup ` 
-   -DiskName $diskName ` 
-   -Disk $diskConfig   
 ```
 
 ## Attach upgrade media to the VM
@@ -155,7 +169,7 @@ To initiate the in-place upgrade the VM must be in the `Running` state. Once the
 
 | Upgrade from | Upgrade to |
 |---|---|
-| Windows Server 2012 R2 (Core) | Windows Server 2016 Datacenter  -or-  Windows Server 2019 |
+| Windows Server 2012 R2 (Core) | Windows Server 2016  -or-  Windows Server 2019 |
 | Windows Server 2012 R2 (Desktop Experience) | Windows Server 2016 (Desktop Experience)  -or-  Windows Server 2019 (Desktop Experience) |
 | Windows Server 2016 (Core) | Windows Server 2019   -or-  Windows Server 2022 |
 | Windows Server 2016 (Desktop Experience) | Windows Server 2019 (Desktop Experience)  -or-  Windows Server 2022 (Desktop Experience) |
