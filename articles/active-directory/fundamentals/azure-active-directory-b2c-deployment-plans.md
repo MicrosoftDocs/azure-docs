@@ -197,7 +197,7 @@ Use the following checklist to help define user experience requirements.
   * See, [Embedded sign-up or sign-in experience](../../active-directory-b2c/embedded-login.md?pivots=b2c-custom-policy) 
   * For a single-page application, use a second sign-in HTML page that loads into the `<iframe>` element.
 
-## Monitor an Azure AD B2C solution
+## Monitor an Azure AD B2C solution 
 
 This phase includes the following capabilities:
 
