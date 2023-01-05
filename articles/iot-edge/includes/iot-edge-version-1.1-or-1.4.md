@@ -14,7 +14,10 @@
 ::: moniker range="iotedge-2018-06"
 
 **Applies to:** ![yes icon](./media/iot-edge-version/yes-icon.png) IoT Edge 1.1
-**Other versions:** [IoT Edge 1.3](?view=iotedge-2020-11&preserve-view=true), [IoT Edge 1.4](?view=iotedge-1.4&preserve-view=true)
+**Other versions:** [IoT Edge 1.4](?view=iotedge-1.4&preserve-view=true)
+
+> [!IMPORTANT]
+> IoT Edge 1.1 [end of support date was December 13, 2022](../support.md#releases). Check the [Microsoft Product Lifecycle](/lifecycle/policies/modern) for information about how this product, service, technology, or API is supported.
 
 ::: moniker-end
 
