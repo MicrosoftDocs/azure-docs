@@ -1,6 +1,6 @@
 ---
 title: Choose a deployment method for the MedTech service - Azure Health Data Services
-description: In this article, you'll learn how the different methods for deploying the MedTech service.
+description: In this article, you'll learn about the different methods for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
