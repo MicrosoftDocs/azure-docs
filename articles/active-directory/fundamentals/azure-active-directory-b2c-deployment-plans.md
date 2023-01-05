@@ -17,8 +17,6 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory B2C (Azure AD B2C) is an identity and access management solution that can ease integration with your infrastructure. Use the following guidance to help understand requirements and compliance throughout an Azure AD B2C deployment.
 
-Learn more: [Azure Active Directory B2C deployment plans](#plan-an-azure-ad-b2c-deployment)
-
 ## Plan an Azure AD B2C deployment
 
 ### Requirements
@@ -188,12 +186,17 @@ To comply with regulatory requirements and enhance back-end system security you 
 
 Use the following checklist to help define user experience requirements.
 
-- Identify the required integrations to [extend CIAM capabilities and build seamless end-user experiences](../../active-directory-b2c/partner-gallery.md).
-- Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
-- Look for existing hints passed through using queryString parameters in your current CIAM solution.
-- If you expect high UX customization such as pixel to pixel, you may need a front-end developer to help you.
-- Azure AD B2C provides capabilities for customizing HTML and CSS, however, it has additional requirements for [JavaScript](../../active-directory-b2c/javascript-and-page-layout.md?pivots=b2c-custom-policy#guidelines-for-using-javascript).
-- An embedded experience can be implemented [using iframe support](../../active-directory-b2c/embedded-login.md?pivots=b2c-custom-policy). For a single-page application, you'll also need a second "sign-in" HTML page that loads into the `<iframe>` element.
+* Identify integrations to extend CIAM capabilities and build seamless end-user experiences
+  * [Azure Active Directory B2C ISV partners](../../active-directory-b2c/partner-gallery.md)
+* Use screenshots and user stories to show the application end-user experience
+  * For example, screenshots of sign-in, sign-up, sign-up/sign-in (SUSI), profile edit, and password reset
+* Look for hints passed through by using queryString parameters in your CIAM solution
+* For high user-experience customization consider a using front-end developer
+* In Azure AD B2C, you can customize HTML and CSS
+  * See, [Guidelines for using JavaScript](../../active-directory-b2c/javascript-and-page-layout.md?pivots=b2c-custom-policy#guidelines-for-using-javascript).
+* Implement an embedded experience by using iframe support
+  * See, [Embedded sign-up or sign-in experience](../../active-directory-b2c/embedded-login.md?pivots=b2c-custom-policy) 
+  * For a single-page application, use a second sign-in HTML page that loads into the `<iframe>` element.
 
 ## Monitor an Azure AD B2C solution
 
