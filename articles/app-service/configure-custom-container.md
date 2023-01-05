@@ -366,7 +366,7 @@ Group Managed Service Accounts (gMSAs) are currently not supported in Windows co
 Secure Shell (SSH) is commonly used to execute administrative commands remotely from a command-line terminal. In order to enable the Azure Portal SSH console feature with custom containers, the following steps are required:
 
 1. Create a standard [sshd_config](https://man.openbsd.org/sshd_config) file with the following example contents and place it on the application project root directory:
-
+    
     ```
     Port 			2222
     ListenAddress 		0.0.0.0
@@ -381,24 +381,24 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
     PermitRootLogin 	yes
     Subsystem sftp internal-sftp
     ```
-
+    
     > [!NOTE]
     > This file configures OpenSSH and must include the following items in order to comply with the Azure Portal SSH feature:
     > - `Port` must be set to 2222.
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
-
+    
 2. Create an entrypoint script with the name `entrypoint.sh` (or change any existing entrypoint file) and add the command to start the SSH service, along with the application startup command. The below example demonstrates starting a Python application, please replace the last command according to the project language/stack:
-
+    
     ### [Debian](#tab/debian)
-
+    
     ```Bash
     #!/bin/sh
     set -e
     service ssh start
     exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
     ```
-
+    
     ### [Alpine](#tab/alpine)
     
     ```Bash
@@ -408,46 +408,46 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
     exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
     ```
     ---
-
+    
 3. Add to the Dockerfile the following instructions according to the base image distribution. The same will copy the new files, install OpenSSH server, set proper permissions and configure the custom entrypoint, and expose the ports required by the application and SSH server, respectively:
-
+    
     ### [Debian](#tab/debian)
-
+    
     ```Dockerfile
-    COPY sshd_config /etc/ssh/
     COPY entrypoint.sh ./
-
+    
     # Start and enable SSH
     RUN apt-get update \
         && apt-get install -y --no-install-recommends dialog \
         && apt-get install -y --no-install-recommends openssh-server \
         && echo "root:Docker!" | chpasswd \
         && chmod u+x ./entrypoint.sh
-
+    COPY sshd_config /etc/ssh/
+    
     EXPOSE 8000 2222
-
+    
     ENTRYPOINT [ "./entrypoint.sh" ] 
     ```
-
+    
     ### [Alpine](#tab/alpine)
-
+    
     ```Dockerfile
     COPY sshd_config /etc/ssh/
     COPY entrypoint.sh ./
-
+    
     # Start and enable SSH
     RUN apk add openssh \
         && echo "root:Docker!" | chpasswd \
         && chmod +x ./entrypoint.sh \
         && cd /etc/ssh/ \
         && ssh-keygen -A
-
+    
     EXPOSE 8000 2222
-
+    
     ENTRYPOINT [ "./entrypoint.sh" ]
     ```
     ---
-
+    
     > [!NOTE] 
     > The root password must be exactly `Docker!` as it is used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and is not accessible to an attacker on the internet.
 
