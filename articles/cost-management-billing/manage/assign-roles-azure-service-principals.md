@@ -191,7 +191,7 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
       | --- | --- |
       | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/{enrollmentAccountID}/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 
       The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the EA portal and the Azure portal.
 
