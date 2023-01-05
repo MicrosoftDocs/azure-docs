@@ -1,6 +1,6 @@
 ---
-title: Share gallery images to another tenant using using app registration
-description: Learn how to share an Azure Compute Gallery to another tenant using using app registration.
+title: Share gallery images to another tenant using an app registration
+description: Learn how to share an Azure Compute Gallery to another tenant using an app registration.
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure Compute Galleries let you share images. If you want to share a gallery with everyone in another Azure tenant, you can use an app registration. 
+Azure Compute Galleries let you share images. If you want to share a gallery with everyone in another Azure tenant, you can use an app registration.
 
 For more information about other sharing options, see [Share the gallery](../share-gallery.md).
 
@@ -27,7 +27,7 @@ For more information about other sharing options, see [Share the gallery](../sha
 
 ## Create a VM using PowerShell
 
-Log into both tenants using the application ID, secret and tenant ID. 
+Sign in to both tenants using the application ID, secret and tenant ID. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
