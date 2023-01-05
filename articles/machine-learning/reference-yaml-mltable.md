@@ -25,7 +25,7 @@ The ideal scenarios to use mltable are:
 - The schema of your data is complex and/or changes frequently.
 - You only need a subset of data. (for example: a sample of rows or files, specific columns, etc.)
 - AutoML jobs requiring tabular data.
-If your scenario does not fit the above, then it is likely that [URIs](reference-yaml-data.md) are a more suitable type.
+If your scenario doesn't fit the above, then it's likely that [URIs](reference-yaml-data.md) are a more suitable type.
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/MLTable.schema.json.
 
@@ -41,7 +41,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `type` | const | `mltable` to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe | `mltable` | `mltable`|
+| `type` | const | `mltable` to abstract the schema definition for tabular data so that it's easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe | `mltable` | `mltable`|
 | `paths` | array | Paths can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(* and **) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. |`file`, `folder`, `pattern`  | |
 | `transformations`| array | Defined sequence of transformations that are applied to data loaded from defined paths. |`read_delimited`, `read_parquet` , `read_json_lines` , `read_delta_lake`, `take` to take the first N rows from dataset, `take_random_sample` to take a random sample of records in the dataset approximately by the probability specified, `drop_columns`, `keep_columns`,... || 
 
@@ -109,8 +109,8 @@ The following transformations are specific to delimited files.
 - header: user can choose one of the following options: `no_header`, `from_first_file`, `all_files_different_headers`, `all_files_same_headers`. Defaults to `all_files_same_headers`.
 - delimiter: The separator used to split columns.
 - empty_as_string: Specify if empty field values should be loaded as empty strings. The default (`False`) will read empty field values as nulls. Passing this setting as `True` will read empty field values as empty strings. If the values are converted to numeric or datetime, then this setting has no effect, as empty values will be converted to nulls.
-- include_path_column: Boolean to keep path information as column in the table. Defaults to `False`. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
-- support_multi_line: By default (support_multi_line=`False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This setting should be set to `True` when the delimited files are known to contain quoted line breaks.
+- include_path_column: Boolean to keep path information as column in the table. Defaults to `False`. This setting is useful when you're reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
+- support_multi_line: By default (support_multi_line=`False`), all line breaks, including those line breaks in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This setting should be set to `True` when the delimited files are known to contain quoted line breaks.
 
 ## MLTable transformations: read_json_lines
 ```yaml
@@ -141,7 +141,7 @@ transformations:
 Only flat Json files are supported.
 Below are the supported transformations that are specific for json lines:
 
-- `include_path_column` Boolean to keep path information as column in the MLTable. Defaults to False. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
+- `include_path_column` Boolean to keep path information as column in the MLTable. Defaults to False. This setting is useful when you're reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
 - `invalid_lines` How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
 
@@ -159,7 +159,7 @@ transformations:
 ### Parquet files transformations
 If the user doesn't define options for `read_parquet` transformation, default options will be selected (see below).
 
-- `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This setting is useful when you are reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
+- `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This setting is useful when you're reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
 
 ## MLTable transformations: read_delta_lake
 ```yaml
