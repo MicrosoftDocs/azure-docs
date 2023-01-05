@@ -38,7 +38,7 @@ Before you begin, ensure that:
 
   To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you must be listed as an Owner.
 
-    ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png lightbox="./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png") 
+    ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png) 
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed:
  
@@ -55,7 +55,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
    ```azurepowershell
     [1d9nhq2.microsoftdatabox.com]: PS>Enable-HcsAzureKubernetesService -f
-	 [1d9nhq2.microsoftdatabox.com]: P> Set-HcsKubeClusterArcInfo –CustomLocationsObjectId 51dfe1e8-70c6-4de5-a08e-e18aff23d815
+    [1d9nhq2.microsoftdatabox.com]: P> Set-HcsKubeClusterArcInfo –CustomLocationsObjectId 51dfe1e8-70c6-4de5-a08e-e18aff23d815
     [1d9nhq2.microsoftdatabox.com]: PS>
    ```
 
@@ -89,9 +89,9 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
       { Numa Node #1 : CPUs [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47] }
      ```
 
-## Deploy Azure Kubernetes Service on Azure Stack Edge
+## Deploy Azure Kubernetes service on Azure Stack Edge
 
-There are multiple steps to deploy AKS on Azure Stack Edge. SOme steps are optional, as noted below.
+There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optional, as noted below.
  
 ## Set custom locations (optional)
 
@@ -208,7 +208,7 @@ Use this step to set up and deploy the Kubernetes cluster, and enable it for man
    > [!IMPORTANT]
    > Before you create the Kubernetes cluster, keep in mind that:
    >- You can't modify the IP pool settings after the AKS cluster is deployed.
-   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom locations](#set-custom-locations-(optional) in this article. If you didn’t enable custom locations, you can still choose to do so before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
+   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom locations](#set-custom-locations-(optional)) in this article. If you didn’t enable custom locations, you can still choose to do so before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
 
 Follow these steps to deploy the AKS cluster.
 
@@ -316,7 +316,7 @@ For the shares that were created with the **Use the share with Edge compute** op
 
 1. Select **View all persistent volumes** to see the newly created persistent volume.
 
-## Remove the Azure Kubernetes Service
+## Remove the Azure Kubernetes service
 
 Use the following steps in the Azure portal to remove AKS.
 
