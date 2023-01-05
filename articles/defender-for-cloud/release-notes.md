@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 01/04/2023
+ms.date: 01/02/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,25 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## January 2023
+
+Updates in January include:
+
+- [​New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
+
+### ​New version of the recommendation to find missing system updates (Preview)
+
+You no longer need an agent on your Azure VMs and Azure Arc machines to make sure the machines have all of the latest security or critical system updates.
+
+The new system updates recommendation, "System updates should be installed on your machines (powered by Update management center)" in the "Apply system updates" control, is based on the [Update management center (preview)](../update-center/overview.md) and relies on a native agent embedded in every Azure VM and Azure Arc machines instead of an installed agent. The Quick Fix in the new recommendation leads you to a one-time installation of the missing updates in the Update management center portal.
+
+To use the new recommendation you need to:
+
+- Connect your non-Azure machines to Arc
+- Turn on the [periodic assessment property](../update-center/assessment-options.md#periodic-assessment). For this, you can use the Quick Fix in a new recommendation, "Machines should be configured to periodically check for missing system updates".
+
+The existing "System updates should be installed on your machines" recommendation, which relies on the Log Analytics agent, is still available under the same control.
 
 ## December 2022
 
