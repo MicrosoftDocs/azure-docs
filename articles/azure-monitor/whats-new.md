@@ -20,7 +20,7 @@ Application-Insights|[System performance counters in Application Insights](app/p
 Application-Insights|[Sampling in Application Insights](app/sampling.md)|Updated code samples for .NET 6/7.|
 Application-Insights|[Availability alerts](app/availability-alerts.md)|This article has been rewritten with new guidance and screenshots.|
 Change-Analysis|[Tutorial: Track a web app outage using Change Analysis](change/tutorial-outages.md)|Change tutorial content to reflect changes to repo; remove and replace a few sections.|
-Containers|[Configure Azure CNI networking in Azure Kubernetes Service (AKS)](articles/aks/configure-azure-cni.md)|Added steps to enable IP subnet usage|
+Containers|[Configure Azure CNI networking in Azure Kubernetes Service (AKS)](../../articles/aks/configure-azure-cni.md)|Added steps to enable IP subnet usage|
 Containers|[Reports in Container insights](containers/container-insights-reports.md)|Updated the documents to reflect the steps to enable IP subnet Usage|
 Essentials|[Best practices for data collection rule creation and management in Azure Monitor](essentials/data-collection-rule-best-practices.md)|New article|
 Essentials|[Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.](essentials/prometheus-self-managed-grafana-azure-active-directory.md)|New Article: Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.|
@@ -29,7 +29,7 @@ Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configu
 Virtual-Machines|[Tutorial: Create availability alert rule for Azure virtual machine (preview)](vm/tutorial-monitor-vm-alert-availability.md)|New article|
 Virtual-Machines|[Tutorial: Enable recommended alert rules for Azure virtual machine](vm/tutorial-monitor-vm-alert-recommended.md)|New article|
 Virtual-Machines|[Tutorial: Enable monitoring with VM insights for Azure virtual machine](vm/tutorial-monitor-vm-enable-insights.md)|New article|
-Virtual-Machines|[Monitor Azure virtual machines](articles/virtual-machines/monitor-vm.md)|Updated for AMA and availability metric.|
+Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|Updated for AMA and availability metric.|
 Virtual-Machines|[Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)|Updated flow for enabling VM insights with Azure Monitor Agent by using Azure Policy.|
 Visualizations|[Creating an Azure Workbook](visualize/workbooks-create-workbook.md)|added Tutorial - resource centric logs queries in workbooks|
 
