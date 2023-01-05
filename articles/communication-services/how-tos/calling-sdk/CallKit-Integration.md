@@ -44,7 +44,7 @@
   ```Swift
   let options = JoinCallOptions()
   ```
-  Then create an instance of CallKitRemoteInfo()
+  Then create an instance of `CallKitRemoteInfo`
   ```Swift
   options.callKitRemoteInfo = CallKitRemoteInfo()
   ```
