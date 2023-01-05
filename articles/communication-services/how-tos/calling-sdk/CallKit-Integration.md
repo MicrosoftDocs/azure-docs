@@ -115,7 +115,7 @@
 
   ### Handle incoming push notification payload
 
-  When the app receives incoming push notification payload, we need to call `handlePush` to process it. With this API we can raise the IncomingCall event. 
+  When the app receives incoming push notification payload, we need to call `handlePush` to process it. With this API we can raise the `IncomingCall` event.
 
   ```Swift
   public func handlePushNotification(_ pushPayload: PKPushPayload)
