@@ -42,6 +42,6 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 6. Select the container where you have uploaded your dataset. 
     
     >[!Note]
-    > If you have already labeled your data make sure it follows the [supported format](../../concepts/data-formats.md) and click on **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below. Click **Next**.
+    > If you have already labeled your data make sure it follows the [supported format](../../concepts/data-formats.md) and click on **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below. If you’re using the example dataset, select Y**es, my documents...** and in the “Labels documents” dropdown select “webOfScience_labelsFile”. Click **Next**.
     
 7. Review the data you entered and select **Create Project**.
