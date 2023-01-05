@@ -215,9 +215,9 @@ For example: `az group delete --resource-group ArmTestDeployment`
 
 In this quickstart, you learned how to use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using an ARM template. 
 
-To learn about the different deployment methods for the MedTech service, see
+To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

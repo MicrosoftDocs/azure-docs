@@ -96,7 +96,7 @@ Now that you have granted access to the device message event hub and the FHIR se
 
 In this article, you learned how to perform the manual deployment and post-deployment steps to implement your MedTech service. 
 
-To learn about other methods of deploying the MedTech service, see
+To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
