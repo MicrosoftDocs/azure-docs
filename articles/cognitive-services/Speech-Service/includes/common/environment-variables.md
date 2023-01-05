@@ -32,7 +32,7 @@ After you add the environment variables, you may need to restart any running pro
 
 ```bash
 export SPEECH_KEY=your-key
-export SPEECH_REGION your-region
+export SPEECH_REGION=your-region
 ```
 
 After you add the environment variables, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -45,7 +45,7 @@ Edit your .bash_profile, and add the environment variables:
 
 ```bash
 export SPEECH_KEY=your-key
-export SPEECH_REGION your-region
+export SPEECH_REGION=your-region
 ```
 
 After you add the environment variables, run `source ~/.bash_profile` from your console window to make the changes effective.
