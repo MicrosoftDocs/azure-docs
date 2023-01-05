@@ -50,6 +50,9 @@ Azure VMware Solution continuously monitors the health of both the underlay and 
 
 Host remediation involves replacing the faulty node with a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vMotion moves the VMs off the faulty host to other available servers in the cluster, potentially allowing zero downtime for live migration of workloads. If the faulty host can't be placed in maintenance mode, the host is removed from the cluster.
 
+> [!TIP]
+> Customer communication: An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful. To receive emails related to host replacement, you need to be added to any of the following Azure RBAC roles for subscription: 'ServiceAdmin', 'CoAdmin', 'Owner', 'Contributor'.
+
 Azure VMware Solution monitors the following conditions on the host:  
 
 - Processor status
