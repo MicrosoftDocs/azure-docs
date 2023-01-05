@@ -84,54 +84,52 @@ The necessary permissions must be given for allowing Cosmos DB to use your encry
 
 ## <a id="add-roles"></a> Adding the roles to your Azure Key Vault instance
 
-1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access control (IAM)** from the left menu and select **Grant access to this resource.**:
+1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access control (IAM)** from the left menu and select **Grant access to this resource**.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/navigation-access-control.png" alt-text="Screenshot of the Access control option in the resource navigation menu.":::
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-grant-access.png" alt-text="Grant access":::
-   
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" alt-text="Screenshot of the Grant access to this resource option on the Access control page.":::
 
-1. Search the **“Key Vault Administrator role”** and assign it to yourself. This is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned. 
+1. Search the **“Key Vault Administrator role”** and assign it to yourself. This is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-keyvaultadministrator.png" alt-text="Key vault administrator":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/search-key-vault-admin-role.png" alt-text="Screenshot of the Key vault administrator role in the search results.":::
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-assign-role.png" alt-text="Assign role":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" alt-text="Screenshot of a role assignment on the Access control page.":::
 
-1. Then, the necessary permissions must be assigned to Cosmos DB’s principal. So, like the last role assignment, go to the assignment page but this time look for the **“Key Vault Crypto Service Encryption User”** role and on the members tab look for Cosmos DB’s principal.  
+1. Then, the necessary permissions must be assigned to Cosmos DB’s principal. So, like the last role assignment, go to the assignment page but this time look for the **“Key Vault Crypto Service Encryption User”** role and on the members tab look for Cosmos DB’s principal. To find the principal, search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by application ID: `a232010e-820c-4083-83bb-3ace5fc29d0b`.
 
-For this, search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by application ID: a232010e-820c-4083-83bb-3ace5fc29d0b for any Azure region except Azure Government regions where the application ID is 57506a73-e302-42a9-b869-6f12d9ec29e9).
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/assign-permission-principal.png" alt-text="Screenshot of the Azure Cosmos DB principal being assigned to a permission.":::
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-assign-permissions.png" alt-text="Assign permission Cosmos DB principal":::
+    > [!IMPORTANT]
+    > In the Azure Government region, the application ID is `57506a73-e302-42a9-b869-6f12d9ec29e9`.
 
-Select Review + assign and the role will be assigned to Cosmos DB.
-
+1. Select Review + assign and the role will be assigned to Cosmos DB.
 
 ## <a id="confirming-roles-have-been-set-correctly"></a> Confirming that the roles have been set correctly
 
-Once the roles have been assigned, please click on the **“View access to this resource”** card on the Access Control IAM page to verify that everything has been set correctly.
+1. Once the roles have been assigned, select **“View access to this resource”** on the Access Control IAM page to verify that everything has been set correctly.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-view-access-to-resource.png" alt-text="View access to resource":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" alt-text="Screenshot of the View access to resource option on the Access control page.":::
 
-Once in the page, set the scope to **“this resource”** and verify that you have the Key Vault Administrator role, and the Cosmos DB principal has the Key Vault Crypto Encryption User role. 
+1. On the page, set the scope to **“this resource”** and verify that you have the Key Vault Administrator role, and the Cosmos DB principal has the Key Vault Crypto Encryption User role. 
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-set-scope-to-this-resource.png" alt-text="Set scope to this resource":::
-
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/role-assignment-set-scope.png" alt-text="Screenshot of the scope adjustment option for a role assignment query.":::
 
 ## Generate a key in Azure Key Vault
 
 1. From the Azure portal, go the Azure Key Vault instance that you plan to use to host your encryption keys. Then, select **Keys** from the left menu:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-keys.png" alt-text="Keys entry from the left menu":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/navigation-keys.png" alt-text="Screenshot of the Keys option in the resource navigation menu.":::
 
 1. Select **Generate/Import**, provide a name for the new key, and select an RSA key size. A minimum of 3072 is recommended for best security. Then select **Create**:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-gen.png" alt-text="Create a new key":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
 
 1. After the key is created, select the newly created key and then its current version.
 
 1. Copy the key's **Key Identifier**, except the part after the last forward slash:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-keyid.png" alt-text="Copying the key's key identifier":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/key-identifier.png" alt-text="Screenshot of the key identifier field and the copy action.":::
 
 ## <a id="create-a-new-azure-cosmos-account"></a>Create a new Azure Cosmos DB account
 
@@ -139,7 +137,7 @@ Once in the page, set the scope to **“this resource”** and verify that you h
 
 When you create a new Azure Cosmos DB account from the Azure portal, choose **Customer-managed key** in the **Encryption** step. In the **Key URI** field, paste the URI/key identifier of the Azure Key Vault key that you copied from the previous step:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/portal-cosmos-enc.png" alt-text="Setting CMK parameters in the Azure portal":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/configure-custom-managed-key-uri.png" alt-text="Screenshot of the Encryption page with a custom-managed key URI configured.":::
 
 ### <a id="using-powershell"></a> Using Azure PowerShell
 
@@ -467,15 +465,15 @@ Rotating the customer-managed key used by your Azure Cosmos DB account can be do
 
 - Create a new version of the key currently used from Azure Key Vault:
 
-  :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-rot.png" alt-text="Screenshot of the New Version option in the Versions page of the Azure portal.":::
+  :::image type="content" source="media/how-to-setup-customer-managed-keys/new-version.png" alt-text="Screenshot of the New Version option in the Versions page of the Azure portal.":::
 
 - Swap the key currently used with a different one by updating the key URI on your account. From the Azure portal, go to your Azure Cosmos DB account and select **Data Encryption** from the left menu:
 
-    :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-data-encryption.png" alt-text="Screenshot of the Data Encryption menu option in the Azure portal.":::
+    :::image type="content" source="media/how-to-setup-customer-managed-keys/navigation-data-encryption.png" alt-text="Screenshot of the Data Encryption option on the resource navigation menu.":::
 
     Then, replace the **Key URI** with the new key you want to use and select **Save**:
 
-    :::image type="content" source="media/how-to-setup-customer-managed-keys/portal-key-swap.png" alt-text="Screenshot of the Save option in the Key page of the Azure portal.":::
+    :::image type="content" source="media/how-to-setup-customer-managed-keys/save-key-change.png" alt-text="Screenshot of the Save option on the Key page.":::
 
     Here's how to do achieve the same result in PowerShell:
 
@@ -542,7 +540,7 @@ Not currently, but container-level keys are being considered.
 
 From the Azure portal, go to your Azure Cosmos DB account and watch for the **Data Encryption** entry in the left menu; if this entry exists, customer-managed keys are enabled on your account:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/portal-data-encryption.png" alt-text="The Data Encryption menu entry":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/navigation-data-encryption.png" alt-text="Screenshot of the Data encryption option in the resource navigation menu.":::
 
 You can also programmatically fetch the details of your Azure Cosmos DB account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
 
@@ -569,11 +567,11 @@ The following conditions are necessary to successfully perform a point-in-time r
 
 Key revocation is done by disabling the latest version of the key:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-rev2.png" alt-text="Disable a key's version":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/revoke-key.png" alt-text="Screenshot of a disabled custom key version.":::
 
 Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the Azure Cosmos DB principal:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/portal-akv-rev.png" alt-text="Deleting the access policy for the Azure Cosmos DB principal":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/remove-access-policy.png" alt-text="Screenshot of the Delete option for an access policy.":::
 
 ### What operations are available after a customer-managed key is revoked?
 
@@ -581,5 +579,5 @@ The only operation possible when the encryption key has been revoked is account 
 
 ## Next steps
 
-- Learn more about [data encryption in Azure Cosmos DB](./database-encryption-at-rest.md).
+- Learn more about [data encryption in Azure Cosmos DB](database-encryption-at-rest.md).
 - Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md).
