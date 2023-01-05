@@ -56,6 +56,8 @@
         href: best-practices/plan-network-monitoring.md
       - name: Sample connectivity models
         href: best-practices/sample-connectivity-models.md
+      - name: About OT certificates
+      href: about-certificates.md
     - name: OT monitoring appliance catalog
       items:
       - name: Which appliances do I need?
