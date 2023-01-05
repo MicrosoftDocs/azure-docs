@@ -25,7 +25,7 @@ A free or standard [IoT hub](../../iot-hub/iot-hub-create-through-portal.md) in 
 # [Azure CLI](#tab/azure-cli)
 
 * A free or standard [IoT hub](../../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription
-* [Azure CLI](/cli/azure/install-azure-cli) in your environment
+* [Azure CLI](/cli/azure/install-azure-cli.md) in your environment
 
   At a minimum, your Azure CLI version must be 2.0.70 or newer. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 
