@@ -1,4 +1,3 @@
- 
 ---
 title: Windows in-place upgrade 
 description: This article describes how to do an in-place upgrade for VMs running Windows Server in Azure.
@@ -14,13 +13,13 @@ ms.author: cynthn
 
 Before you begin an in-place upgrade:
 
-1. Review the upgrade requirements for the target operating system 
+1. Review the upgrade requirements for the target operating system:
 
-   - Upgrade options for Windows Server 2019 
+   - Upgrade options for Windows Server 2019
 
-   - Upgrade options for Windows Server 2022 
+   - Upgrade options for Windows Server 2022
 
-1. Verify the operating system disk has enough [free space to perform the in-place upgrade](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements). If additional space is needed [follow these steps](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk) to expand the operating system disk attached to the VM.  
+1. Verify the operating system disk has enough [free space to perform the in-place upgrade](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements). If additional space is needed [follow these steps](/azure/virtual-machines/windows/expand-os-disk) to expand the operating system disk attached to the VM.  
 
 1. Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
 
