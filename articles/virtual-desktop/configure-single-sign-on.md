@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 1/5/2023
+ms.date: 01/05/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication
@@ -32,7 +32,7 @@ Single sign-on is available on session hosts using the following operating syste
 - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-09 Cumulative Updates for Windows 10 Preview (KB5017380)](https://support.microsoft.com/kb/KB5017380) or later installed.
 - Windows Server 2022 with the [2022-09 Cumulative Update for Microsoft server operating system preview (KB5017381)](https://support.microsoft.com/kb/KB5017381) or later installed.
 
-Session hosts must be Azure AD-joined or [Hybrid Azure AD-Joined](https://learn.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+Session hosts must be Azure AD-joined or [Hybrid Azure AD-Joined](../active-directory/devices/hybrid-azuread-join-plan.md).
 
 > [!NOTE]
 > Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services or Active Directory only joined session hosts.
