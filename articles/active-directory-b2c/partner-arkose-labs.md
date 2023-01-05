@@ -14,7 +14,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Azure Active Directory B2C with the Arkos Labs platform
+# Tutorial: Configure Azure Active Directory B2C with the Arkose Labs platform
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the [Arkose Labs](https://www.arkoselabs.com/) Arkose Protect Platform. Arkose Labs products help organizations against bot attacks, account takeover, and fraudulent account openings.  
 
@@ -39,7 +39,7 @@ Arkose Labs products integration includes the following components:
   - This API validates the server-side of the Arkose Labs session token
   - Learn more in the [Azure Functions Overview](/azure/azure-functions/functions-overview)
 
-The following diagram describes how Arkose Labs integrates with Azure AD B2C.
+The following diagram illustrates how the Arkose Labs platform integrates with Azure AD B2C.
 
    ![Diagram of the Arkose Labs platform and Azure AD B2C integration architecture.](media/partner-arkose-labs/arkose-labs-architecture-diagram.png)
 
@@ -58,7 +58,7 @@ The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 2. Create an account.
 3. Navigate to the [Arkose Portal](https://dashboard.arkoselabs.com/login) sign-in page.
 4. In the dashboard, navigate to site settings.
-5. Locate your public key and private key. You will use this information later. 
+5. Locate your public key and private key. You'll use this information later. 
 
 > [!NOTE]
 > The public and private key values are `ARKOSE_PUBLIC_KEY` and `ARKOSE_PRIVATE_KEY`. 
@@ -80,7 +80,7 @@ Learn more: [Define custom attributes in Azure Active Directory B2C](./user-flow
 
 ### Create a user flow
 
-The user flow is for sign-up and sign-in, or just sign-up. The Arkose Labs user flow appears during sign-up.
+The user flow is for sign-up and sign-in, or sign-up. The Arkose Labs user flow appears during sign-up.
 
 1. [Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md). If using a user flow, use **Recommended**.
 2. In the user flow settings, go to **User attributes**.
@@ -182,7 +182,7 @@ Username and password are stored as environment variables, not part of the repos
 1. Deploy your Azure Function to the cloud. Learn more with [Azure Functions documentation](/azure/azure-functions/).
 2. Copy the endpoint web URL of your Azure Function.
 3. After deployment, select the **Upload settings** option. 
-4. Your environment variables are uploaded to the Applicaiton settings of the app service. Learn more on [Application settings in Azure](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure). 
+4. Your environment variables are uploaded to the Application settings of the app service. Learn more on [Application settings in Azure](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure). 
 
     >[!NOTE]
     >You can [manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md). See also, [Deploy project files](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files) to learn about Visual Studio Code development for Azure Functions.
