@@ -5899,6 +5899,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management-enable.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-center/enable-machines.md",
             "redirect_url": "/azure/update-center/updates-maintenance-schedules",
             "redirect_document_id": false
