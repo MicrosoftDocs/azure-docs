@@ -99,7 +99,6 @@ In contrast to other diagnostics tables that report data at regular intervals th
 
 ## Next steps
 
-- For more information about how to set up Azure Log Analytics to monitor quality data, see [Monitor connection quality](connection-quality-queries.md).
 - Learn more about how to monitor and run queries about connection quality issues at [Monitor connection quality](connection-quality-monitoring.md).
 - Troubleshoot connection and latency issues at [Troubleshoot connection quality for Azure Virtual Desktop](troubleshoot-connection-quality.md).
 - To check the best location for optimal latency, see the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
