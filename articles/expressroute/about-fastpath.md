@@ -5,9 +5,9 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 01/05/2023
 ms.author: duau
-ms.custom: template-concept, references_regions
+ms.custom: template-concept, references_regions, engagement-fy23
 ---
 # About ExpressRoute FastPath
 
