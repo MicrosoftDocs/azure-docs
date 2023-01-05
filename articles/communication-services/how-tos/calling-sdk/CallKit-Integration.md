@@ -54,7 +54,7 @@
   ```Swift
   options.callKitRemoteInfo.displayNameForCallKit = "DISPLAY_NAME"
   ```
-  2. Assign the `cxHandle` value is what the application will recieve when user calls back on that contact
+  2. Assign the `cxHandle` value is what the application will receive when user calls back on that contact
   ```Swift
   options.callKitRemoteInfo.cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
   ```
