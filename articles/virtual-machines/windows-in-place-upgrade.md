@@ -33,7 +33,7 @@ The upgrade media provided by Azure requires the VM to be configured for Windows
 
 ## Upgrade to Managed Disks 
 
-The in-place upgrade process requires the use of Managed Disks on the VM to be upgraded. Most VMs in Azure are using Managed Disks, and retirement for unmanaged disks support was announced in November of 2022. If the VM is currently using unmanaged disks, then follow these steps to [migrate to Managed Disks](../windows/migrate-to-managed-disks.md).
+The in-place upgrade process requires the use of Managed Disks on the VM to be upgraded. Most VMs in Azure are using Managed Disks, and retirement for unmanaged disks support was announced in November of 2022. If the VM is currently using unmanaged disks, then follow these steps to [migrate to Managed Disks](./windows/migrate-to-managed-disks.md).
 
  
 
@@ -44,7 +44,7 @@ We recommend that you create a snapshot of your operating system disk and any da
  
 ## Create upgrade media disk
 
-To perform an in-place upgrade the upgrade media must be attached to the VM as a Managed Disk. To create the upgrade media, use the following PowerShell script with the specific variables configured for the desired upgrade media. The created upgrade media disk can be used to upgrade multiple VMs, but it can only be used to upgrade a single VM at a time. To upgrade multiple VMs simultaneously multiple upgrade disks must be created for each simultaneous upgrade. 
+To perform an in-place upgrade the upgrade media must be attached to the VM as a Managed Disk. To create the upgrade media, use the following PowerShell script with the specific variables configured for the desired upgrade media. The created upgrade media disk can be used to upgrade multiple VMs, but it can only be used to upgrade a single VM at a time. To upgrade multiple VMs simultaneously multiple upgrade disks must be created for each simultaneous upgrade.
 
 | Parameter | Definition |
 |---|---|
@@ -151,7 +151,7 @@ Attach the upgrade media for the target Windows Server version to the VM which w
 
 To initiate the in-place upgrade the VM must be in the `Running` state. Once the VM is in a running state use the following steps to perform the upgrade.
 
-1. Connect to the VM using RDP or RDP-Bastion.
+1. Connect to the VM using [RDP](./windows/connect-rdp#connect-to-the-virtual-machine.md) or [RDP-Bastion](../bastion/bastion-connect-vm-rdp-windows.md#rdp).
 
 1. Determine the drive letter for the upgrade disk (typically E: or F: if there are no other data disks).
 
@@ -177,7 +177,7 @@ To initiate the in-place upgrade the VM must be in the `Running` state. Once the
 | Windows Server 2019 (Desktop Experience) | Windows Server 2022 (Desktop Experience) |
  
 
-During the upgrade process the VM will automatically disconnect from the RDP session. After the VM is disconnected from the RDP session the progress of the upgrade can be monitored through the screenshot functionality available in the Azure portal.
+During the upgrade process the VM will automatically disconnect from the RDP session. After the VM is disconnected from the RDP session the progress of the upgrade can be monitored through the [screenshot functionality available in the Azure portal](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine).
 
 ## Post upgrade steps 
 
@@ -199,7 +199,7 @@ If the in-place upgrade process failed to complete successfully you can return t
 
 1. [Swap the OS disk](/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot) of the VM. 
 
-1. [Detach any data disks](/azure/virtual-machines/windows/detach-disk) on the VM. 
+1. [Detach any data disks](/azure/virtual-machines/windows/detach-disk) from the VM.
 
 1. [Attach data disks](/azure/virtual-machines/windows/attach-managed-disk-portal) created from the snapshots in step 1.
 
