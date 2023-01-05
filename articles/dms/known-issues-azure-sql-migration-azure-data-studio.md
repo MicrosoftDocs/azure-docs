@@ -1,5 +1,5 @@
 ---
-title: "Known issues, and troubleshooting"
+title: "Known issues, limitations, and troubleshooting"
 titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
 services: database-migration
@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.date: 01/05/2023
 ---
 
-# Known issues, and troubleshooting
+# Known issues, limitations, and troubleshooting
 
 Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
@@ -214,19 +214,19 @@ WHERE STEP in (3,4,6);
 
 Migrating to Azure SQL Database by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-[!INCLUDE [database-migration-service-ads](includes/sql-database-limitations.md)]
+[!INCLUDE [sql-db-limitations](includes/sql-database-limitations.md)]
 
 ## Azure SQL Managed Instance limitations 
 
 Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-[!INCLUDE [database-migration-service-ads](includes/sql-managed-instance-limitations.md)]
+[!INCLUDE [sql-mi-limitations](includes/sql-managed-instance-limitations.md)]
 
 ## SQL Server on Azure VMs limitations 
 
 Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-[!INCLUDE [database-migration-service-ads](includes/sql-virtual-machines-limitations.md)]
+[!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
 
 ## Next steps
 

@@ -256,7 +256,7 @@ After all database backups are restored on the instance of Azure SQL Managed Ins
 
 Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-[!INCLUDE [database-migration-service-ads](includes/sql-managed-instance-limitations.md)]
+[!INCLUDE [sql-mi-limitations](includes/sql-managed-instance-limitations.md)]
 
 
 ## Next steps

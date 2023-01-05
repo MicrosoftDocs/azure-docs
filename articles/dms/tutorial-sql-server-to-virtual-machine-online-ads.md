@@ -193,7 +193,7 @@ During the cutover process, the migration status changes from *in progress* to *
 
 Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure Data Studio has the following limitations: 
 
-[!INCLUDE [database-migration-service-ads](includes/sql-virtual-machines-limitations.md)]
+[!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
 
 
 ## Next steps

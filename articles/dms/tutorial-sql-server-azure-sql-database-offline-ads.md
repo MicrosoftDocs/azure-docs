@@ -284,7 +284,7 @@ You've completed the migration to Azure SQL Database. We encourage you to go t
 
 ## Limitations
 
-[!INCLUDE [database-migration-service-ads](includes/sql-database-limitations.md)]
+[!INCLUDE [sql-db-limitations](includes/sql-database-limitations.md)]
 
 ## Next steps
 
