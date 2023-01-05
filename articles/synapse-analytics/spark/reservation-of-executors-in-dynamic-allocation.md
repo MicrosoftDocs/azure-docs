@@ -13,9 +13,9 @@ ms.reviewer: sngun
 
 # Reservation of Executors as part of Dynamic Allocation in Synapse Spark Pools
 
-Users create Spark pools and size them based on their workload requirements. In cases when the user is not clear on the overall demand on the usage of the pools, users can enable the Auto scale option and specify a minimum and maximum number of nodes and the platform handles scaling the number of active nodes withing these limits based on the demand.
+Users create Spark pools and size them based on their workload requirements. In scenarios where the usage of the pools could vary as they could be used for compute intensive data transformation and also for carrying out data exploratory processes, users can enable the Autoscale option and specify a minimum and maximum number of nodes and the platform handles scaling the number of active nodes withing these limits based on the demand.
 
-In cases where the users are not aware on more fine-grained application level executor requirements as they are vastly different across different stages of a Spark Job Execution process, and as the volume of data processed changes from time to time, users can enable Dynamic Allocation as part of the spark pool configuration which would manage the allocation of number of executors  for every spark application from the available nodes in the Spark Pool. 
+Going one level further by looking at application level executor requirements, users find it hard to tune the executor configurations as they are vastly different across different stages of a Spark Job Execution process. These are also dependent on thevolume of data processed which changes from time to time. Users can enable Dynamic Allocation as part of the spark pool configuration which would manage the allocation of number of executors for every spark application from the nodes available in the Spark Pool. 
 
 When the Dynamic Allocation is enabled, for every spark application submitted, the system *reserves* the executors based on the Max Nodes specified by the user to support successful auto scale scenarios in advance as part accepting the job request.
 
