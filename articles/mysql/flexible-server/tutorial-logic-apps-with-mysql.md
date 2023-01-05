@@ -43,7 +43,7 @@ CREATE TABLE `orders` (
 
 2. In the Azure search box, enter `logic apps`, and select **Logic apps**.
 
-  > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/find-select-logic-apps.png" alt-text="Screenshot that shows Azure portal search box with logic apps":::
+   :::image type="content" source="./media/tutorial-logic-apps-with-mysql/find-select-logic-apps.png" alt-text="Screenshot that shows Azure portal search box with logic apps":::
 
 3. On the **Logic apps** page, select **Add**.
 
