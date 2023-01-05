@@ -88,7 +88,7 @@ Follow this section to create a new logic app starting with a **When an HTTP Req
     
    :::image type="content" source="./media/tutorial-logic-apps-with-mysql/add-http-sample-payload.png" alt-text="Screenshot showing sample payload":::
     
-5. A HTTP request body payload will be generated. 
+5. An HTTP request body payload will be generated. 
     
    :::image type="content" source="./media/tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png" alt-text="Screenshot showing sample payload is generated":::
     
