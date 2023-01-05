@@ -21,7 +21,7 @@ To complete this quickstart, you need the following prerequisites:
 - Visual Studio Code (recommended) or any other integrated development environment (IDE).  
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). 
 
-### Install the npm package to send events
+### Install the npm package(s) to send events
 To install the [Node Package Manager (npm) package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has *npm* in its path, change the directory
 to the folder where you want to keep your samples.
 
