@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 1/3/2022
+ms.date: 1/3/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -31,7 +31,10 @@ Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
 ## Install the agent and configure data collection
 
-Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), where you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. The rules are independent of the workspace and the virtual machine, which means you can define a rule once and reuse it across machines and environments.
+Azure Monitor Agent uses [data collection rules](../essentials/data-collection-rule-overview.md), where you define which data you want each agent to collect. Data collection rules let you manage data collection settings at scale and define unique, scoped configurations for subsets of machines. You can define a rule to send data from multiple machines to multiple destinations across regions and tenants.
+
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
 
 **To collect data using Azure Monitor Agent:**
 

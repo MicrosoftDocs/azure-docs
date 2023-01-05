@@ -30,7 +30,7 @@
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
-    href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
