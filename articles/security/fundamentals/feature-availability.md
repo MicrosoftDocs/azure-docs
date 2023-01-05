@@ -475,7 +475,7 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [Manual and automatic threat intelligence updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/integrate-with-active-directory.md) | GA | GA |
-| [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
+| [ArcSight](../../defender-for-iot/organizations/integrate-overview.md#micro-focus-arcsight) | GA | GA |
 | [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-clearpass.md) | GA | GA |
 | [CyberArk PSM](../../defender-for-iot/organizations/tutorial-cyberark.md) | GA | GA |
 | [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
