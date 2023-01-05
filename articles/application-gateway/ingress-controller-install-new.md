@@ -279,7 +279,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    helm install -f helm-config.yaml --generate-name application-gateway-kubernetes-ingress/ingress-azure
     ```
 
 ## Install a Sample App
