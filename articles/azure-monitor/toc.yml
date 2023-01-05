@@ -211,27 +211,6 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
-  - name: Logs ingestion API
-    items:
-    - name: Overview
-      displayName: data ingestion
-      href: logs/logs-ingestion-api-overview.md
-    - name: Migrate from Data Collector API
-      href: logs/custom-logs-migrate.md
-    - name: Tutorials
-      items:
-      - name: Send data to Azure Monitor Logs using REST API
-        href: logs/tutorial-logs-ingestion-portal.md
-      - name: Send data to Azure Monitor Logs with ARM templates
-        href: logs/tutorial-logs-ingestion-api.md        
-    - name: Data collector API
-      items:
-      - name: Overview
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data collector API
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: logs/create-pipeline-datacollector-api.md
   - name: Azure Monitor Agent
     items:
     - name: Overview
@@ -378,6 +357,27 @@ items:
           - name: Log Analytics Linux agent
             displayName: troubleshoot, troubleshooting
             href: agents/agent-linux-troubleshoot.md
+  - name: Logs ingestion API
+    items:
+    - name: Overview
+      displayName: data ingestion
+      href: logs/logs-ingestion-api-overview.md
+    - name: Migrate from Data Collector API
+      href: logs/custom-logs-migrate.md
+    - name: Tutorials
+      items:
+      - name: Send data to Azure Monitor Logs using REST API
+        href: logs/tutorial-logs-ingestion-portal.md
+      - name: Send data to Azure Monitor Logs with ARM templates
+        href: logs/tutorial-logs-ingestion-api.md        
+    - name: Data collector API
+      items:
+      - name: Overview
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data collector API
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: logs/create-pipeline-datacollector-api.md
   - name: Private Link networking
     items:
     - name: Private Link overview
