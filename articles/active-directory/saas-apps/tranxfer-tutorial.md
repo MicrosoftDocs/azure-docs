@@ -87,7 +87,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Tranxfer SSO
 
-You'll need to login to your Tranxfer application with the company administrator account.
+You'll need to log in to your Tranxfer application with the company administrator account.
 
 1. Go to **Settings -> SAML** and paste **App Federation Metadata Url** to **Metadata URL** field.
 1. If you want to give specific permissions to different user groups, you can match Azure AD groups to common **Tranxfer** permissions. To do so, fill in Azure AD group ID for each permission:
