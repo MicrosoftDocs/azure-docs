@@ -3,7 +3,7 @@ title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Ser
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 12/12/2022
+ms.date: 01/05/2023
 author: mgoedtel
 
 ---
@@ -12,7 +12,7 @@ author: mgoedtel
 
 The implementation of the [Container Storage Interface (CSI) driver][csi-driver-overview] was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, your existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use the CSI driver.
 
-To make this process as simple as possible, and to ensure no data loss, this article provides different migration options. These options include scripts to help ensure a smooth migration from in-tree to Azure Disks and Files CSI drivers.
+To make this process as simple as possible, and to ensure no data loss, this article provides different migration options. These options include scripts to help ensure a smooth migration from in-tree to Azure Disks and Azure Files CSI drivers.
 
 ## Before you begin
 
@@ -30,7 +30,7 @@ Migration from in-tree to CSI is supported using two migration options:
 
 Using this option, you create a PV by statically assigning `claimRef` to a new PVC that you'll create later, and specify the `volumeName` for the *PersistentVolumeClaim*.
 
-:::image type="content" source="media/csi-migrate-disk-volumes/csi-migration-static-pv-workflow.png" alt-text="Static volume workflow diagram.":::
+:::image type="content" source="media/csi-migrate-in-tree-volumes/csi-migration-static-pv-workflow.png" alt-text="Static volume workflow diagram.":::
 
 The benefits of this approach are:
 
@@ -174,7 +174,7 @@ The following are important considerations to evaluate:
 
 Using this option, you dynamically create a Persistent Volume from a Persistent Volume Claim.
 
-:::image type="content" source="media/csi-migrate-disk-volumes/csi-migration-dynamic-pv-workflow.png" alt-text="Dynamic volume workflow diagram.":::
+:::image type="content" source="media/csi-migrate-in-tree-volumes/csi-migration-dynamic-pv-workflow.png" alt-text="Dynamic volume workflow diagram.":::
 
 The benefits of this approach are:
 
@@ -436,7 +436,7 @@ Migration from in-tree to CSI is supported by creating a dynamic volume.
     azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
     ```
 
-9. Update your container spec to reference your *PersistentVolumeClaim* and update your pod. For example:
+9. Update your container spec to reference your *PersistentVolumeClaim* and update your pod. For example, copy the following code and create a file named *azure-files-pod.yaml*.
 
     ```yml
     ...
@@ -446,15 +446,11 @@ Migration from in-tree to CSI is supported by creating a dynamic volume.
           claimName: azurefile
     ```
 
-10. The pod spec can't be updated in place. Use `kubectl` commands to delete and then re-create the pod.
-
-   Delete the pod.
+10. The pod spec can't be updated in place. Use the following `kubectl` commands to delete and then re-create the pod.
 
     ```bash
     kubectl delete pod mypod
     ```
-
-   Recreate the pod.
 
     ```bash
     kubectl apply -f azure-files-pod.yaml
