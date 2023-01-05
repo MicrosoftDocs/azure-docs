@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Develop Advanced Security Information Model (ASIM) parsers (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 
 Microsoft Sentinel provides built-in, source-specific parsers for many data sources. You may want to modify, or *develop*, these source-specific parsers in the following situations:

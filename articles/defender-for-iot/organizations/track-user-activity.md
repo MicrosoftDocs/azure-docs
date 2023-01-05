@@ -7,11 +7,11 @@ ms.topic: article
 
 # Audit user activity
 
-After you've set up your user access for the [Azure portal](manage-users-overview.md), on your [OT network sensors](manage-users-sensor.md) and an [on-premises management consoles](manage-users-on-premises-management-console.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
+After you've set up your user access for the [Azure portal](manage-users-portal.md), on your [OT network sensors](manage-users-sensor.md) and an [on-premises management consoles](manage-users-on-premises-management-console.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
 
 ## Audit Azure user activity
 
-Use Azure Active Directory (AAD) user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
+Use Azure Active Directory user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
 
 - [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
 - [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
@@ -73,7 +73,7 @@ Audit logs include the following data:
 
 
 > [!TIP]
-> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export audit logs for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
+> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 >
 
 ## Next steps

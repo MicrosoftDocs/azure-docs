@@ -22,6 +22,9 @@ To create a support request, you must be assigned to one of the following roles 
  - [Contributor](../role-based-access-control/built-in-roles.md)
  - [Support Request Contributor](../role-based-access-control/built-in-roles.md)
 
+
+### Verify available capacity
+Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You'll be able to see exactly where your current capacity is used, and may discover extra capacity in an unused lab plan or lab.
 ### Determine the regions for your labs
 Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to your students. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
@@ -75,7 +78,12 @@ Calculate the total number of cores for each size group.
  
      :::image type="content" source="./media/how-to-request-capacity-increase/total-cores-grouped.png" alt-text="Screenshot showing the total number of cores in each group.":::
  
-Remember that the total number of cores is the existing cores and the new cores you are requesting.
+Remember that the total number of cores is the existing cores and the new cores you're requesting.
+
+## Best practices for requesting a core limit increase
+
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
+
 
 ## Start a new support request
 You can follow these steps to request a core limit increase:  

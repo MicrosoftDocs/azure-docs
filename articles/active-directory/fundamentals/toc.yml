@@ -98,7 +98,7 @@ items:
     items:
     - name: Azure AD and data residency
       href: azure-ad-data-residency.md
-    - name: Identity data storage for Europe
+    - name: Customer data storage and processing for Europe
       href: active-directory-data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
       href: active-directory-data-storage-australia.md
@@ -121,6 +121,11 @@ items:
       href: custom-security-attributes-troubleshoot.md
   - name: Frontline worker management
     href: frontline-worker-management.md
+  - name: Legacy and deprecated features
+    expanded: false
+    items:
+    - name: Add company branding (legacy)
+      href: customize-branding.md
 - name: Identity architecture and deployment
   expanded: false
   items:

@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 11/23/2022
+ms.date: 11/30/2022
 ms.custom: references_regions
 ---
 
@@ -21,9 +21,10 @@ This section describes the steps to configure SQL Server on Azure Arc to use Mic
 
 1. Scroll down to **Microsoft Purview access policies**.
 
-1. Select the button to **Check for Microsoft Purview Governance**.
+1. Select the button to **Check for Microsoft Purview Governance**. Wait while the request is processed. While that happens, this message will be displayed at the top of the page. You may need to scroll up to see it. 
+   ![Screenshot that shows Arc-SQL agent is processing a request](../media/how-to-policies-data-owner-sql/arc-sql-processing-request.png)
 
-1. Confirm that the Microsoft Purview Governance Status shows `Governed`
+1. Do a browser refresh. At the bottom of the page, confirm that the Microsoft Purview Governance Status shows `Governed`
 
 1. Confirm that the Microsoft Purview Endpoint points to the Microsoft Purview account where you registered this data source and enabled the *Data use management*
 

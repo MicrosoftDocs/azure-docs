@@ -153,6 +153,8 @@
           href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
+        - name: Block creation of federated credentials
+          href: workload-identity-federation-block-using-azure-policy.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
           displayName: exchange, swap, SAML token, OAuth token
           href: v2-saml-bearer-assertion.md
@@ -810,6 +812,8 @@
           href: reply-url.md
         - name: Validation differences by supported account types
           href: supported-accounts-validation.md
+        - name: Configured permissions limits troubleshooting
+          href: troubleshoot-required-resource-access-limits.md
     - name: Microsoft auth libraries by app type
       displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md

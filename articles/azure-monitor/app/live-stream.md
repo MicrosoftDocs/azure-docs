@@ -298,9 +298,15 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
     <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
     QuickPulse.QuickPulseTelemetryProcessor, Microsoft.AI.PerfCounterCollector"/>
-    <TelemetryProcessors>
+    </TelemetryProcessors>
     ````
 1. Restart the application.
+
+### "Data is temporarily inaccessible" status message
+
+When navigating to Live Metrics you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
+
+Verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain \*.livediagnostics.monitor.azure.com to your ad-blocker, firewall, etc. 
 
 ## Next steps
 
