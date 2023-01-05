@@ -5,7 +5,7 @@ ms.date: 01/05/2023
 ms.topic: how-to
 ---
 
-# Certificates for appliance encryption and authentication (OT appliances)
+# Creating certificates for appliance encryption and authentication (OT appliances)
 
 This article provides instructions needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
@@ -101,7 +101,7 @@ Your file conversion may not create a valid certificate. For example, the file s
 If the conversion fails:  
 
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
-- Make sure the file parameters are accurate. See [Supported certificate file types](#supported-certificate-file-types) and [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
+- Make sure the file parameters are accurate. See [Supported certificate file types](about-certificates.md#supported-certificate-file-types) and [Certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
 title: Learning about SSL/TLS OT appliance certificates
-description: Learn about certificates for OT appliance encryption and authentication for Defender for IoT.
+description: Learn about certificates for Defender for IoT.
 ms.date: 01/05/2023
 ms.topic: conceptual
 ---
