@@ -143,7 +143,7 @@ Use the following checklist for onboarding an application
 |Application and authentication protocol| Implement client applications such as Web application, SPA, or a native application. Authentication protocols for client application and Azure AD B2C: OAuth, OIDC, and SAML. See the video, [Azure AD: Protecting Web APIs with Azure AD](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9)|
 | User migration | Confirm if you will [migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md): Just-in-time (JIT) migration and bulk import/export. See the video, [Azure Active Directory: Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2).|
 
-Use the following checklist for delivery
+Use the following checklist for delivery.
 
 |Area| Description|
 |---|---|
@@ -174,10 +174,11 @@ Use the following checklist to enhance application security.
 
 ### Compliance
 
-To comply with regulatory requirements and enhance back-end system security you can use a virtual networks (VNets), IP restrictions, Web Application Firewall (WAF), etc. Consider the following requirements:
+To help comply with regulatory requirements and enhance back-end system security you can use a virtual networks (VNets), IP restrictions, Web Application Firewall (WAF), etc. Consider the following requirements:
 
 * Your regulatory compliance requirements
   * For example, Payment Card Industry Data Security Standard (PCI-DSS)
+  * Go to pcisecuritystandards.org to learn more about the [PCI Security Standards Council](https://www.pcisecuritystandards.org/)
 * Data storage into a separate database store
   * Determine if this information can't be written into the directory
 
