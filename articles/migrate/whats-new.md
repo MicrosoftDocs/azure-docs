@@ -14,7 +14,7 @@ ms.custom: mvc
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (January 2022)
-- Envision savings with [Azure Savings Plan for compute](cost-management-billing/savings-plan/savings-plan-compute-overview.md) (ASP) savings option with Azure Migrate assessments. ASP as a savings option setting is now available for Azure VM assessment, Azure SQL assessment and Azure App Service assessment. 
+- Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate assessments. ASP as a savings option setting is now available for Azure VM assessment, Azure SQL assessment and Azure App Service assessment. 
 - Azure Migrate is now supported in Sweden geography . [Learn more](migrate-support-matrix.md#public-cloud)
 
 ## Update (December 2022)
