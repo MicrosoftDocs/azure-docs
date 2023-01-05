@@ -55,7 +55,7 @@ In this section, you create a JavaScript application that sends events to an eve
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com).
 1. Create a file called *send.js*, and paste the following code into it:
 
-   ## [Passwordless](#tab/passwordless)
+   ## [Passwordless (Recommended)](#tab/passwordless)
 
     In the code, use a real value to replace the following:
     * `EVENT HUBS RESOURCE NAME`
