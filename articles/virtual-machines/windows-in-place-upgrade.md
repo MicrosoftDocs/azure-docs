@@ -169,8 +169,6 @@ To initiate the in-place upgrade the VM must be in the `Running` state. Once the
 
 | Upgrade from | Upgrade to |
 |---|---|
-| Windows Server 2012 R2 (Core) | Windows Server 2016  -or-  Windows Server 2019 |
-| Windows Server 2012 R2 (Desktop Experience) | Windows Server 2016 (Desktop Experience)  -or-  Windows Server 2019 (Desktop Experience) |
 | Windows Server 2016 (Core) | Windows Server 2019   -or-  Windows Server 2022 |
 | Windows Server 2016 (Desktop Experience) | Windows Server 2019 (Desktop Experience)  -or-  Windows Server 2022 (Desktop Experience) |
 | Windows Server 2019 (Core) | Windows Server 2022 |
