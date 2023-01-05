@@ -323,7 +323,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `ServiceProviders.AzureFile.MaxFileSizeInBytes` | `150` MB | Sets the maximum file size in bytes for an Azure file share. |
+| `ServiceProviders.AzureFile.MaxFileSizeInBytes` | `150000000` bytes | Sets the maximum file size in bytes for an Azure file share. |
 
 <a name="built-in-azure-functions"></a>
 
