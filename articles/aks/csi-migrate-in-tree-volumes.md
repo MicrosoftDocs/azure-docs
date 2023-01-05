@@ -19,7 +19,7 @@ To make this process as simple as possible, and to ensure no data loss, this art
 * The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For an Azure Active Directory (Azure AD) RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
 
-## Migration options for disk volumes
+## Migrate Disk volumes
 
 Migration from in-tree to CSI is supported using two migration options:
 
@@ -44,7 +44,7 @@ The following are important considerations to evaluate:
 * Transition to static volumes from original dynamic-style volumes requires constructing and managing PV objects manually for all options.
 * Potential application downtime when redeploying the new application with reference to the new PVC object.
 
-### Migration steps
+#### Migration steps
 
 1. Update the existing PV `ReclaimPolicy` from **Delete** to **Retain** by running the following command:
 
@@ -170,7 +170,7 @@ The following are important considerations to evaluate:
 
 5. Update your application to use the new PVC.
 
-## Migrate by creating a dynamic volume
+### Migrate by creating a dynamic volume
 
 Using this option, you dynamically create a Persistent Volume from a Persistent Volume Claim.
 
@@ -192,7 +192,7 @@ The following are important considerations to evaluate:
 
 * Perform data validation/verification as new disks are created from snapshots.
 
-### Migration steps
+#### Migration steps
 
 Before proceeding, verify the following:
 
@@ -337,9 +337,11 @@ Before proceeding, verify the following:
 
 5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate more cost.
 
-## Migration options for file share volumes
+## File share volumes
 
-Migration from in-tree to CSI is supported by creating a dynamic volume. 
+Migration from in-tree to CSI is supported by creating a dynamic volume.
+
+### Migration steps
 
 1. Update the existing PV `ReclaimPolicy` from **Delete** to **Retain** by running the following command:
 
