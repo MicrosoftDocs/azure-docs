@@ -34,7 +34,7 @@ For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-compon
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
 * **Ambari** user auto UI logout due to inactivity. For more information, see [here](/azure/hdinsight/ambari-web-ui-auto-logout)
-* **Spark** - A new and optimized version of Spark 3.1 is included in this release, which is twice as fast as before. We compared Apache Spark 2.4, Apache Spark 3.1.2(previous image) and Apache Spark 3.1.2 (current version) using the TPC-DS benchmark. The test is carried out using e8 V3  SKUs to decide the optimal cluster configurations for Apache Spark on 1 TB workload. Apache Spark 3.1 Optimized outperformed Apache Spark 3.1.2 (previous image) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. For more information, see [Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
+* **Spark** - A new and optimized version of Spark 3.1 is included in this release, which is twice as fast as before. We compared Apache Spark 2.4, Apache Spark 3.1.2(previous image) and Apache Spark 3.1.2 (current version) using the TPC-DS benchmark. The test is carried out using e8 V3  SKUs to decide the optimal cluster configurations for Apache Spark on 1-TB workload. Apache Spark 3.1 Optimized outperformed Apache Spark 3.1.2 (previous image) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. For more information, see [Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
 ![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
 
@@ -95,7 +95,7 @@ For more information on how to check Ubuntu version of cluster, see [here](https
 |[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)| INSERT OVERWRITE error - File Not Found|
 |[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)| Wrong results when subquery has COALESCE in correlation predicate|
 |[HIVE-24999](https://issues.apache.org/jira/browse/HIVE-24999)| HiveSubQueryRemoveRule generates invalid plan for IN subquery with multiple correlations| 
-|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there's direct insert, the attempt ID has to be checked when reading the manifest failes|
+|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there's direct insert, the attempt ID has to be checked when reading the manifest fails|
 |[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)| Upgrade DataNucleus dependency to 5.2 |
 |[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default|
 |[HIVE-26173](https://issues.apache.org/jira/browse/HIVE-26173)| Upgrade derby to 10.14.2.0|
