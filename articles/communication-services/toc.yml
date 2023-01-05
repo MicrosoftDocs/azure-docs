@@ -294,6 +294,9 @@ items:
       - name: Presence Events
         href: ../event-grid/communication-services-presence-events.md
         maintainContext: true
+      - name: Email Events
+        href: ../event-grid/communication-services-email-events.md
+        maintainContext: true
   - name: Teams interoperability
     items:
       - name: Overview
