@@ -81,6 +81,16 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 
 1. Select **Create** to finish creating the resource.
 
+## Trouble shooting guide for common exceptions
+
+### Unable to reach the prometheus endpoint
+The provider settings validation operation has failed with code ‘PrometheusURLConnectionFailure’.
+
+1. Try to restart the ha cluster exporter agent:
+    1. sstemctl start pmproxy
+    1. systemctl enable pmproxy
+1. Please verify if the prometheus endpoint provided is reachable from the subnet provided while creating Azure Monitor for Sap Solutions resource.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
