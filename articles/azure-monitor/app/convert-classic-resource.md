@@ -24,7 +24,7 @@ Workspace-based resources:
 
 ## New capabilities
 
-Workspace-based Application Insights allow you to take advantage of the latest capabilities of Azure Monitor and Log Analytics:
+Workspace-based Application Insights resources allow you to take advantage of the latest capabilities of Azure Monitor and Log Analytics:
 
 * [Customer-managed keys](../logs/customer-managed-keys.md) provide encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link the Azure platform as a service (PaaS) to your virtual network by using private endpoints.
@@ -32,7 +32,7 @@ Workspace-based Application Insights allow you to take advantage of the latest c
     - Encryption-at-rest policy.
     - Lifetime management policy.
     - Network access for all data associated with Application Insights Profiler and Snapshot Debugger.
-* [Commitment tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the pay-as-you-go price. Otherwise, pay-as-you-go data ingestion and data retention are billed similarly in Log Analytics as they are in Application Insights.
+* [Commitment tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the pay-as-you-go price. Otherwise, billing for pay-as-you-go data ingestion and data retention in Log Analytics is similar to the billing in Application Insights.
 * Data is ingested faster via Log Analytics streaming ingestion.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
     > [!NOTE]
-    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table) from the default 90 days to a longer retention period.
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table).
     > - If you've selected data retention longer than 90 days on data ingested into the classic Application Insights resource prior to migration, data retention continues to be billed through that Application Insights resource until the data exceeds the retention period.
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
