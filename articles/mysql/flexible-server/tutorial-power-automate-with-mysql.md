@@ -41,41 +41,39 @@ Create a cloud flow when you want your automation to be triggered either automat
 | [Instant flows](introduction-to-button-flows.md)              | Start an automation with a click of a button. You can automate for repetitive tasks from your Desktop or Mobile devices. For example, instantly send a reminder to the team with a push of a button from your mobile device.                      |     Wide range of tasks such as requesting an approval, an action in Teams or SharePoint.                                                                                |
 | [Scheduled flows](run-scheduled-tasks.md)                    | Schedule an automation such as daily data upload to SharePoint or a database.             |Tasks that need to be automated on a schedule.
 
-
-If you're ready to start your Power Automate project, visit the [guidance and planning article](./guidance/planning/introduction.md) to get up and running quickly.    
+For this tutorial, we will use instant cloud flow which can be triggered manually from any device, easy-to-share instant flows automate tasks so you don’t have to repeat yourself.
 
 ## Specify an event to start the flow
 First, you will need to select what event, or *trigger*, starts your flow.
 
 1. In [Power Automate](https://flow.microsoft.com), select **Create** from the navigation bar on the left.
 
-2. Under **Start from blank*, select **Auotmated cloud flow**.
+2. Under **Start from blank*, select **Instant cloud flow**.
 
-3. Give your flow a name in the **Add a name or we'll generate one** field.
+3. Give your flow a name in the **Flow name" field and select **Manually trigger a flow**. 
 
-1. Enter **Twitter** into the **Search all triggers** field.
+4. Select the **Create** button at the bottom of the screen.
 
-1. Select **Twitter - When a new tweet is posted**.
+## Create a MySQL get operation 
+An operation is an action. Power automate flow allows you to add one or more advanced options and multiple actions for the same trigger. For example, add an advanced option that sends an email message as high priority. In addition to sending mail when an item is added to a list created in Microsoft Lists, create a file in Dropbox that contains the same information.
 
-   ![Name your flow and serch for the Twitter trigger.](./media/get-started-logic-flow/name-search-trigger.png)
+1. Once the flow app is created, select **Next Step** to create an operation. 
+2. In the box that shows Search connectors and actions, enter **Azure database for MySQL**.  
+3. Select **Azure database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
+4. Add a new MySQL connection and enter the **authentication type**,**server name**, **database name**, **username**, **password** . Select **encrypt connection** if SSL is enabled on your MySQL server.
 
-
-<!-- 1. Select the **Search hundreds of connectors and triggers** box at the bottom of the screen, enter **Twitter** in the box that says **Search all connectors and triggers**, and then select **Twitter - When a new tweet is posted**.
-
-    ![Twitter event.](./media/get-started-logic-flow/twitter-search.png) -->
-
-1. Select the **Create** button at the bottom of the screen.
-
-## Specify an operation
-
-You can add an action as the next step after the HTTP request trigger to run subsequent operations in your workflow. You can add an action get, insert or update or delete data in the MySQL database. For this tutorial we will insert a new row into the orders table.
-
-Add a New Step in the workflow
-
-Search for Azure database for MySQL connector.
+>[!NOTE] If you get an error **Test connection failed. Details: Authentication to host '<servername>' for user '<username>' using method 'mysql_native_password' failed with message: Access denied for user '<username>'@'<IP address>' (using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
+   
+5. After the connection is successfully added, provide the **servername, database name and table name** parameters for **Get Rows** operation using the newly added connection. 
+6. Select **Save**.
 
 ## Test your flow
-
+After saving the flow, we need to test it and run the flow app. 
+   
+1. Select **Flow checker** to see if there are any errors that need to be resolved. 
+2. Select **Test** to test the workflow. Select **Manually** as this is a manual trigger workflow.
+3. Select **Run flow**.
+4.You will receive a message **Your flow run successfully started. To monitor it, go to the Flow Runs Page**. Go to the flow runs page to see the result.
     
 ## Next Steps
 [Azure database for MySQL connector](/connectors/azuremysql/) reference 
