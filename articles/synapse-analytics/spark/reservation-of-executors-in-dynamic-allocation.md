@@ -22,7 +22,7 @@ When the Dynamic Allocation is enabled, for every spark application submitted, t
 > [!NOTE]
 > **This conservative approach allows the platform to enable scaling from say 3 to 10 Nodes without running out of capacity, thereby providing users with greater reliability for job execution.**
 
-![Dynamic Allocation in Synapse Spark Pools](./media/DynamicAllocation_Overview.png)
+![Dynamic Allocation in Synapse Spark Pools](./media/reservation-of-executors-in-spark/DynamicAllocation_Overview.png)
 
 ### What does the reservation of executors mean?
 
@@ -43,7 +43,7 @@ Since the user is not sure how much compute his spark job would require, the use
 + The user submits a application App3, App4 and App5 with the same as the other applications, for the 6th job would get queued because, as part of accepting App3, the number of available executors  reduces to 20, and similarly reduces to 10 and then to 0  when App5 is accepted as part of the reservation of 10 Executors  from the available set of executors  in the pool. 
 + Given that there are no available cores, App6 will be in the queue till these other applications complete execution and will be accepted once the available number of executors in the pool increases to 10 from 0. 
 
-![Job Level Reservation of Executors in Spark Pool with Dynamic Allocation](./media/ReservationofExecutorsinSparkPoolwithDynamicAllocation.png)
+![Job Level Reservation of Executors in Spark Pool with Dynamic Allocation](./media/reservation-of-executors-in-spark/ReservationofExecutorsinSparkPoolwithDynamicAllocation.png)
 
 > [!NOTE]
 > + Even though the reservation of executors is carried out, not all executors are being used but are reserved to support auto scale scenarios for these applications. 
