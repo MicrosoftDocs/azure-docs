@@ -182,7 +182,7 @@ For the receiving side, you need to install two more packages. In this quickstar
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-Run this command:
+Run these commands:
 
 ```shell
 npm install @azure/storage-blob
@@ -192,7 +192,7 @@ npm install @azure/identity
 
 ### [Connection String](#tab/connection-string)
 
-Run this command:
+Run these commands:
 
 ```shell
 npm install @azure/storage-blob
