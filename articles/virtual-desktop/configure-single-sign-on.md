@@ -60,7 +60,7 @@ When enabling single sign-on, you'll currently be prompted to authenticate to Az
 
 ### Disconnection when the session is locked
 
-When SSO is enabled, you sign in to Windows using an Azure AD authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Azure AD authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods mean that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected.
+When SSO is enabled, you sign in to Windows using an Azure AD authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Azure AD authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected.
 
 Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Azure AD reevaluates the applicable conditional access policies.
 
