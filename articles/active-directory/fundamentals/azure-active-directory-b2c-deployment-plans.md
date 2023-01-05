@@ -43,13 +43,14 @@ After migration, your applications can support modern identity protocols such as
 
 ### Stakeholders
 
-Technology project success depends on managing expectations, outcomes, and responsibilities. See, [Include the right
-stakeholders](./active-directory-deployment-plans.md#include-the-right-stakeholders)
+Technology project success depends on managing expectations, outcomes, and responsibilities. 
 
 - Identify the application architect, technical program manager, and owner
 - Create a distribution list (DL) to communicate with the Microsoft account or engineering teams
   - Ask questions, get answers, and receive notifications
 - Identify a partner or resource outside your organization to support you
+
+Learn more: [Include the right stakeholders](./active-directory-deployment-plans.md#include-the-right-stakeholders)
 
 ### Communications
 
@@ -121,82 +122,77 @@ Azure AD B2C projects start with one or more client applications.
 
 ### User identity deployment checklist
 
-- Check the number of users accessing the applications.
-
-- Check the type of IdPs that are needed. For example, Facebook, local account, and [Active Directory Federation Services (AD FS)](/windows-server/identity/active-directory-federation-services).
-
-- Outline the claim schema that is required from your application, [Azure AD B2C](../../active-directory-b2c/claimsschema.md), and your IdPs if applicable.
-
-- Outline the information that is required to capture during a [sign-in/sign-up flow](../../active-directory-b2c/add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow).
+* Confirm the number of users accessing applications
+* Determine the IdP types needed
+  * For example, Facebook, local account, and Active Directory Federation Services (AD FS)
+  * See, [Active Directory Federation Services](/windows-server/identity/active-directory-federation-services)
+* Outline the claim schema required from your application, Azure AD B2C, and IdPs if applicable
+  * See, [ClaimsSchema](../../active-directory-b2c/claimsschema.md)
+* Determine the information to collect during sign-in and sign-up 
+  * [Set up a sign-up and sign-in flow in Azure Active Directory B2C](../../active-directory-b2c/add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow)
 
 ### Client application onboarding and deliverables
 
-Consider this sample checklist while you **onboard an application**:
+Use the following checklist for onboarding an application
 
-|  Task | Description |
-|:--------------------|:----------------------|
-| Define the target group of the application | Check if this application is an end customer application, business customer application, or a digital service. Check if there is a need for employee login. |
-| Identify the business value behind an application | Understand the full business case behind an application to find the best fit of Azure AD B2C solution and integration with further client applications.|
-| Check the identity groups you have | Cluster identities in different types of groups with different types of requirements, such as **Business to Customer** (B2C) for end customers and business customers, **Business to Business** (B2B) for partners and suppliers, **Business to Employee** (B2E) for your employees and external employees, **Business to Machine** (B2M) for IoT device logins and service accounts.|
-| Check the IdP you need for your business needs and processes | Azure AD B2C [supports several types of IdPs](../../active-directory-b2c/add-identity-provider.md#select-an-identity-provider) and depending on the use case the right IdP should be chosen. For example, for a Customer to Customer mobile application a fast and easy user login is required. In another use case, for a Business to Customer with digital services additional compliance requirements are necessary. The user may need to log in with their business identity such as E-mail login. |
-| Check the regulatory constraints | Check if there is any reason to have remote profiles or specific privacy policies.  |
-| Design the sign-in and sign-up flow | Decide whether an email verification or email verification inside sign-ups will be needed. First check-out process such as Shop systems or [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) is needed or not. Watch [this video](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
-| Check the type of application and authentication protocol used or that will be implemented | Information exchange about the implementation of client application such as Web application, SPA, or Native application. Authentication protocols for client application and Azure AD B2C could be OAuth, OIDC, and SAML. Watch [this video](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9)|
-| Plan user migration | Discuss the possibilities of [user migration with Azure AD B2C](../../active-directory-b2c/user-migration.md). There are several scenarios possible such as Just In Times (JIT) migration, and bulk import/export. Watch [this video](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2). You can also consider using [Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=3) for user migration.|
+|Area|Description|
+|---|---|
+|Application target user group | End customers, business customers, or a digital service. Determine a need for employee sign-in.|
+|Application business value| Understand the business to determine the best Azure AD B2C solution and integration with other client applications|
+|Your identity groups| Cluster identities into groups with requirements, such as business-to-consumer (B2C), business-to-business (B2B) business-to-employee (B2E), and business-to-machine (B2M) for IoT device sign-in and service accounts.|
+|Identity provider (IdP)| See, [Select an identity provider](../../active-directory-b2c/add-identity-provider.md#select-an-identity-provider). For example, for a customer-to-customer (C2C) mobile app use an easy sign-in process. B2C with digital services has compliance requirements. Consider email sign-in. |
+|Regulatory constraints | Determine a need for remote profiles or privacy policies |
+|Sign-in and sign-up flow | Confirm email verification or email verification during sign-up. For check-out process, see [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). See the video, [Azure AD: Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
+|Application and authentication protocol| Implement client applications such as Web application, SPA, or a native application. Authentication protocols for client application and Azure AD B2C: OAuth, OIDC, and SAML. See the video, [Azure AD: Protecting Web APIs with Azure AD](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9)|
+| User migration | Confirm if you will [migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md): Just-in-time (JIT) migration and bulk import/export. See the video, [Azure Active Directory: Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2).|
 
-Consider this sample checklist while you **deliver**.
+Use the following checklist for delivery
 
-| Capability | Description |
-|:-----|:-------|
-|Protocol information| Gather the base path, policies, metadata URL of both variants. Depending on the client application, specify the attributes such as sample login, client application ID, secrets, and redirects.|
-| Application samples | Refer to the provided [sample codes](../../active-directory-b2c/integrate-with-app-code-samples.md). |
-|Pen testing | Before the tests, inform your operations team about the pen tests and then test all user flows including the OAuth implementation. Learn more about [Penetration testing](../../security/fundamentals/pen-testing.md) and the [Microsoft Cloud unified penetration testing rules of engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
-| Unit testing  | Perform unit testing and generate tokens [using Resource owner password credential (ROPC) flows](../develop/v2-oauth-ropc.md). If you hit the Azure AD B2C token limit, [contact the support team](../../active-directory-b2c/support-options.md). Reuse tokens to reduce investigation efforts on your infrastructure. [Setup a ROPC flow](../../active-directory-b2c/add-ropc-policy.md?pivots=b2c-user-flow&tabs=app-reg-ga).|
-| Load testing | Expect reaching Azure AD B2C [service limits](../../active-directory-b2c/service-limits.md). Evaluate the expected number of authentications per month your service will have. Evaluate the expected number of average user logins per month. Assess the expected high load traffic durations and business reason such as holidays, migrations, and events. Evaluate the expected peak sign-up rate, for example, number of requests per second. Evaluate the expected peak traffic rate with MFA, for example, requests per second. Evaluate the expected traffic geographic distribution and their peak rates.
+|Area| Description|
+|---|---|
+|Protocol information| Gather the base path, policies, and metadata URL of both variants. Specify attributes such as sample sign-in, client application ID, secrets, and redirects.|
+|Application samples | See, [Azure Active Directory B2C code samples](../../active-directory-b2c/integrate-with-app-code-samples.md)|
+|Penetration testing | Inform your operations team about pen tests, then test user flows including the OAuth implementation. See, [Penetration testing](../../security/fundamentals/pen-testing.md) and [Penetration testing rules of engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
+| Unit testing  | Unit test and generate tokens. See, [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](../develop/v2-oauth-ropc.md). If you reach the Azure AD B2C token limit, see [Azure AD B2C: File Support Requests](../../active-directory-b2c/support-options.md). Reuse tokens to reduce investigation on your infrastructure. [Set up a resource owner password credentials flow in Azure Active Directory B2C](../../active-directory-b2c/add-ropc-policy.md?pivots=b2c-user-flow&tabs=app-reg-ga).|
+| Load testing | Learn about [Azure AD B2C service limits and restrictions](../../active-directory-b2c/service-limits.md). Calculate the expected authentications and user sign-ins per month. Assess high load traffic durations and business reasons: holiday, migration, and event. Determine expected peak rates for sign-up, traffic, and geographic distribution, for example per second.  
 
 ### Security
 
-Consider this sample checklist to enhance the security of your application depending on your business needs:
+Use the following checklist to enhance application security.
 
-- Check if strong authentication method such as [MFA](../authentication/concept-mfa-howitworks.md) is required. For users who trigger high value transactions or other risk events its suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
+* Authentication method, such as multi-factor authentication (MFA) 
+  * MFA is recommended for users that trigger high-value transactions or other risk events. For example, banking, finance, and check-out processes.
+  * See, [What authentication and verification methods are available in Azure AD?](../authentication/concept-authentication-methods.md)
+* Confirm use of anti-bot mechanisms
+* Assess the risk of attempts to create a fraudulent accounts or sign-in 
+  * See, [Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C](../../active-directory-b2c/partner-dynamics-365-fraud-protection.md) 
+* Confirm needed conditional postures as part of sign-in or sign-up
 
-- Check if MFA is required, [check the methods available to do MFA](../authentication/concept-authentication-methods.md) such as  SMS/Phone, email, and third-party services.
+#### Conditional Access and identity protection
 
-- Check if any anti-bot mechanism is in use today with your applications.
-
-- Assess the risk of attempts to create fraudulent accounts and log-ins. Use [Microsoft Dynamics 365 Fraud Protection assessment](../../active-directory-b2c/partner-dynamics-365-fraud-protection.md) to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.  
-
-- Check for any special conditional postures that need to be applied as part of sign-in or sign-up for accounts with your application.
-
->[!NOTE]
->You can use [Conditional Access rules](../conditional-access/overview.md) to adjust the difference between user experience and security based on your business goals.
-
-For more information, see [Identity Protection and Conditional Access in Azure AD B2C](../../active-directory-b2c/conditional-access-identity-protection-overview.md).
+* The modern security perimeter now extends beyond an organization's network. The perimeter includes user and device identity. 
+  * See, [What is Conditional Access?](../conditional-access/overview.md)
+* Enhance the security of Azure AD B2C with Azure AD identity protection
+  * See [Identity Protection and Conditional Access in Azure AD B2C](../../active-directory-b2c/conditional-access-identity-protection-overview.md)
 
 ### Compliance
 
-To satisfy certain regulatory requirements you may consider using vNets, IP restrictions, Web Application Firewall (WAF), and similar services to enhance the security of your backend systems.
+To comply with regulatory requirements and enhance back-end system security you can use a virtual networks (VNets), IP restrictions, Web Application Firewall (WAF), etc. Consider the following requirements:
 
-To address basic compliance requirements, consider:
-
-- The specific regulatory compliance requirements, for example, PCI-DSS that you need to support.
-
-- Check if it's required to store data into a separate database store. If so, check if this information must never be written into the directory.
+* Your regulatory compliance requirements
+  * For example, Payment Card Industry Data Security Standard (PCI-DSS)
+* Data storage into a separate database store
+  * Determine if this information can't be written into the directory
 
 ### User experience
 
-Consider the sample checklist to define the user experience (UX) requirements:
+Use the following checklist to help define user experience requirements.
 
 - Identify the required integrations to [extend CIAM capabilities and build seamless end-user experiences](../../active-directory-b2c/partner-gallery.md).
-
 - Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
-
 - Look for existing hints passed through using queryString parameters in your current CIAM solution.
-
 - If you expect high UX customization such as pixel to pixel, you may need a front-end developer to help you.
-
 - Azure AD B2C provides capabilities for customizing HTML and CSS, however, it has additional requirements for [JavaScript](../../active-directory-b2c/javascript-and-page-layout.md?pivots=b2c-custom-policy#guidelines-for-using-javascript).
-
 - An embedded experience can be implemented [using iframe support](../../active-directory-b2c/embedded-login.md?pivots=b2c-custom-policy). For a single-page application, you'll also need a second "sign-in" HTML page that loads into the `<iframe>` element.
 
 ## Monitor an Azure AD B2C solution
