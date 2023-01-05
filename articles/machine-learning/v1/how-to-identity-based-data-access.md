@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 01/05/2022
+ms.date: 01/05/2023
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute for training my machine learning models.
