@@ -279,7 +279,7 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    helm install -f helm-config.yaml --generate-name application-gateway-kubernetes-ingress/ingress-azure
     ```
 
 ## Install a Sample App
@@ -296,7 +296,7 @@ metadata:
     app: aspnetapp
 spec:
   containers:
-  - image: "mcr.microsoft.com/dotnet/core/samples:aspnetapp"
+  - image: "mcr.microsoft.com/dotnet/samples:aspnetapp"
     name: aspnetapp-image
     ports:
     - containerPort: 80
@@ -318,7 +318,7 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp
@@ -330,8 +330,11 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: aspnetapp
-          servicePort: 80
+          service:
+            name: aspnetapp
+            port:
+              number: 80
+        pathType: Exact
 EOF
 ```
 

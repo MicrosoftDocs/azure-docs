@@ -199,7 +199,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Microsoft.Azure.Workflows.TemplateLimits.InputParametersLimit` | `50` | Increases the default limit on [cross-environment workflow parameters](create-parameters-workflows.md) up to 500 for Standard logic apps created by [exporting Consumption logic apps](export-from-consumption-to-standard-logic-app.md). |
+| `Microsoft.Azure.Workflows.TemplateLimits.InputParametersLimit` | `50` | Change the default limit on [cross-environment workflow parameters](create-parameters-workflows.md) up to 500 for Standard logic apps created by [exporting Consumption logic apps](export-from-consumption-to-standard-logic-app.md). |
 | `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a trigger or action. |
 | `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in an action. |
 
@@ -316,6 +316,14 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.DataStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
 | `Runtime.DataStorage.RequestOptionsMaximumExecutionTime` | `00:00:45` <br>(45 sec) | Sets the operation timeout value, including retries, for table and queue storage requests from the Azure Logic Apps runtime. |
 | `Runtime.DataStorage.RequestOptionsServerTimeout` | `00:00:16` <br>(16 sec) | Sets the timeout value for table and queue storage requests from the Azure Logic Apps runtime. |
+
+<a name="built-in-file-share"></a>
+
+#### File share
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `ServiceProviders.AzureFile.MaxFileSizeInBytes` | `150000000` bytes | Sets the maximum file size in bytes for an Azure file share. |
 
 <a name="built-in-azure-functions"></a>
 
