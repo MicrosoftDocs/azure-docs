@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/4/2023
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -24,7 +24,7 @@ In this quickstart, you'll learn about these deployment methods:
 
 Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal.
 
-To learn more about using an ARM template with the **Deploy to Azure button**, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md).
+To learn more about using an ARM template with the **Deploy to Azure button**, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-arm.md).
 
 ## ARM template using Azure PowerShell or the Azure CLI
 
