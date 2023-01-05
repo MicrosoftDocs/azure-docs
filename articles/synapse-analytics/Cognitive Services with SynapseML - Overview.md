@@ -1,14 +1,12 @@
 ---
-title: Cognitive Services with SynapseML - Overview
-description: Cognitive Services with SynapseML - Overview
-author: mhamilton723, serena-ruan, ppruthi, k-rush
-ms.author: marhamil, serenaruan, ppruthi, kyrush
-ms.date: 12/20/2022
+title: CognitiveServices - Overview
+description: CognitiveServices - Overview
+author: JessicaXYWang
+ms.author: jessiwang
+ms.date: 01/04/2023
 ms.topic: tutorial
 ms.service: cognitive-search
 ---
-<img width="200"  src="https://mmlspark.blob.core.windows.net/graphics/Readme/cog_services_on_spark_2.svg" />
-
 # Cognitive Services
 
 [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) are a suite of APIs, SDKs, and services available to help developers build intelligent applications without having direct AI or data science skills or knowledge by enabling developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
@@ -232,7 +230,7 @@ display(
 ```
 
 ## Form Recognizer sample
-[Form Recognizer](https://azure.microsoft.com/en-us/services/form-recognizer/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents—the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. In this sample, we analyze a business card image and extract its information into structured data.
+[Form Recognizer](https://azure.microsoft.com/en-us/services/form-recognizer/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documentsï¿½the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. In this sample, we analyze a business card image and extract its information into structured data.
 
 
 ```python
