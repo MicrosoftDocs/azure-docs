@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 # Azure Disk Encryption on an isolated network
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets.
 
 When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM."
 
@@ -40,7 +40,7 @@ Any network security group settings that are applied must still allow the endpoi
 
 ## Azure Disk Encryption with Azure AD (previous version)
 
-If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Microsoft Authentication Library](../../active-directory/develop/msal-overview.md) will need to be installed manually for all distros (in addition to the packages appropriate for the distro, as [listed above](#package-management)).
+If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Microsoft Authentication Library](../../active-directory/develop/msal-overview.md) will need to be installed manually for all distros (in addition to the [packages appropriate for the distro](#package-management)).
 
 When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
