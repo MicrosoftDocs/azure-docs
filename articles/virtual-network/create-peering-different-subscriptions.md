@@ -172,7 +172,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Sign in to SubscriptionA
 
-Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -472,7 +472,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Sign in to SubscriptionB
 
-Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -777,7 +777,7 @@ myVNetA            Initiated
 
 ### Sign in to SubscriptionA
 
-Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
@@ -789,11 +789,11 @@ If you're using one account for both subscriptions, sign in to that account and 
 az account set --subscription "SubscriptionA"
 ```
 
-### Sign in to SubscriptionB (optional)
+### Sign in to SubscriptionB
 
-If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
+Authenticate to **SubscriptionB** so that the peering can be set up.
 
-Use [[az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+Use [[az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
 
 ```azurecli-interactive
 az login
@@ -801,15 +801,9 @@ az login
 
 ### Change to SubscriptionA (optional)
 
-If you're using two accounts, you have to switch back to **SubscriptionA**.
+You may have to switch back to **SubscriptionA** to continue with the actions in **SubscriptionA**.
 
-Use [[az sign in](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionA**.
-
-```azurecli-interactive
-az login
-```
-
-If you're using one account for both subscriptions, change context to **SubscriptionA**.
+Change context to **SubscriptionA**.
 
 ```azurecli-interactive
 az account set --subscription "SubscriptionA"
@@ -955,7 +949,7 @@ myVNetB            Connected
 
 ### Sign in to SubscriptionB
 
-Use [az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
 
 ```azurecli-interactive
 az login
@@ -967,9 +961,9 @@ If you're using one account for both subscriptions, sign in to that account and 
 az account set --subscription "SubscriptionB"
 ```
 
-### Sign in to SubscriptionA (optional)
+### Sign in to SubscriptionA
 
-If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
+Authenticate to **SubscriptionA** so that the peering can be set up.
 
 Use [[az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
@@ -979,15 +973,9 @@ az login
 
 ### Change to SubscriptionB (optional)
 
-If you're using two accounts, you may have to switch back to **SubscriptionB**.
+You may have to switch back to **SubscriptionB** to continue with the actions in **SubscriptionB**.
 
-Use [[az sign in](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionB**.
-
-```azurecli-interactive
-az login
-```
-
-If you're using one account for both subscriptions, change context to **SubscriptionB**.
+Change context to **SubscriptionB**.
 
 ```azurecli-interactive
 az account set --subscription "SubscriptionB"
