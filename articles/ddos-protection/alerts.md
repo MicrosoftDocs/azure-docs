@@ -51,13 +51,13 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
     - Tags
     - Review + create
     
-    For each step use the values described below:
+    For each step, use the values described below:
 
     | Setting | Value |
     |--|--|
     | Scope | 1) Select **+ Select Scope**. <br/> 2) From the *Filter by subscription* dropdown list, select the **Subscription** that contains the public IP address you want to log. <br/> 3) From the *Filter by resource type* dropdown list, select **Public IP Address**, then select the specific public IP address you want to log metrics for. <br/> 4) Select **Done**. |
     | Condition | 1) Select the **+ Add Condition** button <br/> 2) In the *Search by signal name* search box, select **Under DDoS attack or not**. <br/> 3) Leave *Chart period* and *Alert Logic* as default. <br/> 4) From the *Operator* drop-down, select **Greater than or equal to**. <br/> 5) From the *Aggregation type* drop-down, select **Maximum**. <br/> 6) In the *Threshold value* box, enter **1**. For the *Under DDoS attack or not metric*, **0** means you're not under attack while **1** means you are under attack. <br/> 7) Select **Done**. |
-    | Actions | 1) Select the **+ Create action group** button. <br/> 2) On the **Basics** tab, select your subscription, a resource group and provide the *Action group name* and *Display name*. <br/> 3) On the *Notifications* tab, under *Notification type*, select **Email/SMS message/Push/Voice**. <br/> 4) Under *Name*, enter **MyUnderAttackEmailAlert**. <br/> 5) On the *Email/SMS message/Push/Voice* page enter the **Email** and as many of the available options you require, and then select **OK**. <br/> 6) Select **Review + create** and then select **Create**. |
+    | Actions | 1) Select the **+ Create action group** button. <br/> 2) On the **Basics** tab, select your subscription, a resource group and provide the *Action group name* and *Display name*. <br/> 3) On the *Notifications* tab, under *Notification type*, select **Email/SMS message/Push/Voice**. <br/> 4) Under *Name*, enter **MyUnderAttackEmailAlert**. <br/> 5) On the *Email/SMS message/Push/Voice* page, enter the **Email** and as many of the available options you require, and then select **OK**. <br/> 6) Select **Review + create** and then select **Create**. |
     | Details | 1) Under *Alert rule name*, enter *MyDdosAlert*. <br/> 2) Select **Review + create** and then select **Create**. |
 
 Within a few minutes of attack detection, you should receive an email from Azure Monitor metrics that looks similar to the following picture:
@@ -69,11 +69,11 @@ You can also learn more about [configuring webhooks](../azure-monitor/alerts/ale
 
 ## Configure alerts through Azure Monitor
 
-With these templates, you will be able to configure alerts for all public IP addresses that you have enabled diagnostic logging on. Hence in order to use these alert templates, you will first need a Log Analytics Workspace with diagnostic settings enabled. For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
+With these templates, you'll be able to configure alerts for all public IP addresses that you have enabled diagnostic logging on. Hence in order to use these alert templates, you'll first need a Log Analytics Workspace with diagnostic settings enabled. For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 ### Azure Monitor alert rule
 
-This Azure Monitor alert rule template will run a simple query to detect when an active DDoS mitigation is occurring. This indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
+This Azure Monitor alert rule template will run a query to detect when an active DDoS mitigation is occurring. This indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAlert%2520-%2520DDOS%2520Mitigation%2520started%2520azure%2520monitor%2520alert%2FDDoSMitigationStarted.json)
 
@@ -89,7 +89,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
 ## View alerts in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides a list of [security alerts](../security-center/security-center-managing-and-responding-alerts.md), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts, including DDoS attack-related alerts and the actions taken to mitigate the attack in near-time.
-There are two specific alerts that you will see for any DDoS attack detection and mitigation:
+There are two specific alerts that you'll see for any DDoS attack detection and mitigation:
 
 - **DDoS Attack detected for Public IP**: This alert is generated when the DDoS protection service detects that one of your public IP addresses is the target of a DDoS attack.
 - **DDoS Attack mitigated for Public IP**: This alert is generated when an attack on the public IP address has been mitigated.
