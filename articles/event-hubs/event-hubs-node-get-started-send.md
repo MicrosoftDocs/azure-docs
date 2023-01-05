@@ -286,7 +286,7 @@ npm install @azure/eventhubs-checkpointstore-blob
     ### [Connection String](#tab/connection-string)
 
 
-    In the code, use real values to replace the following values:
+    In the code, use real values to replace the following placeholders:
     - `EVENT HUBS NAMESPACE CONNECTION STRING`
     - `EVENT HUB NAME`
     - `STORAGE CONNECTION STRING`
