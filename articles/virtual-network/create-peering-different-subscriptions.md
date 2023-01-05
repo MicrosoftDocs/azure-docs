@@ -793,7 +793,7 @@ az account set --subscription "SubscriptionA"
 
 Authenticate to **SubscriptionB** so that the peering can be set up.
 
-Use [[az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
 
 ```azurecli-interactive
 az login
@@ -965,7 +965,7 @@ az account set --subscription "SubscriptionB"
 
 Authenticate to **SubscriptionA** so that the peering can be set up.
 
-Use [[az sign in](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
 
 ```azurecli-interactive
 az login
