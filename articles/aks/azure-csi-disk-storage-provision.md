@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/16/2022
+ms.date: 01/05/2023
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)

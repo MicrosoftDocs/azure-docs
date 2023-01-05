@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/15/2022
+ms.date: 01/05/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -351,7 +351,7 @@ spec:
       volumeAttributes:
         secretName: azure-secret  # required
         shareName: aksshare  # required
-        mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30"  # optional
+        mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock"  # optional
 ```
 
 Use the `kubectl` command to create the pod.
@@ -383,9 +383,9 @@ The following example demonstrates how to mount a file share as a persistent vol
       csi:
         driver: file.csi.azure.com
         readOnly: false
-        volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
+        volumeHandle: unique-volumeid  # make sure this volumeid is unique for every identical share in the cluster
         volumeAttributes:
-          resourceGroup: resourceGroupName  # optional, only set this when storage account is not in the same resource group as agent node
+          resourceGroup: resourceGroupName  # optional, only set this when storage account is not in the same resource group as node
           shareName: aksshare
         nodeStageSecretRef:
           name: azure-secret
