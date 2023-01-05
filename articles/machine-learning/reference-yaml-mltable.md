@@ -84,6 +84,9 @@ These transformations apply to all mltable-artifact files:
 - `convert_column_types`
   - `columns`: The column name you want to convert type of.
   - `column_type`: The type you want to convert the column to. For example: string, float, int, or datetime with specified formats.
+- `extract_partition_format_into_columns`: Specify the partition format of path. Defaults to None. The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type.
+
+  The format should start from the position of first partition key until the end of file path. For example, given the path '../Accounts/2022/01/01/data.csv' where the partition is by department name and time, partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'Department' with the value 'Accounts' and a datetime column 'PartitionDate' with the value '2022-01-01'. Our principle here is to support transforms specific to data delivery and not to get into wider feature engineering transforms.
 
 ## MLTable transformations: read_delimited
 
@@ -165,14 +168,14 @@ type: mltable
 paths:
 - folder: abfss://my_delta_files
 
-transforms:
+transformations:
  - read_delta_lake:
       timestamp_as_of: '2022-08-26T00:00:00Z'
 ```
 
 ### Delta lake transformations
 
-- `timestamp_as_of`: Timestamp to be specified for time-travel on the specific Delta Lake data.
+- `timestamp_as_of`: Datetime string in RFC-3339/ISO-8601 format to be specified for time-travel on the specific Delta Lake data. 
 - `version_as_of`: Version to be specified for time-travel on the specific Delta Lake data.
 
 ## Next steps
