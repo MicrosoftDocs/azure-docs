@@ -150,8 +150,8 @@ See the sections in this article for the phonemes that are specific to each loca
 ## Map X-SAMPA to IPA
 The table below shows a mapping relationship between X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet) and IPA alphabets.
 
-| X-SAMPA | IPA | 
-|---------------|---------------|
+|X-SAMPA   |IPA   |
+|----------|-----------|
 |`a`|`a`|
 |`b`|	`b`|
 |`b_<`|	`ɓ`|
