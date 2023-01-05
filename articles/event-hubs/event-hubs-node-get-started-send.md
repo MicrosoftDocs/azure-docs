@@ -8,7 +8,7 @@ ms.custom: devx-track-js, mode-api
 ---
 
 # Send events to or receive events from event hubs by using JavaScript
-This quickstart shows how to send events to and receive events from an event hub using the **azure/event-hubs** JavaScript package. 
+This quickstart shows how to send events to and receive events from an event hub using the **@azure/event-hubs** npm package. 
 
 
 ## Prerequisites
