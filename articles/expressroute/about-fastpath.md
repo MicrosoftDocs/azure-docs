@@ -104,5 +104,5 @@ This preview is available for connections associated to ExpressRoute Direct circ
 
 ## Next steps
 
-- To enable FastPath, see [Link a virtual network to ExpressRoute](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+- To enable FastPath, see [Configure ExpressRoute FastPath](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 - To enroll in FastPath preview features, see [Enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
