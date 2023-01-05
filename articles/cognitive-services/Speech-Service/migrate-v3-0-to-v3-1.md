@@ -59,7 +59,7 @@ To support model adaptation with [structured text in markdown](how-to-custom-spe
 
 ### Models
 
-The [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) and [Models_GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModel) operations return information on the type of adaptation supported by each base model.
+The [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) and [Models_GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetBaseModel) operations return information on the type of adaptation supported by each base model.
 
 ```json 
 "features": {
