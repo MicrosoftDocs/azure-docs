@@ -137,17 +137,17 @@ Notes:
 
     b. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate from the Azure portal.
 
-    c. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relaystate URL**). 
+    c. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relay state URL**). 
 
     d. Click **Save**.
     
-1. Take the values of the **SAML Assertion URL**, **SAML Audience URL** and **Relaystate URL** and update them in the Azure Active Directory settings for the Veracode integration.
+1. Take the values of the **SAML Assertion URL**, **SAML Audience URL** and **Relay state URL** and update them in the Azure Active Directory settings for the Veracode integration.
 
 1. Select the **JIT Provisioning** tab.
 
     ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/just-in-time.png "JIT Provisioning")
 
-1. In the **Organization Settings** section, toggle the **Configure Default Setings for Just-in-Time user provisoining** setting to **On**. 
+1. In the **Organization Settings** section, toggle the **Configure Default Settings for Just-in-Time user provisioning** setting to **On**. 
 
 1. In the **Basic Settings** section, for **User Data Updates**, select **Prefer Veracode User Data**.
 
