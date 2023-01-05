@@ -215,25 +215,24 @@ It's possible to use Raw ID of an identifier as a key in UI components to track 
 ```react
 import { getIdentifierRawId } from '@azure/communication-common';
 
-const user = await addUserToThread(
-    token,
-    botId
-);
-
-setContainerProps({
-    ...newPrerequisites,
-    userId: getIdentifierRawId(user),
-    avatar: args.avatar
-});
-
-// No need to call an API again when rendering components as Raw ID provides a reliable way to track entities.
-render() {
-    return (
-      <div>
-        <p>(ContosoUsers.GetName({this.props.userId})) joined the thread</p>
-      </div>
-    );
+function CommunicationParticipants() {
+  const [users, setUsers] = React.useState([{ id: getIdentifierRawId(userA), name: "John" }, { id: getIdentifierRawId(userB), name: "Jane" }]);
+  return (
+    <div>
+      {users.map((user) => (
+      // Each list item should have a unique key. Raw ID can be used as such key.
+        <ListUser item={user} key={user.id} />
+      ))}
+      // We might want to show new users first or re-oder users based on some condition (for example, hand raised).
+      <button onClick={() => setUsers(users.slice().reverse())}>Reverse</button>
+    </div>
+  );
 }
+
+const ListUser = React.memo(function ListUser({ user }) {
+  console.log(`Render ${user.name}`);
+  return <div>{user.name}</div>;
+});
 ```
 
 ---
