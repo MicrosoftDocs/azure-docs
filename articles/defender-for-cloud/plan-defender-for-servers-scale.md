@@ -49,7 +49,7 @@ You can use a policy definition to enable Defender for Servers at scale. Note th
 
 ## Scaling auto-provisioning
 
-Auto-provisioning can be configured by assigning the built-in policy definitions to an Azure management group, so that underlying subscriptions are covered. The following table summarizes the definitions. 
+You can set up auto-provisioning by assigning the built-in policy definitions to an Azure management group so that underlying subscriptions are covered. The following table summarizes the definitions:
 
 Agent | Policy
 ---  | ---
