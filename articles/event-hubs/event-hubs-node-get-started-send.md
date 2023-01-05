@@ -57,7 +57,7 @@ In this section, you create a JavaScript application that sends events to an eve
 
    ## [Passwordless (Recommended)](#tab/passwordless)
 
-    In the code, use a real value to replace the following:
+    In the code, use real values to replace the following placeholders:
     * `EVENT HUBS RESOURCE NAME`
     * `EVENT HUB NAME`
 
