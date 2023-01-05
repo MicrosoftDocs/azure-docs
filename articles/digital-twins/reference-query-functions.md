@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language functions
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 01/05/2023
 ms.topic: article
 ms.service: digital-twins
 
@@ -25,9 +25,7 @@ A function to determine whether an array property of a twin (supported in DTDL V
 
 ### Syntax
 
-```sql
-ARRAY_CONTAINS(<array-to-check>,<contained-value>)
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="Array_ContainsSyntax":::
 
 ### Arguments
 
@@ -42,11 +40,7 @@ A Boolean value indicating whether the array contains the specified value.
 
 The following query returns the name of all digital twins who have an array property `floor_number`, and the array stored in this property contains a value of `2`.
 
-```sql
-SELECT T.name 
-FROM DIGITALTWINS T 
-WHERE ARRAY_CONTAINS (T.floor_number, 2) 
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="Array_ContainsExample":::
 
 ### Limitations
 
