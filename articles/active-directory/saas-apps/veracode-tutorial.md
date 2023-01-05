@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 01/05/2023
 ms.author: jeedes
 ---
 
@@ -116,7 +116,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Veracode SSO
 
-1. In a different web browser window, sign in to your Veracode company site as an administrator.
+Notes:
+
+* These instructions assume you are using the new [Single Sign On/Just-in-Time Provisioning feature from Veracode](https://docs.veracode.com/r/Signing_On). To activate this feature if it is not already active, please contact Veracode Support.  
+* These instructions are valid for all [Veracode regions](https://docs.veracode.com/r/Region_Domains_for_Veracode_APIs).
+
+1. In a different web browser window, sign in to your Veracode company site as an administrator. 
 
 1. From the menu on the top, select **Settings** > **Admin**.
    
@@ -124,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select the **SAML** tab.
 
-1. In the **Organization SAML Settings** section, perform the following steps:
+1. In the **SAML Certificate** section, perform the following steps:
 
     ![Screenshot of Organization SAML Settings section](./media/veracode-tutorial/saml.png "Administration")
 
@@ -132,18 +137,24 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. For **Assertion Signing Certificate**, select **Choose File** to upload your downloaded certificate from the Azure portal.
 
-    c. For **Self Registration**, select **Enable Self Registration**.
+    c. Note the values of the three URLs (**SAML Assertion URL**, **SAML Audience URL**, **Relaystate URL**). 
 
-1. In the **Self Registration Settings** section, perform the following steps, and then select **Save**:
+    d. Click **Save**.
+    
+1. Take the values of the **SAML Assertion URL**, **SAML Audience URL** and **Relaystate URL** and update them in the Azure Active Directory settings for the Veracode integration.
 
-    ![Screenshot of Self Registration Settings section, with various options highlighted](./media/veracode-tutorial/save.png "Administration")
+1. Select the **JIT Provisioning** tab.
 
-    a. For **New User Activation**, select **No Activation Required**.
+    ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/just-in-time.png "JIT Provisioning")
 
-    b. For **User Data Updates**, select **Preference Veracode User Data**.
+1. In the **Organization Settings** section, toggle the **Configure Default Setings for Just-in-Time user provisoining** setting to **On**. 
 
-    c. For **SAML Attribute Details**, select the following:
-      * **User Roles**
+1. In the **Basic Settings** section, for **User Data Updates**, select **Prefer Veracode User Data**.
+
+1. In the **Access Settings** section, under **User Roles**, select from the following For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions):
+
+    ![Screenshot of JIT Provisioning tab, with various options highlighted](./media/veracode-tutorial/user-roles.png "JIT Provisioning")
+
       * **Policy Administrator**
       * **Reviewer**
       * **Security Lead**
@@ -151,8 +162,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
       * **Submitter**
       * **Creator**
       * **All Scan Types**
-      * **Team Memberships**
-      * **Default Team**
 
 ### Create Veracode test user
 
