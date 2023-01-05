@@ -363,7 +363,7 @@ Group Managed Service Accounts (gMSAs) are currently not supported in Windows co
 
 ## Enable SSH
 
-Secure Shell (SSH) is commonly used to execute administrative commands remotely from a command-line terminal. In order to enable the Azure Portal SSH console feature with custom containers, the following steps are required:
+Secure Shell (SSH) is commonly used to execute administrative commands remotely from a command-line terminal. In order to enable the Azure portal SSH console feature with custom containers, the following steps are required:
 
 1. Create a standard [sshd_config](https://man.openbsd.org/sshd_config) file with the following example contents and place it on the application project root directory:
     
@@ -383,12 +383,12 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
     ```
     
     > [!NOTE]
-    > This file configures OpenSSH and must include the following items in order to comply with the Azure Portal SSH feature:
+    > This file configures OpenSSH and must include the following items in order to comply with the Azure portal SSH feature:
     > - `Port` must be set to 2222.
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
     
-2. Create an entrypoint script with the name `entrypoint.sh` (or change any existing entrypoint file) and add the command to start the SSH service, along with the application startup command. The below example demonstrates starting a Python application, please replace the last command according to the project language/stack:
+2. Create an entrypoint script with the name `entrypoint.sh` (or change any existing entrypoint file) and add the command to start the SSH service, along with the application startup command. The following example demonstrates starting a Python application. Please replace the last command according to the project language/stack:
     
     ### [Debian](#tab/debian)
     
@@ -451,7 +451,7 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
     > [!NOTE] 
     > The root password must be exactly `Docker!` as it is used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and is not accessible to an attacker on the internet.
 
-4. Rebuild and push the Docker image to the registry, then test the Web App SSH feature on Azure Portal.
+4. Rebuild and push the Docker image to the registry, and then test the Web App SSH feature on Azure portal.
 
 For further troubleshooting additional information is available at the Azure App Service OSS blog: [Enabling SSH on Linux Web App for Containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting)
 
