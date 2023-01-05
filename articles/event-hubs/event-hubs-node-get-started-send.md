@@ -100,7 +100,7 @@ In this section, you create a JavaScript application that sends events to an eve
 
    ## [Connection String](#tab/connection-string)
 
-    In the code, use real values to replace the following:
+    In the code, use real values to replace the following placeholders:
     * `EVENT HUB NAME`
     * `EVENT HUBS NAMESPACE CONNECTION STRING`
 
