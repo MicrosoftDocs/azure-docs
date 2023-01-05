@@ -9,7 +9,7 @@ ms.date: 01/05/2023
 
 ---
 
-# Manage your NGINX for Azure (preview) integration through the portal
+# Manage your NGINXaaS integration through the portal
 
 Once your NGINX resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your NGINX resource.
 
@@ -52,7 +52,7 @@ Add a new User Assigned Managed Identity.
 
 1. To edit the config file within the Editor, select the pencil icon. When you're done editing, select **Submit**.
 
-    :::image type="content" source="media/nginx-manage/nginx-config-editor.png" alt-text="Screenshot of editor for config file with Intelisense displayed.":::
+    :::image type="content" source="media/nginx-manage/nginx-config-editor.png" alt-text="Screenshot of editor for config file with Intellisense displayed.":::
 
 ## Adding certificates
 
@@ -84,7 +84,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 ## Delete an NGINX deployment
 
-To delete a deployment of NGINX for Azure (preview):
+To delete a deployment of NGINXaaS:
 
 1. From the Resource menu, select your NGINX deployment.
 
@@ -108,8 +108,6 @@ After the account is deleted, logs are no longer sent to NGINX, and all billing 
 ## GitHub Integration
 
 Enable CI/CD deployments via GitHub Actions integrations.
-
-<!-- <<Add screenshot for GitHub integration>>  -->
 
 ## Next steps
 

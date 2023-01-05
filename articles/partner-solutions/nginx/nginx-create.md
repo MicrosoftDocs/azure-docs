@@ -1,5 +1,5 @@
 ---
-title: Create an NGINX for Azure deployment
+title: Create an NGINXaaS deployment
 description: This article describes how to use the Azure portal to create an instance of NGINX.
 ms.topic: quickstart
 author: flang-msft
@@ -11,13 +11,13 @@ ms.custom: references_regions, event-tier1-build-2022
 
 # QuickStart: Get started with NGINX
 
-In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINX for Azure**.
+In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINXaaS**.
 
 ## Create new NGINX deployment
 
 ### Basics
 
-1. To create an NGINX deployment using the Marketplace, subscribe to **NGINX for Azure** in the Azure portal.
+1. To create an NGINX deployment using the Marketplace, subscribe to **NGINXaaS** in the Azure portal.
 
 1. Set the following values in the **Create NGINX Deployment** pane.
 
@@ -55,8 +55,8 @@ You can specify custom tags for the new NGINX resource in Azure by adding custom
 
     | Property | Description |
     |----------| -------------|
-    |Name | Name of the tag corresponding to the Azure NGINX resource. |
-    | Value | Value of the tag corresponding to the Azure NGINX resource. |
+    |**Name** | Name of the tag corresponding to the Azure NGINX resource. |
+    | **Value** | Value of the tag corresponding to the Azure NGINX resource. |
 
 ### Review and create
 
@@ -64,7 +64,7 @@ You can specify custom tags for the new NGINX resource in Azure by adding custom
 
     :::image type="content" source="media/nginx-create/nginx-review-and-create.png" alt-text="screenshot of review and create nginx resource":::
 
-1. Once you've reviewed all the information select **Create**. Azure now deploys the NGINX for Azure resource.
+1. Once you've reviewed all the information select **Create**. Azure now deploys the NGINXaaS resource.
 
    :::image type="content" source="media/nginx-create/nginx-deploy.png" alt-text="Screenshot showing NGINX deployment in process.":::
 

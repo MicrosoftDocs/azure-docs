@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting your NGINX for Azure deployment
-description: This article provides information about getting support and troubleshooting an NGINX for Azure integration.
+title: Troubleshooting your NGINXaaS deployment
+description: This article provides information about getting support and troubleshooting an NGINXaaS integration.
 ms.topic: conceptual
 ms.custom: event-tier1-build-2022
 author: flang-msft
@@ -26,7 +26,7 @@ You can get support for your NGINX deployment through a **New Support request**.
 
 ### Unable to create an NGINX resource as not a subscription owner  
 
-The NGINX for Azure integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
+The NGINXaaS integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
 ## Next steps
 
