@@ -20,13 +20,13 @@ When connectivity is restricted by a firewall, proxy requirement, or network sec
 
 ## Package management
 
-Azure Disk Encryption depends on a number of components, which are typically installed as part of ADE enablement if not already present. When behind a firewall or otherwise isolated from the Internet, these packages must be pre-installed or available locally.
+Azure Disk Encryption depends on many components, which are typically installed as part of ADE enablement if not already present. When behind a firewall or otherwise isolated from the Internet, these packages must be pre-installed or available locally.
 
 Here are the packages necessary for each distribution. For a full list of supported distros and volume types, see [supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
 - **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps, grub-pc-bin
 - **CentOS 7.2 - 7.9, 8.1, 8.2**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, pyparted, procps-ng, util-linux
-- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencrypt, pyparted, python-six
+- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencrypt, parted, python-six
 - **RedHat 7.2 - 7.9, 8.1, 8.2**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
 - **RedHat 6.8**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencrypt
 - **openSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
@@ -46,7 +46,7 @@ When encryption is being enabled with [Azure AD credentials](disk-encryption-lin
 
 ### Azure Instance Metadata Service 
 
-The virtual machine must be able to access the [Azure Instance Metadata service](instance-metadata-service.md) endpoint, which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
+The virtual machine must be able to access the [Azure Instance Metadata service](instance-metadata-service.md) endpoint, which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) aren't supported.
 
 ## Next steps
 
