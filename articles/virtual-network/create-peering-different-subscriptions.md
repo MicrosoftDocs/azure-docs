@@ -341,9 +341,9 @@ $id = @{
     Name = 'myVNetA'
     ResourceGroupName = 'myResourceGroupA'
 }
-$vnet = Get-AzVirtualNetwork @id
+$vnetA = Get-AzVirtualNetwork @id
 
-$vnet.id
+$vnetA.id
 ``` 
 
 # [**Azure CLI**](#tab/create-peering-cli)
@@ -351,13 +351,13 @@ $vnet.id
 The resource ID of **myVNetA** is required to set up the peering connection from **myVNetB** to **myVNetA**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetA**.
 
 ```azurecli-interactive
-vnetid=$(az network vnet show \
+vnetidA=$(az network vnet show \
     --name myVNetA \
     --resource-group myResourceGroupA \
     --query id \
     --output tsv)
 
-echo $vnetid
+echo $vnetidA
 ``` 
 
 ---
@@ -640,9 +640,9 @@ $id = @{
     Name = 'myVNetB'
     ResourceGroupName = 'myResourceGroupB'
 }
-$vnet = Get-AzVirtualNetwork @id
+$vnetB = Get-AzVirtualNetwork @id
 
-$vnet.id
+$vnetB.id
 ```
 
 # [**Azure CLI**](#tab/create-peering-cli)
@@ -650,13 +650,13 @@ $vnet.id
 The resource ID of **myVNetB** is required to set up the peering connection from **myVNetA** to **myVNetB**. Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to obtain the resource ID for **myVNetB**.
 
 ```azurecli-interactive
-vnetid=$(az network vnet show \
+vnetidB=$(az network vnet show \
     --name myVNetB \
     --resource-group myResourceGroupB \
     --query id \
     --output tsv)
 
-echo $vnetid
+echo $vnetidB
 ``` 
 
 ---
@@ -716,9 +716,9 @@ If you're using one account for both subscriptions, sign in to that account and 
 Set-AzContext -Subscription SubscriptionA
 ```
 
-### Sign in to SubscriptionB (optional)
+### Sign in to SubscriptionB
 
-If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
+Authenticate to **SubscriptionB** session so that the peering can be set up.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionB**.
 
@@ -728,18 +728,12 @@ Connect-AzAccount
 
 ### Change to SubscriptionA (optional)
 
-If you're using two accounts, you have to switch back to **SubscriptionA**.
+You may have to switch back to **SubscriptionA** to continue with the actions in **SubscriptionA**.
 
-Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign back in to **SubscriptionA**.
-
-```azurepowershell-interactive
-Connect-AzAccount
-```
-
-If you're using one account for both subscriptions, change context to **SubscriptionA**.
+Change context to **SubscriptionA**.
 
 ```azurepowershell-interactive
-Set-AzContext -Subscription SubscriptionB
+Set-AzContext -Subscription SubscriptionA
 ```
 
 ### Create peering connection
@@ -900,9 +894,9 @@ If you're using one account for both subscriptions, sign in to that account and 
 Set-AzContext -Subscription SubscriptionB
 ```
 
-## Sign in to SubscriptionA (optional)
+## Sign in to SubscriptionA
 
-If you're using one account for both subscriptions, skip this section. If you're using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be set up.
+Authenticate to **SubscriptionA** so that the peering can be set up.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionA**.
 
@@ -912,15 +906,9 @@ Connect-AzAccount
 
 ### Change to SubscriptionB (optional)
 
-If you're using two accounts, you have to switch back to **SubscriptionB**.
+You may have to switch back to **SubscriptionB** to continue with the actions in **SubscriptionB**.
 
-Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign back in to **SubscriptionB**.
-
-```azurepowershell-interactive
-Connect-AzAccount
-```
-
-If you're using one account for both subscriptions, change context to **SubscriptionB**.
+Change context to **SubscriptionB**.
 
 ```azurepowershell-interactive
 Set-AzContext -Subscription SubscriptionB
