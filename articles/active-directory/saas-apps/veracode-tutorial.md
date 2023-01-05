@@ -72,11 +72,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot of SAML Signing Certificate section, with Download link highlighted](common/certificatebase64.png)
+	![Screenshot of SAML Signing Certificate section, with Download link highlighted.](common/certificatebase64.png)
 
 1. Veracode expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Screenshot of User Attributes & Claims section](common/default-attributes.png)
+	![Screenshot of User Attributes & Claims section.](common/default-attributes.png)
 
 1. Veracode also expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them per your requirements.
 
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Veracode** section, copy the appropriate URL(s) based on your requirement.
 
-	![Screenshot of Set up Veracode section, with configuration URLs highlighted](common/copy-configuration-urls.png)
+	![Screenshot of Set up Veracode section, with configuration URLs highlighted.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -153,7 +153,7 @@ Notes:
 
 1. In the **Access Settings** section, under **User Roles**, select from the following For more information about Veracode user roles, see the [Veracode Documentation](https://docs.veracode.com/r/c_role_permissions):
 
-    ![Screenshot of JIT Provisioning User Roles, with various options highlighted](./media/veracode-tutorial/user-roles.png "JIT Provisioning")
+    ![Screenshot of JIT Provisioning User Roles, with various options highlighted.](./media/veracode-tutorial/user-roles.png "JIT Provisioning")
 
       * **Policy Administrator**
       * **Reviewer**
