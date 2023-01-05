@@ -102,59 +102,49 @@ export const requestCameraAndMicrophonePermissions = async (callClient: Stateful
 
 ### Prompting the user to grant access to the camera and microphone
 
-Now we have the prompts and check and request logic, we'll update the `PreCallChecksComponent` to prompt the user regarding device permissions.
+Now we have the prompts and check and request logic, we'll create a `DeviceAccessComponent` to prompt the user regarding device permissions.
 In this component we'll display different prompts to the user based on the device permission state:
 
 - If the device permission state is unknown, we'll display a prompt to the user informing them we're checking for device permissions.
 - If we're requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
 - If the permissions are denied, we'll display a prompt to the user informing them that they've denied permissions, and that they'll need to grant permissions to continue.
 
-`PreCallChecksComponent.tsx`
+`DeviceAccessChecksComponent.tsx`
 
 ```ts
 import { useEffect, useState } from 'react';
-import { BrowserUnsupportedPrompt } from './UnsupportedBrowserPrompt';
 import { CheckingDeviceAccessPrompt, PermissionsDeniedPrompt, AcceptDevicePermissionRequestPrompt } from './DevicePermissionPrompts';
 import { useCallClient } from '@azure/communication-react';
-import { checkBrowserSupport } from './browserSupportUtils';
-import { checkDevicePermissionsState, requestCameraAndMicrophonePermissions } from './devicePermissionUtils';
+import { checkDevicePermissionsState, requestCameraAndMicrophonePermissions } from '../helpers/devicePermissionUtils';
 
-type PreCallChecksState = 'runningChecks' |
-  'browserUnsupported' |
+export type DevicesAccessChecksState = 'runningDeviceAccessChecks' |
+  'runningDeviceAccessChecks' |
   'checkingDeviceAccess' |
   'promptingForDeviceAccess' |
-  'deniedDeviceAccess' |
-  'finished';
+  'deniedDeviceAccess';
 
 /**
  * This component is a demo of how to use the StatefulCallClient with CallReadiness Components to get a user
  * ready to join a call.
  * This component checks the browser support and if camera and microphone permissions have been granted.
  */
-export const PreCallChecksComponent = (props: {
+export const DeviceAccessChecksComponent = (props: {
   /**
    * Callback triggered when the tests are complete and successful
    */
   onTestsSuccessful: () => void
 }): JSX.Element => {
-  const [currentCheckState, setCurrentCheckState] = useState<PreCallChecksState>('runningChecks');
+  const [currentCheckState, setCurrentCheckState] = useState<DevicesAccessChecksState>('runningDeviceAccessChecks');
+  
 
   // Run call readiness checks when component mounts
   const callClient = useCallClient();
   useEffect(() => {
-    const runCallReadinessChecks = async (): Promise<void> => {
+    const runDeviceAccessChecks = async (): Promise<void> => {
 
-      // First we'll begin with a browser support check.
-      const browserSupport = await checkBrowserSupport(callClient);
-      if (!browserSupport) {
-        setCurrentCheckState('browserUnsupported');
-        // If browser support fails, we'll stop here and display a modal to the user.
-        return;
-      }
-
-      // Next we'll check if we need to prompt the user for camera and microphone permissions.
+      // First we will check if we need to prompt the user for camera and microphone permissions.
       // The prompt check only works if the browser supports the PermissionAPI for querying camera and microphone.
-      // In the event that isn't supported, we show a more generic prompt to the user.
+      // In the event that is not supported, we show a more generic prompt to the user.
       const devicePermissionState = await checkDevicePermissionsState();
       if (devicePermissionState === 'unknown') {
         // We don't know if we need to request camera and microphone permissions, so we'll show a generic prompt.
@@ -171,25 +161,21 @@ export const PreCallChecksComponent = (props: {
         // If the user denied camera and microphone permissions, we prompt the user to take corrective action.
         setCurrentCheckState('deniedDeviceAccess');
       } else {
-        setCurrentCheckState('finished');
         // Test finished successfully, trigger callback to parent component to take user to the next stage of the app.
         props.onTestsSuccessful();
       }
     };
 
-    runCallReadinessChecks();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    runDeviceAccessChecks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      {/* We show this when the browser is unsupported */}
-      <BrowserUnsupportedPrompt isOpen={currentCheckState === 'browserUnsupported'} />
-
       {/* We show this when we are prompting the user to accept device permissions */}
       <AcceptDevicePermissionRequestPrompt isOpen={currentCheckState === 'promptingForDeviceAccess'} />
 
-      {/* We show this when the PermissionsAPI isn't supported and we're checking what permissions the user has granted or denied */}
+      {/* We show this when the PermissionsAPI is not supported and we are checking what permissions the user has granted or denied */}
       <CheckingDeviceAccessPrompt isOpen={currentCheckState === 'checkingDeviceAccess'} />
 
       {/* We show this when the user has failed to grant camera and microphone access */}
@@ -197,6 +183,55 @@ export const PreCallChecksComponent = (props: {
     </>
   );
 }
+
+```
+After we have finished creating this component we will add it to the `App.tsx` file like so:
+
+```ts
+...
+import { DeviceAccessChecksComponent } from './components/DeviceAccessChecksComponent';
+...
+
+type TestingState = 'runningEnvironmentChecks' | 'runningDeviceAccessChecks' | 'finished';
+...
+
+/**
+ * Entry point of a React app.
+ *
+ * This shows a PreparingYourSession component while the CallReadinessChecks are running.
+ * Once the CallReadinessChecks are finished, the TestComplete component is shown.
+ */
+const App = (): JSX.Element => {
+  const [testState, setTestState] = useState<TestingState>('runningEnvironmentChecks');
+
+  return (
+    <FluentThemeProvider>
+      <CallClientProvider callClient={callClient}>
+        {testState === 'runningEnvironmentChecks' && (
+          <>
+            <PreparingYourSession />
+            <EnvironmentChecksComponent onTestsSuccessful={() => setTestState('runningDeviceAccessChecks')} />
+          </>
+        )}
+        
+        {/* Show a Preparing your session screen while running the call readiness checks */}
+        {testState === 'runningDeviceAccessChecks' && (
+          <>
+            <PreparingYourSession />
+            <DeviceAccessChecksComponent onTestsSuccessful={() => setTestState('deviceSetup')} />
+          </>
+        )}
+
+
+        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
+        {testState === 'finished' && <TestComplete />}
+      </CallClientProvider>
+    </FluentThemeProvider>
+  );
+}
+
+export default App;
+
 ```
 
 The app will now present the user with prompts to guide them through device access:
