@@ -93,15 +93,17 @@ The following graphic illustrates the bounded staleness consistency with musical
 
 ### Session consistency
 
-In session consistency, within a single client session reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. This assumes a single "writer" session or sharing the session token for multiple writers.
+In session consistency, within a single client session, reads are guaranteed to honor the read-your-writes, and write-follows-reads guarantees. This assumes a single “writer” session or sharing the session token for multiple writers.
 
-Clients outside of the session performing writes will see the following guarantees:
+After every write operation, the client receives an updated Session Token from the server. These tokens are cached by the client and sent to the server for read operations in a specified region. If the replica against which the read operation is issued contains data for the specified token (or a more recent token), the requested data is returned. If the replica does not contain data for that session, the client will retry the request against another replica in the region. If necessary, the client will retry the read against additional available regions until data for the specified session token is retrieved. 
 
-- Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to multiple regions for an account with multiple write regions = [Eventual](#eventual-consistency)
-- Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = [Eventual](#eventual-consistency)
+> [!IMPORTANT]
+> In Session Consistency, the client’s usage of a session token guarantees that data corresponding to an older session will never be read. However, if the client is using an older session token and more recent updates have been made to the database, the more recent version of the data will be returned despite an older session token being used. The Session Token is used as a minimum version barrier but not as a specific (possibly historical) version of the data to be retrieved from the database.
+
+If the client did not initiate a write to a physical partition, it will not contain a session token in its cache and reads to that physical partition will behave as reads with Eventual Consistency. Similarly, if the client is re-created, its cache of session tokens will also be re-created. Here too, read operations will follow the same behavior as Eventual Consistency until subsequent write operations rebuild the client’s cache of session tokens.
+
+> [!IMPORTANT]
+> If Session Tokens are being passed from one client instance to another, the contents of the token should not be modified.
 
   Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
