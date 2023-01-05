@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop Microsoft Store cl
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 01/04/2022
+ms.date: 01/04/2023
 ---
 
 # What's new in the Remote Desktop Microsoft Store client
