@@ -3,7 +3,7 @@ title: Azure Functions error handling and retry guidance
 description: Learn to handle errors and retry events in Azure Functions with links to specific binding errors, including information on retry policies.
 
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/03/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -49,7 +49,7 @@ There are two kinds of retries available for your functions: built-in retry beha
 
 | Trigger/binding | Retry source | Configuration | 
 | ---- | ---- | ----- | 
-| Azure Cosmos DB | n/a | Not configurable |
+| Azure Cosmos DB | [Retry policies](#retry-policies) | Function-level |
 | Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) |
 | Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription | 
 | Event Hubs | [Retry policies](#retry-policies) | Function-level | 

@@ -3,7 +3,7 @@
   items:
 - name: Overview
   items:
-  - name: About Defender for IoT
+  - name: Welcome to Microsoft Defender for IoT
     href: overview.md
   - name: What's new?
     items:
@@ -66,6 +66,8 @@
         href: ot-virtual-appliances.md
     - name: Supported OT protocols
       href: concept-supported-protocols.md
+    - name: Defender for IoT alerts
+      href: alerts.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
       displayName: Microsoft Sentinel, modernize SOC
@@ -94,17 +96,13 @@
     - name: Azure portal
       href: how-to-manage-cloud-alerts.md
     - name: Sensor console
-      items:
-      - name: View alerts from a sensor console
-        href: how-to-view-alerts.md
-      - name: Manage alerts from a sensor console
-        href: how-to-manage-the-alert-event.md
-      - name: Manage alert workflows from a sensor console
-        href: how-to-accelerate-alert-incident-response.md
-      - name: Forward alert data from a sensor console
-        href: how-to-forward-alert-information-to-partners.md
+      href: how-to-view-alerts.md
     - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Accelerate on-premises alert workflows
+      href: how-to-accelerate-alert-incident-response.md
+    - name: Forward on-premises alert data
+      href: how-to-forward-alert-information-to-partners.md
   - name: Visualize and monitor data
     items:
     - name: Visualize data with workbooks
@@ -126,10 +124,12 @@
   - name: Enhance security posture
     href: recommendations.md
     displayName: recommendations
-  - name: Integrate with security partners
+  - name: Integrate with partner services
     items:
     - name: Integration catalog
       href: integrate-overview.md
+    - name: Stream cloud alerts to a partner SIEM
+      href: integrations/send-cloud-data-to-partners.md
     - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
@@ -182,8 +182,14 @@
       href: how-to-manage-subscriptions.md
     - name: Onboard OT sensors
       href: onboard-sensors.md
-    - name: Install OT system software
-      href: how-to-install-software.md
+    - name: Install OT monitoring software
+      items:
+      - name: Install OT sensor software
+        href: ot-deploy/install-software-ot-sensor.md
+      - name: Install on-premises management console software
+        href: ot-deploy/install-software-on-premises-management-console.md
+      - name: Validate after installation
+        href: ot-deploy/post-install-validation-ot-software.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Deploy OT certificates
@@ -281,6 +287,8 @@
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
       - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
+      - name: Dell PowerEdge R350
+        href: appliance-catalog/dell-poweredge-r350-e1800.md
     - name: Production line
       items:
       - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
@@ -339,8 +347,14 @@
         href: api/management-integration-apis.md
   - name: Sensor health message reference
     href: sensor-health-messages.md
-  - name: Defender for IoT CLI commands
-    href: references-work-with-defender-for-iot-cli-commands.md
+  - name: Defender for IoT CLI
+    items:
+    - name: CLI users and access
+      href: references-work-with-defender-for-iot-cli-commands.md
+      displayName: shell, login, cli, command-line, commands, users, user
+    - name: OT sensor CLI reference
+      href: cli-ot-sensor.md
+      displayName: shell, login, cli, command-line, commands, users, user
   - name: Frequently asked questions
     items:
     - name: General FAQ

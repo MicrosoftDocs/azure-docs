@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 12/27/2022
+ms.date: 01/03/2023
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -14,6 +14,22 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## January 2023
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | **Version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)  |
+
+### Azure connectivity status shown on OT sensors
+
+Details about Azure connectivity status are now shown on the **Overview** page in OT network sensors, and errors are shown if the sensor's connection to Azure is lost.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of the Azure connectivity status shown on the OT sensor's Overview page.":::
+
+For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md) and [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
 ## December 2022
 
@@ -350,8 +366,7 @@ The sensor console is also synchronized with an on-premises management console, 
 For more information, see:
 
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [View alerts on your sensor](how-to-view-alerts.md)
-- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
+- [View and manage alerts on your sensor](how-to-view-alerts.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
 ### Sensor connections restored after certificate rotation
@@ -667,7 +682,7 @@ The sensor console's **Custom alert rules** page now provides:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png" alt-text="Screenshot of the updated Custom alerts dialog. "lightbox="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png":::
 
-For more information and the updated custom alert procedure, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).
+For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor).
 
 ### CLI command updates
 
