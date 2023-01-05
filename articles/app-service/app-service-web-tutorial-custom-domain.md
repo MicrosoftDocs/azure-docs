@@ -5,7 +5,7 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: tutorial
-ms.date: 05/27/2021
+ms.date: 01/02/2022
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
 
@@ -19,8 +19,6 @@ In this tutorial, you learn how to:
 > * Map a subdomain by using a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record).
 > * Map a root domain by using an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A).
 > * Map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record) by using a CNAME record.
-> * Redirect the default URL to a custom directory.
-
 
 ## 1. Prepare your environment
 
@@ -65,6 +63,14 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
 ## 3. Create the DNS records
 
+The DNS record type you need to add with your domain provider depends on the domain you want to add to App Service.
+
+| Scenario | Example | Recommended DNS record |
+| - | - | - | - |
+| Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)). |
+| Subdomain | www.contoso.com, my.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. | 
+| [Wildcard](https://en.wikipedia.org/wiki/Wildcard_DNS_record) | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). |
+
 1. Sign in to the website of your domain provider.
 
     You can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
@@ -83,13 +89,6 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
 1. Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
 
-### DNS record types
-
-| Scenario | Example | Recommended DNS record |
-| - | - | - | - |
-| Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)). |
-| Subdomain | www.contoso.com, my.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. | 
-| [Wildcard](https://en.wikipedia.org/wiki/Wildcard_DNS_record) | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). |
 # [A](#tab/a)
 
 - For a root domain like `contoso.com`, create two records according to the following table:
