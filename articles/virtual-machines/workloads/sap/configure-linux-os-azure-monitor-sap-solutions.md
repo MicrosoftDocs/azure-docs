@@ -63,6 +63,7 @@ The provider settings validation operation has failed with code ‘PrometheusURL
 1. Try to restart the node exporter agent:
     1. cd to the folder where you installed the node exporter. (node_exporter-*.*-amd64)
     1. ./node_exporter
+1. Please verify if the prometheus endpoint provided is reachable from the subnet provided while creating Azure Monitor for Sap Solutions resource.
 
 ## Next steps
 
