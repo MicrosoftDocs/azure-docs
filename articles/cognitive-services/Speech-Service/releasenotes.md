@@ -1,7 +1,7 @@
 ---
-title: Release notes - Speech Service
+title: What's new - Speech Service
 titleSuffix: Azure Cognitive Services
-description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
+description: Find out about new releases and features for the Azure Cognitive Service for Speech.
 services: cognitive-services
 manager: nitinme
 author: eric-urban
@@ -9,16 +9,19 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 11/14/2022
+ms.date: 01/04/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
-# Speech service release notes
+# What's new in Azure Cognitive Service for Speech?
+
+Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 See below for information about new features and other changes to the Speech service.
 
-## What's new?
+## Recent highlights
 
+* Text-to-speech Batch synthesis API is available in public preview.
 * Speech-to-text REST API version 3.1 is generally available.
 * Speech SDK 1.24.0 and Speech CLI 1.24.0 were released in October 2022. 
 * Speech-to-text and text-to-speech container versions were updated in October 2022.

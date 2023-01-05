@@ -389,7 +389,7 @@
       href: troubleshoot-client-ios-ipados.md
     - name: Android/Chrome OS client
       href: troubleshoot-client-android-chrome-os.md
-    - name: Windows Microsoft Store client
+    - name: Microsoft Store client
       href: troubleshoot-client-microsoft-store.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
