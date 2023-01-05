@@ -1,11 +1,11 @@
 ---
 title: Choose a deployment method for the MedTech service - Azure Health Data Services
-description: In this article, you'll learn how to choose a method to deploy the MedTech service.
+description: In this article, you'll learn about the different methods for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/27/2022
+ms.date: 1/4/2023
 ms.author: jasteppe
 ---
 
@@ -16,23 +16,23 @@ The MedTech service provides multiple methods for deployment into Azure. Each de
 In this quickstart, you'll learn about these deployment methods:
 
 > [!div class="checklist"]
-> - Azure Resource Manager template (ARM template) with the **Deploy to Azure** button.
-> - Azure PowerShell or the Azure CLI.
-> - Azure portal manual deployment. 
+> - Azure Resource Manager template (ARM template) using the **Deploy to Azure** button.
+> - ARM template using Azure PowerShell or the Azure CLI.
+> - Azure portal manually. 
 
-## Azure Resource Manager template with the Deploy to Azure button
+## ARM template using the Deploy to Azure button
 
 Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal.
 
-To learn more about using an ARM template and the **Deploy to Azure button**, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md).
+To learn more about using an ARM template with the **Deploy to Azure button**, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md).
 
-## Azure PowerShell or the Azure CLI
+## ARM template using Azure PowerShell or the Azure CLI
 
-Using Azure PowerShell or the Azure CLI to deploy an ARM template is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments.
+Using an ARM template with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments.
 
 To learn more about using an ARM template with Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md).
 
-## Azure portal manual deployment
+## Azure portal manually
 
 Using the Azure portal manual deployment will allow you to see the details of each deployment step. The manual deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
 

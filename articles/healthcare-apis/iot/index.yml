@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 12/19/2022
+  ms.date: 1/5/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -40,9 +40,9 @@ landingContent:
             url: deploy-new-choose.md
       - linkListType: quickstart
         links:     
-          - text: Azure Resource Manager template
+          - text: ARM template
             url: deploy-new-button.md
-          - text: Azure PowerShell or Azure CLI
+          - text: Azure PowerShell or the Azure CLI
             url: deploy-new-powershell-cli.md
           - text: Azure Bicep
             url: deploy-new-bicep-powershell-cli.md

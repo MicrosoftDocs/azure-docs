@@ -32,7 +32,7 @@ After you complete the prerequisites, you should have a simple web application c
 
 To implement dynamic styling, a feature - such as a meeting or conference room - must be referenced by its feature `id`. You use the feature `id` to update the dynamic property or *state* of that feature. To view the features defined in a dataset, you can use one of the following methods:
 
-* WFS API (Web Feature service). You can use the [WFS API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r4.html). The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+* WFS API (Web Feature service). You can use the [WFS API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](https://docs.opengeospatial.org/DRAFTS/17-069r4.html). The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 * Implement customized code that a user can use to select features on a map using your web application. We use this option in this article.  
 
