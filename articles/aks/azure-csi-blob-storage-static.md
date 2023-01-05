@@ -28,7 +28,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
-volumeHandle | a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`. Be aware the character `#` is reserved for internal use and cannot be used in a volume handle. | Yes |
+|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: {account-name}_{container-name}. Note: The # character is reserved for internal use and can't be used in a volume handle. | Yes ||
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify existing Azure storage account name. | storageAccountName | Yes ||
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
