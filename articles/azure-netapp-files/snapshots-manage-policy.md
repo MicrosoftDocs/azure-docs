@@ -79,7 +79,7 @@ You cannot apply a snapshot policy to a destination volume in cross-region repli
 You can modify an existing snapshot policy to change the policy state, snapshot frequency (hourly, daily, weekly, or monthly), or number of snapshots to keep.
 
 >[!IMPORTANT]
->When modifying a snapshot policy, make note of the naming format. Snapshot policies created or modified before March 2022 will have a long name, for example `daily-0-min-past-1am.2022-11-03_0100`, while snapshot policies created or modified after March 2022 will have a shorter name, for example `daily.2022-11-29_0100`.
+>When modifying a snapshot policy, make note of the naming format. Snapshot created with policies modified before March 2022 will have a long name, for example `daily-0-min-past-1am.2022-11-03_0100`, while snapshot created with policies after March 2022 will have a shorter name, for example `daily.2022-11-29_0100`.
 >
 > If your snapshot policy is creating snapshots using the long naming convention, modifications to the snapshot policy will not be applied to existing snapshots. The snapshots created with the old schedule will not be deleted or overwritten by the new schedule or disable the schedule. You will have to manually delete the old snapshots.
 >
