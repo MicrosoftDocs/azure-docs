@@ -23,6 +23,15 @@ Organizations that are opting to provide a better experience for their end users
 
 Apple has developed an **[SSO extension framework](https://devstreaming-cdn.apple.com/videos/tutorials/20190910/301fgloga45ths/introducing_extensible_enterprise_sso/introducing_extensible_enterprise_sso.pdf?dl=1)** where when deployed via Mobile Device Management (MDM) to a macOS device, functions as an authentication broker for a collection of applications secured by the same Identity provider (IdP). Microsoft has implemented a plugin built on top Apple's SSO framework, which provides brokered authentication (auth) for applications integrated with Microsoft Entra Azure Active Directory (AAD). For more details please see the article [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
 
+### Redirect vs Credential Extension Types
+Apple supports two distinct types of SSO Extensions that are part of its framework: **Redirect** and **Credential**. The Microsoft Enterprise SSO plugin has been implemented as a Redirect type and is best suited for brokering authentication to Azure AD.  The following table compares the two types of extensions.
+
+|**Extension Type**|**Best Suited For**|**How it Works**|**Key Differences**|
+|---------|---------|---------|---------|
+|Redirect|Modern authentication methods such as OpenID Connect, OAUTH2, and SAML (Azure Active Directory)| Operating System intercepts the authentication request from the application to the Identity provider URLs defined in the extension MDM configuration profile. Redirect extensions receive: URLs, headers, and body.| Request credentials before requesting data. Uses URLs in MDM configuration profile|
+|Credential|Challenge and response authentication types like **Kerberos** (On-Premises Active Directory Domain Services)| Request is sent from the application to the authentication server (AD domain controller). Credential extensions are configured with HOSTS in the MDM configuration profile, if the authentication server returns a challenge that matches a host listed in the profile, the operating system will route the challenge to the extension. The extension has the choice of handling or rejecting the challenge. If handled, the extension returns the authorization headers to complete the request and authentication server will return response to the caller.|Request data then get challenged for authentication. Use HOSTs in MDM configuration profile |
+
+
 Microsoft has implementations for brokered authentication for the following client operating systems:
 
 
@@ -114,10 +123,23 @@ Assuming the MDM administrator has followed the steps in the previous section [M
 1. When the **Spotlight Search** appears type **Profiles** and hit **return**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/launch-profiles-from-spotlight.png" alt-text="screenshot showing Profiles being launched from spotlight":::
 1. This should bring up the **Profiles** panel within the **System Settings**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/profiles-within-system-settings.png" alt-text="Screenshot showing configuration profiles":::
+    
     >[!NOTE] 
     >Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  By double-clicking each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
 1. Double-click on the configuration profile that matches a **Settings** value of **Single Sign On Extension**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-config-profile.png" alt-text="screenshot showing sso extension configuration profile":::
+    
+    All Apple SSO Redirect Extensions must have the following MDM Payload components in the configuration profile:
+    
+    |Payload Component|Description  |
+    |---------|---------|
+    |**Extension Identifier**     |Includes both the Bundle Identifier and Team Identifier of the application on the macOS device, that is running the Extension. Note: The Microsoft Enterprise SSO Extension should always be set to: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)** to inform the macOS operating system that the extension client code is part of the **Intune Company Portal application**.         |
+    |**Type**     |Must be set to **Redirect** to indicate a **Redirect Extension** type         |
+    |**URLs**     |These are endpoint URLs of the identity provider (Azure AD), where the operating system routes authentication requests to the extension         |
+    |**Optional Extension Specific Configuration**    |These are dictionary values that may act as configuration parameters. Microsoft Enterprise SSO Extension refers to these as feature flags. See [feature flag definitions](../develop/apple-sso-plugin.md#more-configuration-options).          |
+
+    
+
     >[!NOTE] 
     >The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
 1. To verify that we have the correct profile for the Microsoft Apple SSO Extension the  **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**
@@ -145,15 +167,19 @@ If the SSO extension configuration profile does not appear in the **Profiles** a
 ## Application Auth Flow Troubleshooting
 The guidance in this section assumes that the macOS device has a correctly deployed configuration profile. See [Validate SSO Configuration Profile on macOS Device](#validate-sso-configuration-profile-on-macos-device) for the steps.
 
-Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** supports two types of application authentication flows:
+ 
 
-1. Native MSAL App
-1. Non-MSAL Native/Browser SSO
+ 
+
+
+Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** supports two types of application authentication flows for each application type:
+
+
 
 
 |**Application Type**  |**Interactive Auth**  |**Silent Auth**  |
 |---------|---------|---------|
-|Native MSAL App     |    X     |    X     |
-|Non-MSAL Native/Browser SSO     |         |    X     |
+| [**Native MSAL App**](../develop/apple-sso-plugin.md#applications-that-use-msal)     |    X     |    X     |
+|[**Non-MSAL Native/Browser SSO**](../develop/apple-sso-plugin.md#applications-that-dont-use-msal)     |         |    X     |
 
 
