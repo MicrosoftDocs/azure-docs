@@ -11,27 +11,27 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Push and pull supply chain artifacts using Azure Registry (Preview)
 
-Use an Azure container registry to store and manage a graph of artifacts, including signatures, software bill of materials (SBoM), security scan results or other types. 
+Use an Azure container registry to store and manage a graph of supply chain artifacts along side container images, including signatures, software bill of materials (SBoM), security scan results or other types. 
 
 ![Graph of artifacts, including a container image, signature and signed software bill of materials](./media/container-registry-artifacts/oras-artifact-graph.svg)
 
-To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) tool to push and pull a graph of artifacts to an Azure container registry.
+To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) tool to push and pull a graph of supply chain artifacts to an Azure container registry. 
 
-ORAS Artifacts support is a preview feature and subject to [limitations](#preview-limitations). It requires [zone redundancy](zone-redundancy.md), which is available in the Premium service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+Supply chain artifact is a type of [OCI Artifact Manifest][oci-artifact-manifest]. OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). 
 
 ## Prerequisites
 
-* **ORAS CLI** - The ORAS CLI enables attach, copy, push, discover, pull of artifacts to an ORAS Artifacts enabled registry.
+* **ORAS CLI** - The ORAS CLI enables attach, copy, push, discover, pull of artifacts to an OCI Artifact Manifest enabled registry. 
 * **Azure CLI** - To create an identity, list and delete repositories, you need a local installation of the Azure CLI. Version 2.29.1 or later is recommended. Run `az --version `to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker (optional)** - To complete the walkthrough, a container image is referenced. You can use Docker installed locally to build and push a container image, or reference an existing container image. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Preview limitations
 
-ORAS Artifacts support is not available in the government or China clouds, but available in all other regions.
+OCI Artifact Manifest support is not available in the government or China clouds, but available in all other regions.
 
 ## ORAS installation
 
-Download and install a preview ORAS release for your operating system. See [ORAS installation instructions][oras-install-docs] for how to extract and install the file for your operating system. This article uses ORAS CLI 0.14.1 to demonstrate how to manage supply chain artifacts in ACR.
+Download and install a preview ORAS release for your operating system. See [ORAS installation instructions][oras-install-docs] for how to extract and install ORAS for your operating system. This article uses ORAS CLI 0.16.0 to demonstrate how to manage supply chain artifacts in ACR.
 
 ## Configure a registry
 
@@ -52,9 +52,9 @@ If needed, run the [az group create](/cli/azure/group#az-group-create) command t
 ```azurecli
 az group create --name $ACR_NAME --location southcentralus
 ```
-### Create ORAS Artifact enabled registry
+### Create OCI Artifact Manifest enabled registry
 
-Preview support for ORAS Artifacts requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az-acr-create) command to create an ORAS Artifacts enabled registry. See the `az acr create` command help for more registry options.
+Preview support for OCI Artifact Manifest requires Zone Redundancy, which requires a Premium service tier, in the South Central US region. Run the [az acr create](/cli/azure/acr#az-acr-create) command to create an OCI Artifact Manifest enabled registry. See the `az acr create` command help for more registry options.
 
 ```azurecli
 az acr create \
@@ -65,7 +65,7 @@ az acr create \
   --output jsonc
 ```
 
-In the command output, note the `zoneRedundancy` property for the registry. When enabled, the registry is zone redundant, and ORAS Artifact enabled.
+In the command output, note the `zoneRedundancy` property for the registry. When enabled, the registry is zone redundant, and OCI Artifact Manifest enabled.
 
 ```output
 {
@@ -177,13 +177,13 @@ Attach the multi-file artifact as a reference.
 ```bash
 oras attach $IMAGE \
     ./readme.md:application/markdown \
-    ./readme-details.md:application/markdown
+    ./readme-details.md:application/markdown \
     --artifact-type readme/example
 ```
 
 ## Discovering artifact references
 
-The ORAS Artifacts Specification defines a [referrers API][oras-artifacts-referrers] for discovering references to a `subject` artifact. The `oras discover` command can show the list of references to the container image.
+The [OCI v1.1 Specification][oci-spec] defines a [referrers API][oci-artifacts-referrers] for discovering references to a `subject` artifact. The `oras discover` command can show the list of references to the container image.
 
 Using `oras discover`, view the graph of artifacts now stored in the registry.
 
@@ -203,7 +203,7 @@ myregistry.azurecr.io/net-monitor:v1
 
 ## Creating a deep graphs of artifacts
 
-The ORAS Artifacts specification enables deep graphs, enabling signed software bill of materials (SBoM) and other artifact types.
+The OCI v1.1 Specification enables deep graphs, enabling signed software bill of materials (SBoM) and other artifact types.
 
 ### Create a sample SBoM
 
@@ -226,7 +226,7 @@ Artifacts that are pushed as references, typically do not have tags as they are 
 ```bash
 SBOM_DIGEST=$(oras discover -o json \
                 --artifact-type sbom/example \
-                $IMAGE | jq -r ".referrers[0].digest")
+                $IMAGE | jq -r ".manifests[0].digest")
 ```
 
 Create a signature of an SBoM
@@ -270,7 +270,7 @@ To pull a referenced type, the digest of reference is discovered with the `oras 
 ```bash
 DOC_DIGEST=$(oras discover -o json \
               --artifact-type 'readme/example' \
-              $IMAGE | jq -r ".referrers[0].digest")
+              $IMAGE | jq -r ".manifests[0].digest")
 ```
 
 ### Create a clean directory for downloading
@@ -291,7 +291,7 @@ ls ./download
 
 ## View the repository and tag listing
 
-ORAS Artifacts enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. This enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBoMs that are associated with the container images, helm charts and other artifacts.
+OCI Artifact Manifest enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. This enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBoMs that are associated with the container images, helm charts and other artifacts.
 
 ### View a list of tags
 
@@ -356,7 +356,7 @@ The signature is untagged, but tracked as a `oras.artifact.manifest` reference t
 ```
 ## Delete all artifacts in the graph
 
-Support for the ORAS Artifacts specification enables deleting the graph of artifacts associated with the root artifact. Use the [az acr repository delete][az-acr-repository-delete] command to delete the signature, SBoM and the signature of the SBoM.
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the root artifact. Use the [az acr repository delete][az-acr-repository-delete] command to delete the signature, SBoM and the signature of the SBoM.
 
 ```azurecli
 az acr repository delete \
@@ -376,7 +376,7 @@ az acr manifest list-metadata \
 ## Next steps
 
 * Learn more about [the ORAS CLI](https://oras.land/cli/)
-* Learn more about [ORAS Artifacts][oras-artifacts] for how to push, discover, pull, copy a graph of supply chain artifacts
+* Learn more about [OCI Artifact Manifest][oci-artifact-manifest] for how to push, discover, pull, copy a graph of supply chain artifacts
 
 <!-- LINKS - external -->
 [docker-linux]:         https://docs.docker.com/engine/installation/#supported-platforms
@@ -384,7 +384,10 @@ az acr manifest list-metadata \
 [docker-windows]:       https://docs.docker.com/docker-for-windows/
 [oras-install-docs]:    https://oras.land/cli/
 [oras-docs]:       https://oras.land/
-[oras-artifacts]:       https://github.com/oras-project/artifacts-spec/
+[oci-artifacts-referrers]:  https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
+[oci-artifact-manifest]:  https://github.com/opencontainers/image-spec/blob/main/artifact.md/
+[oci-spec]:  https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
+
 <!-- LINKS - internal -->
 [az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
