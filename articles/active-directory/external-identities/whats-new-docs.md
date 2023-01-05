@@ -15,6 +15,15 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## December 2022
+
+### Updated articles
+
+- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
+- [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md)
+- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
+- [Auditing and reporting a B2B collaboration user](auditing-and-reporting.md)
+
 ## November 2022
 
 ### Updated articles
@@ -45,22 +54,3 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md)
 - [Add Microsoft account (MSA) as an identity provider for External Identities](microsoft-account.md)
 - [How users in your organization can invite guest users to an app](add-users-information-worker.md)
-
-## September 2022
-
-### Updated articles
-
-- [Self-service sign-up](self-service-sign-up-overview.md)
-- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
-- [Azure Active Directory (Azure AD) identity provider for External Identities](azure-ad-account.md)
-- [Add Google as an identity provider for B2B guest users](google-federation.md)
-- [Email one-time passcode authentication](one-time-passcode.md)
-- [Add B2B collaboration guest users without an invitation link or email](add-user-without-invite.md)
-- [Identity Providers for External Identities](identity-providers.md)
-- [Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users](bulk-invite-powershell.md)
-- [B2B collaboration user claims mapping in Azure Active Directory](claims-mapping.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
-- [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md)
-- [Leave an organization as an external user](leave-the-organization.md)
-- [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
