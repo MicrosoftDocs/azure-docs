@@ -140,7 +140,13 @@ sections:
            GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
            ```
 
-       
+       - question: |
+        After a CRL endpoint is configured, end users are not able to login with the following diagnostic message:
+        AADSTS500173: Unable to download CRL. Invalid status code Forbidden from CRL distribution point
+        errorCode: 500173
+        answer: |
+          This is commonly seen with a customer's firewall rule setting which blocks access to the CRL endpoint.
+
           
 additionalContent: |
   ## Next steps
