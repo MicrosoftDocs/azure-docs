@@ -48,7 +48,7 @@ npm install @azure/event-hubs
 
 [!INCLUDE [event-hub-passwordless-template-tabbed](../../includes/passwordless/event-hub/event-hub-passwordless-template-tabbed-basic.md)]
 
-## Write code to send events to the event hub
+## Send events
 
 In this section, you create a JavaScript application that sends events to an event hub.
 
