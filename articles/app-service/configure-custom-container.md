@@ -407,6 +407,7 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
     /usr/sbin/sshd
     exec gunicorn -w 4 -b 0.0.0.0:8000 app:app
     ```
+    ---
 
 3. Add to the Dockerfile the following instructions according to the base image distribution. The same will copy the new files, install OpenSSH server, set proper permissions and configure the custom entrypoint, and expose the ports required by the application and SSH server, respectively:
 
@@ -445,6 +446,7 @@ Secure Shell (SSH) is commonly used to execute administrative commands remotely 
 
     ENTRYPOINT [ "./entrypoint.sh" ]
     ```
+    ---
 
     > [!NOTE] 
     > The root password must be exactly `Docker!` as it is used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and is not accessible to an attacker on the internet.
