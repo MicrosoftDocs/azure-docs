@@ -13,6 +13,8 @@ ms.custom: template-concept
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
+
 [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage access to your SAP resources and workloads within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
 
 *Users* or *user-assigned managed identities* require minimum roles or permissions to use the different capabilities in Azure Center for SAP solutions.

@@ -3,7 +3,7 @@ title: Deploy S/4HANA infrastructure (preview)
 description: Learn how to deploy S/4HANA infrastructure with Azure Center for SAP solutions through the Azure portal. You can deploy High Availability (HA), non-HA, and single-server configurations.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 01/15/2023
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -12,6 +12,8 @@ author: lauradolan
 # Deploy S/4HANA infrastructure with Azure Center for SAP solutions (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
+
+[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
 
 In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azure Center for SAP solutions*. There are [three deployment options](#deployment-types): distributed with High Availability (HA), distributed non-HA, and single server. 
 
