@@ -34,7 +34,7 @@ For workload specific versions, see [here.](/azure/hdinsight/hdinsight-40-compon
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
 * **Ambari** user auto UI logout due to inactivity. For more information, see [here](/azure/hdinsight/ambari-web-ui-auto-logout)
-* **Spark** - A new and optimized version of Spark 3.1 is included in this release which is twice as fast as before.
+* **Spark** - A new and optimized version of Spark 3.1 is included in this release which is twice as fast as before. We compared Apache Spark 2.4, Apache Spark 3.1.2(previous image) and Apache Spark 3.1.2 (current version) using the TPC-DS benchmark. The test is carried out using e8 V3  SKU's to decide the optimal cluster configurations for Apache Spark on 1TB workload. Apache Spark 3.1 Optimized outperformed Apache Spark 3.1.2 (previous image) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. For more information, see [Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
 ![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
 
