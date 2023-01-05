@@ -24,6 +24,8 @@ adobe-target: true
 
 As an Azure Active Directory (Azure AD) [B2B collaboration](what-is-b2b.md) or [B2B direct connect](b2b-direct-connect-overview.md) user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
 
+## Before you begin
+
 You can usually leave an organization on your own without having to contact an administrator. However, in some cases this option won't be available and you'll need to contact your tenant admin, who can delete your account in the external organization. This article is intended for administrators. If you're a user looking for information about how to manage and leave an organization, see the [Manage organizations article.](https://support.microsoft.com/account-billing/manage-organizations-for-a-work-or-school-account-in-the-my-account-portal-a9b65a70-fec5-4a1a-8e00-09f99ebdea17)
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
@@ -33,7 +35,9 @@ You can usually leave an organization on your own without having to contact an a
 1. To view the organizations you belong to, first open your **My Account** page. You either have a work or school account  created by an organization or a personal account such as for Xbox, Hotmail, or Outlook.com.  
 
    - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
-   - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your tenant name or tenant ID, for example: https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com or https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789.
+   - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your **Primary domain** or **Tenant ID**.
+   
+   As an example: https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com or https://myaccount.microsoft.com?tenantId=11111111-aaaa-2222-bbbb-333333333333.
 
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
