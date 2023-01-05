@@ -27,7 +27,7 @@ to the folder where you want to keep your samples.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-Run this command:
+Run these commands:
 
 ```shell
 npm install @azure/event-hubs
