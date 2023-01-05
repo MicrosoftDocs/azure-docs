@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/13/2022
+ms.date: 01/05/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -18,11 +18,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# What is Azure Active Directory recommendations (preview)?
+# What is Azure Active Directory recommendations?
 
-This feature is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure AD recommendations (preview) feature helps monitor the status of your tenant so you don't have to. Azure AD recommendations helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
+Keeping track of all the settings and resources in your tenant can be overwhelming. The Azure AD recommendations feature helps monitor the status of your tenant so you don't have to. Azure AD recommendations helps ensure your tenant is in a secure and healthy state while also helping you maximize the value of the features available in Azure AD.
 
 The Azure AD recommendations feature provides you personalized insights with actionable guidance to:
 
@@ -86,35 +84,31 @@ The following roles provide *update and read-only* access to recommendations:
 - Cloud apps Administrator
 - Apps Administrator
 
-Any role can enable the Azure AD recommendations preview, but you'll need one of the roles listed above to view or update recommendations. Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed.
+Azure AD recommendations is automatically enabled. If you'd like to disable this feature, go to **Azure AD** > **Preview features**. Locate the **Recommendations** feature, and change the **State**.
+
+Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Some recommendations are available in all tenants, regardless of the license type. Some recommendations are only available with the [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md). 
 
 Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address. The only action recorded in the audit log is completing recommendations. Actions taken on a recommendation are collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
 
-The table below provides the impacted resources and links available documentation.
+The recommendations listed in the following table are available to all Azure AD tenants. The table provides the impacted resources and links to available documentation.
 
 | Recommendation  | Impacted resources |
 |---- |---- |
 | [Convert per-user MFA to Conditional Access MFA](recommendation-turn-off-per-user-mfa.md) | Users |
-| [Integrate 3rd party applications](recommendation-integrate-third-party-apps.md) | Tenant level |
 | [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Users |
 | [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users |
 | [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users |
 
-## How to access Azure AD recommendations (preview)
+The recommendations listed in the following table are available to Azure AD tenants with a Workload Identities premium license. 
 
-To enable the Azure AD recommendations preview:
+| Recommendation  | Impacted resources |
+|---- |---- |
+| Remove unused applications | Applications | Workload Identities |
+| Remove unused credentials from applications | Applications | Workload Identities |
+| Renew expiring application credentials | Applications | Workload Identities |
+| Renew expiring service principal credentials | Applications | Workload Identities |
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Go to **Azure AD** > **Preview features** and enable **Azure AD recommendations.**
-   - Recommendations may take a few minutes to sync.  
-   - While anyone can enable the preview feature, you'll need a [specific role](overview-recommendations.md#what-you-should-know) to view or update a recommendation. 
-
-    ![Screenshot of the Enable Azure AD recommendations option](./media/overview-recommendations/enable-azure-ad-recommendations.png)
-
-After the preview is enabled, you can view the available recommendations from the Azure AD administration portal. The Azure AD recommendations feature appears on the **Overview** page of your tenant.
-
-## How to use Azure AD recommendations (preview)
+## How to use Azure AD recommendations
 
 1. Go to **Azure AD** > **Recommendations**.
 
