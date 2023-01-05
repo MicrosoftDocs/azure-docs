@@ -10,7 +10,6 @@ ms.date: 12/23/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 #Customer intent: As a developer, I want to learn how to correctly use Raw ID so that I can build applications that run efficiently.
-zone_pivot_groups: acs-js-csharp-python-java
 ---
 
 # Raw ID use cases in Communication SDKs
@@ -32,26 +31,30 @@ On top of that, the ability to instantiate a *CommunicationIdentifier* from Raw 
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
 - Use identifiers as a keys in declarative UI frameworks such as React to avoid unnecessary re-rendering.
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [Raw ID in the JavaScript SDK](./includes/raw-ids/raw-ids-js.md)]
-::: zone-end
+### Creating CommunicationIdentifier and retrieving Raw ID
+*CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a any type derived from *CommunicationIdentifier*. It removes the need of any custom serialization methods that might take in only certain object properties and omit others. For example, the `MicrosoftTeamsUserIdentifier` has multiple properties such as `IsAnonymous` or `Cloud` or methods to retrieve these values (depending on a platform). Using methods provided by Communication Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [Raw ID in the .NET SDK](./includes/raw-ids/raw-ids-net.md)]
-::: zone-end
+Get Raw ID from CommunicationUserIdentifier:
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Raw ID in the Python SDK](./includes/raw-ids/raw-ids-python.md)]
-::: zone-end
+```csharp
+CommunicationIdentifier communicationIdentifier;
+String rawId = communicationIdentifier.RawId
+```
 
-::: zone pivot="programming-language-java"
-[!INCLUDE [Raw ID in the Java SDK](./includes/raw-ids/raw-ids-java.md)]
-::: zone-end
+Instantiate CommunicationUserIdentifier from a Raw ID:
+
+```csharp
+String rawId = "8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130";
+CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRawId(rawId);
+```
+
+You can find more platform-specific examples in the following article: [Understand identifier types](./identifiers.md)
 
 ## Storing CommunicationIdentifier in a database
 Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is stable, globally unique, and deterministic. The guaranteed uniqueness allows choosing it as a key in the storage. You can map ACS users' IDs to the users coming from the Contoso identity provider. 
 
 Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Communication Identity, Calling or Chat APIs or from a custom Contoso API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
+
 ```csharp
 public class ContosoUser
 {
@@ -62,6 +65,7 @@ public class ContosoUser
 ```
 
 You can access `RawId` property of the `CommunicationId` to get a string that can be stored in the database:
+
 ```csharp
 public void StoreToDatabase()
 {
@@ -78,6 +82,7 @@ public void StoreToDatabase()
 ```
 
 If you want to get `CommunicationIdentifier` from the stored Raw ID, you need to pass the raw string to `FromRawId()` method:
+
 ```csharp
 public void GetFromDatabase()
 {
@@ -89,6 +94,7 @@ It will return `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `Microsof
   
 ## Storing CommunicationIdentifier in collections
 If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). This is useful, for example, for maintaining a list of call or chat participants. As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The following examples demonstrate adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for identifiers that are converted to an *UnknownIdentifier* type, which is reserved for any new types of identifiers that might be introduced in the future, to maintain the compatibility in older SDK versions.
+
 ```csharp
 public void StoreMessagesForContosoUsers()
     {
@@ -134,6 +140,28 @@ public void StoreContosoUsersInOrderTheyJoin()
         // Add a new participant when having a Raw ID.
         participants.Add(CommunicationIdentifier.FromRawId("8:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130"));
     }
+```
+
+Another use case is using Raw IDs in mobile applications to identify participants. You can inject the participant view data for remote participant if you want to handle this information locally in the UI library without sending it to Azure Communication Services.
+This view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. 
+Both the participant CommunicationIdentifier and Raw ID retrieved from it can be used to uniquely identify a remote participant.
+
+```swift
+callComposite.events.onRemoteParticipantJoined = { identifiers in
+  for identifier in identifiers {
+    // map identifier to displayName
+    let participantViewData = ParticipantViewData(displayName: "<DISPLAY_NAME>")
+    callComposite.set(remoteParticipantViewData: participantViewData,
+                      for: identifier) { result in
+      switch result {
+      case .success:
+        print("Set participant view data succeeded")
+      case .failure(let error):
+        print("Set participant view data failed with \(error)")
+      }
+    }
+  }
+}    
 ```
 
 ## Using Raw ID as key in REST API paths
@@ -183,6 +211,7 @@ You can access properties or methods for a specific *CommunicationIdentifier* ty
 
 ## Using Raw IDs as key in UI frameworks
 It's possible to use Raw ID of an identifier as a key in UI components to track a certain user and avoid unnecessary re-rendering and API calls.
+
 ```react
 import { getIdentifierRawId } from '@azure/communication-common';
 
@@ -205,29 +234,6 @@ render() {
       </div>
     );
 }
-```
-
-## Using Raw IDs in mobile applications to identify participants
-You can inject the participant view data for remote participant if you want to handle this information locally in the UI library without sending it to Azure Communication Services.
-This view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. 
-Both the participant CommunicationIdentifier and Raw ID retrieved from it can be used to uniquely identify a remote participant.
-
-```swift
-callComposite.events.onRemoteParticipantJoined = { identifiers in
-  for identifier in identifiers {
-    // map identifier to displayName
-    let participantViewData = ParticipantViewData(displayName: "<DISPLAY_NAME>")
-    callComposite.set(remoteParticipantViewData: participantViewData,
-                      for: identifier) { result in
-      switch result {
-      case .success:
-        print("Set participant view data succeeded")
-      case .failure(let error):
-        print("Set participant view data failed with \(error)")
-      }
-    }
-  }
-}    
 ```
 
 ---
