@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -100,11 +100,5 @@ To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service with an Azure Resource Manager template](deploy-new-button.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

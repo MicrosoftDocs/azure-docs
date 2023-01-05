@@ -1,11 +1,11 @@
 ---
-title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI
+title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/27/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -219,11 +219,5 @@ To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

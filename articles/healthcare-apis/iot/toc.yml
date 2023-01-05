@@ -22,7 +22,7 @@ items:
       - name: Choose a deployment method
         href: deploy-new-choose.md
       - name: ARM template
-        href: deploy-new-button.md
+        href: deploy-new-arm.md
       - name: Azure PowerShell or the Azure CLI
         href: deploy-new-powershell-cli.md
       - name: Azure Bicep
