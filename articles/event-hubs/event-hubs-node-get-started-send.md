@@ -1,6 +1,6 @@
 ---
-title: Send or receive events from Azure Event Hubs using JavaScript (latest)
-description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs package.
+title: Send or receive events from Azure Event Hubs using JavaScript
+description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs.
 ms.topic: quickstart
 ms.date: 01/04/2023
 ms.devlang: javascript
@@ -8,7 +8,7 @@ ms.custom: devx-track-js, mode-api
 ---
 
 # Send events to or receive events from event hubs by using JavaScript
-This quickstart shows how to send events to and receive events from an event hub using the **azure/event-hubs** JavaScript package. 
+This quickstart shows how to send events to and receive events from an event hub using the **@azure/event-hubs** npm package. 
 
 
 ## Prerequisites
@@ -25,7 +25,7 @@ To complete this quickstart, you need the following prerequisites:
 To install the [Node Package Manager (npm) package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has *npm* in its path, change the directory
 to the folder where you want to keep your samples.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 Run this command:
 
@@ -164,7 +164,7 @@ To create an Azure storage account and a blob container in it, do the following 
 2. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
 3. Authenticate to the blob container
     
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
     
@@ -172,15 +172,15 @@ To create an Azure storage account and a blob container in it, do the following 
 
 [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
-Note down the connection string and the container name. You'll use them in the receive code. 
+Note the connection string and the container name. You'll use them in the receive code. 
 
 ---
 
-### Install the npm package to receive events
+### Install the npm packages to receive events
 
 For the receiving side, you need to install two more packages. In this quickstart, you use Azure Blob storage to persist checkpoints so that the program doesn't read the events that it has already read. It performs metadata checkpoints on received messages at regular intervals in a blob. This approach makes it easy to continue receiving messages later from where you left off.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 Run this command:
 
@@ -206,7 +206,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com).
 1. Create a file called *receive.js*, and paste the following code into it:
 
-    ### [Passwordless](#tab/passwordless)
+    ### [Passwordless (Recommended)](#tab/passwordless)
 
     In the code, use real values to replace the following values:
     - `EVENT HUBS RESOURCE NAME`
