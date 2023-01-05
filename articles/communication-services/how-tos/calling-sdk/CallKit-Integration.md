@@ -132,7 +132,7 @@
   ```
 
   We can use `reportIncomingCallFromKillState` to handle push notifications when the app is closed. 
-  `reportIncomingCallFromKillState` API should not be called if `CallAgent` instance is already available when push is recieved.
+  `reportIncomingCallFromKillState` API should not be called if `CallAgent` instance is already available when push is received.
 
   ```Swift
   if let agent = self.callAgent {
