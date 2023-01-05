@@ -381,4 +381,4 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/.pipelines/AzurePipelines/azure-pipelines.yml
 [arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/mainTemplate.json
 [manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/manifest.yaml
-[extension-parameters]: ../aks/cluster-extensions#optional-parameters
+[extension-parameters]: ../aks/cluster-extensions.md#optional-parameters
