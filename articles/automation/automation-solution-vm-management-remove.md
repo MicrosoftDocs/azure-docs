@@ -95,7 +95,7 @@ To delete Start/Stop VMs during off-hours from your Automation account, perform 
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
-8. If you don't want to keep the [resources](automation-solution-vm-management.md#components) created by the feature or by you afterwards (such as, variables, schedules, etc.), you have to manually delete them from the account.
+8. If you don't want to keep the resources created by the feature or by you afterwards (such as, variables, schedules, etc.), you have to manually delete them from the account.
 
 
 
