@@ -60,12 +60,11 @@ There are no downtime requirements for any of the migration options.
 
 * Changes can take from 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
+* When migrating an API Management deployed in an external or internal virtual network to availability zones, a new public IP address resource must be specified. In an internal VNet, the public IP address is used only for management operations, not for API requests. Learn more about [IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
+
 * Migrating to availability zones or changing the availability zone configuration will trigger a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
 
 * If you've configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
-
-* When migrating an API Management deployed in an external or internal virtual network to availability zones, a new public IP address resource must be specified. In an internal VNet, the public IP address is used only for management operations, not for API requests. Learn more about [IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
-
 
 ## Option 1: Migrate existing location of API Management instance, not injected in VNet
 
