@@ -208,7 +208,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
-    In the code, use real values to replace the following values:
+    In the code, use real values to replace the following placeholders:
     - `EVENT HUBS RESOURCE NAME`
     - `EVENT HUB NAME`
     - `STORAGE ACCOUNT NAME`
