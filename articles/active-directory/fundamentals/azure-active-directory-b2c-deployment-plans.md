@@ -1,13 +1,11 @@
 ---
 title: Azure AD B2C Deployment
 description: Azure Active Directory B2C Deployment guide
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/13/2022
-
+ms.date: 1/5/2023
 ms.author: gasinh
 author: gargi-sinha
 manager: martinco
