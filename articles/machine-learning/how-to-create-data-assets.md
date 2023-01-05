@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: data4ml, ignite-2022
 ms.author: xunwan
 author: xunwan
-ms.reviewer: nibaccam
+ms.reviewer: franksoloman
 ms.date: 09/22/2022
 ---
 
