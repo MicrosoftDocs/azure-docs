@@ -18,9 +18,6 @@ ms.date: 09/28/2022
 
 You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
 
-> [!NOTE]
-> The option to migrate a SQL Server database to Azure SQL Database by using Azure Data Studio currently is in preview. Azure SQL Database migration targets are available only by using the [Azure Data Studio Insiders](/sql/azure-data-studio/download-azure-data-studio#download-the-insiders-build-of-azure-data-studio) version of the Azure SQL Migration extension.
-
 In this tutorial, learn how to migrate the example AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial uses offline migration mode, which considers an acceptable downtime during the migration process.
 
 In this tutorial, you learn how to:
@@ -56,7 +53,7 @@ Before you begin the tutorial:
   > [!IMPORTANT]
   > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or to view Azure recommendations in the migration wizard in Azure Data Studio.
 
-- Create a target instance of [Azure SQL Database](/azure/azure/azure-sql/database/single-database-create-quickstart).
+- Create a target instance of [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
 - Make sure that the SQL Server login that connects to the source SQL Server instance is a member of the db_datareader role and that the login for the target SQL Server instance is a member of the db_owner role.
 

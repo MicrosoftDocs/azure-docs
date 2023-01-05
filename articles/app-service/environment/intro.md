@@ -20,7 +20,6 @@ The Azure App Service Environment v2 is an Azure App Service feature that provid
 * Windows web apps
 * Linux web apps 
 * Docker containers
-* Mobile apps
 * Functions
 
 App Service environments (ASEs) are appropriate for application workloads that require:

@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 10/20/2022
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022, py-fresh-zinc
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -146,7 +146,7 @@ Create one anytime from within your Azure Machine Learning workspace. Provide ju
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](how-to-create-manage-compute-instance.md#manage).
+> To prevent incurring charges for an unused compute instance, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 

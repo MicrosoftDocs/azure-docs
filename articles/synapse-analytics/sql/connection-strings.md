@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Connection strings for Synapse SQL
 
-You can connect to Synapse SQL with several different application protocols such as, [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server). Below are some examples of connections strings for each protocol. 
+You can connect to Synapse SQL with several different application libraries such as, [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server). Below are some examples of connections strings for each library. 
 
 You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* select *Show database connection strings*.
 
@@ -26,7 +26,7 @@ Server=tcp:{your_server}.sql.azuresynapse.net,1433;Database={your_database};User
 ## Sample ODBC connection string
 
 ```csharp
-Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.sql.azuresynapse.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+Driver={ODBC Driver 18 for SQL Server};Server=tcp:{your_server}.sql.azuresynapse.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ## Sample PHP connection string
@@ -42,7 +42,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability.
+> Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability and provide enough time for paused instances to resume.
 
 ## Recommendations
 

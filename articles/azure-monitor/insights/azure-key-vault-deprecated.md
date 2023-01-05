@@ -89,7 +89,7 @@ After you click the **Key Vault Analytics** tile, you can view summaries of your
 
 ### To view details for any operation
 1. On the **Overview** page, click the **Key Vault Analytics** tile.
-2. On the **Azure Key Vault** dashboard, review the summary information in one of the blades, and then click one to view detailed information about it in the log search page.
+2. On the **Azure Key Vault** dashboard, review the summary information in one of the panes, and then click one to view detailed information about it in the log search page.
 
     On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 

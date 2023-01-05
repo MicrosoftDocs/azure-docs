@@ -6,7 +6,7 @@ ms.reviewer: tpalmer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/11/2021
+ms.date: 12/06/2022
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

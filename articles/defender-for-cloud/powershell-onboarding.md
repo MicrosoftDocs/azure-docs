@@ -2,7 +2,7 @@
 title: Onboard to Microsoft Defender for Cloud with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 11/24/2022
 ms.custom: mode-api, ignite-2022
 ---
 # Quickstart: Automate onboarding of Microsoft Defender for Cloud using PowerShell
@@ -66,7 +66,7 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
 1. Configure a Log Analytics workspace to which the agents will report. You must have a Log Analytics workspace that you already created, that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
 
     ```powershell
-    Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
+    Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
     ```
 
 1. Auto-provision installation of the Log Analytics agent on your Azure VMs:

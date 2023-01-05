@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Manage IoT Edge certificates
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
@@ -102,6 +102,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    ```bash
    sudo iotege config apply
    ```
+### Install root CA to OS certificate store
 
 Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
@@ -110,7 +111,7 @@ Installing the certificate to the trust bundle file makes it available to contai
   ```bash
   sudo cp /var/aziot/certs/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
 
-  sudo update-ca-certificates
+  sudo update-ca-trust
   ```
 
 # [IoT Edge for Linux on Windows (EFLOW)](#tab/windows)

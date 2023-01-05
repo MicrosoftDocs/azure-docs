@@ -286,7 +286,7 @@ sections:
       - question: |
           Does the Log Analytics agent impact the performance of my servers?
         answer: |
-          The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
+          The agent consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](defender-for-cloud-planning-and-operations-guide.md#data-collection-and-storage).
 
           
           <!--Image references-->
