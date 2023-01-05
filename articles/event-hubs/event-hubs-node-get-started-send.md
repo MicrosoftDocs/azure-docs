@@ -172,7 +172,7 @@ To create an Azure storage account and a blob container in it, do the following 
 
 [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
-Note down the connection string and the container name. You'll use them in the receive code. 
+Note the connection string and the container name. You'll use them in the receive code. 
 
 ---
 
