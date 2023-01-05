@@ -122,8 +122,6 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 The following configurations are needed for API Management to access secrets and certificates from an Azure key vault.
 
-### Configure RBAC access or access policy
-
 [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
