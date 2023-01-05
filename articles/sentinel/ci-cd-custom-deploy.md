@@ -158,13 +158,13 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-    Rather than passing parameters as inline values in your content files, you can [use a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). You can then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, you can [use a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). You can then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
  
-    :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
+:::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-     1. Is there a mapping in the sentinel-deployment.config?
-     1. Is there a workspace parameter file?
-     1. Is there a default parameter file?
+1. Is there a mapping in the sentinel-deployment.config?
+1. Is there a workspace parameter file?
+1. Is there a default parameter file?
      
 It's important to note that once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.
 
