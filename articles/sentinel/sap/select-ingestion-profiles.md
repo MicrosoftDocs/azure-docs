@@ -9,7 +9,7 @@ ms.date: 01/03/2023
 
 # Select SAP ingestion profile
 
-This article explains how to select the profile for you SAP solution. We recommend that you select an ingestion profile that maximizes your security coverage while meeting your budget requirements. As one way to select a profile, you can turn on all logs for a while, and then reevaluate the ingestion profile according the expected cost related to the ingestion. If needed, you can [simulate expected costs](billing-monitor-costs.md).
+This article explains how to select the profile for you SAP solution. We recommend that you select an ingestion profile that maximizes your security coverage while meeting your budget requirements. As one way to select a profile, you can turn on all logs for a while, and then reevaluate the ingestion profile according the expected cost related to the ingestion. If needed, you can [simulate expected costs](../billing-monitor-costs.md). 
 
 The following sections show typical customer configuration profiles for SAP log ingestion.
 
