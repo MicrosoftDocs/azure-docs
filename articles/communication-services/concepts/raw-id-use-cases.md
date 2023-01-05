@@ -17,22 +17,22 @@ ms.service: azure-communication-services
 This article provides use cases for choosing a string (Raw ID) as a representation type of the [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over the CommunicationIdentifier derived types.
 
 ## Use cases for choosing an identifier
-A common task when implementing communication scenarios is to identify participants of conversations. When using Communication Services SDKs, *CommunicationIdentifier* provides the capability of uniquely identifying users.
+A common task when implementing communication scenarios is to identify participants of conversations. When you're using Communication Services SDKs, *CommunicationIdentifier* provides the capability of uniquely identifying users.
 
 CommunicationIdentifier has the following advantages:
 - Provides good auto-complete in IDEs.
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
 
-On top of that, the ability to instantiate a *CommunicationIdentifier* from Raw ID and being able to retrieve an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) makes the following scenarios easier to implement:
+On top of these advantages, the ability to instantiate a *CommunicationIdentifier* from Raw ID and being able to retrieve an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) makes the following scenarios easier to implement:
 - Extract identifier details from Raw IDs and use them to call other APIs (such as the Microsoft Graph API) to provide a rich experience for communication participants.
 - Store identifiers in a database and use them as keys.
 - Use identifiers as keys in dictionaries.
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
-- Use identifiers as a keys in declarative UI frameworks such as React to avoid unnecessary re-rendering.
+- Use identifiers as keys in declarative UI frameworks such as React to avoid unnecessary re-rendering.
 
 ### Creating CommunicationIdentifier and retrieving Raw ID
-*CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a any type derived from *CommunicationIdentifier*. It removes the need of any custom serialization methods that might take in only certain object properties and omit others. For example, the `MicrosoftTeamsUserIdentifier` has multiple properties such as `IsAnonymous` or `Cloud` or methods to retrieve these values (depending on a platform). Using methods provided by Communication Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
+*CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a type derived from *CommunicationIdentifier*. It removes the need of any custom serialization methods that might take in only certain object properties and omit others. For example, the `MicrosoftTeamsUserIdentifier` has multiple properties such as `IsAnonymous` or `Cloud` or methods to retrieve these values (depending on a platform). Using methods provided by Communication Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
 
 Get Raw ID from CommunicationUserIdentifier:
 
@@ -93,7 +93,7 @@ public void GetFromDatabase()
 It will return `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `MicrosoftTeamsUserIdentifier` or `UnknownIdentifier` based on the identifier type.
   
 ## Storing CommunicationIdentifier in collections
-If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). This is useful, for example, for maintaining a list of call or chat participants. As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The following examples demonstrate adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for identifiers that are converted to an *UnknownIdentifier* type, which is reserved for any new types of identifiers that might be introduced in the future, to maintain the compatibility in older SDK versions.
+If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). A collection is useful, for example, for maintaining a list of call or chat participants. As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The following examples demonstrate adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for identifiers that are converted to an *UnknownIdentifier* type. This type is reserved for any new types of identifiers that might be introduced in the future, to maintain the compatibility in older SDK versions.
 
 ```csharp
 public void StoreMessagesForContosoUsers()
@@ -165,7 +165,7 @@ callComposite.events.onRemoteParticipantJoined = { identifiers in
 ```
 
 ## Using Raw ID as key in REST API paths
-When designing a REST API, you can have endpoints that have a unique identifier for your application user in a form of a Raw ID string. If the identifier consists of several parts (like ObjectID, cloud name, etc. in the case of the `MicrosoftTeamsUserIdentifier`), using Raw ID allows to address the entity in the URL path instead of passing the whole composite object as a JSON in the body. So that you can have a more intuitive REST CRUD API.
+When designing a REST API, you can have endpoints that have a unique identifier for your application user in a form of a Raw ID string. If the identifier consists of several parts (like ObjectID, cloud name, etc. if you're using `MicrosoftTeamsUserIdentifier`), using Raw ID allows you to address the entity in the URL path instead of passing the whole composite object as a JSON in the body. So that you can have a more intuitive REST CRUD API.
 
 ```csharp
 public async Task UseIdentifierInPath()
@@ -182,7 +182,7 @@ Consistent underlying Raw ID allows:
 - Deserializing to the right identifier type (based on which you can adjust the flow of your app).
 - Extracting details of identifiers (such as an oid for `msteamsuser`).
 
-The example below shows both benefits:
+The example shows both benefits:
 - The type allows you to decide where to take the avatar from.
 - The decomposed details allow you to query the api in the right way.
 
