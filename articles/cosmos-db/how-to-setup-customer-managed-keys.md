@@ -83,7 +83,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
 1. Choose **Select** at the bottom.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Select of the principal option on the Add access policy page.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
 
 1. Select **Add** to add the new access policy.
 
