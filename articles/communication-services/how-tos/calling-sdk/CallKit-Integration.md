@@ -85,7 +85,7 @@
 
   ### Configure audio session
 
-  Configure audio session will be called before placing or accepting incoming call and bfore resuming the call after it has been put on hold.
+  Configure audio session will be called before placing or accepting incoming call and before resuming the call after it has been put on hold.
   
   ```Swift
   callKitOptions.configureAudioSession = self.configureAudioSession
