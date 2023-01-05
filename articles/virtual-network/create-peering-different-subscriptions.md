@@ -718,7 +718,7 @@ Set-AzContext -Subscription SubscriptionA
 
 ### Sign in to SubscriptionB
 
-Authenticate to **SubscriptionB** session so that the peering can be set up.
+Authenticate to **SubscriptionB** so that the peering can be set up.
 
 Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionB**.
 
