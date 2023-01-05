@@ -30,7 +30,7 @@ Some of the prerequisites may already be installed in your deployment environmen
 
 Clone the repository and prepare the execution environment by using the following steps:
 
-1. Create a directory called `Azure_SAP_Automated_Deployment` for your automation framework deployment. 
+- Create a directory called `Azure_SAP_Automated_Deployment` for your automation framework deployment. 
 
 ```bash
 mkdir ~/Azure_SAP_Automated_Deployment/config; cd $_
