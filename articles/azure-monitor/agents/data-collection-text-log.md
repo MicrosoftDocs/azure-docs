@@ -19,7 +19,10 @@ To complete this procedure, you need:
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Custom table](../logs/create-custom-table.md) to send your logs to.
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A machine that write logs to a text file.
+- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text file.    
+    - The log file must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
+    - Each entry in the log file must be delineated with an end of line. 
+    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
 
 ## Create data collection rule to collect text logs
 

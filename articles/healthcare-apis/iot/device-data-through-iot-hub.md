@@ -235,15 +235,9 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn about the different deployment methods for the MedTech service, see
+To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service using an ARM template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service manually using Azure portal](deploy-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

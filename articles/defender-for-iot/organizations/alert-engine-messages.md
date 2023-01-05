@@ -19,6 +19,18 @@ Several alerts are disabled by default, as indicated by asterisks (*) in the tab
 
 If you disable alerts that are referenced in other places, such as [alert forwarding rules](how-to-forward-alert-information-to-partners.md), make sure to update those references as needed.
 
+## Alert severities
+
+Defender for IoT alerts use the following severity levels:
+
+- **Critical**: Indicates a malicious attack that should be handled immediately.
+
+- **Major**: Indicates a security threat that's important to address.
+
+- **Minor**: Indicates some deviation from the baseline behavior that might contain a security threat.
+
+- **Warning**: Indicates some deviation from the baseline behavior with no security threats.
+
 ## Supported alert types
 
 | Alert type | Description |
@@ -311,7 +323,6 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 For more information, see:
 
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
-- [Manage alerts](how-to-manage-the-alert-event.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
 - [Forward alert information](how-to-forward-alert-information-to-partners.md)
