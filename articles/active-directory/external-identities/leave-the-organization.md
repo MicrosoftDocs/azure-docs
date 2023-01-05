@@ -37,7 +37,9 @@ You can usually leave an organization on your own without having to contact an a
    - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
    - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your **Primary domain** or **Tenant ID**.
    
-   As an example: https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com or https://myaccount.microsoft.com?tenantId=11111111-aaaa-2222-bbbb-333333333333.
+    :::image type="content" source="media/leave-the-organization/personal-account-overview.png" alt-text="Screenshot of Azure AD tenant overview.":::
+
+   Example My Account URLs: https://myaccount.microsoft.com?tenantId=11111111-aaaa-2222-bbbb-333333333333 or https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com.
 
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
