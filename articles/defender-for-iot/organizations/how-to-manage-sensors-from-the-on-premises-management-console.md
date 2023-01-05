@@ -1,11 +1,11 @@
 ---
-title: Manage sensors from the on-premises management console 
-description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
+title: Manage OT sensors from the on-premises management console
+description: Learn how to manage OT sensors from the on-premises management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
 ms.date: 06/02/2022
 ms.topic: how-to
 ---
 
-# Manage sensors from the management console
+# Manage sensors from the on-premises management console
 
 This article describes how to manage OT sensors from an on-premises management console, such as pushing system settings to individual sensors, or enabling or disabling specific engines on your sensors.
 
