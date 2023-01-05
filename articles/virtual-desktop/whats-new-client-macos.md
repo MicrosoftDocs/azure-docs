@@ -1,5 +1,5 @@
 ---
-title: What's new in the Remote Desktop client for macOS
+title: What's new in the Remote Desktop client for macOS - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for macOS
 ms.topic: conceptual
 author: heidilohr

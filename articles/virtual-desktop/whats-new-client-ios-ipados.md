@@ -1,5 +1,5 @@
 ---
-title: What's new in the Remote Desktop client for iOS and iPadOS
+title: What's new in the Remote Desktop client for iOS and iPadOS - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for iOS and iPadOS
 ms.topic: conceptual
 author: heidilohr
