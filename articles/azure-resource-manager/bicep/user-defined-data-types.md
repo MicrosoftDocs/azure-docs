@@ -71,9 +71,9 @@ Valid type expression include:
     }
     ```
 
-    Each property in an object consists of key and value. The key and value are separated by a colon (:). The key may be any string (values that would not be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
+    Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that would not be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
 
-    Properties are required unless they have an optionality marker (?) between the property name and the colon. For example, the sku property in the following example is optional:
+    Properties are required unless they have an optionality marker `?` between the property name and the colon. For example, the `sku` property in the following example is optional:
 
     ```bicep
     type storageAccountConfigType = {
