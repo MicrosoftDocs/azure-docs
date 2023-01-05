@@ -77,7 +77,7 @@ This Azure Monitor alert rule template will run a query to detect when an active
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAlert%2520-%2520DDOS%2520Mitigation%2520started%2520azure%2520monitor%2520alert%2FDDoSMitigationStarted.json)
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/manage-ddos-protection/ddos-deploy-alert.png":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template." lightbox="./media/manage-ddos-protection/ddos-deploy-alert.png":::
 
 ### Azure Monitor alert rule with Logic App
 
@@ -85,7 +85,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAutomation%2520-%2520DDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template." lightbox="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png":::
 ## View alerts in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides a list of [security alerts](../security-center/security-center-managing-and-responding-alerts.md), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts, including DDoS attack-related alerts and the actions taken to mitigate the attack in near-time.
