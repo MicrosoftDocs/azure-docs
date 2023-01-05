@@ -21,9 +21,9 @@ items:
       items:
       - name: Choose a deployment method
         href: deploy-new-choose.md
-      - name: Azure Resource Manager template
+      - name: ARM template
         href: deploy-new-button.md
-      - name: Azure PowerShell or Azure CLI
+      - name: Azure PowerShell or the Azure CLI
         href: deploy-new-powershell-cli.md
       - name: Azure Bicep
         href: deploy-new-bicep-powershell-cli.md
