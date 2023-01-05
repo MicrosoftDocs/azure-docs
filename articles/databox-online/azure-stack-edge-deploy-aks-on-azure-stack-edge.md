@@ -208,7 +208,7 @@ Use this step to set up and deploy the Kubernetes cluster, and enable it for man
    > [!IMPORTANT]
    > Before you create the Kubernetes cluster, keep in mind that:
    >- You can't modify the IP pool settings after the AKS cluster is deployed.
-   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom locations](#set-custom-locations-(optional)) in this article. If you didn’t enable custom locations, you can still choose to do so before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
+   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the [Set custom locations (optional)](#set-custom-locations-optional) section in this article. If you didn’t enable custom locations, you can still choose to do so before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
 
 Follow these steps to deploy the AKS cluster.
 
