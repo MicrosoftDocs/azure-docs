@@ -25,7 +25,7 @@ To complete this quickstart, you need the following prerequisites:
 To install the [Node Package Manager (npm) package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has *npm* in its path, change the directory
 to the folder where you want to keep your samples.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 Run this command:
 
