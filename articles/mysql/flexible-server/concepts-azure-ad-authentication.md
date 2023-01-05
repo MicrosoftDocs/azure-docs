@@ -125,6 +125,9 @@ Once you authenticate against the Active Directory, you retrieve a token. This t
 
 - Azure Database for MySQL flexible server matches access tokens to the Azure Database for MySQL users using the user's unique Azure AD user ID instead of the username. This means that if an Azure AD user is deleted in Azure AD and a new user is created with the same name, Azure Database for MySQL considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name is added, the new user isn't able to connect with the existing user.
 
+> [!NOTE]  
+> The subscriptions of an Azure MySQL flexible server with Azure AD authentication enabled cannot be transferred to another tenant or directory.
+
 ## Next steps
 
 - To learn how to configure Azure AD with Azure Database for MySQL, see [Set up Azure Active Directory authentication for Azure Database for MySQL flexible server](how-to-azure-ad.md)

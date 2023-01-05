@@ -21,9 +21,9 @@ items:
       items:
       - name: Choose a deployment method
         href: deploy-new-choose.md
-      - name: Azure Resource Manager template
+      - name: ARM template
         href: deploy-new-button.md
-      - name: Azure PowerShell or Azure CLI
+      - name: Azure PowerShell or the Azure CLI
         href: deploy-new-powershell-cli.md
       - name: Azure Bicep
         href: deploy-new-bicep-powershell-cli.md
@@ -50,9 +50,9 @@ items:
       - name: Device mappings
         href: how-to-configure-device-mappings.md
       - name: CalculatedContentTemplate mappings
-        href: how-to-use-calculated-functions-mappings.md
+        href: how-to-use-calculatedcontenttemplate-mappings.md
       - name: IotJsonPathContentTemplate mappings
-        href: how-to-use-iot-jsonpath-content-mappings.md
+        href: how-to-use-iotjsonpathcontenttemplate-mappings.md
       - name: Custom functions
         href: how-to-use-custom-functions.md  
     - name: Destination
