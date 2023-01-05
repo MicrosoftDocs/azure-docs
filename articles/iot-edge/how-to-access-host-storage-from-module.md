@@ -14,6 +14,8 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
+::: moniker range=">=iotedge-1.4"
+
 IoT Edge modules can use storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
 
 ## Configure system modules to use persistent storage
@@ -109,8 +111,13 @@ There are several ways to manage directory permissions on Linux systems, includi
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
+::: moniker-end
+
+::: moniker range="<=iotedge-2020-11"
 
 When modules invoke the IoT Edge daemon's workload API to encrypt data, the encryption key is derived using the module ID and module's generation ID. A generation ID is used to protect secrets if a module is removed from the deployment and then another module with the same module ID is later deployed to the same device. You can view a module's generation ID using the Azure CLI command [az iot hub module-identity show](/cli/azure/iot/hub/module-identity).
+
+::: moniker-end
 
 If you want to share files between modules across generations, they must not contain any secrets or they will fail to be decrypted.
 
