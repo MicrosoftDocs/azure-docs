@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.reviewer: abinetabate
 ---
 
-# Deploy Application Insights Agent on virtual machines and virtual machine scale sets
+# Deploy Application Insights Agent on virtual machines and Virtual Machine Scale Sets
 
 Enabling monitoring for your .NET or Java-based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
@@ -34,11 +34,11 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
 
 ### [.NET Framework](#tab/net)
 
-The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./auto-collect-dependencies.md#net).
+The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](asp-net-dependencies.md#net).
 
 ### [.NET Core/.NET](#tab/core)
 
-The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](./auto-collect-dependencies.md#net).
+The Application Insights Agent autocollects the same dependency signals out-of-the-box as the SDK. To learn more, see [Dependency autocollection](asp-net-dependencies.md#net).
 
 ### [Java](#tab/Java)
 
@@ -119,9 +119,9 @@ You can also view installed extensions in the [Azure Virtual Machine section](..
 > [!NOTE]
 > Verify installation by selecting **Live Metrics Stream** within the Application Insights resource associated with the connection string you used to deploy the Application Insights Agent extension. If you're sending data from multiple virtual machines, select the target virtual machines under **Server Name**. It might take up to a minute for data to begin flowing.
 
-## Manage Application Insights Agent for .NET applications on virtual machine scale sets by using PowerShell
+## Manage Application Insights Agent for .NET applications on Virtual Machine Scale Sets by using PowerShell
 
-Install or update Application Insights Agent as an extension for a virtual machine scale set:
+Install or update Application Insights Agent as an extension for a Virtual Machine Scale Set:
 
 ```powershell
 $publicCfgHashtable =
@@ -152,7 +152,7 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: Depending on your update policy, you might need to run Update-AzVmssInstance for each instance.
 ```
 
-Uninstall the application monitoring extension from virtual machine scale sets:
+Uninstall the application monitoring extension from Virtual Machine Scale Sets:
 
 ```powershell
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
@@ -164,13 +164,13 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: Depending on your update policy, you might need to run Update-AzVmssInstance for each instance.
 ```
 
-Query the application monitoring extension status for virtual machine scale sets:
+Query the application monitoring extension status for Virtual Machine Scale Sets:
 
 ```powershell
 # Not supported by extensions framework
 ```
 
-Get a list of installed extensions for virtual machine scale sets:
+Get a list of installed extensions for Virtual Machine Scale Sets:
 
 ```powershell
 Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVmssName>/extensions
@@ -184,7 +184,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 
 ## Troubleshooting
 
-Find troubleshooting tips for the Application Insights Monitoring Agent extension for .NET applications running on Azure virtual machines and virtual machine scale sets.
+Find troubleshooting tips for the Application Insights Monitoring Agent extension for .NET applications running on Azure virtual machines and Virtual Machine Scale Sets.
 
 > [!NOTE]
 > The following steps don't apply to Node.js and Python applications, which require SDK instrumentation.
@@ -215,5 +215,5 @@ Added ASP.NET Core auto-instrumentation feature
 
 ## Next steps
 
-* Learn how to [deploy an application to a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
+* Learn how to [deploy an application to a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
 * [Set up availability web tests](monitor-web-app-availability.md) to be alerted if your endpoint is down.

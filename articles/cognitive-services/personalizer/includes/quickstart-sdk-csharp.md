@@ -81,7 +81,7 @@ using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 
 The client is a [PersonalizerClient](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials containing your key.
 
-To request the best action from Personalizer, create a [RankRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest) containing a list of [RankableActions](/dotnet/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankableaction) that Personalizer will choose from, and the context features. The RankRequest will be passed to the client.Rank method, which returns a RankResponse.
+To request the best action from Personalizer, create a [RankRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest) containing a list of [RankableActions](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankableaction) that Personalizer will choose from, and the context features. The RankRequest will be passed to the client.Rank method, which returns a RankResponse.
 
 To send a reward score to Personalizer, create a [RewardRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest) with the event ID corresponding to the Rank call that returned the best action, and the reward score. Then, pass it to the [client.Reward](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward) method.
 

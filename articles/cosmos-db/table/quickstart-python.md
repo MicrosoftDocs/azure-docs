@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/23/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022, py-fresh-zinc
 ---
 
 # Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB

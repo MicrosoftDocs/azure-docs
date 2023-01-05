@@ -84,7 +84,11 @@ API calls performed by Defender for Cloud count against the [Azure DevOps Global
 
 1. Review the information and select **Create**.
 
-The Defender for DevOps service automatically discovers the organizations, projects, and repositories you select and analyzes them for any security issues. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
+The Defender for DevOps service automatically discovers the organizations, projects, and repositories you select and analyzes them for any security issues. 
+
+When auto-discovery is selected during the onbaording process, it can take up to 4 hours for repositories to appear. 
+
+The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
 
 ## Learn more
 

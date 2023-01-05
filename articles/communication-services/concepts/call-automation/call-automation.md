@@ -144,6 +144,8 @@ To understand which events are published for different actions, refer to [this g
 
 1. Using the incorrect IdentifierType for endpoints for `Transfer` requests (like using CommunicationUserIdentifier to specify a phone number) returns a 500 error instead of a 400 error code. Solution: Use the correct type, CommunicationUserIdentifier for Communication Users and PhoneNumberIdentifier for phone numbers. 
 2. Taking a pre-call action like Answer/Reject on the original call after redirected it gives a 200 success instead of failing on 'call not found'.
+3. Transferring a call with more than two participants is currently not supported.
+4. After transferring a call, you may receive two `CallDisconnected` events and will need to handle this behavior by ignoring the duplicate.
 
 ## Next steps
 
