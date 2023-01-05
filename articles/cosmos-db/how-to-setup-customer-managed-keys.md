@@ -38,7 +38,7 @@ If the **Microsoft.DocumentDB** resource provider isn't already registered, you 
 
 1. Search for the **Microsoft.DocumentDB** resource provider. Verify if the resource provider is already marked as registered. If not, choose the resource provider and select **Register**:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/resource-provider-registration.png" alt-text="Screenshot of the Register option for the Microsoft.DocumentDB resource provider.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/resource-provider-registration.png" lightbox="media/how-to-setup-customer-managed-keys/resource-provider-registration.png" alt-text="Screenshot of the Register option for the Microsoft.DocumentDB resource provider.":::
 
 ## Configure your Azure Key Vault instance
 
@@ -49,7 +49,7 @@ Using customer-managed keys with Azure Cosmos DB requires you to set two propert
 
 1. If you create a new Azure Key Vault instance, enable these properties during creation:
 
-    :::image type="content" source="media/how-to-setup-customer-managed-keys/key-vault-properties.png" alt-text="Screenshot of Azure Key Vault options including soft delete and purge protection.":::
+    :::image type="content" source="media/how-to-setup-customer-managed-keys/key-vault-properties.png" lightbox="media/how-to-setup-customer-managed-keys/key-vault-properties.png" alt-text="Screenshot of Azure Key Vault options including soft delete and purge protection.":::
 
 1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
@@ -72,7 +72,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
 1. Under the **Key permissions** drop-down menu, select **Get**, **Unwrap Key**, and **Wrap Key** permissions:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-permissions.png" alt-text="Screenshot of access policy permissions including Get, Unwrap key, and Wrap key.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-permissions.png" lightbox="media/how-to-setup-customer-managed-keys/add-access-policy-permissions.png" alt-text="Screenshot of access policy permissions including Get, Unwrap key, and Wrap key.":::
 
 1. Under **Select principal**, select **None selected**.
 
@@ -83,7 +83,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
 1. Choose **Select** at the bottom.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Select of the principal option on the Add access policy page.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Select of the principal option on the Add access policy page.":::
 
 1. Select **Add** to add the new access policy.
 
@@ -95,17 +95,17 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/navigation-access-control.png" alt-text="Screenshot of the Access control option in the resource navigation menu.":::
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" alt-text="Screenshot of the Grant access to this resource option on the Access control page.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" alt-text="Screenshot of the Grant access to this resource option on the Access control page.":::
 
 1. Search the **“Key Vault Administrator role”** and assign it to yourself. This assignment is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/search-key-vault-admin-role.png" alt-text="Screenshot of the Key vault administrator role in the search results.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/search-key-vault-admin-role.png" lightbox="media/how-to-setup-customer-managed-keys/search-key-vault-admin-role.png" alt-text="Screenshot of the Key vault administrator role in the search results.":::
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" alt-text="Screenshot of a role assignment on the Access control page.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" alt-text="Screenshot of a role assignment on the Access control page.":::
 
 1. Then, the necessary permissions must be assigned to Cosmos DB’s principal. So, like the last role assignment, go to the assignment page but this time look for the **“Key Vault Crypto Service Encryption User”** role and on the members tab look for Cosmos DB’s principal. To find the principal, search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by application ID: `a232010e-820c-4083-83bb-3ace5fc29d0b`.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/assign-permission-principal.png" alt-text="Screenshot of the Azure Cosmos DB principal being assigned to a permission.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/assign-permission-principal.png" lightbox="media/how-to-setup-customer-managed-keys/assign-permission-principal.png" alt-text="Screenshot of the Azure Cosmos DB principal being assigned to a permission.":::
 
     > [!IMPORTANT]
     > In the Azure Government region, the application ID is `57506a73-e302-42a9-b869-6f12d9ec29e9`.
@@ -118,11 +118,11 @@ Next, use the access control page to confirm that all roles have been configured
 
 1. Once the roles have been assigned, select **“View access to this resource”** on the Access Control IAM page to verify that everything has been set correctly.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" alt-text="Screenshot of the View access to resource option on the Access control page.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" alt-text="Screenshot of the View access to resource option on the Access control page.":::
 
 1. On the page, set the scope to **“this resource”** and verify that you have the Key Vault Administrator role, and the Cosmos DB principal has the Key Vault Crypto Encryption User role.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/role-assignment-set-scope.png" alt-text="Screenshot of the scope adjustment option for a role assignment query.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/role-assignment-set-scope.png" lightbox="media/how-to-setup-customer-managed-keys/role-assignment-set-scope.png" alt-text="Screenshot of the scope adjustment option for a role assignment query.":::
 
 ## Generate a key in Azure Key Vault
 
@@ -134,13 +134,13 @@ Here, create a new key using Azure Key Vault and retrieve the unique identifier.
 
 1. Select **Generate/Import**, provide a name for the new key, and select an RSA key size. A minimum of 3072 is recommended for best security. Then select **Create**:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" lightbox="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
 
 1. After the key is created, select the newly created key and then its current version.
 
 1. Copy the key's **Key Identifier**, except the part after the last forward slash:
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/key-identifier.png" alt-text="Screenshot of the key identifier field and the copy action.":::
+   :::image type="content" source="media/how-to-setup-customer-managed-keys/key-identifier.png" lightbox="media/how-to-setup-customer-managed-keys/key-identifier.png" alt-text="Screenshot of the key identifier field and the copy action.":::
 
 ## Create a new Azure Cosmos DB account
 
@@ -150,9 +150,9 @@ Create a new Azure Cosmos DB account using the Azure portal or Azure CLI.
 
 When you create a new Azure Cosmos DB account from the Azure portal, choose **Customer-managed key** in the **Encryption** step. In the **Key URI** field, paste the URI/key identifier of the Azure Key Vault key that you copied from the previous step:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/configure-custom-managed-key-uri.png" alt-text="Screenshot of the Encryption page with a custom-managed key URI configured.":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/configure-custom-managed-key-uri.png" lightbox="media/how-to-setup-customer-managed-keys/configure-custom-managed-key-uri.png" alt-text="Screenshot of the Encryption page with a custom-managed key URI configured.":::
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 When you create a new Azure Cosmos DB account with PowerShell:
 
@@ -163,32 +163,49 @@ When you create a new Azure Cosmos DB account with PowerShell:
 > [!IMPORTANT]
 > You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys.
 
-```powershell
-$resourceGroupName = "myResourceGroup"
-$accountLocation = "West US 2"
-$accountName = "mycosmosaccount"
+```azurepowershell
+# Variable for resource group name
+$RESOURCE_GROUP_NAME = "<resource-group-name>"
 
-$failoverLocations = @(
-    @{ "locationName"="West US 2"; "failoverPriority"=0 }
-)
+# Variable for location
+$LOCATION = "<azure-region>"
 
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$failoverLocations;
-    "keyVaultKeyUri" = "https://<my-vault>.vault.azure.net/keys/<my-key>";
+# Variable for account name
+$ACCOUNT_NAME = "<globally-unique-account-name>"
+
+# Variable for key URI in the key vault
+$KEY_VAULT_KEY_URI="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
+
+$parameters = @{
+    ResourceType = "Microsoft.DocumentDb/databaseAccounts"
+    ApiVersion = "2019-12-12"
+    ResourceGroupName = $RESOURCE_GROUP_NAME
+    Location = $LOCATION 
+    Name = $ACCOUNT_NAME 
+    PropertyObject = @{
+        databaseAccountOfferType = "Standard"
+        locations = @(
+            @{ 
+                locationName = $LOCATION 
+                failoverPriority = 0
+            }
+        )
+        keyVaultKeyUri = $KEY_VAULT_KEY_URI
+    }
 }
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2019-12-12" -ResourceGroupName $resourceGroupName `
-    -Location $accountLocation -Name $accountName -PropertyObject $CosmosDBProperties
+New-AzResource @parameters  
 ```
 
 After the account has been created, you can verify that customer-managed keys have been enabled by fetching the URI of the Azure Key Vault key:
 
-```powershell
-Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    | Select-Object -ExpandProperty Properties `
+```azurepowershell
+$parameters = @{
+    ResourceGroupName = $RESOURCE_GROUP_NAME
+    Name = $ACCOUNT_NAME
+    ResourceType = "Microsoft.DocumentDb/databaseAccounts"
+}
+Get-AzResource @parameters
+    | Select-Object -ExpandProperty Properties
     | Select-Object -ExpandProperty keyVaultKeyUri
 ```
 
@@ -205,82 +222,98 @@ When you create a new Azure Cosmos DB account through an Azure Resource Manager 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "accountName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "keyVaultKeyUri": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "accountName": {
+      "type": "string"
     },
-    "resources": 
-    [
-        {
-            "type": "Microsoft.DocumentDB/databaseAccounts",
-            "name": "[parameters('accountName')]",
-            "apiVersion": "2019-12-12",
-            "kind": "GlobalDocumentDB",
-            "location": "[parameters('location')]",
-            "properties": {
-                "locations": [ 
-                    {
-                        "locationName": "[parameters('location')]",
-                        "failoverPriority": 0,
-                        "isZoneRedundant": false
-                    }
-                ],
-                "databaseAccountOfferType": "Standard",
-                "keyVaultKeyUri": "[parameters('keyVaultKeyUri')]"
-            }
-        }
-    ]
+    "location": {
+      "type": "string"
+    },
+    "keyVaultKeyUri": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "[parameters('accountName')]",
+      "apiVersion": "2019-12-12",
+      "kind": "GlobalDocumentDB",
+      "location": "[parameters('location')]",
+      "properties": {
+        "locations": [
+          {
+            "locationName": "[parameters('location')]",
+            "failoverPriority": 0,
+            "isZoneRedundant": false
+          }
+        ],
+        "databaseAccountOfferType": "Standard",
+        "keyVaultKeyUri": "[parameters('keyVaultKeyUri')]"
+      }
+    }
+  ]
 }
 ```
 
 Deploy the template with the following PowerShell script:
 
-```powershell
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$accountLocation = "West US 2"
-$keyVaultKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-key>"
+```azurepowershell
+# Variable for resource group name
+$RESOURCE_GROUP_NAME = "<resource-group-name>"
 
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile "deploy.json" `
-    -accountName $accountName `
-    -location $accountLocation `
-    -keyVaultKeyUri $keyVaultKeyUri
+# Variable for location
+$LOCATION = "<azure-region>"
+
+# Variable for account name
+$ACCOUNT_NAME = "<globally-unique-account-name>"
+
+# Variable for key URI in the key vault
+$KEY_VAULT_KEY_URI="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
+
+$parameters = @{
+    ResourceGroupName = $RESOURCE_GROUP_NAME
+    TemplateFile = "deploy.json"
+    accountName = $ACCOUNT_NAME
+    location = $LOCATION
+    keyVaultKeyUri = $KEY_VAULT_KEY_URI
+}
+New-AzResourceGroupDeployment @parameters
 ```
 
 ### [Azure CLI](#tab/azure-cli)
 
 When you create a new Azure Cosmos DB account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the `--key-uri` parameter.
 
-```azurecli-interactive
-resourceGroupName='myResourceGroup'
-accountName='mycosmosaccount'
-keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+```azurecli
+# Variable for resource group name
+resourceGroupName="<resource-group-name>"
+
+# Variable for location
+location="<azure-region>"
+
+# Variable for account name
+accountName="<globally-unique-account-name>"
+
+# Variable for key URI in the key vault
+keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
 
 az cosmosdb create \
-    -n $accountName \
-    -g $resourceGroupName \
-    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --resource-group $resourceGroupName \
+    --name $accountName \
+    --locations regionName=$location \
     --key-uri $keyVaultKeyUri
 ```
 
 After the account has been created, you can verify that customer-managed keys have been enabled by fetching the URI of the Azure Key Vault key:
 
-```azurecli-interactive
+```azurecli
 az cosmosdb show \
-    -n $accountName \
-    -g $resourceGroupName \
-    --query keyVaultKeyUri
+    --resource-group $resourceGroupName \
+    --name $accountName \
+    --query "keyVaultKeyUri"
 ```
 
 ---
@@ -296,8 +329,6 @@ This access policy ensures that your encryption keys can be accessed by your Azu
 
 You can use ARM templates to assign a managed identity to an access policy.
 
-#### System-assigned managed identity
-
 Because a system-assigned managed identity can only be retrieved after the creation of your account, you still need to initially create your account using the first-party identity. Then:
 
 1. If the system-assigned managed identity wasn't configured during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-a-system-assigned-identity) on your account and copy the `principalId` that got assigned.
@@ -308,18 +339,18 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
     ```json
     {
-        "type": " Microsoft.DocumentDB/databaseAccounts",
-        "properties": {
-            "defaultIdentity": "SystemAssignedIdentity",
-            // ...
-        },
+      "type": " Microsoft.DocumentDB/databaseAccounts",
+      "properties": {
+        "defaultIdentity": "SystemAssignedIdentity",
         // ...
+      },
+      // ...
     }
     ```
   
 1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
 
-#### User-assigned managed identity
+You can also follow similar steps with a user-assigned managed identity.
 
 1. When creating the new access policy or role assignment in your Azure Key Vault account, use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
 
@@ -327,19 +358,18 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
     ```json
     {
-        "type": "Microsoft.DocumentDB/databaseAccounts",
-        "identity": {
-            "type": "UserAssigned",
-            "userAssignedIdentities": {
-                "<identity-resource-id>": {}
-            }
-        },
-        // ...
-        "properties": {
-            "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
-            "keyVaultKeyUri": "<key-vault-key-uri>"
-            // ...
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "<identity-resource-id>": {}
         }
+      },
+      // ...
+      "properties": {
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>""keyVaultKeyUri": "<key-vault-key-uri>"
+        // ...
+      }
     }
     ```
 
@@ -347,8 +377,6 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 You can use the Azure CLI to assign a managed identity to an access policy.
 
-#### System-assigned managed identity
-
 Because a system-assigned managed identity can only be retrieved after the creation of your account, you still need to initially create your account using the first-party identity. Then:
 
 1. If the system-assigned managed identity wasn't configured during account creation, [enable a system-assigned managed identity](./how-to-setup-managed-identity.md#add-a-system-assigned-identity) on your account and copy the `principalId` that got assigned.
@@ -358,34 +386,48 @@ Because a system-assigned managed identity can only be retrieved after the creat
 1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault.
 
     ```azurecli
-        resourceGroupName='myResourceGroup'
-        accountName='mycosmosaccount'
+    # Variables for resource group and account names
+    resourceGroupName="<resource-group-name>"
+    accountName="<azure-cosmos-db-account-name>"
 
-        az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+    az cosmosdb update \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --default-identity "SystemAssignedIdentity"
     ```
   
 1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
 
-#### User-assigned managed identity
+You can also follow similar steps with a user-assigned managed identity.
 
 1. When creating the new access policy or role assignment in your Azure Key Vault account, use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
 
 1. When creating your Azure Cosmos DB account, you must enable the user-assigned managed identity and specify that you want to use this identity when accessing your encryption keys in Azure Key Vault.
 
     ```azurecli
-    resourceGroupName='myResourceGroup'
-    accountName='mycosmosaccount'
-    keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+    # Variables for resource group and account name
+    resourceGroupName="<resource-group-name>"
+    accountName="<azure-cosmos-db-account-name>"
+
+    # Variable for location
+    location="<azure-region>"
+
+    # Variable for key URI in the key vault
+    keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
+
+    # Variables for identities
+    identityId="<identity-resource-id>"
 
     az cosmosdb create \
-        -n $accountName \
-        -g $resourceGroupName \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --locations regionName=$location \
         --key-uri $keyVaultKeyUri
-        --assign-identity <identity-resource-id>
-        --default-identity "UserAssignedIdentity=<identity-resource-id>"  
+        --assign-identity $identityId \
+        --default-identity "UserAssignedIdentity=$identityId"
     ```
 
-### [Azure PowerShell / Azure portal](#tab/azure-powershell+azure-portal)
+### [PowerShell / Azure portal](#tab/azure-powershell+azure-portal)
 
 Not available
 
@@ -407,18 +449,27 @@ Alternatively, user can also create a system identity with periodic backup mode 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-resourceGroupName='myResourceGroup'
-accountName='mycosmosaccount'
-keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+# Variables for resource group and account name
+resourceGroupName="<resource-group-name>"
+accountName="<azure-cosmos-db-account-name>"
+
+# Variable for location
+location="<azure-region>"
+
+# Variable for key URI in the key vault
+keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
+
+# Variables for identities
+identityId="<identity-resource-id>"
 
 az cosmosdb create \
-    -n $accountName \
-    -g $resourceGroupName \
-    --key-uri $keyVaultKeyUri \
-    --locations regionName=<Location> \
-    --assign-identity <identity-resource-id> \
-    --default-identity "UserAssignedIdentity=<identity-resource-id>" \
-    --backup-policy-type Continuous 
+    --resource-group $resourceGroupName \
+    --name $accountName \
+    --locations regionName=$location \
+    --key-uri $keyVaultKeyUri
+    --assign-identity $identityId \
+    --default-identity "UserAssignedIdentity=$identityId" \
+    --backup-policy-type "Continuous"
 ```
 
 ### [Azure Resource Manager template](#tab/arm-template)
@@ -433,24 +484,25 @@ When you create a new Azure Cosmos DB account through an Azure Resource Manager 
 
 ```json
 {
-    "type": "Microsoft.DocumentDB/databaseAccounts",
-    "identity": {
-        "type": "UserAssigned",
-        "userAssignedIdentities": {
-            "<identity-resource-id>": {}
-        }
-    },
-    // ...
-    "properties": {
-        "backupPolicy": { "type": "Continuous" },
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
-        "keyVaultKeyUri": "<key-vault-key-uri>"
-        // ...
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "<identity-resource-id>": {}
     }
+  },
+  // ...
+  "properties": {
+    "backupPolicy": {
+      "type": "Continuous"
+    },
+    "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>""keyVaultKeyUri": "<key-vault-key-uri>"
+    // ...
+  }
 }
 ```
 
-### [Azure PowerShell / Azure portal](#tab/azure-powershell+azure-portal)
+### [PowerShell / Azure portal](#tab/azure-powershell+azure-portal)
 
 Not available
 
@@ -467,9 +519,7 @@ Use the Azure CLI to restore a continuous account that is already configured usi
 > [!NOTE]
 > This feature is currently under Public Preview and requires Cosmos DB CLI Extension version 0.20.0 or higher.
 
-#### Restore source account with system-assigned identity
-
-The newly created user assigned identity is only needed during the restore and can be cleaned up once the restore has completed.
+The newly created user assigned identity is only needed during the restore and can be cleaned up once the restore has completed. First, to restore a source account with system-assigned identity.
 
 1. Create a new user-assigned identity (or use an existing one) for the restore process.
 
@@ -478,25 +528,40 @@ The newly created user assigned identity is only needed during the restore and c
 1. Trigger the restore using Azure CLI:
 
     ```azurecli
+    # Variables for resource group and account names
+    resourceGroupName="<resource-group-name>"
+    sourceAccountName="<source-azure-cosmos-db-account-name>"
+    targetAccountName="<target-azure-cosmos-db-account-name>"
+
+    # Variable for location
+    location="<azure-region>"
+
+    # Variable for key URI in the key vault
+    keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
+    
+    # Variables for identities
+    identityId="<identity-resource-id>"
+    
+    # Variable for timestamp to restore to
+    timestamp="<timestamp-in-utc>"
+
     az cosmosdb restore \ 
-     --target-database-account-name {targetAccountName} \ 
-     --account-name {sourceAccountName} \ 
-     --restore-timestamp {timestampInUTC} \ 
-     --resource-group {resourceGroupName} \ 
-     --location {locationName} \ 
-     --assign-identity {userIdentity} \ 
-     --default-identity {defaultIdentity} 
+        --resource-group $resourceGroupName \
+        --account-name $sourceAccountName \
+        --target-database-account-name $targetAccountName \
+        --locations regionName=$location \
+        --restore-timestamp $timestamp \
+        --assign-identity $identityId \
+        --default-identity "UserAssignedIdentity=$identityId" \
     ```
 
 1. Once the restore has completed, the target (restored) account will have the user-assigned identity.  If desired, user can update the account to use System-Assigned managed identity.
 
-#### Restore source account with user-assigned identity
-
 By default, when you trigger a restore for an account with user-assigned managed identity, the user-assigned identity will be passed to the target account automatically.
 
-If desired, the user can also trigger a restore using a different user-assigned identity than the source account by specifying it in the restore parameters.  Follow the steps in [Restore source account with system-assigned identity](./how-to-setup-customer-managed-keys.md#restore-source-account-with-system-assigned-identity)
+If desired, the user can also trigger a restore using a different user-assigned identity than the source account by specifying it in the restore parameters.
 
-### [Azure PowerShell / Azure Resource Manager template / Azure portal](#tab/azure-powershell+arm-template+azure-portal)
+### [PowerShell / Azure Resource Manager template / Azure portal](#tab/azure-powershell+arm-template+azure-portal)
 
 Not available
 
@@ -520,7 +585,7 @@ Rotating the customer-managed key used by your Azure Cosmos DB account can be do
 
 - Create a new version of the key currently used from Azure Key Vault:
 
-  :::image type="content" source="media/how-to-setup-customer-managed-keys/new-version.png" alt-text="Screenshot of the New Version option in the Versions page of the Azure portal.":::
+  :::image type="content" source="media/how-to-setup-customer-managed-keys/new-version.png" lightbox="media/how-to-setup-customer-managed-keys/new-version.png" alt-text="Screenshot of the New Version option in the Versions page of the Azure portal.":::
 
 - Swap the key currently used with a different one by updating the key URI on your account. From the Azure portal, go to your Azure Cosmos DB account and select **Data Encryption** from the left menu:
 
@@ -528,21 +593,30 @@ Rotating the customer-managed key used by your Azure Cosmos DB account can be do
 
     Then, replace the **Key URI** with the new key you want to use and select **Save**:
 
-    :::image type="content" source="media/how-to-setup-customer-managed-keys/save-key-change.png" alt-text="Screenshot of the Save option on the Key page.":::
+    :::image type="content" source="media/how-to-setup-customer-managed-keys/save-key-change.png" lightbox="media/how-to-setup-customer-managed-keys/save-key-change.png" alt-text="Screenshot of the Save option on the Key page.":::
 
     Here's how to do achieve the same result in PowerShell:
 
-    ```powershell
-    $resourceGroupName = "myResourceGroup"
-    $accountName = "mycosmosaccount"
-    $newKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-new-key>"
+    ```azurepowershell
+    # Variable for resource group name
+    $RESOURCE_GROUP_NAME = "<resource-group-name>"
+        
+    # Variable for account name
+    $ACCOUNT_NAME = "<globally-unique-account-name>"
     
-    $account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
-        -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    # Variable for new key URI in the key vault
+    $NEW_KEY_VAULT_KEY_URI="https://<key-vault-name>.vault.azure.net/keys/<new-key-name>"
     
-    $account.Properties.keyVaultKeyUri = $newKeyUri
+    $parameters = @{
+        ResourceGroupName = $RESOURCE_GROUP_NAME 
+        Name = $ACCOUNT_NAME
+        ResourceType = "Microsoft.DocumentDb/databaseAccounts"
+    }
+    $ACCOUNT = Get-AzResource @parameters
     
-    $account | Set-AzResource -Force
+    $ACCOUNT.Properties.keyVaultKeyUri = $NEW_KEY_VAULT_KEY_URI
+    
+    $ACCOUNT | Set-AzResource -Force
     ```
 
 The previous key or key version can be disabled after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore. No more activity should take place on the previous key or key version after 24 hours of key rotation.
@@ -626,11 +700,11 @@ The following conditions are necessary to successfully perform a point-in-time r
 
 Key revocation is done by disabling the latest version of the key:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/revoke-key.png" alt-text="Screenshot of a disabled custom key version.":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/revoke-key.png" lightbox="media/how-to-setup-customer-managed-keys/revoke-key.png" alt-text="Screenshot of a disabled custom key version.":::
 
 Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the Azure Cosmos DB principal:
 
-:::image type="content" source="media/how-to-setup-customer-managed-keys/remove-access-policy.png" alt-text="Screenshot of the Delete option for an access policy.":::
+:::image type="content" source="media/how-to-setup-customer-managed-keys/remove-access-policy.png" lightbox="media/how-to-setup-customer-managed-keys/remove-access-policy.png" alt-text="Screenshot of the Delete option for an access policy.":::
 
 ### What operations are available after a customer-managed key is revoked?
 
