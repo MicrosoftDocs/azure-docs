@@ -1755,6 +1755,8 @@
       - name: ARM Template 
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-template.md
+  - name: Windows Server in-place upgrade
+    href: in-place-upgrade.md
   - name: Automatic VM guest patching
     items:
     - name: Overview
