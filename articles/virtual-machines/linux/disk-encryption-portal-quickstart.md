@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 01/04/2023
 ms.custom: mode-ui
 ---
 
