@@ -195,33 +195,25 @@ Use the following checklist to help define user experience requirements.
   * See, [Guidelines for using JavaScript](../../active-directory-b2c/javascript-and-page-layout.md?pivots=b2c-custom-policy#guidelines-for-using-javascript).
 * Implement an embedded experience by using iframe support
   * See, [Embedded sign-up or sign-in experience](../../active-directory-b2c/embedded-login.md?pivots=b2c-custom-policy) 
-  * For a single-page application, use a second sign-in HTML page that loads into the `<iframe>` element.
+  * For a single-page application, use a second sign-in HTML page that loads into the `<iframe>` element
 
-## Monitor an Azure AD B2C solution 
+## Monitoring auditing, and logging
 
-This phase includes the following capabilities:
+Use the following checklist for monitoring, auditing, and logging.
 
-| Capability | Description |
-|:---------|:----------|
-|  Monitoring  |[Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md). Watch [this video](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1)|
-| Auditing and Logging | [Access and review audit logs](../../active-directory-b2c/view-audit-logs.md)
+* Monitoring
+  * [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md)
+  * See the video [Azure Active Directory: Monitoring and reporting Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1)
+* Auditing and logging
+  * [Accessing Azure AD B2C audit logs](../../active-directory-b2c/view-audit-logs.md)
 
-## More information
+## Resources
 
-To accelerate Azure AD B2C deployments and monitor the service at scale, see these articles:
-
-- [Manage Azure AD B2C with Microsoft Graph](../../active-directory-b2c/microsoft-graph-get-started.md)
-
-- [Manage Azure AD B2C user accounts with Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md)
-
+- [Register a Microsoft Graph application](../../active-directory-b2c/microsoft-graph-get-started.md)
+- [Manage Azure AD B2C with Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md)
 - [Deploy custom policies with Azure Pipelines](../../active-directory-b2c/deploy-custom-policies-devops.md)
-
 - [Manage Azure AD B2C custom policies with Azure PowerShell](../../active-directory-b2c/manage-custom-policies-powershell.md)
-
-- [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md)
 
 ## Next steps
 
-- [Azure AD B2C best practices](../../active-directory-b2c/best-practices.md)
-
-- [Azure AD B2C service limits](../../active-directory-b2c/service-limits.md)
+[Recommendations and best practices for Azure Active Directory B2C](../../active-directory-b2c/best-practices.md)
