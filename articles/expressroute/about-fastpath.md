@@ -3,13 +3,11 @@ title: About Azure ExpressRoute FastPath
 description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: duau
-ms.custom: references_regions
-
+ms.custom: template-concept, references_regions
 ---
 # About ExpressRoute FastPath
 
@@ -49,19 +47,22 @@ While FastPath supports most configurations, it doesn't support the following fe
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
 > * Traffic will flow through the ExpressRoute gateway when these limits are reached.
+
 ## Public preview
 
 The following FastPath features are in Public preview:
 
-### Virtual network (Vnet) Peering
+### Virtual network (VNet) Peering
+
 FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This feature is available for both IPv4 and IPv6 connectivity.
 
-**FastPath support for vnet peering is only available for ExpressRoute Direct connections.**
+**FastPath support for VNet peering is only available for ExpressRoute Direct connections.**
 
 > [!NOTE]
-> * FastPath Vnet peering connectivity is not supported for Azure Dedicated Host workloads.
+> * FastPath VNet peering connectivity is not supported for Azure Dedicated Host workloads.
 
-## User Defined Routes (UDRs)
+### User Defined Routes (UDRs)
+
 FastPath will honor UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
 
 **FastPath support for UDRs is only available for ExpressRoute Direct connections**
@@ -70,8 +71,10 @@ FastPath will honor UDRs configured on the GatewaySubnet and send traffic direct
 > * FastPath UDR connectivity is not supported for Azure Dedicated Host workloads.
 > * FastPath UDR connectivity is not supported for IPv6 workloads.
 
-**Private Link Connectivity for 10Gbps ExpressRoute Direct Connectivity** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
-This preview is available in the following Azure Regions.
+### Private Link Connectivity for 10Gbps ExpressRoute Direct
+
+Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
+This preview is available in the following Azure Regions:
 - Australia East
 - East Asia
 - East US
@@ -99,9 +102,8 @@ This preview is available for connections associated to ExpressRoute Direct circ
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > 
 
-See [How to enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
-
- 
 ## Next steps
 
-To enable FastPath, see [Link a virtual network to ExpressRoute](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+- To enable FastPath, see [Link a virtual network to ExpressRoute](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+
+- To enroll in FastPath preview features, see [Enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
