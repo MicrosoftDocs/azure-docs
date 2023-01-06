@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 # Application Insights for Java 2.x
 
 > [!CAUTION]
-> This article applies to Application Insights Java 2.x, which is no longer recommended.
+> This article applies to Application Insights Java 2.x, which is [no longer recommended](https://azure.microsoft.com/updates/application-insights-java-2x-retirement/).
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 

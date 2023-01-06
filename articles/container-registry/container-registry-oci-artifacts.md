@@ -56,6 +56,52 @@ Provide the credentials to `oras login`.
     --password $PASSWORD
   ```
 
+### Sign in with ORAS
+
+This section shows options to sign into the registry. Choose one method below appropriate for your environment.
+
+Run  `oras login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token (preview).
+
+- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to use an AD token. Always use "000..." as the token is parsed through the `PASSWORD` variable.
+
+  ```azurecli
+  USER_NAME="00000000-0000-0000-0000-000000000000"
+  PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+  ```
+
+- Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview) to use non-AD based tokens.
+
+  ```azurecli
+  USER_NAME="oras-token"
+  PASSWORD=$(az acr token create -n $USER_NAME \
+                    -r $ACR_NAME \
+                    --repository $REPO content/write \
+                    --only-show-errors \
+                    --query "credentials.passwords[0].value" -o tsv)
+  ```
+
+- Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
+
+  ```azurecli
+  SERVICE_PRINCIPAL_NAME="oras-sp"
+  ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+  PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
+            --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
+             --role acrpush \
+            --query "password" --output tsv)
+  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  ```
+  
+  Supply the credentials to `oras login` after authentication configured.
+
+  ```bash
+  oras login $REGISTRY \
+    --username $USER_NAME \
+    --password $PASSWORD
+  ```
+
+To read the password from Stdin, use `--password-stdin`.
+
 ## Push an artifact
 
 Create content that represents a markdown file:

@@ -98,7 +98,7 @@ Install the Moby engine and CLI.
    ```
 ---
 
-Once the Moby engine is successfully installed, configure it to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. To learn more about logging configuration, see [Production Deployment Checklist](/articles/iot-edge/production-checklist.md#set-up-default-logging-driver).
+Once the Moby engine is successfully installed, configure it to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
 
 * Create or open the Docker daemon's config file at `/etc/docker/daemon.json`.
 * Set the default logging driver to the `local` logging driver as shown in the example below.   

@@ -23,7 +23,7 @@ Base infrastructure as a service (IaaS) cloud components, such as compute or net
 
 With AKS, you get a fully managed *control plane*. The control plane contains all of the components and services you need to operate and provide Kubernetes clusters to end users. All Kubernetes components are maintained and operated by Microsoft.
 
-Microsoft manages and monitors the following components through the control pane:
+Microsoft manages and monitors the following components through the control plane:
 
 * Kubelet or Kubernetes API servers
 * Etcd or a compatible key-value store, providing Quality of Service (QoS), scalability, and runtime
@@ -59,7 +59,7 @@ Microsoft provides technical support for the following examples:
   * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
   * Network performance and latency
-  * [Network policies](use-network-policies.md#differences-between-azure-npm-and-calico-network-policy-and-their-capabilities)
+  * [Network policies](use-network-policies.md#differences-between-azure-network-policy-manager-and-calico-network-policy-and-their-capabilities)
 
 > [!NOTE]
 > Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
