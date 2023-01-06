@@ -113,18 +113,14 @@ If the client did not initiate a write to a physical partition, it will not cont
 
 ### Consistent prefix consistency
 
-In consistent prefix option, updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
+Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four-replica set) in the local region, with asynchronous replication to all other regions.
 
-If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out-of-order permutations like `A,C` or `B,A,C`. Consistent Prefix provides write latencies, availability, and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important.
+In consistent prefix, updates made as single document writes see eventual consistency. 
+Updates made as a batch within a transaction, are returned consistent to the transaction in which they were committed. Write operations within a transaction of multiple documents are always visible together.
 
-Below are the consistency guarantees for Consistent Prefix:
+Assume two write operations are performed transactionally (all or nothing operations) on document Doc1 followed by document Doc2, within transactions T1 and T2. When client does a read in any replica, the user will see either “Doc1 v1 and Doc2 v1” or “Doc1 v2 and Doc2 v2” or neither document if the replica is lagging, but never “Doc1 v1 and Doc2 v2” or “Doc1 v2 and Doc2 v1” for the same read or query operation.
 
-- Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to a single region for an account with multiple write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to multiple regions for an account with multiple write region = [Eventual](#eventual-consistency)
-
-The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes:
+The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes for a transactional batch of writes:
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Illustration of consistent prefix":::
 
