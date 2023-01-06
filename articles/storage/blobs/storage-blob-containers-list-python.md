@@ -38,7 +38,7 @@ To filter the list of containers, specify a string for the `prefix` parameter. T
 
 ## Example: List containers
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-list.py" id="Snippet_ListContainers":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers":::
 
 ## See also
 
