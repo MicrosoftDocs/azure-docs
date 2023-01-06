@@ -365,7 +365,7 @@ This section covers the configuration options under optional claims for changing
         ]
     }
     ```
-3) Emit group names in the format of samAccountName for on-prem synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
+3) Emit group names in the format of samAccountName for on-premises synced groups and display name for cloud groups in SAML and OIDC ID Tokens for the groups assigned to the application:
     
     **Application manifest entry:**
 
