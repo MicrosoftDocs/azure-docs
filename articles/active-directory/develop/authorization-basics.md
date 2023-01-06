@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 12/29/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-
+ms.reviewer: johngarland, mamarxen, ianbe
 #Customer intent: As an application developer, I want to understand the basic concepts of authorization in the Microsoft identity platform.
 ---
 

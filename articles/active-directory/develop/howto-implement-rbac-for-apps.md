@@ -8,8 +8,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity 
-ms.date: 12/29/2022
+ms.date: 01/06/2023
 ms.author: davidmu
+ms.reviewer: johngarland, mamarxen, ianbe
 #Customer intent: As an application developer, I want to learn how to implement role-based access control in my applications so I can make sure that only those users with the right access privileges can access the functionality of them.
 ---
 

@@ -8,9 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 12/30/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
+ms.reviewer: jodah
 # Customer intent: As a developer, I want to learn how to most securely use Azure AD groups to control access to resources.
 ---
 

@@ -8,9 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/05/2023
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
+ms.reviewer: saumadan
 ---
 
 # Security best practices for application properties in Azure Active Directory

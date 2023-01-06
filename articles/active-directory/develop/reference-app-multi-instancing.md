@@ -9,9 +9,8 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/29/2022
+ms.date: 01/06/2023
 ms.author: davidmu
-ms.reviewer: 
 ---
 
 # Configure SAML app multi-instancing for an application in Azure Active Directory

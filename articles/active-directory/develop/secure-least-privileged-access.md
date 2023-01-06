@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/03/2023
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-
+ms.reviewer: yuhko, saumadan
 # Customer intent: As a developer, I want to learn about the principle of least privilege and the features of the Microsoft identity platform that I can use to make sure my application and its users are restricted to actions and have access to only the data they need perform their tasks.
 ---
 
