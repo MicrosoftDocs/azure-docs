@@ -64,8 +64,6 @@ Use the Azure portal to create a Flexible scale set.
     :::image type="content" source="media/tutorial-create-vmss/flex-details.png" alt-text="Name and region.":::
 1. Leave **Availability zone** as blank for this example.
 1. For **Orchestration mode**, select **Flexible**.
-1. Leave the default of *1* for fault domain count or choose another value from the drop-down.
-   :::image type="content" source="media/tutorial-create-vmss/flex-orchestration.png" alt-text="Choose Flexible orchestration mode.":::
 1. For **Image**, select *Ubuntu 18.04 LTS*.
 1. For **Size**, leave the default value or select a size like *Standard_E2s_V3*.
 1. In **Username** type *azureuser*.
