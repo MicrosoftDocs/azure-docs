@@ -7,20 +7,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 05/01/2023
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # Add Facebook as an identity provider for External Identities
 
 You can add Facebook to your self-service sign-up user flows so that users can sign in to your applications using their own Facebook accounts. To allow users to sign in using Facebook, you'll first need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. After you add Facebook as an identity provider, set up a user flow for the application and select Facebook as one of the sign-in options.
 
-After you've added Facebook as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the email they use to sign in to Facebook, or they can select **Sign-in options** and choose **Sign in with Facebook**. In either case, they'll be redirected to the Facebook login page for authentication.
+After you've added Facebook as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the email they use to sign in to Facebook, or they can select **Sign-in options** and choose **Sign in with Facebook**. In either case, they'll be redirected to the Facebook sign in page for authentication.
 
 ![Sign in options for facebook users](media/facebook-federation/sign-in-with-facebook-overview.png)
 
@@ -38,7 +38,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
-2. If you have not already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
+2. If you haven't already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
 3. Select **My Apps** and then **Create App**.
 4. Enter a **Display Name** and a valid **Contact Email**.
 5. Select **Create App ID**. This may require you to accept Facebook platform policies and complete an online security check.
@@ -54,7 +54,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 15. Under **Facebook Login**, select **Settings**.
 16. In **Valid OAuth redirect URIs**, enter the appropriate URL (noted above).
 17. Select **Save Changes** at the bottom of the page.
-18. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point the Status should change from **Development** to **Live**.
+18. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**.
 	
 ## Configure a Facebook account as an identity provider
 Now you'll set the Facebook client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
@@ -83,7 +83,7 @@ Now you'll set the Facebook client ID and client secret, either by entering it i
    > Use the client ID and client secret from the app you created above in the Facebook developer console. For more information, see the [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true) article. 
 
 ## How do I remove Facebook federation?
-You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook accounts will no longer be able to log in. 
+You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook accounts will no longer be able to sign in. 
 
 ### To delete Facebook federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
