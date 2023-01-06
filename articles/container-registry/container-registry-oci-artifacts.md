@@ -10,7 +10,7 @@ ms.author: stevelas
 
 # Push and pull OCI artifacts using an Azure container registry
 
-You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
+You can use an [Azure container registry][acr-landing] to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) CLI to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage various OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
 
@@ -163,12 +163,14 @@ az acr repository delete \
 
 ## Next steps
 
+* Learn about [Artifact References](container-registry-oras-artifacts.md), associating signatures, software bill of materials and other reference types
 * Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
 <!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 <!-- LINKS - internal -->
+[acr-landing]:              https://aka.ms/acr
 [acr-authentication]:       /articles/container-registry/container-registry-authentication.md?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
 [az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show
