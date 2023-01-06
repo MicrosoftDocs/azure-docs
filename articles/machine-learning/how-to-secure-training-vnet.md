@@ -52,9 +52,24 @@ In this article you learn how to secure the following training compute resources
 
 ## Prerequisites
 
+> [!TIP]
+> The items listed in this section apply to both computer instance/clusters with or without public IP addresses. For prerequisites specific to each configuration, see the [TBD] sections.
 + Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
-+ An existing virtual network and subnet to use with your compute resources.
++ An existing virtual network and subnet to use with your compute resources. This VNet must be in the same subscription as your Azure Machine Learning workspace.
+
+    - We recommend putting the storage accounts used by your workspace and training jobs in the same Azure region that you plan to use for your compute instances and clusters. If they are not in the same Azure region, you may incur data transfer costs and increased network latency.
+    - Make sure that **websocket** communication is allowed to `*.instances.azureml.net` and `*.instances.azureml.ms` in your VNet. Websockets are used by Jupyter on compute instances.
+
++ An existing subnet in the virtual network. This subnet is used when creating compute instances and clusters.
+
+    - Make sure that the subnet is not delegated to other Azure services.
+    - Make sure that the subnet contains enough free IP addresses.
+
+        * A compute instance only requires one IP address.
+        * A compute cluster can dynamically scale. If there aren't enough unassigned IP addresses, the cluster will be partially allocated.
+
++ If you have your own DNS server, we recommend using DNS forwarding to resolve the fully qualified domain names (FQDN) of compute instances and clusters. For more information, see [Use a custom DNS with Azure Machine Learning](how-to-custom-dns.md).
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
@@ -186,31 +201,17 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 ## Compute instance/cluster with public IP
 
-Before creating the compute instance or cluster, make sure that the following configuration steps have been performed:
+The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to using a public IP with compute instances/clusters:
 
-1. Your VNet must be in the same subscription as your Azure Machine Learning workspace.
-1. We recommend putting the storage accounts used by your workspace and training jobs in the same region that you use for your compute instances and clusters. If they are not in the same Azure region, you may incur data transfer costs and increased network latency.
-1. In your VNet, make sure that the subnet you plan to use for compute instances and clusters contains enough free IP addresses.
-    * A compute instance only requires one IP address.
-    * A compute cluster can dynamically scale. If there aren't enough unassigned IP addresses, the cluster will be partially allocated.
-1. In your VNet, make sure that the subnet you plan to use for compute instances and clusters is not delegated to other Azure services.
-1. In your VNet, allow **inbound** TCP traffic on port **44224** from the `AzureMachineLearning` service tag.
++ In your VNet, allow **inbound** TCP traffic on port **44224** from the `AzureMachineLearning` service tag.
     > [!IMPORTANT]
     > The compute instance/cluster is dynamically assigned an IP address when it is created. Since the address is not known before creation, and inbound access is required as part of the creation process, you cannot statically assign it on your firewall. Instead, if you are using a firewall with the VNet you must create a user-defined route to allow this inbound traffic.
-1. In your VNet, allow **outbound** traffic to the following service tags:
++ In your VNet, allow **outbound** traffic to the following service tags:
     * `AzureMachineLearning`: TCP on port 443, UDP on port 5831. This service tag is used to communicate with the Azure Machine Learning service.
     * `BatchNodeManagement`: TCP port 443. This service tag is used to communicate with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.
     * `Storage.region`: TCP port 443. Replace `region` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch.
         > [!IMPORTANT]
         > This outbound access could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.zs
-1. In your VNet, make sure that **websocket** communication is allowed to `*.instances.azureml.net` and `*.instances.azureml.ms`. Websockets are used by Jupyter on compute instances.
-1. Enable access to private storage, acr, keyvault (Shouldn't these already be done before workspace creation?).
-1. The Azure Active Directory identity you use when creating the compute instance or cluster must be able to perform the following actions through Azure role-based access control:
-    * `Microsoft.Network/virtualNetworks/*/read`
-    * `Microsoft.Network/virtualNetworks/subnet/join/action`
-
-    These actions are required to create the compute instance or cluster in the VNet. For more information on, see [Azure networking built-in roles](/azure/role-based-access-control/built-in-roles.md#networking).
-1. If you have your own DNS server, we recommend using DNS forwarding to resolve the fully qualified domain names (FQDN) of compute instances and clusters. For more information, see [Use a custom DNS with Azure Machine Learning](how-to-custom-dns.md).
 
 Use the following information to create a compute instance or cluster with a public IP address in the VNet:
 
