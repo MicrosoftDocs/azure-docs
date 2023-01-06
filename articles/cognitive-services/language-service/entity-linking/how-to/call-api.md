@@ -17,10 +17,56 @@ ms.custom: language-service-entity-linking, ignite-fall-2021
 
 The entity linking feature can be used to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "*Mars*" refers to the planet, or to the Roman god of war). It will return the entities in the text with links to [Wikipedia](https://www.wikipedia.org/) as a knowledge base.
 
-[!INCLUDE [Use Language Studio](../includes/use-language-studio.md)] 
 
-> [!TIP]
-> You can also follow the [quickstart article](../quickstart.md) to get started using entity linking with the REST API or client libraries.
+## Development options
+
+To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to use entity linking:
+
+:::row:::
+    :::column span="":::
+        **Development option**
+    :::column-end:::
+    :::column span="":::
+        **Description**
+    :::column-end:::
+    :::column span="":::
+      **Links**
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Language Studio
+    :::column-end:::
+    :::column span="":::
+        Language Studio is a web-based platform that lets you use entity linking both with text examples before signing up for an Azure account, and your own data when you sign up.
+    :::column-end:::
+    :::column span="":::
+        * [Language Studio website](https://language.cognitive.azure.com/tryout/linkedEntities)
+        * [Quickstart: Use Language Studio](../language-studio.md)
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        REST API or Client library (Azure SDK) 
+    :::column-end:::
+    :::column span="":::
+        Integrate entity linking into your applications using the REST API, or the client library available in a variety of languages.
+    :::column-end:::
+    :::column span="":::
+        * [Quickstart: Use entity linking](quickstart.md)
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Docker container
+    :::column-end:::
+    :::column span="":::
+        Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons.
+    :::column-end:::
+    :::column span="":::
+        * [How to deploy on-premises](how-to/use-containers.md)
+   :::column-end:::
+:::row-end:::
 
 ## Determine how to process the data (optional)
 
