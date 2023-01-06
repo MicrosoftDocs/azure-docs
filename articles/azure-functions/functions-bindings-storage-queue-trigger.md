@@ -497,7 +497,7 @@ The properties are members of the [CloudQueueMessage] class.
 |Property|Type|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Queue payload (if a valid string). If the queue message payload is a string, `QueueTrigger` has the same value as the variable named by the `name` property in *function.json*.|
-|`DequeueCount`|`int`|The number of times this message has been dequeued.|
+|`DequeueCount`|`string`|The number of times this message has been dequeued.|
 |`ExpirationTime`|`DateTimeOffset`|The time that the message expires.|
 |`Id`|`string`|Queue message ID.|
 |`InsertionTime`|`DateTimeOffset`|The time that the message was added to the queue.|
