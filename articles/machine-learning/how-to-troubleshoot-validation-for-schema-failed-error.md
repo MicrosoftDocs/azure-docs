@@ -57,7 +57,7 @@ The submitted YAML file contains one or more parameters whose value is of the in
 
 ### Solution - Invalid Value
 
-If the type of value provided for a parameter is invalid, check the prescribed schema and change the value to the correct type (note: this refers to the data type of the value provided for the parameter, not to be confused with the “type” parameter in many schemas). If the value itself is invalid, select a value from the expected range of values (you will find that in the error message). Save the YAML file and resubmit the command. [Here is a list of schemas](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-overview) for all different asset types in AzureML v2. 
+If the type of value provided for a parameter is invalid, check the prescribed schema and change the value to the correct type (note: this refers to the data type of the value provided for the parameter, not to be confused with the “type” parameter in many schemas). If the value itself is invalid, select a value from the expected range of values (you will find that in the error message). Save the YAML file and resubmit the command. [Here is a list of schemas](reference-yaml-overview.md) for all different asset types in AzureML v2.
 
 ### Cause - Unknown Field
 
@@ -81,7 +81,7 @@ The submitted YAML file is missing a required parameter. For example – for ml 
 
 ### Solution - Missing Field
 
-Check the prescribed schema for the asset type you are trying to create or update – check what parameters are required and what their correct value types are. [Here is a list of schemas](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-overview) for different asset types in AzureML v2. Ensure that the submitted YAML file has all the required parameters needed. Also ensure that the values provided for those parameters are of the correct type, or in the accepted range of values. Save the YAML file and resubmit the command.
+Check the prescribed schema for the asset type you are trying to create or update – check what parameters are required and what their correct value types are. [Here is a list of schemas](reference-yaml-overview.md) for different asset types in AzureML v2. Ensure that the submitted YAML file has all the required parameters needed. Also ensure that the values provided for those parameters are of the correct type, or in the accepted range of values. Save the YAML file and resubmit the command.
 
 ### Cause - Cannot Parse
 
