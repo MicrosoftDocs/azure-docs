@@ -17,8 +17,10 @@ ms.custom: language-service-entity-linking, ignite-fall-2021
 
 The entity linking feature can be used to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "*Mars*" refers to the planet, or to the Roman god of war). It will return the entities in the text with links to [Wikipedia](https://www.wikipedia.org/) as a knowledge base.
 
+[!INCLUDE [Use Language Studio](../includes/use-language-studio.md)] 
+
 > [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+> You can also follow the [quickstart article](../quickstart.md) to get started using entity linking with the REST API or client libraries.
 
 ## Determine how to process the data (optional)
 

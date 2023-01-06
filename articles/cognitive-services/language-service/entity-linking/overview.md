@@ -26,6 +26,8 @@ This documentation contains the following types of articles:
 
 The result will be a collection of recognized entities in your text, with URLs to Wikipedia as an online knowledge base. 
 
+[!INCLUDE [Use Language Studio](./includes/use-language-studio.md)] 
+
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
 ## Responsible AI 
