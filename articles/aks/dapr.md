@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 12/12/2022
+ms.date: 01/06/2023
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
 ---
 
@@ -171,46 +171,6 @@ For example:
 ```azurecli
 --release-train stable
 ```
-
-## Configuration settings
-
-The extension enables you to set Dapr configuration options by using the `--configuration-settings` parameter. For example, to provision Dapr with high availability (HA) enabled, set the `global.ha.enabled` parameter to `true`:
-
-```azurecli
-az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name dapr \
---extension-type Microsoft.Dapr \
---auto-upgrade-minor-version true \
---configuration-settings "global.ha.enabled=true" \
---configuration-settings "dapr_operator.replicaCount=2"
-```
-
-> [!NOTE]
-> If configuration settings are sensitive and need to be protected, for example cert related information, pass the `--configuration-protected-settings` parameter and the value will be protected from being read.
-
-If no configuration-settings are passed, the Dapr configuration defaults to:
-
-```yaml
-  ha:
-    enabled: true
-    replicaCount: 3
-    disruption:
-      minimumAvailable: ""
-      maximumUnavailable: "25%"
-  prometheus:
-    enabled: true
-    port: 9090
-  mtls:
-    enabled: true
-    workloadCertTTL: 24h
-    allowedClockSkew: 15m
-```
-
-For a list of available options, see [Dapr configuration][dapr-configuration-options].
-
-To learn more about configuration settings you can set during the Dapr extension installation or updates, see [Customize the Dapr extension for your project][dapr-settings].
 
 ## Targeting a specific Dapr version
 

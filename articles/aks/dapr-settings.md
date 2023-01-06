@@ -5,16 +5,52 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-service
 ms.topic: article
-ms.date: 12/21/2022
+ms.date: 01/06/2023
 ---
 
 # Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
 
-To configure the [Dapr](https://dapr.io/) extension to work best for you and your project, you can set various configuration options, like:
+Once you've [created the Dapr extension](./dapr.md), you can configure the [Dapr](https://dapr.io/) extension to work best for you and your project using various configuration options, like:
 
 - Limiting which of your nodes use the Dapr extension
 - Setting automatic CRD updates
 - Configuring the Dapr release namespace
+
+The extension enables you to set Dapr configuration options by using the `--configuration-settings` parameter. For example, to provision Dapr with high availability (HA) enabled, set the `global.ha.enabled` parameter to `true`:
+
+```azurecli
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2"
+```
+
+> [!NOTE]
+> If configuration settings are sensitive and need to be protected, for example cert related information, pass the `--configuration-protected-settings` parameter and the value will be protected from being read.
+
+If no configuration-settings are passed, the Dapr configuration defaults to:
+
+```yaml
+  ha:
+    enabled: true
+    replicaCount: 3
+    disruption:
+      minimumAvailable: ""
+      maximumUnavailable: "25%"
+  prometheus:
+    enabled: true
+    port: 9090
+  mtls:
+    enabled: true
+    workloadCertTTL: 24h
+    allowedClockSkew: 15m
+```
+
+For a list of available options, see [Dapr configuration][dapr-configuration-options].
 
 ## Limiting the extension to certain nodes
 
