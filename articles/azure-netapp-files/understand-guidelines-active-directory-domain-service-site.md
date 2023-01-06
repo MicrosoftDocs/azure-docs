@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 01/06/2022
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -27,7 +27,7 @@ Before you deploy Azure NetApp Files volumes, you must identify the AD DS integr
 
 ### <a name="network-requirements"></a>Network requirements 
 
-Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable and low-latency network connectivity (< 10ms RTT) to AD DS domain controllers. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.
+Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable and low-latency network connectivity (less than 10 ms RTT) to AD DS domain controllers. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.
 
 Ensure that you meet the following requirements about network topology and configurations:
 
@@ -35,7 +35,7 @@ Ensure that you meet the following requirements about network topology and confi
 * Ensure that AD DS domain controllers have network connectivity from the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Peered virtual network topologies with AD DS domain controllers must have peering configured correctly to support Azure NetApp Files to AD DS domain controller network connectivity.
 * Network Security Groups (NSGs) and AD DS domain controller firewalls must have appropriately configured rules to support Azure NetApp Files connectivity to AD DS and DNS.
-* Ensure that the latency is less than 10ms RTT between Azure NetApp Files and AD DS domain controllers.
+* Ensure that the latency is less than 10 ms RTT between Azure NetApp Files and AD DS domain controllers.
 
 The required network ports are as follows:
 
@@ -77,11 +77,11 @@ Ensure that you meet the following requirements about the DNS configurations:
 
 ### Time source requirements 
 
-Azure NetApp Files uses **time.windows.com** as the time source. Ensure that the domain controllers used by Azure NetApp Files are configured to use time.windows.com or another accurate, stable root (stratum 1) time source. If there is more than a five-minute skew between Azure NetApp Files and the customer client or AS DS domain controllers, authentication will fail, and access to Azure NetApp Files volumes might also fail.
+Azure NetApp Files uses **time.windows.com** as the time source. Ensure that the domain controllers used by Azure NetApp Files are configured to use time.windows.com or another accurate, stable root (stratum 1) time source. If there's more than a five-minute skew between Azure NetApp Files and your client or AS DS domain controllers, authentication will fail; access to Azure NetApp Files volumes might also fail.
 
 ## Decide which AD DS to use with Azure NetApp Files
 
-Azure NetApp Files supports both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (AAD DS) for AD connections. Before you create an AD connection, you need to decide whether to use AD DS or AAD DS.
+Azure NetApp Files supports both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS) for AD connections. Before you create an AD connection, you need to decide whether to use AD DS or Azure AD DS.
 
 For more information, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](../active-directory-domain-services/compare-identity-solutions.md).
 
@@ -91,7 +91,7 @@ You should use Active Directory Domain Services (AD DS) in the following scenari
 
 * You have AD DS users hosted in an on-premises AD DS domain that need access to Azure NetApp Files resources.
 * You have applications hosted partially on-premises and partially in Azure that need access to Azure NetApp Files resources.
-* You don’t need AAD DS integration with an Azure AD tenant in your subscription, or AAD DS is incompatible with your technical requirements.
+* You don’t need Azure AD DS integration with an Azure AD tenant in your subscription, or Azure AD DS is incompatible with your technical requirements.
 
 > [!NOTE]
 > Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC).
@@ -100,18 +100,18 @@ If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Exte
 
 ### Azure Active Directory Domain Services considerations
 
-[Azure Active Directory Domain Services (AAD DS)](../active-directory-domain-services/overview.md) is a managed AD DS domain that is synchronized with your Azure AD tenant. The main benefits to using Azure AD DS are as follows:
+[Azure Active Directory Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md) is a managed AD DS domain that is synchronized with your Azure AD tenant. The main benefits to using Azure AD DS are as follows:
 
-* AAD DS is a standalone domain. As such, there is no need to set up network connectivity between on-premises and Azure.
+* Azure AD DS is a standalone domain. As such, there's no need to set up network connectivity between on-premises and Azure.
 * Provides simplified deployment and management experience.
 
-You should use AAD DS in the following scenarios:
+You should use Azure AD DS in the following scenarios:
 
 * There’s no need to extend AD DS from on-premises into Azure to provide access to Azure NetApp Files resources.
 * Your security policies do not allow the extension of on-premises AD DS into Azure.
-* You don’t have strong knowledge of AD DS. AAD DS can improve the likelihood of good outcomes with Azure NetApp Files.
+* You don’t have strong knowledge of AD DS. Azure AD DS can improve the likelihood of good outcomes with Azure NetApp Files.
 
-If you choose to use AAD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](#network-requirements) and [DNS requirements](#ad-ds-requirements).
+If you choose to use Azure AD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](#network-requirements) and [DNS requirements](#ad-ds-requirements).
 
 ## Design AD DS site topology for use with Azure NetApp Files
 
@@ -125,13 +125,24 @@ Incorrect AD DS site topology or configuration can result in the following behav
 
 An AD DS site topology for Azure NetApp Files is a logical representation of the [Azure NetApp Files network](#network-requirements). Designing an AD DS site topology for Azure NetApp Files involves planning for domain controller placement, designing sites, DNS infrastructure, and network subnets to ensure good connectivity among the Azure NetApp Files service, Azure NetApp Files storage clients, and AD DS domain controllers.
 
+In addition to multiple domain controllers assigned to the AD DS site configured in the Azure NetApp Files AD Site Name, the Azure NetApp Files AD DS site can have one or more subnets assigned to it. 
+
+>[!NOTE]
+>It's essential that all the domain controllers and subnets assigned to the Azure NetApp Files AD DS site must be well connected (less than 10ms RTT latency) and reachable by the network interfaces used by the Azure NetApp Files volumes. 
+>
+>If you're using using Standard network features, you should ensure that any User Defined Routes (UDRs) or Network Security Group (NSG) rules do not block Azure NetApp Files network communication with AD DS domain controllers assigned to the Azure NetApp Files AD DS site. 
+>
+>If you're using Network Virtual Appliances or firewalls (such as Palo Alto Networks or Fortinet firewalls), they must be configured to not block network traffic between Azure NetApp Files and the AD DS domain controllers and subnets assigned to the Azure NetApp Files AD DS site.
+
 ### How Azure NetApp Files uses AD DS site information
 
 Azure NetApp Files uses the **AD Site Name** configured in the [Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) to discover which domain controllers are present to support authentication, domain join, LDAP queries, and Kerberos ticket operations. 
 
 #### AD DS domain controller discovery
 
-Azure NetApp Files initiates domain controller discovery every four hours. Azure NetApp Files queries the site-specific service (SRV) resource record to determine which domain controllers are in the AD DS site specified in the **AD Site Name** field of the Azure NetApp Files AD connection. The associated services hosted on the domain controllers (such as Kerberos, LDAP, Net Logon, and LSA) server discovery checks the status of the services hosted on the domain controllers and selects the optimal domain controller for authentication requests.  
+Azure NetApp Files initiates domain controller discovery every four hours. Azure NetApp Files queries the site-specific DNS service (SRV) resource record to determine which domain controllers are in the AD DS site specified in the **AD Site Name** field of the Azure NetApp Files AD connection. Azure NetApp Files domain controller server discovery checks the status of the services hosted on the domain controllers (such as Kerberos, LDAP, Net Logon, and LSA) and selects the optimal domain controller for authentication requests.
+
+The DNS service (SRV) resource records for the AD DS site specified in the AD Site name field of the Azure NetApp Files AD connection must contain the list of IP addresses for the AD DS domain controllers that will be used by Azure NetApp Files. You can check the validity of the DNS (SRV) resource record by using the `nslookup` utility. 
 
 > [!NOTE]
 > If you make changes to the domain controllers in the AD DS site that is used by Azure NetApp Files, wait at least four hours between deploying new AD DS domain controllers and retiring existing AD DS domain controllers. This wait time enables Azure NetApp Files to discover the new AD DS domain controllers.
@@ -154,10 +165,12 @@ Incorrect or incomplete AD DS site topology or configuration can result in volum
 
 Azure NetApp Files uses the AD DS Site to discover the domain controllers and subnets assigned to the AD DS Site defined in the AD Site Name. All domain controllers assigned to the AD DS Site must have good network connectivity from the Azure virtual network interfaces used by ANF and be reachable. AD DS domain controller VMs assigned to the AD DS Site that are used by Azure NetApp Files must be excluded from cost management policies that shut down VMs.
 
-You must update the AD DS Site configuration whenever new domain controllers are deployed into a subnet assigned to the AD DS site that is used by the Azure NetApp Files AD Connection. Ensure that the DNS SRV records for the site reflect any changes to the domain controllers assigned to the AD DS Site used by Azure NetApp Files.
+If Azure NetApp Files is not able to reach any domain controllers assigned to the AD DS site, the domain controller discovery process will query the AD DS domain for a list of all domain controllers. The list of domain controllers returned from this query is an unordered list. As a result, Azure NetApp Files may try to use domain controllers that are not reachable or well-connected, which can cause volume creation failures, problems with client queries, authentication failures, and failures to modify Azure NetApp Files AD connections.
+
+You must update the AD DS Site configuration whenever new domain controllers are deployed into a subnet assigned to the AD DS site that is used by the Azure NetApp Files AD Connection. Ensure that the DNS SRV records for the site reflect any changes to the domain controllers assigned to the AD DS Site used by Azure NetApp Files. You can check the validity of the DNS (SRV) resource record by using the `nslookup` utility.
 
 > [!NOTE]
-> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** filed of the AD connections with an RODC.
+> Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** field of the AD connections with an RODC.
 
 ### Sample AD DS site topology configuration for Azure NetApp Files
 
@@ -196,7 +209,7 @@ To create the subnet object that maps to the Azure NetApp Files delegated subnet
 
 [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) enables you to replicate Azure NetApp Files volumes from one region to another region to support business continuance and disaster recovery (BC/DR) requirements.
 
-Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cross-region replication. Replication of these volumes requires the following:
+Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cross-region replication. Replication of these volumes requires:
 
 * A NetApp account created in both the source and destination regions.
 * An Azure NetApp Files Active Directory connection in the NetApp account created in the source and destination regions.
