@@ -55,6 +55,7 @@ Reservation purchase recommendations are available in Azure Advisor. Keep in min
 - The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
 - If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to five days to disappear.
+- Azure classic compute resources such as classic VMs are explicitly excluded from reservation recommendations. Microsoft recommends that users avoid making long-term commitments to legacy services that are being deprecated.
 
 ## Other expected API behavior
 

@@ -67,7 +67,7 @@ Keep in mind, that **Session Ended** nodes are based only on telemetry collected
 
 Look for a page view or custom event that is repeated by many users across subsequent steps in the visualization. This usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, adding bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 
-## Common questions
+## Frequently asked questions
 
 ### Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
 
