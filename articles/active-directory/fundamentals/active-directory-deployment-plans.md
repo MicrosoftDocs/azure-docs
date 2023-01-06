@@ -116,7 +116,7 @@ Learn more: [Secure access for a connected world—meet Microsoft Entra](https:/
   
 Learn more: [Azure governance documenation](/azure/governance/)
 
-## Pilot best practices
+## Best practices for a pilot
 
 Use pilots to test with a small group, before making a change for larger groups, or everyone. Ensure each use case in your organization is tested.
 
