@@ -285,6 +285,8 @@ This section summarizes recent improvements and features in SQL pools in Azure S
 
 ## Learn more
 
+For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous updates in Azure Synapse Analytics](whats-new-archive.md).
+
 - [Get started with Azure Synapse Analytics](get-started.md)
 - [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics/)
 - [Realize Integrated Analytical Solutions with Azure Synapse Analytics](/training/paths/realize-integrated-analytical-solutions-with-azure-synapse-analytics/)
