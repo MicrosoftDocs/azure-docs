@@ -13,7 +13,7 @@ ms.date: 11/09/2022
 ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
-# Understand your datasets (preview)
+# Understand your datasets
 
 Machine learning models "learn" from historical decisions and actions captured in training data. As a result, their performance in real-world scenarios is heavily influenced by the data they're trained on. When feature distribution in a dataset is skewed, it can cause a model to incorrectly predict data points that belong to an underrepresented group or to be optimized along an inappropriate metric.
 

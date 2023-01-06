@@ -4,7 +4,7 @@ description: Use the Spark HBase Connector to read and write data from a Spark c
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/01/2022
+ms.date: 12/09/2022
 ---
 
 # Use Apache Spark to read and write Apache HBase data
@@ -31,7 +31,7 @@ The high-level process for enabling your Spark cluster to query your HBase clust
 
 In this step, you create and populate a table in Apache HBase that you can then query using Spark.
 
-1. Use the `ssh` command to connect to your HBase cluster. Edit the command below by replacing `HBASECLUSTER` with the name of your HBase cluster, and then enter the command:
+1. Use the `ssh` command to connect to your HBase cluster. Edit the command by replacing `HBASECLUSTER` with the name of your HBase cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
@@ -70,14 +70,14 @@ In this step, you create and populate a table in Apache HBase that you can then 
     
 ## Run scripts to set up connection between clusters
 
-To set up the communication between clusters, follow the below steps to run two scripts on your clusters. These scripts will automate the process of file copying described in 'Set up communication manually' section below. 
+To set up the communication between clusters, follow the steps to run two scripts on your clusters. These scripts will automate the process of file copying described in 'Set up communication manually' section. 
 
 * The script you run from the HBase cluster will upload `hbase-site.xml` and HBase IP-mapping information to the default storage attached to your Spark cluster. 
 * The script that you run from the Spark cluster sets up two cron jobs to run two helper scripts periodically:  
     1.	HBase cron job – download new `hbase-site.xml` files and HBase IP mapping from Spark default storage account to local node
     2.	Spark cron job – checks if a Spark scaling occurred and if cluster is secure. If so, edit `/etc/hosts` to include HBase IP mapping stored locally
 
-__NOTE__: Before proceeding, make sure you have added the Spark cluster’s storage account to your HBase cluster as secondary storage account. Make sure you the scripts in order as indicated below.
+__NOTE__: Before proceeding, make sure you've added the Spark cluster’s storage account to your HBase cluster as secondary storage account. Make sure you the scripts in order as indicated.
 
 
 1. Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) on your HBase cluster to apply the changes with the following considerations: 
@@ -104,7 +104,7 @@ __NOTE__: Before proceeding, make sure you have added the Spark cluster’s stor
 
 
     * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (In this example, the Spark cron runs every minute, while the HBase cron doesn't run)
-    * Since HBase cron is not set up by default, you need to rerun this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` configures the script to perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
+    * Since HBase cron isn't set up by default, you need to rerun this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` configures the script to perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
     
     
 
@@ -112,11 +112,11 @@ __NOTE__: Before proceeding, make sure you have added the Spark cluster’s stor
 
 __NOTE:__ These steps need to perform every time one of the clusters undergoes a scaling activity.
 
-1. Copy the hbase-site.xml from local storage to the root of your Spark cluster's default storage.  Edit the command below to reflect your configuration.  Then, from your open SSH session to the HBase cluster, enter the command:
+1. Copy the hbase-site.xml from local storage to the root of your Spark cluster's default storage.  Edit the command to reflect your configuration.  Then, from your open SSH session to the HBase cluster, enter the command:
 
     | Syntax value | New value|
     |---|---|
-    |[URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modify to reflect your storage.  The syntax below is for blob storage with secure transfer enabled.|
+    |[URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modify to reflect your storage.  The syntax is for blob storage with secure transfer enabled.|
     |`SPARK_STORAGE_CONTAINER`|Replace with the default storage container name used for the Spark cluster.|
     |`SPARK_STORAGE_ACCOUNT`|Replace with the default storage account name used for the Spark cluster.|
 
@@ -131,13 +131,13 @@ __NOTE:__ These steps need to perform every time one of the clusters undergoes a
     ```
 
 
-3. Connect to the head node of your Spark cluster using SSH. Edit the command below by replacing `SPARKCLUSTER` with the name of your Spark cluster, and then enter the command:
+3. Connect to the head node of your Spark cluster using SSH. Edit the command by replacing `SPARKCLUSTER` with the name of your Spark cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-4. Enter the command below to copy `hbase-site.xml` from your Spark cluster's default storage to the Spark 2 configuration folder on the cluster's local storage:
+4. Enter the command to copy `hbase-site.xml` from your Spark cluster's default storage to the Spark 2 configuration folder on the cluster's local storage:
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -145,7 +145,7 @@ __NOTE:__ These steps need to perform every time one of the clusters undergoes a
 
 ## Run Spark Shell referencing the Spark HBase Connector
 
-After you complete the preceding step, you should be able to run Spark shell, referencing the appropriate version of Spark HBase Connector. To find the most recent appropriate Spark HBase Connector core version for your cluster scenario, see [SHC Core Repository](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+After you complete the preceding step, you should be able to run Spark shell, referencing the appropriate version of Spark HBase Connector.
 
 As an example, the following table lists two versions and the corresponding commands the HDInsight team currently uses. You can use the same versions for your clusters if the versions of HBase and Spark are same as indicated in the table. 
 
@@ -159,7 +159,7 @@ As an example, the following table lists two versions and the corresponding comm
 
 2. Keep this Spark shell instance open and continue to [Define a catalog and query](#define-a-catalog-and-query). If you don't find the jars that correspond to your versions in the SHC Core repository, continue reading. 
 
-For subsequent combinations of Spark and HBase versions, these artifacts are no longer published at above repo. You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you are running with Spark 2.4 and HBase 2.1, complete these steps:
+For subsequent combinations of Spark and HBase versions, these artifacts are no longer published at above repo. You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you're running with Spark 2.4 and HBase 2.1, complete these steps:
 
 1. Clone the repo:
 
@@ -224,7 +224,7 @@ In this step, you define a catalog object that maps the schema from Apache Spark
     1. Identifies the rowkey as `key`, and map the column names used in Spark to the column family, column name, and column type as used in HBase.  
     1. Defines the rowkey in detail as a named column (`rowkey`), which has a specific column family `cf` of `rowkey`.  
 
-1. Enter the command below to define a method that provides a DataFrame around your `Contacts` table in HBase:
+1. Enter the command to define a method that provides a DataFrame around your `Contacts` table in HBase:
 
     ```scala
     def withCatalog(cat: String): DataFrame = {

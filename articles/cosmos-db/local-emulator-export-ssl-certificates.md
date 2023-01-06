@@ -84,7 +84,7 @@ Once the "CosmosDBEmulatorCertificate" TLS/SSL certificate is installed, your ap
 
 ## Use the certificate with Python apps
 
-When connecting to the emulator from Python apps, TLS verification is disabled. By default the [Python SDK(version 2.0.0 or higher)](nosql/sdk-python.md) for the API for NoSQL will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
+When connecting to the emulator from Python apps, TLS verification is disabled. By default the [Python SDK](nosql/quickstart-python.md) for the API for NoSQL will not try to use the TLS/SSL certificate when connecting to the local emulator. If however you want to use TLS validation, you can follow the examples in the [Python socket wrappers](https://docs.python.org/3/library/ssl.html) documentation.
 
 ## How to use the certificate in Node.js
 

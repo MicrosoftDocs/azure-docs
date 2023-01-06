@@ -9,7 +9,7 @@ metadata:
   ms.service: governance
   ms.topic: landing-page
   ms.collection: collection
-  author: DCtheGeek
+  author: timwarner-msft
   ms.author: dacoulte
   ms.date: 09/30/2020
 
@@ -66,7 +66,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.resources/#resources
           - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/managementgroups
+            url: /dotnet/api/overview/azure/management-groups
           - text: Azure SDK for Go
             url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
           - text: Azure SDK for JavaScript

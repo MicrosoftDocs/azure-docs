@@ -614,7 +614,7 @@ The following policy is the minimal form of the `validate-azure-ad-token` policy
 
 The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The hostname is provided using a policy expression, and the Azure AD tenant ID and client application ID are provided using named values. The decoded JWT is provided in the `jwt` variable after validation.
 
-For more details on optional claims, read [Provide optional claims to your app](/azure/active-directory/develop/active-directory-optional-claims).  
+For more details on optional claims, read [Provide optional claims to your app](../active-directory/develop/active-directory-optional-claims.md).  
 
 ```xml
 <validate-azure-ad-token tenant-id="{{aad-tenant-id}}" output-token-variable-name="jwt">
@@ -665,6 +665,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 ### Limitations
 
 This policy can only be used with an Azure Active Directory tenant in the public Azure cloud.  It doesn't support tenants configured in regional clouds or Azure clouds with restricted access.
+
+This policy can only validate "v1" tokens from Azure Active Directory.  Support for "v2" tokens will be added in a future release.
 
 ## <a name="ValidateJWT"></a> Validate JWT
 

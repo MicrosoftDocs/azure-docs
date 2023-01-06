@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 06/15/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Query items in Azure Cosmos DB for NoSQL using .NET
@@ -43,8 +43,8 @@ To learn more about the SQL syntax for Azure Cosmos DB for NoSQL, see [Getting s
 
 To query items in a container, call one of the following methods:
 
-* [``GetItemQueryIterator<>``](#query-items-using-a-sql-query-asynchronously)
-* [``GetItemLinqQueryable<>``](#query-items-using-linq-asynchronously)
+- [``GetItemQueryIterator<>``](#query-items-using-a-sql-query-asynchronously)
+- [``GetItemLinqQueryable<>``](#query-items-using-linq-asynchronously)
 
 ## Query items using a SQL query asynchronously
 

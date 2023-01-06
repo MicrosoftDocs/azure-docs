@@ -105,7 +105,7 @@ Create a single Azure Cosmos DB account using the API for Table.
 
 ## Next steps
 
-In this guide, you learned how to create an Azure Cosmos DB for Table account. You can now import more data to your Azure Cosmos DB account.
+In this guide, you learned how to create an Azure Cosmos DB for Table account.
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for Table](../import-data.md)
+> [Quickstart: Azure Cosmos DB for Table for .NET](quickstart-dotnet.md)

@@ -131,7 +131,7 @@ After you’ve finished configuring your experiment, select **Create** to start 
 
 To learn how to view and use your Responsible AI dashboard see, [Use the Responsible AI dashboard in Azure Machine Learning studio](how-to-responsible-ai-dashboard.md).
 
-## Generate Responsible AI scorecard (preview)
+## How to generate Responsible AI scorecard (preview)
 
 Once you've created a dashboard, you can use a no-code UI in Azure Machine Learning studio to customize and generate a Responsible AI scorecard. This enables you to share key insights for responsible deployment of your model, such as fairness and feature importance, with non-technical and technical stakeholders. Similar to creating a dashboard, you can use the following steps to access the scorecard generation wizard:
 

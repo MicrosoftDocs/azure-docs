@@ -35,6 +35,10 @@ landingContent:
             url: /training/paths/architect-network-infrastructure/
           - text: Explore Azure networking services
             url: /training/modules/azure-networking-fundamentals/
+      - linkListType: deploy
+        links:
+          - text: Azure Networking Solutions
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
   
   # Card (optional)
   - title: Get started
@@ -124,7 +128,7 @@ landingContent:
         links:
           - text: Network security groups
             url: ../../virtual-network/network-security-groups-overview.md 
-          - text: Azure DDoS Protection Standard
+          - text: Azure DDoS Protection
             url: ../../ddos-protection/ddos-protection-overview.md
           - text: Azure Firewall
             url: ../../firewall/overview.md
@@ -132,7 +136,7 @@ landingContent:
         links:
           - text: Restrict network access to PaaS resources
             url: ../../virtual-network/tutorial-restrict-network-access-to-resources.md
-          - text: Create and configure Azure DDoS Protection Standard
+          - text: Create and configure Azure DDoS Protection 
             url: ../../ddos-protection/manage-ddos-protection.md
           - text: Deploy and configure Azure Firewall
             url: ../../firewall/tutorial-firewall-deploy-portal.md

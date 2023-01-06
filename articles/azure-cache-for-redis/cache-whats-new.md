@@ -12,6 +12,20 @@ ms.date: 10/2/2022
 
 # What's New in Azure Cache for Redis
 
+## November 2022
+
+### Support for RedisJSON
+
+Support for using the RedisJSON module has now reached General Availability (GA).
+
+For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
+
+### Redis 6 becomes default update
+
+All versions of Azure Cache for Redis REST API, PowerShell, Azure CLI and Azure SDK, will create Redis instances using Redis 6 starting January 20, 2023. Previously, we announced this change would take place on November 1, 2022, but due to unforeseen changes, the date has now been pushed out to January 20, 2023.
+
+For more information, see [Redis 6 becomes default for new cache instances](#redis-6-becomes-default-for-new-cache-instances).
+
 ## October 2022
 
 ### Enhancements for passive geo-replication
@@ -62,10 +76,13 @@ The **RediSearch** module is also now available for Azure Cache for Redis. For m
 
 ### Redis 6 becomes default for new cache instances
 
-Beginning November 1, 2022, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
+> [!IMPORTANT]
+> Previously, we announced this change would take place on November 1, 2022. The new date is January 20th, 2023. The text has been updated to reflect the new date.
+
+Beginning January 20, 2023, all versions of Azure Cache for Redis REST API, PowerShell, Azure CLI, and Azure SDK will create Redis instances using the latest stable version of Redis offered by Azure Cache for Redis by default. Previously, Redis version 4.0 was the default version used. However, as of October 2021, the latest stable Redis version offered in Azure Cache for Redis is 6.0.
 
 >[!NOTE]
-> This change does not affect any existing instances. It is only applicable to new instances created from November 1, 2022, and onward.
+> This change does not affect any existing instances. It is only applicable to new instances created from January 20, 2023, and onward.
 >
 > The default Redis version that is used when creating a cache instance can vary because it is  based on the latest stable version offered in Azure Cache for Redis.
 

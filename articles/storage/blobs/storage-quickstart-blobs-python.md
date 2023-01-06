@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Azure Blob Storage client library for Python'
+title: "Quickstart: Azure Blob Storage client library for Python"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, passwordless-python
 ---
 
 # Quickstart: Azure Blob Storage client library for Python
 
-Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow steps to install the package and try out example code for basic tasks in an interactive console app.
+Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow these steps to install the package and try out example code for basic tasks in an interactive console app.
 
 [API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json#blob-samples)
 
@@ -99,7 +99,7 @@ These example code snippets show you how to do the following tasks with the Azur
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
-For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
 
@@ -303,5 +303,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob Storage library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-- To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).
+- To learn more, see the [Azure Blob Storage client libraries for Python](/python/api/overview/azure/storage-blob-readme).
+- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/developer/python/sdk/azure-sdk-overview).

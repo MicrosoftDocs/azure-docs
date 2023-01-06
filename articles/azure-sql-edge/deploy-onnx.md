@@ -17,7 +17,7 @@ keywords: deploy SQL Edge
 
 In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
 
-This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
+This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/0.24/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 

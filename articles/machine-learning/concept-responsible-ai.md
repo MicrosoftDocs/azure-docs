@@ -1,5 +1,5 @@
 ---
-title: What is Responsible AI (preview)
+title: What is Responsible AI
 titleSuffix: Azure Machine Learning
 description: Learn what Responsible AI is and how to use it with Azure Machine Learning to understand models, protect data, and control the model lifecycle.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.custom: responsible-ai, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to learn what Responsible AI is and how I can use it in Azure Machine Learning.
 ---
 
-# What is Responsible AI (preview)?
+# What is Responsible AI?
 
 [!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
 

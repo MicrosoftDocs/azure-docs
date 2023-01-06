@@ -351,7 +351,7 @@ Limitations and known issues for data drift monitors:
 
     | Feature type | Data type | Condition | Limitations | 
     | ------------ | --------- | --------- | ----------- |
-    | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
+    | Categorical | string | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
     | Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
 
 * When you have created a data drift monitor but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.

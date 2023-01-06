@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -45,7 +45,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Set up OfficeSpace Software for provisioning
 
-1. Sign in to your [OfficeSpace Software Admin Console](https://support.officespacesoftware.com/hc). Navigate to **Settings > Connectors**.
+1. Sign in to your [OfficeSpace Software Admin Console](https://support.officespacesoftware.com/s/). Navigate to **Settings > Connectors**.
 
 	![OfficeSpace Software Admin Console](media/officespace-software-provisioning-tutorial/settings.png)
 
