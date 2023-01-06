@@ -385,8 +385,8 @@ Once the Application is deployed in a private environment and a connector is cap
 
   | Header Name  | Attribute |
   |--------------|-----------|
-  | ps-sso-first | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name      |
-  | ps-sso-last  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
+  | ps-sso-first | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+  | ps-sso-last  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
   | ps-sso-EmailAddress      | emailaddress |
   | ps-sso-uid   | objectId |
 

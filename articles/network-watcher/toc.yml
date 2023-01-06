@@ -61,7 +61,7 @@
     href: network-watcher-troubleshoot-overview.md
   - name: Variable packet capture
     href: network-watcher-packet-capture-overview.md
-  - name: Traffic Analytics overview
+  - name: Traffic analytics
     items:
     - name: Overview
       href: traffic-analytics.md
