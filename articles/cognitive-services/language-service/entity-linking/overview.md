@@ -22,12 +22,68 @@ This documentation contains the following types of articles:
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific ways.
 
-[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
+## Get started with entity linking
+
+To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to use entity linking:
+
+:::row:::
+    :::column span="":::
+        **Development option**
+    :::column-end:::
+    :::column span="":::
+        **Description**
+    :::column-end:::
+    :::column span="":::
+      **Links**
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Language Studio
+    :::column-end:::
+    :::column span="":::
+        Language Studio is a web-based platform that lets you use entity linking both with text examples before signing up for an Azure account, and your own data when you sign up.
+    :::column-end:::
+    :::column span="":::
+        * [Language Studio website](https://language.cognitive.azure.com/tryout/linkedEntities)
+        * [Quickstart: Use Language Studio](../language-studio.md)
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        REST API or Client library (Azure SDK) 
+    :::column-end:::
+    :::column span="":::
+        Integrate entity linking into your applications using the REST API, or the client library available in a variety of languages.
+    :::column-end:::
+    :::column span="":::
+        * [Quickstart: Use entity linking](quickstart.md)
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Docker container
+    :::column-end:::
+    :::column span="":::
+        Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons.
+    :::column-end:::
+    :::column span="":::
+        * [How to deploy on-premises](how-to/use-containers.md)
+   :::column-end:::
+:::row-end:::
+
+<!--
+|Development option  |Description  | Links | 
+|---------|---------|---------|
+| Language Studio    | Language Studio is a web-based platform that lets you use entity linking both with text examples before signing up for an Azure account, and your own data when you sign up.  | * [Language Studio website](https://language.cognitive.azure.com/tryout/linkedEntities) <br> * [Quickstart: Use Language Studio](../language-studio.md) |
+| REST API or Client library (Azure SDK)     | Integrate entity linking into your applications using the REST API, or the client library available in a variety of languages. | * [Quickstart: Use entity linking](quickstart.md)  |
+| Docker container | Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. | * [How to deploy on-premises](how-to/use-containers.md) |
+
 
 The result will be a collection of recognized entities in your text, with URLs to Wikipedia as an online knowledge base. 
 
 [!INCLUDE [Use Language Studio](./includes/use-language-studio.md)] 
-
+-->
 [!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
 ## Responsible AI 
