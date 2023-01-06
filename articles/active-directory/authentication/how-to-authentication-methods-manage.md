@@ -149,6 +149,13 @@ When you determine that MFA and SSPR work as expected and you no longer need the
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/migration-complete.png" alt-text="Screenshot of Migration complete.":::
 
+>[!NOTE]
+>After having fully migrated all authentication methods, the following elements of the legacy SSPR policy remain active:
+> - The **Number of methods required to reset** control: admins can continue to toggle this to determine how many methods a user is required to verify their identity with before performing SSPR.
+> - The SSPR administrator policy: admins will continue to be able to register and use any methods listed under the legacy SSPR administrator policy or methods they're enabled to use in the Authentication methods policy.
+> 
+> In the future, both of these features will be integrated with the Authentication methods policy.
+
 ## Next steps
 
 - [Manage authentication methods for Azure AD](concept-authentication-methods-manage.md)
