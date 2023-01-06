@@ -20,7 +20,7 @@ Use the following guidance to help deploy Azure Active Directory (Azure AD). Lea
 
 ## Your stakeholders
 
-When beginning your deployment plans, include your key stakeholders. Identify and document stakeholders, roles, resposibilities. Titles and roles can differ from one organization to another, however the ownership areas are similar.
+When beginning your deployment plans, include your key stakeholders. Identify and document stakeholders, roles, responsibilities. Titles and roles can differ from one organization to another, however the ownership areas are similar.
 
 |Role |Responsibility |
 |-|-|
@@ -28,7 +28,7 @@ When beginning your deployment plans, include your key stakeholders. Identify an
 |End user|The people for whom the service is implemented. Users can participate in a pilot program.|
 |IT Support Manager|Provides input on the supportability of proposed changes |
 |Identity architect or Azure Global Administrator|Defines how the change aligns with identity management infrastructure|
-|Application business owner |Owns the affected application(s), which migh include access management. Provides input on the user experience.
+|Application business owner |Owns the affected application(s), which might include access management. Provides input on the user experience.
 |Security owner|Confirms the change plan meets security requirements|
 |Compliance manager|Ensures compliance with corporate, industry, or governmental requirements|
 
@@ -53,7 +53,7 @@ Use the following list to plan for authentication deployment.
 * **Conditional Access** - Implement automated access-control decisions for users to access cloud apps, based on conditions: 
   * See, [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
   * See, [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md)
-* **Azure AD self-service password reset (SSPR)** - Help users reset passwords without administrator intervention:
+* **Azure AD self-service password reset (SSPR)** - Help users reset a password without administrator intervention:
   * See, [Passwordless authentication options for Azure AD](/articles/active-directory/authentication/concept-authentication-passwordless.md)
   * See, [Plan an Azure Active Directory self-service password reset deployment](../authentication/howto-sspr-deployment.md) 
 * **Passordless authentication** - Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys:
@@ -66,8 +66,8 @@ Use the following list to help deploy applications and devices.
 
 * **Single sign-on (SSO)** - Enable user access to apps and resources while signing in once, without being required to enter credentials again: 
   * See, [What is single sign-on in Azure AD?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
-  * See, [Plan a single sign-on deloyment](../manage-apps/plan-sso-deployment.md)
-* **My Apps portal** - A web-based portal to discover and access applications. Enable user productivity with self-service, for intance requesting access to groups, or managing access to resources on behalf of others. 
+  * See, [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
+* **My Apps portal** - A web-based portal to discover and access applications. Enable user productivity with self-service, for instance requesting access to groups, or managing access to resources on behalf of others. 
   * See, [My Apps portal overview](/azure/active-directory/manage-apps/myapps-overview)
 * **Devices** - Evaluate device integration methods with Azure AD, choose the implementation plan, and more.
   * See, [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)  
@@ -103,28 +103,28 @@ Use the following list to learn about governance and reporting. Items in the lis
 
 Learn more: [Secure access for a connected world—meet Microsoft Entra](https://www.microsoft.com/en-us/security/blog/?p=114039)
 
-* **Priveleged identity management (PIM)** - Manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. Use it for just-in-time access, request approval workflows, and fully integrated access reviews to help prevent malicious activities: 
+* **Privileged identity management (PIM)** - Manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. Use it for just-in-time access, request approval workflows, and fully integrated access reviews to help prevent malicious activities: 
   * See, [Start using Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-getting-started)
   * See, [Plan a Privileged Identity Management deployment](../privileged-identity-management/pim-deployment-plan.md) 
 * **Reporting and monitoring** - Your Azure AD reporting and monitoring solution design has dependencies and constraints: legal, security, operations, environment, and processes. 
   * See, [Azure Active Directory reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
-* **Access reviews** - Undertand and manage access to resources:
+* **Access reviews** - Understand and manage access to resources:
   * See, [What are access reviews?](/articles/active-directory/governance/access-reviews-overview.md)
   * See, [Plan a Microsoft Entra access reviews deployment](../governance/deploy-access-reviews.md)  
 * **Identity governance** - Meet your compliance and risk management objectives for access to critical applications. Learn how to enforce accurate access.
   * See, [Govern access for applications in your environment](../governance/identity-governance-applications-prepare.md)
   
-Learn more: [Azure governance documenation](/azure/governance/)
+Learn more: [Azure governance documentation](/azure/governance/)
 
 ## Best practices for a pilot
 
 Use pilots to test with a small group, before making a change for larger groups, or everyone. Ensure each use case in your organization is tested.
 
-### Pilot: phase one
+### Pilot: Phase 1
 
 In your first phase, target IT, usability, and other users who can test and provide feedback. Use this feedback to gain insights on potential issues for support staff, and to develop communications and instructions you send to all users.
 
-### Pilot: phase two
+### Pilot: Phase 2
 
 Widen the pilot to larger groups of users by using dynamic membership, or by manually adding users to the targeted group(s).
 
