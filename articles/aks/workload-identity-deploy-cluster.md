@@ -19,12 +19,9 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- You've installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
-
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
-[az account][az-account] command.
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
 
 ## Install the aks-preview Azure CLI extension
 
@@ -50,13 +47,13 @@ Register the `EnableWorkloadIdentityPreview` feature flag by using the [az featu
 az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
 ```
 
-When the status shows *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -170,7 +167,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [workload-identity-overview]: workload-identity-overview.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
 [az-keyvault-list]: /cli/azure/keyvault#az-keyvault-list
