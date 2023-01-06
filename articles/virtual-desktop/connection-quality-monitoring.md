@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 >[!IMPORTANT]
 >The Connection Graphics Data Logs are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Connection quality](connection-latency.md) is essential for good user experiences, so it's important to be able to monitor connections for potential issues and troubleshoot problems as they arise. Azure Virtual Desktop offers tools like [Log Analytics](diagnostics-log-analytics.md) that can help you monitor your deployment's connection health. This article will show you how to set up and configure your diagnostic settings to let you collect connection quality data and query data for specific parameters.
+[Connection quality](connection-latency.md) is essential for good user experiences, so it's important to be able to monitor connections for potential issues and troubleshoot problems as they arise. Azure Virtual Desktop offers tools like [Log Analytics](diagnostics-log-analytics.md) that can help you monitor your deployment's connection health. This article will show you how to configure your diagnostic settings to let you collect connection quality data and query data for specific parameters.
 
 ## Prerequisites
 
