@@ -76,13 +76,15 @@ An operation is an action. Power automate flow allows you to add one or more adv
 
 6. Select **Save**.
 
-## Test your flow
+## Test and run your flow
 After saving the flow, we need to test it and run the flow app. 
 
 1. Select **Flow checker** to see if there are any errors that need to be resolved. 
 2. Select **Test**  and then select **Manually** to test the trigger.
 3. Select **Run flow**.
-4.You will receive a message **Your flow run successfully started. To monitor it, go to the Flow Runs Page**. Go to the flow runs page to see the result.
+4. When the flow is successfully executed you will the following ouput. You can select **click to download** in the output section to see the JSON response received.
+
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/run-flow-to-get-rows-from-table.png" alt-text="Screenshot that shows output of the run":::
 
 ## Next Steps
 [Azure database for MySQL connector](/connectors/azuremysql/) reference 
