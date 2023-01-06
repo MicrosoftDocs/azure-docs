@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/05/2023
+ms.date: 01/06/2023
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -85,7 +85,7 @@ To create the registry key that overrides push notifications:
    Value = TRUE
 1. Restart the NPS Service. 
 
-If you're using Remote Desktop Gateway, the user account must be configured for phone verification, or Microsoft Authenticator push notifications. If neither option is configured, the user won't be able to meet the Azure AD MFA challenge, and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE. 
+If you're using Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_TOP = FALSE to fall back to push notifications with Microsoft Authenticator.
 
 ### Apple Watch supported for Microsoft Authenticator
 
@@ -323,7 +323,7 @@ They'll see a prompt to supply a verification code. They must select their accou
 
 ### Can I opt out of number matching?
 
-Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants starting February 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. To protect the ecosystem and mitigate these threats, Microsoft will enable number matching for all tenants starting February 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
 
 ### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
 
