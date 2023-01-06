@@ -4,26 +4,30 @@ description: The reference describes Azure Web PubSub supported WebSocket subpro
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
-ms.date: 11/06/2021
+ms.topic: reference 
+ms.date: 01/06/2023
 ---
 
-#  Azure Web PubSub supported JSON WebSocket subprotocol
-     
-This document describes the subprotocol `json.webpubsub.azure.v1`.
+# Azure Web PubSub supported JSON WebSocket subprotocol
 
-When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be **JSON** payloads.
+The JSON WebSocket subprotocol, `json.webpubsub.azure.v1`, enables the exchange of publish/subscribe messages directly between clients.  A WebSocket connection using the `json.webpubsub.azure.v1` subprotocol is called a PubSub WebSocket client.
+
+This document describes the subprotocol `json.webpubsub.azure.v1`.
 
 ## Overview
 
-Subprotocol `json.webpubsub.azure.v1` empowers the clients to do publish/subscribe directly instead of a round trip to the upstream server. We call the WebSocket connection with `json.webpubsub.azure.v1` subprotocol a PubSub WebSocket client.
+In a simple native WebSocket client, a *server* role is required to handle events from clients. A simple WebSocket connection triggers a `message` event when it sends messages, and relies on the server-side to process messages and do other operations. 
 
-For example, in JS, a PubSub WebSocket client can be created using:
-```js
+When you use the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-groups) and publish messages directly to a group using [publish requests](#publish-messages). The client can also route messages directly to upstream event handlers using [event requests](#send-custom-events).
+
+In JavaScript, a PubSub WebSocket client can be created using:
+
+```javascript
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
 ```
-For a simple WebSocket client, the *server* is a MUST HAVE role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-groups) and publish messages to a group using [publish requests](#publish-messages) directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs using [event requests](#send-custom-events).
+
+ The following information describes the subprotocol requests and responses.  Both incoming and outgoing data frames must contain JSON payloads.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
@@ -33,13 +37,18 @@ For a simple WebSocket client, the *server* is a MUST HAVE role to handle the ev
 
 ## Responses
 
-Messages received by the client can be several types: `ack`, `message`, and `system`: 
+Messages received by the client can be `ack`, `message`, and `system`:
+
+* ack - The response to a request containing an `ackId`.
+* message - Messages from the group or server.
+* system - Responses from the Web PubSub service to system related client requests.
 
 ### Ack response
 
-If the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response for an `async` `await` operation, and having a timeout check when the ack response is not received during a certain period.
+When the client request contains `ackId`, the service will return an ack response for the request. The client should handle the ack mechanism, by waiting for the ack response with an `async` `await` operation and a using a timeout operation when the ack response isn't received in a certain period.
 
 Format:
+
 ```json
 {
     "type": "ack",
@@ -52,11 +61,11 @@ Format:
 }
 ```
 
-The client implementation SHOULD always check if the `success` is `true` or `false` first. Only when `success` is `false` the client reads from `error`.
+The client implementation SHOULD always check if the `success` is `true` or `false` first, then only read the error when `success` is `false`.
 
 ### Message response
 
-Clients can receive messages published from one group the client joined, or from the server management role that the server sends messages to the specific client or the specific user.
+Clients can receive messages published from a group the client has joined or from the server. 
 
 1. When the message is from a group
 
@@ -71,7 +80,7 @@ Clients can receive messages published from one group the client joined, or from
     }
     ```
 
-1. When The message is from the server.
+1. When the message is from the server.
 
     ```json
     {
@@ -83,8 +92,11 @@ Clients can receive messages published from one group the client joined, or from
     ```
 
 #### Case 1: Sending data `Hello World` to the connection through REST API with `Content-Type`=`text/plain` 
-* What a simple WebSocket client receives is a text WebSocket frame with data: `Hello World`;
-* What a PubSub WebSocket client receives is as follows:
+
+
+* A simple WebSocket client receives a text WebSocket frame with data: `Hello World`;
+* A PubSub WebSocket client receives:
+
     ```json
     {
         "type": "message",
@@ -95,8 +107,10 @@ Clients can receive messages published from one group the client joined, or from
     ```
 
 #### Case 2: Sending data `{ "Hello" : "World"}` to the connection through REST API with `Content-Type`=`application/json`
-* What a simple WebSocket client receives is a text WebSocket frame with stringified data: `{ "Hello" : "World"}`;
-* What a PubSub WebSocket client receives is as follows:
+
+* A simple WebSocket client receives a text WebSocket frame with stringified data: `{ "Hello" : "World"}`.
+* A PubSub WebSocket client receives:
+
     ```json
     {
         "type": "message",
@@ -108,11 +122,13 @@ Clients can receive messages published from one group the client joined, or from
     }
     ```
 
-If the REST API is sending a string `Hello World` using `application/json` content type, what the simple WebSocket client receives is a JSON string, which is `"Hello World"` that wraps the string with `"`.
+If the REST API is sending a string `Hello World` using `application/json` content type, the simple WebSocket client receives a JSON string, which is `"Hello World"` wrapped with double quotes (`"`).
 
 #### Case 3: Sending binary data to the connection through REST API with `Content-Type`=`application/octet-stream`
-* What a simple WebSocket client receives is a binary WebSocket frame with the binary data.
-* What a PubSub WebSocket client receives is as follows:
+
+* A simple WebSocket client receives a binary WebSocket frame with the binary data.
+* A PubSub WebSocket client receives:
+
     ```json
     {
         "type": "message",
@@ -124,11 +140,11 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 ### System response
 
-The Web PubSub service can also send system-related responses to the client. 
+The Web PubSub service sends system related responses to client requests. 
 
 #### Connected
 
-When the connection connects to service.
+The responses when the client connects to service.
 
 ```json
 {
@@ -141,7 +157,7 @@ When the connection connects to service.
 
 #### Disconnected
 
-When the server closes the connection, or when the service declines the client.
+The response when the server closes the connection, or when the service declines the client.
 
 ```json
 {

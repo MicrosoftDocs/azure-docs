@@ -5,7 +5,7 @@ author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 11/06/2021
+ms.date: 01/04/2023
 ---
 
 #  Azure Web PubSub supported Reliable JSON WebSocket subprotocol
@@ -26,7 +26,7 @@ For example, in JS, a Reliable PubSub WebSocket client can be created using:
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
 ```
 
-When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follow the [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber.
+When using `json.reliable.webpubsub.azure.v1` subprotocol, see [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber for clients.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
@@ -45,13 +45,13 @@ Format:
 }
 ```
 
-Reliable PubSub WebSocket client must send sequence ack message once it received a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
+Reliable PubSub WebSocket client must send a sequence ack message once it receives a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
  
 * `sequenceId` is a incremental uint64 number from the message received.
 
 ## Responses
 
-Messages received by the client can be several types: `ack`, `message`, and `system`. Messages with type `message` have `sequenceId` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
+Messages received by the client can be several types: `ack`, `message`, and `system`. Messages with type `message` have `sequenceId` property. Client must send a [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### Ack response
 
