@@ -244,7 +244,7 @@ The following features have known limitations in Azure Government:
 
 ### National clouds and MSAL
 
-The Microsoft Authentication Library (MSAL) in addition to the Microsoft worldwide cloud, enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
+The Microsoft Authentication Library (MSAL) enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
 
 ## Management and governance
 
