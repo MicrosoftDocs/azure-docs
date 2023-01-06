@@ -82,7 +82,7 @@ After saving the flow, we need to test it and run the flow app.
 1. Select **Flow checker** to see if there are any errors that need to be resolved. 
 2. Select **Test**  and then select **Manually** to test the trigger.
 3. Select **Run flow**.
-4. When the flow is successfully executed you will the following ouput. You can select **click to download** in the output section to see the JSON response received.
+4. When the flow is successfully executed, you can select **click to download** in the output section to see the JSON response received.
 
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/run-flow-to-get-rows-from-table.png" alt-text="Screenshot that shows output of the run":::
 
