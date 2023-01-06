@@ -8,7 +8,7 @@ ms.subservice: develop
 ms.custom: aaddev, ignite-2022, engagement-fy23
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 01/06/2023
 ms.author: davidmu
 ms.reviewer: ludwignick
 ---
@@ -31,7 +31,7 @@ In this article, we walk through a few common scenarios that can help you unders
 
 In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you're new to Azure Active Directory (Azure AD), we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
-When creating a claims-mapping policy, you can also emit a claim from a directory extension attribute in tokens. Use _ExtensionID_ for the extension attribute instead of _ID_ in the `ClaimsSchema` element. For more info on extension attributes, see [Using directory extension attributes](active-directory-schema-extensions.md).
+When creating a claims-mapping policy, you can also emit a claim from a directory extension attribute in tokens. Use _ExtensionID_ for the extension attribute instead of _ID_ in the `ClaimsSchema` element. For more information about using extension attributes, see [Using directory extension attributes](active-directory-schema-extensions.md).
 
 The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, while the claims mapping and token creation runtime in Azure is generally available. Updates to the preview PowerShell module could require you to update or change your configuration scripts.
 
