@@ -154,7 +154,7 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
-    - name: MLflow guide
+    - name: MLflow
       items:
         - name: MLflow and Azure Machine Learning
           href: concept-mlflow.md
@@ -506,27 +506,6 @@
               href: how-to-track-experiments-mlflow.md
             - name: Migrate from SDK v1 logging to MLflow
               href: reference-migrate-sdk-v1-mlflow-tracking.md
-        - name: Train and track with MLflow
-          items:
-            - name: Configure MLflow for Azure Machine Learning
-              href: how-to-use-mlflow-configure-tracking.md
-            - name: Track experiments with MLflow
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-use-mlflow-cli-runs.md
-            - name: Track Azure Databricks runs with MLflow
-              displayName: log, monitor, deploy, metrics, databricks
-              href: how-to-use-mlflow-azure-databricks.md
-            - name: Track Azure Synapse Analytics runs with MLflow
-              displayName: log, monitor, deploy, metrics, synapse, analytics
-              href: how-to-use-mlflow-azure-synapse.md
-            - name: Train with MLflow Projects
-              displayName: log, monitor, metrics, model registry, register
-              href: how-to-train-mlflow-projects.md
-            - name: Log metrics, parameters and files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
-            - name: Query & compare experiments and runs with MLflow
-              href: how-to-track-experiments-mlflow.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items:
@@ -605,7 +584,7 @@
           items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
-            - name: Input data for batch endpoints jobs
+            - name: Create jobs and input data for batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
             - name: Author scoring scripts for batch scoring
               href: how-to-batch-scoring-script.md
@@ -639,7 +618,41 @@
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
-        - name: MLflow guide
+        - name: Inference HTTP server
+          displayName: local debug
+          href: how-to-inference-server-http.md
+    - name: Work with MLflow
+      items:
+        - name: Configure MLflow for Azure Machine Learning
+          href: how-to-use-mlflow-configure-tracking.md
+        - name: Train & track
+          items:
+            - name: Track experiments with MLflow
+              displayName: log, monitor, metrics, model registry, register
+              href: how-to-use-mlflow-cli-runs.md
+            - name: Track Azure Databricks runs with MLflow
+              displayName: log, monitor, deploy, metrics, databricks
+              href: how-to-use-mlflow-azure-databricks.md
+            - name: Track Azure Synapse Analytics runs with MLflow
+              displayName: log, monitor, deploy, metrics, synapse, analytics
+              href: how-to-use-mlflow-azure-synapse.md
+            - name: Train with MLflow Projects
+              displayName: log, monitor, metrics, model registry, register
+              href: how-to-train-mlflow-projects.md
+            - name: Log metrics, parameters and files
+              displayName: troubleshoot, log, files, tracing, metrics
+              href: how-to-log-view-metrics.md
+            - name: Log MLflow models
+              href: how-to-log-mlflow-models.md
+            - name: Query & compare experiments and runs with MLflow
+              href: how-to-track-experiments-mlflow.md
+        - name: ML lifecycle
+          items:
+            - name: Manage models with MLflow
+              href: how-to-manage-models-mlflow.md
+            - name: Manage experiments and runs with MLflow
+              href: how-to-track-experiments-mlflow.md
+        - name: Deployment
           items:
             - name: Guidelines for deploying MLflow models
               displayName: mlflow models deployment plugin
@@ -658,9 +671,6 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-        - name: Inference HTTP server
-          displayName: local debug
-          href: how-to-inference-server-http.md
     - name: Manage the ML lifecycle
       items:
         - name: Manage models

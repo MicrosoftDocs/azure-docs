@@ -1,12 +1,12 @@
 ---
-title: Azure Logic Apps connectors overview
-description: Overview about connectors for workflows in Azure Logic Apps.
+title: Connectors overview
+description: Overview about connectors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 10/25/2022
-ms.custom: contperf-fy21q4
+ms.date: 01/05/2023
+ms.custom: engagement-fy23, contperf-fy21q4
 ---
 
 # About connectors in Azure Logic Apps

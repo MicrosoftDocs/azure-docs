@@ -77,7 +77,7 @@ The normal app access ports inbound are as follows:
 |Web Deploy service|8172|
 
 > [!NOTE]
-> For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range, as this is used for internal health ping traffic for the ftp service specifically.
+> For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range on port 21, as this is used for internal health ping traffic for the ftp service specifically.
 
 ## Network routing
 

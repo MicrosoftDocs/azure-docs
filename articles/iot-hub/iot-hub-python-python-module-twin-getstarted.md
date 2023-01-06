@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 01/04/2023
 ms.author: kgremban
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -28,7 +28,7 @@ At the end of this article, you have three Python apps:
 * **ReceiveModuleTwinDesiredPropertiesPatch**: receives the module twin, desired properties patch on your device.
 
 > [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+> For more information about the SDK tools available to build both device and back-end apps, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 ## Prerequisites
 
@@ -201,7 +201,7 @@ In this section, you create a Python app to get the module twin desired properti
    import time
    from azure.iot.device import IoTHubModuleClient
 
-   CONNECTION_STRING = "YourIotHubConnectionString"
+   CONNECTION_STRING = "YourModuleConnectionString"
 
 
    def twin_patch_handler(twin_patch):
