@@ -9,7 +9,7 @@ author: dbmsft
 ms.author: debdeepbasu
 ms.reviewer: sgilley
 ms.topic: troubleshooting 
-ms.date: 01/09/2023
+ms.date: 01/06/2023
 ---
 
 # Troubleshoot Validation For Schema Failed Error
