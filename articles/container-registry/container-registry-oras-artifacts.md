@@ -28,7 +28,7 @@ Storing individual OCI Artifacts are covered in [Push and pull OCI artifact](con
 
 ## Preview limitations
 
-OCI Artifact Manifest support ([OCI 1.1 specification][oci-1_1-spec]) is available in all Azure public regions. Azure China and government clouds are not yet supported.
+OCI Artifact Manifest support ([OCI 1.1 specification][oci-1_1-spec]) is available in all Azure public regions. Azure China and government clouds aren't yet supported.
 
 ## Configure a registry
 
@@ -152,7 +152,7 @@ oras attach $IMAGE \
 
 ### Sign the SBoM
 
-Artifacts that are pushed as references, typically do not have tags as they are considered part of the subject artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
+Artifacts that are pushed as references, typically don't have tags as they're considered part of the subject artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
 
 ```bash
 SBOM_DIGEST=$(oras discover -o json \

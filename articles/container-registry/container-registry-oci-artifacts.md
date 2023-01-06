@@ -67,13 +67,13 @@ echo 'Readme Content' > readme.md
 ```
 
 The following step pushes the `readme.md` file to `<myregistry>.azurecr.io/samples/artifact:readme`.
-- The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase), followed by the namespace and repo : `/samples/artifact`.
+- The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase), followed by the namespace and repo: `/samples/artifact`.
 - The artifact is tagged `:readme`, to identify it uniquely from other artifacts listed in the repo (`:latest, :v1, :v1.0.1`).
 - The root artifact, an artifact that doesn't reference another, sets the type through the `-config` parameter.  
   - `/dev/null` represents an empty config object, where the value `:readme/example` identifies the artifact type.  
   - `:readme/example` differentiates it from a container image, which uses `application/vnd.oci.image.config.v1+json`.
 - The `./readme.md` identifies the file uploaded, and the `:application/markdown` represents the [IANA `mediaType`][iana-mediatypes] of the file.  
-  For more information, see [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md) for additional information.
+  For more information, see [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md).
 
 Use the `oras push` command to push the file to your registry. 
 
