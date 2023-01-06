@@ -118,12 +118,14 @@ Learn more: [Azure governance documenation](/azure/governance/)
 
 ## Pilot best practices
 
-Use pilots to test with a small group, before making a change for everyone. Ensure each use case in your organization is tested.
+Use pilots to test with a small group, before making a change for larger groups, or everyone. Ensure each use case in your organization is tested.
 
 ### Pilot: phase one
 
-In your first wave, target IT, usability, and other users who can test and provide feedback. Use this feedback to gain insights on potential issues for support staff, and to develop communications and instructions you send to all users.
+In your first phase, target IT, usability, and other users who can test and provide feedback. Use this feedback to gain insights on potential issues for support staff, and to develop communications and instructions you send to all users.
 
 ### Pilot: phase two
 
-Widen the pilot to larger groups of users by using [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+Widen the pilot to larger groups of users by using dynamic membership, or by manually adding users to the targeted group(s).
+
+Learn more: [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)]
