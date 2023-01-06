@@ -12,12 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/21/2022
+ms.date: 01/06/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+* [Set NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
 
 ## December 2022
 

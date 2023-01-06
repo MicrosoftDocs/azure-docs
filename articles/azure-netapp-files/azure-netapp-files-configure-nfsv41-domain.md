@@ -24,12 +24,11 @@ Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `l
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default.  This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
-
+As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default. This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
 
 ## Register the feature
 
-Azure NetApp Files now supports the ability to set the NFSv4.1 domain using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+Azure NetApp Files now supports the ability to set the NFSv4.1 domain for all non-LDAP volumes in a subscription using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1.  Register the feature
 
@@ -49,7 +48,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Configure NFSv4.1 domain  
 
-<!-- Portal -->
+### [Portal](#tab/azure-portal)
+<!-- Portal --> Customer can update the account settings to set the v4-id-domain on all SVMs holding non-ldap volumes for that subscription and region. After setting this property any new SVM created during volume create operation will also have this property set.
+Customer can uncheck and update this subscription wide setting via any NetApp account in the subscription and region to set the v4-id-domain back to default domain.
 
 1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
 1. Select **Configure.**
@@ -59,7 +60,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1. Select **Save**.
 
-<!-- OLD -->
+### [CLI](#tab/bash)
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
@@ -122,8 +123,7 @@ The following example shows the resulting user/group change:
 ![Screenshot that shows an example of the resulting user/group change.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
-
-<!-- preview -->
+---
 
 ## Edit the NFSv4 domain
 
@@ -148,7 +148,7 @@ On `Host2`, note that the test user accounts have not been created, but the same
 
 ![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
 
-## Next step 
+## Next steps
 
 * [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
