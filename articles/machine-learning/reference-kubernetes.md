@@ -138,17 +138,17 @@ Upon AzureML extension deployment completes, it will create following resources 
 
 ### Collected log details
 
-Some logs about AzureML workloads in the cluster, such as status, metrics, life cycle, etc., will be collected through extension components. The following list shows all the log details collected, including the type of logs collected and where they were sent to or stored.
+Some logs about AzureML workloads in the cluster will be collected through extension components, such as status, metrics, life cycle, etc. The following list shows all the log details collected, including the type of logs collected and where they were sent to or stored.
 
 |Pod  |Resource description |Detail logging info |
 |--|--|--|
-|amlarc-identity-controller	|Request and renew Azure Blob/Azure Container Registry token through managed identity.	|Only used when `enableInference=true` is set when installing the extension. It has trace logs for status on getting identity for endpoints to authenticate with AML service.|
-|amlarc-identity-proxy	|Request and renew Azure Blob/Azure Container Registry token through managed identity.	|Only used when `enableInference=true` is set when installing the extension. It has trace logs for status on getting identity for the cluster to authenticate with AML service.|
-|aml-operator	| Manage the lifecycle of training jobs.	|The logs contain AML training job pod status in the cluster.|
+|amlarc-identity-controller	|Request and renew Azure Blob/Azure Container Registry token through managed identity.	|Only used when `enableInference=true` is set when installing the extension. It has trace logs for status on getting identity for endpoints to authenticate with AzureML service.|
+|amlarc-identity-proxy	|Request and renew Azure Blob/Azure Container Registry token through managed identity.	|Only used when `enableInference=true` is set when installing the extension. It has trace logs for status on getting identity for the cluster to authenticate with AzureML service.|
+|aml-operator	| Manage the lifecycle of training jobs.	|The logs contain AzureML training job pod status in the cluster.|
 |azureml-fe-v2|	The front-end component that routes incoming inference requests to deployed services.	|Access logs at request level, including request Id, start time, response code, error details and durations for request latency. Trace logs for service metadata changes, service running healthy status, etc. for debugging purpose.|
-| gateway	| The gateway is used to communicate and send data back and forth.	| Trace logs on requests from AML services to the clusters.|
-|healthcheck	|--| 	The logs contain azureml namespace resource (AML extension) status to diagnose what make the extension not functional. |
-|inference-operator-controller-manager|	Manage the lifecycle of inference endpoints.	|The logs contain AML inference endpoint and deployment pod status in the cluster.|
+| gateway	| The gateway is used to communicate and send data back and forth.	| Trace logs on requests from AzureML services to the clusters.|
+|healthcheck	|--| 	The logs contain azureml namespace resource (AzureML extension) status to diagnose what make the extension not functional. |
+|inference-operator-controller-manager|	Manage the lifecycle of inference endpoints.	|The logs contain AzureML inference endpoint and deployment pod status in the cluster.|
 | metrics-controller-manager	| Manage the configuration for Prometheus.|Trace logs for status of uploading training job and inference  deployment metrics on CPU utilization and memory utilization.|
 | relayserver	| relayserver is only needed in arc-connected cluster and will not be installed in AKS cluster.| Relayserver works with Azure Relay to communicate with the cloud services.	The logs contain request level info from Azure relay.  |
  	
