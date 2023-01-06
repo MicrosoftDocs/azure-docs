@@ -49,7 +49,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ## Set automatic CRD updates
 
-Starting with Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
+With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
 
 ```azurecli
 az k8s-extension upgrade --cluster-type managedClusters \
