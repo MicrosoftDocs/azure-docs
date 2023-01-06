@@ -153,7 +153,7 @@ runs[runs.status == "FINISHED"]
   
 ## Getting metrics, parameters, artifacts and models
 
-The method `search_runs` returns a a Pandas `Dataframe` containing a limited amount of information by default. You can get Python objects if needed, which may be useful to get details about them. Use the `output_format` parameter to control how output is returned:
+The method `search_runs` returns a Pandas `Dataframe` containing a limited amount of information by default. You can get Python objects if needed, which may be useful to get details about them. Use the `output_format` parameter to control how output is returned:
 
 ```python
 runs = mlflow.search_runs(
