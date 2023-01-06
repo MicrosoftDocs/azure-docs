@@ -28,35 +28,38 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 
 ## Single sign-on errors
 
-**Unable to save Single sign-on settings** - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
+- **Unable to save Single sign-on settings** 
+   - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
 
-To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#configure-single-sign-on).
+   To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#configure-single-sign-on).
 
-**App not showing in Single sign-on setting page** - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings. 
+- **App not showing in Single sign-on setting page** 
+   - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings. 
 
-The Identifier URL must be `https://us3.datadoghq.com/account/saml/metadata.xml`.
-
-The reply URL must be `https://us3.datadoghq.com/account/saml/assertion`.
-
-The following image shows the correct values.
+     The Identifier URL must be `https://us3.datadoghq.com/account/saml/metadata.xml`.
+     
+     The reply URL must be `https://us3.datadoghq.com/account/saml/assertion`.
+        
+    The following image shows the correct values.
   
-:::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in Azure A D." border="true":::
+    :::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in Azure A D." border="true":::
 
-**Guest users invited to the tenant are unable to access Single sign-on** - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN) and the other email is an alternative email.
+- **Guest users invited to the tenant are unable to access Single sign-on** 
+   - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN) and the other email is an alternative email.
 
-When inviting guest user, use the home tenant UPN. By using the UPN, you keep the email address in-sync during the Single sign-on process. You can find the UPN by looking for the email address in the top-right corner of the user's Azure portal.
+   When inviting guest user, use the home tenant UPN. By using the UPN, you keep the email address in-sync during the Single sign-on process. You can find the UPN by looking for the email address in the top-right corner of the user's Azure portal.
   
 ## Logs not being emitted
 
-1. Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
+- Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
 
-:::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
+   :::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
 
-2. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
+- imit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
 
-4. Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
+- Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
 ## Metrics not being emitted
 

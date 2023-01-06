@@ -38,13 +38,13 @@ This document contains information about troubleshooting your solutions that use
 
 - Create fails because Last Name is empty. This happens when the user info in Azure AD is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify this and try again.
 
-## Logs not being emitted
+### Logs not being emitted
 
-1. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-2. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
-3. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
+-  Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
 
 ### Single sign-on errors
