@@ -150,8 +150,7 @@ See the sections in this article for the phonemes that are specific to each loca
 ## Map X-SAMPA to IPA
 The table below shows a mapping relationship between X-SAMPA (Extended Speech Assessment Methods Phonetic Alphabet) and IPA alphabets.
 
-
-|X-SAMPA   |IPA   |
+|`x-sampa`   |`ipa`  |
 |----------|-----------|
 |`a`|`a`|
 |`b`|	`b`|
@@ -183,7 +182,7 @@ The table below shows a mapping relationship between X-SAMPA (Extended Speech As
 |`r`|	`r`|
 |r`|`ɽ`|
 |`r\`	|`ɹ`|
-|r\`|	`ɻ`|
+|r&#92;`|	`ɻ`|
 |`s`	|`s`|
 |s`|	`ʂ`|
 |`s\`	|`ɕ`|
@@ -263,4 +262,65 @@ The table below shows a mapping relationship between X-SAMPA (Extended Speech As
 |`8`|	`ɵ`|
 |`9`|	`œ`|
 |`&`|	`ɶ`|
+|`?`|	`ʔ`|
+|`?\`|	`ʕ`|
+|`<\`|	`ʢ`|
+|`>\`|	`ʡ`|
+|`^`|	`ꜛ`|
+|`!`|	`ꜜ`|
+|`!\`|	`ǃ`|
+|`\|`|	`\|`|
+|`\|\`|	`ǀ`|
+|`‖`|	`‖`|
+|`\|\\|\`|	`ǁ`|
+|`=\`|	`ǂ`|
+|`-\`|	`‿`|
+|`_"`|	`̈`|
+|`_+`|`̟`|
+|`_-`|`̠`|
+|`_0`|`̥`|
+|`=`|`̩`|
+|`_=`|`̩`|
+|`_>`|`ʼ`|
+|`_?\`|`ˤ`|
+|`_\`|`̂`|
+|`_^`|`̯`|
+|`_}`|`̚`|
+|`|`˞`|
+|`~`|`̃`|
+|`_~`|`̃`|
+|`_A`|`̘`|
+|`_a`|`̺`|
+|`_B`|`̏`|
+|`_B_L`|᷅ |
+|`_c`|`̜`|
+|`_d`|`̪`|
+|`_e`|`̴`|
+|&lt;F&gt;|`↘`|
+|`_F`|`̂`|
+|`_G`|`ˠ`|
+|`_H`|`́`|
+|`_H_T`|` ᷄`|
+|`_h`|`ʰ`|
+|`_k`|`̰`|
+|`_L`|̀`|
+|`_l`|`ˡ`|
+|`_M`|`̄`|
+|`_m`|`̻`|
+|`_N`|`̼`|
+|`_n`|`ⁿ`|
+|`_O`|`̹`|
+|`_o`|`̞`|
+|`_q`|`̙`|
+|`<R>`|`↗`|
+|`_R`|̌|
+|`_R_F`|`᷈`|
+|`_r`|`̝`|
+|`_T`|`̋`|
+|`_t`|`̤`|
+|`_v`|`̬`|
+|`_w`|`ʷ`|
+|`_X`|`̆`|
+|`_x`|`̽`|
+
 
