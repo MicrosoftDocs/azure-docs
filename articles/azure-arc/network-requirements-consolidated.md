@@ -42,3 +42,18 @@ This section describes additional networking requirements specific to deploying 
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
+## System Center Virtual Machine Manager (preview)
+
+System Center Virtual Machine Manager (SCVMM) requires the connectivity described below:
+
+| **Service** | **Port** | **URL** | **Direction** | **Notes**|
+| --- | --- | --- | --- | --- |
+| SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
+
+## VMware vSphere (preview)
+
+VMware vSphere requires the connectivity described below:
+
+| **Service** | **Port** | **URL** | **Direction** | **Notes**|
+| --- | --- | --- | --- | --- |
+| vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
