@@ -90,12 +90,12 @@ The following list describes features and services for productivity gains in hyb
 ## Users
 
 * **User identities** - Learn about automation to create, maintain, and remove user identities in cloud apps, such as Dropbox, Salesforce, ServiceNow, and more. 
-  * [Plan an automatic user provisioning deployment in Azure Active Directory](../app-provisioning/plan-auto-user-provisioning.md)
+  * See, [Plan an automatic user provisioning deployment in Azure Active Directory](../app-provisioning/plan-auto-user-provisioning.md)
 * **Identity governance** - Create identity governance and enhance business processes that rely on identity data. With HR products, such as Workday or Successfactors, manage employee and contingent-staff identity lifecycle with rules. These rules map Joiner-Mover-Leaver processes, such as New Hire, Terminate, Transfer, to IT actions such as Create, Enable, Disable.
-  * [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) 
+  * See, [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) 
 * **Azure AD B2B collaboration** - Improve external-user collaboration with secure access to applications: 
-  * [B2B collaboration overview](/azure/active-directory/external-identities/what-is-b2b)
-  * [Plan an Azure Active Directory B2B collaboration deployment](../fundamentals/secure-external-access-resources.md)
+  * See, [B2B collaboration overview](/azure/active-directory/external-identities/what-is-b2b)
+  * See, [Plan an Azure Active Directory B2B collaboration deployment](../fundamentals/secure-external-access-resources.md)
 
 ## Governance and reporting
 
@@ -104,15 +104,15 @@ Use the following list to learn about governance and reporting. Items in the lis
 Learn more: [Secure access for a connected world—meet Microsoft Entra](https://www.microsoft.com/en-us/security/blog/?p=114039)
 
 * **Priveleged identity management (PIM)** - Manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. Use it for just-in-time access, request approval workflows, and fully integrated access reviews to help prevent malicious activities: 
-  * [Start using Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-getting-started)
-  * [Plan a Privileged Identity Management deployment](../privileged-identity-management/pim-deployment-plan.md) 
+  * See, [Start using Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-getting-started)
+  * See, [Plan a Privileged Identity Management deployment](../privileged-identity-management/pim-deployment-plan.md) 
 * **Reporting and monitoring** - Your Azure AD reporting and monitoring solution design has dependencies and constraints: legal, security, operations, environment, and processes. 
-  * [Azure Active Directory reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
+  * See, [Azure Active Directory reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
 * **Access reviews** - Undertand and manage access to resources:
-  * [What are access reviews?](/articles/active-directory/governance/access-reviews-overview.md)
-  * [Plan a Microsoft Entra access reviews deployment](../governance/deploy-access-reviews.md)  
+  * See, [What are access reviews?](/articles/active-directory/governance/access-reviews-overview.md)
+  * See, [Plan a Microsoft Entra access reviews deployment](../governance/deploy-access-reviews.md)  
 * **Identity governance** - Meet your compliance and risk management objectives for access to critical applications. Learn how to enforce accurate access.
-  * [Govern access for applications in your environment](../governance/identity-governance-applications-prepare.md)
+  * See, [Govern access for applications in your environment](../governance/identity-governance-applications-prepare.md)
   
 Learn more: [Azure governance documenation](/azure/governance/)
 
