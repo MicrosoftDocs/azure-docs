@@ -334,12 +334,12 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
 :::moniker-end
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-202011.png)
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-1.4.png)
 :::moniker-end
 
 View the messages being sent from the temperature sensor module:

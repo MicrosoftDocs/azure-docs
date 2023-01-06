@@ -103,6 +103,10 @@ After you generate an event, you'll notice that `Email Delivery Report Received`
 
 :::image type="content" source="./media/handle-email-events/email-engagementtracking-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL engagement tracking report event.":::
 
+- `EngagementContext` refers to the link clicked when the engagementType is `Click`.
+- `UserAgent` refers to the User-Agent from which this email engagement event originated. Eg. If the user interacted on Edge using a Win10 machine: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246
+- `EngagementType` refers to the type of engagement, possible values are 'View' or 'Click'.
+
 Learn more about the [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
 
 ## Clean up resources
