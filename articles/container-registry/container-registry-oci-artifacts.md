@@ -16,10 +16,12 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 
 ## Prerequisites
 
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI][az-acr-create].
 * **Azure CLI** - Version `2.29.1` or later is recommended. Run `az --version `to find the required. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **ORAS CLI** - Download and install the ORAS CLI `v0.16.0` for your operating system from the [ORAS installation guide](https://oras.land/cli/). 
-* **Docker** - ORAS leverages the Docker desktop credential store for authentication. You can use [Docker installed locally][docker-install] to build and push a container image, reference an existing container image or use [ACR Build][az-acr-build] to build remotely, in Azure.
+* **Docker** - ORAS optionally leverages the Docker desktop credential store for authentication.  
+  If Docker Desktop is installed, it must be running.  
+  You can use [Docker installed locally][docker-install] to build and push a container image, reference an existing container image or use [ACR Build][az-acr-build] to build remotely, in Azure.
 
 ## Configure a registry
 
@@ -108,7 +110,7 @@ Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1aec5d9dcf7748dd702682d53
 When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
 For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles]
 
-Create some documentation around an artifact.
+Create some documentation for the repository:
 
 ```bash
 echo 'Readme Content' > readme.md
@@ -199,8 +201,7 @@ oras pull -o ./download $REGISTRY/samples/artifact:readme
 ### View the pulled files
 
 ```bash
-ls ./download
-ls ./download/details
+tree ./download
 ```
 
 ## Remove the artifact (optional)
@@ -226,5 +227,4 @@ az acr repository delete \
 [acr-landing]:              https://aka.ms/acr
 [acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
-[az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
