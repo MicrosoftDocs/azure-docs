@@ -11,7 +11,7 @@ ms.date: 01/06/2023
 
 # Perform data operations in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This how-to guide shows how you can work with data in your logic app workflow in the following ways:
 
@@ -28,7 +28,7 @@ For other ways to work with data, review the [data manipulation functions](workf
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app workflow where you want to perform the data operation. This workflow must already have a [trigger](logic-apps-overview.md#logic-app-concepts) as the first step in your workflow.
+* The logic app workflow where you want to perform the data operation. This workflow must already have a [trigger](logic-apps-overview.md#logic-app-concepts) as the first step in your workflow. Both Consumption and Standard logic app workflows support the data operations described in this guide.
 
   All data operations are available only as actions. So, before you can use these actions, your workflow must already start with a trigger and include any other actions required to create the outputs you want using the data operation.
 
@@ -127,6 +127,12 @@ To try an example, follow these steps by using the workflow designer. Or, if you
 
    ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "compose" entered, and the "Compose" action selected.](./media/logic-apps-perform-data-operations/select-compose-action-standard.png)
 
+   > [!NOTE]
+   >
+   > If the connector results box shows the message that **We couldn't find any results for compose**, 
+   > you get this result because the connector name is actually **Data Operations**, not **Compose**, 
+   > which is the action name.
+
 1. In the **Inputs** box, enter the inputs to use for creating the output.
 
    For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
@@ -151,9 +157,9 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**.
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
 
-   For this example, the result appears in the email's body, so add the **Output** field to the **Body** box.
+   For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
    ![Screenshot showing the Azure portal, designer for an example Consumption workflow, and the "Send an email" action with the output from the preceding "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-consumption.png)
 
@@ -165,9 +171,16 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In the action, click inside the boxes where you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**.
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
 
-   For this example, the result appears in the email's body, so add the **Output** field to the **Body** box.
+   > [!NOTE]
+   >
+   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Compose** label in the list.
+   >
+   > ![Screenshot showing the Azure portal, designer for an example Standard workflow, and dynamic content list with "See more" selected.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard-see-more.png)
+
+   For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
    ![Screenshot showing the Azure portal, designer for an example Standard workflow, and the "Send an email" action with the output from the preceding "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard.png)
 
@@ -175,7 +188,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
 ---
 
-Based on the email connector you used, the following screenshot shows the results:
+If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
 
 ![Screenshot showing an email with the "Compose" action results.](./media/logic-apps-perform-data-operations/compose-email-results.png)
 
