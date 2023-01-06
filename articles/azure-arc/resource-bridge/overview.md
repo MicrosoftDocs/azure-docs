@@ -51,6 +51,10 @@ To summarize, the Azure resources are projections of the resources running in yo
 
 Through Azure Arc resource bridge (preview), you can accomplish the following for each private cloud infrastructure from Azure:
 
+### Azure Stack HCI
+
+You can provision and manage on-premises Windows and Linux virtual machines (VMs) running on Azure Stack HCI clusters.
+
 ### VMware vSphere
 
 By registering resource pools, networks, and VM templates, you can represent a subset of your vCenter resources in Azure to enable self-service. Integration with Azure allows you to manage access to your vCenter resources in Azure to maintain a secure environment. You can also perform various operations on the VMware virtual machines that are enabled by Arc-enabled VMware vSphere:
@@ -62,11 +66,7 @@ By registering resource pools, networks, and VM templates, you can represent a s
 * Enable guest management
 * Install extensions
 
-### Azure Stack HCI
-
-You can provision and manage on-premises Windows and Linux virtual machines (VMs) running on Azure Stack HCI clusters.
-
-### System Center Virtual Machine Manager (SCVMM) 
+### System Center Virtual Machine Manager (SCVMM)
 
 You can connect an SCVMM management server to Azure by deploying Azure Arc resource bridge (preview) in the VMM environment. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
 
