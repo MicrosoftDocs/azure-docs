@@ -69,7 +69,7 @@ When you configure a data export in your IoT Central application, you can choose
 IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
 
 > [!NOTE]
-> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region.
 
 When you configure a managed identity, the configuration includes a *scope* and a *role*:
 

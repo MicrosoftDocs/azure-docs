@@ -1,5 +1,5 @@
 ---
-title: Azure Confidential virtual machine options on AMD processors (preview)
+title: Azure Confidential virtual machine options on AMD processors
 description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
 author: mamccrea
 ms.author: mamccrea
@@ -85,6 +85,7 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
 - Ubuntu 20.04 Gen 2
+- Ubuntu 22.04 Gen 2
 - Windows Server 2019 Gen 2
 - Windows Server 2022 Gen 2
 

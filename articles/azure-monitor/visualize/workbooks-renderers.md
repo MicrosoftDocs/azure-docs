@@ -75,7 +75,7 @@ The following instructions show you how to use thresholds with links to assign i
 1. Select the **Make this item a link** checkbox.
      - Under **View to open**, select **Workbook (Template)**.
      - Under **Link value comes from**, select **link**.
-     - Select the **Open link in Context Blade** checkbox.
+     - Select the **Open link in Context pane** checkbox.
      -  Choose the following settings in **Workbook Link Settings**:
         - Under **Template Id comes from**, select **Column**.
         - Under **Column**, select **link**.

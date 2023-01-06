@@ -339,7 +339,7 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [cluster-extensions]: ../aks/cluster-extensions.md
 [azure-voting-app]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/k8s-offer-azure-vote/azure-vote
 [createuidefinition]: ../azure-resource-manager/managed-applications/create-uidefinition-overview.md
-[sandbox-environment]: https://ms.portal.azure.com/#view/Microsoft_Azure_CreateUIDef/SandboxBlade
+[sandbox-environment]: https://portal.azure.com/#view/Microsoft_Azure_CreateUIDef/SandboxBlade
 [arm-template-overview]: ../azure-resource-manager/templates/overview.md
 [namespaces-and-dns]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#namespaces-and-dns
 [create-acr]: ../container-registry/container-registry-get-started-azure-cli.md

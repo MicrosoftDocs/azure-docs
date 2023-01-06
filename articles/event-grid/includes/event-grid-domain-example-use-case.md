@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 03/04/2021
+ ms.date: 11/17/2022
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -17,4 +17,4 @@ Event domains allow you to model Contoso Construction Machinery as a single even
 
 It also gives you a single endpoint, which you can publish all of your customer events to. Event Grid will take care of making sure each topic is only aware of events scoped to its tenant.
 
-:::image type="content" source="./media/event-grid-domain-example-use-case/contoso-construction-example.png" alt-text="Contoso Construction Example" lightbox="./media/event-grid-domain-example-use-case/contoso-construction-example.png":::
+:::image type="content" source="./media/event-grid-domain-example-use-case/contoso-construction-example.png" alt-text="Image showing an example use case for using Event Grid domains." lightbox="./media/event-grid-domain-example-use-case/contoso-construction-example.png":::

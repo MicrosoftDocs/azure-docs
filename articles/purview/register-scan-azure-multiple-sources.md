@@ -1,5 +1,5 @@
 ---
-title: Connect to and manage multiple Azure sources
+title: Discover and govern multiple Azure sources
 description: This guide describes how to connect to multiple Azure sources in Microsoft Purview at once, and use Microsoft Purview's features to scan and manage your sources.
 author: linda33wj
 ms.author: jingwang
@@ -10,7 +10,7 @@ ms.date: 10/28/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage multiple Azure sources in Microsoft Purview
+# Discover and govern multiple Azure sources in Microsoft Purview
 
 This article outlines how to register multiple Azure sources and how to authenticate and interact with them in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
@@ -52,7 +52,7 @@ To learn how to add permissions on each resource type within a subscription or r
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
-- [Azure SQL Database](register-scan-azure-sql-database.md#authentication-for-a-scan)
+- [Azure SQL Database](register-scan-azure-sql-database.md#configure-authentication-for-a-scan)
 - [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
@@ -178,9 +178,9 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 ### Create a policy
-To create an access policy on an entire Azure subscription or resource group, follow these guide:
-* [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy)
-* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
+To create an access policy on an entire Azure subscription or resource group, follow these guides:
+* [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-resource-group.md#create-a-new-devops-policy)
+* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) 
 
 
 ## Next steps

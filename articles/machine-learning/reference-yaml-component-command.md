@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-author: s-polly
-ms.author: scottpolly
+author: cloga
+ms.author: lochen
 ms.date: 08/08/2022
-ms.reviewer: larryfr
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) command component YAML schema

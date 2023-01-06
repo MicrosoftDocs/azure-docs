@@ -8,7 +8,7 @@ author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.subservice: core
-ms.date: 05/03/2021
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
 ---
@@ -55,5 +55,5 @@ Create a tag filter to show your managed online endpoint and/or managed online d
 ## Next steps
 - [What are endpoints?](concept-endpoints.md)
 - Learn how to [monitor your managed online endpoint](./how-to-monitor-online-endpoints.md).
-- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy an ML model with an online endpoint (CLI)](how-to-deploy-online-endpoints.md)
 - [How to deploy managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)

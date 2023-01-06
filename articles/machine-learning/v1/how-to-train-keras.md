@@ -5,10 +5,10 @@ description: Learn how to train and register a Keras deep neural network classif
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: blackmist
-ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
@@ -140,7 +140,7 @@ First, define your conda dependencies in a YAML file; in this example the file i
 channels:
 - conda-forge
 dependencies:
-- python=3.6.2
+- python=3.7
 - pip:
   - azureml-defaults
   - tensorflow-gpu==2.0.0

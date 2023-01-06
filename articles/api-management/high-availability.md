@@ -14,7 +14,7 @@ ms.author: danlep
 
 This article introduces service capabilities and considerations to ensure that your API Management instance continues to serve API requests if Azure outages occur. 
 
-API Management supports the following key service capabilities that are recommended for [reliable and resilient](../availability-zones/overview.md) Azure solutions. Use them individually, or together, to improve the availability of your API Management solution:
+API Management supports the following key service capabilities that are recommended for [reliable and resilient](../reliability/overview.md) Azure solutions. Use them individually, or together, to improve the availability of your API Management solution:
 
 * **Availability zones**, to provide resilience to datacenter-level outages
 
@@ -25,10 +25,10 @@ API Management supports the following key service capabilities that are recommen
 
 ## Availability zones
 
-Azure [availability zones](../availability-zones/az-overview.md) are physically separate locations within an Azure region that are tolerant to datacenter-level failures. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.  
+Azure [availability zones](../reliability/availability-zones-overview.md) are physically separate locations within an Azure region that are tolerant to datacenter-level failures. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.  
 
 
-Enabling [zone redundancy](../availability-zones/migrate-api-mgt.md) for an API Management instance in a supported region provides redundancy for all [service components](api-management-key-concepts.md#api-management-components): gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select. 
+Enabling [zone redundancy](../reliability/migrate-api-mgt.md) for an API Management instance in a supported region provides redundancy for all [service components](api-management-key-concepts.md#api-management-components): gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select. 
 
 When you enable zone redundancy in a region, consider the number of API Management scale [units](upgrade-and-scale.md) that need to be distributed. Minimally, configure the same number of units as the number of availability zones, or a multiple so that the units are distributed evenly across the zones. For example, if you select 3 availability zones in a region, you could have 3 units so that each zone hosts one unit.
 
@@ -71,6 +71,6 @@ For details, see the blog post [Back-end API redundancy with Azure API Manager](
 
 ## Next steps
 
-* Learn more about [resiliency in Azure](../availability-zones/overview.md)
+* Learn more about [reliability in Azure](../reliability/overview.md)
 * Learn more about [designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
 * Read [API Management and reliability](/azure/architecture/framework/services/networking/api-management/reliability) in the Azure Well-Architected Framework

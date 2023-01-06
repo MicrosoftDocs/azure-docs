@@ -33,7 +33,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
 - [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
-- [Azure Database for MySQL single server](../mysql/single-server-overview.md).
+- [Azure Database for MySQL flexible server](../mysql/flexible-server/overview.md).
 
 - A table or view that provides the content. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy).
 
@@ -43,7 +43,7 @@ When configured to include a high water mark and soft deletion, the indexer take
 
   You can also use the [Azure SDK for .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql). You can't use the portal for indexer creation, but you can manage indexers and data sources once they're created.
 
-For more information, see [Azure Database for MySQL](../mysql/overview.md).
+For more information, see [Azure Database for MySQL](../mysql/flexible-server/overview.md).
 
 ## Preview limitations
 

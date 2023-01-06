@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

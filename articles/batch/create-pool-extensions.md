@@ -29,6 +29,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [Azure Diagnostics extension for Windows VMs](../virtual-machines/windows/extensions-diagnostics.md)
 - [HPC GPU driver extension for Windows on AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)
 - [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
+- [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
 - [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
 
 You can request support for additional publishers and/or extension types by opening a support request.

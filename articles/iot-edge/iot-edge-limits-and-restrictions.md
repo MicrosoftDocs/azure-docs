@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand Azure IoT Edge limits and restrictions
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article explains the limits and restrictions when using IoT Edge.
 
@@ -84,9 +84,17 @@ Not supported query syntax:
 
 ### Restart policies
 
- Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
+Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
 
 The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
+
+### Troubleshooting logs
+
+Accessing module logs from Azure portal could be delayed while modules are being updated. 
+
+If you view the **Troubleshoot** tab from your device in IoT Edge in the Azure portal, you may see the message "Unable to retrieve logs. The request failed with status code 504." The request times out and the **Runtime Status** might show as "Error" for all modules. 
+
+This ability to see the logs will resume in time. The reason the access is delayed is because **edgeAgent** may be busy starting modules so it can't simultaneously retrieve logs. Logs are pulled from Moby/Docker, so this process takes time, and the request can time out if **edgeAgent** is busy.
 
 ### File upload
 
@@ -107,6 +115,10 @@ When using Node.js to send device to cloud messages with the AMQP protocol to an
 
 :::moniker-end
 <!-- end 1.1 -->
+
+### NTLM Authentication
+
+IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allow-list.
 
 ## Next steps
 
