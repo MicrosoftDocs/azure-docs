@@ -34,7 +34,7 @@ Enforcement of Microsoft Purview policies is available only in the following reg
 #### Configure the SQL database for policies from Microsoft Purview
 For the logical server to honor policies from Microsoft Purview, you need to configure an Azure Active Directory admin. In the Azure portal, go to the logical server that hosts the SQL database. On the side menu, select **Azure Active Directory**. Set an admin name to any Azure Active Directory user or group that you prefer, and then select **Save**.
 
-![Screenshot shows the assignment of an Active Directory admin to a logical server.](../media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
+![Screenshot that shows the assignment of an Active Directory admin to a logical server.](../media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
 
 Then, on the side menu, select **Identity**. Under **System assigned managed identity**, turn the status to **On**, and then select **Save**.
 
