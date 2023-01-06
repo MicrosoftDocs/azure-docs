@@ -8,7 +8,7 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 12/16/2023
 ms.author: fcabrera
 ---
 
