@@ -1164,6 +1164,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
+            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+            "redirect_document_id": true
+    	 },
+        {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
             "redirect_url": "/azure/active-directory-b2c",
             "redirect_document_id": false
@@ -5986,6 +5991,11 @@
         {
             "source_path_from_root": "/articles/automation/quickstarts/create-account-portal.md",
             "redirect_url": "/azure/automation/create-azure-automation-account-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management-enable.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
             "redirect_document_id": false
         },
         {
@@ -14759,6 +14769,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/update-load-balancer-with-vm-scale-set.md",
+            "redirect_url": "/azure/load-balancer/configure-inbound-nat-rules-vm-scale-set",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
             "redirect_document_id": false
@@ -18331,6 +18347,11 @@
         {
             "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
             "redirect_url": "/azure/sentinel/normalization-schema-dns",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/file-event-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-file-event",
             "redirect_document_id": true
         },
         {
@@ -27752,7 +27773,77 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
             "redirect_document_id": false
-        },    
+        },  
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sapase.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_general.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-general",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_ibm.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-ibm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_maxdb.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-maxdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_oracle.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-oracle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sqlserver.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sqlserver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-supported-product-on-azure.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/supported-product-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-rise-integration.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/rise-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/proximity-placement-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-planning-supported-configurations.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/planning-supported-configurations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-iq-deployment-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide-sapiq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/certifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-zones",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-checklist",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/migrate/how-to-scale-assessment.md",
             "redirect_url": "scale-hyper-v-assessment",
