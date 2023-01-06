@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/16/2022
+ms.date: 01/06/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -89,9 +89,11 @@ Here are some details about functions and returned data:
 
 ### Bulk import API
 
-The [bulk import API]() allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis).
+The [bulk import API]() allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis). Using the bulk API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
-The API accepts the information in *NDJSON* format. Here's an example of an input data file for the import API:
+The API accepts graph information from an *NDJSON* file, which must be uploaded to an [Azure blob storage](../storage/blobs/storage-blobs-introduction.md) container. 
+
+Here's an example of an input data file for the import API:
 
 ```json
 {"Section": "Header"}
@@ -106,9 +108,13 @@ The API accepts the information in *NDJSON* format. Here's an example of an inpu
 {"$dtId":"twin0","$relationshipId":"relationship","$targetId":"twin1","$relationshipName":"has","relationshipProperty1":"propertyValue1","relationshipProperty2":10}
 ```
 
-For a sample project that converts JSON into the NDJSON supported by the import API, see [ADT Bulk Import Converter on GitHub](https://github.com/abhinav-ghai/ADTBulkImport). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
+>[!TIP]
+>For a sample project that converts JSON into the NDJSON supported by the import API, see [ADT Bulk Import Converter on GitHub](https://github.com/abhinav-ghai/ADTBulkImport). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
+
+Once the file has been created, upload it to a container in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You'll use the blob storage URL of the NDJSON file in the body of the bulk import API call.
 
 For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
+
 
 ### Serialization helpers in the .NET (C#) SDK
 
