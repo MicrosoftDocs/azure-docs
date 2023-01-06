@@ -240,6 +240,8 @@ items:
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
+      - name: Optimize costs with access tiers
+        href: optimize-costs-with-access-tiers.md
       - name: Estimate the cost to archive data
         href: archive-cost-estimation.md
     - name: Find, search, and understand blob data
