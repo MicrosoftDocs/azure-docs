@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes the Security Orchestration, Automation, and Response (SOAR) capabilities of Microsoft Sentinel, and shows how the use of automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 
 ## Microsoft Sentinel as a SOAR solution

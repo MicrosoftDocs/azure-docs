@@ -47,7 +47,8 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
 | DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Peering Type | Yes | 
 | GlobalReachBitsInPerSecond | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeredCircuitSKey | No | 
-| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No | 
+| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No |
+| [FastPathRoutesCount](#fastpath-routes-count-at-circuit-level) | Fastpath | Count | Maximum | Count of FastPath routes configured on the circuit | None | Yes |
 
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
@@ -86,6 +87,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | No | 
 | [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | No | 
 | [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | No |
+| [FastPathRoutesCount](#fastpath-routes-count-at-port-level) | FastPath | Count | Maximum | Count of FastPath routes configured on the port | None | Yes |
 
 ### ExpressRoute Traffic Collector
 
@@ -124,6 +126,14 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 >[!NOTE]
 >During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
 >
+
+### FastPath routes count (at circuit level)
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits). 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-circuit.png" alt-text="Screenshot of FastPath routes count at circuit level metric.":::
 
 ### <a name = "arp"></a>ARP Availability - Split by Peering  
 
@@ -190,6 +200,16 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 >[!NOTE]
 > ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
 >
+
+### FastPath routes count (at port level)
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on an ExpressRoute Direct port. 
+
+*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
@@ -315,28 +335,35 @@ You can view the count of number of flow records processed by ExpressRoute Traff
 
 ## Alerts for ExpressRoute gateway connections
 
-1. To set up alerts, go to **Azure Monitor**, then select **Alerts**.
+1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alerts":::
-2. Select **+Select Target** and select the ExpressRoute gateway connection resource.
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/monitor-overview.png" alt-text="Screenshot of the alerts option from the monitor overview page.":::
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="target":::
-3. Define the alert details.
+1. Select **+ Create > Alert rule** and select the ExpressRoute gateway connection resource. Select **Next: Condition >** to configure the signal.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="action group":::
-4. Define and add the action group.
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/select-expressroute-gateway.png" alt-text="Screenshot of the selecting ExpressRoute virtual network gateway from the select a resource page.":::
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="add action group":::
+1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted. Depending on the signal you select, you may need to enter additional information such as a threshold value. You may also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
 
-## Alerts based on each peering
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/signal.png" alt-text="Screenshot of list of signals that can be alerted for ExpressRoute gateways.":::
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="each peering":::
+1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who will receive them.
 
-## Set up alerts for activity logs on circuits
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/action-group.png" alt-text="Screenshot of add action groups page.":::
 
-In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
+1. Select **Review + create** and then **Create** to deploy the alert into your subscription.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="activity logs":::
+### Alerts based on each peering
+
+After you select a metric, certain metrics allow you to set up dimensions based on peering or a specific peer (virtual networks).
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerts-peering-dimensions.png" alt-text="Screenshot of an alert rule based on ExpressRoute peering set up.":::
+
+### Configure alerts for activity logs on circuits
+
+When selecting signals to be alerted on, you can select **Activity Log** signal type.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/activity-log.png" alt-text="Screenshot of activity log signals from the select a signal page.":::
 
 ## More metrics in Log Analytics
 

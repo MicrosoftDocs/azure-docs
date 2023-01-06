@@ -7,7 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: samuel100
-ms.author: franksolomon
+ms.author: samkemp
+ms.reviewer: franksolomon
 ms.date: 11/17/2022
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
@@ -321,9 +322,7 @@ training_data = CustomImageDataset(
 train_dataloader = DataLoader(training_data, batch_size=64, shuffle=True)
 ```
 
-## Materialize data into Pandas using `mltable` library (preview)
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+## Materialize data into Pandas using `mltable` library
 
 Another method for accessing data in cloud storage is to use the `mltable` library. The general format for reading data into pandas using `mltable` is:
 

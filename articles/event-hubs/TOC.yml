@@ -210,6 +210,8 @@
 
     - name: Process data
       items:
+        - name: Capture Event Hubs data in Delta Lake format
+          href: ../stream-analytics/capture-event-hub-data-delta-lake.md?toc=/azure/event-hubs/toc.json
         - name: Capture Event Hubs data in Parquet format
           href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
         - name: Materialize data to Azure Cosmos DB
