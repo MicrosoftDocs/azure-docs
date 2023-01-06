@@ -52,7 +52,7 @@ The platform metrics displayed in the **Mobile Network Site** resource combine i
 You can export the platform metrics from each of those resources to [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design), [Azure Storage](/azure/storage/), [Azure Event Hubs](/azure/event-hubs/), and [Azure Monitor partner integrations](/azure/partner-solutions/overview).
 
 1. Navigate to the resource group containing your private mobile network.
-1. Select either the **Packet Core Control Plane** or the **Packet Core Data Plane** resource, depending on the metrics you're interested in exporting.
+1. Select either the site's **Packet Core Control Plane** or the **Packet Core Data Plane** resource, depending on the metrics you're interested in exporting.
 1. From the resource menu, select **Diagnostic settings**.
 1. Select **Add diagnostic setting** to configure a rule for exporting your metrics. Refer to [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal) for more details on adding and editing diagnostic settings.
 
