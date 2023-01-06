@@ -37,7 +37,7 @@ Application Insights Agent is located in the [PowerShell Gallery](https://www.po
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## FAQ
+## Frequently asked questions
 
 This section provides answers to common questions.
 
