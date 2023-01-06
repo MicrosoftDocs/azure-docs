@@ -103,9 +103,9 @@ traces
 
 The runtime provides the `customDimensions.LogLevel` and `customDimensions.Category` fields. You can provide additional fields in logs that you write in your function code. For an example in C#, see [Structured logging](functions-dotnet-class-library.md#structured-logging) in the .NET class library developer guide.
 
-## Query Function Invocation
+## Query function invocations
 
-Every Function invocation is assigned a unique id. InvocationId is included in the custom dimention and can be used to coorelate all the logs from a particular function invocation.
+Every function invocation is assigned a unique ID. `InvocationId` is included in the custom dimension and can be used to correlate all the logs from a particular function execution.
 
 ```kusto
 traces
