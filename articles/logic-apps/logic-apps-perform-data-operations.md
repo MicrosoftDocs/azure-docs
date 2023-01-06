@@ -1,44 +1,44 @@
 ---
 title: Perform operations on data
-description: Convert, manage, and manipulate data outputs and formats in Azure Logic Apps.
+description: How to create tables, arrays, strings, or tokens from other arrays for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 01/06/2023
+# As a developer using Azure Logic Apps, I want to perform various operations on data in arrays for my workflow in Azure Logic Apps.
 ---
 
 # Perform data operations in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This article shows how you can work with data in your logic apps by adding actions for these tasks and more:
+This how-to guide shows how you can work with data in your logic app workflow in the following ways:
 
-* Create tables from arrays.
-* Create arrays from other arrays based on a condition.
+* Create an HTML or CSV table from an array.
+* Create an arrays from another array based on a specified filter or condition.
+* Create an array based on the specified properties for all the items in another array.
+* Create a string from all the items in an array and separate those items using a specified character.
+* Create a string or message from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs.
 * Create user-friendly tokens from JavaScript Object Notation (JSON) object properties so you can easily use those properties in your workflow.
 
-If you don't find the action you want here, try browsing the many various [data manipulation functions](../logic-apps/workflow-definition-language-functions-reference.md) that Azure Logic Apps provides.
+For other ways to work with data, review the [data manipulation functions](workflow-definition-language-functions-reference.md) that Azure Logic Apps provides.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you need the operation for working with data
+* The logic app workflow where you want to perform the data operation. This workflow must already have a [trigger](logic-apps-overview.md#logic-app-concepts) as the first step in your workflow.
 
-  If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app 
-
-  Data operations are available only as actions, so before you can use these actions, start your logic app with a trigger and include any other actions required for creating the outputs you want.
+  All data operations are available only as actions. So, before you can use these actions, your workflow must already start with a trigger and include any other actions required to create the outputs you want using the data operation.
 
 ## Data operation actions
 
-These tables summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
+The following sections summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
 
 ### Array actions
 
-These actions help you work with data in arrays.
+The following actions help you work with data in arrays.
 
 | Action | Description |
 |--------|-------------|
@@ -47,17 +47,15 @@ These actions help you work with data in arrays.
 | [**Filter array**](#filter-array-action) | Create an array subset from an array based on the specified filter or condition. |
 | [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. |
 | [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. |
-||| 
 
 ### JSON actions
 
-These actions help you work with data in JavaScript Object Notation (JSON) format.
+The following actions help you work with data in JavaScript Object Notation (JSON) format.
 
 | Action | Description |
 |--------|-------------|
 | [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. |
 | [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so you can more easily use the properties in your logic apps. |
-|||
 
 To create more complex JSON transformations, see [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
@@ -65,67 +63,121 @@ To create more complex JSON transformations, see [Perform advanced JSON transfor
 
 ## Compose action
 
-To construct a single output such as a JSON object from multiple inputs, you can use the **Compose** action. Your inputs can have various types such as integers, Booleans, arrays, JSON objects, and any other native type that Azure Logic Apps supports, for example, binary and XML. You can then use the output in actions that follow after the **Compose** action. The **Compose** action can also save you from repeatedly entering the same inputs while you build your logic app's workflow.
+To construct a single output such as a JSON object from multiple inputs, use the **Compose** action. Your inputs can have various types such as integers, Booleans, arrays, JSON objects, and any other native type that Azure Logic Apps supports, for example, binary and XML. You can then use the output in actions that follow after the **Compose** action. The **Compose** action can also save you from repeatedly entering the same inputs while you build your logic app's workflow.
 
-For example, you can construct a JSON message from multiple variables, such as string variables that store people's first names and last names, and an integer variable that stores people's ages. Here, the **Compose** action accepts these inputs:
+For example, you can construct a JSON message from multiple variables, such as string variables that store people's first names and last names, and an integer variable that stores people's ages. Here, the **Compose** action accepts the following inputs:
 
 `{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }`
 
-and creates this output:
+and creates the following output:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-To try an example, follow these steps by using the Logic App Designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+To try an example, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example). For more information about the **Compose** action in the underlying JSON workflow definition, see the [Compose action](logic-apps-workflow-actions-triggers.md#compose-action).
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
+### [Consumption](#tab/consumption)
 
-   This example uses the Azure portal and a logic app with a **Recurrence** trigger and several **Initialize variable** actions. These actions are set up for creating two string variables and an integer variable. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
 
-   ![Starting sample logic app for "Compose" action](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Initialize variable** actions. These actions are set up to create two string variables and an integer variable.
 
-1. In your logic app where you want to create the output, follow one of these steps: 
+   ![Screenshot showing the Azure portal and the designer for a sample Consumption workflow for the Compose action.](./media/logic-apps-perform-data-operations/sample-start-compose-action-consumption.png)
+
+1. In your workflow where you want to create the output, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "New step" for "Compose" action](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
-
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter `compose` as your filter. From the actions list, select the **Compose** action.
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **compose**.
 
-   ![Select "Compose" action](./media/logic-apps-perform-data-operations/select-compose-action.png)
+1. From the actions list, select the action named **Compose**.
 
-1. In the **Inputs** box, provide the inputs you want for creating the output.
+   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "compose" entered, and the "Compose" action selected.](./media/logic-apps-perform-data-operations/select-compose-action-consumption.png)
 
-   For this example, when you click inside the **Inputs** box, the dynamic content list appears so you can select the previously created variables:
+1. In the **Inputs** box, enter the inputs to use for creating the output.
 
-   ![Select inputs to use for "Compose" action](./media/logic-apps-perform-data-operations/configure-compose-action.png)
+   For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
 
-   Here is the finished example **Compose** action: 
+   ![Screenshot showing the designer for a Consumption workflow, the "Compose" action, and selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-consumption.png)
 
-   ![Finished example for "Compose" action](./media/logic-apps-perform-data-operations/finished-compose-action.png)
+   The following screenshot shows the finished example **Compose** action: 
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Compose" action.](./media/logic-apps-perform-data-operations/finished-compose-action-consumption.png)
 
-For more information about this action in your underlying workflow definition, see the [Compose action](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action).
+1. Save your logic app workflow. On the designer toolbar, select **Save**.
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
+
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Initialize variable** actions. These actions are set up to create two string variables and an integer variable.
+
+   ![Screenshot showing the Azure portal and the designer for a sample Standard workflow for the Compose action.](./media/logic-apps-perform-data-operations/sample-start-compose-action-standard.png)
+
+1. In your workflow where you want to create the output, follow one of these steps: 
+
+   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **compose**.
+
+1. From the actions list, select the action named **Compose**.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "compose" entered, and the "Compose" action selected.](./media/logic-apps-perform-data-operations/select-compose-action-standard.png)
+
+1. In the **Inputs** box, enter the inputs to use for creating the output.
+
+   For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
+
+   ![Screenshot showing the designer for a Standard workflow, the "Compose" action, and selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-standard.png)
+
+   The following screenshot shows the finished example **Compose** action: 
+
+   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Compose" action.](./media/logic-apps-perform-data-operations/finished-compose-action-standard.png)
+
+1. Save your logic app workflow. On the designer toolbar, select **Save**.
+
+---
 
 ### Test your logic app
 
 To confirm whether the **Compose** action creates the expected results, send yourself a notification that includes output from the **Compose** action.
 
-1. In your logic app, add an action that can send you the results from the **Compose** action.
+#### [Consumption](#tab/consumption)
 
-1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**.
+1. In your workflow, add an action that can send you the results from the **Compose** action.
 
-   This example uses the **Send an email** action and includes the **Output** fields in the email's body and subject:
+   This example continues by using the Office 365 Outlook action named **Send an email**.
 
-   !["Output" fields for the "Compose" action](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
+1. In the action, click inside the boxes where you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**.
 
-1. Now, manually run your logic app. On the designer toolbar, select **Run**.
+   For this example, the result appears in the email's body, so add the **Output** field to the **Body** box.
 
-   Based on the email connector you used, here are the results you get:
+   ![Screenshot showing the Azure portal, designer for an example Consumption workflow, and the "Send an email" action with the output from the preceding "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-consumption.png)
 
-   ![Email with "Compose" action results](./media/logic-apps-perform-data-operations/compose-email-results.png)
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+
+#### [Standard](#tab/standard)
+
+1. In your workflow, add an action that can send you the results from the **Compose** action.
+
+   This example continues by using the Office 365 Outlook action named **Send an email**.
+
+1. In the action, click inside the boxes where you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**.
+
+   For this example, the result appears in the email's body, so add the **Output** field to the **Body** box.
+
+   ![Screenshot showing the Azure portal, designer for an example Standard workflow, and the "Send an email" action with the output from the preceding "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard.png)
+
+1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
+
+---
+
+Based on the email connector you used, the following screenshot shows the results:
+
+![Screenshot showing an email with the "Compose" action results.](./media/logic-apps-perform-data-operations/compose-email-results.png)
 
 <a name="create-csv-table-action"></a>
 
