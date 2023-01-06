@@ -40,21 +40,22 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 2. If you haven't already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
 3. Select **My Apps** and then **Create App**.
-4. Enter a **Display Name** and a valid **Contact Email**.
-5. Select **Create App ID**. This may require you to accept Facebook platform policies and complete an online security check.
-6. Select **Settings** > **Basic**.
-7. Choose a **Category**, for example Business and Pages. This value is required by Facebook, but not used for Azure AD.
-8. At the bottom of the page, select **Add Platform**, and then select **Website**.
-9. In **Site URL**, enter the appropriate URL (noted above).
-10. In **Privacy Policy URL**, enter the URL for the page where you maintain privacy information for your application, for example `http://www.contoso.com`.
-11. Select **Save Changes**.
-12. At the top of the page, copy the value of **App ID**.
-13. Select **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
-14. Select the plus sign next to **PRODUCTS**, and then select **Set up** under **Facebook Login**.
-15. Under **Facebook Login**, select **Settings**.
-16. In **Valid OAuth redirect URIs**, enter the appropriate URL (noted above).
-17. Select **Save Changes** at the bottom of the page.
-18. To make your Facebook application available to Azure AD, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**. At this point, the Status should change from **Development** to **Live**.
+1. **Select an app type** and then **Details**
+1. **Add an app name** and a valid **App contact email**.
+1. Select **Create app**. This may require you to accept Facebook platform policies and complete an online security check.
+1. Select **Settings** > **Basic**.
+1. Choose a **Category**, for example **Business and pages**. This value is required by Facebook, but not used for Azure AD.
+1. At the bottom of the page, select **Add Platform**, and then select **Website**.
+1. In **Site URL**, enter the appropriate URL (noted above).
+1. In **Privacy Policy URL** at the top of the page, enter the URL for the page where you maintain privacy information for your application, for example `http://www.contoso.com`.
+1. Select **Save changes**.
+1. At the top of the page, copy the value of **App ID**.
+1. At the top of the page, select **Show** and copy the value of **App secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App secret** is an important security credential.
+1. In the left menu select **Add Product** next to **Products**, and then select **Set up** under **Facebook Login**.
+1. Under **Facebook Login** in the left, select **Settings**.
+1. In **Valid OAuth redirect URIs**, enter the appropriate URL (noted above).
+1. Select **Save changes** at the bottom of the page.
+1. To make your Facebook application available to Azure AD, select the **App Mode** selector at the top of the page and turn it **Live** to make the Application public.
 	
 ## Configure a Facebook account as an identity provider
 Now you'll set the Facebook client ID and client secret, either by entering it in the Azure AD portal or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
@@ -65,9 +66,9 @@ Now you'll set the Facebook client ID and client secret, either by entering it i
 3. In the left menu, select **External Identities**.
 4. Select **All identity providers**, then select **Facebook**.
 5. For the **Client ID**, enter the **App ID** of the Facebook application that you created earlier.
-6. For the **Client secret**, enter the **App Secret** that you recorded.
+6. For the **Client secret**, enter the **App secret** that you recorded.
 
-   ![Screenshot showing the Add social identity provider page](media/facebook-federation/add-social-identity-provider-page.png)
+   :::image type="content" source="media/facebook-federation/add-social-identity-provider-page.png" alt-text="Screenshot showing the Add social identity provider page.":::
 
 7. Select **Save**.
 ### To configure Facebook federation by using PowerShell
@@ -86,10 +87,11 @@ Now you'll set the Facebook client ID and client secret, either by entering it i
 You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook accounts will no longer be able to sign in. 
 
 ### To delete Facebook federation in the Azure AD portal: 
-1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **External Identities**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD tenant.
+2. Under **Azure services**, select **Azure Active Directory**.
+3. In the left menu, select **External Identities**.
 3. Select **All identity providers**.
-4. On the **Facebook** line, select the context menu (**...**) and then select **Delete**. 
+4. Select the **Facebook** line, and then select **Delete**. 
 5. Select **Yes** to confirm deletion.
 
 ### To delete Facebook federation by using PowerShell: 
