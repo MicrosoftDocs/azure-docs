@@ -2,15 +2,15 @@
 title: Access Azure resources from Google Cloud without credentials
 description: Access Azure AD protected resources from a service running in Google Cloud without using secrets or certificates.  Use workload identity federation to set up a trust relationship between an app in Azure AD and an identity in Google Cloud. The workload running in Google Cloud can get an access token from Microsoft identity platform and access Azure AD protected resources.
 services: active-directory
-author: rwike77
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/07/2022
-ms.author: ryanwi
+ms.date: 01/06/2023
+ms.author: owenrichards
 ms.custom: aaddev
 ms.reviewer: udayh
 #Customer intent: As an application developer, I want to create a trust relationship with a Google Cloud identity so my service in Google Cloud can access Azure AD protected resources without managing secrets.
@@ -209,31 +209,29 @@ class ClientAssertionCredential implements TokenCredential {
 
             let aadAudience = "api://AzureADTokenExchange"
             const jwt = axios({
-            
             url: "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=" 
             + aadAudience,
-                method: "GET",
-                headers: {
-                    "Metadata-Flavor": "Google"
-                        }}).then(response => {
-                            console.log("AXIOS RESPONSE");
-                            return response.data;
+            method: "GET",
+            headers: {
+                "Metadata-Flavor": "Google"
+                    }}).then(response => {
+                        console.log("AXIOS RESPONSE");
+                        return response.data;
                     });
                 return jwt;
-
-        .then(function(aadToken) {
-            // return in form expected by TokenCredential.getToken
-            let returnToken = {
-                token: aadToken.accessToken,
-                expiresOnTimestamp: aadToken.expiresOn.getTime(),
-            };
-            return (returnToken);
-        })
-        .catch(function(error) {
-            // error stuff
-        });
+            .then(function(aadToken) {
+                // return in form expected by TokenCredential.getToken
+                let returnToken = {
+                    token: aadToken.accessToken,
+                    expiresOnTimestamp: aadToken.expiresOn.getTime(),
+                };
+                return (returnToken);
+            })
+            .catch(function(error) {
+                // error stuff
+            });
+        }
     }
-}
 export default ClientAssertionCredential;
 ```
 
