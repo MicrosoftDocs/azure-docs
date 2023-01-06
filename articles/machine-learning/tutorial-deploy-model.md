@@ -21,12 +21,15 @@ ms.custom: mlops #add more custom tags
 
 # Deploy a model as an online endpoint
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 Learn to deploy a model to an online endpoint, using Azure Machine Learning (AzureML) Python SDK v2.
 
 In this tutorial, you'll begin with the files for a trained MLflow model and walk through steps to register it. You'll create an endpoint with a first deployment, test the deployment with data, and retrieve the deployment details. You'll also create a second deployment and allocate some percentage of production traffic to it. After you obtain logs from the second deployment and are satisfied with its performance, you'll eventually send it all the production traffic and delete the first deployment.
 
 The steps you'll take are:
 
+> [!div class="checklist"]
 > * Register your model
 > * Create an endpoint and a first deployment
 > * Deploy a trial run
@@ -43,7 +46,7 @@ The steps you'll take are:
 1. If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you can skip to #3 in the prerequisites.
 1. If you haven't completed either of these earlier tutorials, be sure to do the following: 
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
-    * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](https://learn.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
+    * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](https://learn.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
     * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
@@ -69,8 +72,7 @@ Before you dive in the code, you'll need to connect to your AzureML workspace. T
 We're using `DefaultAzureCredential` to get access to the workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
 
-If `DefaultAzureCredential` doesn't work for you, you can access other available credentials by checking these references: [configure credential example](../../configuration.ipynb) and [azure-identity reference doc](https://docs.microsoft.com/python/api/azure-identity/azure.identity?view=azure-python).
-
+If `DefaultAzureCredential` doesn't work for you, you can access other available credentials by checking these references: [azure-identity reference doc](https://docs.microsoft.com/python/api/azure-identity/azure.identity?view=azure-python) and [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md).
 
 ```python
 # Handle to the workspace
@@ -92,7 +94,7 @@ However, if you want to use a browser to login and authenticate, you can uncomme
 # credential = InteractiveBrowserCredential()
 ```
 
-To connect to a workspace, you need identifier parameters—a Subscription ID, Resource Group name and Workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required AzureML workspace. This example uses the [default Azure authentication](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python).
+To connect to a workspace, you need identifier parameters—a Subscription ID, Resource Group name and Workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required AzureML workspace. This example uses the [default Azure authentication](https://learn.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python).
 
 In the next cell, replace the placeholder text `<RESOURCE_GROUP>` with your resource group name, `<SUBSCRIPTION_ID>` with your subscription ID, and `<AZUREML_WORKSPACE_NAME>` with your workspace name. To find these values:
 
@@ -128,10 +130,9 @@ If you already completed the earlier Day 1 tutorials, "Train model responsibly" 
 
 If you didn't complete either of those tutorials, you'll need to register the model. Registering your model before deployment is a recommended best practice.
 
-In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks) <mark> **update this location**</mark>, then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model. 
+In this example, we specify the `path` (where to upload files from) inline. If you [cloned the tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks) <mark> **update this location**</mark>, then run the following code as-is. Otherwise, provide the path to the location on your local computer where you've stored the model's files. The SDK automatically uploads the files and registers the model.
 
-For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-models?tabs=use-local%2Ccli#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
-
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk).
 
 ```python
 from azure.ai.ml.entities import Model
@@ -178,7 +179,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning allows you to implement both [online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-online-endpoints) and [batch endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-batch-endpoints). In this tutorial, we'll walk you through the steps of implementing a managed online endpoint—that is, a web service in the Azure cloud that receives data from clients and sends back responses in real-time.
+Azure Machine Learning allows you to implement both [online endpoints?](concept-endpoints.md#what-are-online-endpoints) and [batch endpoints](concept-endpoints.md#what-are-batch-endpoints). In this tutorial, we'll walk you through the steps of implementing a managed online endpoint—that is, a web service in the Azure cloud that receives data from clients and sends back responses in real-time.
 
 ## Create an online endpoint
 
@@ -344,7 +345,7 @@ ml_client.online_endpoints.invoke(
 
 ## Get logs of the deployment
 Check the logs to see whether the endpoint/deployment were invoked successfuly
-If you face errors, see [Troubleshooting online endpoints deployment](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-troubleshoot-online-endpoints?tabs=cli).
+If you face errors, see [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md).
 
 
 ```python
@@ -377,7 +378,7 @@ green_deployment = ml_client.online_deployments.begin_create_or_update(green_dep
 
 Using the `MLClient` created earlier, we'll get a handle to the `green` deployment. The deployment can be scaled by increasing or decreasing the `instance_count`.
 
-In the following code, you'll increase the VM instance manually. However, note that it is also possible to autoscale online endpoints. Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints support autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [autoscale online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-autoscale-endpoints?tabs=python).
+In the following code, you'll increase the VM instance manually. However, note that it is also possible to autoscale online endpoints. Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints support autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, see [autoscale an online endpoint](how-to-autoscale-endpoints.md).
 
 
 ```python
@@ -422,12 +423,11 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 ![metrics page 1](./images/deploy-metrics-1.png)
 
-
 If you open the metrics for the online endpoint, you can set it up to see metrics.
 
 ![metrics page 2](./images/deploy-metrics-2.png)
 
-See [Monitor online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-monitor-online-endpoints#metrics) for details.
+See [Monitor online endpoints](how-to-monitor-online-endpoints.md) for details.
 
 ## Send all traffic to the new deployment
 Once you're fully satisfied with your `green` deployment, switch all traffic to it.
