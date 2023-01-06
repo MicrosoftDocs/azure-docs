@@ -1,10 +1,10 @@
 ---
-title: Create transparent gateway device - Azure IoT Edge | Microsoft Docs
+title: Create transparent gateway device using Azure IoT Edge
 description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/01/2021
+ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -120,8 +120,10 @@ If you don't have your own certificate authority and want to use demo certificat
 
    ```bash
    sudo chown aziotcs:aziotcs /var/aziot/certs
-   sudo chown -R iotedge /var/aziot/certs
-   sudo chmod 644 /var/aziot/secrets/
+   sudo chmod 644 /var/aziot/certs
+
+   sudo chown aziotks:aziotks /var/aziot/secrets
+   sudo chmod 600 /var/aziot/secrets
    ```
 
 # [IoT Edge for Linux on Windows](#tab/eflow)

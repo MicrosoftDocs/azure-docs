@@ -4,7 +4,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/03/2022
+ms.date: 1/06/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -64,6 +64,17 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
+## File and directory permissions requirements
+
+The following table lists the file and directory permissions required for the IoT Edge certificates. The preferred directory for the certificates is `/var/aziot/certs/` and `/var/aziot/secrets/` for keys.
+
+| File or directory | Permissions | Owner |
+|-------------------|-------------|-------|
+| `/var/aziot/certs/` certificates directory | drwxr-xr-x (755) | aziotcs |
+| Certificate files in `/var/aziot/certs/` | -wr-r--r-- (644) | aziotcs |
+| `/var/aziot/secrets/` keys directory | drwx------ (700)| aziotks |
+| Key files in `/var/aziot/secrets/` | -wr------- (600) | aziotks |
+
 ## Manage trusted root CA (trust bundle)
 
 Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. The trust bundle is available for IoT Edge and modules to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
@@ -77,7 +88,12 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    ```bash
    # Make the directory as root if doesn't exist
    sudo mkdir /var/aziot/certs -p
-   # Copy certificate over
+
+   # Change ownership to aziotcs user
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   
+   # Copy certificate into certs directory
+
    sudo cp root-ca.pem /var/aziot/certs
 
    # Give aziotcs ownership to certificate
