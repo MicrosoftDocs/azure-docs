@@ -70,7 +70,7 @@
           },{
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-javascript-sdk.md",
             "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },{
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk.md",
             "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api",
