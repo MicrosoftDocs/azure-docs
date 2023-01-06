@@ -46,7 +46,7 @@ The steps you'll take are:
 1. If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you can skip to #3 in the prerequisites.
 1. If you haven't completed either of these earlier tutorials, be sure to do the following: 
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
-    * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](https://learn.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
+    * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](quickstart-create-resources.md) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
     * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
 1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
@@ -72,7 +72,7 @@ Before you dive in the code, you'll need to connect to your AzureML workspace. T
 We're using `DefaultAzureCredential` to get access to the workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
 
-If `DefaultAzureCredential` doesn't work for you, you can access other available credentials by checking these references: [azure-identity reference doc](https://docs.microsoft.com/python/api/azure-identity/azure.identity?view=azure-python) and [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md).
+If `DefaultAzureCredential` doesn't work for you, you can access other available credentials by checking these references: [azure-identity reference doc](/python/api/azure-identity/azure.identity) and [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md).
 
 ```python
 # Handle to the workspace
@@ -94,7 +94,7 @@ However, if you want to use a browser to login and authenticate, you can uncomme
 # credential = InteractiveBrowserCredential()
 ```
 
-To connect to a workspace, you need identifier parameters—a Subscription ID, Resource Group name and Workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required AzureML workspace. This example uses the [default Azure authentication](https://learn.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python).
+To connect to a workspace, you need identifier parameters—a Subscription ID, Resource Group name and Workspace name. You'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required AzureML workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
 In the next cell, replace the placeholder text `<RESOURCE_GROUP>` with your resource group name, `<SUBSCRIPTION_ID>` with your subscription ID, and `<AZUREML_WORKSPACE_NAME>` with your workspace name. To find these values:
 
@@ -189,7 +189,7 @@ Now that you have a registered model, it's time to create your online endpoint. 
 > Expect the endpoint creation to take approximately 6 to 8 minutes.
 
 > [!TIP]
-> * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](https://learn.microsoft.com/azure/machine-learning/how-to-authenticate-online-endpoint).
+> * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 > * Optionally, you can add a description and tags to your endpoint.
 
 
@@ -241,7 +241,7 @@ print(
 To deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace).
-- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. For an MLflow model, as in this tutorial, this script is automatically created for you during model training. For an example of a scoring script, see the [Understand the scoring script](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#understand-the-scoring-script) section of the "Deploy an ML model with an online endpoint" article.
+- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. For an MLflow model, as in this tutorial, this script is automatically created for you during model training. For an example of a scoring script, see the [Understand the scoring script](how-to-deploy-online-endpoints.md#understand-the-scoring-script) section of the "Deploy an ML model with an online endpoint" article.
 - An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
@@ -261,10 +261,10 @@ To deploy a model, you must have:
 
 AzureML supports no-code deployment of a model created and logged with MLflow. This means that you don't have to provide a scoring script or an environment during model deployment, as the scoring script and environment are automatically generated when training an MLflow model.
 
-If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment. See [Customizing MLflow model deployments with scoring script](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints#customizing-mlflow-model-deployments) to learn how to use a scoring script.
+If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment. See [Customizing MLflow model deployments with scoring script](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) to learn how to use a scoring script.
 
 > [!IMPORTANT]
-> If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-mlflow-models).
+> If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](how-to-deploy-mlflow-models.md).
 
 ## Deploy the model to the endpoint
 
