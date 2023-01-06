@@ -1,11 +1,12 @@
 ---
 title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
+author: flang-msft
+
+ms.author: franlanglois
 ms.topic: conceptual
 ms.collection: na
-author: flang-msft
-ms.author: franlanglois
-ms.date: 10/12/2022
+ms.date: 01/06/2023
 
 ---
 
@@ -40,7 +41,7 @@ This document contains information about troubleshooting your solutions that use
 
 ### Logs not being emitted
 
-- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
 - Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 

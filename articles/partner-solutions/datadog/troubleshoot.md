@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: conceptual
-ms.date: 01/03/2023
+ms.date: 01/06/2023
 ---
 
 # Fix common errors for Datadog - An Azure Native ISV Service
@@ -51,13 +51,19 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
   
 ## Logs not being emitted
 
-- Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
+- Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. 
 
-   :::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
+    To verify whether the resource is emitting logs to Datadog: 
 
-- Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+    1. Navigate to Azure diagnostic setting for the specific resource. 
 
-- imit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
+    1. Verify that there's a Datadog diagnostic setting.
+
+     :::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
+
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
