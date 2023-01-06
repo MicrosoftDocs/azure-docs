@@ -227,3 +227,25 @@ The following is an overview of the steps required to create a screen share vide
     ```
 
 2. Capture the frames from the screen using Windows API's
+
+    ```csharp
+    MemoryBuffer memoryBuffer = // Fill it with the content you got from the Windows API's
+    ```
+
+3. Send the video frames in the following way
+
+    ```csharp
+    private async Task GenerateVideoFrame(MemoryBuffer memoryBuffer)
+    {
+        try
+        {
+            var softwareBasedVideoFrameSender = videoFrameSender as SoftwareBasedVideoFrameSender;
+            VideoFormat videoFormat = softwareBasedVideoFrameSender.VideoFormat;
+
+            await softwareBasedVideoFrameSender.SendFrameAsync(memoryBuffer, videoFrameSender.TimestampInTicks);
+            int delayBetweenFrames = (int)(1000.0 / softwareBasedVideoFrameSender.VideoFormat.FramesPerSecond);
+            await Task.Delay(delayBetweenFrames);
+        }
+        catch (Exception) { }
+    }
+    ```
