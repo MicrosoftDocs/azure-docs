@@ -12,7 +12,7 @@ author: ankitaduttaMSFT
 This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for non-critical replicated items, and only the differential data is transferred. 
 
 > [!Note]    
-> - Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  
+> Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  
 
 ## Architecture  
 
