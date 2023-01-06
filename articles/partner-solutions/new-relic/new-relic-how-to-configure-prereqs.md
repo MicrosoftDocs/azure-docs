@@ -16,15 +16,15 @@ To set up New Relic on Azure, you must have owner access on the Azure subscripti
 
 ## Resource provider registration
 
-To set up New Relic on Azure, you need to register the `NewRelic.Observability` resource provider in the specific Azure subscription.
+To set up New Relic on Azure, you need to register the `NewRelic.Observability` resource provider in the specific Azure subscription:
 
-To register the resource provider in the Azure portal, follow the steps in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
+- To register the resource provider in the Azure portal, follow the steps in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
-To register the resource provider in the Azure CLI, use this command:
+- To register the resource provider in the Azure CLI, use this command:
 
-```azurecli
-az provider register \--namespace NewRelic.Observability \--subscription \<subscription-id\>
-```
+  ```azurecli
+  az provider register \--namespace NewRelic.Observability \--subscription \<subscription-id\>
+  ```
 
 ## Next steps
 

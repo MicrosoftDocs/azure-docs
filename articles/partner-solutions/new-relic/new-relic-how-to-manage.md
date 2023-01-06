@@ -13,7 +13,7 @@ This article describes how to manage the settings for Azure Native New Relic Ser
 
 ## Resource overview
 
-To see the details of your New Relic resource, select **Overview** on the resource menu.
+To see the details of your New Relic resource, select **Overview** on the left pane.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot that shows an overview for a New Relic resource.":::
 
@@ -49,7 +49,7 @@ The columns in the table denote valuable information for your resource:
 
 ## Reconfigure rules for logs or metrics
 
-To change the configuration rules for logs or metrics, select **Metrics and logs** on the **Resource** menu.
+To change the configuration rules for logs or metrics, select **Logs** on the left pane.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-metrics.png" alt-text="Screenshot that shows metrics and logs for a New Relic resource.":::
 
@@ -57,7 +57,7 @@ For more information, see [Configure metrics and logs](new-relic-how-to-configur
 
 ## View monitored resources
 
-To see the list of resources that are sending logs and metrics to New Relic, select **Monitored Resources** on the left menu.
+To see the list of resources that are sending logs and metrics to New Relic, select **Monitored resources** on the left pane.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
 
@@ -75,7 +75,7 @@ The column **Metrics to New Relic** indicates whether New Relic is receiving met
 
 ## Monitor virtual machines by the using the New Relic agent
 
-You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left menu. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
+You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot that shows virtual machines for a New Relic resource.":::
 
@@ -93,7 +93,7 @@ For each virtual machine, the following info appears:
 
 ## Monitor app services by using the New Relic agent
 
-You can install the New Relic agent on app services as an extension. Select **App Services** on the resource menu. The working pane shows a list of all app services in the subscription.
+You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-app-services.png" alt-text="Screenshot that shows app services for a New Relic resource.":::
 
@@ -116,7 +116,7 @@ To install the New Relic agent, select the app service and then select **Install
 
 ## Delete a New Relic resource
 
-1. Select **Overview** on the resource menu. Then, select **Delete**. 
+1. Select **Overview** on the left pane. Then, select **Delete**. 
 
 1. Confirm that you want to delete the New Relic resource. Select **Delete**.
 
