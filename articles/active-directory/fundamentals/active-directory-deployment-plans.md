@@ -65,8 +65,8 @@ Use the following list to plan for authentication deployment.
 Use the following list to help deploy applications and devices.
 
 * **Single sign-on (SSO)** - Enable user access to apps and resources while signing in once, without being required to enter credentials again: 
-  * See, [What is single sign-on in Azure AD?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
-  * See, [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
+  * See, [What is SSO in Azure AD?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
+  * See, [Plan a SSO deployment](../manage-apps/plan-sso-deployment.md)
 * **My Apps portal** - A web-based portal to discover and access applications. Enable user productivity with self-service, for instance requesting access to groups, or managing access to resources on behalf of others. 
   * See, [My Apps portal overview](/azure/active-directory/manage-apps/myapps-overview)
 * **Devices** - Evaluate device integration methods with Azure AD, choose the implementation plan, and more.
