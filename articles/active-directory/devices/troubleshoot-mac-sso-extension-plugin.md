@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ## Background
 Organizations opting to provide a better experience for their end users on the macOS platform, involves implementing Single Sign On (SSO) of its applications with an Identity Provider (Idp).  SSO relieves end users with the burden of excessive authentication prompts. 
 
-Apple has developed an **[SSO extension framework](https://devstreaming-cdn.apple.com/videos/tutorials/20190910/301fgloga45ths/introducing_extensible_enterprise_sso/introducing_extensible_enterprise_sso.pdf?dl=1)** where when deployed via Mobile Device Management (MDM) to a macOS device, functions as an authentication broker for a collection of applications secured by the same Identity provider (IdP). Microsoft has implemented a plugin built on top Apple's SSO framework, which provides brokered authentication (auth) for applications integrated with Microsoft Entra Azure Active Directory (Azure AD). For more details, please see the article [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
+Apple has developed an **[SSO extension framework](https://devstreaming-cdn.apple.com/videos/tutorials/20190910/301fgloga45ths/introducing_extensible_enterprise_sso/introducing_extensible_enterprise_sso.pdf?dl=1)** where when deployed via Mobile Device Management (MDM) to a macOS device, functions as an authentication broker for a collection of applications secured by the same Identity provider (IdP). Microsoft has implemented a plugin built on top Apple's SSO framework, which provides brokered authentication (auth) for applications integrated with Microsoft Entra Azure Active Directory (Azure AD). For more information, see the article [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
 
 ### Redirect vs Credential Extension Types
 Apple supports two distinct types of SSO Extensions that are part of its framework: **Redirect** and **Credential**. The Microsoft Enterprise SSO plugin has been implemented as a Redirect type and is best suited for brokering authentication to Azure AD.  The following table compares the two types of extensions.
@@ -111,7 +111,7 @@ The following table provides specific MDM installation guidance depending on whi
 |JAMF Pro     |[Use the Microsoft Enterprise SSO plug-in on iOS/iPadOS and macOS devices in JAMF Pro](https://learn.microsoft.com/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro)|Intune Company Portal needs to be installed. See JAMF documentation: [Deploy Company Portal](https://docs.jamf.com/technical-papers/jamf-pro/microsoft-intune/10.34.0/Deploy_the_Company_Portal_App_from_Microsoft_to_End_Users.html) Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac) |          
 | Other third Party MDM     |Consult any vendor specific documentation for how to deploy SSO extension profiles and reference our documentation on [Manual Configuration for other MDM Services](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)|Intune Company Portal needs to be installed. See MDM vendor documentation. Download: [Intune Company Portal for macOS](https://aka.ms/enrollmymac)
 >[!Important]
->Although, any MDM is supported for deploying the SSO Extension, most organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant) by way of evaluating MDM compliance policies. If by chance a third-party MDM is being used, please ensure that the MDM vendor supports [**Intune Partner Compliance**](https://learn.microsoft.com/mem/intune/protect/device-compliance-partners). When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.
+>Although, any MDM is supported for deploying the SSO Extension, most organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant) by way of evaluating MDM compliance policies. If by chance a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](https://learn.microsoft.com/mem/intune/protect/device-compliance-partners). When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.
 
 >[!NOTE] 
 >At the present time the Microsoft SSO Extension broker plugin code is bundled into the Microsoft Intune Company Portal app.  In the future we might decide to separate this into its own app, thus requiring a separate app installation on the macOS device.            
@@ -127,7 +127,7 @@ Assuming the MDM administrator has followed the steps in the previous section [M
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/profiles-within-system-settings.png" alt-text="Screenshot showing configuration profiles":::
     
     >[!NOTE] 
-    >Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  By double-clicking each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
+    >Depending on the type of MDM being used, there could be several profiles listed and their naming scheme is arbitrary depending on the MDM configuration.  Select each one and inspect that the **Settings** row indicates that it is a **Single Sign On Extension**.
 1. Double-click on the configuration profile that matches a **Settings** value of **Single Sign On Extension**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-config-profile.png" alt-text="screenshot showing sso extension configuration profile":::
     
@@ -144,13 +144,13 @@ Assuming the MDM administrator has followed the steps in the previous section [M
 
     >[!NOTE] 
     >The MDM definitions of the Apple's SSO Extension profile can be referenced in the article [Extensible Single Sign-on MDM payload settings for Apple devices](https://support.apple.com/guide/deployment/depfd9cdf845/web) Microsoft has implemented our extension based on this schema. See [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md#manual-configuration-for-other-mdm-services)
-1. To verify that we have the correct profile for the Microsoft Apple SSO Extension the  **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**
+1. To verify that, we have the correct profile for the Microsoft Apple SSO Extension the  **Extension** field should match: **com.microsoft.CompanyPortalMac.ssoextension (UBF8T346G9)**
 1. Take note of the **Installed** field in the configuration profile as it can be a useful troubleshooting indicator, when changes are made to its configuration
 
-If the correct configuration profile has been verified, please proceed to the [Application Auth Flow Troubleshooting](#application-auth-flow-troubleshooting) section.
+If the correct configuration profile has been verified, proceed to the [Application Auth Flow Troubleshooting](#application-auth-flow-troubleshooting) section.
 
 ##### MDM Configuration Profile is Missing
-If the SSO extension configuration profile does not appear in the **Profiles** after following the [previous section](#locate-sso-extension-mdm-configuration-profile), it could be that the MDM configuration has User/Device targeting enabled which is effectively **filtering out** the logged in user or the device from receiving the configuration profile. Please check with your MDM administrator and collect the **Console** logs found in the [next section](#collect-mdm-specific-console-logs).
+If the SSO extension configuration profile does not appear in the **Profiles** after following the [previous section](#locate-sso-extension-mdm-configuration-profile), it could be that the MDM configuration has User/Device targeting enabled which is effectively **filtering out** the logged in user or the device from receiving the configuration profile. Check with your MDM administrator and collect the **Console** logs found in the [next section](#collect-mdm-specific-console-logs).
 
 ###### Collect MDM Specific Console Logs        
 1. From the macOS device, click on the **spotlight icon** 
@@ -181,17 +181,17 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 ### Application Types
 |**Application Type**  |**Interactive Auth**  |**Silent Auth**|**Description**|**Examples**|
 |---------|---------|---------|---------|---------|
-| [**Native MSAL App**](../develop/apple-sso-plugin.md#applications-that-use-msal)     |    X     |    X     | MSAL (Microsoft Authentication Library) which is an application developer framework tailored for building applications with the Microsoft Identity platform (Azure AD).<br>Apps built on **MSAL version 1.1 or greater** are able to integrate with the Microsoft Enterprise SSO Extension.<br>*If the application is SSO extension (broker) aware it will utilize the extension without any further configuration* See our [MSAL developer sample documenation](https://github.com/AzureAD/microsoft-authentication-library-for-objc)  | Microsoft Teams<br>Microsoft To Do 
-|[**Non-MSAL Native/Browser SSO**](../develop/apple-sso-plugin.md#applications-that-dont-use-msal)     |         |    X     |Applications that adhere to Apple networking technologies or webviews can be configured to obtain a shared credential from the SSO Extension<br>Feature flags must be configured to ensure that the bundle Id for each app is allowed to obtain the shared credential (PRT). 
+| [**Native MSAL App**](../develop/apple-sso-plugin.md#applications-that-use-msal)     |    X     |    X     | MSAL (Microsoft Authentication Library) which is an application developer framework tailored for building applications with the Microsoft Identity platform (Azure AD).<br>Apps built on **MSAL version 1.1 or greater** are able to integrate with the Microsoft Enterprise SSO Extension.<br>*If the application is SSO extension (broker) aware it will utilize the extension without any further configuration* See our [MSAL developer sample documentation](https://github.com/AzureAD/microsoft-authentication-library-for-objc)  | Microsoft Teams<br>Microsoft To Do 
+|[**Non-MSAL Native/Browser SSO**](../develop/apple-sso-plugin.md#applications-that-dont-use-msal)     |         |    X     |Applications that adhere to Apple networking technologies or webviews can be configured to obtain a shared credential from the SSO Extension<br>Feature flags must be configured to ensure that the bundle ID for each app is allowed to obtain the shared credential (PRT). 
 
 >[!Important]
 >Not all Microsoft first-party native applications are using MSAL framework.  At the time of this article publication, most of the Microsoft Office macOS applications still rely on the older ADAL library framework, and thus relies on the Browser SSO flow. The product teams are working to have the latest versions of most first-party applications. 
 
-#### How to Find the Bundle Id for an Application on macOS
+#### How to Find the Bundle ID for an Application on macOS
 1.  From the macOS device, click on the **spotlight icon**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/spotlight-icon.png" alt-text="screenshot showing the macOS spotlight icon"::: 
 1. When the **Spotlight Search** appears type **Terminal** and hit **return**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/launch-terminal-from-spotlight.png" alt-text="screenshot showing terminal being launched from spotlight":::
-1. When the Terminal opens type **`osascript -e 'id of app "<appname>"'`** at the prompt. See some examples below:
+1. When the Terminal opens type **`osascript -e 'id of app "<appname>"'`** at the prompt. See some examples follow:
     ```
     % osascript -e 'id of app "Safari"'
     com.apple.Safari
@@ -202,12 +202,12 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
     % osascript -e 'id of app "Microsoft Edge"'
     com.microsoft.edgemac
     ``` 
-1. Now that the bundle Id(s) have been gathered, please follow our [guidance to configure the feature flags](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix) to ensure that the **Non-MSAL Native/Browser SSO** can utilize the SSO Extension.  **Note: All bundle ids are case sensitive for the Feature flag configuration**.
+1. Now that the bundle Id(s) have been gathered, follow our [guidance to configure the feature flags](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix) to ensure that the **Non-MSAL Native/Browser SSO** can utilize the SSO Extension.  **Note: All bundle ids are case sensitive for the Feature flag configuration**.
 >[!Caution]
 >Applications that do not use Apple Networking technologies (**i.e. WKWebview and NSURLSession**) will not be able to use the shared credential (PRT) from the SSO Extension. Both **Google Chrome** and **Mozilla Firefox** fall into this category. Even if they are configured in the MDM configuration profile, the result will be a regular authentication prompt in the browser. 
 
 ### Bootstrapping
-By default only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other NON-MSAL applications can be configured to acquire the PRT. Please see [Allow users to sign in from unknown applications and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser). After the SSO Extension acquires a PRT, it will store the credential in the user's login Keychain. Now let's check to ensure that the PRT is present in the user's keychain.
+By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other NON-MSAL applications can be configured to acquire the PRT. See [Allow users to sign in from unknown applications and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser). After the SSO Extension acquires a PRT, it will store the credential in the user's login Keychain. Now let's check to ensure that the PRT is present in the user's keychain.
 
 #### Checking Keychain Access for PRT
 1.  From the macOS device, click on the **spotlight icon** 
@@ -215,9 +215,9 @@ By default only MSAL apps invoke the SSO Extension, and then in turn the Extensi
 1. When the **Spotlight Search** appears, type **Keychain Access** and hit **return**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/keychain-access-from-spotlight.png" alt-text="screenshot showing Console being launched from spotlight"::: 
 1. - Under **Default Keychains** select **login**<br>
    - Ensure that the **All Items** is selected
-   -  In the search bar on the right-hand side type **primaryrefresh** (To filter)<br> 
+   -  In the search bar, on the right-hand side, type **primaryrefresh** (To filter)<br> 
     :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/prt-located-in-keychainaccess.png" alt-text="screenshot showing how to find the PRT in Keychain access app":::Notice the naming convention of the PRT: **primaryfreshtoken-29d9ed98-a469-4536-ad32-f981bc1d605e--** The GUID happens to be the ClientID (AppID) of the **Microsoft Authentication Broker Service**, which handles the authentication requests for broker artifacts.
-1. If the PRT is not found in the Keychain Access, do the following based on the application type:<br> 
+1. If the PRT isn't found in the Keychain Access, do the following based on the application type:<br> 
     - **Native MSAL**: Check that the application developer, if the app was built with **MSAL version 1.1 or greater** and has enabled the application to be broker aware. Also, check [**Deployment Troubleshooting steps**](#deployment-troubleshooting) to rule out any deployment issues.
     - **Non MSAL (Safari)**: Check to ensure that the feature flag **`browser_sso_interaction_enabled`** is set to 1 and not 0
 
@@ -225,14 +225,14 @@ By default only MSAL apps invoke the SSO Extension, and then in turn the Extensi
 
 
 ### Obtaining the SSO Extension Logs
-By far the best tool to troubleshoot various issues with the SSO Extension are the client logs on the macOS device. 
+By far, the best tool to troubleshoot various issues with the SSO Extension are the client logs on the macOS device. 
 
 #### Save SSO Extension Logs from Company Portal App 
 1.  From the macOS device, click on the **spotlight icon** 
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/spotlight-icon.png" alt-text="screenshot showing the macOS spotlight icon":::
 1. When the **Spotlight Search** appears, type **Company Portal** and hit **return**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/company-portal-access-from-spotlight.png" alt-text="screenshot showing Company Portal being launched from spotlight":::
-1. When the **Company Portal** loads (Note: there is no need to Sign into the app), navigate to the top menu bar: **Help**->**Save diagnostic report**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/company-portal-help-save-diagnostic.png" alt-text="screenshot showing Help Diagnostic report":::
-1. Save the Company Portal Log archive to place of your choice (e.g. Desktop)
+1. When the **Company Portal** loads (Note: no need to Sign into the app), navigate to the top menu bar: **Help**->**Save diagnostic report**:::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/company-portal-help-save-diagnostic.png" alt-text="screenshot showing Help Diagnostic report":::
+1. Save the Company Portal Log archive to place of your choice (for example: Desktop)
 1. Open the **CompanyPortal.zip** archive and Open the **SSOExtension.log** file with any text editor
 >[!Tip]
 >A handy way to view the logs is using [**Visual Studio Code**](https://code.visualstudio.com/download) and installing the [**Log Viewer**](https://marketplace.visualstudio.com/items?itemName=berublan.vscode-log-viewer) extension.  
@@ -240,7 +240,7 @@ By far the best tool to troubleshoot various issues with the SSO Extension are t
 
 
 #### Tailing SSO Extension Logs with Terminal
-Often times during troubleshooting, it's best practice to reproduce a problem. By tailing the SSOExtension logs in real time will assist.
+During troubleshooting, it's best practice to reproduce a problem, and tailing the SSOExtension logs in real time will assist.
 
 1.  From the macOS device, click on the **spotlight icon**
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/spotlight-icon.png" alt-text="screenshot showing the macOS spotlight icon"::: 
@@ -269,7 +269,11 @@ Often times during troubleshooting, it's best practice to reproduce a problem. B
 1. As you reproduce the issue the keep **Terminal** window open to observe the output from the tailed **SSOExtension** logs
 
 ### Understanding the SSO Extension Logs
+The following diagram shows the structure of the SSO Extension logs. Click on the image for a zoomed-in
 :::image type="content" source="media/troubleshoot-mac-sso-extension-plugin/sso-extension-log-structure.png" alt-text="Screenshot of diagram breaking down components of SSOExtension logs" lightbox="media/troubleshoot-mac-sso-extension-plugin/sso-extension-log-structure-lightbox.png":::
+
+#### Analyzing Logs: Native App Auth Flow
+ 
 
  
 
