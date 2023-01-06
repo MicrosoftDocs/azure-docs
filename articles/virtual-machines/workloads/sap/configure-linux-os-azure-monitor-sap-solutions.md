@@ -21,18 +21,21 @@ This content applies to both versions of the service, *Azure Monitor for SAP sol
 
 - An Azure subscription.
 - An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
-- Install [node exporter version 1.3.0](https://prometheus.io/download/#node_exporter) in each SAP host that you want to monitor, either BareMetal or Azure virtual machine (Azure VM). For more information, see [the node exporter GitHub repository](https://github.com/prometheus/node_exporter).
+- Install the [node exporter version 1.3.0](https://prometheus.io/download/#node_exporter) in each SAP host that you want to monitor, either BareMetal or Azure virtual machine (Azure VM). For more information, see [the node exporter GitHub repository](https://github.com/prometheus/node_exporter).
 
-### Steps to install node exporter:
-You can follow the step by step [guide to install node exporter on linux system](https://prometheus.io/docs/guides/node-exporter/):
-- wget https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz
-- tar xvfz node_exporter-*.*-amd64.tar.gz
-- cd node_exporter-*.*-amd64
-- ./node_exporter
-- The node exporter now will start collecting data, and can be exported at the following address:
-    - `http://IP:9100/metrics`
+To install the node exporter on Linux:
 
-## Create Linux provider
+1. Run `wget https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz`. Replace `*` with the version number.
+
+1. Run `tar xvfz node_exporter-*.*-amd64.tar.gz`
+
+1. Run `cd node_exporter-*.*-amd64`
+
+1. Run `./node_exporter`
+
+1. The node exporter now starts collecting data. You can export the data at `http://IP:9100/metrics`.
+
+## Create Linux OS provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Azure Monitor for SAP solutions or Azure Monitor for SAP solutions (classic) service.
@@ -52,18 +55,21 @@ You can follow the step by step [guide to install node exporter on linux system]
 1. Select **Review + create** to review the settings.
 1. Select **Create** to finish creating the resource.
 
-## Trouble shooting guide for common exceptions
+## Troubleshooting
 
-### Unable to reach the prometheus endpoint
-The provider settings validation operation has failed with code ‘PrometheusURLConnectionFailure’.
+Use these steps to resolve common errors.
+
+### Unable to reach the Prometheus endpoint
+
+When the provider settings validation operation fails with the code ‘PrometheusURLConnectionFailure’:
 
 1. Open firewall port 9100 on the Linux host.
     1. If you're using `firewall-cmd`, run `_firewall-cmd_ _--permanent_ _--add-port=9100/tcp_ ` then `_firewall-cmd_ _--reload_`.
     1. If you're using `ufw`, run `_ufw_ _allow_ _9100/tcp_` then `_ufw_ _reload_`.
 1. Try to restart the node exporter agent:
-    1. cd to the folder where you installed the node exporter. (node_exporter-*.*-amd64)
-    1. ./node_exporter
-1. Please verify if the prometheus endpoint provided is reachable from the subnet provided while creating Azure Monitor for Sap Solutions resource.
+    1. Go to the folder where you installed the node exporter (the file name resembles `node_exporter-*.*-amd64`).
+    1. Run `./node_exporter`.
+1. Verify that the Prometheus endpoint is reachable from the subnet that you provided while creating the Azure Monitor for SAP solutions resource.
 
 ## Next steps
 

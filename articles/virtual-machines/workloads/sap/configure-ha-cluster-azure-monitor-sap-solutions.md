@@ -33,20 +33,44 @@ For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pm
 
 For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.com/articles/6139852) in each node.
 
-### Steps to install HA Cluster Exporter on RHEl system:
+### Install HA Cluster Exporter on RHEL
 1. Install the required packages on the system.
-    1. yum install pcp pcp-pmda-hacluster
+
+    ```bash
+    yum install pcp pcp-pmda-hacluster
+    ```
+
 1. Enable and start the required PCP Collector Services.
-    1. systemctl enable pmcd
-    1. systemctl start pmcd
-1. Install and enable the HA Cluster PMDA. (replace $PCP_PMDAS_DIR with the path where hacluster is installed, use find command in linux to find it)
-    1. cd $PCP_PMDAS_DIR/hacluster
-    1. ./install
-1. Enable and start the pmproxy service.
-    1. sstemctl start pmproxy
-    1. systemctl enable pmproxy
-1. Data will then be collected by PCP on the system and can be exported via pmproxy at the following address:
-    1. http://<'servername or ip address'>:44322/metrics?names=ha_cluster
+
+    ```bash
+    systemctl enable pmcd
+    ```
+
+    ```bash
+    systemctl start pmcd
+    ```
+
+1. Install and enable the HA Cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linuxto find the path.
+
+    ```bash
+    cd $PCP_PMDAS_DIR/hacluster
+    ```
+
+    ```bash
+    . ./install
+    ```
+
+1. Enable and start the `pmproxy` service.
+
+    ```bash
+    sstemctl start pmproxy
+    ```
+
+    ```bash
+    systemctl enable pmproxy
+    ```
+
+1. Data will then be collected by PCP on the system. You can export the data using `pmproxy` at `http://<SERVER-NAME-OR-IP-ADDRESS>:44322/metrics?names=ha_cluster`. Replace `<SERVER-NAME-OR-IP-ADDRESS>` with your server name or IP address.
 
 ## Create provider for Azure Monitor for SAP solutions
 
@@ -61,7 +85,7 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 1. For **Type**, select **High-availability cluster (Pacemaker)**.
 1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**.
 
-    1. For SUSE-based clusters, enter `http://<'IP address'> :9664/metrics`.
+    1. For SUSE-based clusters, enter `http://<IP-address> :9664/metrics`.
 
     ![Diagram of the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/azure-monitor-sap/azure-monitor-providers-ha-cluster-suse.png)
 
@@ -81,15 +105,26 @@ For RHEL-based pacemaker clusters, also install [PMProxy](https://access.redhat.
 
 1. Select **Create** to finish creating the resource.
 
-## Trouble shooting guide for common exceptions
+## Troubleshooting
 
-### Unable to reach the prometheus endpoint
-The provider settings validation operation has failed with code ‘PrometheusURLConnectionFailure’.
+Use the following troubleshooting steps for common errors.
 
-1. Try to restart the ha cluster exporter agent:
-    1. sstemctl start pmproxy
-    1. systemctl enable pmproxy
-1. Please verify if the prometheus endpoint provided is reachable from the subnet provided while creating Azure Monitor for Sap Solutions resource.
+### Unable to reach the Prometheus endpoint
+
+When the provider settings validation operation fails with the code ‘PrometheusURLConnectionFailure’:
+
+1. Restart the HA cluster exporter agent.
+
+    ```bash
+    sstemctl start pmproxy
+    ```
+
+1. Reenable the HA cluster exporter agent.
+    ```bash
+    systemctl enable pmproxy
+    ```
+
+1. Verify that the Prometheus endpoint is reachable from the subnet that provided while creating the Azure Monitor for SAP solutions resource.
 
 ## Next steps
 
