@@ -7,6 +7,7 @@ ms.date: 08/04/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

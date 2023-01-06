@@ -3,7 +3,7 @@
   items:
 - name: Overview
   items:
-  - name: About Defender for IoT
+  - name: Welcome to Microsoft Defender for IoT
     href: overview.md
   - name: What's new?
     items:
@@ -28,7 +28,7 @@
     href: tutorial-onboarding.md
   - name: Integrate with Microsoft Sentinel
     items:
-    - name: Connect Defender for IoT data to Microsoft Sentinel
+    - name: Connect Defender for IoT cloud data to Microsoft Sentinel
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
@@ -66,6 +66,8 @@
         href: ot-virtual-appliances.md
     - name: Supported OT protocols
       href: concept-supported-protocols.md
+    - name: Defender for IoT alerts
+      href: alerts.md
     - name: Monitoring OT threats in enterprise SOCs
       href: concept-sentinel-integration.md
       displayName: Microsoft Sentinel, modernize SOC
@@ -94,39 +96,40 @@
     - name: Azure portal
       href: how-to-manage-cloud-alerts.md
     - name: Sensor console
-      items:
-      - name: View alerts from a sensor console
-        href: how-to-view-alerts.md
-      - name: Manage alerts from a sensor console
-        href: how-to-manage-the-alert-event.md
-      - name: Manage alert workflows from a sensor console
-        href: how-to-accelerate-alert-incident-response.md
-      - name: Forward alert data from a sensor console
-        href: how-to-forward-alert-information-to-partners.md
+      href: how-to-view-alerts.md
     - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Accelerate on-premises alert workflows
+      href: how-to-accelerate-alert-incident-response.md
+    - name: Forward on-premises alert data
+      href: how-to-forward-alert-information-to-partners.md
   - name: Visualize and monitor data
     items:
     - name: Visualize data with workbooks
       href: workbooks.md
     - name: Create OT sensor reports
       items:
-      - name: Create risk assessment reports
-        href: how-to-create-risk-assessment-reports.md
-      - name: Create attack vector reports
-        href: how-to-create-attack-vector-reports.md
       - name: Create data mining reports
         href: how-to-create-data-mining-queries.md
+      - name: Create risk assessment reports
+        href: how-to-create-risk-assessment-reports.md
       - name: Create trends and statistics reports
         href: how-to-create-trends-and-statistics-reports.md
+      - name: Create attack vector reports
+        href: how-to-create-attack-vector-reports.md
     - name: View OT threats by location from an OT sensor
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
-  - name: Integrate with security partners
+  - name: Enhance security posture
+    href: recommendations.md
+    displayName: recommendations
+  - name: Integrate with partner services
     items:
     - name: Integration catalog
       href: integrate-overview.md
+    - name: Stream cloud alerts to a partner SIEM
+      href: integrations/send-cloud-data-to-partners.md
     - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
@@ -141,6 +144,8 @@
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
+    - name: Microsoft Sentinel (on-premises data)
+      href: integrations/on-premises-sentinel.md
     - name: Palo Alto
       href: tutorial-palo-alto.md
     - name: RSA NetWitness
@@ -177,8 +182,14 @@
       href: how-to-manage-subscriptions.md
     - name: Onboard OT sensors
       href: onboard-sensors.md
-    - name: Install OT system software
-      href: how-to-install-software.md
+    - name: Install OT monitoring software
+      items:
+      - name: Install OT sensor software
+        href: ot-deploy/install-software-ot-sensor.md
+      - name: Install on-premises management console software
+        href: ot-deploy/install-software-on-premises-management-console.md
+      - name: Validate after installation
+        href: ot-deploy/post-install-validation-ot-software.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Deploy OT certificates
@@ -205,6 +216,8 @@
     href: how-to-manage-sensors-on-the-cloud.md
   - name: Create and manage users
     items:
+    - name: Azure portal
+      href: manage-users-portal.md
     - name: OT sensor console
       href: manage-users-sensor.md
     - name: On-premises management console
@@ -236,14 +249,6 @@
           href: configure-reverse-dns-lookup.md
       - name: Manage sensors from the on-premises management console
         href: how-to-manage-sensors-from-the-on-premises-management-console.md
-    - name: Manage OT sensor users
-      items:
-      - name: Create and manage users
-        href: how-to-create-and-manage-users.md
-      - name: Integrate with active directory
-        href: integrate-with-active-directory.md
-      - name: Define global user access control
-        href: how-to-define-global-user-access-control.md
     - name: Enrich device information
       items:
       - name: Work with device notifications
@@ -282,6 +287,8 @@
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
       - name: Dell Edge 5200 (Rugged MIL-STD-810G)
         href: appliance-catalog/dell-edge-5200.md
+      - name: Dell PowerEdge R350
+        href: appliance-catalog/dell-poweredge-r350-e1800.md
     - name: Production line
       items:
       - name: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
@@ -340,8 +347,14 @@
         href: api/management-integration-apis.md
   - name: Sensor health message reference
     href: sensor-health-messages.md
-  - name: Defender for IoT CLI commands
-    href: references-work-with-defender-for-iot-cli-commands.md
+  - name: Defender for IoT CLI
+    items:
+    - name: CLI users and access
+      href: references-work-with-defender-for-iot-cli-commands.md
+      displayName: shell, login, cli, command-line, commands, users, user
+    - name: OT sensor CLI reference
+      href: cli-ot-sensor.md
+      displayName: shell, login, cli, command-line, commands, users, user
   - name: Frequently asked questions
     items:
     - name: General FAQ

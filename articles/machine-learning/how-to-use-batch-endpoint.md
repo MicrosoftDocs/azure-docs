@@ -192,6 +192,8 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     # [Azure CLI](#tab/azure-cli)
 
     The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
+    
+    __mnist-endpoint.yml__
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-endpoint.yml":::
 
@@ -254,6 +256,8 @@ Batch deployments require a scoring script that indicates how the given model sh
 > [!TIP]
 > For more information about how to write scoring scripts and best practices for it please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md).
 
+__mnist/code/batch_driver.py__
+
 :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
 
 ## Create a batch deployment
@@ -265,11 +269,13 @@ A deployment is a set of resources required for hosting the model that does the 
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
 
-1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. You will also need to add the library `azureml-core` as it is required for batch deployments to work.
+1. Create an environment where your batch deployment will run. Include in the environment any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`.
 
     # [Azure CLI](#tab/azure-cli)
    
-    *No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file as an anonymous environment.*
+    The environment definition will be included in the deployment definition itself as an anonymous environment. You will see in the following lines in the deployment:
+    
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml" range="10-12":::
    
     # [Python](#tab/python)
    
@@ -284,25 +290,30 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Studio](#tab/azure-studio)
     
+    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    
     1. Navigate to the __Environments__ tab on the side menu.
     1. Select the tab __Custom environments__ > __Create__.
     1. Enter the name of the environment, in this case `torch-batch-env`.
     1. On __Select environment type__ select __Use existing docker image with conda__.
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
-    1. On __Customize__ section copy the content of the file `./mnist/environment/conda.yml` included in the repository into the portal. The conda file looks as follows:
-        
-        :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
-    
+    1. On __Customize__ section copy the content of the file `./mnist/environment/conda.yml` included in the repository into the portal. 
     1. Click on __Next__ and then on __Create__.
     1. The environment is ready to be used.
     
     ---
+    
+    The conda file we used looks as follows:
+    
+    __mnist/environment/conda.yml__
+        
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
 
     > [!WARNING]
     > Curated environments are not supported in batch deployments. You will need to indicate your own environment. You can always use the base image of a curated environment as yours to simplify the process.
 
     > [!IMPORTANT]
-    > Do not forget to include the library `azureml-core` in your deployment as it is required by the executor.
+    > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
     
 
 1. Create a deployment definition
@@ -376,7 +387,9 @@ A deployment is a set of resources required for hosting the model that does the 
     * `logging_level`- The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`.
 
     # [Studio](#tab/azure-studio)
-
+   
+    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    
     1. Navigate to the __Endpoints__ tab on the side menu.
     1. Select the tab __Batch endpoints__ > __Create__.
     1. Give the endpoint a name, in this case `mnist-batch`. You can configure the rest of the fields or leave them blank.
@@ -701,24 +714,21 @@ In this example, you will learn how to add a second deployment __that solves the
     1. Enter the name of the environment, in this case `keras-batch-env`.
     1. On __Select environment type__ select __Use existing docker image with conda__.
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
-    1. On __Customize__ section copy the content of the file `./mnist-keras/environment/conda.yml` included in the repository into the portal. The conda file looks as follows:
-        
-        :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras/environment/conda.yml":::
-    
+    1. On __Customize__ section copy the content of the file `./mnist-keras/environment/conda.yml` included in the repository into the portal.
     1. Click on __Next__ and then on __Create__.
     1. The environment is ready to be used.
     
     ---
-
-    > [!WARNING]
-    > Curated environments are not supported in batch deployments. You will need to indicate your own environment. You can always use the base image of a curated environment as yours to simplify the process.
-
-    > [!IMPORTANT]
-    > Do not forget to include the library `azureml-core` in your deployment as it is required by the executor.
+    
+    The conda file used looks as follows:
+    
+    __mnist-keras/environment/conda.yml__
+    
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras/environment/conda.yml":::
     
 1. Create a scoring script for the model:
    
-   __batch_driver.py__
+   __mnist-keras/code/batch_driver.py__
    
    :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist-keras/code/batch_driver.py" :::
    
@@ -726,7 +736,7 @@ In this example, you will learn how to add a second deployment __that solves the
 
     # [Azure CLI](#tab/azure-cli)
     
-    __mnist-keras-deployment__
+    __mnist-keras-deployment.yml__
     
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras-deployment.yml":::
     
