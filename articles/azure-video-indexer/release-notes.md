@@ -28,7 +28,9 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 ### Language support
 
 * New languages are now supported: Irish, Bulgarian, Catalan, Greek, Estonian, Croatian, Latvian, Romanian, Slovak, Slovenian, Telugu, Malayalam, Kannada, Icelandic,  Armenian, Gujarati, Malay, and Tamil.
-* Use an API to get all supported languages: [Get Supported Languages](https://api-portal.videoindexer.ai/api-details
+* Use an API to get all supported languages: [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages).
+
+For more information, see [supported languages](language-support.md).
 
 ## November 2022
 
