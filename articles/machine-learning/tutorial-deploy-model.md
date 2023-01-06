@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy a model"
 titleSuffix: Azure Machine Learning
-description: This tutorial covers how to deploy your model to production using Azure Machine Learning Python SDK v2.
+description: This tutorial covers how to deploy a model to production using Azure Machine Learning Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,15 @@ ms.topic: tutorial
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 11/28/2022
+ms.date: 01/06/2023
 ms.custom: mlops #add more custom tags
 #Customer intent: This tutorial is intended to show users what is needed for deployment and present a high-level overview of how Azure Machine Learning handles deployment. Deployment isn't typically done by a data scientist, so the tutorial won't use Azure CLI examples. We will link to existing articles that use Azure CLI as needed. The code in the tutorial will use SDK v2. The tutorial will continue where the "Create reusable pipelines" tutorial stops.
 ---
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb -->
 
-> [!TIP]
-> Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb)**.
-
-# Internal notes
-
-- **Code has been updated to work.**
-
-
-```python
-# check the SDK version
-%pip show azure-ai-ml
-```
+<!-- > [!TIP]
+> Contents of _deploy-model.ipynb_. **[Open in GitHub](https://github.com/Azure/azureml-examples/blob/new-tutorial-series/tutorials/get-started-notebooks/deploy-model.ipynb)**. -->
 
 # Deploy a model as an online endpoint
 
@@ -37,7 +27,7 @@ In this tutorial, you'll begin with the files for a trained MLflow model and wal
 
 The steps you'll take are:
 
-> * Ensure your model is registered
+> * Register your model
 > * Create an endpoint and a first deployment
 > * Deploy a trial run
 > * Manually send test data to the deployment
@@ -46,27 +36,35 @@ The steps you'll take are:
 > * Manually scale the second deployment
 > * Update allocation of production traffic between both deployments
 > * Get details of the second deployment
-> * Roll out the new deployment and delete the first deployment
-
-## Overview
-You can deploy your machine learning model as an [`online endpoint`](https://docs.microsoft.com/azure/machine-learning/concept-endpoints), that is, as a web service in the Azure cloud, so that so you don't have to create and manage the underlying infrastructure. For this deployment, you typically need:
-
-* The model assets (file and metadata) that you want to deploy.
-* A scoring script, that is, some code to run as a service. This code executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model—the script must understand the data that the model expects as input and returns as output. For MLflow models, as in this tutorial, this script is automatically created for you during model training. An example scoring script can be found [here](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#understand-the-scoring-script).
+> * Roll out the new deployment and delete the first one
 
 ## Prerequisites
 
-1. If you already completed the earlier Day 1 tutorials, _train model responsibly_ or _create reusable pipeline_, you can skip to #3 in the prerequisites.
-1. If you haven't completed the earlier tutorials, be sure to do the following: 
+1. If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you can skip to #3 in the prerequisites.
+1. If you haven't completed either of these earlier tutorials, be sure to do the following: 
     * Access an Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) to begin.
-    * Create an AzureML workspace and a compute instance if you don't have them already. The [Quickstart: Create workspace resources](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](https://learn.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
-    * Access the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
-1. Create a new notebook or copy the contents of this notebook.
+    * Create an AzureML workspace and a compute resource if you don't have them already. The [Quickstart: Create workspace resources](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources) provides steps that you can follow. Be sure to have enough quota (at least 15 cores) available for the [compute resources](https://learn.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series).
+    * Download the files and metadata for the model you'll deploy. You can find the files and metadata in the `azureml-examples/tutorials/get-started-notebooks/deploy/credit_defaults_model` directory. <mark> **update this location**</mark> 
+1. Create a new notebook or copy the contents of our notebook.
     * Follow the [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
-    * Or use the steps in the quickstart to [clone the tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section.<mark> **update these locations**</mark>
+    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section.<mark> **update these locations**</mark>
+
+<!-- copied from "tutorial-azure-ml-in-a-day.md". Consider making an include file. -->
+## Run your notebook
+
+1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+
+2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
+
+> [!Important]
+> The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
+>
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## Connect to the workspace
-Before you dive in the code, you'll need to connect to your AzureML workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+Before you dive in the code, you'll need to connect to your AzureML workspace. The workspace is the top-level resource for AzureML, providing a centralized place to work with all the artifacts you create when you use AzureML. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
 We're using `DefaultAzureCredential` to get access to the workspace. 
 `DefaultAzureCredential` is used to handle most Azure SDK authentication scenarios. 
@@ -121,12 +119,12 @@ ml_client = MLClient(
 The result is a handle to the workspace that you'll use to manage other resources and jobs.
 
 > [!IMPORTANT]
-> Creating `MLClient` will not connect to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this notebook, this call will happen during compute creation.
+> Creating `MLClient` will not connect to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call (in this notebook, that will happen during compute creation).
 
 
 ## Register the model
 
-If you already completed the earlier Day 1 tutorials, _train model responsibly_ or _create reusable pipeline_, you've registered an MLflow model as part of the training script and can skip to the next section. 
+If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you've registered an MLflow model as part of the training script and can skip to the next section. 
 
 If you didn't complete either of those tutorials, you'll need to register the model. Registering your model before deployment is a recommended best practice.
 
@@ -164,11 +162,11 @@ latest_model_version = max(
 print(latest_model_version)
 ```
 
-Now that you have a registered model, you can create an endpoint and deployment. In the next section, we'll briefly cover some key details about these topics.
+Now that you have a registered model, you can create an endpoint and deployment. The next section will briefly cover some key details about these topics.
 
 ## Endpoints and deployments
 
-After you train a machine learning model, you need to deploy the model so that others can use it to do inferencing. In Azure Machine Learning, you can use **endpoints** and **deployments** to do so.
+After you train a machine learning model, you need to deploy it so that others can use it for inferencing. Azure Machine Learning allows you to create **endpoints** and **deployments** for this purpose.
 
 An **endpoint** is an interface, based on the HTTPS protocol, that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
 - Authentication using "key & token" based auth 
@@ -180,7 +178,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-online-endpoints) and [batch endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-batch-endpoints). In this tutorial, we'll walk you through the steps of implementing an online endpoint—that is, an endpoint used for receiving data from clients and sending back responses in real-time.
+Azure Machine Learning allows you to implement both [online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-online-endpoints) and [batch endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints#what-are-batch-endpoints). In this tutorial, we'll walk you through the steps of implementing a managed online endpoint—that is, a web service in the Azure cloud that receives data from clients and sends back responses in real-time.
 
 ## Create an online endpoint
 
@@ -201,7 +199,7 @@ import uuid
 online_endpoint_name = "credit-endpoint-" + str(uuid.uuid4())[:8]
 ```
 
-We'll create the endpoint using the `ManagedOnlineEndpoint` class.
+First, we'll define the endpoint, using the `ManagedOnlineEndpoint` class.
 
 
 ```python
@@ -226,7 +224,7 @@ Using the `MLClient` created earlier, we'll now create the endpoint in the works
 endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-Once you've created an endpoint, you can retrieve it as follows:
+Once you've created the endpoint, you can retrieve it as follows:
 
 
 ```python
@@ -242,7 +240,7 @@ print(
 To deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace).
-- A scoring script, that is, code that takes in user input and returns the scored result.
+- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. For an MLflow model, as in this tutorial, this script is automatically created for you during model training. For an example of a scoring script, see the [Understand the scoring script](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#understand-the-scoring-script) section of the "Deploy an ML model with an online endpoint" article.
 - An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
@@ -262,7 +260,7 @@ To deploy a model, you must have:
 
 AzureML supports no-code deployment of a model created and logged with MLflow. This means that you don't have to provide a scoring script or an environment during model deployment, as the scoring script and environment are automatically generated when training an MLflow model.
 
-For a custom model, though, you'd have to specify the environment and scoring script during deployment. See [Customizing MLflow model deployments with scoring script](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints#customizing-mlflow-model-deployments) to learn how to use a scoring script.
+If you were using a custom model, though, you'd have to specify the environment and scoring script during deployment. See [Customizing MLflow model deployments with scoring script](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints#customizing-mlflow-model-deployments) to learn how to use a scoring script.
 
 > [!IMPORTANT]
 > If you typically deploy models using scoring scripts and custom environments and want to achieve the same functionality using MLflow models, we recommend reading [Using MLflow models for no-code deployment](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-mlflow-models).
@@ -450,28 +448,33 @@ ml_client.online_deployments.begin_delete(
 ).result()
 ```
 
-## Delete the endpoint and deployment
+## Clean up resources
 
-If you aren't going use the endpoint and deployment after completing this tutorial, you should delete them with:
+If you aren't going use the endpoint and deployment after completing this tutorial, you should delete them.
+
+> [!NOTE]
+> Expect this step to take approximately 6 to 8 minutes.
 
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name).result()
 ```
 
-## Next Steps
-- [Mirror traffic](https://learn.microsoft.com/azure/machine-learning/how-to-safely-rollout-online-endpoints?tabs=python#test-the-deployment-with-mirrored-traffic-preview)
-- [monitor online endpoints](https://learn.microsoft.com/azure/machine-learning/how-to-monitor-online-endpoints)
-- [Batch scoring with batch endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-batch-endpoint?tabs=azure-cli)
-- autoscaling deployment
-- [understanding the cost of running endpoints](https://learn.microsoft.com/azure/machine-learning/how-to-view-online-endpoints-costs)
-- getting user logs and metrics
-- [Deploy your model using a custom container](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-custom-container)
-
-
-```python
-
-```
-
 <!-- nbend -->
 
+
+
+### Delete everything
+
+Use these steps to delete your Azure Machine Learning workspace and all compute resources.
+
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+
+## Next Steps
+
+- Learn about all of the [deployment options](how-to-deploy-online-endpoints.md) for Azure Machine Learning.
+- [Test the deployment with mirrored traffic (preview)](how-to-safely-rollout-online-endpoints.md#test-the-deployment-with-mirrored-traffic-preview)
+- [Monitor online endpoints](how-to-monitor-online-endpoints.md)
+- [Autoscale an online endpoint](how-to-autoscale-endpoints.md)
+- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
