@@ -30,14 +30,14 @@ These Network Policy rules are defined as YAML manifests. Network policies can b
 
 Azure provides two ways to implement Network Policy. You choose a Network Policy option when you create an AKS cluster. The policy option can't be changed after the cluster is created:
 
-* Azure's own implementation, called *Azure Network Policy Manager (NPM)*.
+* Azure's own implementation, called *Azure Network Policy Manager*.
 * *Calico Network Policies*, an open-source network and network security solution founded by [Tigera][tigera].
 
-Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host Network Service (HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
+Azure Network Policy Manager for Linux uses Linux *IPTables* and Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
 
-## Differences between Azure NPM and Calico Network Policy and their capabilities
+## Differences between Azure Network Policy Manager and Calico Network Policy and their capabilities
 
-| Capability                               | Azure  NPM                    | Calico Network Policy                     |
+| Capability                               | Azure Network Policy Manager                    | Calico Network Policy                     |
 |------------------------------------------|----------------------------|-----------------------------|
 | Supported platforms                      | Linux, Windows Server 2022                      | Linux, Windows Server 2019 and 2022  |
 | Supported networking options             | Azure CNI                  | Azure CNI (Linux, Windows Server 2019 and 2022) and kubenet (Linux)  |
@@ -48,19 +48,19 @@ Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host N
 
 ## Limitations:
 
-Azure Network Policy Manager(NPM) doesn't support IPv6. Otherwise, Azure NPM fully supports the network policy spec in Linux.
-* In Windows, Azure NPM doesn't support the following:
+Azure Network Policy Manager doesn't support IPv6. Otherwise, Azure Network Policy Manager fully supports the network policy spec in Linux.
+* In Windows, Azure Network Policy Manager doesn't support the following:
     * named ports
     * SCTP protocol
     * negative match label or namespace selectors (e.g. all labels except "debug=true")
     * "except" CIDR blocks (a CIDR with exceptions)
 
 >[!NOTE]
-> * Azure NPM pod logs will record an error if an unsupported policy is created.
+> * Azure Network Policy Manager pod logs will record an error if an unsupported policy is created.
 
 ## Scale:
 
-With the current limits set on Azure NPM for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
+With the current limits set on Azure Network Policy Manager for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
 
 ## Create an AKS cluster and enable Network Policy
 
@@ -70,18 +70,17 @@ To see network policies in action, let's create an AKS cluster that supports net
 >
 > The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
-To use Azure NPM, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates an AKS cluster with system-assigned identity and enables Network Policy.
-    * The _Azure NPM_ option is used. To use Calico as the Network Policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+* Creates an AKS cluster with system-assigned identity and enables Network Policy using Azure Network Policy Manager. To use Calico as the Network Policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
-### Create an AKS cluster with Azure NPM enabled - Linux only 
+### Create an AKS cluster with Azure Network Policy Manager enabled - Linux only 
 
-In this section, we'll work on creating a cluster with Linux node pools and Azure NPM enabled. 
+In this section, we'll work on creating a cluster with Linux node pools and Azure Network Policy Manager enabled. 
 
 To begin, you should replace the values for *$RESOURCE_GROUP_NAME* and *$CLUSTER_NAME* variables. 
 
@@ -91,7 +90,7 @@ $CLUSTER_NAME=myAKSCluster
 $LOCATION=canadaeast
 ```
 
-Create the AKS cluster and specify *azure* for the `network-plugin` and `network-policy`.
+Create the AKS cluster and specify `azure` for the `network-plugin` and `network-policy`.
 
 Use the following command to create a cluster:
 ```azurecli
@@ -103,12 +102,12 @@ az aks create \
     --network-policy azure
 ```
 
-### Create an AKS cluster with Azure NPM enabled - Windows Server 2022 (Preview)
+### Create an AKS cluster with Azure Network Policy Manager enabled - Windows Server 2022 (Preview)
 
-In this section, we'll work on creating a cluster with Windows node pools and Azure NPM enabled.
+In this section, we'll work on creating a cluster with Windows node pools and Azure Network Policy Manager enabled.
 
 > [!NOTE]
-> Azure NPM with Windows nodes is available on Windows Server 2022 only.
+> Azure Network Policy Manager with Windows nodes is available on Windows Server 2022 only.
 >
 
 #### Install the aks-preview Azure CLI extension
@@ -189,7 +188,7 @@ az aks nodepool add \
 
 ### Create an AKS cluster for Calico network policies
 
-Create the AKS cluster and specify *azure* for the network plugin, and *calico* for the Network Policy. Using *calico* as the Network Policy enables Calico networking on both Linux and Windows node pools.
+Create the AKS cluster and specify `azure` for the network plugin, and `calico` for the Network Policy. Using `calico` as the Network Policy enables Calico networking on both Linux and Windows node pools.
 
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters with that meet the [Windows Server password requirements][windows-server-password]. 
 
