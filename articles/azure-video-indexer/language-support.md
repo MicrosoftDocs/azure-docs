@@ -20,7 +20,7 @@ support table](#language-support-in-frontend-experiences) further below.
 
 The API returns a list of supported languages with the following values:
 
-```
+```json
 "name": "Language",
 "languageCode": "Code",
 "isRightToLeft": true/false,
