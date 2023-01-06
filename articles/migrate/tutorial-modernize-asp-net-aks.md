@@ -64,11 +64,11 @@ In **Replicate** > **Web apps**, a paged list of discovered ASP.NET apps discove
 
 1. Choose one or more applications that should be replicated.
 2. The **Modernization status** column indicates the readiness of the application to run on AKS. This can take one of the following values - "Ready", "Error(s)", "Replication in Progress".
-3. Select the application and click on the **App configuration(s)** link to open the Application configurations blade. This provides the list of attributes detected from the discovered config files. Enter the required attribute values and click Save. These configurations will either be stored directly on the target cluster as secrets or can be mounted using Azure Key Vault.
+3. Select the application and click on the **App configuration(s)** link to open the Application configurations blade. This provides the list of attributes detected from the discovered config files. Enter the required attribute values and click Save. These configurations will either be stored directly on the target cluster as secrets or can be mounted using Azure Key Vault. This can be configured in the advanced settings.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-config.png" alt-text="Screenshot of the Application configurations blade.":::
 
-4. Select the application and click on the **App directories** link to open the Application directories blade. Provide the path to folders/files that need to be copied for the application to run and click Save. These artifacts can either be copied directly in the container image or mounted as a persistent volume on the cluster.
+4. Select the application and click on the **App directories** link to open the Application directories blade. Provide the path to folders/files that need to be copied for the application to run and click Save. Based on the option selected from the drop down, these artifacts are either be copied directly into the container image or mounted as a persistent volume on the cluster via Azure file share. If persistent volume is chosen, the target can be configured in the advanced settings.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-dir.png" alt-text="Screenshot of the Application directories blade.":::
 
@@ -101,7 +101,7 @@ If one or more apps had app configurations or directories updated in **Replicate
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-advanced-settings.png" alt-text="Screenshot of the Advanced settings tab on the Replicate blade.":::
 
-1. If application configurations were provided, choose to store them either as native Kubernetes secrets or on Azure Key Vault using [secrets store CSI driver](../aks/csi-secrets-store-driver.md). Ensure that the target cluster has the [addon enabled](../aks/csi-secrets-store-driver.md#upgrade-an-existing-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
+1. If application configurations were provided, choose to store them either as native Kubernetes secrets or on Azure Key Vault using [secrets store CSI driver](../aks/csi-secrets-store-driver.md). Ensure that the target cluster has the [secrets store driver addon enabled](../aks/csi-secrets-store-driver.md#upgrade-an-existing-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
 2. If application directories were provided with a persistent storage option, select an Azure file share to store these files.
 3. Click Next.
 
@@ -169,7 +169,7 @@ If the test migration failed:
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/migration-hub-jobs-failed-test-migrate.png" alt-text="Screenshot of the failed test migrate job.":::
 
-3. Click on the failed task link possible failure causes and recommendations.
+3. Click on the failed task link to see possible failure causes and recommendations.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/test-migrate-failed-task.png" alt-text="Screenshot of the failed test migrate task.":::
 
@@ -180,7 +180,7 @@ The application is finally ready for migration:
 1. In the **Overview** blade, click **Migrate**, then click "Yes" to confirm.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/target-migrate.png" alt-text="Screenshot of the target resource ready for migration.":::
-    
+
 2. Similar to the test migration workflow, verify that the workloads are running on the AKS cluster.
 3. The application has now successfully been migrated. If you wish for the appliance to discover it again and make it available for migration, click **Complete migration**.
 
