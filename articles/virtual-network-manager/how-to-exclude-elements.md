@@ -93,16 +93,16 @@ The advanced editor can be used to select virtual networks during the creation o
 1. Under **Criteria**, select **Advanced (JSON) editor** to open the editor.
 1. Enter the following JSON code into the text box and select **Save**:
 
-```json
-   {
-       "allOf": [
-          {
-             "field": "Name",
-             "contains": "myVNet01"
-          }
-       ]
-   }
-```
+   ```json
+      {
+          "allOf": [
+             {
+                "field": "Name",
+                "contains": "myVNet01"
+             }
+          ]
+      }
+   ```
 1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-EastUS.
 
 ### Edit an existing policy
@@ -216,26 +216,26 @@ In this example, a conditional statement is created that finds virtual networks 
 
 * Advanced editor:
 
-```json
+   ```json
 
-  {
-       "allOf": [
-         {
-            "field": "Name",
-            "contains": "myVNet"
-         },      
-         {
-            "field": "tags['environment']",
-            "equals": "production"
-         }
-       ]    
-  }
+     {
+          "allOf": [
+            {
+               "field": "Name",
+               "contains": "myVNet"
+            },      
+            {
+               "field": "tags['environment']",
+               "equals": "production"
+            }
+          ]    
+     }
 
-```
+   ```
 
-> [!NOTE]
-> Conditionals should filter on resource type Microsoft.Network/virtualNetwork to improve efficiency.
-> This condition is prepended for you on any conditionals specified through the portal.
+   > [!NOTE]
+   > Conditionals should filter on resource type Microsoft.Network/virtualNetwork to improve efficiency.
+   > This condition is prepended for you on any conditionals specified through the portal.
 ## Next steps
 
 - Learn about [Network groups](concept-network-groups.md).
