@@ -1,5 +1,5 @@
 ---
-title: Push and pull OCI artifact
+title: Push and pull OCI artifact references
 description: Push and pull Open Container Initiative (OCI) artifacts using a container registry in Azure
 author: SteveLasker
 manager: gwallace
@@ -8,7 +8,7 @@ ms.date: 01/03/2023
 ms.author: stevelas
 ---
 
-# Push and pull an OCI artifact using an Azure container registry
+# Push and pull OCI artifacts using an Azure container registry
 
 You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
@@ -29,7 +29,7 @@ ACR_NAME=myregistry
 REGISTRY=$ACR_NAME.azurecr.io
 ```
 
-To create a new registry, see [Quickstart: Create a container registry using the Azure CLI][acr-create]
+To create a new registry, see [Quickstart: Create a container registry using the Azure CLI][az-acr-create]
 ## Sign in to a registry
 
 Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
@@ -56,63 +56,26 @@ Provide the credentials to `oras login`.
     --password $PASSWORD
   ```
 
-### Sign in with ORAS
+## Push a root artifact
 
-This section shows options to sign into the registry. Choose one method below appropriate for your environment.
+A root artifact is an artifact that has no `subject` parent. Root artifacts can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts, described later are artifacts that refer to another artifact. These can also be anything from a signature, software bill of materials, scan report or other evolving types.
 
-Run  `oras login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token (preview).
-
-- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to use an AD token. Always use "000..." as the token is parsed through the `PASSWORD` variable.
-
-  ```azurecli
-  USER_NAME="00000000-0000-0000-0000-000000000000"
-  PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
-  ```
-
-- Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview) to use non-AD based tokens.
-
-  ```azurecli
-  USER_NAME="oras-token"
-  PASSWORD=$(az acr token create -n $USER_NAME \
-                    -r $ACR_NAME \
-                    --repository $REPO content/write \
-                    --only-show-errors \
-                    --query "credentials.passwords[0].value" -o tsv)
-  ```
-
-- Authenticate with an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry.
-
-  ```azurecli
-  SERVICE_PRINCIPAL_NAME="oras-sp"
-  ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
-  PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME \
-            --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-             --role acrpush \
-            --query "password" --output tsv)
-  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
-  ```
-  
-  Supply the credentials to `oras login` after authentication configured.
-
-  ```bash
-  oras login $REGISTRY \
-    --username $USER_NAME \
-    --password $PASSWORD
-  ```
-
-To read the password from Stdin, use `--password-stdin`.
-
-## Push an artifact
-
-Create content that represents a markdown file:
+For this example, create content that represents a markdown file:
 
 ```bash
 echo 'Readme Content' > readme.md
 ```
 
-Use the `oras push` command to push the file to your registry. 
+The following step pushes the `readme.md` file to `<myregistry>.azurecr.io/samples/artifact:readme`.
+- The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase) with the namespace and repo following: `/samples/artifact`.
+- The artifact is tagged `:readme`, to identify it uniquely from other artifacts listed in the repo (`:latest, :v1, :v1.0.1`).
+- The root artifact, an artifact that doesn't reference another, sets the type through the `-config` parameter.  
+  - `/dev/null` represents an empty config object, where the value `:readme/example` identifies the artifact type.  
+  - `:readme/example` differentiates it from a container images which use `application/vnd.oci.image.config.v1+json`.
+- The `./readme.md` identifies the file uploaded, and the `:application/markdown` represents the [IANA `mediaType`][iana-mediatypes] of the file.  
+  See [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md) for additional information.
 
-The following example pushes the `readme.md` file to the `samples/artifact` repo. The registry is identified with the fully qualified registry name `myregistry.azurecr.io` (all lowercase) with the namespace and repo following. The artifact is tagged `readme`, to identify it uniquely from other artifacts listed in the repo (`latest, v1, v1.0.1`). The type is set through the `-config` parameter. `/dev/null` represents an empty config object, where the `:readme/example` identifies the artifact type, differentiating it from a container images which use `application/vnd.oci.image.config.v1+json`. The `./readme.md` identifies the file uploaded, and the `:application/markdown` represents the IANA `mediaType` of the file. See [OCI Artifacts](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md) for additional information.
+Use the `oras push` command to push the file to your registry. 
 
 **Linux, WSL2 or macOS**
 
@@ -125,7 +88,7 @@ oras push $REGISTRY/samples/artifact:readme \
 **Windows**
 
 ```cmd
-.\oras.exe push $REGISTRY/samples/artifact:1.0 ^
+.\oras.exe push $REGISTRY/samples/artifact:readme ^
     --config NUL:readme/example ^
     .\readme.md:application/markdown
 ```
@@ -135,11 +98,40 @@ Output for a successful push is similar to the following:
 ```console
 Uploading 2fdeac43552b readme.md
 Uploaded  2fdeac43552b readme.md
-Pushed demo42.azurecr.io/samples/artifact:readme
+Pushed <myregistry>.azurecr.io/samples/artifact:readme
 Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1aec5d9dcf7748dd702682d53
 ```
 
-## Pull an artifact
+## Push a multi-file root artifact
+
+Create some documentation around an artifact.
+
+```bash
+echo 'Readme Content' > readme.md
+echo 'Detailed Content' > readme-details.md
+```
+
+Attach the multi-file artifact as a reference.
+
+**Linux, WSL2 or macOS**
+
+```bash
+oras push $REGISTRY/samples/artifact:readme \
+    --config /dev/null:readme/example\
+    ./readme.md:application/markdown\
+    ./readme-details.md:application/markdown
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push $REGISTRY/samples/artifact:readme ^
+    --config NUL:readme/example ^
+    .\readme.md:application/markdown ^
+    .\readme-details.md:application/markdown
+```
+
+## Pull a root artifact
 
 Create a clean directory for downloading
 
@@ -171,13 +163,13 @@ az acr repository delete \
 
 ## Next steps
 
-* Learn more about [the ORAS Library](https://github.com/deislabs/oras), including how to configure a manifest for an artifact
+* Learn more about [the ORAS Project](https://oras.land/), including how to configure a manifest for an artifact
 * Visit the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo for reference information about new artifact types
 
 <!-- LINKS - external -->
-
+[iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 <!-- LINKS - internal -->
-[acr-authentication]: /articles/container-registry/container-registry-authentication.md?tabs=azure-cli
-[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[acr-authentication]:       /articles/container-registry/container-registry-authentication.md?tabs=azure-cli
+[az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
+[az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[acr-create]: /container-registry/container-registry-get-started-azure-cli

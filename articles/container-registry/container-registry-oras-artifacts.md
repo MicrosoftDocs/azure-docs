@@ -42,7 +42,7 @@ TAG=v1
 IMAGE=$REGISTRY/${REPO}:$TAG
 ```
 
-To create a new registry, see [Quickstart: Create a container registry using the Azure CLI][acr-create]
+To create a new registry, see [Quickstart: Create a container registry using the Azure CLI][az-acr-create]
 
 Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
@@ -319,6 +319,8 @@ az acr manifest list-metadata \
 [oci-1_1-spec]:   https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1
 
 <!-- LINKS - internal -->
-[az-acr-build]: /cli/azure/acr#az_acr_build
-[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[acr-authentication]:       /articles/container-registry/container-registry-authentication.md?tabs=azure-cli
+[az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
+[az-acr-build]:             /cli/azure/acr#az_acr_build
+[az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
