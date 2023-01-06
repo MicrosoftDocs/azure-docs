@@ -477,9 +477,9 @@ public class FormRecognizer {
     String modelId = "prebuilt-invoice";
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-    SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+    SyncPoller < OperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
 
-    AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult();
+    AnalyzeResult analyzeInvoiceResult = analyzeInvoicePoller.getFinalResult();
 
     for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
       AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
