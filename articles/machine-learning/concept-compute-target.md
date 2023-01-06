@@ -65,7 +65,9 @@ When created, these compute resources are automatically part of your workspace, 
 
 
 > [!NOTE]
-> When a compute *cluster* is idle, it autoscales to 0 nodes, so you don't pay when it's not in use. A compute *instance* is always on and doesn't autoscale. You should [stop the compute instance](how-to-create-manage-compute-instance.md#manage) when you aren't using it to avoid extra cost.
+> To avoid charges when the compute is idle:
+> * For compute *cluster* make sure the minimum number of nodes is set to 0.
+> * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
 
 ### Supported VM series and sizes
 

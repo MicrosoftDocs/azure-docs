@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.service: resource-move
 ms.topic: tutorial
 ms.date: 12/21/2022
-ms.author: raynew
+ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
 
@@ -200,7 +200,7 @@ With resources prepared, you can now initiate the move. To start the move, follo
 > :::image type="content" source="./media/tutorial-move-region-virtual-machines/delete-source-pending.png" alt-text="Screenshot displays page showing resources in *Delete source pending* state." lightbox="./media/tutorial-move-region-virtual-machines/delete-source-pending.png":::
 
 
-## Manage the move
+## Commit or discard the move
 
 After the initial move, you can decide if you want to commit the move or discard it. 
 
@@ -235,8 +235,7 @@ If you want to complete the move process, commit the move. To commit the move, f
 > - After committing the move, VMs stop replicating. The source VM isn't impacted by the commit.
 > - Commit doesn't impact source networking resources.
 > - After committing the move, resources are in a *Delete source pending* state.
-
- :::image type="content" source="./media/tutorial-move-region-virtual-machines/delete-source-pending.png" alt-text="Screenshot displays page showing resources in *Delete source pending* state." lightbox="./media/tutorial-move-region-virtual-machines/delete-source-pending.png":::
+> :::image type="content" source="./media/tutorial-move-region-virtual-machines/delete-source-pending.png" alt-text="Screenshot displays page showing resources in *Delete source pending* state." lightbox="./media/tutorial-move-region-virtual-machines/delete-source-pending.png":::
 
 
 ## Configure settings after the move
@@ -278,4 +277,4 @@ To delete the additional resources created for the move, follow these steps:
 
 ## Next steps
 
-[Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region].
+[Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region.
