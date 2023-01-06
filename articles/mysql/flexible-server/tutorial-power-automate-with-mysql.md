@@ -37,14 +37,14 @@ Create a cloud flow when you want your automation to be triggered either automat
 
 | **Flow type**                                                                       | **Use case**                                                                                  | **Automation target**                                                                             |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Automated flows              | Create an automation that is triggered by an event such as arrival of an email from a specific person, or a mention of your company in social media.| Connectors for cloud or on-premises services connect your accounts and enable them to talk to each other. |
-| Instant flows             | Start an automation with a click of a button. You can automate for repetitive tasks from your Desktop or Mobile devices. For example, instantly send a reminder to the team with a push of a button from your mobile device.                      |     Wide range of tasks such as requesting an approval, an action in Teams or SharePoint.                                                                                |
+| Automated cloud flows              | Create an automation that is triggered by an event such as arrival of an email from a specific person, or a mention of your company in social media.| Connectors for cloud or on-premises services connect your accounts and enable them to talk to each other. |
+| Instant cloud flows             | Start an automation with a click of a button. You can automate for repetitive tasks from your Desktop or Mobile devices. For example, instantly send a reminder to the team with a push of a button from your mobile device.                      |     Wide range of tasks such as requesting an approval, an action in Teams or SharePoint.                                                                                |
 | Scheduled flows                   | Schedule an automation such as daily data upload to SharePoint or a database.             |Tasks that need to be automated on a schedule.
 
-For this tutorial, we will use instant cloud flow which can be triggered manually from any device, easy-to-share instant flows automate tasks so you don’t have to repeat yourself.
+For this tutorial, we will use **instant cloud flow* that can be triggered manually from any device, easy-to-share instant flows automate tasks so you don’t have to repeat yourself.
 
 ## Specify an event to start the flow
-First, you will need to select what event, or *trigger*, starts your flow.
+Follow the steps to create a instant cloud flow with a manual trigger.
 
 1. In [Power Automate](https://flow.microsoft.com), select **Create** from the navigation bar on the left.
 2. Under **Start from blank*, select **Instant cloud flow**.
@@ -80,7 +80,7 @@ An operation is an action. Power automate flow allows you to add one or more adv
 After saving the flow, we need to test it and run the flow app. 
 
 1. Select **Flow checker** to see if there are any errors that need to be resolved. 
-2. Select **Test** to test the workflow. Select **Manually** as this is a manual trigger workflow.
+2. Select **Test**  and then select **Manually** to test the trigger.
 3. Select **Run flow**.
 4.You will receive a message **Your flow run successfully started. To monitor it, go to the Flow Runs Page**. Go to the flow runs page to see the result.
 
