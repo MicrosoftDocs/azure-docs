@@ -86,7 +86,7 @@ You'll need the Azure Route Server's peer IPs and ASN to complete the configurat
 
 :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
-> [!NOTE]
+> [!IMPORTANT]
 > To ensure that virtual network routes are advertised over the NVA connections, and to achieve high availability, we recommend peering each NVA with both Route Server instances.
 
 ## Configure route exchange
