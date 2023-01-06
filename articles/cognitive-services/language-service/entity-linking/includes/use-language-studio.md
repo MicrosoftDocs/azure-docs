@@ -17,6 +17,6 @@ Language Studio is a set of UI-based tools that lets you [use entity linking](ht
 
 Using Language Studio, you can see what entity linking returns in a visual manner, without needing to write code. 
 
-:::image type="content" source="../../media/studio-examples/entity-linking.png" alt-text="A screenshot of an entity linking example." lightbox="media/studio-examples/entity-linking.png":::
+:::image type="content" source="../../media/studio-examples/entity-linking.png" alt-text="A screenshot of an entity linking example." lightbox="../../media/studio-examples/entity-linking.png":::
 
 See [Get started with Language Studio](../../language-studio.md) for more information.
