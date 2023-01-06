@@ -24,7 +24,7 @@ When beginning your deployment plans, include your key stakeholders. Identify an
 
 |Role |Responsibility |
 |-|-|
-|Sponsor|An enterprise senior leader with authority to approve and/or assign budget and resources. The sponsor is the connection between managers and the executive team|
+|Sponsor|An enterprise senior leader with authority to approve and/or assign budget and resources. The sponsor is the connection between managers and the executive team.|
 |End user|The people for whom the service is implemented. Users can participate in a pilot program.|
 |IT Support Manager|Provides input on the supportability of proposed changes |
 |Identity architect or Azure Global Administrator|Defines how the change aligns with identity management infrastructure|
@@ -116,9 +116,14 @@ Learn more: [Secure access for a connected world—meet Microsoft Entra](https:/
   
 Learn more: [Azure governance documenation](/azure/governance/)
 
-## Best practices for a pilot
-A pilot allows you to test with a small group before turning on a capability for everyone. Ensure that as part of your testing, each use case within your organization is thoroughly tested. It's best to target a specific group of pilot users before rolling this deployment out to your organization as a whole.
+## Pilot best practices
 
-In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. Use this feedback to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see. 
+Use pilots to test with a small group, before making a change for everyone. Ensure each use case in your organization is tested.
 
-Widening the rollout to larger groups of users should be carried out by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+### Pilot: phase one
+
+In your first wave, target IT, usability, and other users who can test and provide feedback. Use this feedback to gain insights on potential issues for support staff, and to develop communications and instructions you send to all users.
+
+### Pilot: phase two
+
+Widen the pilot to larger groups of users by using [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
