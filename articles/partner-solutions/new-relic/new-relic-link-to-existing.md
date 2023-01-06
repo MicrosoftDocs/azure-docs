@@ -26,17 +26,17 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 - **Azure Marketplace SaaS resource**: The SaaS resource is used for billing. The SaaS resource typically resides in a different Azure subscription from where the New Relic account was created.
 
 > [!NOTE]
-> The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic will manage your billing.
+> The Azure Marketplace SaaS resource is set up only if you created the New Relic organization by using Azure Native New Relic Service. If you created your New Relic organization directly from the New Relic portal, the Azure Marketplace SaaS resource doesn't exist, and New Relic will manage your billing.
 
 ## Find an offer
 
 1. Use the Azure portal to find Azure Native New Relic Service. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
-1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **Marketplace** and select the result.
+1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and then select the **Marketplace** result under **Services**.
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-search-markeplace.png" alt-text="Screenshot that shows the word Marketplace typed in a search box.":::
 
-1. In Azure Marketplace, search for **New Relic** and select the result.   
+1. In Azure Marketplace, search for **new relic**.   
 
 1. When you find Azure Native New Relic Service on the working pane, select **Subscribe**.
 
@@ -44,7 +44,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 
 ## Link to an existing New Relic account
 
-1. When you're creating a New Relic resource, you have two options: one creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Link an existing New Relic resource** option. 
+1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Link an existing New Relic resource** option. 
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-link-or-existing.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
    

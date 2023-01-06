@@ -19,15 +19,15 @@ To see the details of your New Relic resource, select **Overview** on the left p
 
 The details include:
 
-- **Resource Group**
-- **Region**
-- **Subscription**
-- **Tags**
-- **New Relic account**
-- **New Relic organization**
-- **Status**
-- **Pricing plan**
-- **Billing term**
+- Resource group
+- Region
+- Subscription
+- Tags
+- New Relic account
+- New Relic organization
+- Status
+- Pricing plan
+- Billing term
 
 At the bottom:
 
@@ -69,7 +69,7 @@ The column **Logs to New Relic** indicates whether the resource is sending logs 
 - **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - **Error**: The resource is configured to send logs to New Relic but is blocked by an error.
 - **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
-- **Agent not configured**: Virtual machines or app services without the New Relic Agent installed don't send logs to New Relic.
+- **Agent not configured**: Virtual machines or app services without the New Relic agent installed don't send logs to New Relic.
 
 The column **Metrics to New Relic** indicates whether New Relic is receiving metrics that correspond to this resource.
 
@@ -83,13 +83,13 @@ For each virtual machine, the following info appears:
 
   |  Property | Description |
   |--|--|
-  | **Virtual machine name** | Virtual machine name. |
-  | **Resource status**  | Indicates whether the virtual machine is stopped or running. The New Relic agent can be installed only on virtual machines that are running. If the virtual machine is stopped, installing the New Relic Agent will be disabled. |
+  | **Virtual machine name** | Name of the virtual machine. |
+  | **Resource status**  | Indicates whether the virtual machine is stopped or running. The New Relic agent can be installed only on virtual machines that are running. If the virtual machine is stopped, installing the New Relic agent will be disabled. |
   | **Agent status**  | Indicates whether the New Relic agent is running on the virtual machine. |
   | **Agent version**    | Version number of the New Relic agent. |
 
 > [!NOTE]
-> If a virtual machine shows that an Agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
+> If a virtual machine shows that an agent is installed, but the option **Uninstall extension** is disabled, the agent was configured through a different New Relic resource in the same Azure subscription. To make any changes, go to the other New Relic resource in the Azure subscription.
 
 ## Monitor app services by using the New Relic agent
 
@@ -118,9 +118,9 @@ To install the New Relic agent, select the app service and then select **Install
 
 1. Select **Overview** on the left pane. Then, select **Delete**. 
 
-1. Confirm that you want to delete the New Relic resource. Select **Delete**.
-
    :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of the delete button on a resource overview.":::
+
+1. Confirm that you want to delete the New Relic resource. Select **Delete**.
 
 If only one New Relic resource is mapped to a New Relic account, logs and metrics are no longer sent to New Relic. 
 
