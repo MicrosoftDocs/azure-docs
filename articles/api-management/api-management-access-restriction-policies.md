@@ -666,6 +666,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 This policy can only be used with an Azure Active Directory tenant in the public Azure cloud.  It doesn't support tenants configured in regional clouds or Azure clouds with restricted access.
 
+This policy can only validate "v1" tokens from Azure Active Directory.  Support for "v2" tokens will be added in a future release.
+
 ## <a name="ValidateJWT"></a> Validate JWT
 
 The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value. 
