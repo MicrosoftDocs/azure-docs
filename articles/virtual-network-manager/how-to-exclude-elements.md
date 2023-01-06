@@ -221,7 +221,7 @@ In this example, a conditional statement is created that finds virtual networks 
        "allOf": [
          {
             "field": "Name",
-            "equals": "myVNet"
+            "contains": "myVNet"
          },      
          {
             "field": "tags['environment']",
