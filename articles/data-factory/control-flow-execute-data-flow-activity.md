@@ -102,7 +102,7 @@ If you're using an Azure Synapse Analytics as a sink or source, you must choose 
 
 ## Checkpoint key
 
-When using the change capture option for data flow sources, ADF will maintain and manage the checkpoint for you automatically. The default checkpoint key is a hash of the data flow name and the pipeline name. If you are using a dynamic pattern for your source tables or folders, you may wish to override this hash and set your own checkpoint key value here.
+When using the change capture option for data flow sources, ADF will maintain and manage the checkpoint for you automatically. The default checkpoint key is a hash of the data flow name and the pipeline name. If you are using a dynamic pattern for your source tables or folders, you may wish to override this hash and set your own checkpoint key value here. The [naming rule](naming-rules.md) of your own checkpoint key is same as linked services, datasets, pipelines and data flows. 
 
 ## Logging level
 

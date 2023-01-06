@@ -13,7 +13,7 @@ ms.date: 12/12/2022
 
 This article provides a comprehensive list of language support by service features in Azure Video Indexer. For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
-The list below contains the source languages for transcription that are supported by the Video Indexer API. 
+The following list contains the source languages for transcription that are supported by the Azure Video Indexer API. 
 
 > [!NOTE]
 > Some languages are supported only through the API and not through the Video Indexer website or widgets.
@@ -120,7 +120,7 @@ This section describes languages supported by Azure Video Indexer API.
 
 ### Change default languages supported by LID and MLID 
 
-You can specify to use other supported languages (listed in the table above) as default languages, when [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) with an API and passing the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
+When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) through an API, you can specify to use other supported languages (listed in the table above) for LID and MLID by passing the `customLanguages` parameter. The `customLanguages` parameter allows up to 10 languages to be identified by LID or MLID.
 
 > [!NOTE]
 > Language identification (LID) and Multi-language identification (MLID) compares speech at the language level, such as English and German. 
