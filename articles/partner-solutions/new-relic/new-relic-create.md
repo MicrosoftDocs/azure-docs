@@ -8,9 +8,9 @@ ms.date: 12/31/2022
 
 # Quickstart: Get started with New Relic
 
-In this quickstart, you create an instance of Azure Native New Relic Service. You can either [create a New Relic](new-relic-create.md) account or [link to an existing](new-relic-link-to-existing.md) New Relic account.
+In this quickstart, you create an instance of Azure Native New Relic Service. You can either [create a New Relic account](new-relic-create.md) or [link to an existing New Relic account](new-relic-link-to-existing.md).
 
-When you use the integrated New Relic experience in Azure portal by using Azure Native New Relic Service, the service creates and maps the following entities for monitoring and billing purposes.
+When you use the integrated New Relic experience in the Azure portal by using Azure Native New Relic Service, the service creates and maps the following entities for monitoring and billing purposes.
 
 :::image type="content" source="media/new-relic-create/new-relic-subscription.png" alt-text="Conceptual diagram that shows the relationship between Azure and New Relic.":::
 
@@ -25,24 +25,23 @@ Before you link the subscription to New Relic, complete the pre-deployment confi
 
 ## Find an offer
 
-Use the Azure portal to find the Azure Native New Relic Service application.
+Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
-1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **Marketplace** and select the result.
+1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and then select the **Marketplace** result under **Services**.
 
    :::image type="content" source="media/new-relic-create/new-relic-search.png" alt-text="Screenshot that shows entering the word Marketplace in a search box.":::
 
+1. In Azure Marketplace, search for **new relic** and select the **Azure Native New Relic Service** result. The page for the service opens.
 
-1. In Azure Marketplace, search for **New Relic** and select the result.
+   :::image type="content" source="media/new-relic-create/new-relic-marketplace.png" alt-text="Screenshot that shows Azure Native New Relic Service in Azure Marketplace.":::
 
-   :::image type="content" source="media/new-relic-create/new-relic-marketplace.png" alt-text="Screenshot that shows New Relic in Azure Marketplace.":::
-
-  1. Select **Subscribe**.
+1. Select **Subscribe**.
 
 ## Create a New Relic resource in Azure
 
-1. When you're creating a New Relic resource, you have two options: one creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Create a New Relic resource** option.
+1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Create a New Relic resource** option.
 
    :::image type="content" source="media/new-relic-create/new-relic-create.png" alt-text="Screenshot that shows New Relic resources.":::
 
@@ -78,11 +77,11 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
 
 - **Azure resource logs**: These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-   :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource.":::
-
 1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs will be sent to New Relic.
 
 1. To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+
+   :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
 
 1. When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default. To filter the set of Azure resources that send logs to New Relic, use inclusion and exclusion rules and set Azure resource tags:
 
