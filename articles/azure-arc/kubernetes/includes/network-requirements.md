@@ -4,8 +4,6 @@ ms.topic: include
 ms.date: 12/13/2022
 ---
 
-Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings.
-
 ### [Azure Cloud](#tab/azure-cloud)
 
 > [!IMPORTANT]
