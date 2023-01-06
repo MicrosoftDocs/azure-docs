@@ -1,5 +1,5 @@
 ---
-title: Kernel Isolation (preview) on Azure Kubernetes Service (AKS)
+title: Pod Sandboxing (preview) on Azure Kubernetes Service (AKS)
 description: Learn about and deploy Kernel Isolation (preview) on an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
@@ -9,7 +9,13 @@ ms.date: 01/05/2023
 
 # Kernel Isolation (preview) on Azure Kubernetes Service (AKS)
 
-Describe what this is, why I care, and why I should continue on and perform the steps to evaluate this preview feature.
+To mitigate security risks of your container workloads running on Azure Kubernetes Service (AKS) that share kernel and container host resources to untrusted or potentially malicious code, a mechanism called Pod Sandboxing (preview) is introduced to provide an isolation boundary between the container application and the shared kernel and resources of the container host (for example CPU, memory, networking, etc.).
+
+Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
+
+This article helps you understand this new feature, and how to implement it.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -17,9 +23,27 @@ Describe what this is, why I care, and why I should continue on and perform the 
 
 - The `aks-preview` Azure CLI extension version x.x.xxx or later to select the Mariner 2.0 operating system SKU. 
 
-- Kubectl installed. You can install it using the Azure CLI command `az aks install-cli` or by following the steps to [Install and Set Up kubectl on Linux][install-kubectl-on-linux].
+- 1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
+
+    ```azurepowershell
+    Install-AzAksKubectl
+    ```.
 
 ## Limitations
+
+## How it works
+
+On AKS, to achieve this functionality [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. This provides the ability to extend the benefits of hardware isolation such as separate kernel per each UVM, that carve out resources for each pod that are not shared with other Kata Containers or namespace containers that run on the same host.
+
+The solution architecture is based on the following components:
+
+* Mariner AKS Container Host
+* Azure-tuned Dom0 Linux Kernel
+* Open-source Cloud-Hypervisor VMM
+* Microsoft Hyper-V Hypervisor
+* Integration with Kata Container framework
+
+
 
 ## Deploy
 
@@ -47,7 +71,7 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 
 # [Azure Resource Manager](#tab/arm)
 
-To add Mariner to an existing ARM template, you need to add:
+To add Mariner to an existing ARM template, you need to add the following:
 
 * `"osSKU": "mariner"`
 * `"mode": "System"` to `agentPoolProfiles`
@@ -238,6 +262,7 @@ You can also specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_p
 
 <!-- EXTERNAL LINKS -->
 [install-kubectl-on-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+[kata-containers-overview]: https://katacontainers.io/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
