@@ -47,17 +47,17 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Click on the **Generate Token** button.
 1. Save the **SCIM Endpoint URL** and **Token** at a secure place, you'll need it in the **Step 5**.
 
-   ![Token and URL](media/netpresenter/get-token-and-url.png)
+   ![Screenshot shows the Token and URL values in Netpresenter Next.](media/netpresenter/get-token-and-url.png)
 
-1. **Optional:** Under **Sign in options**, 'Force sign in with Microsoft' can be enabled or disabled. By enabling it, users with an Azure AD account will lose the ability to sign in with their local account.
+1. **Optional:** Under **Sign in options**, you can enable or disable 'Force sign in with Microsoft'. If enabled, users with an Azure AD account will lose the ability to sign in with their local account.
 
 ## Step 3. Add Netpresenter Next from the Azure AD application gallery
 
-Add Netpresenter Next from the Azure AD application gallery to start managing provisioning to Netpresenter Next. If you have previously setup Netpresenter Next for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Netpresenter Next from the Azure AD application gallery to start managing provisioning to Netpresenter Next. If you have previously setup Netpresenter Next for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
-## Step 4. Define who will be in scope for provisioning 
+## Step 4. Define who will be in scope for provisioning
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
@@ -70,27 +70,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-   ![Enterprise applications blade](common/enterprise-applications.png)
-
 1. In the applications list, select **Netpresenter Next**.
-
-   ![The Netpresenter Next link in the Applications list](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-   ![Provision tab](common/provisioning.png)
-
 1. Set the **Provisioning Mode** to **Automatic**.
-
-   ![Provisioning tab](common/provisioning-automatic.png)
 
 1. Under the **Admin Credentials** section, input your Netpresenter Next Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Netpresenter Next. If the connection fails, ensure your Netpresenter Next account has Admin permissions and try again.
 
-   ![Token](common/provisioning-testconnection-tenanturltoken.png)
+   ![Screenshot shows the fields for tenant URL and token.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
-
-   ![Notification Email](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -115,11 +105,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Define the users and/or groups that you would like to provision to Netpresenter Next by choosing the desired values in **Scope** in the **Settings** section.
 
-   ![Provisioning Scope](common/provisioning-scope.png)
+   ![Screenshot shows the Scope dropdown in the Settings section.](common/provisioning-scope.png)
 
-1. When you'r ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 
 ## Step 6. Monitor your deployment
 

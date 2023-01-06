@@ -40,9 +40,9 @@ To ensure that the users can easily and securely access applications, your goal 
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your people, partners, and customers a single identity to access the applications they want and collaborate from any platform and device.
 
-![A diagram of Azure AD connectivity](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
+![A diagram of Azure AD connectivity.](media/migrating-application-authentication-to-azure-active-directory-1.jpg)
 
-Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD enables you get the benefits these capabilities provide.
+Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad). Standardizing your app authentication and authorization to Azure AD gets you the benefits that these capabilities provide.
 
 You can find more migration resources at [https://aka.ms/migrateapps](./migration-resources.md)
 
@@ -61,18 +61,18 @@ Safeguarding your apps requires that you have a full view of all the risk factor
 
 ### Manage cost
 
-Your organization may have multiple Identity Access Management (IAM) solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce dependencies on IAM licenses (on-premises or in the cloud) and infrastructure costs. In cases where you may have already paid for Azure AD via Microsoft 365 licenses, there is no reason to pay the added cost of another IAM solution.
+Your organization may have multiple Identity Access Management (IAM) solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce dependencies on IAM licenses (on-premises or in the cloud) and infrastructure costs. In cases where you may have already paid for Azure AD via Microsoft 365 licenses, there's no reason to pay the added cost of another IAM solution.
 
 With Azure AD, you can reduce infrastructure costs by:
 
 - Providing secure remote access to on-premises apps using [Azure AD Application Proxy](../app-proxy/application-proxy.md).
-- Decoupling apps from the on-prem credential approach in your tenant by [setting up Azure AD as the trusted universal identity provider](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization).
+- Decoupling apps from the on-premises credential approach in your tenant by [setting up Azure AD as the trusted universal identity provider](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization).
 
 ### Increase productivity
 
 Economics and security benefits drive organizations to adopt Azure AD, but full adoption and compliance are more likely if users benefit too. With Azure AD, you can:
 
-- Improve end-user [Single Sign-On (SSO)](./what-is-single-sign-on.md) experience through seamless and secure access to any application, from any device and any location.
+- Improve end-user [single sign-on (SSO)](./what-is-single-sign-on.md) experience through seamless and secure access to any application, from any device and any location.
 - Use self-service IAM capabilities, such as [Self-Service Password Resets](../authentication/concept-sspr-howitworks.md) and [SelfService Group Management](../enterprise-users/groups-self-service-management.md).
 - Reduce administrative overhead by managing only a single identity for each user across cloud and on-premises environments:
 
@@ -84,11 +84,11 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 
 ### Address compliance and governance
 
-Ensure compliance with regulatory requirements by enforcing corporate access policies and monitoring user access to applications and associated data using integrated audit tools and APIs. With Azure AD, you can monitor application sign-ins through reports that use [Security Incident and Event Monitoring (SIEM) tools](../reports-monitoring/plan-monitoring-and-reporting.md). You can access the reports from the portal or APIs, and programmatically audit who has access to your applications and remove access to inactive users via access reviews.
+To comply with regulatory requirements, enforce corporate access policies and monitor user access to applications and associated data using integrated audit tools and APIs. With Azure AD, you can monitor application sign-ins through reports that use [Security Incident and Event Monitoring (SIEM) tools](../reports-monitoring/plan-monitoring-and-reporting.md). You can access the reports from the portal or APIs, and programmatically audit who has access to your applications and remove access to inactive users via access reviews.
 
 ## Plan your migration phases and project strategy
 
-When technology projects fail, it is often due to mismatched expectations, the right stakeholders not being involved, or a lack of communication. Ensure your success by planning the project itself.
+When technology projects fail, it's often due to mismatched expectations, the right stakeholders not being involved, or a lack of communication. Ensure your success by planning the project itself.
 
 ### The phases of migration
 
@@ -107,7 +107,7 @@ The following table includes the key roles and their contributions:
 | Role          | Contributions                                              |
 | ------------- | ---------------------------------------------------------- |
 | **Project Manager** | Project coach accountable for guiding the project, including:<br /> - gain executive support<br /> - bring in stakeholders<br /> - manage schedules, documentation, and communications |
-| **Identity Architect / Azure AD App Administrator** | They are responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the pre-production and production environments |
+| **Identity Architect / Azure AD App Administrator** | They're responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the pre-production and production environments |
 | **On premises AD operations team** | The organization that manages the different on-premises identity sources such as AD forests, LDAP directories, HR systems etc.<br /> - perform any remediation tasks needed before synchronizing<br /> - Provide the service accounts required for synchronization<br /> - provide access to configure federation to Azure AD |
 | **IT Support Manager** | A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. |
 | **Security Owner**  | A representative from the security team that can ensure that the plan will meet the security requirements of your organization. |
@@ -117,11 +117,11 @@ The following table includes the key roles and their contributions:
 
 ### Plan communications
 
-Effective business engagement and communication is the key to success. It is important to give stakeholders and end-users an avenue to get information and keep informed of schedule updates. Educate everyone about the value of the migration, what the expected timelines are, and how to plan for any temporary business disruption. Use multiple avenues such as briefing sessions, emails, one-to-one meetings, banners, and townhalls.
+Effective business engagement and communication are the keys to success. It's important to give stakeholders and end-users an avenue to get information and keep informed of schedule updates. Educate everyone about the value of the migration, what the expected timelines are, and how to plan for any temporary business disruption. Use multiple avenues such as briefing sessions, emails, one-to-one meetings, banners, and townhalls.
 
 Based on the communication strategy that you have chosen for the app you may want to remind users of the pending downtime. You should also verify that there are no recent changes or business impacts that would require to postpone the deployment.
 
-In the following table you will find the minimum suggested communication to keep your stakeholders informed:
+In the following table you'll find the minimum suggested communication to keep your stakeholders informed:
 
 #### Plan phases and project strategy
 
@@ -168,7 +168,7 @@ The migration states you might consider using are as follows:
 | **Configuration in Progress** | Develop the changes necessary to manage authentication against Azure AD |
 | **Test Configuration Successful** | Evaluate the changes and authenticate the app against the test Azure AD tenant in the test environment |
 | **Production Configuration Successful** | Change the configurations to work against the production AD tenant and assess the app authentication in the test environment |
-| **Complete / Sign Off** | Deploy the changes for the app to the production environment and execute the against the production Azure AD tenant |
+| **Complete / Sign Off** | Deploy the changes for the app to the production environment and execute against the production Azure AD tenant |
 
 This will ensure app owners know what the app migration and testing schedule are when their apps are up for migration, and what the results are from other apps that have already been migrated. You might also consider providing links to your bug tracker database for owners to be able to file and view issues for apps that are being migrated.
 
@@ -262,8 +262,9 @@ You usually develop LoB apps for your organization’s in-house use. If you have
 
 Apps without clear owners and clear maintenance and monitoring present a security risk for your organization. Consider deprecating applications when:
 
-- Their **functionality is highly redundant** with other systems • there is **no business owner**
-- There is clearly **no usage**.
+- Their **functionality is highly redundant** with other systems
+- There is **no business owner**
+- There is clearly **no usage**
 
 We recommend that you **do not deprecate high impact, business-critical applications**. In those cases, work with business owners to determine the right strategy.
 
@@ -352,7 +353,7 @@ Don’t forget about your external partners. Make sure that they participate in 
 
 ### Plan for limitations
 
-While some apps are easy to migrate, others may take longer due to multiple servers or instances. For example, SharePoint migration may take longer due to custom sign in pages.
+While some apps are easy to migrate, others may take longer due to multiple servers or instances. For example, SharePoint migration may take longer due to custom sign-in pages.
 
 Many SaaS app vendors charge for changing the SSO connection. Check with them and plan for this.
 

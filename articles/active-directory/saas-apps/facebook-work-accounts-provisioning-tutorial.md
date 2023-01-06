@@ -59,27 +59,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-   ![Enterprise applications blade](common/enterprise-applications.png)
-
 1. In the applications list, select **Facebook Work Accounts**.
-
-   ![The Facebook Work Accounts link in the Applications list](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-   ![Provision tab](common/provisioning.png)
-
 1. Set the **Provisioning Mode** to **Automatic**.
-
-   ![Provisioning tab](common/provisioning-automatic.png)
 
 1. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to **Facebook Work Accounts**'s authorization page. Input your Facebook Work Accounts username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Facebook Work Accounts. If the connection fails, ensure your Facebook Work Accounts account has Admin permissions and try again.
 
-    :::image type="content" source="media/facebook-work-accounts-provisioning-tutorial/azure-connect.png" alt-text="OAuth Screen":::
+    :::image type="content" source="media/facebook-work-accounts-provisioning-tutorial/azure-connect.png" alt-text="Screenshot shows the Facebook Work Accounts authorization page.":::
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
-
-   ![Notification Email](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -114,7 +104,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Define the users and/or groups that you would like to provision to Facebook Work Accounts by choosing the desired values in **Scope** in the **Settings** section.
 
-   ![Provisioning Scope](common/provisioning-scope.png)
+   ![Screenshot shows the Scope dropdown in the Settings section.](common/provisioning-scope.png)
 
 1. When you are ready to provision, click **Save**.
 
