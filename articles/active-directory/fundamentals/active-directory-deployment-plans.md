@@ -14,7 +14,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory deployment plans
+# Azure Active Directory deployment plans 
 
 Use the following guidance to help deploy Azure Active Directory (Azure AD). Learn about business value, planning considerations, and operational procedures. You can use a browser Print to PDF function to create offline documentation.
 
