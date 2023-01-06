@@ -213,10 +213,10 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 
 |Field|Type|Description|
 |---|---|---|
-|scheduleTime|string|The time that the lifecycle policy was scheduled.|
-|deleteSummary|vector<byte>|The results summary of blobs scheduled for delete operation.|
-|tierToCoolSummary|vector<byte>|The results summary of blobs scheduled for tier-to-cool operation.|
-|tierToArchiveSummary|vector<byte>|The results summary of blobs scheduled for tier-to-archive operation.|
+|scheduleTime|string|The time that the lifecycle policy was scheduled|
+|deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
+|tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies
 
