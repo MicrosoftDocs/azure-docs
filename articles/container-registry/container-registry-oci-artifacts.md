@@ -19,6 +19,7 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Azure CLI** - Version `2.29.1` or later is recommended. Run `az --version `to find the required. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **ORAS CLI** - Download and install the ORAS CLI `v0.16.0` for your operating system from the [ORAS installation guide](https://oras.land/cli/). 
+* **Docker** - ORAS leverages the Docker desktop credential store for authentication. You can use [Docker installed locally][docker-install] to build and push a container image, reference an existing container image or use [ACR Build][az-acr-build] to build remotely, in Azure.
 
 ## Configure a registry
 
@@ -104,11 +105,16 @@ Digest: sha256:e2d60d1b171f08bd10e2ed171d56092e39c7bac1aec5d9dcf7748dd702682d53
 
 ## Push a multi-file root artifact
 
+When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
+For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles]
+
 Create some documentation around an artifact.
 
 ```bash
 echo 'Readme Content' > readme.md
-echo 'Detailed Content' > readme-details.md
+mkdir details/
+echo 'Detailed Content' > details/readme-details.md
+echo 'More detailed Content' > details/readme-more-details.md
 ```
 
 Attach the multi-file artifact as a reference.
@@ -119,7 +125,7 @@ Attach the multi-file artifact as a reference.
 oras push $REGISTRY/samples/artifact:readme \
     --config /dev/null:readme/example\
     ./readme.md:application/markdown\
-    ./readme-details.md:application/markdown
+    ./details
 ```
 
 **Windows**
@@ -128,7 +134,52 @@ oras push $REGISTRY/samples/artifact:readme \
 .\oras.exe push $REGISTRY/samples/artifact:readme ^
     --config NUL:readme/example ^
     .\readme.md:application/markdown ^
-    .\readme-details.md:application/markdown
+    .\details
+```
+
+## Discover the manifest
+
+To view the manifest created as a result of `oras push`, use `oras manifest fetch`:
+
+```bash
+oras manifest fetch --pretty $REGISTRY/samples/artifact:readme
+```
+
+The output will be similar to:
+
+```json
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "readme/example",
+    "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "layers": [
+    {
+      "mediaType": "application/markdown",
+      "digest": "sha256:2fdeac43552b71eb9db534137714c7bad86b53a93c56ca96d4850c9b41b777fc",
+      "size": 15,
+      "annotations": {
+        "org.opencontainers.image.title": "readme.md"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "digest": "sha256:089111d738bd4b883c88ab9bdd7b8d5eba18e9a448d6d8f428b94de140f4f492",
+      "size": 191,
+      "annotations": {
+        "io.deis.oras.content.digest": "sha256:1dd2737c1078e36bbd8128712dbf2b0d41ef1abefb954bb5219c5e1096ac8b6a",
+        "io.deis.oras.content.unpack": "true",
+        "org.opencontainers.image.title": "details"
+      }
+    }
+  ],
+  "annotations": {
+    "org.opencontainers.image.created": "2023-01-06T20:07:15Z"
+  }
+}
 ```
 
 ## Pull a root artifact
@@ -149,6 +200,7 @@ oras pull -o ./download $REGISTRY/samples/artifact:readme
 
 ```bash
 ls ./download
+ls ./download/details
 ```
 
 ## Remove the artifact (optional)
@@ -169,9 +221,10 @@ az acr repository delete \
 
 <!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
+[oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
-[acr-authentication]:       /azure/container-registry/container-registry-authentication.md?tabs=azure-cli
+[acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
 [az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
