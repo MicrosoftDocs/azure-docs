@@ -11,6 +11,7 @@ ms.date: 01/06/2023
 ---
 
 # ISV Success program and Marketplace Rewards
+
 Microsoft continues its strong commitment to the growth and success of ISVs and supporting them throughout the entire journey of building, publishing, and selling apps through the Microsoft commercial marketplace. To further this mission, Marketplace Rewards is now included in the ISV Success program, available—at no cost—to all participants of the program. 
 
 As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). To see what other Microsoft partners are saying about their experiences with Marketplace Rewards, visit Marketplace [Rewards testimonials](https://aka.ms/MarketplaceRewardsTestimonials).
@@ -43,7 +44,7 @@ Your steps to get started are easy:
     1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
-## Technical benefits
+## Your commercial marketplace benefits
 
 1. You can use your technical benefit to request technical assistance during the pre-sales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
 1. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
