@@ -83,7 +83,9 @@ You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to crea
 >[!TIP]
 >The bulk import API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships with bulk import API](#upload-models-twins-and-relationships-with-bulk-import-api).
 
-To import relationships in bulk, you'll need to structure your relationships (and any other resources included in the bulk import) as an *NDJSON* file. You can view an example file in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api). This file can include initialization of any properties that the relationships have.
+To import relationships in bulk, you'll need to structure your relationships (and any other resources included in the bulk import) as an *NDJSON* file. The `Relationships` section comes after the `Twins` section, making it the last graph data section in the file. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of any properties that the relationships have.
+
+You can view an example import file and a sample project for creating these files in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 
@@ -180,7 +182,9 @@ This section describes strategies for creating a graph with multiple elements at
 
 You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
-To import resources in bulk, start by creating an *NDJSON* file containing the details of your resources. You can view an example file and creation sample project in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api). This file can include models, twins based on those models with their properties initialized, and relationships between those twins with their properties initialized. 
+To import resources in bulk, start by creating an *NDJSON* file containing the details of your resources. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties. Relationships defined in the file can reference twins that are either defined in this file or already present in the instance, and they can optionally include initialization of relationship properties.
+
+You can view an example import file and a sample project for creating these files in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 

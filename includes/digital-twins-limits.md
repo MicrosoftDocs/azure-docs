@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/17/2022
+ms.date: 01/06/2023
 ms.author: baanders
 ---
 
@@ -27,7 +27,8 @@ The following table lists the functional limits of Azure Digital Twins.
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
 | Routing | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
 | Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
-| Models | Number of models that can be uploaded in a single API call | 250 | No |
+| Models | Number of models that can be uploaded in a single API call (not using the [bulk API](../articles/digital-twins/concepts-apis-sdks.md#bulk-import-api)) | 250 | No |
+| Models | Number of models that can be uploaded using the [bulk API](../articles/digital-twins/concepts-apis-sdks.md#bulk-import-api) | 10,000 | No |
 | Models | Maximum size (of JSON body in a PUT or PATCH request) of a single model | 1 MB | No |
 | Models | Number of items returned in a single page | 100 | No |
 | Query | Number of items returned in a single page | 1000 | Yes |

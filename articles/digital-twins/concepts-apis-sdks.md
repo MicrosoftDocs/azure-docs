@@ -91,9 +91,9 @@ Here are some details about functions and returned data:
 
 The [bulk import API]() allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis). Using the bulk API requires use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
-The API accepts graph information from an *NDJSON* file, which must be uploaded to an [Azure blob storage](../storage/blobs/storage-blobs-introduction.md) container. 
+The API accepts graph information from an *NDJSON* file, which must be uploaded to an [Azure blob storage](../storage/blobs/storage-blobs-introduction.md) container. The file starts with a `Header` section, followed by the optional sections `Models`, `Twins`, and `Relationships`. You don't have to include all three types of graph data in the file, but any sections that are present must follow that order. Twins and relationships created with this API can optionally include initialization of their properties. 
 
-Here's an example of an input data file for the import API:
+Here's a sample input data file for the import API:
 
 ```json
 {"Section": "Header"}

@@ -242,7 +242,9 @@ While designing models to reflect the entities in your environment, it can be us
 
 Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. 
 
-You can upload many models in a single API call using the [bulk import API](concepts-apis-sdks.md#bulk-import-api). For detailed instructions and examples with this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets). You can also use the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which implements automatic reordering to resolve dependencies between many model files being uploaded at once.
+You can upload many models in a single API call using the [bulk import API](concepts-apis-sdks.md#bulk-import-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples with this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets). 
+
+An alternative to the bulk API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies.
 
 If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. 
 

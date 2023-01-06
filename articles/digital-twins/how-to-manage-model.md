@@ -67,7 +67,7 @@ You'll usually need to upload more than one model to the service. There are seve
 
 ### Upload small model sets
 
-For smaller model sets, you can upload multiple models at once using individual API calls. 
+For smaller model sets, you can upload multiple models at once using individual API calls. You can check the current limit for how many models can be uploaded in a single API call in the [Azure Digital Twins limits](reference-service-limits.md).
 
 If you're using the SDK, you can upload multiple model files with the `CreateModels` method like this:
 
@@ -79,12 +79,12 @@ If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/c
 
 ### Upload large model sets
 
-For large model sets, you can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload many models at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
+For large model sets, you can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload many models at once in a single API call. The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
 >[!TIP]
 >The bulk import API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
 
-To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import) as an *NDJSON* file. You can view an example file and creation sample project in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
+To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import) as an *NDJSON* file. The `Models` section comes immediately after `Header` section, making it the first graph data section in the file. You can view an example import file and a sample project for creating these files in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
 
 [!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
 

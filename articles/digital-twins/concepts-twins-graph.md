@@ -67,7 +67,7 @@ Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digi
 
 ### Create twins and relationships in bulk
 
-You can upload many twins and relationships in a single API call using the [bulk import API](concepts-apis-sdks.md#bulk-import-api). For detailed instructions and examples, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk).
+You can upload many twins and relationships in a single API call using the [bulk import API](concepts-apis-sdks.md#bulk-import-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk).
 
 ## JSON representations of graph elements
 
