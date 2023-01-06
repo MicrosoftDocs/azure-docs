@@ -14,6 +14,9 @@ In this guide, learn how to create a dashboard in Azure Managed Grafana to visua
 
 A Grafana dashboard contains panels and rows. You can import a Grafana dashboard and adapt it to your own scenario, create a new Grafana dashboard, or duplicate an existing dashboard.
 
+> [!NOTE]
+> The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples below at the time of reading this document. If this is the case, refer to the [Grafana Labs documentation.](https://grafana.com/docs/grafana/latest/dashboards/)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
@@ -26,30 +29,31 @@ To quickly create a dashboard, import a dashboard template from the Grafana Labs
 
 1. From the Grafana Labs website, browse through [Grafana dashboards templates](https://grafana.com/grafana/dashboards/?category=azure) and select a dashboard to import.
 1. Select **Copy ID to clipboard**.
+1. For the next steps, use the Azure portal or the Azure CLI.
 
-### [Portal](#tab/azure-portal)
+    ### [Portal](#tab/azure-portal)
 
-3. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
-1. In your Grafana endpoint, go to **Dashboards > Import**.
-1. On the **Import** page, under **Import via grafana.com**, paste the Grafana dashboard ID copied earlier, and select **Load**.
+    1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
+    1. In your Grafana endpoint, go to **Dashboards > Import**.
+    1. On the **Import** page, under **Import via grafana.com**, paste the Grafana dashboard ID copied earlier, and select **Load**.
 
-   :::image type="content" source="media/dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
+       :::image type="content" source="media/dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
 
-1. Optionally update the dashboard name, folder and UID.
-1. Select a datasource and select **Import**.
-1. A new dashboard is displayed.
-1. Review the visualizations displayed and edit the dashboard if necessary.
+    1. Optionally update the dashboard name, folder and UID.
+    1. Select a datasource and select **Import**.
+    1. A new dashboard is displayed.
+    1. Review the visualizations displayed and edit the dashboard if necessary.
 
-### [Azure CLI](#tab/azure-cli)
+    ### [Azure CLI](#tab/azure-cli)
 
-1. Open a CLI and run the `az login` command.
-1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update)command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
+    1. Open a CLI and run the `az login` command.
+    1. Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update)command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana instance, its resource group, and the dashboard ID you copied earlier.
 
-   ```azurecli
-   az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
-   ```
+       ```azurecli
+       az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
+       ```
 
----
+    ---
 
 ## Create a new Grafana dashboard
 
@@ -94,6 +98,8 @@ az grafana dashboard create --name myGrafana --resource-group myResourceGroup --
 
 ## Duplicate a Grafana dashboard
 
+Duplicate a Grafana dashboard using your preferred method.
+
 ### [Portal](#tab/azure-portal)
 
 To copy a Grafana dashboard:
@@ -110,34 +116,36 @@ To copy a Grafana dashboard:
 1. Run the [az grafana dashboard show](/cli/azure/grafana/dashboard#az-grafana-dashboard-show) command to show the definition of the dashboard you want to duplicate, and copy the output.
 
     ```azurecli
-    az grafana dashboard show --name <AMG-name> --dashboard <dashboard-UID>
+    az grafana dashboard show --name <AMG-name> --resource-group <AMG-resource-group> --dashboard <dashboard-UID>
     ```
 
 1. Run the [az grafana dashboard create](/cli/azure/grafana/dashboard#az-grafana-dashboard-create) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, `<title>`, and `<dashboard-id>` with your own information. Replace `<definition>` with the output you copied in the previous step, and remove the `uid`and `id`.
 
-```azurecli
-az grafana dashboard create --name <AMG-name> --resource-group <AMG-resource-group> --title <title>--definition <definition>
-```
+    ```azurecli
+    az grafana dashboard create --name <AMG-name> --resource-group <AMG-resource-group> --title <title>--definition <definition>
+    ```
 
-For example:
+    For example:
 
-```azurecli
-az grafana dashboard create --name myGrafana --resource-group myResourceGroup --title "My dashboard" --folder folder1 --definition '{
-   "dashboard": {
-      "annotations": {
-         ...
-      },
-      "panels": {
-         ...
-      }
-   },
-   "message": "Create a new test dashboard"
-}'
-```
+    ```azurecli
+    az grafana dashboard create --name myGrafana --resource-group myResourceGroup --title "My dashboard" --folder folder1 --definition '{
+       "dashboard": {
+          "annotations": {
+             ...
+          },
+          "panels": {
+             ...
+          }
+       },
+       "message": "Create a new test dashboard"
+    }'
+    ```
 
 ---
 
 ## Edit a dashboard panel
+
+Edit a Grafana dashboard panel using your preferred method.
 
 ### [Portal](#tab/azure-portal)
 
