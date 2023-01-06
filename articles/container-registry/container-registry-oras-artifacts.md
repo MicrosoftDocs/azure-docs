@@ -17,7 +17,7 @@ Use an Azure container registry to store and manage a graph of supply chain arti
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) CLI to push and pull a graph of supply chain artifacts to an Azure container registry.
 
-Storing individual OCI Artifacts are covered in [Push and pull OCI artifact](.container-registry-oci-artifacts.md). To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI Artifact Manifest][oci-artifact-manifest], which is part of the [pre-release OCI 1.1 Distribution specification][oci-1_1-spec]. OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). 
+Storing individual OCI Artifacts are covered in [Push and pull OCI artifact](container-registry-oci-artifacts.md). To store a graph of artifacts, a reference to a `subject` artifact is defined using the [OCI Artifact Manifest][oci-artifact-manifest], which is part of the [pre-release OCI 1.1 Distribution specification][oci-1_1-spec]. OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). 
 
 ## Prerequisites
 
