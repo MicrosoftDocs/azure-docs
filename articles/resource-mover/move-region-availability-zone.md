@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: how-to
 ms.date: 09/10/2020
-
+ms.author: ankitadutta
 #Customer intent: As an Azure admin,  I want to move Azure VMs to a different Azure region.
 
 ---
