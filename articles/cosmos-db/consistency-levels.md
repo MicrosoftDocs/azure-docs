@@ -95,6 +95,8 @@ The following graphic illustrates the bounded staleness consistency with musical
 
 In session consistency, within a single client session, reads are guaranteed to honor the read-your-writes, and write-follows-reads guarantees. This assumes a single “writer” session or sharing the session token for multiple writers.
 
+Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four replica set) in the local region, with asynchronous replication to all other regions.
+
 After every write operation, the client receives an updated Session Token from the server. These tokens are cached by the client and sent to the server for read operations in a specified region. If the replica against which the read operation is issued contains data for the specified token (or a more recent token), the requested data is returned. If the replica does not contain data for that session, the client will retry the request against another replica in the region. If necessary, the client will retry the read against additional available regions until data for the specified session token is retrieved. 
 
 > [!IMPORTANT]
