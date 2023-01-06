@@ -154,7 +154,7 @@ And apply it to the cluster:
 kubectl apply -f image-list.yml
 ```
 
-A job named `eraser-aks-xxx`will be triggerred which causes ImageCleaner to remove the desired images from all nodes.
+A job named `eraser-aks-xxx`will be triggered which causes ImageCleaner to remove the desired images from all nodes.
 
 ## Disable ImageCleaner
 
