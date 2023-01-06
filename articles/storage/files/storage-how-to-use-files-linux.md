@@ -321,7 +321,7 @@ After you've created the file share snapshot, following these instructions to mo
    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
    ```
    
-6. If you're able to browse the snapshot under the path /mnt/snapshot-test-share1/snapshot1, then the mount succeeded.
+6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
 
 ## Next steps
 See these links for more information about Azure Files:
