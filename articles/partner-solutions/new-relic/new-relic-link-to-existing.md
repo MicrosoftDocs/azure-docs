@@ -72,15 +72,15 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 
 ## Configure metrics and logs
 
-Your next step is to configure metrics and logs on the **Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs.
-
-:::image type="content" source="media/new-relic-link-to-existing/new-relic-logs.png" alt-text="Screenshot that shows the tab for logs, with actions to complete.":::
+Your next step is to configure metrics and logs on the **Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
 
 - **Subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane). The logs also include updates on service-health events. 
 
   Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
 
 - **Azure resource logs**: These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+
+:::image type="content" source="media/new-relic-link-to-existing/new-relic-logs.png" alt-text="Screenshot that shows the tab for logs, with actions to complete.":::
 
 1. To send Azure resource logs to New Relic, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor resource log categories](/azure-monitor/essentials/resource-logs-categories).
 
@@ -95,7 +95,7 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource and link an existing New Relic account to it.
 
-1. After you finish configuring metrics and logs, select **Next** to add tags.
+1. After you finish configuring metrics and logs, select **Next**.
 
 ## Add tags
 
