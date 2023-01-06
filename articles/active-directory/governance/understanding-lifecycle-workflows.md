@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 The following document provides an overview of a workflow created using Lifecycle Workflows. Workflows automate tasks based on the joiner-mover-leaver(JML) cycle of lifecycle management, and split tasks for users into categories of where they fall in the lifecycle of an organization. These categories extend into templates, where they can be quickly customized to suit the needs of users in your organization. For more information, see: [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md).
 
-  [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
+  [![Diagram of a lifecycle workflow.](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
 ## License requirements 
 
@@ -130,7 +130,7 @@ The offset determines how many days before or after the time-based attribute the
 
 ## Configure scope
 
-[![Screenshot showing the rule section](media/understanding-lifecycle-workflows/workflow-5.png)](media/understanding-lifecycle-workflows/workflow-5.png#lightbox)
+[![Screenshot showing the rule section.](media/understanding-lifecycle-workflows/workflow-5.png)](media/understanding-lifecycle-workflows/workflow-5.png#lightbox)
 
 The scope defines for who the scheduled workflow will run. Configuring this parameter allows you to further narrow down the users for whom the workflow is to be executed.
 
