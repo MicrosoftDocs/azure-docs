@@ -179,9 +179,9 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 
 ## Azure centralized monitoring
 
-Azure Private 5G Core is integrated with Azure Monitor Metrics Explorer, allowing you to monitor and analyze activity in your private mobile network directly from the Azure portal. You can write queries to retrieve records or visualize data in charts. 
+Azure Private 5G Core is integrated with Azure Monitor Metrics Explorer, allowing you to monitor and analyze activity in your private mobile network directly from the Azure portal. You can write queries to retrieve records or visualize data in dashboards. 
 
-For more information on using Azure Monitor to analyze logs and metrics in your deployment, see [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md).
+For more information on using Azure Monitor to analyze metrics in your deployment, see [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md).
 
 ## Next steps
 

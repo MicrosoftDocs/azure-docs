@@ -15,9 +15,11 @@ ms.custom: template-concept
 
 Azure Private 5G Core platform metrics are collected per site and allow you to monitor key statistics relating to your deployment. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
-Platform metrics are available for monitoring and retrieval for up to 92 days. If you want to store your data for longer, you can retrieve them using the Azure Monitor REST API and save them to a storage account that allows longer data retention; see [Azure Storage](/azure/storage/) for some examples of storage accounts you can use.
+Platform metrics are available for monitoring and retrieval for up to 92 days. If you want to store your data for longer, you can export them using the Azure portal or the Azure Monitor REST API. Once exported, metrics can be saved to a storage account that allows longer data retention. See [Azure Storage](/azure/storage/) for some examples of storage accounts you can use.
 
-If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal). If you want to retrieve metrics for analysis using your tool of choice or for longer storage periods, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api). Note that not all metrics displayed in the Azure portal are available via the Azure Monitor REST API.
+If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal). You can export metrics to a set of [destinations](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) by following [Export metrics using the Azure portal](#export-metrics-using-the-azure-portal).
+
+If you want to retrieve metrics for analysis using your tool of choice or for longer storage periods, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api). Note that not all metrics displayed in the Azure portal are available via the Azure Monitor REST API.
 
 ## Visualize metrics using the Azure portal
 
@@ -39,6 +41,20 @@ You can use the Azure portal to monitor your deployment's health and performance
 You should now see the Azure Monitor dashboards displaying important key performance indicators (KPIs), including the number of connected devices and session establishment failures.
 
 You can select individual dashboards to open an expanded view where you can specify details such as the graph's time range and time granularity. You can also create additional dashboards using the platform metrics available. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started).
+
+## Export metrics using the Azure portal
+
+The platform metrics displayed in the **Mobile Network Site** resource combine information captured from two sources:
+
+- The **Packet Core Control Plane** resource's metrics relate to the control plane, and are emitted by the Access and Mobility Management Function (AMF), Session Management Function (SMF) and Mobile Management Entity (MME).
+- The **Packet Core Data Plane** resource's metrics relate to the data plane, and are emitted by the User Plane Function (UPF).
+
+You can export the platform metrics from each of those resources to [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design), [Azure Storage](/azure/storage/), [Azure Event Hubs](/azure/event-hubs/), and [Azure Monitor partner integrations](/azure/partner-solutions/overview).
+
+1. Navigate to the resource group containing your private mobile network.
+1. Select either the **Packet Core Control Plane** or the **Packet Core Data Plane** resource, depending on the metrics you're interested in exporting.
+1. From the resource menu, select **Diagnostic settings**.
+1. Select **Add diagnostic setting** to configure a rule for exporting your metrics. Refer to [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal) for more details on adding and editing diagnostic settings.
 
 ## Retrieve metrics using the Azure Monitor REST API
 
