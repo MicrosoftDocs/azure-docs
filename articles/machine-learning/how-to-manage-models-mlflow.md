@@ -161,7 +161,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
 
 ## Editing and deleting models
 
-Editing registered models is supported in both Mlflow and Azure ML, however, there are some differences between them that are important to notice:
+Editing registered models is supported in both Mlflow and Azure ML. However, there are some differences important to be noticed:
 
 > [!WARNING]
 > Renaming models is not supported in Azure Machine Learning as model objects are immmutable.
