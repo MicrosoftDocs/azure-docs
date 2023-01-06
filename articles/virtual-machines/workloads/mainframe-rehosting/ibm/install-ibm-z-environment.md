@@ -5,10 +5,10 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 documentationcenter:
-author: sread
+author: swread
+ms.author: sread
+editor: swread
 manager: mamccrea 
-ms.author: swread
-editor: sread
 ms.topic: conceptual
 ms.date: 04/02/2019
 tags:
