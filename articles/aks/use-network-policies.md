@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/24/2022
+ms.date: 01/05/2023
 
 ---
 
