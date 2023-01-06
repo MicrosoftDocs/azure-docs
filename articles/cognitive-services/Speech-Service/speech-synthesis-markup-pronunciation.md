@@ -71,7 +71,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
      <voice name="en-US-JennyNeural">
-        <phoneme alphabet="x-sampa" ph="he"l@u"> hello </phoneme>
+        <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
     </voice>
 </speak>
 ```
