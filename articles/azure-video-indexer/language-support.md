@@ -47,74 +47,82 @@ Some notes for the above values are:
 
 | **Language**   | **Code**       | **Supported source language** | **Language identification**  | **Customization** (language model)  |
 |:--------------:|:--------------:|:-----------------------------:|:----------------------------:|:-----------:|
-| Afrikaans                        | `af-ZA`      |   |   |  |
+| Afrikaans                        | `af-ZA`      |   | ✔  |  |
 | Arabic (Israel)                  | `ar-IL`      | ✔ |   | ✔ |
+| Arabic (Iraq)                    | `ar-IQ`      | ✔ | ✔ |   |
 | Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔ | ✔ |
 | Arabic (Kuwait)                  | `ar-KW`      | ✔ | ✔ | ✔ |
 | Arabic (Lebanon)                 | `ar-LB`      | ✔ |   | ✔ |
 | Arabic (Oman)                    | `ar-OM`      | ✔ | ✔ | ✔ |
-| Arabic (Palestinian Authority)   | `ar-PS`      | ✔ |   | ✔ |
+| Arabic (Paestinian Authority)   | `ar-PS`      | ✔ |   | ✔ |
 | Arabic (Qatar)                   | `ar-QA`      | ✔ | ✔ | ✔ |
 | Arabic (Saudi Arabia)            | `ar-SA`      | ✔ | ✔ | ✔ |
 | Arabic (United Arab Emirates)    | `ar-AE`      | ✔ | ✔ | ✔ |
 | Arabic Egypt                     | `ar-EG`      | ✔ | ✔ | ✔ |
 | Arabic Modern Standard (Bahrain) | `ar-BH`      | ✔ | ✔ | ✔ |
 | Arabic Syrian Arab Republic      | `ar-SY`      | ✔ | ✔|  ✔ |
-| Bangla                           | `bn-BD`      |   |   |   |
-| Bosnian                          | `bs-Latn`    |   |   |   |
-| Bulgarian                        | `bg-BG`      |   |   |   |
-| Catalan                          | `ca-ES`      |   |   |   |
+| Armenian                         | `hy-AM`      | ✔ |   |    |              
+| Bangla                           | `bn-BD`      |   | ✔ |   |
+| Bosnian                          | `bs-Latn`    |   | ✔ |   |
+| Bulgarian                        | `bg-BG`      | ✔ | ✔ |   |
+| Catalan                          | `ca-ES`      | ✔ | ✔ |   |
 | Chinese (Cantonese Traditional)  | `zh-HK`      | ✔ | ✔ | ✔ |
 | Chinese (Simplified)             | `zh-Hans`    | ✔ | ✔ | ✔ |
 | Chinese (Simplified)             | `zh-CK`      | ✔ | ✔ | ✔ |
-| Chinese (Traditional)            | `zh-Hant`    |   |    |   |
-| Croatian                         | `hr-HR`      |   |    |   |
+| Chinese (Traditional)            | `zh-Hant`    |   |  ✔ |   |
+| Croatian                         | `hr-HR`      | ✔ | ✔  |   |
 | Czech                            | `cs-CZ`      | ✔ |✔  |  ✔ |
 | Danish                           | `da-DK`      | ✔ |✔  |  ✔ |
 | Dutch                            | `nl-NL`      | ✔ |✔ | ✔ |
 | English Australia                | `en-AU`      | ✔ |✔ | ✔ |
 | English United Kingdom           | `en-GB`      | ✔ |✔ | ✔ |
 | English United States            | `en-US`      | ✔ |✔ | ✔ |
-| Estonian                         | `et-EE`      |   |   |   |
-| Fijian                           | `en-FJ`      |   |   |   |
-| Filipino                         | `fil-PH`     |   |   |  |
+| Estonian                         | `et-EE`      | ✔ |✔  |   |
+| Fijian                           | `en-FJ`      |   | ✔ |   |
+| Filipino                         | `fil-PH`     |   | ✔ |  |
 | Finnish                          | `fi-FI`      | ✔ |✔ | ✔ |
 | French                           | `fr-FR`      | ✔ |✔ | ✔ |
 | French (Canada)                  | `fr-CA`      | ✔ |✔ | ✔ |
 | German                           | `de-DE`      | ✔ |✔ | ✔ |
-| Greek                            | `el-GR`      |   |  |   |
-| Haitian                          | `fr-HT`      |   |   |  |
+| Greek                            | `el-GR`      | ✔ |✔ |   |
+| Gujarati                         | `gu-IN`      | ✔ |✔ |   |
+| Haitian                          | `fr-HT`      |   | ✔ |  |
 | Hebrew                           | `he-IL`      | ✔ |✔ | ✔ |
-| Hindi                            | `hi-IN`      | ✔ |✔  | ✔ |
-| Hungarian                        | `hu-HU`      |   |  |  |
-| Indonesian                       | `id-ID`      |   |  |  |
+| Hindi                            | `hi-IN`      | ✔ |✔ | ✔ |
+| Hungarian                        | `hu-HU`      |   | ✔ |  |
+| Icelandic                        | `is-IS`      | ✔ |  |  |
+| Indonesian                       | `id-ID`      |   | ✔ |  |
+| Irish                            | `ga-IE`      | ✔ | ✔ |  |
 | Italian                          | `it-IT`      | ✔ | ✔ | ✔ |
 | Japanese                         | `ja-JP`      | ✔ | ✔ | ✔ |
-| Kiswahili                        | `sw-KE`      |   |   |  |
+| Kannada                          | `kn-IN`      | ✔ | ✔ |   |
+| Kiswahili                        | `sw-KE`      |   | ✔ |  |
 | Korean                           | `ko-KR`      | ✔ | ✔| ✔ |
-| Latvian                          | `lv-LV`      |   |   |  |
-| Lithuanian                       | `lt-LT`      |   |   |  |
-| Malagasy                         | `mg-MG`      |   |   |  |
-| Malay                            | `ms-MY`      |   |   |  |
-| Maltese                          | `mt-MT`      |   |   |  |
+| Latvian                          | `lv-LV`      | ✔ | ✔ |  |
+| Lithuanian                       | `lt-LT`      |   | ✔ |  |
+| Malagasy                         | `mg-MG`      |   | ✔ |  |
+| Malay                            | `ms-MY`      | ✔ |   |  |
+| Malayalam                        | `ml-IN`      |✔  |✔ |   |
+| Maltese                          | `mt-MT`      |   | ✔ |  |
 | Norwegian                        | `nb-NO`      | ✔ |✔ | ✔ |
 | Persian                          | `fa-IR`      | ✔ |  | ✔ |
 | Polish                           | `pl-PL`      | ✔ |✔ | ✔ |
 | Portuguese                       | `pt-BR`      | ✔ | ✔ | ✔ |
 | Portuguese (Portugal)            | `pt-PT`      | ✔ | ✔ | ✔ |
-| Romanian                         | `ro-RO`      |   |  |  |
+| Romanian                         | `ro-RO`      | ✔ | ✔ |  |
 | Russian                          | `ru-RU`      | ✔ | ✔ |  ✔ |
-| Samoan                           | `en-WS`      |   |  |  |
-| Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |  |  |
-| Serbian (Latin)                  | `sr-Latn-RS` |   |  |  |
-| Slovak                           | `sk-SK`      |   |   |  |
-| Slovenian                        | `sl-SI`      |   |  |  |
-| Spanish                          | `es-ES`      | ✔ | ✔| ✔ |
-| Spanish (Mexico)                 | `es-MX`      | ✔ |  | ✔ |
+| Samoan                           | `en-WS`      |   | ✔ |  |
+| Serbian (Cyrillic)               | `sr-Cyrl-RS` |   |✔  |  |
+| Serbian (Latin)                  | `sr-Latn-RS` |   | ✔ |  |
+| Slovak                           | `sk-SK`      | ✔ | ✔ |  |
+| Slovenian                        | `sl-SI`      | ✔ | ✔ |  |
+| Spanish                          | `es-ES`      | ✔ | ✔ | ✔ |
+| Spanish (Mexico)                 | `es-MX`      | ✔ | ✔ | ✔ |
 | Swedish                          | `sv-SE`      | ✔ |✔ | ✔ |
-| Tamil                            | `ta-IN`      |   |   | |
+| Tamil                            | `ta-IN`      | ✔ | ✔ | |
+| Telugu                           | `te-IN`      | ✔ | ✔ | |
 | Thai                             | `th-TH`      | ✔ |✔ | ✔ |
-| Tongan                           | `to-TO`      |   |   |  |
+| Tongan                           | `to-TO`      |   | ✔ |  |
 | Turkish                          | `tr-TR`      | ✔ | ✔| ✔ |
 | Ukrainian                        | `uk-UA`      | ✔  | ✔ |  |
 | Urdu                             | `ur-PK`      |    |  |  |
