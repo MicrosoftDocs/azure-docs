@@ -747,7 +747,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | **Data ingestion method** | [**Syslog**](connect-syslog.md)<br><br>[Configure the ESET SMC logs to be collected](#configure-the-eset-smc-logs-to-be-collected) <br>[Configure OMS agent to pass Eset SMC data in API format](#configure-oms-agent-to-pass-eset-smc-data-in-api-format)<br>[Change OMS agent configuration to catch tag oms.api.eset and parse structured data](#change-oms-agent-configuration-to-catch-tag-omsapieset-and-parse-structured-data)<br>[Disable automatic configuration and restart agent](#disable-automatic-configuration-and-restart-agent)|
 | **Log Analytics table(s)** | eset_CL |
 | **DCR support** | Not currently supported |
-| **Vendor documentation/<br>installation instructions** | [ESET Syslog server documentation](https://help.eset.com/esmc_admin/70/en-US/admin_server_settings_syslog.html) |
+| **Vendor documentation/<br>installation instructions** | [ESET Syslog server documentation](https://help.eset.com/protect_admin/10.0/en-US/admin_server_settings_syslog.html) |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 
 

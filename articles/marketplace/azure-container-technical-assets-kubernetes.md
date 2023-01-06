@@ -275,6 +275,9 @@ It's important to understand how user parameters flow throughout the artifacts y
 
 :::image type="content" source="./media/azure-container/user-param-ui.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Definitions for 'value1' and 'value2' are shown.":::
 
+> [!NOTE]
+> In this example, `extensionResourceName` is also parameterized and passed to the cluster extension resource. Similarly, other extension properties can be parameterized, such as enabling auto upgrade for minor versions. For more on cluster extension properties, see [optional parameters][extension-parameters].
+
 and are exported via the `outputs` section:
 
 :::image type="content" source="./media/azure-container/user-param-ui-2.png" alt-text="A screenshot of the createUiDefinition example linked in this article. Output lines for application title, 'value1', and 'value2' are shown.":::
@@ -378,3 +381,4 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/.pipelines/AzurePipelines/azure-pipelines.yml
 [arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/mainTemplate.json
 [manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/manifest.yaml
+[extension-parameters]: ../aks/cluster-extensions.md#optional-parameters
