@@ -289,6 +289,6 @@ To learn how to use more Azure Spring capabilities, advance to the quickstart se
 > [!div class="nextstepaction"]
 > [Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
-If you are looking for a packaged app template with Spring Apps infrastructure provisioned using bicep and deploy microservices based spring pet clinic source code to Spring Apps, see [App Template: Spring boot app on Azure Spring Apps](https://github.com/Azure-Samples/apptemplates-microservices-spring-app-on-AzureSpringApps)  
+For a packaged app template with Azure Spring Apps infrastructure provisioned using Bicep, see [Spring Boot PetClinic Microservices Application Deployed to Azure Spring Apps](https://github.com/Azure-Samples/apptemplates-microservices-spring-app-on-AzureSpringApps).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
