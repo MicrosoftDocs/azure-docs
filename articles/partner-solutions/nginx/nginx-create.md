@@ -1,8 +1,9 @@
 ---
 title: Create an NGINXaaS deployment
 description: This article describes how to use the Azure portal to create an instance of NGINXaaS.
-ms.topic: quickstart
 author: flang-msft
+
+ms.topic: quickstart
 ms.author: franlanglois
 ms.date: 01/05/2023
 ms.custom: references_regions, event-tier1-build-2022
@@ -13,7 +14,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINXaaS**.
 
-## Create new NGINXaaS deployment
+## Create a new NGINXaaS resource
 
 ### Basics
 
