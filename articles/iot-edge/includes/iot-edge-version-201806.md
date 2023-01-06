@@ -14,3 +14,4 @@
 
 > [!IMPORTANT]
 > IoT Edge 1.1 [end of support date was December 13, 2022](../support.md#releases). Check the [Microsoft Product Lifecycle](/lifecycle/policies/modern) for information about how this product, service, technology, or API is supported.
+
