@@ -88,6 +88,12 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 |`azure.workload.identity/tenant-id` |Represents the Azure tenant ID where the<br> Azure AD application is registered. |AZURE_TENANT_ID environment variable extracted<br> from `azure-wi-webhook-config` ConfigMap.|
 |`azure.workload.identity/service-account-token-expiration` |Represents the `expirationSeconds` field for the<br> projected service account token. It's an optional field that you configure to prevent downtime<br> caused by errors during service account token refresh. Kubernetes service account token expiry isn't correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they're issued. |3600<br> Supported range is 3600-86400.|
 
+### Pod labels
+
+|Label |Description |Recommended value |Required |
+|------|------------|------------------|---------|
+|`azure.workload.identity/use` | Represents the pod is to be used for workload identity. |true |Yes |
+
 ### Pod annotations
 
 |Annotation |Description |Default |
