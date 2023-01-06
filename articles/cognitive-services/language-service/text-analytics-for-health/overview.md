@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 01/04/2023
+ms.date: 01/06/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -63,7 +63,7 @@ Some common customer motivations for using Text Analytics for health include:
 
 ## Get started with Text analytics for health
 
-To use this feature, all you need is to submit raw unstructured text for analysis and handl. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to get started Text Analytics for health:
+To use this feature, all you need is to submit raw unstructured text for analysis. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to get started Text Analytics for health:
 
 
 |Development option  |Description  | Links | 
