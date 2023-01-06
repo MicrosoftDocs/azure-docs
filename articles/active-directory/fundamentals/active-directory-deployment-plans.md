@@ -4,12 +4,11 @@ description: Guidance about how to deploy many Azure Active Directory capabiliti
 services: active-directory
 author: gargisinha
 manager: martinco
-
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 1/5/2023
 ms.author: gasinh
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
