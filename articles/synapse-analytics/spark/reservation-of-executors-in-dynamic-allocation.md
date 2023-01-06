@@ -22,9 +22,9 @@ When Dynamic Allocation option is enabled, for every spark application submitted
 > [!NOTE]
 > **This conservative approach allows the platform to enable scaling from say 3 to 10 Nodes without running out of capacity, thereby providing users with greater reliability for job execution.**
 
-![Dynamic Allocation in Synapse Spark Pools](./media/reservation-of-executors-in-spark/DynamicAllocation_Overview.png)
+![Dynamic Allocation in Synapse Spark Pools](./media/reservation-of-executors-in-spark/da-overview.png)
 
-### What does the reservation of executors mean?
+## What does the reservation of executors mean?
 
 In scenarios where the Dynamic Allocation option is enabled in a Synapse Spark Pool, the platform reserves the number of executors based on the maximum limit specified by the user for any spark application submitted. A new job submitted by the user will only be accepted when there are available executors is > than the max number of reserved executors. 
 
@@ -43,7 +43,7 @@ Since the user isn't sure how much compute the spark job would require, the user
 + The user submits an application App3, App4 and App5 with the same as the other applications, for the sixth job would get queued because, as part of accepting App3, the number of available executors  reduces to 20, and similarly reduces to 10 and then to 0  when App5 is accepted as part of the reservation of 10 Executors  from the available set of executors  in the pool. 
 + Given that there are no available cores, App6 will be in the queue till these other applications complete execution and will be accepted once the available number of executors in the pool increases to 10 from 0. 
 
-![Job Level Reservation of Executors in Spark Pool with Dynamic Allocation](./media/reservation-of-executors-in-spark/ReservationofExecutorsinSparkPoolwithDynamicAllocation.png)
+![Job Level Reservation of Executors in Spark Pool with Dynamic Allocation](./media/reservation-of-executors-in-spark/reservation-of-executors.png)
 
 > [!NOTE]
 > + Even though the reservation of executors is carried out, not all executors are being used but are reserved to support auto scale scenarios for these applications. 
