@@ -1185,10 +1185,12 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
-- id: acs-plat-android-web-ios
+- id: acs-plat-windows-android-web-ios
   title: Platform
   prompt: Choose a platform
   pivots:
+  - id: platform-windows
+    title: Windows
   - id: platform-android
     title: Android
   - id: platform-web
