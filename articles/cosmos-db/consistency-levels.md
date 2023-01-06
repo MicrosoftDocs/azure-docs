@@ -130,7 +130,9 @@ The following graphic illustrates the consistency prefix consistency with musica
 
 ### Eventual consistency
 
-In eventual consistency, there's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
+Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four replica set) in the local region, with asynchronous replication to all other regions.
+
+In Eventual consistency, the client will issue read requests against any one of the four replicas in the specified region. This replica may be lagging and could return stale or no data.
 
 Eventual consistency is the weakest form of consistency because a client may read the values that are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes, or non-threaded comments. The following graphic illustrates the eventual consistency with musical notes.
 
