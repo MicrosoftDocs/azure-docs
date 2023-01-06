@@ -24,7 +24,7 @@ When beginning your deployment plans, include your key stakeholders. Identify an
 
 |Role |Responsibility |
 |-|-|
-|Stakeholder|An enterprise leader with authority to approve and/or assign budget and resources|
+|Sponsor|An enterprise senior leader with authority to approve and/or assign budget and resources. The sponsor is the connection between managers and the executive team|
 |End user|The people for whom the service is implemented. Users can participate in a pilot program.|
 |IT Support Manager|Provides input on the supportability of proposed changes |
 |Identity architect or Azure Global Administrator|Defines how the change aligns with identity management infrastructure|
