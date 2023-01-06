@@ -98,9 +98,12 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 
-## Known issues
-
-* Currently, all users must be enabled for at least one MFA method that isn't passwordless and the user can register in interrupt mode. Possible methods include Microsoft Authenticator, SMS, voice calls, and software OATH/mobile app code. The method(s) can be enabled in any policy. If a user is not eligible for at least one of those methods, the user will see an error during registration and when visiting My Security Info. We're working to improve this experience to enable fully passwordless configurations. 
+>[!NOTE]
+>After having fully migrated all authentication methods, the following elements of the legacy SSPR policy remain active:
+> - The **Number of methods required to reset** control: admins can continue to toggle this to determine how many methods a user is required to verify their identity with before performing SSPR.
+> - The SSPR administrator policy: admins will continue to be able to register and use any methods listed under the legacy SSPR adminitrator policy or methods they're enabled to use in the Authentication methods policy.
+> 
+> In the future, both of these features will be integrated with the Authentication methods policy.
 
 ## Next steps
 
