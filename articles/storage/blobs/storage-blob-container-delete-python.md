@@ -32,11 +32,11 @@ After you delete a container, you can't create a container with the same name fo
 
 The following example uses a `BlobServiceClient` object to delete the specified container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-delete.py" id="Snippet_DeleteContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_delete_container":::
 
 The following example shows how to delete all containers that start with a specified prefix:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-delete.py" id="Snippet_DeleteContainersPrefix":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_delete_container_prefix":::
 
 ## Restore a deleted container
 
@@ -46,7 +46,7 @@ When container soft delete is enabled for a storage account, a deleted container
 
 The following example finds a deleted container, gets the version of that deleted container, and then passes the version into the `undelete_container` method to restore the container.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-delete.py" id="Snippet_RestoreContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_restore_container":::
 
 ## See also
 

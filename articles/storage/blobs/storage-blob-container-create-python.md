@@ -44,7 +44,7 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 This following example creates a container from a `BlobServiceClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-create.py" id="Snippet_CreateContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_container":::
 
 ## Create the root container
 
@@ -56,7 +56,7 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates a new `ContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-create.py" id="Snippet_CreateRootContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_root_container":::
 
 ## See also
 

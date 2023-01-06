@@ -30,7 +30,7 @@ When you acquire a lease, you'll obtain a lease ID that your code can use to ope
 
 The following example acquires a 30-second lease for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-lease.py" id="Snippet_AcquireLease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_acquire_container_lease":::
 
 ## Renew a lease
 
@@ -40,7 +40,7 @@ If your lease expires, you can renew it. To renew a lease, use the following met
 
 The following example renews a lease for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-lease.py" id="Snippet_RenewLease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_renew_container_lease":::
 
 ## Release a lease
 
@@ -50,7 +50,7 @@ You can either wait for a lease to expire or explicitly release it. When you rel
 
 The following example releases the lease on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-lease.py" id="Snippet_ReleaseLease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_release_container_lease":::
 
 ## Break a lease
 
@@ -60,7 +60,7 @@ When you break a lease, the lease ends, but other clients can't acquire a lease 
 
 The following example breaks the lease on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-lease.py" id="Snippet_BreakLease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_break_container_lease":::
 
 ## Lease states and actions
 
