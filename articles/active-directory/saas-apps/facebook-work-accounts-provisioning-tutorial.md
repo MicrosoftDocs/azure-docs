@@ -112,8 +112,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Facebook Work Accounts, change the **Provisioning Status** to **On** in the **Settings** section.
 
-   ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
-
 1. Define the users and/or groups that you would like to provision to Facebook Work Accounts by choosing the desired values in **Scope** in the **Settings** section.
 
    ![Provisioning Scope](common/provisioning-scope.png)
