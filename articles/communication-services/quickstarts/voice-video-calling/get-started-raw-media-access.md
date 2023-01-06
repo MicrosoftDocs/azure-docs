@@ -9,7 +9,7 @@ ms.date: 06/30/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-plat-windows-android-web-ios
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other
 ---
 
