@@ -146,9 +146,10 @@ The advanced editor can be used to select virtual networks during the creation o
 1. Select Save. 
 1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-EastUS.
 
-See [Parameter and operators](#parameters) for the complete list of parameters and operators you can use with the advanced editor. See below for more examples:
-
+See [Parameter and operators](#parameters) for the complete list of parameters and operators you can use with the advanced editor. 
 ## More examples
+
+Here are more examples of conditional statements in the advanced editor.
 
 ### Example 1: OR operator only
 
