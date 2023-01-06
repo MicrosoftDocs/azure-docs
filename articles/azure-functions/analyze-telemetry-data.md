@@ -123,9 +123,9 @@ traces
 | order by timestamp
 ```
 
-## Sampling Percentage
+## Sampling percentage
 
-Sampling configuration can be used to reduce the volume of telemetry. Use the following query to determine if sampling is operational or not. If you see that RetainedPercentage for any type is less than 100, then that type of telemetry is being sampled.
+Sampling configuration can be used to reduce the volume of telemetry. Use the following query to determine if sampling is operational or not. If you see that `RetainedPercentage` for any type is less than 100, then that type of telemetry is being sampled.
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
