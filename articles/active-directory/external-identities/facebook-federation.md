@@ -108,3 +108,5 @@ You can delete your Facebook federation setup. If you do so, any users who have 
 ## Next steps
 
 - [Add self-service sign-up to an app](self-service-sign-up-user-flow.md)
+- [SAML/WS-Fed IdP federation](direct-federation.md)
+- [Google federation](google-federation.md)
