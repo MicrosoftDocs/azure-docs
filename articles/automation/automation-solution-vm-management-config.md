@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 # Configure Start/Stop VMs during off-hours
 
 > [!NOTE]
-> Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now. We recommend that you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available.
+> Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now. We recommend that you start using [version 2]([../azure/azure-functions/start-stop-vms/overview.md]), which is now generally available.
 The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until further announcement.
 
 This article describes how to configure the [Start/Stop VMs during off-hours](automation-solution-vm-management.md) feature to support the described scenarios. You can also learn how to:
