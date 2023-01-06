@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 02/07/2022
 ms.author: danlep
 ---
 # API Management policy expressions
