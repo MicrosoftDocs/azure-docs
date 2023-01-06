@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 12/21/2022
+ms.date: 01/06/2023
 ms.author: anfdocs
 ---
 
@@ -24,9 +24,7 @@ Validating user access is helpful for scenarios such as ensuring POSIX attribute
 
 1. In the volume page for the LDAP-enabled volume, select **LDAP Group ID List** under **Support & Troubleshooting**.
 1. Enter the user ID and select **Get group IDs**.
-
   :::image type="content" source="../media/azure-netapp-files/troubleshoot-ldap-user-id.png" alt-text="Screenshot of the LDAP group ID list portal." lightbox="../media/azure-netapp-files/troubleshoot-ldap-user-id.png":::
-
 1. The portal will display up to 256 results even if the user is in more than 256 groups. You can search for a specific group ID in the results. 
 
 Refer to [Troubleshoot volume errors](troubleshoot-volumes.md#errors-for-ldap-volumes) for further resources if the group ID you're searching for is not present. 
