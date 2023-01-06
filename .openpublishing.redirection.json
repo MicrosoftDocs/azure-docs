@@ -1164,6 +1164,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
+            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+            "redirect_document_id": true
+    	 },
+        {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
             "redirect_url": "/azure/active-directory-b2c",
             "redirect_document_id": false
@@ -5986,6 +5991,11 @@
         {
             "source_path_from_root": "/articles/automation/quickstarts/create-account-portal.md",
             "redirect_url": "/azure/automation/create-azure-automation-account-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/automation-solution-vm-management-enable.md",
+            "redirect_url": "/azure/automation/automation-solution-vm-management",
             "redirect_document_id": false
         },
         {
