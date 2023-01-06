@@ -137,7 +137,7 @@
   - name: Integrations
     items:
     - name: Power Automate
-      href: flexible-server/tutorial-power-automate-with-mysql
+      href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
     - name: Azure Redis
