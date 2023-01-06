@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to generate and transfer HSM-protected keys for Azure Key Vault Managed HSM - Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM. Also known as bring your own key (BYOK).
 services: key-vault
@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 # Import HSM-protected keys to Managed HSM (BYOK)
 
- Azure Key Vault Managed HSM supports importing keys generated in your on-premise hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
+ Azure Key Vault Managed HSM supports importing keys generated in your on-premises hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
@@ -66,7 +66,7 @@ For more information on login options via the CLI take a look at [sign in with A
 |Securosys SA|Manufacturer, HSM as a service|Primus HSM family, Securosys Clouds HSM|[Primus BYOK tool and documentation](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Utimaco BYOK tool and Integration guide](https://support.hsm.utimaco.com/support/downloads/byok)|
+|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer| Utimaco BYOK tool and Integration guide |
 ||||
 
 

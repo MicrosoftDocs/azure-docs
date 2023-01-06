@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
+ms.reviewer: robb
 ---
 
 # Disk metrics deprecation in the Azure portal

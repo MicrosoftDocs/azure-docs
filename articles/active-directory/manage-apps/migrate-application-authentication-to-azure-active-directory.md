@@ -2,14 +2,14 @@
 title: 'Migrate application authentication to Azure Active Directory'
 description: This whitepaper details the planning for and benefits of migrating your application authentication to Azure AD.
 services: active-directory
-author: davidmu1
+author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: davidmu
+ms.author: celested
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
@@ -265,7 +265,7 @@ The already modernized apps are the most likely to be moved to Azure AD. These a
 
 In addition to the choices in the [Azure AD app gallery,](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) these could be apps that already exist in your organization or any third-party apps from a vendor who is not a part of the Azure AD gallery ([non-gallery applications)](./add-application-portal.md).
 
-Legacy apps that you choose to modernize
+### Legacy apps that you choose to modernize
 
 For legacy apps that you want to modernize, moving to Azure AD for core authentication and authorization unlocks all the power and data-richness that the [Microsoft Graph](https://developer.microsoft.com/graph/gallery/?filterBy=Samples,SDKs) and [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence?rtc=1) have to offer.
 

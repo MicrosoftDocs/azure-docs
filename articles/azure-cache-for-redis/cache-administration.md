@@ -2,9 +2,10 @@
 title: How to administer Azure Cache for Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
 author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/05/2017
+ms.date: 07/22/2021
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -33,11 +34,11 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 :::image type="content" source="media/cache-administration/redis-cache-reboot-cluster-2.png" alt-text="screenshot of shard options":::
 
-To reboot one or more nodes of your cache, select the nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot and then select **Reboot**. After a few minutes, the selected nodes reboot, and are back online a few minutes later.
+To reboot one or more nodes of your cache, select the nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot, and then select **Reboot**. After a few minutes, the selected nodes reboot, and are back online a few minutes later.
 
 The effect on your client applications varies depending on which nodes you reboot.
 
-* **Master** - When the primary node is rebooted, Azure Cache for Redis fails over to the replica node and promotes it to primary. During this failover, there may be a short interval in which connections may fail to the cache.
+* **Primary** - When the primary node is rebooted, Azure Cache for Redis fails over to the replica node and promotes it to primary. During this failover, there may be a short interval in which connections may fail to the cache.
 * **Replica** - When the replica node is rebooted, there's typically no effect on the cache clients.
 * **Both primary and replica** - When both cache nodes are rebooted, you lose all data in the cache and connections to the cache fail until the primary node comes back online. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup is restored when the cache comes back online. However, any cache writes that occurred after the most recent backup are lost.
 * **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a non-clustered cache.
@@ -52,7 +53,7 @@ The effect on your client applications varies depending on which nodes you reboo
 
 ### Which node should I reboot to test my application?
 
-To test the resiliency of your application against failure of the primary node of your cache, reboot the **Master** node. To test the resiliency of your application against failure of the replica node, reboot the **Replica** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
+To test the resiliency of your application against failure of the primary node of your cache, reboot the **Primary** node. To test the resiliency of your application against failure of the replica node, reboot the **Replica** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
 
 ### Can I reboot the cache to clear client connections?
 
@@ -65,7 +66,7 @@ Yes, if you reboot the cache, all client connections are cleared. Rebooting can 
 
 ### Will I lose data from my cache if I do a reboot?
 
-If you reboot both the **Master** and **Replica** nodes, all data in the cache (or in that shard when you're using a premium cache with clustering enabled) might be lost. However, the data might not be lost either. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup is restored when the cache comes back online. However, any cache writes that have occurred after the backup was made are lost.
+If you reboot both the **Primary** and **Replica** nodes, all data in the cache (or in that shard when you're using a premium cache with clustering enabled) might be lost. However, the data might not be lost either. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup is restored when the cache comes back online. However, any cache writes that have occurred after the backup was made are lost.
 
 If you reboot just one of the nodes, data isn't typically lost, but it still might be. For example if the primary node is rebooted and a cache write is in progress, the data from the cache write is lost. Another scenario for data loss would be if you reboot one node and the other node happens to go down because of a failure at the same time. For more information about possible causes for data loss, see [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
@@ -106,7 +107,7 @@ If you don't specify a maintenance window, updates can be made at any time.
 
 ### What type of updates are made during the scheduled maintenance window?
 
-Only Redis server updates are made during the scheduled maintenance window. The maintenance window doesn't apply to Azure updates or updates to the VM operating system.
+Only Redis server updates are made during the scheduled maintenance window. The maintenance window doesn't apply to Azure updates or updates to the host operating system.
 
 ### Can I manage scheduled updates using PowerShell, CLI, or other management tools?
 

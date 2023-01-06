@@ -2,13 +2,13 @@
 title: Use Event Grid for App Configuration data change notifications
 description: Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: alkemper 
+ms.author: malev 
 ms.custom: devx-track-azurecli
 
 

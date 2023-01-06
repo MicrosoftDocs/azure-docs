@@ -1,6 +1,5 @@
 ---
-title: Run automated integration tests 
-titleSuffix: Microsoft identity platform
+title: Run automated integration tests
 description: Learn how to run automated integration tests as a user against APIs protected by the Microsoft identity platform. Use the Resource Owner Password Credential Grant (ROPC) auth flow to sign in as a user instead of automating the interactive sign-in prompt UI.
 services: active-directory
 author: arcrowe
@@ -73,7 +72,7 @@ ROPC is a public client flow, so you need to enable your app for public client f
 
 Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  Pre-consent to the permissions to avoid errors when acquiring tokens.
 
-Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.  
+Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.
 
 From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
 
@@ -107,7 +106,7 @@ Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of
 Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
-1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional access**.
+1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
 1. In **Policies**, select the conditional access policy that requires MFA.
 1. Select **Users or workload identities**.
 1. Select the **Exclude** tab and then the **Users and groups** checkbox.
@@ -133,16 +132,16 @@ Add the client ID of the test app you previously created, the necessary scopes, 
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic", //Will be different for different Azure clouds, like US Gov
-    "AadAuthorityAudience": "AzureAdMultipleOrgs", 
+    "AadAuthorityAudience": "AzureAdMultipleOrgs",
     "ClientId": <your_client_ID>
   },
 
   "WebAPI": {
     "Scopes": [
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
-      "https://graph.microsoft.com/User.Read",  
+      "https://graph.microsoft.com/User.Read",
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
-      "https://graph.microsoft.com/User.ReadBasic.All"  
+      "https://graph.microsoft.com/User.ReadBasic.All"
     ]
   },
 
@@ -176,56 +175,56 @@ using System;
 
 public class ClientFixture : IAsyncLifetime
 {
-public HttpClient httpClient;
+    public HttpClient httpClient;
 
-public async Task InitializeAsync()
-{
-    var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
+    public async Task InitializeAsync()
+    {
+        var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
 
-    IConfigurationRoot Configuration = builder.Build();
+        IConfigurationRoot Configuration = builder.Build();
 
-            var PublicClientApplicationOptions = new PublicClientApplicationOptions();
-            Configuration.Bind("Authentication", PublicClientApplicationOptions);
-            var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
-                .Build();
+        var PublicClientApplicationOptions = new PublicClientApplicationOptions();
+        Configuration.Bind("Authentication", PublicClientApplicationOptions);
+        var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
+            .Build();
 
-            SecretClientOptions options = new SecretClientOptions()
-            {
-                Retry =
+        SecretClientOptions options = new SecretClientOptions()
+        {
+            Retry =
                 {
                     Delay= TimeSpan.FromSeconds(2),
                     MaxDelay = TimeSpan.FromSeconds(16),
                     MaxRetries = 5,
                     Mode = RetryMode.Exponential
                  }
-            };
+        };
 
-            string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri"); 
-            var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
+        string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri");
+        var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
 
-            KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");        
-            KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
+        KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");
+        KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
 
-            string password = passwordSecret.Value;
-            string username = userNameSecret.Value;
-            string[] scopes = Configuration.GetSection( "WebAPI:Scopes").Get<string[]>();
-            SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+        string password = passwordSecret.Value;
+        string username = userNameSecret.Value;
+        string[] scopes = Configuration.GetSection("WebAPI:Scopes").Get<string[]>();
+        SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
-            AuthenticationResult result = null;
-            httpClient = new HttpClient();
+        AuthenticationResult result = null;
+        httpClient = new HttpClient();
 
-    try
-    {
-        result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
-            .ExecuteAsync();
+        try
+        {
+            result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
+                .ExecuteAsync();
+        }
+        catch (MsalException) { }
+
+        string accessToken = result.AccessToken;
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
     }
-    catch (MsalException) { }
 
-    string accessToken = result.AccessToken;
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
-}
-
-public Task DisposeAsync() => Task.CompletedTask;
+    public Task DisposeAsync() => Task.CompletedTask;
 }
 ```
 
@@ -236,21 +235,20 @@ The following example is a test that calls Microsoft Graph.  Replace this test w
 ```csharp
 public class ApiTests : IClassFixture<ClientFixture>
 {
-ClientFixture clientFixture;
+    ClientFixture clientFixture;
 
-public ApiTests(ClientFixture clientFixture)
-{
-    this.clientFixture = clientFixture;
-}
+    public ApiTests(ClientFixture clientFixture)
+    {
+        this.clientFixture = clientFixture;
+    }
 
-
-[Fact]
-public async Task GetRequestTest()
-{
-    var testClient = clientFixture.httpClient;
-    HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
-    var responseCode = response.StatusCode.ToString();
-    Assert.Equal("OK", responseCode);
-}
+    [Fact]
+    public async Task GetRequestTest()
+    {
+        var testClient = clientFixture.httpClient;
+        HttpResponseMessage response = await testClient.GetAsync("https://graph.microsoft.com/v1.0/me");
+        var responseCode = response.StatusCode.ToString();
+        Assert.Equal("OK", responseCode);
+    }
 }
 ```

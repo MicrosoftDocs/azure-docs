@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 09/16/2022
 ---
 
 # Object functions for ARM templates
@@ -13,6 +13,7 @@ Resource Manager provides several functions for working with objects in your Azu
 * [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
+* [items](#items)
 * [json](#json)
 * [length](#length)
 * [null](#null)
@@ -162,6 +163,146 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+## items
+
+`items(object)`
+
+Converts a dictionary object to an array.
+
+In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| object |Yes |object |The dictionary object to convert to an array. |
+
+### Return value
+
+An array of objects for the converted dictionary. Each object in the array has a `key` property that contains the key value for the dictionary. Each object also has a `value` property that contains the properties for the object.
+
+### Example
+
+The following example converts a dictionary object to an array. For each object in the array, it creates a new object with modified values.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "copy": [
+      {
+        "name": "modifiedListOfEntities",
+        "count": "[length(items(variables('entities')))]",
+        "input": {
+          "key": "[items(variables('entities'))[copyIndex('modifiedListOfEntities')].key]",
+          "fullName": "[items(variables('entities'))[copyIndex('modifiedListOfEntities')].value.displayName]",
+          "itemEnabled": "[items(variables('entities'))[copyIndex('modifiedListOfEntities')].value.enabled]"
+        }
+      }
+    ],
+    "entities": {
+      "item002": {
+        "enabled": false,
+        "displayName": "Example item 2",
+        "number": 200
+      },
+      "item001": {
+        "enabled": true,
+        "displayName": "Example item 1",
+        "number": 300
+      }
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "modifiedResult": {
+      "type": "array",
+      "value": "[variables('modifiedListOfEntities')]"
+    }
+  }
+}
+```
+
+The preceding example returns:
+
+```json
+"modifiedResult": {
+  "type": "Array",
+  "value": [
+    {
+      "fullName": "Example item 1",
+      "itemEnabled": true,
+      "key": "item001"
+    },
+    {
+      "fullName": "Example item 2",
+      "itemEnabled": false,
+      "key": "item002"
+    }
+  ]
+}
+```
+
+The following example shows the array that is returned from the items function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "entities": {
+      "item002": {
+        "enabled": false,
+        "displayName": "Example item 2",
+        "number": 200
+      },
+      "item001": {
+        "enabled": true,
+        "displayName": "Example item 1",
+        "number": 300
+      }
+    },
+    "entitiesArray": "[items(variables('entities'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "itemsResult": {
+      "type": "array",
+      "value": "[variables('entitiesArray')]"
+    }
+  }
+}
+```
+
+The example returns:
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
+    }
+  ]
+}
+```
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 <a id="json"></a>
 

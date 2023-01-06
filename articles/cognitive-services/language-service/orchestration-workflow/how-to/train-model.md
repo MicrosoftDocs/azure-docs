@@ -1,51 +1,99 @@
 ---
-title: How to train and evaluate models in orchestration workflow projects
+title: How to train and evaluate models in orchestration workflow
+description: Learn how to train a model for orchestration workflow projects.
 titleSuffix: Azure Cognitive Services
-description: Use this article to train an orchestration model and view its evaluation details to make improvements.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 05/20/2022
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---
 
-# Train and evaluate orchestration workflow models
+# Train your orchestration workflow model
 
-After you have completed [tagging your utterances](./tag-utterances.md), you can train your model. Training is the act of converting the current state of your project's training data to build a model that can be used for predictions. Every time you train, you have to name your training instance. 
+Training is the process where the model learns from your [labeled utterances](tag-utterances.md). After training is completed, you will be able to [view model performance](view-model-evaluation.md).
 
-You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
+To train a model, start a training job. Only successfully completed jobs create a model. Training jobs expire after seven days, after this time you will no longer be able to retrieve the job details. If your training job completed successfully and a model was created, it won't be affected by the job expiring. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
-The training times can be anywhere from a few seconds, up to a couple of hours when you reach high numbers of utterances.
+The training times can be anywhere from a few seconds when dealing with simple projects, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances.
 
-## Train model
+Model evaluation is triggered automatically after training is completed successfully. The evaluation process starts by using the trained model to run predictions on the utterances in the testing set, and compares the predicted results with the provided labels (which establishes a baseline of truth). The results are returned so you can review the [model’s performance](view-model-evaluation.md).
 
-Select **Train model** on the left of the screen. Select **Start a training job** from the top menu.
+## Prerequisites
 
-Enter a new model name or select an existing model from the **Model Name** dropdown. 
+* A successfully [created project](create-project.md) with a configured Azure blob storage account
 
-:::image type="content" source="../media/train-orchestration.png" alt-text="A screenshot showing the Train model page for Orchestration workflow projects." lightbox="../media/train-orchestration.png":::
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page. Only successfully completed jobs will generate models.
+## Data splitting
 
-## Evaluate model
+Before you start the training process, labeled utterances in your project are divided into a training set and a testing set. Each one of them serves a different function.
+The **training set** is used in training the model, this is the set from which the model learns the labeled utterances. 
+The **testing set** is a blind set that isn't introduced to the model during training but only during evaluation. 
 
-After model training is completed, you can view your model details and see how well it performs against the test set in the training step. Observing how well your model performed is called evaluation. The test set is composed of 20% of your utterances, and this split is done at random before training. The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 utterances in your training set.
+After the model is trained successfully, the model can be used to make predictions from the utterances in the testing set. These predictions are used to calculate [evaluation metrics](../concepts/evaluation-metrics.md).
 
-In the **view model details** page, you'll be able to see all your models, with their score. Scores are only available if you have enabled evaluation before hand.
+It is recommended to make sure that all your intents are adequately represented in both the training and testing set.
 
-* Click on the model name for more details. A model name is only clickable if you've enabled evaluation before hand. 
-* In the **Overview** section you can find the macro precision, recall and F1 score for the collective intents. 
-* Under the **Intents** tab you can find the micro precision, recall and F1 score for each intent separately.
+Orchestration workflow supports two methods for data splitting:
 
-> [!NOTE]
-> If you don't see any of the intents you have in your model displayed here, it is because they weren't in any of the utterances that were used for the test set.
+* **Automatically splitting the testing set from training data**: The system will split your tagged data between the training and testing sets, according to the percentages you choose. The recommended percentage split is 80% for training and 20% for testing. 
 
-You can view the [confusion matrix](../concepts/evaluation-metrics.md) for intents by clicking on the **Test set confusion matrix** tab at the top fo the screen. 
+ > [!NOTE]
+ > If you choose the **Automatically splitting the testing set from training data** option, only the data assigned to training set will be split according to the percentages provided.
+
+* **Use a manual split of training and testing data**: This method enables users to define which utterances should belong to which set. This step is only enabled if you have added utterances to your testing set during [labeling](tag-utterances.md).
+
+> [!Note]
+> You can only add utterances in the training dataset for non-connected intents only.
+
+
+## Train model 
+
+### Start training job
+
+#### [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Train model](../includes/language-studio/train-model.md)]
+
+#### [REST APIs](#tab/rest-api)
+
+[!INCLUDE [train model](../includes/rest-api/train-model.md)]
+
+---
+
+### Get training job status
+
+#### [Language Studio](#tab/language-studio)
+
+Click on the Training Job ID from the list, a side pane will appear where you can check the **Training progress**, **Job status**, and other details for this job.
+
+<!--:::image type="content" source="../../../media/train-pane.png" alt-text="A screenshot showing the training job details." lightbox="../../../media/train-pane.png":::-->
+
+
+#### [REST APIs](#tab/rest-api)
+
+Training could take sometime depending on the size of your training data and complexity of your schema. You can use the following request to keep polling the status of the training job until it is successfully completed.
+
+[!INCLUDE [get training model status](../includes/rest-api/get-training-status.md)]
+
+---
+### Cancel training job
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Cancel training](../includes/language-studio/cancel-training.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Cancel training](../includes/rest-api/cancel-training.md)]
+
+---
 
 ## Next steps
-* [Model evaluation metrics](../concepts/evaluation-metrics.md)
-* [Deploy and query the model](./deploy-query-model.md)
+* [Model evaluation metrics concepts](../concepts/evaluation-metrics.md)
+* How to [deploy a model](./deploy-model.md)

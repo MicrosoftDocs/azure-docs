@@ -29,7 +29,8 @@ In general, ingress rates are viewed as the factor of the number of devices that
 
 * **Number of devices** × **Event emission frequency** × **Size of each event**.
 
-By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
+By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) or 1000 events stored per second per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Depending on how you've modeled your data, arrays of objects can be split into multiple events stored: [How to know if my array of objects will produce multiple events
+](./concepts-json-flattening-escaping-rules.md#how-to-know-if-my-array-of-objects-will-produce-multiple-events).
 
 > [!TIP]
 >
@@ -65,7 +66,8 @@ For Event Hubs partitioning best practices, review [How many partitions do I nee
 
 Whether you're creating a new hub for your Azure Time Series Insights Gen2 environment or using an existing one, you'll need to calculate your per partition ingestion rate to determine if it's within the limits.
 
-Azure Time Series Insights Gen2 currently has a general **per partition limit of 0.5 MBps**.
+Azure Time Series Insights Gen2 currently has a general **per partition limit of 0.5 MBps or 500 events stored per second**. Depending on how you've modeled your data, arrays of objects can be split into multiple events stored: [How to know if my array of objects will produce multiple events
+](./concepts-json-flattening-escaping-rules.md#how-to-know-if-my-array-of-objects-will-produce-multiple-events).
 
 ### IoT Hub-specific considerations
 

@@ -3,7 +3,7 @@ title: Azure CLI samples for virtual network
 description: Learn about various sample scripts you can use for completing tasks in the Azure CLI, including creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
 manager: mtillman
 editor: ''
 tags:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/15/2019
-ms.author: mbender 
+ms.author: allensu 
 ms.custom: devx-track-azurecli
 
 ---
@@ -29,4 +29,4 @@ The following table includes links to bash scripts with Azure CLI commands:
 | [Filter inbound and outbound VM network traffic](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, HTTPS, and SSH. Outbound traffic to the internet from the back-end subnet is not permitted. |
 |[Configure IPv4 + IPv6 dual stack virtual network with Basic Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Deploys dual-stack (IPv4+IPv6) virtual network with two VMs and an Azure Basic Load Balancer with IPv4 and IPv6 public IP addresses. |
 |[Configure IPv4 + IPv6 dual stack virtual network with Standard Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Deploys dual-stack (IPv4+IPv6) virtual network with two VMs and an Azure Standard Load Balancer with IPv4 and IPv6 public IP addresses. |
-|[Tutorial: Create and test a NAT gateway - Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md)|Create and validate a NAT gateway using a virtual machine. |
+|[Quickstart: Create and test a NAT gateway - Azure CLI](../virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md)|Create and validate a NAT gateway using a virtual machine. |

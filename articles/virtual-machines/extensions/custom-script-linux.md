@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
+ms.custom: GGAL-freshness822
 author: MsGabsta
 ms.collection: linux
 ms.date: 04/25/2018
@@ -249,7 +250,7 @@ To use the user-assigned identity on the target VM or virtual machine scale set,
 > The `managedIdentity` property *must not* be used in conjunction with the `storageAccountName` or `storageAccountKey` property.
 
 ## Template deployment
-You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
 
 ```json
@@ -379,7 +380,7 @@ az vm extension set \
 
 If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the SAS token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account's SAS token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
 
-We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension), or an [Azure Resource Manager template](/azure/templates/microsoft.compute/virtualmachinescalesets/extensions) when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0&preserve-view=true), the [Azure CLI](/cli/azure/vmss/extension), or an [Azure Resource Manager template](/azure/templates/microsoft.compute/virtualmachinescalesets/extensions) when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
@@ -501,6 +502,10 @@ The output looks like the following text:
   }
 ]
 ```
+
+#### Azure CLI syntax issues
+
+[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
 
 ## Next steps
 To see the code, current issues, and versions, go to the [custom-script-extension-linux repo on GitHub](https://github.com/Azure/custom-script-extension-linux).

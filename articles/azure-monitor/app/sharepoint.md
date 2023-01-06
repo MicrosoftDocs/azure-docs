@@ -3,6 +3,7 @@ title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 ms.topic: conceptual
 ms.date: 09/08/2020
+ms.reviewer: newylie
 ---
 
 # Monitor a SharePoint site with Application Insights
@@ -78,7 +79,7 @@ Insert a web part and embed the code snippet in it.
 ## View data about your app
 Redeploy your app.
 
-Return to your application blade in the [Azure portal](https://portal.azure.com).
+Return to your application pane in the [Azure portal](https://portal.azure.com).
 
 The first events will appear in Search. 
 

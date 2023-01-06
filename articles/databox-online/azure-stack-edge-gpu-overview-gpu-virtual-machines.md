@@ -7,20 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/05/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
 
 # GPU virtual machines for Azure Stack Edge Pro GPU devices
 
-[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+[!INCLUDE [applies-to-gpu-pro2-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU virtual machine. This article provides an overview of GPU VMs, including supported OSs, GPU drivers, and VM sizes. Deployment options for GPU VMs used with Kubernetes clusters also are discussed.
 
 ## About GPU VMs
 
-Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
+Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 or Tensor Core A2 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes. The GPU VM chosen should match with the make of the GPU on your Azure Stack Edge device. For more information, see [Supported N series GPU optimized VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
 
 To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU drivers must be installed. The Nvidia GPU driver extension installs appropriate Nvidia CUDA or GRID drivers. You can [install the GPU extensions using templates or via the Azure portal](#gpu-vm-deployment).
 

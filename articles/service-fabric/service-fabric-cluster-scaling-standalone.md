@@ -2,8 +2,13 @@
 title: Azure Service Fabric standalone cluster scaling 
 description: Learn about scaling Service Fabric standalone clusters in or out and up or down.
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Scaling Service Fabric standalone clusters
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes).  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
@@ -15,7 +20,7 @@ Changes the number of nodes in the cluster.  Once the new nodes join the cluster
 - Advantages: Infinite scale, in theory.  If your application is designed for scalability, you can enable limitless growth by adding more nodes.  The tooling in cloud environments makes it easy to add or remove nodes, so it's easy to adjust capacity and you only pay for the resources you use.  
 - Disadvantages: Applications must be [designed for scalability](service-fabric-concepts-scalability.md).  Application databases and persistence may require additional architectural work to scale as well.  [Reliable collections](service-fabric-reliable-services-reliable-collections.md) in Service Fabric stateful services, however, make it much easier to scale your application data.
 
-Standalone clusters allow you to deploy Service Fabric cluster on-premises or in the cloud provider of your choice.  Node types are comprised of physical machines or virtual machines, depending on your deployment. Compared to clusters running in Azure, the process of scaling a standalone cluster is a little more involved.  You must manually change the number of nodes in the cluster and then run a cluster configuration upgrade.
+Standalone clusters allow you to deploy Service Fabric cluster on-premises or in the cloud provider of your choice.  Node types are composed of physical machines or virtual machines, depending on your deployment. Compared to clusters running in Azure, the process of scaling a standalone cluster is a little more involved.  You must manually change the number of nodes in the cluster and then run a cluster configuration upgrade.
 
 Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of three primary node type nodes.
 

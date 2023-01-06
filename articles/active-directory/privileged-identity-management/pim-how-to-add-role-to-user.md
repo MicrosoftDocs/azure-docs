@@ -3,15 +3,15 @@ title: Assign Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
@@ -94,31 +94,35 @@ For certain roles, the scope of the granted permissions can be restricted to a s
 
 For more information about creating administrative units, see [Add and remove administrative units](../roles/admin-units-manage.md).
 
-## Assign a role using Graph API
+## Assign a role using Microsoft Graph API
+
+For more information about Microsoft Graph APIs for PIM, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
 For permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md). 
 
 ### Eligible with no end date
 
-The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+The following is a sample HTTP request to create an eligible assignment with no end date. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleEligibilityScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests).
 
 #### HTTP request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests
+Content-Type: application/json
 
-    "action": "AdminAssign", 
-    "justification": "abcde", 
-    "directoryScopeId": "/", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:08.941Z", 
-        "expiration": { 
-            "type": "NoExpiration"        } 
-    } 
-{ 
-} 
+{
+    "action": "adminAssign",
+    "justification": "Permanently assign the Global Reader to the auditor",
+    "roleDefinitionId": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "noExpiration"
+        }
+    }
+}
 ````
 
 #### HTTP response
@@ -126,69 +130,72 @@ POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilitySc
 The following is an example of the response. The response object shown here might be shortened for readability.
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
-    "id": "<schedule-ID-GUID>", 
-    "status": "Provisioned", 
-    "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
-    "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
-    "approvalId": null, 
-    "customData": null, 
-    "action": "AdminAssign", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "appScopeId": null, 
-    "isValidationOnly": false, 
-    "targetScheduleId": "<schedule-ID-GUID>", 
-    "justification": "test", 
-    "createdBy": { 
-        "application": null, 
-        "device": null, 
-        "user": { 
-            "displayName": null, 
-            "id": "<user-ID-GUID>" 
-        } 
-    }, 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:47:42.4376681Z", 
-        "recurrence": null, 
-        "expiration": { 
-            "type": "noExpiration", 
-            "endDateTime": null, 
-            "duration": null 
-        } 
-    }, 
-    "ticketInfo": { 
-        "ticketNumber": null, 
-        "ticketSystem": null 
-    } 
-}   
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity",
+    "id": "42159c11-45a9-4631-97e4-b64abdd42c25",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T13:40:33.2364309Z",
+    "completedDateTime": "2022-05-13T13:40:34.6270851Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminAssign",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "f2ef992c-3afb-46b9-b7cf-a126ee74c451",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "42159c11-45a9-4631-97e4-b64abdd42c25",
+    "justification": "Permanently assign the Global Reader to the auditor",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T13:40:34.6270851Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "noExpiration",
+            "endDateTime": null,
+            "duration": null
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
 ````
 
 ### Active and time-bound
 
-The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
+The following is a sample HTTP request to create an active assignment that's time-bound. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleAssignmentScheduleRequests](/graph/api/rbacapplication-post-roleassignmentschedulerequests).
 
 #### HTTP request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests 
 
-{ 
-    "action": "AdminAssign", 
-    "justification": "abcde", 
-    "directoryScopeId": "/", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:08.941Z", 
-        "expiration": { 
-            "type": "AfterDuration", 
-            "duration": "PT3H" 
-        } 
-    } 
-} 
+{
+    "action": "adminAssign",
+    "justification": "Assign the Exchange Recipient Administrator to the mail admin",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "afterDuration",
+            "duration": "PT3H"
+        }
+    }
+}
 ````
 
 #### HTTP response
@@ -196,44 +203,44 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSch
 The following is an example of the response. The response object shown here might be shortened for readability.
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
-    "id": "<schedule-ID-GUID>", 
-    "status": "Provisioned", 
-    "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
-    "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
-    "approvalId": null, 
-    "customData": null, 
-    "action": "AdminAssign", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "appScopeId": null, 
-    "isValidationOnly": false, 
-    "targetScheduleId": "<schedule-ID-GUID>", 
-    "justification": "test", 
-    "createdBy": { 
-        "application": null, 
-        "device": null, 
-        "user": { 
-            "displayName": null, 
-            "id": "<user-ID-GUID>" 
-        } 
-    }, 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:11.4437343Z", 
-        "recurrence": null, 
-        "expiration": { 
-            "type": "afterDuration", 
-            "endDateTime": null, 
-            "duration": "PT3H" 
-        } 
-    }, 
-    "ticketInfo": { 
-        "ticketNumber": null, 
-        "ticketSystem": null 
-    } 
-} 
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity",
+    "id": "ac643e37-e75c-4b42-960a-b0fc3fbdf4b3",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T14:01:48.0145711Z",
+    "completedDateTime": "2022-05-13T14:01:49.8589701Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminAssign",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "ac643e37-e75c-4b42-960a-b0fc3fbdf4b3",
+    "justification": "Assign the Exchange Recipient Administrator to the mail admin",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T14:01:49.8589701Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDuration",
+            "endDateTime": null,
+            "duration": "PT3H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
 ````
 
 ## Update or remove an existing role assignment
@@ -254,14 +261,14 @@ Follow these steps to update or remove an existing role assignment. **Azure AD P
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
 
-## Remove eligible assignment via API
+## Remove eligible assignment via Microsoft Graph API
+
+The following is a sample HTTP request to revoke an eligible assignment to a role from a principal. For details on the API commands including request samples in languages such as C# and JavaScript, see [Create roleEligibilityScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests).
 
 ### Request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests 
-
- 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests 
 
 { 
     "action": "AdminRemove", 
@@ -276,7 +283,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySc
 
 ````HTTP
 { 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
     "id": "fc7bb2ca-b505-4ca7-ad2a-576d152633de", 
     "status": "Revoked", 
     "createdDateTime": "2021-07-15T20:23:23.85453Z", 

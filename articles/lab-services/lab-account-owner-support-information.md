@@ -29,7 +29,7 @@ The support information includes:
     1. Enter detailed **support instructions** (optional). Lab owners and users will see this text along with the support contact information. URLs will be automatically turned into links.
     1. Select **Save** on the toolbar.
 
-        :::image type="content" source="./media/lab-account-owner-support-information/internal-support-page.png" alt-text="Screenshot of Internal support page.":::
+        :::image type="content" source="./media/lab-account-owner-support-information/lab-account-internal-support-page.png" alt-text="Screenshot of the Internal support page.":::
 
 ## Next steps
 

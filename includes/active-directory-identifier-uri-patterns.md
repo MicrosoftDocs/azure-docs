@@ -1,7 +1,7 @@
 ---
 author: madansr7
 ms.author: saumadan
-ms.date: 04/05/2022
+ms.date: 08/22/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
@@ -30,3 +30,6 @@ The following API and HTTP scheme-based application ID URI formats are supported
 > [!NOTE]
 > If you use the _api://_ scheme, you add a string value directly after the "api://". For example, _api://\<string\>_.  That string value can be a GUID or an arbitrary string.  If you add a GUID value, it must match either the app ID or the tenant ID. The application ID URI value must be unique for your tenant.
 > If you add _api://\<tenantId\>_ as the application ID URI, no one else will be able to use that URI in any other app. The recommendation is to use _api://\<appId\>_, instead, or the HTTP scheme.
+
+> [!IMPORTANT]
+> The application ID URI value must not end with a slash "/" character.

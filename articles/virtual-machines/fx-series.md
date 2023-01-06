@@ -1,12 +1,12 @@
 ---
 title: FX-series
 description: Specifications for the FX-series VMs.
-author: brbell
+author: priyashan-19
 ms.service: virtual-machines
-ms.subservice: vm-sizes-compute
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 06/10/2021
-ms.author: jushiman
+ms.date: 12/20/2022
+ms.author: priyashan
 ---
 
 # FX-series

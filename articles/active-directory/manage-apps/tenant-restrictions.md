@@ -1,16 +1,14 @@
 ---
 title: Use tenant restrictions to manage access to SaaS apps
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
-titleSuffix: Azure AD
-author: davidmu1
+author: vimrang
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/6/2021
-ms.author: davidmu
-ms.reviewer: ludwignick
+ms.author: vranganathan
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q3 
 ---
@@ -205,7 +203,7 @@ For specific details, refer to your proxy server documentation.
 
 ## Blocking consumer applications
 
-Applications from Microsoft that support both consumer accounts and organizational accounts, like OneDrive or Microsoft Learn can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
+Applications from Microsoft that support both consumer accounts and organizational accounts such as OneDrive can sometimes be hosted on the same URL. This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 
 Some organizations attempt to fix this by blocking `login.live.com` in order to block personal accounts from authenticating.  This has several downsides:
 

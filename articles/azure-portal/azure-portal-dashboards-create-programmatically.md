@@ -107,7 +107,7 @@ Once you've configured your template, deploy it using any of the following metho
 
 - [REST APIs](/rest/api/resources/deployments)
 - [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-- [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
+- [Azure CLI](/cli/azure/deployment/group#az-deployment-group-create)
 - [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 
 Next you'll see two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any virtual machine and deployed using Azure Resource Manager.

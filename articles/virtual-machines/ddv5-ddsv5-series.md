@@ -1,12 +1,11 @@
 ---
 title: Ddv5 and Ddsv5-series - Azure Virtual Machines
 description: Specifications for the Ddv5 and Ddsv5-series VMs.
-author: joelpelley
-ms.author: joelpell
-ms.reviewer: joelpell
+author: andysports8
+ms.author: shuji
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---
@@ -29,14 +28,14 @@ Ddv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br> 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2d_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | 12500 |
+| Standard_D2d_v5 | 2  | 8   | 75   | 4  | 9000/125    | 2 | 12500 |
 | Standard_D4d_v5               | 4  | 16  | 150  | 8  | 19000/250   | 2 | 12500 |
 | Standard_D8d_v5               | 8  | 32  | 300  | 16 | 38000/500   | 4 | 12500 |
 | Standard_D16d_v5              | 16 | 64  | 600  | 32 | 75000/1000  | 8 | 12500 |
@@ -47,7 +46,6 @@ Ddv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.
 
 ## Ddsv5-series
 
@@ -60,7 +58,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)<sup>1</sup>: Required <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br> 
@@ -68,7 +66,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3750/85     | 10000/1200 | 2 | 12500 |
+| Standard_D2ds_v5 | 2  | 8   | 75   | 4  | 9000/125    | 3750/85     | 10000/1200 | 2 | 12500 |
 | Standard_D4ds_v5               | 4  | 16  | 150  | 8  | 19000/250   | 6400/145    | 20000/1200 | 2 | 12500 |
 | Standard_D8ds_v5               | 8  | 32  | 300  | 16 | 38000/500   | 12800/290   | 20000/1200 | 4 | 12500 |
 | Standard_D16ds_v5              | 16 | 64  | 600  | 32 | 75000/1000  | 25600/600   | 40000/1200 | 8 | 12500 |
@@ -79,8 +77,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 virtual machines.<br>
-<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Ddsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>2</sup> Ddsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

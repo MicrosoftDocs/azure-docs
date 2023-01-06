@@ -12,7 +12,7 @@ services: iot-edge
 
 # Properties of the IoT Edge agent and IoT Edge hub module twins
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about the responsibilities of each runtime module, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -51,7 +51,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Yes |
+| modules.{moduleId}.restartPolicy | {"never" \| "always"} | Yes |
 | modules.{moduleId}.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
 | modules.{moduleId}.env | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}` | No |
@@ -106,7 +106,7 @@ The module twin for the IoT Edge hub is called `$edgeHub` and coordinates the co
 | -------- | ----------- | -------- |
 | schemaVersion | Either "1.0" or "1.1". Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes |
 | routes.{routeName} | A string representing an IoT Edge hub route. For more information, see [Declare routes](module-composition.md#declare-routes). | The `routes` element can be present but empty. |
-| storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. The value can be any positive integer. | Yes |
+| storeAndForwardConfiguration.timeToLiveSecs | The device time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. This time persists over any power offs or restarts. For more information, see [Offline capabilities](offline-capabilities.md#time-to-live). | Yes |
 
 ## EdgeHub reported properties
 

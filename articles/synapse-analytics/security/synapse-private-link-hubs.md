@@ -1,12 +1,12 @@
 ---
 title: Connect to a Synapse Studio using private links
 description: This article will teach you how to connect to your Azure Synapse Studio using private links
-author: nanditavalsan 
+author: WilliamDAssafMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security 
 ms.date: 12/01/2020 
-ms.author: NanditaV
+ms.author: wiassaf
 ms.reviewer: sngun
 ---
 

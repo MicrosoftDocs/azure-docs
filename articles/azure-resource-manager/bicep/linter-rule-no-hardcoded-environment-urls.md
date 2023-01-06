@@ -17,7 +17,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Instead of hard-coding URLs in your Bicep file, use the [environment function](../templates/template-functions-deployment.md#environment) to dynamically get these URLs during deployment. The environment function returns different URLs based on the cloud environment you're deploying to.
+Instead of hard-coding URLs in your Bicep file, use the [environment function](bicep-functions-deployment.md#environment) to dynamically get these URLs during deployment. The environment function returns different URLs based on the cloud environment you're deploying to.
 
 The following example fails this test because the URL is hardcoded.
 

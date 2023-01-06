@@ -114,7 +114,7 @@ You can use the following combinations of authorization and Azure Storage types:
 
 ## Firewall protected storage
 
-You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
+You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances).
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
 > [!NOTE]

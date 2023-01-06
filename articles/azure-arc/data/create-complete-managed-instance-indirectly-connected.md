@@ -1,20 +1,19 @@
 ---
-title: Quickstart - Deploy Azure Arc-enabled data services - indirectly connected mode - Azure CLI
-description: Demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from beginning, including a Kubernetes cluster. Uses Azure CLI. Finishes with an instance of Azure SQL Managed Instance.
+title: Quickstart - Deploy Azure Arc-enabled data services
+description: Quickstart - deploy Azure Arc-enabled data services in indirectly connected mode. Includes a Kubernetes cluster. Uses Azure CLI.
 author: MikeRayMSFT
 ms.author: mikeray
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
+ms.subservice: azure-arc-data
 ms.topic: quickstart 
-ms.date: 12/09/2021
+ms.date: 09/20/2022
 ms.custom: template-quickstart , devx-track-azurecli
 ---
 
 # Quickstart: Deploy Azure Arc-enabled data services - indirectly connected mode - Azure CLI
 
-This article demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from with the Azure CLI.
-
-To deploy in directly connected mode, see [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md).
+In this quickstart, you will deploy Azure Arc-enabled data services in indirectly connected mode from with the Azure CLI.
 
 When you complete the steps in this article, you will have:
 
@@ -25,11 +24,14 @@ When you complete the steps in this article, you will have:
 
 Use these objects to experience Azure Arc-enabled data services. 
 
-Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL Hyperscale data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
+Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL server data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
 
-## Install client tools
+## Prerequisites
 
-First, install the [client tools](install-client-tools.md) needed on your machine. To complete the steps in this article, you will use the following tools:
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+To complete the task in this article, install the required [client tools](install-client-tools.md). Specifically, you will use the following tools:
+
 * Azure Data Studio
 * The Azure Arc extension for Azure Data Studio
 * Kubernetes CLI
@@ -48,7 +50,7 @@ The environment variables include passwords for log and metric services. The pas
 
 Run the following command to set the credential. 
 
-#### [Linux](#tab/linux)
+### [Linux](#tab/linux)
 
 ```console
 export AZDATA_LOGSUI_USERNAME=<username for logs>
@@ -57,7 +59,7 @@ export AZDATA_METRICSUI_USERNAME=<username for metrics>
 export AZDATA_METRICSUI_PASSWORD=<password for metrics>
 ```
 
-#### [Windows / PowerShell](#tab/powershell)
+### [Windows / PowerShell](#tab/powershell)
 
 ```powershell
 $ENV:AZDATA_LOGSUI_USERNAME="<username for logs>"
@@ -99,7 +101,7 @@ Follow the steps below to deploy the cluster from the Azure CLI.
 
    For command details, see [az aks create](/cli/azure/aks#az-aks-create).
 
-   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/kubernetes-walkthrough.md).
+   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md).
 
 1. Get credentials
 
@@ -160,7 +162,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create Azure Arc-enabled SQL Managed Instance
+## Create an instance of Azure Arc-enabled SQL Managed Instance
 
 Now, we can create the Azure MI for indirectly connected mode with the following command: 
 
@@ -181,11 +183,21 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-
 ## Connect to managed instance on Azure Data Studio
 
 To connect with Azure Data Studio, see [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md). 
 
+## Upload usage and metrics to Azure portal
+
+If you wish, you can [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md).
+
+## Clean up resources
+
+After you are done with the resources you created in this article.
+
+Follow the steps in [Delete data controller in indirectly connected mode](uninstall-azure-arc-data-controller.md#delete-data-controller-in-indirectly-connected-mode).
+
 ## Next steps
 
-[Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md).
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md).

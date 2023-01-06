@@ -38,7 +38,7 @@
   items:
   - name: "Learn: Create a subscription governance strategy"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/10-create-subscription-governance-strategy
+    href: /training/modules/build-cloud-governance-strategy-azure/10-create-subscription-governance-strategy
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -60,7 +60,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.resources/#resources
   - name: Azure SDK for .NET
-    href: /dotnet/api/overview/azure/managementgroups
+    href: /dotnet/api/overview/azure/management-groups
   - name: Azure SDK for Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
   - name: Azure SDK for JavaScript

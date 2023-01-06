@@ -192,7 +192,7 @@ void enumerateDeviceIds()
 
     promise.Completed(
         [](winrt::Windows::Foundation::IAsyncOperation<DeviceInformationCollection> const& sender,
-           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */ ) {
+           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */) {
         auto info = sender.GetResults();
         auto num_devices = info.Size();
 
@@ -383,10 +383,7 @@ In JavaScript, the [MediaDevices.enumerateDevices()](https://developer.mozilla.o
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
+- [Explore samples on GitHub](https://aka.ms/csspeech/samples)
 
 - [Customize acoustic models](./how-to-custom-speech-train-model.md)
 - [Customize language models](./how-to-custom-speech-train-model.md)

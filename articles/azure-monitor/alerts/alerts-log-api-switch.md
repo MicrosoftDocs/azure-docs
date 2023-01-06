@@ -9,7 +9,7 @@ ms.date: 2/23/2022
 # Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API
 
 > [!NOTE]
-> This article is only relevant to Azure public (**not** to Azure Government or Azure China cloud).
+> This article is only relevant to Azure public and government clouds (**not** to Azure China cloud).
 
 > [!NOTE]
 > Once a user chooses to switch rules with legacy management to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) it is not possible to revert back to the older [legacy Log Analytics Alert API](./api-alerts.md).
@@ -21,7 +21,7 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 - Manage all log rules in one API.
 - Single template for creation of alert rules (previously needed three separate templates).
 - Single API for all Azure resources log alerting.
-- Support for stateful and 1-minute log alert previews for legacy rules.
+- Support for stateful (preview) and 1-minute log alerts.
 - [PowerShell cmdlets](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell) and [Azure CLI](./alerts-log.md#manage-log-alerts-using-cli) support for switched rules.
 - Alignment of severities with all other alert types and newer rules.
 - Ability to create [cross workspace log alert](../logs/cross-workspace-query.md) that span several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
@@ -35,8 +35,10 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 
 ## Process
 
+View workspaces to upgrade using this [Azure Resource Graph Explorer query](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D~%20%22microsoft.insights%2Fscheduledqueryrules%22%0A%7C%20where%20properties.isLegacyLogAnalyticsRule%20%3D%3D%20true%0A%7C%20distinct%20tolower%28properties.scopes%5B0%5D%29). Open the [link](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D~%20%22microsoft.insights%2Fscheduledqueryrules%22%0A%7C%20where%20properties.isLegacyLogAnalyticsRule%20%3D%3D%20true%0A%7C%20distinct%20tolower%28properties.scopes%5B0%5D%29), select all available subscriptions, and run the query. 
+
 The process of switching isn't interactive and doesn't require manual steps, in most cases. Your alert rules aren't stopped or stalled, during or after the switch.
-Do this call to switch all alert rules associated with the specific Log Analytics workspace:
+Do this call to switch all alert rules associated with each of the Log Analytics workspaces:
 
 ```
 PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -60,7 +62,7 @@ armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>
 You can also use [Azure CLI](/cli/azure/reference-index#az-rest) tool:
 
 ```bash
-az rest --method post --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview --body '{"scheduledQueryRulesEnabled": true}'
+az rest --method put --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview --body "{\"scheduledQueryRulesEnabled\" : true}"
 ```
 
 If the switch is successful, the response is:

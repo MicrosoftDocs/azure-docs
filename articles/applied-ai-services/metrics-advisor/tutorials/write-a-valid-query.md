@@ -15,7 +15,7 @@ main branch.
 
 <!--
 This template provides the basic structure of a tutorial article.
-See the [tutorial guidance](contribute-how-to-mvc-tutorial.md) in the contributor guide.
+See the [tutorial guidance](contribute-how-to-mvc-tutorial.md) in our contributor guide.
 
 To provide feedback on this template contact 
 [the templates workgroup](mailto:templateswg@microsoft.com).

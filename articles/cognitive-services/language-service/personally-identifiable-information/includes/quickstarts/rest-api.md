@@ -1,16 +1,20 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/19/2021
-ms.author: aahi
+ms.date: 10/31/2022
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
+
+Use this quickstart to send Personally Identifiable Information (PII) detection requests using the REST API. In the following example, you will use cURL to identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 
 ## Prerequisites
@@ -18,7 +22,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
@@ -36,49 +40,67 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Personally Identifying Information (PII) detection
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1/entities/recognition/pii \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", language:"en", text: "Call our office at 312-555-1234, or send an email to support@contoso.com"}]}'
+-H "Ocp-Apim-Subscription-Key:<your-language-resource-key>" \
+-d \
+'
+{
+    "kind": "PiiEntityRecognition",
+    "parameters": {
+        "modelVersion": "latest"
+    },
+    "analysisInput":{
+        "documents":[
+            {
+                "id":"1",
+                "language": "en",
+                "text": "Call our office at 312-555-1234, or send an email to support@contoso.com"
+            }
+        ]
+    }
+}
+'
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=PII-detection" target="_target">I ran into an issue</a>
+
 
 ### JSON response
 
 ```json
 {
-   "documents":[
-      {
-         "redactedText":"Call our office at ************, or send an email to *******************",
-         "id":"1",
-         "entities":[
-            {
-               "text":"312-555-1234",
-               "category":"PhoneNumber",
-               "offset":19,
-               "length":12,
-               "confidenceScore":0.8
-            },
-            {
-               "text":"support@contoso.com",
-               "category":"Email",
-               "offset":53,
-               "length":19,
-               "confidenceScore":0.8
-            }
-         ],
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2021-01-15"
+	"kind": "PiiEntityRecognitionResults",
+	"results": {
+		"documents": [{
+			"redactedText": "Call our office at ************, or send an email to *******************",
+			"id": "1",
+			"entities": [{
+				"text": "312-555-1234",
+				"category": "PhoneNumber",
+				"offset": 19,
+				"length": 12,
+				"confidenceScore": 0.8
+			}, {
+				"text": "support@contoso.com",
+				"category": "Email",
+				"offset": 53,
+				"length": 19,
+				"confidenceScore": 0.8
+			}],
+			"warnings": []
+		}],
+		"errors": [],
+		"modelVersion": "2021-01-15"
+	}
 }
 ```

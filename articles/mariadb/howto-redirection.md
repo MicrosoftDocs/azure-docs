@@ -1,11 +1,11 @@
 ---
 title: Connect with redirection - Azure Database for MariaDB
 description: This article describes how you can configure you application to connect to Azure Database for MariaDB with redirection.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/8/2020
+ms.date: 06/24/2022
 ---
 
 # Connect to Azure Database for MariaDB with redirection
@@ -13,7 +13,8 @@ ms.date: 6/8/2020
 This topic explains how to connect an application your Azure Database for MariaDB server with redirection mode. Redirection aims to reduce network latency between client applications and MariaDB servers by allowing applications to connect directly to backend server nodes.
 
 ## Before you begin
-Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MariaDB server with engine version 10.2 or 10.3. 
+
+Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MariaDB server with engine version 10.2 or 10.3.
 
 For details, refer to how to create an Azure Database for MariaDB server using the [Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
@@ -26,7 +27,7 @@ On your Azure Database for MariaDB server, configure the `redirect_enabled` para
 
 ## PHP
 
-Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. 
+Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft.
 
 The mysqlnd_azure extension is available to add to PHP applications through PECL and it is highly recommended to install and configure the extension through the officially published [PECL package](https://pecl.php.net/package/mysqlnd_azure).
 
@@ -40,7 +41,7 @@ The mysqlnd_azure extension is available to add to PHP applications through PECL
 
 The redirection behavior is determined by the value of `mysqlnd_azure.enableRedirect`. The table below outlines the behavior of redirection based on the value of this parameter beginning in **version 1.1.0+**.
 
-If you are using an older version of the mysqlnd_azure extension (version 1.0.0-1.0.3), the redirection behavior is determined by the value of `mysqlnd_azure.enabled`. The valid values are `off` (acts similarly as the behavior outlined in the table below) and `on` (acts like `preferred` in the table below).  
+If you are using an older version of the mysqlnd_azure extension (version 1.0.0-1.0.3), the redirection behavior is determined by the value of `mysqlnd_azure.enabled`. The valid values are `off` (acts similarly as the behavior outlined in the table below) and `on` (acts like `preferred` in the table below).
 
 |**mysqlnd_azure.enableRedirect value**| **Behavior**|
 |----------------------------------------|-------------|
@@ -53,6 +54,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 ### Ubuntu Linux
 
 #### Prerequisites 
+
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR 
 - php-mysql
@@ -70,15 +72,15 @@ The subsequent sections of the document will outline how to install the `mysqlnd
     php -i | grep "extension_dir"
     ```
 
-3. Change directories to the returned folder and ensure `mysqlnd_azure.so` is located in this folder. 
+3. Change directories to the returned folder and ensure `mysqlnd_azure.so` is located in this folder.
 
-4. Locate the folder for .ini files by running the below: 
+4. Locate the folder for .ini files by running the below:
 
     ```bash
     php -i | grep "dir for additional .ini files"
     ```
 
-5. Change directories to this returned folder. 
+5. Change directories to this returned folder.
 
 6. Create a new .ini file for `mysqlnd_azure`. Make sure the alphabet order of the name is after that of mysqnld, since the modules are loaded according to the name order of the ini files. For example, if `mysqlnd` .ini is named `10-mysqlnd.ini`, name the mysqlnd ini as `20-mysqlnd-azure.ini`.
 
@@ -92,6 +94,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 ### Windows
 
 #### Prerequisites 
+
 - PHP versions 7.2.15+ and 7.3.2+
 - php-mysql
 - Azure Database for MariaDB server
@@ -112,7 +115,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
     php -i | find "extension_dir"
     ```
 
-5. Copy the `php_mysqlnd_azure.dll` file into the directory returned in step 4. 
+5. Copy the `php_mysqlnd_azure.dll` file into the directory returned in step 4.
 
 6. Locate the PHP folder containing the `php.ini` file using the following command:
 
@@ -120,13 +123,13 @@ The subsequent sections of the document will outline how to install the `mysqlnd
     php -i | find "Loaded Configuration File"
     ```
 
-7. Modify the `php.ini` file and add the following extra lines to enable redirection. 
+7. Modify the `php.ini` file and add the following extra lines to enable redirection.
 
     Under the Dynamic Extensions section: 
     ```cmd
     extension=mysqlnd_azure
     ```
-    
+
     Under the Module Settings section:     
     ```cmd 
     [mysqlnd_azure]
@@ -135,9 +138,9 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 
 ### Confirm redirection
 
-You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own. 
- 
- ```php
+You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own.
+
+```php
 <?php
 $host = '<yourservername>.mariadb.database.azure.com';
 $username = '<yourusername>@<yourservername>';
@@ -157,7 +160,8 @@ $db_name = 'testdb';
     $db->close();
   }
 ?>
- ```
+```
 
 ## Next steps
+
 For more information about connection strings, see [Connection Strings](howto-connection-string.md).

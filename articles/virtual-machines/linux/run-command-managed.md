@@ -4,11 +4,11 @@ description: This topic describes how to run scripts within an Azure Linux virtu
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: cynthn
-ms.author: cynthn
-ms.date: 10/27/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 09/08/2022
 ms.topic: how-to  
-ms.reviewer: jushiman
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Linux VM by using managed Run Commands
@@ -20,9 +20,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Run Command feature uses the virtual machine (VM) agent to scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+The Run Command feature uses the virtual machine (VM) agent to run scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
-The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action orientated Run Command](run-command.md): 
+The *updated* managed Run Command uses the same VM agent channel to execute scripts and provides the following enhancements over the [original action oriented Run Command](run-command.md): 
 - Support for updated Run Command through ARM deployment template 
 - Parallel execution of multiple scripts 
 - Sequential execution of scripts 
@@ -58,7 +58,7 @@ az vm run-command list --vm-name "myVM" --resource-group "myRG"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
-az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" –expand
+az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand instanceView
 ```
 
 ### Delete RunCommand resource from the VM
@@ -74,39 +74,46 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 ### Execute a script with the VM
 This command will deliver the script to the VM, execute it, and return the captured output.
 
-```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "echo Hello World!"
+
+```azurepowershell-interactive
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"
 ```
+
+### Execute a script on the VM using SourceScriptUri parameter 
+`OutputBlobUri` and `ErrorBlobUri` are optional parameters.
+
+```azurepowershell-interactive
+Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>" -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
+```
+
 
 ### List all deployed RunCommand resources on a VM 
 This command will return a full list of previously deployed Run Commands along with their properties.
 
-```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
+```azurepowershell-interactive
+Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 ```
 
 ### Get execution status and results 
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
-```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" -Status
+```azurepowershell-interactive
+Get-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName" -Expand instanceView
 ```
 
 ### Delete RunCommand resource from the VM
 Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
 
-```powershell-interactive
-Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName"
+```azurepowershell-interactive
+Remove-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -RunCommandName "RunCommandName"
 ```
  
-
-
 ## REST API 
 
 To deploy a new Run Command, execute a PUT on the VM directly and specify a unique name for the Run Command instance. 
 
 ```rest
-PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands/<runCommandName>?api-version=2019-12-01
+GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2019-12-01
 ```
 
 ```json
@@ -114,8 +121,8 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 "location": "<location>", 
 "properties": { 
     "source": { 
-        "script": "echo Hello World", 
-        "scriptUri": "<URI>",  
+        "script": "Write-Host Hello World!", 
+        "scriptUri": "<SAS URI of a storage blob with read access or public URI>",  
         "commandId": "<Id>"  
         }, 
     "parameters": [ 
@@ -141,24 +148,26 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
     "runAsUser": "userName",
     "runAsPassword": "userPassword", 
     "timeoutInSeconds": 3600, 
-    "outputBlobUri": "<URI>", 
-    "errorBlobUri": "<URI>"  
+    "outputBlobUri": "< SAS URI of a storage append blob with read, add, create, write access>", 
+    "errorBlobUri": "< SAS URI of a storage append blob with read, add, create, write access >"  
     }
 }
 ```
 
 ### Notes
  
-- You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source
-- Only one type of source input is supported for one command execution 
-- Run Command supports output to Storage blobs, which can be used to store large script outputs
-- Run Command supports error output to Storage blobs 
+- You can provide an inline script, a script URI, or a built-in script [command ID](run-command.md#available-commands) as the input source. Script URI is either storage blob SAS URI with read access or public URI.
+- Only one type of source input is supported for one command execution.  
+- Run Command supports writing output and error to Storage blobs using outputBlobUri and errorBlobUri parameters, which can be used to store large script outputs. Use SAS URI of a storage append blob with read, add, create, write access. The blob should be of type AppendBlob. Writing the script output or error blob would fail otherwise. The blob will be overwritten if it already exists. It will be created if it does not exist.
+
 
 ### List running instances of Run Command on a VM 
 
 ```rest
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachines/<vmName>/runcommands?api-version=2019-12-01
 ``` 
+
+
 
 ### Get output details for a specific Run Command deployment 
 
@@ -182,18 +191,18 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
 
 ```json
 { 
-    "type": "Microsoft.Compute/virtualMachines/runCommands", 
-    "name": "secondRunCommand", 
-    "apiVersion": "2019-12-01", 
-    "location": "[parameters('location')]", 
-    "dependsOn": <full resourceID of the previous other Run Command>, 
-    "properties": { 
-        "source": {  
-            "script": "echo Hello World!"  
-        }, 
-        "timeoutInSeconds": 60  
+    "type":"Microsoft.Compute/virtualMachines/runCommands",
+    "name":"secondRunCommand",
+    "apiVersion":"2019-12-01",
+    "location":"[parameters('location')]",
+    "dependsOn":<full resourceID of the previous other Run Command>,
+    "properties":{
+        "source":{
+            "script":"echo Hello World!" 
+        },
+        "timeoutInSeconds":60
     }
-} 
+}
 ```
 
 ### Execute multiple Run Commands sequentially 
@@ -242,7 +251,7 @@ In this example, **secondRunCommand** will execute after **firstRunCommand**.
          ],
          "properties":{
             "source":{
-               "scriptUrl":"http://github.com/myscript.ps1"
+               "scriptUri":"http://github.com/myscript.ps1"
             },
             "timeoutInSeconds":60
          }

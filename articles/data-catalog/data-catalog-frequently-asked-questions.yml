@@ -2,14 +2,14 @@
 metadata:
   title: Azure Data Catalog frequently asked questions
   description: Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management.
-  author: ChandraKavya
-  ms.author: kchandra
+  author: whhender
+  ms.author: whhender
   ms.service: data-catalog
   ms.topic: faq
-  ms.date: 02/23/2022
+  ms.date: 12/14/2022
 title: Azure Data Catalog frequently asked questions
 summary: |
-  [!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+  [!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
   
   This article provides answers to frequently asked questions related to the Azure Data Catalog service.
   
@@ -36,6 +36,16 @@ sections:
           * Data stewards: People who have the knowledge about the data, what it means, and how it's intended to be used.
           * Data consumers: People who need to be able to easily discover, understand, and connect to the data they need to do their job, by using the tool of their choice.
           * Central IT: People who need to make hundreds of data sources discoverable by business users, and who need to maintain oversight over how data is being used and by whom.
+
+      - question: |
+          How long is Data Catalog available?
+        answer: |
+          Data Catalog is available until August 2025. You'll need to be migrated by that time.
+
+      - question: |
+          Where should we migrate to?
+        answer: |
+          You can migrate to [Microsoft Purview](../purview/overview.md) service, which offers unified data governance for your entire data estate.
           
       - question: |
           What is its availability by region?

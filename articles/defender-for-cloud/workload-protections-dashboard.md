@@ -7,8 +7,6 @@ ms.date: 11/09/2021
 
 # The workload protections dashboard
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This dashboard provides:
 
 - Visibility into your Microsoft Defender for Cloud coverage across your different resource types
@@ -39,4 +37,4 @@ In this article, you learned about the workload protections dashboard.
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
 
-For more on the advanced protection plans of Microsoft Defender for Cloud, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
+For more on the advanced protection plans of Microsoft Defender for Cloud, see [Extend Defender for Cloud with Defender plans and external monitoring](defender-for-cloud-introduction.md#extend-defender-for-cloud-with-defender-plans-and-external-monitoring)

@@ -2,7 +2,9 @@
 title: Registry service tiers and features
 description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 08/12/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Azure Container Registry service tiers
@@ -60,7 +62,7 @@ Throttling could occur temporarily when you generate a burst of image pull or pu
 
 ## Show registry usage
 
-Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
+Use the [az acr show-usage](/cli/azure/acr#az-acr-show-usage) command in the Azure CLI, [Get-AzContainerRegistryUsage](/powershell/module/az.containerregistry/get-azcontainerregistryusage) in Azure PowerShell, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
 
 Usage information helps you make decisions about [changing the service tier](#changing-tiers) when your registry nears a limit. This information also helps you [manage consumption](container-registry-best-practices.md#manage-registry-size). 
 
@@ -89,7 +91,15 @@ There is no registry downtime or impact on registry operations when you move bet
 To move between service tiers in the Azure CLI, use the [az acr update][az-acr-update] command. For example, to switch to Premium:
 
 ```azurecli
-az acr update --name myregistry --sku Premium
+az acr update --name myContainerRegistry --sku Premium
+```
+
+### Azure PowerShell
+
+To move between service tiers in Azure PowerShell, use the [Update-AzContainerRegistry][update-azcontainerregistry] cmdlet. For example, to switch to Premium:
+
+```azurepowershell
+Update-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myContainerRegistry -Sku Premium
 ```
 
 ### Azure portal
@@ -124,6 +134,7 @@ Submit and vote on new feature suggestions in [ACR UserVoice][container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update
+[update-azcontainerregistry]: /powershell/module/az.containerregistry/update-azcontainerregistry
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-delete]: container-registry-delete.md

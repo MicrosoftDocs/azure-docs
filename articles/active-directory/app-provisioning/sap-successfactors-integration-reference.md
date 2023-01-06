@@ -3,12 +3,12 @@ title: Azure Active Directory and SAP SuccessFactors integration reference
 description: Technical deep dive into SAP SuccessFactors-HR driven provisioning for Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -79,12 +79,12 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 >| OData API Host | Appends https to the *Tenant URL*. Example: `https://api4.successfactors.com` |
 >| OData API Endpoint | `/odata/v2/PerPerson` |
 >| OData $format query parameter | `json` |
->| OData $filter query parameter | `(personEmpTerminationInfoNav/activeEmploymentsCount ge 1) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
+>| OData $filter query parameter | `(personEmpTerminationInfoNav/activeEmploymentsCount ne null) and (lastModifiedDateTime le <CurrentExecutionTime>)` |
 >| OData $expand query parameter | This parameter value depends on the attributes mapped. Example: `employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/jobInfoNav/companyNav/countryOfRegistrationNav,employmentNav/jobInfoNav/divisionNav,employmentNav/jobInfoNav/departmentNav` |
 >| OData customPageSize query parameter | `100` |
 
 > [!NOTE]
-> During the first initial full sync, Azure AD provisioning service does not pull inactive/terminated worker data.
+> During the full initial sync, both active and terminated workers from SAP SuccessFactors will be fetched.
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 
@@ -105,6 +105,24 @@ employmentNav/jobInfoNav/employmentTypeNav,employmentNav/jobInfoNav/employeeClas
 ## How incremental sync works
 
 After full sync, Azure AD provisioning service maintains `LastExecutionTimestamp` and uses it to create delta queries for retrieving incremental changes. The timestamp attributes present in each SuccessFactors entity, such as `lastModifiedDateTime`, `startDate`, `endDate`, and `latestTerminationDate`, are evaluated to see if the change falls between the `LastExecutionTimestamp` and `CurrentExecutionTime`. If yes, then the entry change is considered to be effective and processed for sync. 
+
+Here is the OData API request template that Azure AD uses to query SuccessFactors for incremental changes. You can update the variables `SuccessFactorsAPIEndpoint`, `LastExecutionTimestamp` and `CurrentExecutionTime` in the request template below use a tool like [Postman](https://www.postman.com/downloads/) to check what data is returned. Alternatively, you can also retrieve the actual request payload from SuccessFactors by [enabling OData API Audit logs](#enabling-odata-api-audit-logs-in-successfactors). 
+
+```
+https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filter=(personEmpTerminationInfoNav/activeEmploymentsCount ne null) and
+((lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>') or
+(personalInfoNav/startDate ge datetimeoffset'<LastExecutionTimestamp>' and personalInfoNav/startDate le datetimeoffset'<CurrentExecutionTime>') or
+((personalInfoNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and personalInfoNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>') and (personalInfoNav/startDate le datetimeoffset'<CurrentExecutionTime>' and (personalInfoNav/endDate ge datetimeoffset'<CurrentExecutionTime>' or  personalInfoNav/endDate eq null))) or
+(employmentNav/startDate ge datetimeoffset'<LastExecutionTimestamp>' and employmentNav/startDate le datetimeoffset'<CurrentExecutionTime>') or
+((employmentNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and employmentNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>') and (employmentNav/startDate le datetimeoffset'<CurrentExecutionTime>' and (employmentNav/endDate ge datetimeoffset'<CurrentExecutionTime>' or employmentNav/endDate eq null))) 
+(employmentNav/jobInfoNav/startDate ge datetimeoffset'<LastExecutionTimestamp>' and employmentNav/jobInfoNav/startDate le datetimeoffset'<CurrentExecutionTime>') or
+((employmentNav/jobInfoNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and employmentNav/jobInfoNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>') and (employmentNav/jobInfoNav/startDate le datetimeoffset'<CurrentExecutionTime>' and (employmentNav/jobInfoNav/endDate ge datetimeoffset'<CurrentExecutionTime>' or employmentNav/jobInfoNav/endDate eq null))) or
+(phoneNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and phoneNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>') or
+(emailNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and emailNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>') or
+(personEmpTerminationInfoNav/latestTerminationDate ge datetimeoffset'<previousDayDateStartTime24hrs>' and personEmpTerminationInfoNav/latestTerminationDate le datetimeoffset'<previousDayDateTime24hrs>') or
+(employmentNav/userNav/lastModifiedDateTime ge datetimeoffset'<LastExecutionTimestamp>' and employmentNav/userNav/lastModifiedDateTime le datetimeoffset'<CurrentExecutionTime>'))
+&$expand=employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/userNav/manager/empInfo,employmentNav/jobInfoNav/companyNav,employmentNav/jobInfoNav/departmentNav,employmentNav/jobInfoNav/locationNav,employmentNav/jobInfoNav/locationNav/addressNavDEFLT,employmentNav/jobInfoNav/locationNav/addressNavDEFLT/stateNav&customPageSize=100
+```
 
 ## Reading attribute data
 
@@ -137,11 +155,14 @@ By using JSONPath transformation, you can customize the behavior of the Azure AD
 This section covers how you can customize the provisioning app for the following HR scenarios: 
 * [Retrieving additional attributes](#retrieving-additional-attributes)
 * [Retrieving custom attributes](#retrieving-custom-attributes)
+* [Mapping employment status to account status](#mapping-employment-status-to-account-status)
 * [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario)
+* [Retrieving current active employment record](#retrieving-current-active-employment-record)
 * [Handling global assignment scenario](#handling-global-assignment-scenario)
 * [Handling concurrent jobs scenario](#handling-concurrent-jobs-scenario)
 * [Retrieving position details](#retrieving-position-details)
 * [Provisioning users in the Onboarding module](#provisioning-users-in-the-onboarding-module)
+* [Enabling OData API Audit logs in SuccessFactors](#enabling-odata-api-audit-logs-in-successfactors)
 
 ### Retrieving additional attributes
 
@@ -193,6 +214,39 @@ Extending this scenario:
 * If you want to map *custom35* attribute from the *User* entity, then use the JSONPath `$.employmentNav.results[0].userNav.custom35`
 * If you want to map *customString35* attribute from the *EmpEmployment* entity, then use the JSONPath `$.employmentNav.results[0].customString35`
 
+### Mapping employment status to account status
+
+By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
+
+If you are running into this issue or prefer mapping employment status to  account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here is a list of employment status codes that you can retrieve in the provisioning app. 
+* A = Active 
+* D = Dormant
+* U = Unpaid Leave
+* P = Paid Leave
+* S = Suspended
+* F = Furlough
+* O = Discarded
+* R = Retired
+* T = Terminated
+
+Use the steps below to update your mapping to retrieve these codes. 
+
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
+1. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. 
+1. Find the attribute `emplStatus` and update the JSONPath to `$.employmentNav.results[0].jobInfoNav.results[0].emplStatusNav.externalCode`. This will enable the connector to retrieve the employment status codes in the table. 
+1. Save the changes. 
+1. In the attribute mapping blade, update the expression mapping for the account status flag. 
+
+    | Provisioning Job                                     | Account status attribute | Mapping expression       |
+    | ---------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
+    | SuccessFactors to Active Directory User Provisioning | accountDisabled          | Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False") |
+    | SuccessFactors to Azure AD User Provisioning         | accountEnabled           | Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")   |
+
+1. Save the changes.
+1. Test the configuration using [provision on demand](provision-on-demand.md). 
+1. After confirming that sync works as expected, restart the provisioning job. 
+
+
 ### Handling worker conversion and rehire scenario
 
 **About worker conversion scenario:** Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to full-time. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. 
@@ -224,7 +278,45 @@ To handle both these scenarios so that the new employment data shows up when a c
 1. The above process updates all JSONPath expressions as follows: 
    * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
    * New JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
-1. Restart provisioning. 
+1. Test the configuration using [provision on demand](provision-on-demand.md). 
+1. After confirming that sync works as expected, restart the provisioning job. 
+
+> [!NOTE]
+> The approach described above only works if SAP SuccessFactors returns the employment objects in ascending order, where the latest employment record is always the last record in the *employmentNav* results array. The order in which multiple employment records are returned is not guaranteed by SuccessFactors. If your SuccessFactors instance has multiple employment records corresponding to a worker and you always want to retrieve attributes associated with the active employment record, use steps described in the next section.  
+
+### Retrieving current active employment record
+
+Using the JSONPath root of `$.employmentNav.results[0]` or `$.employmentNav.results[-1:]` to fetch employment records works in most scenarios and keeps the configuration simple. However, depending on how your SuccessFactors instance is configured, there may be a need to update this configuration to ensure that the connector always fetches the latest active employment record.
+
+This section describes how you can update the JSONPath settings to definitely retrieve the current active employment record of the user. It also handles worker conversion and rehire scenarios. 
+
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
+1. Scroll down and click **Show advanced options**.
+1. Click on the link **Review your schema here** to open the schema editor. 
+1. Click on the **Download** link to save a copy of the schema before editing. 
+1. In the schema editor, press Ctrl-H key to open the find-replace control.
+1. Perform the following find replace operations. Ensure there is no leading or trailing space when performing the find-replace operations. If you are using `[-1:]` index instead of `[0]`, then update the *string-to-find* field accordingly. 
+
+    | **String to find** | **String to use for replace** | **Purpose**  |
+    | ------------------ | ----------------------------- | ------------ |
+    | $.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus | $.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode | With this find-replace, we are adding the ability to expand emplStatusNav OData object.    |
+    | $.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]            | $.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+    | $.employmentNav.results\[0\]                                    | $.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+
+1. Save the schema.
+1. The above process updates all JSONPath expressions. 
+1. For pre-hire processing to work, the JSONPath associated with `startDate` attribute must use either `[0]` or `[-1:]` index. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. Find the attribute `startDate` and set it to the value `$.employmentNav.results[-1:].startDate`
+1. Save the schema.
+1. To ensure that terminations are processed as expected, you can use one of the following settings in the attribute mapping section.
+ 
+    | Provisioning Job | Account status attribute | Expression to use if account status is based on "activeEmploymentsCount" | Expression to use if account status is based on "emplStatus" value |
+    | ----------------- | ------------------------ | ----------------------------- | ------------------------------------- |
+    | SuccessFactors to Active Directory User Provisioning | accountDisabled          | Switch(\[activeEmploymentsCount\], "False", "0", "True")                 | Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False") |
+    | SuccessFactors to Azure AD User Provisioning         | accountEnabled           | Switch(\[activeEmploymentsCount\], "True", "0", "False")                 | Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")   |
+
+1. Save your changes. 1. 
+1. Test the configuration using [provision on demand](provision-on-demand.md). 
+1. After confirming that sync works as expected, restart the provisioning job. 
 
 
 ### Handling global assignment scenario
@@ -255,7 +347,9 @@ To fetch attributes belonging to the standard assignment and global assignment u
    * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
 
 1. Save the mapping. 
-1. Restart provisioning. 
+1. Test the configuration using [provision on demand](provision-on-demand.md). 
+1. After confirming that sync works as expected, restart the provisioning job. 
+
 
 ### Handling concurrent jobs scenario
 
@@ -268,7 +362,9 @@ To fetch attributes belonging to both jobs, use the steps listed below:
 1. Let's say you want to pull the department associated with job 1 and job 2. The pre-defined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. 
 1. Save the mapping. 
-1. Restart provisioning. 
+1. Test the configuration using [provision on demand](provision-on-demand.md). 
+1. After confirming that sync works as expected, restart the provisioning job. 
+ 
 
 ### Retrieving position details
 
@@ -293,10 +389,14 @@ If you want to exclude processing of pre-hires in the Onboarding module, update 
 1. Edit the Source Object scope to apply a scoping filter `userStatus NOT EQUALS active_external`
 1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
 
+### Enabling OData API Audit logs in SuccessFactors
+
+The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors by following steps documented in  [SAP support note 2680837](https://userapps.support.sap.com/sap/support/knowledge/en/2680837). From these audit logs you can retrieve the request payload sent by Azure AD. To troubleshoot, you can copy this request payload in a tool like "Postman", set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
+
 
 ## Writeback scenarios
 
-This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is setup in SuccessFactors.
+This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is set up in SuccessFactors.
 
 ### Supported scenarios for phone and email write-back 
 

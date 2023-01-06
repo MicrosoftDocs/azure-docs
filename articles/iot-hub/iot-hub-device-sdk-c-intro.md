@@ -26,13 +26,13 @@ There are a broad range of platforms on which the SDK has been tested (see the [
 
 The following video presents an overview of the Azure IoT SDK for C:
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 This article introduces you to the architecture of the Azure IoT device SDK for C. It demonstrates how to initialize the device library, send data to IoT Hub, and receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
 
 ## SDK architecture
 
-You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](/azure/iot-hub/iot-c-sdk-ref/).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://github.com/Azure/azure-iot-sdk-c/).
 
 The latest version of the libraries can be found in the **main** branch of the repository:
 

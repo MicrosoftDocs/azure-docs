@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article walks you through the steps to get started with the Video Studio Code extension for Azure Video Analyzer. You will connect the Visual Studio Code extension to your Video Analyzer Edge module through the IoT Hub and deploy a [sample pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cvr-video-sink). You will then run a simulated live video stream through a live pipeline that continuously records video to a video resource. The following diagram represents the pipeline.
 
 > [!div class="mx-imgBorder"]

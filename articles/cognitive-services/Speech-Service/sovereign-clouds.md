@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 11/09/2021
+ms.date: 05/10/2022
 ms.author: alexeyo
 ---
 
@@ -33,7 +33,7 @@ Available to US government entities and their partners only. See more informatio
   - Text-to-speech
     - Standard voice
     - Neural voice
-  - Speech translator
+  - Speech translation
 - **Unsupported features:**
   - Custom Voice
 - **Supported languages:**
@@ -50,7 +50,7 @@ Speech Services REST API endpoints in Azure Government have the following format
 |  REST API type / operation | Endpoint format |
 |--|--|
 | Access token | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/sts/v1.0/issueToken`
-| [Speech-to-text REST API v3.0](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
+| [Speech-to-text REST API](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.microsoft.us/<URL_PATH>` |
 | [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.us/<URL_PATH>` |
 | [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.us/<URL_PATH>` |
 
@@ -121,6 +121,7 @@ Available to organizations with a business presence in China. See more informati
   - Speech-to-text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
+    - [Pronunciation assessment](how-to-pronunciation-assessment.md)
   - Text-to-speech
     - Standard voice
     - Neural voice
@@ -141,7 +142,7 @@ Speech Services REST API endpoints in Azure China have the following format:
 |  REST API type / operation | Endpoint format |
 |--|--|
 | Access token | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken`
-| [Speech-to-text REST API v3.0](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
+| [Speech-to-text REST API](rest-speech-to-text.md) | `https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/<URL_PATH>` |
 | [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) | `https://<REGION_IDENTIFIER>.stt.speech.azure.cn/<URL_PATH>` |
 | [Text-to-speech REST API](rest-text-to-speech.md) | `https://<REGION_IDENTIFIER>.tts.speech.azure.cn/<URL_PATH>` |
 
@@ -160,24 +161,24 @@ For [Speech SDK](speech-sdk.md) in sovereign clouds you need to use "from host /
 
 # [C#](#tab/c-sharp)
 ```csharp
-var config = SpeechConfig.FromHost(azCnHost, subscriptionKey);
+var config = SpeechConfig.FromHost("azCnHost", subscriptionKey);
 ```
 # [C++](#tab/cpp)
 ```cpp
-auto config = SpeechConfig::FromHost(azCnHost, subscriptionKey);
+auto config = SpeechConfig::FromHost("azCnHost", subscriptionKey);
 ```
 # [Java](#tab/java)
 ```java
-SpeechConfig config = SpeechConfig.fromHost(azCnHost, subscriptionKey);
+SpeechConfig config = SpeechConfig.fromHost("azCnHost", subscriptionKey);
 ```
 # [Python](#tab/python)
 ```python
 import azure.cognitiveservices.speech as speechsdk
-speech_config = speechsdk.SpeechConfig(host=azCnHost, subscription=subscriptionKey)
+speech_config = speechsdk.SpeechConfig(host="azCnHost", subscription=subscriptionKey)
 ```
 # [Objective-C](#tab/objective-c)
 ```objectivec
-SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:azCnHost subscription:subscriptionKey];
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:"azCnHost" subscription:subscriptionKey];
 ```
 ***
 

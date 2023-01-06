@@ -1,9 +1,10 @@
 ---
 author: mattchenderson
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 06/11/2021
 ms.author: mahender
+ms.subservice: web-apps
 ---
 
 Azure Blob Storage can be configured to [authorize requests with Azure AD](../articles/storage/blobs/authorize-access-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This means that instead of generating a SAS key with an expiration, you can instead rely on the application's [managed identity](../articles/app-service/overview-managed-identity.md). By default, the app's system-assigned identity will be used. If you wish to specify a user-assigned identity, you can set the `WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID` app setting to the resource ID of that identity. The setting can also accept "SystemAssigned" as a value, although this is the same as omitting the setting altogether.

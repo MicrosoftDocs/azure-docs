@@ -33,7 +33,6 @@ query parameters to filter on running operations.
 |  offerId           |  Offer identifier                                                                                              |  String       |
 |  operationId       |  GUID that uniquely identifies the operation on the offer. The operationId may be retrieved by using this API, and is also returned in the HTTP header of the response for any long running operation, such as the [Publish offer](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
 |  api-version       | Latest version of API |    Date      |
-|  |  |  |
 
 ## Header
 
@@ -41,7 +40,6 @@ query parameters to filter on running operations.
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Authorization     | `Bearer YOUR_TOKEN`  |
-|  |  |
 
 ## Body example
 
@@ -173,7 +171,6 @@ query parameters to filter on running operations.
 |  lastActionDateTime          | UTC datetime when the last update was done on the operation                                       |
 |  status                      | Status of the operation, either `not started` \| `running` \| `failed` \| `completed`. Only one operation can have status `running` at a time. |
 |  error                       | Error message for failed operations                                                               |
-|  |  |
 
 ### Response step properties
 
@@ -186,7 +183,6 @@ query parameters to filter on running operations.
 | status | The status of the step, either `notStarted` \| `running` \| `failed` \| `completed` |
 | messages | Any notifications or warnings encountered during the step. Array of strings |
 | progressPercentage | An integer from 0 to 100 indicating the progression of the step |
-| | |
 
 ### Response status codes
 
@@ -196,4 +192,3 @@ query parameters to filter on running operations.
 |  400      | `Bad/Malformed request` - The error response body may contain more information.                    |
 |  403      | `Forbidden` - The client doesn't have access to the specified namespace.                          |
 |  404      | `Not found` - The specified entity does not exist.                                                 |
-|  |  |

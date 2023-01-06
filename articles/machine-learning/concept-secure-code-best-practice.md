@@ -6,9 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
-ms.date: 10/21/2021
+ms.author: deeikele
+author: deeikele 
+ms.reviewer: larryfr
+ms.date: 11/04/2022
 ---
 
 # Secure code best practices with Azure Machine Learning
@@ -48,7 +49,7 @@ __Recommended actions__:
 
 ## Azure ML compute instance
 
-Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ hosted on a compute instance.
+Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ and __Posit Workbench (formerly RStudio Workbench)__ hosted on a compute instance.
 
 __Possible threats__:
 * Cross site scripting (XSS)

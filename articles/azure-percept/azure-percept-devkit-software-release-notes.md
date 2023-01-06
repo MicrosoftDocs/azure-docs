@@ -1,20 +1,32 @@
 ---
 title: Azure Percept DK software release notes
 description: Information about changes made to the Azure Percept DK software.
-author: nkhuyent
+author: yvonne-dq
 ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 10/04/2022
 ms.custom: template-concept
 ---
 
 # Azure Percept DK software release notes
 
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 This page provides information of changes and fixes for each Azure Percept DK OS and firmware release.
 
 To download the update images, refer to [Azure Percept DK software releases for USB cable update](./software-releases-usb-cable-updates.md) or [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md).
 
+## June (2206) Release
+
+- Operating System
+  - Latest security updates on OpenSSL, cifs-utils, zlib, cpio, Nginx, and Lua packages.
+  
+## May (2205) Release
+
+- Operating System
+  - Latest security updates on BIND, Node.js, Cyrus SASL, libxml2, and OpenSSL packages.
+  
 ## March (2203) Release
 
 - Operating System

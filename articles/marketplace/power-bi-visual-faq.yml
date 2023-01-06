@@ -6,8 +6,8 @@ metadata:
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: faq
   ms.date: 11/22/2021
-  author: posurnis
-  ms.author: posurnis
+  author: trkeya
+  ms.author: trkeya
   ms.reviewer: pooja.surnis
 title: Power BI visuals FAQs
 summary: Power BI visual offers will be moved to the commercial marketplace within Partner Center to streamline the offer management experience. All existing and new Power BI visual offers will be accessible in the commercial marketplace after the move by Microsoft in September 2021. This article addresses frequently asked questions about the move and enhancements to the offer management experience.
@@ -26,7 +26,6 @@ sections:
           | Availability of your offers in Partner Center | No changes. If your offer is in draft or published state in the Office Store, it will continue to be in same state after the move to the commercial marketplace. |
           | Acquisitions and deployments | No changes. Your customers can continue discovering, downloading, and deploying your offers with no interruptions. |
           | Analytics | The **Marketplace insights** dashboard in Partner Center will be enhanced to show information on consent clicks and platform (website and client) for your Power BI visual offers. Use this information to understand sources driving traffic, clicks, and conversions for your offers. |
-          |
           
           
       - question: |
@@ -55,7 +54,6 @@ sections:
           | Marketplace listings | Offer listing |
           | Availability | Availability |
           | Product management | Offer management |
-          |
 
 
       - question: |
@@ -81,7 +79,7 @@ sections:
           
           **Access the right program in Partner Center**
 
-          1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. You'll see the tiles associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace. 
+          1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. You'll see the tiles associated with the programs you are enrolled in, such as the Microsoft Cloud Partner Program, the Office Store, and the commercial marketplace. 
 
           1. To access your offers on the Home page, select the **Marketplace offers** tile. 
 

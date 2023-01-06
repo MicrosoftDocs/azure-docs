@@ -4,7 +4,7 @@ description: A quickstart that walks you through the process of using a Linux VM
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
@@ -37,23 +37,26 @@ You learn how to:
 
 ## Grant access
 
-Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case the Resource Group in which the VM is contained.  
+Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case, the Resource Group in which the VM is contained.  
 
+1. Sign in to the [Azure portal](https://portal.azure.com) with your administrator account.
 1. Navigate to the tab for **Resource Groups**.
-2. Select the specific **Resource Group** you used for your virtual machine.
-3. Go to **Access control(IAM)** in the left panel.
-4. Click to **Add** a new role assignment for your VM. Choose **Role** as **Reader**.
-5. In the next dropdown, **Assign access to** the resource **Virtual Machine**.
-6. Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.
-7. Finally, in **Select** choose your Linux Virtual Machine in the dropdown and click **Save**.
+1. Select the **Resource Group** you want to grant the VM's managed identity access.
+1. In the left panel, select **Access control (IAM)**.
+1. Select **Add**, and then select **Add role assignment**.
+1. In the **Role** tab, select **Reader**. This role allows view all resources, but doesn't allow you to make any changes.
+1. In the **Members** tab, for the **Assign access to**, select **Managed identity**. Then, select **+ Select members**.
+1. Ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.
+1. For the **Manage identity** dropdown, select **Virtual Machine**.
+1. Finally, in **Select** choose your Windows Virtual Machine in the dropdown and select **Save**.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Resource Manager
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you'll need an SSH client. If you're using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
+1. In the portal, navigate to your Linux VM and in the **Overview**, select **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, using `curl`, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.  
  

@@ -3,6 +3,7 @@ title: Azure Application Insights | Microsoft Docs
 description: Correlate data from Application Insights to other datasets, such as data enrichment or lookup tables, non-Application Insights data sources, and custom data.
 ms.topic: conceptual
 ms.date: 08/08/2018
+ms.reviewer: evternov
 ---
 
 # Correlating Application Insights data with custom data sources

@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 Azure Video Analyzer service allows users to connect RTSP cameras directly to the cloud in order capture and record video, using [live pipelines](../pipeline.md). This will either reduce the computational load on an edge device or eliminate the need for an edge device completely. Video Analyzer service currently supports three different methods for connecting cameras to the cloud: connecting via a remote device adapter, connecting from behind a firewall using an IoT PnP command, and connecting over the internet without a firewall.
 
 > [!div class="mx-imgBorder"]
@@ -22,7 +24,7 @@ You can deploy the Video Analyzer edge module to an IoT Edge device on the same 
 
 * When cameras/devices need to be shielded from exposure to the internet
 * When cameras/devices do not have the functionality to connect to IoT Hub independently
-* When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
+* When power, space, or other considerations permit only a lightweight edge device to be deployed on-premises
 
 The Video Analyzer edge module does not act as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video.
 

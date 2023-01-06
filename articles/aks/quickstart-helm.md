@@ -17,15 +17,17 @@ In this quickstart, you'll use Helm to package and run an application on AKS. Fo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] installed.
 * [Helm v3 installed][helm-install].
 
 ## Create an Azure Container Registry
 You'll need to store your container images in an Azure Container Registry (ACR) to run your application in your AKS cluster using Helm. Provide your own registry name unique within Azure and containing 5-50 alphanumeric characters. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
 
+### [Azure CLI](#tab/azure-cli)
+
 The below example uses [az acr create][az-acr-create] to create an ACR named *MyHelmACR* in *MyResourceGroup* with the *Basic* SKU.
 
-```azurecli
+```azurecli-interactive
 az group create --name MyResourceGroup --location eastus
 az acr create --resource-group MyResourceGroup --name MyHelmACR --sku Basic
 ```
@@ -54,32 +56,79 @@ Output will be similar to the following example. Take note of your *loginServer*
 }
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+The below example uses the [New-AzContainerRegistry][new-azcontainerregistry] cmdlet to create an ACR named *MyHelmACR* in *MyResourceGroup* with the *Basic* SKU.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name MyResourceGroup -Location eastus
+New-AzContainerRegistry -ResourceGroupName MyResourceGroup -Name MyHelmACR -Sku Basic
+```
+
+Output will be similar to the following example. Take note of your *LoginServer* value for your ACR since you'll use it in a later step. In the below example, *myhelmacr.azurecr.io* is the *LoginServer* for *MyHelmACR*.
+
+```output
+Registry Name    Sku        LoginServer              CreationDate               Provisioni AdminUserE StorageAccountName
+                                                                                  ngState    nabled
+-------------    ---        -----------              ------------               ---------- ---------- ------------------
+MyHelmACR        Basic      myhelmacr.azurecr.io     5/30/2022 9:16:14 PM       Succeeded  False      
+```
+
+---
+
 ## Create an AKS cluster
 
 Your new AKS cluster needs access to your ACR to pull the container images and run them. Use the following command to:
 * Create an AKS cluster called *MyAKS* and attach *MyHelmACR*.
 * Grant the *MyAKS* cluster access to your *MyHelmACR* ACR.
 
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az aks create --resource-group MyResourceGroup --name MyAKS --location eastus --attach-acr MyHelmACR --generate-ssh-keys
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyAKS -Location eastus -AcrNameToAttach MyHelmACR -GenerateSshKey 
+```
+
+---
 
 ## Connect to your AKS cluster
 
 To connect a Kubernetes cluster locally, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. 
 
-1. Install `kubectl` locally using the `az aks install-cli` command:
+### [Azure CLI](#tab/azure-cli)
+
+1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command:
 
     ```azurecli
     az aks install-cli
     ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the `az aks get-credentials` command. The following command example gets credentials for the AKS cluster named *MyAKS* in the *MyResourceGroup*:  
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command example gets credentials for the AKS cluster named *MyAKS* in the *MyResourceGroup*:  
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group MyResourceGroup --name MyAKS
     ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
+
+    ```azurepowershell
+    Install-AzAksKubectl
+    ```
+
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following command example gets credentials for the AKS cluster named *MyAKS* in the *MyResourceGroup*:  
+
+    ```azurepowershell-interactive
+    Import-AzAksCredential -ResourceGroupName MyResourceGroup -Name MyAKS
+    ```
+
+---
 
 ## Download the sample application
 
@@ -94,7 +143,7 @@ cd azure-voting-app-redis/azure-vote/
 
 Using the preceding Dockerfile, run the [az acr build][az-acr-build] command to build and push an image to the registry. The `.` at the end of the command provides the location of the source code directory path (in this case, the current directory). The `--file` parameter takes in the path of the Dockerfile relative to this source code directory path.
 
-```azurecli
+```azurecli-interactive
 az acr build --image azure-vote-front:v1 --registry MyHelmACR --file Dockerfile .
 ```
 
@@ -110,6 +159,9 @@ helm create azure-vote-front
 ```
 
 Update *azure-vote-front/Chart.yaml* to add a dependency for the *redis* chart from the `https://charts.bitnami.com/bitnami` chart repository and update `appVersion` to `v1`. For example:
+
+> [!NOTE]
+> The container image versions shown in this guide have been tested to work with this example but may not be the latest version available.
 
 ```yml
 apiVersion: v2
@@ -207,11 +259,23 @@ Navigate to your application's load balancer in a browser using the `<EXTERNAL-I
 
 ## Delete the cluster
 
+### [Azure CLI](#tab/azure-cli)
+
 Use the [az group delete][az-group-delete] command to remove the resource group, the AKS cluster, the container registry, the container images stored in the ACR, and all related resources.
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup --yes --no-wait
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, the AKS cluster, the container registry, the container images stored in the ACR, and all related resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name MyResourceGroup
+```
+
+---
 
 > [!NOTE]
 > If the AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
@@ -225,16 +289,22 @@ For more information about using Helm, see the Helm documentation.
 > [!div class="nextstepaction"]
 > [Helm documentation][helm-documentation]
 
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [az-acr-create]: /cli/azure/acr#az_acr_create
+[new-azcontainerregistry]: /powershell/module/az.containerregistry/new-azcontainerregistry
 [az-acr-build]: /cli/azure/acr#az_acr_build
 [az-group-delete]: /cli/azure/group#az_group_delete
-[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
+[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[import-azakscredential]: /powershell/module/az.aks/import-azakscredential
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/
 [helm-documentation]: https://helm.sh/docs/
 [helm-existing]: kubernetes-helm.md
 [helm-install]: https://helm.sh/docs/intro/install/
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[sp-delete]: kubernetes-service-principal.md#other-considerations
 [acr-helm]: ../container-registry/container-registry-helm-repos.md

@@ -3,7 +3,7 @@ title: Assign Azure roles to a managed identity (Preview) - Azure RBAC
 description: Learn how to assign Azure roles by starting with the managed identity and then select the scope and role using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity

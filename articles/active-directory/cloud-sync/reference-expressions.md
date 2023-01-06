@@ -3,7 +3,7 @@ title: Azure AD Connect cloud sync expressions and function reference
 description: reference
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -528,7 +528,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 > - This is a top-level function, it cannot be nested.
 > - This function cannot be applied to attributes that have a matching precedence. 	
 > - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
-> - This function is currently only supported for "Workday to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
+> - This function is currently only supported for "Workday and SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
 
 **Parameters:**<br> 

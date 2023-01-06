@@ -84,7 +84,7 @@ Scripts can be downloaded from Azure storage or any public location such as a Gi
 
 Learn how to:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=/cli/azure/toc.json).
 - [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 

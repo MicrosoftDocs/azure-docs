@@ -16,11 +16,9 @@ ms.author: mbaldwin
 # Soft-delete will be enabled on all key vaults
 
 > [!WARNING]
-> Breaking change: the ability to opt out of soft-delete will be deprecated soon. Azure Key Vault users and administrators should enable soft-delete on their key vaults immediately.
->
-> For Azure Key Vault Managed HSM, soft-delete is enabled by default and can't be disabled.
+> Breaking change: you must enable soft-delete on your key vaults immediately. See below for details.
 
-When a secret is deleted from a key vault without soft-delete protection, the secret is permanently deleted. Users can currently opt out of soft-delete during key vault creation. However, Microsoft will soon enable soft-delete protection on all key vaults to protect secrets from accidental or malicious deletion by a user. Users will no longer be able to opt out of or turn off soft-delete.
+If a secret is deleted and the key vault does not have soft-delete protection, it is deleted permanently. Although users can currently opt out of soft-delete during key vault creation, this ability is deprecated. **In February 2025, Microsoft will enable soft-delete protection on all key vaults, and users will no longer be able to opt out of or turn off soft-delete.** This will protect secrets from accidental or malicious deletion by a user.
 
 :::image type="content" source="../media/softdeletediagram.png" alt-text="Diagram showing how a key vault is deleted with soft-delete protection versus without soft-delete protection.":::
 
@@ -28,16 +26,13 @@ For full details on the soft-delete functionality, see [Azure Key Vault soft-del
 
 ## Can my application work with soft-delete enabled?
 
-> [!Important] 
-> Review the following information carefully before turning on soft-delete for your key vaults.
-
 Key vault names are globally unique. The names of secrets stored in a key vault are also unique. You won't be able to reuse the name of a key vault or key vault object that exists in the soft-deleted state. 
 
 For example, if your application programmatically creates a key vault named "Vault A" and later deletes "Vault A," the key vault will be moved to the soft-deleted state. Your application won't be able to re-create another key vault named "Vault A" until the key vault is purged from the soft-deleted state. 
 
-Also, if your application creates a key named `test key` in "Vault A" and later deletes that key, your application won't be able to create a new key named `test key` in "Vault A" until the `test key` object is purged from the soft-deleted state. 
+Also, if your application creates a key named `test key` in "Vault A" and later deletes that key, your application won't be able to create a new key named `test key` in "Vault A" until the `test key` object is purged from the soft-deleted state.
 
-Attempting to delete a key vault object and re-create it with the same name without purging it from the soft-deleted state first can cause conflict errors. These errors might cause your applications or automation to fail. Consult your dev team before you make the following required application and administration changes. 
+Attempting to delete a key vault object and re-create it with the same name without purging it from the soft-deleted state first can cause conflict errors. These errors might cause your applications or automation to fail. Consult your dev team before you make the following required application and administration changes.
 
 ### Application changes
 

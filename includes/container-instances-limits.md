@@ -1,19 +1,19 @@
 ---
-author: dlepow
+author: tomvcassidy
 ms.service: container-instances
 ms.topic: include
-ms.date: 07/22/2020
-ms.author: danlep
+ms.date: 06/14/2022
+ms.author: tomcassidy
 ---
-| Resource | Limit |
+| Resource | Actual Limit |
 | --- | :--- |
-| Standard sku container groups per region per subscription | 100<sup>1</sup> |
+| Standard sku container groups per region per subscription | 100 |
 | Dedicated sku container groups per region per subscription | 0<sup>1</sup> |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
-| Standard sku cores (CPUs) per region per subscription | 10<sup>1,2</sup> | 
-| Standard sku cores (CPUs) for K80 GPU per region per subscription | 18<sup>1,2</sup> |
-| Standard sku cores (CPUs) for P100 or V100 GPU per region per subscription | 0<sup>1,2</sup> |
+| Standard sku cores (CPUs) per region per subscription | 100 | 
+| Standard sku cores (CPUs) for K80 GPU per region per subscription | 0 |
+| Standard sku cores (CPUs) for V100 GPU per region per subscription | 0 |
 | Ports per IP | 5 |
 | Container instance log size - running instance | 4 MB |
 | Container instance log size - stopped instance | 16 KB or 1,000 lines |

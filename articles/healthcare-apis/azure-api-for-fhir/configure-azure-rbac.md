@@ -1,14 +1,14 @@
 ---
 title: Configure Azure role-based access control (Azure RBAC) for Azure API for FHIR
 description: This article describes how to configure Azure RBAC for the Azure API for FHIR data plane
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
-ms.date: 02/15/2022
-ms.author: dseven
-ms.reviewer: matjazl
+ms.date: 06/02/2022
+ms.author: kesheth
 ---
+
 # Configure Azure RBAC for FHIR 
 
 In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. If you're using an external Azure Active Directory tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
@@ -69,4 +69,6 @@ In this article, you learned how to assign Azure roles for the FHIR data plane. 
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
 

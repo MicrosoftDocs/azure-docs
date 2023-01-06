@@ -1,6 +1,6 @@
 ---
 title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
-description: How to configure downstream or leaf devices to connect to Azure IoT Edge gateway devices. 
+description: How to configure downstream devices to connect to Azure IoT Edge gateway devices. 
 author: PatAltimore
 
 ms.author: patricka
@@ -13,15 +13,17 @@ ms.custom:  [amqp, mqtt, devx-track-js]
 
 # Connect a downstream device to an Azure IoT Edge gateway
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent gateways. In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub.
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the third step:
 
 1. Configure the gateway device as a server so that downstream devices can connect to it securely. Set up the gateway to receive messages from downstream devices and route them to the proper destination. For those steps, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
-2. Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For those steps, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. **Connect the downstream device to the gateway device and start sending messages.**
+
+1. Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For those steps, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+
+1. **Connect the downstream device to the gateway device and start sending messages.**
 
 This article discusses basic concepts for downstream device connections and guides you in setting up your downstream devices by:
 
@@ -30,6 +32,9 @@ This article discusses basic concepts for downstream device connections and guid
 * Walking through Azure IoT samples in several languages to help get you started.
 
 In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
+
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 ## Prerequisites
 
@@ -44,13 +49,13 @@ A downstream device can be any application or platform that has an identity crea
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 A downstream device can be any application or platform that has an identity created with the Azure IoT Hub cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
 
 This article provides the steps for connecting an IoT device as a downstream device. If you have an IoT Edge device as a downstream device, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 >[!NOTE]
 >IoT devices registered with IoT Hub can use [module twins](../iot-hub/iot-hub-devguide-module-twins.md) to isolate different processes, hardware, or functions on a single device. IoT Edge gateways support downstream module connections using symmetric key authentication but not X.509 certificate authentication.
@@ -198,7 +203,7 @@ This section introduces a sample application to connect an Azure IoT Java device
 
 This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway.
 
-1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-edge-scenarios).
+1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-edge-scenarios).
 2. Set the `IOTHUB_DEVICE_CONNECTION_STRING` and `IOTEDGE_ROOT_CA_CERT_PATH` environment variables as specified in the Python script comments.
 3. Refer to the SDK documentation for any additional instructions on how to run the sample on your device.
 
@@ -218,10 +223,10 @@ The output of this command may be long, including information about all the cert
 
 ## Troubleshoot the gateway connection
 
-If your leaf device has intermittent connection to its gateway device, try the following steps for resolution.
+If your downstream device has intermittent connection to its gateway device, try the following steps for resolution.
 
 1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config file on the gateway device?
-2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the leaf device.
+2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the downstream device.
 3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 
 ## Next steps

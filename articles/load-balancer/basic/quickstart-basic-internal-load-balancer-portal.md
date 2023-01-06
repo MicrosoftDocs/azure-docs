@@ -3,11 +3,11 @@ title: "Quickstart: Create a basic internal load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer by using the Azure portal.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/21/2022
-ms.author: allensu
+ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ---

@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Manage workflow runs
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article outlines how to manage workflows that are already running.
 
@@ -34,9 +34,16 @@ This article outlines how to manage workflows that are already running.
 
     :::image type="content" source="./media/how-to-workflow-manage-runs/workflow-details.png" alt-text="Screenshot of the workflow runs page, with an example workflow name selected, and the workflow details page overlaid, showing workflow run, submission time, run I D, status, and a list of all steps in the request timeline.":::
 
-1. You can select any of the actions in the request timeline to see the specific status and substep details.
+1. You can select any of the actions in the request timeline to see the specific status and sub steps details.
 
     :::image type="content" source="./media/how-to-workflow-manage-runs/select-stages.png" alt-text="Screenshot of the workflow runs page, with the workflow details page overlaid. Some workflow run actions in the request timeline have been expanded to show more information and sub steps.":::
+
+1. You can cancel a running workflow by selecting **Cancel workflow run**.
+
+    :::image type="content" source="./media/how-to-workflow-manage-runs/cancel-workflows-inline.png" alt-text="Screenshot of the workflow runs page, with the workflow details page overlaid and cancel button to cancel the workflow run." lightbox="./media/how-to-workflow-manage-runs/cancel-workflows.png":::
+
+    > [!NOTE]
+    > You can only cancel workflows that are in progress.
 
 
 ## Next steps

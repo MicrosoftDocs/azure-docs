@@ -199,4 +199,3 @@ customized core pricing, and their corresponding currency codes.
 | US         | United States        | USD               |
 | UY         | Uruguay              | UYU               |
 | VE         | Venezuela            | USD               |
-|  |  |  |

@@ -8,8 +8,7 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article

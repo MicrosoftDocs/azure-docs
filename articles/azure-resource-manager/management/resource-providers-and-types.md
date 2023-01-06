@@ -2,15 +2,15 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 11/15/2021 
+ms.date: 08/05/2022 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure resource providers and types
 
-When deploying resources, you frequently need to retrieve information about the resource providers and types. For example, if you want to store keys and secrets, you work with the Microsoft.KeyVault resource provider. This resource provider offers a resource type called vaults for creating the key vault.
+An Azure resource provider is a collection of REST operations that provide functionality for an Azure service. For example, the Key Vault service consists of a resource provider named **Microsoft.KeyVault**. The resource provider defines [REST operations](/rest/api/keyvault/) for working with vaults, secrets, keys, and certificates.
 
-The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
+The resource provider defines the Azure resources that are available for you to deploy to your account. The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
 
 In this article, you learn how to:
 

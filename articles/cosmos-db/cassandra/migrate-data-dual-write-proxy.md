@@ -1,44 +1,45 @@
 ---
-title: Live migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
-description: Learn how to live migrate data from an Apache Cassandra database to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
+title: Live migrate data from Apache Cassandra to the Azure Cosmos DB for Apache Cassandra by using dual-write proxy and Apache Spark
+description: Learn how to live migrate data from an Apache Cassandra database to the Azure Cosmos DB for Apache Cassandra by using dual-write proxy and Apache Spark
 author: TheovanKraay
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 11/25/2021
 ms.author: thvankra
 ms.reviewer: thvankra
 ---
 
-# Live migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
+# Live migrate data from Apache Cassandra to the Azure Cosmos DB for Apache Cassandra by using dual-write proxy and Apache Spark
 
-Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for a variety of reasons such as: 
+API for Cassandra in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for a variety of reasons such as: 
 
 * **No overhead of managing and monitoring:** It eliminates the overhead of managing and monitoring a myriad of settings across OS, JVM, and yaml files and their interactions.
 
 * **Significant cost savings:** You can save cost with Azure Cosmos DB, which includes the cost of VM’s, bandwidth, and any applicable licenses. Additionally, you don’t have to manage the data centers, servers, SSD storage, networking, and electricity costs. 
 
-* **Ability to use existing code and tools:** Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
+* **Ability to use existing code and tools:** Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB for Apache Cassandra with trivial changes.
 
-Azure Cosmos DB does not support the native Apache Cassandra gossip protocol for replication. Therefore, where zero downtime is a requirement for migration, a different approach is necessary. This tutorial describes how to live migrate data to Azure Cosmos DB Cassandra API from a native Apache Cassandra cluster using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and [Apache Spark](https://spark.apache.org/). 
+Azure Cosmos DB does not support the native Apache Cassandra gossip protocol for replication. Therefore, where zero downtime is a requirement for migration, a different approach is necessary. This tutorial describes how to live migrate data to Azure Cosmos DB for Apache Cassandra from a native Apache Cassandra cluster using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and [Apache Spark](https://spark.apache.org/). 
 
-The following image illustrates the pattern. The dual-write proxy is used to capture live changes, while historical data is copied in bulk using Apache Spark. The proxy can accept connections from your application code with few or no configuration changes. It will route all requests to your source database and asynchronously route writes to Cassandra API while bulk copy is happening.
+The following image illustrates the pattern. The dual-write proxy is used to capture live changes, while historical data is copied in bulk using Apache Spark. The proxy can accept connections from your application code with few or no configuration changes. It will route all requests to your source database and asynchronously route writes to API for Cassandra while bulk copy is happening.
 
 :::image type="content" source="../../managed-instance-apache-cassandra/media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account).
+* [Provision an Azure Cosmos DB for Apache Cassandra account](manage-data-dotnet.md#create-a-database-account).
 
-* [Review the basics of connecting to an Azure Cosmos DB Cassandra API](connect-spark-configuration.md).
+* [Review the basics of connecting to an Azure Cosmos DB for Apache Cassandra](connect-spark-configuration.md).
 
-* Review the [supported features in the Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure compatibility.
+* Review the [supported features in the Azure Cosmos DB for Apache Cassandra](support.md) to ensure compatibility.
 
-* [Use cqlsh for validation](cassandra-support.md#cql-shell).
+* [Use cqlsh for validation](support.md#cql-shell).
 
-* Ensure you have network connectivity between your source cluster and target Cassandra API endpoint.
+* Ensure you have network connectivity between your source cluster and target API for Cassandra endpoint.
 
-* Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra API account.
+* Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target API for Cassandra account.
 
     >[!IMPORTANT]
     > If you have a requirement to preserve Apache Cassandra `writetime` during migration, the following flags must be set when creating tables: 
@@ -140,13 +141,13 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 
 ### Configure the credentials and port
 
-By default, the source credentials will be passed through from your client app. The proxy will use the credentials for making connections to the source and target clusters. As mentioned earlier, this process assumes that the source and target credentials are the same. It will be necessary to specify a different username and password for the target Cassandra API endpoint separately when starting the proxy:
+By default, the source credentials will be passed through from your client app. The proxy will use the credentials for making connections to the source and target clusters. As mentioned earlier, this process assumes that the source and target credentials are the same. It will be necessary to specify a different username and password for the target API for Cassandra endpoint separately when starting the proxy:
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
 ```
 
-The default source and target ports, when not specified, will be 9042. In this case, Cassandra API runs on port `10350`, so you need to use `--source-port` or `--target-port` to specify port numbers: 
+The default source and target ports, when not specified, will be 9042. In this case, API for Cassandra runs on port `10350`, so you need to use `--source-port` or `--target-port` to specify port numbers: 
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
@@ -198,7 +199,7 @@ After the dual-write proxy is running, you'll need to change the port on your ap
 To load the data, create a Scala notebook in your Azure Databricks account. Replace your source and target Cassandra configurations with the corresponding credentials, and replace the source and target keyspaces and tables. Add more variables for each table as required to the following sample, and then run. After your application starts sending requests to the dual-write proxy, you're ready to migrate historical data. 
 
 >[!IMPORTANT]
-> Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. Scaling the throughput before starting the migration will help you to migrate your data in less time. To help safeguard against rate-limiting during the historical data load, you may wish to enable server-side retries (SSR) in Cassandra API. See our article [here](prevent-rate-limiting-errors.md) for more information, and instructions on how to enable SSR.
+> Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. Scaling the throughput before starting the migration will help you to migrate your data in less time. To help safeguard against rate-limiting during the historical data load, you may wish to enable server-side retries (SSR) in API for Cassandra. See our article [here](prevent-rate-limiting-errors.md) for more information, and instructions on how to enable SSR.
 
 ```scala
 import com.datastax.spark.connector._
@@ -270,4 +271,4 @@ After the historical data load is complete, your databases should be in sync and
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to the Azure Cosmos DB Cassandra API](cassandra-introduction.md)
+> [Introduction to the Azure Cosmos DB for Apache Cassandra](introduction.md)

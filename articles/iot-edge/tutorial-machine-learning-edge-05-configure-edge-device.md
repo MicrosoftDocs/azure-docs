@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Configure an Azure IoT Edge device
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 In this article, we configure an Azure virtual machine running Linux to be an Azure IoT Edge device that acts as a transparent gateway. A transparent gateway configuration allows devices to connect to Azure IoT Hub through the gateway without knowing that the gateway exists. At the same time, a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Ultimately, we'll add edge analytics to our system by adding IoT Edge modules to the transparent gateway.
 
@@ -120,7 +121,7 @@ For this tutorial, we register the new device identity by using Visual Studio Co
 
 ## Deploy an Azure virtual machine
 
-We use an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured. The deployment uses an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository. It provisions the IoT Edge device your registered in the previous step using the connection string you supply in the template.
+We use an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured. The deployment uses an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.1) project repository. It provisions the IoT Edge device your registered in the previous step using the connection string you supply in the template.
 
 You can deploy the virtual machine using the Azure portal or Azure CLI. We will show the Azure portal steps. See [Run Azure IoT Edge on Ubuntu Virtual Machines](how-to-install-iot-edge-ubuntuvm.md) for more information.
 
@@ -128,7 +129,7 @@ You can deploy the virtual machine using the Azure portal or Azure CLI. We will 
 
 1. To use the `iotedge-vm-deploy` ARM template to deploy your Ubuntu 18.04 LTS virtual machine, click the button below:
 
-    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.1%2FedgeDeploy.json)
 
 1. On the newly launched window, fill in the available form fields.
 
@@ -167,9 +168,9 @@ You can deploy the virtual machine using the Azure portal or Azure CLI. We will 
 
 ## Download Key Vault certificates
 
-Earlier in this article, we uploaded certificates to Key Vault to make them available for our IoT Edge device and our leaf device. The leaf device is a downstream device that uses the IoT Edge device as a gateway to communicate with IoT Hub.
+Earlier in this article, we uploaded certificates to Key Vault to make them available for our IoT Edge device and our downstream device. The downstream device uses the IoT Edge device as a gateway to communicate with IoT Hub.
 
-We'll deal with the leaf device later in the tutorial. In this section, download the certificates to the IoT Edge device.
+We'll deal with the downstream device later in the tutorial. In this section, download the certificates to the IoT Edge device.
 
 1. From the SSH session on the Linux virtual machine, sign in to Azure with the Azure CLI.
 

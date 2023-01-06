@@ -1,9 +1,9 @@
 ---
 title: Monitoring Azure virtual network data reference 
 description: Important reference material needed when you monitor Azure virtual network 
-author: duongau
+author: asudbring
 ms.topic: reference
-ms.author: duau
+ms.author: allensu
 ms.service: expressroute
 ms.custom: subject-monitoring
 ms.date: 06/29/2021
@@ -64,7 +64,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 **Virtual network**
 
-Azure virtual network does not have diagnostic logs.
+Azure virtual network doesn't have diagnostic logs.
 
 ## Activity log
 
@@ -80,5 +80,5 @@ For more information on the schema of Activity Log entries, see [Activity Log sc
 
 ## See also
 
-- See [Monitoring Azure Azure virtual network](monitor-virtual-network.md) for a description of monitoring Azure Azure virtual network.
+- See [Monitoring Azure virtual network](monitor-virtual-network.md) for a description of monitoring Azure virtual network.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

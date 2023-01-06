@@ -1,22 +1,23 @@
 ---
-title: Use Azure Cosmos DB Table API and Azure Table Storage with Ruby
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+title: Use Azure Cosmos DB for Table and Azure Table Storage with Ruby
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB for Table.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: ruby
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
-ms.reviewer: sngun
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
-# How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+# How to use Azure Table Storage and the Azure Cosmos DB for Table with Ruby
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples described in this article are written in Ruby and uses the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include create a table, delete a table, insert entities, and query entities from the table.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB for Table. The samples described in this article are written in Ruby and uses the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include create a table, delete a table, insert entities, and query entities from the table.
 
 ## Create an Azure service account
 
@@ -49,7 +50,7 @@ require "azure/storage/table"
 
 ## Add your connection string
 
-You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+You can either connect to the Azure storage account or the Azure Cosmos DB for Table account. Get the connection string based on the type of account you are using.
 
 ### Add an Azure Storage connection
 

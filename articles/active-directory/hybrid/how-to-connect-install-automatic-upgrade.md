@@ -4,7 +4,7 @@ description: This topic describes the built-in automatic upgrade feature in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -21,6 +21,13 @@ ms.collection: M365-identity-device-management
 # Azure AD Connect: Automatic upgrade
 Azure AD Connect automatic upgrade is a feature that regularly checks for newer versions of Azure AD Connect. If your server is enabled for automatic upgrade and a newer version is found for which your server is eligible, it will perform an automatic upgrade to that newer version.
 Note that for security reasons the agent that performs the automatic upgrade validates the new build of Azure AD Connect based on the digital signature of the downloaded version.
+
+>[!NOTE]
+> Azure Active Directory (AD) Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services  under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+>
+> Product governed by the Modern Policy follow a [continuous support and servicing model](/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. 
+>
+> For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and DirSync upgrades. When a new version is released, your installation is automatically upgraded.

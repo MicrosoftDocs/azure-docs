@@ -165,6 +165,21 @@ Privileged domain users can use the `Shiro.ini` file to control access to the In
     /api/interpreter/** = authc, roles[adminGroupName]
     ```
 
+### Example shiro.ini for multiple domain groups:
+
+   ```
+   [main]
+   anyofrolesuser = org.apache.zeppelin.utils.AnyOfRolesUserAuthorizationFilter
+
+   [roles]
+   group1 = *
+   group2 = *
+   group3 = *
+
+   [urls]
+   /api/interpreter/** = authc, anyofrolesuser[group1, group2, group3]
+   ```
+   
 ## Livy session management
 
 The first code paragraph in your Zeppelin notebook creates a new Livy session in your cluster. This session is shared across all Zeppelin notebooks that you later create. If the Livy session is killed for any reason, jobs won't run from the Zeppelin notebook.

@@ -4,7 +4,7 @@ description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/20/2019
+ms.date: 08/05/2022
 ---
 
 # Work in the Apache Hadoop ecosystem on HDInsight from a Windows PC
@@ -35,15 +35,7 @@ The following utilities have a web UI that runs in a browser:
     * [Apache Hive View in Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Apache Tez View in Apache Ambari](./index.yml)
 
-## Data Lake (Hadoop) Tools for Visual Studio
-
-Use Data Lake Tools for Visual Studio to deploy and manage Storm topologies. Data Lake Tools also installs the SCP.NET SDK, which allows you to develop C# Storm topologies with Visual Studio.
-
 Before you go to the following examples, [install and try Data Lake Tools for Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
-
-Examples of tasks you can do with Visual Studio and Data Lake Tools for Visual Studio:
-* [Deploy and manage Storm topologies from Visual Studio](storm/apache-storm-deploy-monitor-topology-linux.md)
-* [Develop C# topologies for Storm using Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md). The bits include example templates for Storm topologies you can connect to databases, such as Azure Cosmos DB and SQL Database.
 
 ## Visual Studio and the .NET SDK
 

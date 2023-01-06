@@ -5,13 +5,14 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 10/28/2022
+ms.custom: engagement-fy23
 ---
 
 
 # Replication appliance
 
-This article describes the replication appliance used by [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
+This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
 
 
 ## Overview
@@ -45,9 +46,8 @@ NIC type | VMXNET3 (if the appliance is a VMware VM)
  | **Hardware settings**
 CPU cores | 8
 RAM | 16 GB
-Number of disks | Three: The OS disk, process server cache disk, and retention drive.
+Number of disks | Two: The OS disk and the process server cache disk.
 Free disk space (cache) | 600 GB
-Free disk space (retention disk) | 600 GB
 **Software settings** |
 Operating system | Windows Server 2016 or Windows Server 2012 R2
 License | The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
@@ -70,7 +70,7 @@ MySQL must be installed on the replication appliance machine. It can be installe
 
 **Method** | **Details**
 --- | ---
-Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br> When you set up the appliance, MySQL will show as already installed.
+Download and install manually | [Download](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) the MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br> When you set up the appliance, MySQL will show as already installed.
 Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and select download and install MySQL, setup will use the installer you added.
 Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
@@ -87,7 +87,7 @@ The replication appliance needs access to these URLs in the Azure public cloud.
 https://management.azure.com | Used for replication management operations and coordination.
 *.services.visualstudio.com | Used for logging purposes. (It is optional)
 time.windows.com | Used to check time synchronization between system and global time.
-https://login.microsoftonline.com <br> https://secure.aadcdn.microsoftonline-p.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
+https://login.microsoftonline.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
 https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
 
 ## Azure Government URL access
@@ -103,7 +103,7 @@ The replication appliance needs access to these URLs in Azure Government.
 https://management.usgovcloudapi.net | Used for replication management operations and coordination
 *.services.visualstudio.com | Used for logging purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
-https://login.microsoftonline.com <br> https://secure.aadcdn.microsoftonline-p.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
+https://login.microsoftonline.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
 https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
 
 >[!Note]

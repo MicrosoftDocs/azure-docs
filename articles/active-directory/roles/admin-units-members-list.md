@@ -4,12 +4,12 @@ description: List users, groups, or devices in an administrative unit in Azure A
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 06/01/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -24,7 +24,6 @@ In Azure Active Directory (Azure AD), you can list the users, groups, or devices
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
 - Azure AD Free licenses for administrative unit members
-- Privileged Role Administrator or Global Administrator
 - AzureAD module when using PowerShell
 - AzureADPreview module when using PowerShell for devices
 - Admin consent when using Graph explorer for Microsoft Graph API

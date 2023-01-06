@@ -2,7 +2,7 @@
 title: Security overview
 description: Security information about Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 05/24/2022
 ---
 
 # Azure Arc-enabled servers security overview
@@ -104,7 +104,7 @@ When configuring the Azure Connected Machine agent with a reduced set of capabil
 
 ### Example configuration for monitoring and security scenarios
 
-It's common to use Azure Arc to monitor your servers with Azure Monitor and Microsoft Sentinel and secure them with Microsoft Defender for Cloud. The following configuration samples can help you configure the Azure Arc agent to only allow these scenarios.
+It's common to use Azure Arc to monitor your servers with Azure Monitor and Microsoft Sentinel and secure them with Microsoft Defender for Cloud. The following configuration samples can help you configure the Azure Arc Connected Machine agent to only allow these scenarios.
 
 #### Azure Monitor Agent only
 
@@ -158,9 +158,38 @@ sudo azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monito
 sudo azcmagent config set guestconfiguration.enabled true
 ```
 
+## Agent modes
+
+A simpler way to configure local security controls for monitoring and security scenarios is to use the *monitor mode*, available with agent version 1.18 and newer. Modes are pre-defined configurations of the extension allowlist and guest configuration agent maintained by Microsoft. As new extensions become available that enable monitoring scenarios, Microsoft will update the allowlist and agent configuration to include or exclude the new functionality, as appropriate.
+
+There are two modes to choose from:
+
+1. **full** - the default mode. This allows all agent functionality.
+1. **monitor** - a restricted mode that disables the guest configuration policy agent and only allows the use of extensions related to monitoring and security.
+
+To enable monitor mode, run the following command:
+
+```bash
+azcmagent config set config.mode monitor
+```
+
+You can check the current mode of the agent and allowed extensions with the following command:
+
+```bash
+azcmagent config list
+```
+
+While in monitor mode, you cannot modify the extension allowlist or blocklist. If you need to change either list, change the agent back to full mode and specify your own allowlist and blocklist.
+
+To change the agent back to full mode, run the following command:
+
+```bash
+azcmagent config set config.mode full
+```
+
 ## Using a managed identity with Azure Arc-enabled servers
 
-By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Azure Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign other roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Azure Arc-enabled servers](managed-identity-authentication.md). 
+By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Azure Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign other roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Azure Arc-enabled servers](managed-identity-authentication.md).
 
 While the Hybrid Instance Metadata Service can be accessed by any application running on the machine, only authorized applications can request an Azure AD token for the system assigned identity. On the first attempt to access the token URI, the service will generate a randomly generated cryptographic blob in a location on the file system that only trusted callers can read. The caller must then read the file (proving it has appropriate permission) and retry the request with the file contents in the authorization header to successfully retrieve an Azure AD token.
 

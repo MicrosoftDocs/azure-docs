@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Speech SDK for .NET Framework (Windows) platform setup - Speech service'
+title: 'Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
 description: 'Use this guide to set up your platform for C# under the .NET Framework for Windows with the Speech service SDK.'
 services: cognitive-services
@@ -8,27 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 06/11/2022
 ms.author: eur
 ms.custom: devx-track-dotnet, ignite-fall-2021
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for the .NET Framework (Windows). If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for a .NET Framework (Windows) console app. 
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+### Prerequisites
 
-## Prerequisites
-
-This quickstart requires:
+This guide requires:
 
 * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
-## Create a Visual Studio project and install the Speech SDK
+### Create a Visual Studio project and install the Speech SDK
 
 You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) so you can reference it in your code. To do that, you might first need to create a **helloworld** project. If you already have a project with the **.NET desktop development** workload available, you can use that project and skip to [Use NuGet Package Manager to install the Speech SDK](#use-nuget-package-manager-to-install-the-speech-sdk).
 
-### Create a helloworld project
+#### Create a helloworld project
 
 1. Open Visual Studio 2019.
 
@@ -48,7 +46,7 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 1. Close Visual Studio Installer.
 
-### Use NuGet Package Manager to install the Speech SDK
+#### Use NuGet Package Manager to install the Speech SDK
 
 1. In Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show NuGet Package Manager.   
 
@@ -68,7 +66,7 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
    After the package is installed, a confirmation appears in the **Package Manager Console** window.
 
-### Choose target architecture
+#### Choose target architecture
 
 To build and run the console application, create a platform configuration that matches your computer's architecture.
 
@@ -84,6 +82,3 @@ To build and run the console application, create a platform configuration that m
 
 1. Select **OK** and then **Close**.
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

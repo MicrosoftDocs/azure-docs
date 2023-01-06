@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Upgrade from Read v2.x to Read v3.x
@@ -19,7 +20,7 @@ ROBOTS: NOINDEX
 This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.x.
 
 ## Determine your API path
-Use the following table to determine the **version string** in the API path based on the Read 3.x version you are migrating to.
+Use the following table to determine the **version string** in the API path based on the Read 3.x version you're migrating to.
 
 |Product type| Version | Version string in 3.x API path |
 |:-----|:----|:----|
@@ -38,7 +39,7 @@ Next, use the following sections to narrow your operations and replace the **ver
 |----------|-----------|
 |https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
     
-A new optional _language_ parameter is available. If you do not know the language of your document, or it may be multilingual, don't include it. 
+A new optional _language_ parameter is available. If you don't know the language of your document, or it may be multilingual, don't include it. 
 
 ### `Get Read Results`
 
@@ -62,10 +63,10 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
 Note the following changes to the json:
 * In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded"`. In v3.0, this field is `succeeded`.
 * To get the root for page array,  change the json hierarchy from `recognitionResults` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
-* The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
+* The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to make changes as most math functions can handle either range.
 
-The v3.0 API also introduces the following improvements you can optionally leverage:
-* `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
+The v3.0 API also introduces the following improvements you can optionally use:
+* `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. 
 * `version` tells you the version of the API used to generate results
 * A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
     
@@ -170,15 +171,15 @@ In v3.0, it has been adjusted:
 ## Service only
 
 ### `Recognize Text`
-`Recognize Text` is a *preview* operation which is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and additional features, so it is recommended. To upgrade from `Recognize Text` to `Read`:
+`Recognize Text` is a *preview* operation that is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and other features, so it's recommended. To upgrade from `Recognize Text` to `Read`:
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
 |https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
     
-The _mode_ parameter is not supported in `Read`. Both handwritten and printed text will automatically be supported.
+The _mode_ parameter isn't supported in `Read`. Both handwritten and printed text will automatically be supported.
     
-A new optional _language_ parameter is available in v3.0. If you do not know the language of your document, or it may be multilingual, don't include it. 
+A new optional _language_ parameter is available in v3.0. If you don't know the language of your document, or it may be multilingual, don't include it. 
 
 ### `Get Recognize Text Operation Result`
 
@@ -202,8 +203,8 @@ Note the following changes to the json:
 * In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded`. In v3.x, this field is `succeeded`.
 * To get the root for page array,  change the json hierarchy from `recognitionResult` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
 
-The v3.0 API also introduces the following improvements you can optionally leverage. See the API reference for more details:
-* `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
+The v3.0 API also introduces the following improvements you can optionally use. See the API reference for more details:
+* `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. 
 * `version` tells you the version of the API used to generate results
 * A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
 * `angle` general orientation of the text in clockwise direction, measured in degrees between (-180, 180].

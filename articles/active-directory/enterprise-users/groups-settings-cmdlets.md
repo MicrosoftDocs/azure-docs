@@ -3,21 +3,21 @@ title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/19/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory cmdlets for configuring group settings
 
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Microsoft 365 groups (sometimes called unified groups).
+This article contains instructions for using PowerShell cmdlets to create and update groups in Azure Active Directory (Azure AD), part of Microsoft Entra. This content applies only to Microsoft 365 groups (sometimes called unified groups).
 
 > [!IMPORTANT]
 > Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
@@ -114,22 +114,23 @@ To update the value for UsageGuideLinesUrl in the setting template, read the cur
    
    Output:
    ```powershell
-    Name                          Value
-    ----                          -----
-    EnableMIPLabels               True
+    Name                            Value
+    ----                            -----
+    EnableMIPLabels                 True
     CustomBlockedWordsList
-    EnableMSStandardBlockedWords  False
+    EnableMSStandardBlockedWords    False
     ClassificationDescriptions
     DefaultClassification
     PrefixSuffixNamingRequirement
-    AllowGuestsToBeGroupOwner     False
-    AllowGuestsToAccessGroups     True
+    AllowGuestsToBeGroupOwner       False
+    AllowGuestsToAccessGroups       True
     GuestUsageGuidelinesUrl
     GroupCreationAllowedGroupId
-    AllowToAddGuests              True
-    UsageGuidelinesUrl            https://guideline.example.com
+    AllowToAddGuests                True
+    UsageGuidelinesUrl              https://guideline.example.com
     ClassificationList
-    EnableGroupCreation           True
+    EnableGroupCreation             True
+    NewUnifiedGroupWritebackDefault True
     ```
 3. To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string:
    
@@ -160,7 +161,8 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: "" | The URL of a link to the guest usage guidelines. |
 |  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory. <br>This setting may be overridden and become read-only if *EnableMIPLabels* is set to *True* and a guest policy is associated with the sensitivity label assigned to the group.<br>If the AllowToAddGuests setting is set to False at the organization level, any AllowToAddGuests setting at the group level is ignored. If you want to enable guest access for only a few groups, you must set AllowToAddGuests to be true at the organization level, and then selectively disable it for specific groups. |
 |  <ul><li>ClassificationList<li>Type: String<li>Default: "" | A comma-delimited list of valid classification values that can be applied to Microsoft 365 groups. <br>This setting does not apply when EnableMIPLabels == True.|
-|  <ul><li>EnableMIPLabels<li>Type: Boolean<li>Default: "False" |The flag indicating whether sensitivity labels published in Microsoft 365 Compliance Center can be applied to Microsoft 365 groups. For more information, see [Assign Sensitivity Labels for Microsoft 365 groups](groups-assign-sensitivity-labels.md). |
+|  <ul><li>EnableMIPLabels<li>Type: Boolean<li>Default: "False" |The flag indicating whether sensitivity labels published in Microsoft Purview compliance portal can be applied to Microsoft 365 groups. For more information, see [Assign Sensitivity Labels for Microsoft 365 groups](groups-assign-sensitivity-labels.md). |
+|  <ul><li>NewUnifiedGroupWritebackDefault<li>Type: Boolean<li>Default: "True" |The flag that allows an admin to create new Microsoft 365 groups without setting the groupWritebackConfiguration resource type in the request payload. This setting is applicable when group writeback is configured in Azure AD Connect.  "NewUnifiedGroupWritebackDefault" is a global Microfot 365 group setting. Default value is true. Updating the setting value to false will change the default writeback behavior for newly created Microsoft 365 groups, and will not change isEnabled property value for existing Microsoft 365 groups. Group admin will need to explicitly update the group isEnabled property value to change the writeback state for existing Microsoft 365 groups. |
 
 ## Example: Configure Guest policy for groups at the directory level
 1. Get all the setting templates:
@@ -318,6 +320,10 @@ This step removes settings at directory level, which apply to all Office groups 
 
 ## Cmdlet syntax reference
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2).
+  
+## Manage group settings using Microsoft Graph
+
+To configure and manage group settings using Microsoft Graph, see the [groupSetting resource type](/graph/api/resources/groupsetting?view=graph-rest-1.0&preserve-view=true) and its associated methods.
 
 ## Additional reading
 

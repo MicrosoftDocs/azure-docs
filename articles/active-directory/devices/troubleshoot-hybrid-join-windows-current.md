@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 02/15/2022
+ms.date: 08/29/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: jairoc
 
 #Customer intent: As an IT admin, I want to fix issues with my hybrid Azure AD-joined devices so that my users can use this feature.
@@ -161,7 +161,7 @@ Possible reasons for failure:
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | Unable to read the service connection point (SCP) object and get the Azure AD tenant information. | Refer to the [Configure a service connection point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join) section. |
+| **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | Unable to read the service connection point (SCP) object and get the Azure AD tenant information. | Refer to the [Configure a service connection point](hybrid-azuread-join-manual.md#configure-a-service-connection-point) section. |
 | **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607) | Generic discovery failure. Failed to get the discovery metadata from the data replication service (DRS). | To investigate further, find the sub-error in the next sections. |
 | **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609) | Operation timed out while performing discovery. | Ensure that `https://enterpriseregistration.windows.net` is accessible in the system context. For more information, see the [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites) section. |
 | **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c003d/-2145648579) | Generic realm discovery failure. Failed to determine domain type (managed/federated) from STS. | To investigate further, find the sub-error in the next sections. |
@@ -508,7 +508,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 > [!NOTE]
 > When you're collecting network traces, it's important to *not* use Fiddler during repro.
 
-1.    Run `netsh trace start scenario=internetClient_dbg capture=yes persistent=yes`.
+1. Run `netsh trace start scenario=internetClient_dbg capture=yes persistent=yes`.
 1. Lock and unlock the device. For hybrid-joined devices, wait a minute or more to allow the PRT acquisition task to finish.
 1. Run `netsh trace stop`.
 1. Share the *nettrace.cab* file with Support.

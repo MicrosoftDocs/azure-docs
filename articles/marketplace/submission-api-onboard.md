@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 09/22/2021
+ms.date: 8/29/2022
 ---
 
 # Partner Center submission API onboarding
@@ -46,7 +46,7 @@ To use the Partner Center submission API, you must associate an Azure AD applica
 
 Before you call any of the methods in the Partner Center submission API, you must first obtain an Azure AD access token to pass to the **Authorization** header of each method in the API. An access token expires 60 minutes after issuance. After that, you can refresh it so you can use it in future calls to the API.
 
-To obtain the access token, follow the instructions in [Service to Service Calls Using Client Credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) to send an `HTTP POST` to the `https://login.microsoftonline.com/<tenant_id>/oauth2/token` endpoint. Here is a sample request:
+To obtain the access token, follow the instructions in [Service to Service Calls Using Client Credentials](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to send an `HTTP POST` to the `https://login.microsoftonline.com/<tenant_id>/oauth2/token` endpoint. Here is a sample request:
 
 ```json
 POST https://login.microsoftonline.com/<tenant_id>/oauth2/token HTTP/1.1

@@ -3,7 +3,7 @@ title: NV series retirement
 description: NV series retirement starting September 1, 2021
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha

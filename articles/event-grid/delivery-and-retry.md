@@ -20,11 +20,11 @@ The following table describes the types of endpoints and errors for which retry 
 
 | Endpoint Type | Error codes |
 | --------------| -----------|
-| Azure Resources | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden | 
+| Azure Resources | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found | 
 | Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
  
 > [!NOTE]
-> If Dead-Letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring Dead-Letter if you don't want these kinds of events to be dropped.
+> If dead-letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring dead-letter if you don't want these kinds of events to be dropped. Dead lettered events will be dropped when the dead dead-letter destination is not found.
 
 If the error returned by the subscribed endpoint isn't among the above list, Event Grid performs the retry using policies described below:
 
@@ -130,6 +130,9 @@ Before setting the dead-letter location, you must have a storage account with a 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
 You might want to be notified when an event has been sent to the dead-letter location. To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. Every time your dead-letter blob storage receives an undelivered event, Event Grid notifies your handler. The handler responds with actions you wish to take for reconciling undelivered events. For an example of setting up a dead-letter location and retry policies, see [Dead letter and retry policies](manage-event-delivery.md).
+
+> [!NOTE]
+> If you enable managed identity for dead-lettering, you'll need to add the managed identity to the appropriate role-based access control (RBAC) role on the Azure Storage account that will hold the dead-lettered events. For more information, see [Supported destinations and Azure roles](add-identity-roles.md#supported-destinations-and-azure-roles).
 
 ## Delivery event formats
 This section gives you examples of events and dead-lettered events in different delivery schema formats (Event Grid schema, CloudEvents 1.0 schema, and custom schema). For more information about these formats, see [Event Grid schema](event-schema.md) and [Cloud Events 1.0 schema](cloud-event-schema.md) articles. 
@@ -321,7 +324,7 @@ Event Grid uses HTTP response codes to acknowledge receipt of events.
 
 ### Success codes
 
-Event Grid considers **only** the following HTTP response codes as successful deliveries. All other status codes are considered failed deliveries and will be retried or deadlettered as appropriate. Upon receiving a successful status code, Event Grid considers delivery complete.
+Event Grid considers **only** the following HTTP response codes as successful deliveries. All other status codes are considered failed deliveries and will be retried or deadlettered as appropriate. When Event Grid receives a successful status code, it considers delivery complete.
 
 - 200 OK
 - 201 Created

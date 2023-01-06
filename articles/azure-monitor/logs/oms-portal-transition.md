@@ -39,7 +39,7 @@ While most features will continue to work without performing any migration, you 
 Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../overview.md) for information about how to transition to the Azure portal. 
 
 ## User access and role migration
-Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Designing your Azure Monitor Logs workspace](../logs/design-logs-deployment.md) for details of access management in Log Analytics.
+Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Designing your Azure Monitor Logs workspace](../logs/workspace-design.md) for details of access management in Log Analytics.
 
 > [!NOTE]
 > Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversion is no longer planned, and you must perform the conversion yourself.
@@ -83,7 +83,7 @@ The OMS mobile app will be sunsetted along with the OMS portal. Instead of the O
 As such, Application Insights Connector was deprecated and removed from Azure Marketplace along with OMS portal deprecation on March 30, 2019. Existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). 
 
 ## Azure Network Security Group Analytics
-The [Azure Network Security Group Analytics solution](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
+The [Azure Network Security Group Analytics solution](../insights/azure-networking-analytics.md) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
 
 This solution analyzes NSG Flow logs and provides insights into the following.
 
@@ -94,7 +94,7 @@ This solution analyzes NSG Flow logs and provides insights into the following.
 - Security including malicious traffic, ports open to the Internet, applications or VMs attempting Internet access.
 - Capacity utilization, which helps you eliminate issues of over provisioning or underutilization.
 
-You can continue to rely on Diagnostics Settings to send NSG logs to Log Analytics so your existing saved searches, alerts, dashboards will continue to work. Customers who have already installed the solution can continue to use it until further notice. Starting September 5, the Network Security Group Analytics solution will be removed from the marketplace and made available through the community as a [Azure QuickStart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
+You can continue to rely on Diagnostics Settings to send NSG logs to Log Analytics so your existing saved searches, alerts, dashboards will continue to work. Customers who have already installed the solution can continue to use it until further notice. Starting September 5, the Network Security Group Analytics solution will be removed from the marketplace and made available through the community as a [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## System Center Operations Manager
 If you've [connected your Operations Manager management group to Log Analytics](../agents/om-agents.md), then it will continue to work with no changes. For new connections though, you must follow the guidance in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog).

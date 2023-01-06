@@ -3,7 +3,7 @@ title: 'Quickstart: Use Azure Cache for Redis in Java'
 description: In this quickstart, you'll create a new Java app that uses Azure Cache for Redis
 author: flang-msft
 ms.author: franlanglois
-ms.date: 05/22/2020
+ms.date: 03/21/2021
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
@@ -30,7 +30,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-## Setting up the working environment 
+## Setting up the working environment
 
 Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted above. Open a command prompt, or a terminal window, and set up the following values:
 
@@ -51,7 +51,7 @@ Replace the placeholders with the following values:
 
 ## Understanding the Java sample
 
-In this sample, you use Maven to run the quickstart app. 
+In this sample, you use Maven to run the quickstart app.
 
 1. Change to the new *redistest* project directory.
 
@@ -122,7 +122,7 @@ In this sample, you use Maven to run the quickstart app.
     }
     ```
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. 
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
 
 1. Close the *App.java*.
 
@@ -134,7 +134,7 @@ In this sample, you use Maven to run the quickstart app.
     set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
     set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
     ```
-    
+
 1. Execute the following Maven command to build and run the app:
 
     ```dos
@@ -150,7 +150,7 @@ In the example below, you see the `Message` key previously had a cached value. T
 
 If you continue to use the quickstart code, you can keep the resources created in this quickstart and reuse them.
 
-Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
@@ -160,7 +160,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-   :::image type="content" source="./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png" alt-text="Azure resource group deleted"::: 
+   :::image type="content" source="./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png" alt-text="Azure resource group deleted":::
 
 1. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 

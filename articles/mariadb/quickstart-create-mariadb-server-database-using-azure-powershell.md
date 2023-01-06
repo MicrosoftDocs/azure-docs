@@ -3,7 +3,7 @@ title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for Mari
 description: This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an Azure resource group.
 author: savjani
 ms.author: pariks
-ms.date: 05/26/2020
+ms.date: 06/24/2022
 ms.topic: quickstart
 ms.service: mariadb
 ms.devlang: azurepowershell
@@ -251,7 +251,7 @@ For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https:
     | Username          | myadmin@mydemoserver                      | The server admin login you previously noted                |
     | Password          | *************                             | Use the admin account password you configured earlier      |
 
-1. To test if the parameters are configured correctly, click the **Test Connection** button.
+1. To test if the parameters are configured correctly, select the **Test Connection** button.
 
 1. Select the connection to connect to the server.
 

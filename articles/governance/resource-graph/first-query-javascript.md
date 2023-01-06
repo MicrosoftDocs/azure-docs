@@ -47,12 +47,12 @@ works wherever JavaScript can be used, including [bash on Windows 10](/windows/w
 1. Add a reference to the Azure authentication library.
 
    ```bash
-   npm install @azure/ms-rest-nodeauth
+   npm install @azure/identity
    ```
 
    > [!NOTE]
-   > Verify in _package.json_ `@azure/arm-resourcegraph` is version **2.0.0** or higher and
-   > `@azure/ms-rest-nodeauth` is version **3.0.3** or higher.
+   > Verify in _package.json_ `@azure/arm-resourcegraph` is version **4.2.1** or higher and
+   > `@azure/identity` is version **2.0.4** or higher.
 
 ## Query the Resource Graph
 
@@ -60,13 +60,13 @@ works wherever JavaScript can be used, including [bash on Windows 10](/windows/w
 
    ```javascript
    const argv = require("yargs").argv;
-   const authenticator = require("@azure/ms-rest-nodeauth");
-   const resourceGraph = require("@azure/arm-resourcegraph");
+   const { DefaultAzureCredential } = require("@azure/identity");
+   const { ResourceGraphClient } = require("@azure/arm-resourcegraph");
 
    if (argv.query) {
        const query = async () => {
-          const credentials = await authenticator.interactiveLogin();
-          const client = new resourceGraph.ResourceGraphClient(credentials);
+          const credentials = new DefaultAzureCredential();
+          const client = new ResourceGraphClient(credentials);
           const result = await client.resources(
              {
                  query: argv.query
@@ -133,7 +133,7 @@ top five results.
 If you wish to remove the installed libraries from your application, run the following command.
 
 ```bash
-npm uninstall @azure/arm-resourcegraph @azure/ms-rest-nodeauth yargs
+npm uninstall @azure/arm-resourcegraph @azure/identity yargs
 ```
 
 ## Next steps

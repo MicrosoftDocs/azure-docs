@@ -1,18 +1,21 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: Harsha-CS
-ms.author: harshacs
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
-ms.custom: subject-rbac-steps
+ms.date: 12/13/2022
+ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
 
 Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
 your on-premises machines to a virtual network in Azure. Private endpoint access to
 a recovery vault is supported in all Azure Commercial & Government regions.
+
+>[!Note]
+>Automatic upgrades are not supported for Private Endpoints. [Learn more](upgrade-mobility-service-modernized.md).
 
 This article describes how to complete the following steps:
 
@@ -58,6 +61,25 @@ then create private endpoints in the bypass network. You can choose any form of 
 
 > [!NOTE]
 > While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
+
+### URLs to be allowed
+
+When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allow list. If proxy-based configuration is used then make sure that the proxy resolves any CNAME records received while looking up the URLs.
+
+  | **URL**                  | **Details**                             |
+  | ------------------------- | -------------------------------------------|
+  | portal.azure.com          | Navigate to the Azure portal.              |
+  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+  |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Azure Active Directory applications for the appliance to communicate with Azure Site Recovery. |
+  | `management.azure.com` | Used for Azure Resource Manager deployments and operations. |
+
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
+
+  | **URL for Fairfax**                  | **URL for Mooncake**                             | **Details**                             |
+  | ------------------------- | -------------------------------------------| -------------------------------------------|
+  | `login.microsoftonline.us/*` <br> `graph.windows.net ` | `login.microsoftonline.cn` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
+  | `*.portal.azure.us`          |    `*.portal.azure.cn`           | Navigate to the Azure portal. | 
+  | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Azure Active Directory applications for the appliance to communicate with the Azure Site Recovery service. |
 
  ## Create and use private endpoints for site recovery
 
@@ -314,5 +336,8 @@ to private IPs.
 Now that you've enabled private endpoints for your virtual machine replication, see these other
 articles for additional and related information:
 
-- [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
-- [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
+> [!div class="nextstepaction"]
+> [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
+
+> [!div class="nextstepaction"]
+> [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)

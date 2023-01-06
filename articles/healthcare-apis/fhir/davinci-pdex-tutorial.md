@@ -5,9 +5,9 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.author: mikaelw
-author: mikaelweave
-ms.date: 03/01/2022
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/06/2022
 ---
 
 # Da Vinci PDex
@@ -54,4 +54,6 @@ The final test we'll walk through is testing patient-everything. For this test, 
 In this tutorial, we walked through how to pass the Payer Exchange tests in Touchstone. Next, you can learn how to test the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 >[!div class="nextstepaction"]
->[Da Vinci Plan Net](davinci-plan-net.md)  
+>[Da Vinci Plan Net](davinci-plan-net.md) 
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 

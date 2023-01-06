@@ -13,12 +13,15 @@ metadata:
   ms.topic: faq
   ms.tgt_pltfrm: NA
   ms.workload: TBD
-  ms.date: 02/08/2017
+  ms.date: 08/22/2022
   ms.author: alkohli
 title: "StorSimple for Cloud Solutions Provider Program: Frequently Asked Questions"
 summary: |
 
   ## Overview
+
+  [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+  
   The following are questions and answers that you might have as a StorSimple partner when you deploy or manage a StorSimple Virtual Array in Azure portal.
 
 sections:

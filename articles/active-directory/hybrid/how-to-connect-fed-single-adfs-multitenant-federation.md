@@ -1,11 +1,11 @@
 ---
-title: Federating multiple Azure AD with single AD FS - Azure
+title: Federating multiple Azure AD with single AD FS
 description: In this document, you will learn how to federate multiple Azure AD with a single AD FS.
 keywords: federate, ADFS, AD FS, multiple tenants, single AD FS, one ADFS, multi-tenant federation, multi-forest adfs, aad connect, federation, cross-tenant federation
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 

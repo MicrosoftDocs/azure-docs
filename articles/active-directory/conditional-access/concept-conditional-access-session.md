@@ -10,7 +10,7 @@ ms.date: 04/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, vmahtani, ripull
 
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ Organizations can use this control to require Azure AD to pass device informatio
 For more information on the use and configuration of app-enforced restrictions, see the following articles:
 
 - [Enabling limited access with SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
-- [Enabling limited access with Exchange Online](/microsoft-365/security/office-365-security/secure-email-recommended-policies?view=o365-worldwide#limit-access-to-exchange-online-from-outlook-on-the-web)
+- [Enabling limited access with Exchange Online](/microsoft-365/security/office-365-security/secure-email-recommended-policies?view=o365-worldwide#limit-access-to-exchange-online-from-outlook-on-the-web&preserve-view=true)
 
 ## Conditional Access application control
 

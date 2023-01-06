@@ -2,20 +2,20 @@
 title: IntelliSense in Azure Stream Analytics tools for Visual Studio Code
 description: This article describes how to use IntelliSense features in Azure Stream Analytics tools for Visual Studio Code.
 ms.service: stream-analytics
-author: su-jie
-ms.author: sujie
-ms.date: 4/11/2020
+author: alexlzx
+ms.author: zhenxilin
+ms.date: 12/27/2022
 ms.topic: how-to
 ---
 # IntelliSense in Azure Stream Analytics tools for Visual Studio Code
 
-IntelliSense is available for [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference?toc=/azure/stream-analytics/toc.json) in [Azure Stream Analytics tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting".
+IntelliSense is available for [Stream Analytics Query Language](/stream-analytics-query/stream-analytics-query-language-reference?toc=/azure/stream-analytics/toc.json) in [Azure Stream Analytics (ASA) tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense is a code-completion aid that includes many features: List Members, Parameter Info, Quick Info, and Complete Word. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting".
 
 ![IntelliSense demo](./media/vs-code-intellisense/intellisense.gif)
 
 ## IntelliSense features
 
-The IntelliSense features in Stream Analytics tools for VS Code are powered by a language service. A language service analyzes your source code and provides intelligent code completions based on language semantics. If a language service knows possible completions, IntelliSense suggestions pop up as you type. If you continue typing, a list of members, such as variables and methods, is filtered to only include members that contain the characters you typed. When you press the `Tab` or `Enter` keys, IntelliSense inserts the member you selected.
+The ASA Tools extension for VS Code has IntelliSense feature that is powered by a language service. The language service analyzes your source code and provides intelligent code completions based on language semantics. If a language service knows possible completions, it will show the IntelliSense suggestions as you write the code. If you continue typing, a list of members, such as variables and methods, is filtered to only include members that contain the characters you typed. When you press the `Tab` or `Enter` keys, IntelliSense inserts the member you selected.
 
 You can trigger IntelliSense in any editor window by typing a trigger character, such as the dot character `.`.
 
@@ -26,7 +26,7 @@ You can trigger IntelliSense in any editor window by typing a trigger character,
 
 ### Types of completions
 
-Stream Analytics tools for VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
+The VS Code IntelliSense provides different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 |Completion     |  Type       |
 | ----- | ------- |
@@ -37,11 +37,11 @@ Stream Analytics tools for VS Code IntelliSense offers different types of comple
 
 #### Name completion
 
-Aside from keyword auto-completion, Stream Analytics tools for VS Code reads the list of job input and output names, as well as the names of the columns in your data sources when they are configured. The extension remembers this information to provide name completion capabilities that are useful for entering statements with few keystrokes:
+Aside from keyword auto-completion, the ASA Tools extension is able to read the input and output names for your Stream Analytics job and the column names of your data sources. The extension remembers this information to provide name completion capabilities that are useful for entering statements with few keystrokes:
 
 While coding, you don't need to leave the editor to perform searches on job input names, output name, and column names. You can keep your context, find the information you need, insert elements directly into your code, and have IntelliSense complete your typing for you.
 
-Note that you need to configure either local input or live input and save the configuration file to be able to use name completion.
+Note that you need to configure local input or live input and then save the configuration file in order to use name completion.
 
 ![name completion](./media/vs-code-intellisense/name-completion.gif)
 
@@ -61,7 +61,7 @@ As provided by the language service, you can see **Quick Info** for each identif
 
 ## Troubleshoot IntelliSense
 
-This issue is caused by missing input configuration which provides data. You can check if a [local input](visual-studio-code-local-run.md#define-a-local-input) or [live input](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) has been configured correctly.
+This issue is caused by missing input configuration. You can check if a [local input](visual-studio-code-local-run.md#define-a-local-input) or [live input](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) has been configured correctly.
 
 ## Next steps
 

@@ -1,11 +1,14 @@
 ---
 title: Containerize your Azure Service Fabric services on Windows
 description: Learn how to containerize your Service Fabric Reliable Services and Reliable Actors services on Windows.
-
-ms.topic: conceptual
-ms.date: 5/23/2018
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Containerize your Service Fabric Reliable Services and Reliable Actors on Windows
 
 Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services). For more information, see [service fabric containers](service-fabric-containers-overview.md).

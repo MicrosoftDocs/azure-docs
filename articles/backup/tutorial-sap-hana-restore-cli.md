@@ -2,7 +2,7 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/23/2021 
+ms.date: 08/11/2022
 ms.custom: devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -29,6 +29,9 @@ This tutorial assumes you have an SAP HANA database running on Azure VM that's b
 * Protected container named *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*
 * Backed-up database/item named *saphanadatabase;hxe;hxe*
 * Resources in the *westus2* region
+
+>[!Note]
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## View restore points for a backed-up database
 
@@ -231,6 +234,9 @@ Name                                  Operation           Status      Item Name 
 00000000-0000-0000-0000-000000000000  CrossRegionRestore  InProgress  H10 [hanasnapcvt01]  AzureWorkload             2021-12-22T05:21:34.165617+00:00  0:00:05.665470
 ```
 
+>[!Note]
+>The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
+
 ## Restore as files
 
 To restore the backup data as files instead of a database, we'll use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can either be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
@@ -342,6 +348,9 @@ Based on the type of restore point chosen (**Point in time** or **Full & Differe
 
 >[!Note]
 >If you've selected **Restore to a point in time**, the log files (dumped to the target VM) may sometimes contain logs beyond the point-in-time chosen for restore. Azure Backup does this to ensure that log backups for all HANA services are available for consistent and successful restore to the chosen point-in-time.
+
+> [!NOTE]
+> If you don't want to restore the entire chain but only a subset of files, follow the steps as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
 
 Move these restored files to the SAP HANA server where you want to restore them as a database. Then follow these steps to restore the database:
 

@@ -1,16 +1,16 @@
 ---
 title: Limit the total throughput provisioned on your Azure Cosmos DB account
 description: Learn how to limit the total throughput provisioned on your Azure Cosmos DB account
-author: ThomasWeiss
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/31/2022
-ms.author: thweiss
-ms.custom: ignite-fall-2021
+ms.author: sidandrews
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Limit the total throughput provisioned on your Azure Cosmos DB account
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 When using an Azure Cosmos DB account in [provisioned throughput](./set-throughput.md) mode, most of your costs usually come from the amount of throughput that you have provisioned across your account. In particular, these costs are directly influenced by:
 

@@ -1,9 +1,12 @@
 ---
 title: Azure Service Fabric application design best practices 
 description: Best practices and design considerations for developing applications and services using Azure Service Fabric.
-
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Service Fabric application design best practices
@@ -72,4 +75,4 @@ Be thorough about adding [application logging](./service-fabric-diagnostics-even
 ## Design guidance on Azure
 * Visit the [Azure architecture center](/azure/architecture/microservices/) for design guidance on [building microservices on Azure](/azure/architecture/microservices/).
 
-* Visit [Get Started with Azure for Gaming](/gaming/azure/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* Visit [Get Started with Azure for Gaming](/gaming/azure/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous).

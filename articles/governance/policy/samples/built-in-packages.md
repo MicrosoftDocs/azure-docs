@@ -17,7 +17,7 @@ Each row represents a package used by a built-in policy definition.
 - **Definition**: Links to the policy definition in the Azure portal.
 - **Configuration**: Links to the `.mof` file in the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy)
   containing the configuration that is used to audit and/or remediate machines.
-- **Required modules**: Links to the [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/dsc/overview?view=dsc-1.1)
+- **Required modules**: Links to the [PowerShell Desired State Configuration (DSC)](/powershell/dsc/overview?view=dsc-1.1&preserve-view=true)
   modules used by each configuration. The resource modules contain the script logic
   used to evaluate each setting in the configuration.
 

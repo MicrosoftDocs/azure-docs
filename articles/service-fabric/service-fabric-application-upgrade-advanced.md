@@ -1,10 +1,14 @@
 ---
 title: Advanced Application Upgrade Topics
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
-
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade: Advanced topics
 
 ## Add or remove service types during an application upgrade
@@ -72,7 +76,7 @@ There are several ways to configure the delay on the service side.
 
 ### Client configuration
 
-To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+To receive notification when an endpoint has changed, clients should register a callback see [Sample ServiceNotificationFilterDescription](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.servicenotificationfiltermatched).
 The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore, as they will go down soon.
 
 ### Optional upgrade overrides
@@ -176,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
+Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows a monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}

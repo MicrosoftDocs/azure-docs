@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 05/13/2022
 ms.author: cshoe
 ---
 
@@ -20,28 +20,39 @@ To create your container app, start at the Azure portal home page.
 
 In the *Basics* tab, do the following actions.
 
-#### Enter project details
+1. Enter the following values in the *Project details* section.
 
-| Setting | Action |
-|---|---|
-| Subscription | Select your Azure subscription. |
-| Resource group | Select **Create new** and enter **my-container-apps**. |
-| Container app name |  Enter **my-container-app**. |
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **Create new** and enter **my-container-apps**. |
+    | Container app name |  Enter **my-container-app**. |
 
 #### Create an environment
 
-1. In the *Create Container App environment* field, select **Create new**.
-1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
+Next, create an environment for your container app.
+
+1. Select the appropriate region.
 
     | Setting | Value |
-    |---|---|
+    |--|--|
+    | Region | Select **Central US**. |
+
+1. In the *Create Container Apps environment* field, select the **Create new** link.
+1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
+
+    | Setting | Value |
+    |--|--|
     | Environment name | Enter **my-environment**. |
-    | Region | Select **Canada Central**. |
+    | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
-1. Select **Create new** in the *Log Analytics workspace* field.
-1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
+1. Select the **Create new** link in the *Log Analytics workspace* field and enter the following values.
+
+    | Setting | Value |
+    |--|--|
+    | Name | Enter **my-container-apps-logs**. |
   
-    The *Location* field is pre-filled with *Canada Central* for you.
+    The *Location* field is pre-filled with *Central US* for you.
 
 1. Select **OK**.

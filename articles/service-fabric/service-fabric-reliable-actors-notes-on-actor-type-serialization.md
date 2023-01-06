@@ -2,9 +2,13 @@
 title: Reliable Actors notes on actor type serialization 
 description: Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces
 ms.topic: conceptual
-ms.date: 11/02/2017
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Notes on Service Fabric Reliable Actors type serialization
 The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's state manager must be [data contract serializable](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md). (Actor event interface methods always return void.)
 

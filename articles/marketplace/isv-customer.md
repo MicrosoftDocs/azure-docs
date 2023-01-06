@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emerb19
 ms.author: emerb
-ms.date: 04/06/2022
+ms.date: 04/28/2022
 ---
 
 # ISV to customer private offers
@@ -68,7 +68,7 @@ Create and manage private offers from the **Private offers** dashboard in Partne
 
 ## Create a private offer for a customer
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. Select the **Marketplace offers** workspace.
 3. Select **Private offers** from the left-nav menu.
 4. Select the **Customers** tab.
@@ -82,9 +82,9 @@ Use this page to define private offer terms, notification contacts, and pricing 
 - **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
 
     > [!NOTE]
-    > Customers can find their billing account in the [Azure portal ](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
-
-    :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
+    >    Customers can find their billing account ID in 2 ways. 1) In the [Azure portal](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** **Properties** **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 2) If customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription **Properties** (or Billing Properties) **Billing Account ID**. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
+   
+:::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
 - **Private offer terms** – Specify the duration, accept-by date, and terms:
 
@@ -120,7 +120,7 @@ When you're ready, select **Submit**. You'll be returned to the dashboard where 
 
 ## Clone a private offer
 
-You can clone an existing offer and update its customer information to send it to different customers so you don't have to start from scratch. Or, update the offer/plan pricing to send additional discounts to the same customer.
+You can clone an existing offer and update its customer information to send it to different customers, so you don't have to start from scratch. Or, update the offer/plan pricing to send additional discounts to the same customer.
 
 1. Select **Private offers** from the left-nav menu.
 2. Select the **Customers** tab.
@@ -181,8 +181,14 @@ The payout amount and agency fee that Microsoft charges is based on the private 
 
 ## Next steps
 
+**Further reading**
+
 - [Frequently Asked Questions](isv-customer-faq.yml) about configuring ISV to customer private offers
-- Video series (YouTube):
-  - [ISV to Customer Private Offer Creation](https://youtu.be/M_h8g5_5K90)
-  - [ISV to Customer Private Offer Acceptance](https://youtu.be/l2zhmDqtB4U)
-  - [ISV to Customer Private Offer Purchase Experience](https://youtu.be/vm1MNZhK028)
+
+**Video tutorials (YouTube)**
+
+- [Private Offer Overview of ISV to Customer Offers](https://www.youtube.com/watch?v=SNfEMKNmstY)
+- [ISV to Customer Private Offer Creation](https://www.youtube.com/watch?v=WPSM2_v4JuE)
+- [ISV to Customer Private Offer Acceptance](https://www.youtube.com/watch?v=HWpLOOtfWZs)
+- [ISV to Customer Private Offer Purchase Experience](https://www.youtube.com/watch?v=mPX7gqdHqBk)
+

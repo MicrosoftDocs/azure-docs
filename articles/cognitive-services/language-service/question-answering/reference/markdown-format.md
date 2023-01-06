@@ -3,8 +3,8 @@ title: Markdown format - question answering
 description: Following is the list of markdown formats that you can use your answer text.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.topic: reference
 ms.date: 01/21/2022
 ---

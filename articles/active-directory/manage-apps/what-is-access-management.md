@@ -1,6 +1,5 @@
 ---
 title: Manage access to apps
-titleSuffix: Azure AD
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
 author: eringreenlee
@@ -9,9 +8,8 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 07/20/2022
 ms.author: ergreenl
-ms.reviewer: davidmu
 ---
 
 # Manage access to an application
@@ -34,8 +32,8 @@ Azure AD's application assignment focuses on two primary assignment modes:
 
 * **Group-based assignment (requires Azure AD Premium P1 or P2)** An IT admin with directory Global Administrator permissions can assign a group to the application. Specific users' access is determined by whether they are members of the group at the time they try to access the application. In other words, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". Using this assignment option, administrators can benefit from any of Azure AD group management options, including [attribute-based dynamic groups](../fundamentals/active-directory-groups-create-azure-portal.md), external system groups (for example, on-premises Active Directory or Workday), or Administrator-managed or self-service-managed groups. A single group can be easily assigned to multiple apps, making sure that applications with assignment affinity can share assignment rules, reducing the overall management complexity.
 
->[!NOTE]
->Group memberships aren't supported for group-based assignment to applications at this time.
+  >[!NOTE]
+  >[Nested group](../fundamentals/active-directory-groups-membership-azure-portal.md) memberships aren't supported for group-based assignment to applications at this time.
 
 Using these two assignment modes, administrators can achieve any desirable assignment management approach.
 

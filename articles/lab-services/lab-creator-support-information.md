@@ -1,7 +1,7 @@
 ---
 title: View support information (lab creator)
 description: This article explains how lab creators can view support information that they can use to get help. 
-ms.date: 11/24/2021
+ms.date: 04/25/2022
 ms.topic: how-to
 ms.custom: devdivchpfy22
 ---

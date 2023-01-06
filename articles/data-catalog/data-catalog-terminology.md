@@ -3,11 +3,11 @@ title: Azure Data Catalog terminology
 description: This article provides an introduction to concepts and terms used in Azure Data Catalog documentation.
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 12/15/2022
 ---
 # Azure Data Catalog terminology
 
-[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](includes/catalog-to-purview-migration-flag.md)]
 
 This article provides an introduction to concepts and terms used in Azure Data Catalog documentation.
 

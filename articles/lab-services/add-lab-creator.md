@@ -20,7 +20,7 @@ To provide educators the permission to create labs for their classes, add them t
 
 1. On the **Lab Plan** resource, select **Access control (IAM)**
 
-1. Select **Add** > **Add role assignment (Preview)**.
+1. Select **Add** > **Add role assignment**.
 
     ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
@@ -43,7 +43,7 @@ You might need to add an external user as a lab creator. If that is the case, yo
 - A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
 
-For instructions to add someone as a guest account in Azure AD, see [Quickstart: Add guest users in the Azure portal - Azure AD](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal).  If using an email account that's provided by your university’s Azure AD, you don't have to add them as a guest account.
+For instructions to add someone as a guest account in Azure AD, see [Quickstart: Add guest users in the Azure portal - Azure AD](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md).  If using an email account that's provided by your university’s Azure AD, you don't have to add them as a guest account.
 
 Once the user has an Azure AD account, [add the Azure AD user account to Lab Creator role](#add-azure-ad-user-account-to-lab-creator-role).
 

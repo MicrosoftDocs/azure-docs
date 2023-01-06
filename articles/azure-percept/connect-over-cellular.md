@@ -1,15 +1,17 @@
 ---
 title: Connect Azure Percept over 5G or LTE networks
 description: This article explains how to connect the Azure Percept DK over 5G or LTE networks.
-author: nkhuyent
+author: yvonne-dq
 ms.author: jluoto
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 09/23/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to
 ---
 
 # Connect Azure Percept over 5G or LTE networks
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 The benefits of connecting Edge AI devices over 5G/LTE networks are many. Scenarios where Edge AI is most effective are in places where Wi-Fi and LAN connectivity are limited, such as smart cities, autonomous vehicles, and agriculture. Additionally, 5G/LTE networks provide better security than Wi-Fi. Lastly, using IoT devices that run AI at the Edge provides a way to optimize the bandwidth on 5G/LTE networks. Only the necessary information is sent to the cloud while most of the data is processed on the device. Today, Azure Percept DK even supports direct connection to 5G/LTE networks using a simple USB modem. Below more about the different options.
 

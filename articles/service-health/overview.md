@@ -10,7 +10,7 @@ Azure offers a suite of experiences to keep you informed about the health of you
 
 Azure Service Health is a combination of three separate smaller services.
 
-[Azure status](azure-status-overview.md) informs you of service outages in Azure on the **[Azure Status page](https://status.azure.com)**. The page is a global view of the health of all Azure services across all Azure regions. The status page is a good reference for incidents with widespread impact, but we strongly recommend that current Azure users leverage Azure service health to stay informed about Azure incidents and maintenance.
+[Azure status](azure-status-overview.md) informs you of service outages in Azure on the **[Azure Status page](https://azure.status.microsoft)**. The page is a global view of the health of all Azure services across all Azure regions. The status page is a good reference for incidents with widespread impact, but we strongly recommend that current Azure users leverage Azure service health to stay informed about Azure incidents and maintenance.
 
 [Service health](service-health-overview.md) provides a personalized view of the health of the Azure services and regions you're using. This is the best place to look for service impacting communications about outages, planned maintenance activities, and other health advisories because the authenticated Service Health experience knows which services and resources you currently use. The best way to use Service Health is to set up Service Health alerts to notify you via your preferred communication channels when service issues, planned maintenance, or other changes may affect the Azure services and regions you use.
 

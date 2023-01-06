@@ -66,7 +66,7 @@ After you have moved all the resources associated with the original instance of 
 
 ## Test NAT gateway in new region
 
-For steps on how to test the NAT gateway, see [Tutorial: Create a NAT gateway - Azure portal](tutorial-create-nat-gateway-portal.md#test-nat-gateway).
+For steps on how to test the NAT gateway, see [Quickstart: Create a NAT gateway - Azure portal](quickstart-create-nat-gateway-portal.md#test-nat-gateway).
 
 ## Delete old instance of NAT gateway 
 

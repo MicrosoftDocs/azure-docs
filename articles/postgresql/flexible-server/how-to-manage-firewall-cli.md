@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI
 
-
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 

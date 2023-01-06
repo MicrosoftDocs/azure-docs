@@ -76,7 +76,7 @@ Azure Front Door currently provides individual API requests with each entry havi
 | SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. Possible values include: SSLv3, TLSv1, TLSv1.1, TLSv1.2 |
 | SecurityCipher | When the value for Request Protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and AFD for encryption. |
 | Endpoint | The domain name of AFD endpoint, for example, contoso.z01.azurefd.net |
-| HttpStatusCode | The HTTP status code returned from AFD. |
+| HttpStatusCode | The HTTP status code returned from Azure Front Door. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
 | Pop | The edge pop, which responded to the user request.  |
 | Cache Status | Provides the status code of how the request gets handled by the CDN service when it comes to caching. Possible values are HIT: The HTTP request was served from AFD edge POP cache. <br> **MISS**: The HTTP request was served from origin. <br/> **PARTIAL_HIT**: Some of the bytes from a request got served from AFD edge POP cache while some of the bytes got served from origin for object chunking scenarios. <br> **CACHE_NOCONFIG**: Forwarding requests without caching settings, including bypass scenario. <br/> **PRIVATE_NOSTORE**: No cache configured in caching settings by customers. <br> **REMOTE_HIT**: The request was served by parent node cache. <br/> **N/A**:** Request that was denied by Signed URL and Rules Set. |
 | MatchedRulesSetName | The names of the rules that were processed. |

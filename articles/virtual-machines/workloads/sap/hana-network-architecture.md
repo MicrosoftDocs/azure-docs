@@ -3,16 +3,15 @@ title: Network architecture of SAP HANA on Azure (Large Instances) | Microsoft D
 description: Learn about the network architecture for deploying SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: mamccrea
+author: lauradolan
 manager: bburns
 editor: ''
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/21/2021
-ms.author: mamccrea
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---

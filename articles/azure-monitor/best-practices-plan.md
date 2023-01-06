@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-
+ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices - Planning your monitoring strategy and configuration

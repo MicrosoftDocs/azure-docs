@@ -3,11 +3,11 @@ title: Configure Azure Arc-enabled SQL managed instance
 description: Configure Azure Arc-enabled SQL managed instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 02/22/2022
+ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
@@ -44,6 +44,39 @@ To view the changes made to the Azure Arc-enabled SQL managed instance, you can 
 ```azurecli
 az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
 ```
+
+## Configure readable secondaries
+
+When you deploy Azure Arc enabled SQL managed instance in `BusinessCritical` service tier with 2 or more replicas, by default, one secondary replica is automatically configured as `readableSecondary`. This setting can be changed, either to add or to remove the readable secondaries as follows:
+
+```azurecli
+az sql mi-arc update --name <sqlmi name>  --readable-secondaries <value> --k8s-namespace <namespace> --use-k8s
+```
+
+For example, the following example will reset the readable secondaries to 0.
+
+```azurecli
+az sql mi-arc update --name sqlmi1 --readable-secondaries 0 --k8s-namespace mynamespace --use-k8s
+```
+## Configure replicas
+
+You can also scale up or down the number of replicas deployed in the `BusinessCritical` service tier as follows:
+
+```azurecli
+az sql mi-arc update --name <sqlmi name> --replicas <value> --k8s-namespace <namespace> --use-k8s
+```
+
+For example:
+
+The following example will scale down the number of replicas from 3 to 2.
+
+```azurecli
+az sql mi-arc update --name sqlmi1 --replicas 2 --k8s-namespace mynamespace --use-k8s
+```
+
+> [Note]
+> If you scale down from 2 replicas to 1 replica, you may run into a conflict with the pre-configured `--readable--secondaries` setting. You can first edit the `--readable--secondaries` before scaling down the replicas. 
+
 
 ## Configure Server options
 

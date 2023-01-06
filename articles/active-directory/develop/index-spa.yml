@@ -6,9 +6,9 @@ summary: >
   our quickstarts, tutorials, and in-depth how-to guides.
 
 metadata:
-   author: mmacy
+   author: Dickson-Mwendia
    manager: CelesteDG
-   ms.author: marsma
+   ms.author: dmwendia
    ms.date: 04/01/2022
    ms.service: active-directory
    ms.subservice: develop

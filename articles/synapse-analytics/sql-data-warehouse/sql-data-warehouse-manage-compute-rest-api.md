@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/09/2022
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019, azure-synapse
 REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
 > [!NOTE]
-> The REST APIs that are described in this article are not applicable to a dedicated SQL pool that's created in an Azure Synapse Analytics workspace. For information about REST APIs to use specifically for an Azure Synapse Analytics workspace, see [Azure Synapse Analytics workspace REST API](/rest/api/synapse/).
+> The REST APIs that are described in this article are for standalone dedicated SQL pools (formerly SQL DW) and are not applicable to a dedicated SQL pool in an Azure Synapse Analytics workspace. For information about REST APIs to use specifically for an Azure Synapse Analytics workspace, see [Azure Synapse Analytics workspace REST API](/rest/api/synapse/).
 
 ## Scale compute
 
@@ -28,9 +28,9 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 Content-Type: application/json; charset=UTF-8
 
 {
-	location: "West Central US",
+    "location": "West Central US",
     "sku": {
-    "name": "DW200c"
+        "name": "DW200c"
     }
 }
 ```

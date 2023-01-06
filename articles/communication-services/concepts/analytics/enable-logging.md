@@ -26,8 +26,7 @@ The following are instructions for configuring your Azure Monitor resource to st
 
 These instructions apply to the following Communications Services logs:
 
-- [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) Preview
-
+- [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) 
 ## Access Diagnostic Settings
 
 To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure portal:
@@ -54,7 +53,7 @@ You'll also be prompted to select a destination to store the logs. Platform logs
 
 | Destination | Description |
 |:------------|:------------|
-| [Log Analytics workspace](../../../azure-monitor/logs/design-logs-deployment.md) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to use other Azure Monitor features such as alerts and visualizations. |
+| [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-workspace-overview.md) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to use other Azure Monitor features such as alerts and visualizations. |
 | [Event Hubs](../../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
 | [Azure storage account](../../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely. |
 

@@ -306,8 +306,8 @@ This section shows you how to use the Azure Maps Route service to get directions
     * The truck route is displayed using a thick blue line and the car route is displayed using a thin purple line.
     * The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are in residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different route that doesn't have this restriction.
 
-* For the completed code used in this tutorial, see [truckRoute.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html) on GitHub.
-* To view this sample live, see [Multiple routes by mode of travel](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel) on the **Azure Maps Code Samples** site.
+* For the completed code used in this tutorial, see the [Truck Route](https://samples.azuremaps.com/?sample=car-vs-truck-route) tutorial on GitHub.
+* To view this sample live, see [Multiple routes by mode of travel](https://samples.azuremaps.com/?sample=multiple-routes-by-mode-of-travel) on the **Azure Maps Code Samples** site.
 * You can also use [Data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 ## Next steps

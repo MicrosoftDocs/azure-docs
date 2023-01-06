@@ -3,12 +3,12 @@ title: Find out when a specific user will be able to access an app in Azure Acti
 description: How to find out when a critically important user be able to access an application you have configured for user provisioning with Azure Active Directory
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

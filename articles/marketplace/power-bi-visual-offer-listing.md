@@ -1,13 +1,13 @@
 ---
 title: Configure Power BI visual offer listing details in Partner Center for Microsoft AppSource
 description: Learn how to configure Power BI visual offer listing details in Partner Center for Microsoft AppSource.
-author: posurnis
-ms.author: posurnis
+author: trkeya
+ms.author: trkeya
 ms.reviewer: pooja.surnis
-ms.service: powerbi
-ms.subservice: powerbi-custom-visuals
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 07/18/2022
 ---
 
 # Configure Power BI visual offer listing details
@@ -16,11 +16,17 @@ This page lets you define the offer details such as offer name, description, lin
 
 ## Languages
 
-Provide listing details in any one or multiple supported languages. Select **Manage additional languages** to add a language. Select each language to add its listing details.
+Provide listing details in any one or multiple supported languages.
 
-:::image type="content" source="media/power-bi-visual/listing-languages.png" alt-text="Shows the selection of languages for the offer listing.":::
+1. On the **Offer listing** page, select **Manage additional languages** to add a language. 
+1. Select each language you want to add its listing details.
+1. Select **Update**. The languages you selected appear in the **Language** column.
+
+    :::image type="content" source="media/power-bi-visual/listing-languages.png" alt-text="Shows the selection of languages for the offer listing.":::
 
 ## Marketplace details
+
+In the **Language** column, select the language you want to configure.
 
 - The **[Name](/office/dev/store/reserve-solution-name)** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered when you created the offer, but you can change it. If you want to reserve more names (for example, in another language) select [Reserve more names](power-bi-visual-manage-names.md).
 - Enter a **Summary** of your offer for the Search results summary. This description may be used in marketplace search results.
@@ -53,8 +59,8 @@ For additional marketplace listing resources, see [Best practices for marketplac
 
 Select **Save draft**.
 
-If you selected additional languages, select each from the dropdown list at the top of the page and repeat the above steps for each one. When finished, continue to the next tab in the left-nav menu, **Availability**.
+If you selected additional languages, select each from the dropdown list at the top of the page and repeat the above steps for each one. When finished, continue to the next tab in the left-nav menu: Availability.
 
 ## Next steps
 
-- [**Availability**](power-bi-visual-availability.md)
+- [Define the availability of a Power BI visual offer](power-bi-visual-availability.md)

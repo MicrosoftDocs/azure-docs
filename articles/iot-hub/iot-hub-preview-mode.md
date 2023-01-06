@@ -3,7 +3,7 @@
  description: Learn how to turn on preview mode for IoT Hub, why you would want to, and some warnings
  services: iot-hub
  author: kgremban
- ms.service: iot-fundamentals
+ ms.service: iot-hub
  ms.topic: conceptual
  ms.date: 11/24/2020
  ms.author: kgremban

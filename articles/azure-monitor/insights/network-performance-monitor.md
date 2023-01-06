@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
+ms.reviewer: shijain
 
 ---
 
@@ -49,9 +50,9 @@ NPM can monitor connectivity between networks and applications in any part of th
 * West US 2
 * East Japan
 * South East Asia
-* South East Australia
 * Australia Central
 * Australia East
+* Australia Southeast
 * South UK
 * East Asia
 * Korea Central

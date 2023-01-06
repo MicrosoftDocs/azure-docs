@@ -10,10 +10,10 @@ metadata:
    ms.subservice: app-proxy
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 04/27/2021
+   ms.date: 08/29/2022
    author: kenwith
    ms.author: kenwith
-   manager: karenhoran
+   manager: amycolannino
 
 landingContent:
   - title: About Application Proxy
@@ -46,9 +46,4 @@ landingContent:
             url: ../manage-apps/v2-howto-app-gallery-listing.md
           - text: Understand the platform
             url: ../develop/v2-overview.md
-  - title: New in docs
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: What's new in docs
-            url: whats-new-docs.md
+

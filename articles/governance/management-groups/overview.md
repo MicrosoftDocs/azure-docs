@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 08/17/2021
+ms.date: 01/03/2023
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -10,7 +10,7 @@ ms.author: timwarner
 
 If your organization has many Azure subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. _Management groups_ provide a governance scope
-above subscriptions. You organize subscriptions into management groups the governance conditions you apply
+above subscriptions. You organize subscriptions into management groups; the governance conditions you apply
 cascade by inheritance to all associated subscriptions.
 
 Management groups give you
@@ -37,6 +37,9 @@ West US region in the management group called "Production". This policy will inh
 Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs
 under those subscriptions. This security policy cannot be altered by the resource or subscription
 owner allowing for improved governance.
+
+> [!NOTE]
+> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement (MCA) subscriptions.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one
@@ -254,11 +257,9 @@ There are limitations that exist when using custom roles on management groups.
   restriction is in place as there's a latency issue with updating the data plane resource
   providers. This latency issue is being worked on and these actions will be disabled from the role
   definition to reduce any risks.
-- The Azure Resource Manager doesn't validate the management group's existence in the role
+- Azure Resource Manager doesn't validate the management group's existence in the role
   definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
   role definition is still created.
-- Role assignment of a role with _dataActions_ isn't supported. Create the role assignment at the
-  subscription scope instead.
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview. This preview version is
@@ -274,7 +275,7 @@ need to be evaluated as true.
 
 If you're doing the move action, you need:
 
-- Management group write and Role Assignment write permissions on the child subscription or
+- Management group write and role assignment write permissions on the child subscription or
   management group.
   - Built-in role example: **Owner**
 - Management group write access on the target parent management group.
@@ -310,6 +311,9 @@ management group.
 
 When looking to query on management groups outside the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{_management-group-id_}"**.
+
+> [!NOTE]
+> Using the Azure Resource Manager REST API, you can enable diagnostic settings on a management group to send related Azure Activity log entries to a Log Analytics workspace, Azure Storage, or Azure Event Hub. For more information, see [Management Group Diagnostic Settings - Create Or Update](/rest/api/monitor/management-group-diagnostic-settings/create-or-update).
 
 ## Next steps
 

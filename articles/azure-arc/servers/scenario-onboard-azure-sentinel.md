@@ -13,7 +13,7 @@ This article is intended to help you onboard your Azure Arc-enabled server to [M
 
 Before you start, make sure that you've met the following requirements:
 
-- A [Log Analytics workspace](../../azure-monitor/logs/data-platform-logs.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/design-logs-deployment.md).
+- A [Log Analytics workspace](../../azure-monitor/logs/data-platform-logs.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/workspace-design.md).
 
 - Microsoft Sentinel [enabled in your subscription](../../sentinel/quickstart-onboard.md).
 

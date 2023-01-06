@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.author: trkeya
 author: trkeya
-ms.date: 12/06/2021
+ms.date: 06/03/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
@@ -82,6 +82,9 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 #### baseuri
 
 Test drive initializes this parameter with a **Base Uri** of your deployment package so you can use this parameter to construct a Uri of any file included in your package.
+
+> [!NOTE]
+> The `baseUri` parameter cannot be used in conjunction with a custom script extension.
 
 ```JSON
 "parameters": {

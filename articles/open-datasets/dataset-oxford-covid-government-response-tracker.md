@@ -38,7 +38,7 @@ As of June 8, 2020 they contained 27,919 rows (CSV 4.9 MB, JSON 20.9 MB, JSONL 2
 
 ## Data source
 
-The source of this data is Thomas Hale, Sam Webster, Anna Petherick, Toby Phillips, and Beatriz Kira. (2020). Oxford COVID-19 Government Response Tracker. [Blavatnik School of Government](https://www.bsg.ox.ac.uk/). Raw data is ingested daily from the [latest OxCGRT csv file](https://github.com/OxCGRT/covid-policy-tracker/blob/master/data/OxCGRT_latest.csv). For more information on this dataset, including how it is collected, see the [Government tracker response site](https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker).
+The source of this data is Thomas Hale, Sam Webster, Anna Petherick, Toby Phillips, and Beatriz Kira. (2020). Oxford COVID-19 Government Response Tracker. [Blavatnik School of Government](https://www.bsg.ox.ac.uk/). Raw data is ingested daily from the [latest OxCGRT csv file](https://github.com/OxCGRT/covid-policy-tracker/blob/master/data/OxCGRT_nat_latest.csv). For more information on this dataset, including how it is collected, see the [Government tracker response site](https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker).
 
 ## Data quality
 The OxCGRT does not guarantee the accuracy or timeliness of the data. For more information, see the [data quality statement](https://github.com/OxCGRT/covid-policy-tracker#data-quality).

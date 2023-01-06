@@ -2,14 +2,14 @@
 title: Control external access to resources in Azure Active Directory with sensitivity labels. 
 description: Use sensitivity labels as a part of your overall security plan for external access.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ Sensitivity labels on email and other content travel with the content. Sensitivi
 
 ## Permissions necessary to create and manage sensitivity levels
 
-Members of your compliance team who will create sensitivity labels need permissions to the Microsoft 365 Defender portal, Microsoft 365 Compliance Center, or Office 365 Security & Compliance Center.
+Members of your compliance team who will create sensitivity labels need permissions to the Microsoft 365 Defender portal, Microsoft Purview compliance portal, or Office 365 Security & Compliance Center.
 
 By default, global administrators for your tenant have access to these admin centers and can give compliance officers and other people access, without giving them all the permissions of a tenant admin. For this delegated limited admin access, add users to the Compliance Data Administrator, Compliance Administrator, or Security Administrator role group.
 

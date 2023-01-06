@@ -27,7 +27,7 @@ Avere vFXT for Azure is best suited for these situations:
 * Compute farms of 1000 to 40,000 CPU cores
 * Integration with on-premises hardware NAS, Azure Blob storage, or both
 
-For more information, visit <https://azure.microsoft.com/services/storage/avere-vfxt/>
+For more information, see [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).
 
 ## Who uses Avere vFXT for Azure?
 

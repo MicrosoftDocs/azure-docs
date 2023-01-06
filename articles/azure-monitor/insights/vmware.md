@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
+ms.reviewer: shijain
 
 ---
 
@@ -103,7 +104,7 @@ The VMware tile appears in your Log Analytics workspace. It provides a high-leve
 ![Screenshot shows the VMware tile, displaying nine failures.](./media/vmware/tile.png)
 
 #### Navigate the dashboard view
-In the **VMware** dashboard view, blades are organized by:
+In the **VMware** dashboard view, sections are organized by:
 
 * Failure Status Count
 * Top Host by Event Counts
@@ -115,7 +116,7 @@ In the **VMware** dashboard view, blades are organized by:
 
 ![solution2](./media/vmware/solutionview1-2.png)
 
-Click any blade to open Log Analytics search pane that shows detailed information specific for the blade.
+Click any section to open Log Analytics search pane that shows detailed information specific for the section.
 
 From here, you can edit the log query to modify it for something specific. For details on creating log queries, see [Find data using log queries in Azure Monitor](../logs/log-query-overview.md).
 
@@ -128,12 +129,12 @@ You can drill further by clicking an ESXi host or an event type.
 
 When you click an ESXi host name, you view information from that ESXi host. If you want to narrow results with the event type, add `“ProcessName_s=EVENT TYPE”` in your search query. You can select **ProcessName** in the search filter. That narrows the information for you.
 
-![Screenshot of the ESXi Host Per Event Count and Breakdown Per Event Type blades in the VMware Monitoring dashboard view.](./media/vmware/eventhostdrilldown.png)
+![Screenshot of the ESXi Host Per Event Count and Breakdown Per Event Type sections in the VMware Monitoring dashboard view.](./media/vmware/eventhostdrilldown.png)
 
 #### Find high VM activities
 A virtual machine can be created and deleted on any ESXi host. It's helpful for an administrator to identify how many VMs an ESXi host creates. That in-turn, helps to understand performance and capacity planning. Keeping track of VM activity events is crucial when managing your environment.
 
-![Screenshot of the Virtual Machine Activities blade in the VMware Monitoring dashboard, showing a graph of VM creation and deletion by the ESXi host.](./media/vmware/vmactivities1.png)
+![Screenshot of the Virtual Machine Activities section in the VMware Monitoring dashboard, showing a graph of VM creation and deletion by the ESXi host.](./media/vmware/vmactivities1.png)
 
 If you want to see additional ESXi host VM creation data, click an ESXi host name.
 

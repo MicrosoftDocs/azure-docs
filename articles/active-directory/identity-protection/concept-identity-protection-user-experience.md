@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 11/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 With Azure Active Directory Identity Protection, you can:
 
-* Require users to register for Azure AD Multi-Factor Authentication (MFA)
+* Require users to register for Azure AD multifactor authentication (MFA)
 * Automate remediation of risky sign-ins and compromised users
 
 All of the Identity Protection policies have an impact on the sign in experience for users. Allowing users to register for and use tools like Azure AD MFA and self-service password reset can lessen the impact. These tools along with the appropriate policy choices gives users a self-remediation option when they need it.
@@ -34,7 +34,7 @@ Enabling the Identity Protection policy requiring multi-factor authentication re
    
     ![More information required](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Complete the guided steps to register for Azure AD Multi-Factor Authentication and complete your sign-in.
+1. Complete the guided steps to register for Azure AD multifactor authentication and complete your sign-in.
 
 ## Risky sign-in remediation
 
@@ -42,7 +42,7 @@ When an administrator has configured a policy for sign-in risks, affected users 
 
 ### Risky sign-in self-remediation
 
-1. The user is informed that something unusual was detected about their sign-in. This could be something like, such as signing in from a new location, device, or app.
+1. The user is informed that something unusual was detected about their sign-in. This behavior could be something like, such as signing in from a new location, device, or app.
    
     ![Something unusual prompt](./media/concept-identity-protection-user-experience/120.png)
 
@@ -84,7 +84,7 @@ If your organization has users who are delegated access to another tenant and th
 1. An organization has a managed service provider (MSP) or cloud solution provider (CSP) who takes care of configuring their cloud environment. 
 1. One of the MSPs technicians credentials are leaked and triggers high risk. That technician is blocked from signing in to other tenants. 
 1. The technician can self-remediate and sign in if the home tenant has enabled the appropriate policies [requiring password change for high risk users](../conditional-access/howto-conditional-access-policy-risk-user.md) or [MFA for risky users](../conditional-access/howto-conditional-access-policy-risk.md). 
-   1. If the home tenant hasn't enabled self-remediation policies, an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#remediation).
+   1. If the home tenant hasn't enabled self-remediation policies, an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#risk-remediation).
 
 ## See also
 

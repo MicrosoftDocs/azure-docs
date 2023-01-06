@@ -1,12 +1,12 @@
 ---
 title: Copy data from FHIR service in Azure Health Data Services to Azure Synapse Analytics
 description: This article describes copying FHIR data into Synapse
-author: ginalee-dotcom
+author: irenejoseph
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/16/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: irenejoseph
 ---
 # Copy data from FHIR service to Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ You can configure the server to export the data to any kind of Azure storage acc
 
 #### Using `$export` command
 
-After configuring your FHIR server, you can follow the [documentation](./export-data.md#using-export-command) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
+After configuring your FHIR server, you can follow the [documentation](./export-data.md#call-the-export-endpoint) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  
@@ -196,3 +196,5 @@ Next, you can learn about how you can de-identify your FHIR data while exporting
  
 >[!div class="nextstepaction"]
 >[Exporting de-identified data](./de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

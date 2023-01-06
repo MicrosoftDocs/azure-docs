@@ -53,6 +53,8 @@ Add a custom domain certificate (.PFX) file to your API Management instance, or 
     > This setting is shared by all domain names configured for the gateway.
 9. Select **Add** to assign the custom domain name to the selected self-hosted gateway.
 
+> [!NOTE]
+> If clients connecting to the self-hosted gateway using the custom domain expect to be presented with all intermediate certificates in the chain, you must upload individual CA certificates to your API Management Service and associate them with the self-hosted gateway. For instructions on how to achieve this, see [Create custom CA for self-hosted gateway](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) .
 ## Next steps
 
 [Upgrade and scale your service](upgrade-and-scale.md)

@@ -33,7 +33,7 @@ conceptualContent:
         - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: ../aks/kubernetes-walkthrough.md
+        - url: ../aks/tutorial-kubernetes-prepare-app.md
           itemType: tutorial
           text: Create an AKS cluster (CLI)
       # footerLink (optional)
@@ -83,7 +83,7 @@ conceptualContent:
         - url: ../container-instances/container-instances-overview.md
           itemType: overview
           text: Container Instances overview
-        - url: /learn/modules/run-docker-with-azure-container-instances/
+        - url: /training/modules/run-docker-with-azure-container-instances/
           itemType: learn
           text: Run containerized apps using Docker with Azure Container Instances
         - url: ../container-instances/container-instances-using-azure-container-registry.md

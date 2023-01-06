@@ -4,7 +4,7 @@ description: Learn how to create and manage Azure HDInsight clusters using the A
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/01/2022
+ms.date: 11/11/2022
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
@@ -102,7 +102,7 @@ From the [cluster home page](#homePage),  under **Settings** select **Properties
 |REGION|Azure location. For a list of supported Azure locations, see the **Region** drop-down list box on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |DATE CREATED|The date the cluster was deployed.|
 |OPERATING SYSTEM|Either **Windows** or **Linux**.|
-|TYPE|Hadoop, HBase, Storm, Spark.|
+|TYPE|Hadoop, HBase, Spark.|
 |Version|See [HDInsight versions](hdinsight-component-versioning.md).|
 |Minimum TLS version|The TLS version.|
 |SUBSCRIPTION|Subscription name.|
@@ -213,9 +213,8 @@ The password is changed on all nodes in the cluster.
 
 > [!NOTE]
 > SSH passwords cannot contain the following characters:
-> ```
-> " ' ` / \ < % ~ | $ & ! 
-> ```
+>
+> ``` " ' ` / \ < % ~ | $ & ! ```
 
    | Field | Value |
    | --- | --- |

@@ -58,7 +58,7 @@ Navigate through the following links to get started using Azure Government:
 - [Connect with CLI](./documentation-government-get-started-connect-with-cli.md)
 - [Connect with Visual Studio](./documentation-government-connect-vs.md)
 - [Connect to Azure Storage](./documentation-government-get-started-connect-to-storage.md)
-- [Connect with Azure SDK for Python](/azure/developer/python/azure-sdk-sovereign-domain)
+- [Connect with Azure SDK for Python](/azure/developer/python/sdk/azure-sdk-sovereign-domain)
 
 ### Azure Government Video Library 
 

@@ -1,5 +1,5 @@
 ---
-title: Connect applications in Azure Container Apps Preview
+title: Connect applications in Azure Container Apps
 description: Learn to deploy multiple applications that communicate together in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Connect applications in Azure Container Apps Preview
+# Connect applications in Azure Container Apps
 
 Azure Container Apps exposes each container app through a domain name if [ingress](ingress.md) is enabled. Ingress endpoints can be exposed either publicly to the world or internally and only available to other container apps in the same [environment](environment.md).
 

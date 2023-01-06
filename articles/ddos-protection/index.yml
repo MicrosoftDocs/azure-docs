@@ -1,38 +1,40 @@
 ### YamlMime:Landing
-title: Azure DDoS Protection Standard documentation
-summary: "Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks."
+title: Azure DDoS Protection documentation
+summary: "Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks."
 
 metadata: 
-  description: "Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks."
-  keywords: azure ddos protection standard
-  author: aletheatoh
-  ms.author: yitoh
-  ms.date: 06/30/2021
+  description: "Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks."
+  keywords: azure ddos protection
+  author: AbdullahBell
+  ms.author: abell
+  ms.date: 10/12/2022
   ms.service: ddos-protection
   ms.topic: landing-page
-  ms.custom: azure-ddos-protection
-
-
+  ms.custom: azure-ddos-protection, ignite-2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstarts | reference | tutorial | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Learn about Azure DDoS Protection Standard
+  - title: Learn about Azure DDoS Protection 
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure DDoS Protection Standard?
+          - text: What is Azure DDoS Protection?
             url: ddos-protection-overview.md
+          - text: Azure DDoS Protection SKU comparison
+            url: ddos-protection-sku-comparison.md
+          - text: Pricing
+            url: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
       - linkListType: learn
         links:
           - text: Introduction to Azure DDoS Protection
-            url: /learn/modules/introduction-azure-ddos-protection/
+            url: /training/modules/introduction-azure-ddos-protection/
       - linkListType: architecture
         links:
-          - text: Azure DDoS Protection Standard features
-            url: ddos-protection-standard-features.md
+          - text: Azure DDoS Protection features
+            url: ddos-protection-features.md
           - text: Reference architectures
             url: ddos-protection-reference-architectures.md
 
@@ -41,16 +43,15 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a DDoS Protection Plan - Portal
+          - text: Create and configure Azure DDoS Network Protection using the Azure portal
             url: manage-ddos-protection.md
-
-
+          
   # Card
   - title: Configure attack analytics
     linkLists:
       - linkListType: tutorial
         links:
-          - text: View and configure DDoS protection telemetry
+          - text: View and configure Azure DDoS Protection telemetry
             url: telemetry.md
           - text: View and configure DDoS diagnostic logging
             url: diagnostic-logging.md
@@ -70,6 +71,8 @@ landingContent:
             url: ddos-response-strategy.md
       - linkListType: how-to-guide
         links: 
+          - text: Test with simulation partners
+            url: test-through-simulations.md
           - text: Engage DDoS Rapid Response (DRR)
             url: ddos-rapid-response.md
   

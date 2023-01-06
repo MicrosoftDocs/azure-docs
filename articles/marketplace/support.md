@@ -43,7 +43,6 @@ Open a ticket with Microsoft [marketplace publisher support](https://go.microsof
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
 | For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=2165533)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |
-|
 
 ### Technical  
 
@@ -57,7 +56,6 @@ Open a ticket with Microsoft [marketplace publisher support](https://go.microsof
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |
-|
 
 For questions about Marketplace Rewards, contact [Partner Center support](https://partner.microsoft.com/support/v2/?stage=1).
 

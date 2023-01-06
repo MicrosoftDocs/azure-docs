@@ -1,13 +1,12 @@
 ---
-title: Working with security policies | Microsoft Docs
+title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.custom: ignite-2022
+ms.date: 10/31/2022
 ---
 
 # Manage security policies
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
@@ -46,8 +45,6 @@ To view your security policies in Defender for Cloud:
     1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security initiatives and policies](custom-security-policies.md).
 
     1. To view and edit the default initiative, select it and proceed as described below.
-
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
@@ -95,7 +92,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 ## Enable a security policy
 
-Some policies in your initiatives might be disabled by default. For example, in the Azure Security Benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
+Some policies in your initiatives might be disabled by default. For example, in the Microsoft cloud security benchmark initiative, some policies are provided for you to enable only if they meet a specific regulatory or compliance requirement for your organization. Such policies include recommendations to encrypt data at rest with customer-managed keys, such as "Container registries should be encrypted with a customer-managed key (CMK)".
 
 To enable a disabled policy and ensure it's assessed for your resources:
 

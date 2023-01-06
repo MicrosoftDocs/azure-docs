@@ -2,8 +2,8 @@
 title: Azure SQL and SQL Server 
 description: This article provides information on how to use the  connector for moving data between Azure MS SQL and serverless Apache Spark pools.
 services: synapse-analytics 
-author: midesa
-ms.author: midesa 
+author: eskot
+ms.author: eskot 
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
@@ -24,11 +24,14 @@ This article covers how to use the DataFrame API to connect to SQL databases usi
 In this example, we will use the Microsoft Spark utilities to facilitate acquiring secrets from a pre-configured Key Vault. To learn more about Microsoft Spark utilities, please visit [introduction to Microsoft Spark Utilities](../microsoft-spark-utilities.md).
 
 ```python
+# The servername is in the format "jdbc:sqlserver://<AzureSQLServerName>.database.windows.net:1433"
 servername = "<< server name >>"
 dbname = "<< database name >>"
 url = servername + ";" + "databaseName=" + dbname + ";"
 dbtable = "<< table name >> "
 user = "<< username >>" 
+principal_client_id = "<< service principal client id >>" 
+principal_secret = "<< service principal secret ho>>"
 password = mssparkutils.credentials.getSecret('azure key vault name','secret name')
 ```
 
@@ -86,7 +89,7 @@ except ValueError as error :
 
 ### Python example with service principal
 ```python
-import adal
+import msal
 
 # Located in App Registrations from Azure Portal
 tenant_id = "<< tenant id >> "
@@ -94,12 +97,23 @@ tenant_id = "<< tenant id >> "
 # Located in App Registrations from Azure Portal
 resource_app_id_url = "https://database.windows.net/"
 
-# Authority
-authority = "https://login.windows.net/" + tenant_id
+# Define scope of the Service for the app registration before requesting from AAD
+scope ="https://database.windows.net/.default"
 
-context = adal.AuthenticationContext(authority)
-token = context.acquire_token_with_client_credentials(resource_app_id_url, service_principal_id, service_principal_secret)
-access_token = token["accessToken"]
+# Authority
+authority = "https://login.microsoftonline.net/" + tenant_id
+
+# Get service principal 
+service_principal_id = mssparkutils.credentials.getSecret('azure key vault name','principal_client_id')
+service_principal_secret = mssparkutils.credentials.getSecret('azure key vault name','principal_secret')
+
+
+context = msal.ConfidentialClientApplication(
+    service_principal_id, service_principal_secret, authority
+    )
+
+token = app.acquire_token_silent([scope])
+access_token = token["access_token"]
 
 jdbc_df = spark.read \
         .format("com.microsoft.sqlserver.jdbc.spark") \

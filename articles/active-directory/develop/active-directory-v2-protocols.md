@@ -1,6 +1,5 @@
 ---
-title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform | Azure
-titleSuffix: Microsoft identity platform
+title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 description: A guide to OAuth 2.0 and OpenID Connect protocols as supported by the Microsoft identity platform.
 services: active-directory
 author: nickludwig
@@ -38,7 +37,7 @@ Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentic
 
 ## Tokens
 
-The parties in an authentication flow use **bearer tokens** to assure identification (authentication) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
+The parties in an authentication flow use **bearer tokens** to assure, verify, and authenticate a principal (user, host, or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
 
 Three types of bearer tokens are used by the Microsoft identity platform as *security tokens*:
 
@@ -54,7 +53,7 @@ Your client app needs a way to trust the security tokens issued to it by the Mic
 
 When you register your app in Azure AD, the Microsoft identity platform automatically assigns it some values, while others you configure based on the application's type.
 
-Two the most commonly referenced app registration settings are:
+Two of the most commonly referenced app registration settings are:
 
 * **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. The client ID uniquely identifies your app in the identity platform and is included in the security tokens the platform issues.
 * **Redirect URI** - The authorization server uses a redirect URI to direct the resource owner's *user-agent* (web browser, mobile app) to another destination after completing their interaction. For example, after the end-user authenticates with the authorization server. Not all client types use redirect URIs.
@@ -77,6 +76,11 @@ https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 
 # NOTE: These are examples. Endpoint URI format may vary based on application type,
 #       sign-in audience, and Azure cloud instance (global or national cloud).
+
+#       The {issuer} value in the path of the request can be used to control who can sign into the application. 
+#       The allowed values are **common** for both Microsoft accounts and work or school accounts, 
+#       **organizations** for work or school accounts only, **consumers** for Microsoft accounts only, 
+#       and **tenant identifiers** such as the tenant ID or domain name.
 ```
 
 To find the endpoints for an application you've registered, in the [Azure portal](https://portal.azure.com) navigate to:

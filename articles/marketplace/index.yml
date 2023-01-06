@@ -26,6 +26,8 @@ landingContent:
         url: policies-terms.md
       - text: Microsoft commercial marketplace FAQs
         url: marketplace-faq-publisher-guide.yml
+      - text: Mastering the marketplace
+        url: https://go.microsoft.com/fwlink/?linkid=2195692 
       - text: Microsoft Publisher Agreement
         url: /legal/marketplace/msft-publisher-agreement
       - text: What's new
@@ -123,6 +125,8 @@ landingContent:
         url: partner-center-portal/pc-saas-fulfillment-apis.md
       - text: Marketplace metering service APIs
         url: marketplace-metering-service-apis-faq.yml
+      - text: Product Ingestion API
+        url: product-ingestion-api.md  
       - text: Reporting API (PDF)
         url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 

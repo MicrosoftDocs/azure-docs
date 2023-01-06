@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot library installation errors
 description: This tutorial provides an overview on how to troubleshoot library installation errors.
-author: midesa
-ms.author: midesa 
+author: shuaijunye
+ms.author: shuaijunye 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 07/07/2022
 ---
 
 # Troubleshoot library installation errors 
@@ -35,6 +35,22 @@ To view these logs:
 3. Switch to view the **driver** and **stdout** logs. 
 4. Within the results, you'll see the logs related to the installation of your packages.
     ![Screenshot that highlights system reserved library job results.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-results.png "View system library job progress")
+
+## Track installation failures
+In certain cases, users can also inspect the full installation logs available in the Spark History Server to identify complicated dependency conflicts. The logs available through the Spark UI could be truncated and accessing the full installation logs through the Spark History Server would be useful in complex library installation scenarios.
+
+To view the full installation logs:
+1. Navigate to the Spark applications list in the **Monitor** tab. 
+2. Select the system Spark application job that corresponds to the failed pool update. These system jobs run under the *SystemReservedJob-LibraryManagement* title.
+   ![Screenshot that highlights the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-failure.png "View failed system library job")
+3. Select the highlighted **Spark history server** option which would open the Spark history server details page in a new tab.
+   ![Screenshot that highlights the details of the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-failure-details.png "View details of failed system library job")
+4. In this page, you will see 2 attempts, select **Attempt 1** as shown below.
+    ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor detaols in spark history server page")
+5. On the top navigation bar in the Spark history server page, switch to the **Executors** tab.
+    ![Screenshot that highlights the job details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-page.png "View the job details in the spark history server page")
+6. Download the **stdout** and **stderr** log files to access the full library management output and error logs.
+    ![Screenshot that highlights the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors-details.png "View stdout and stderr logs in the spark history server page")
 
 ## Validate your permissions
 To install and update libraries, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Azure Data Lake Storage Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
@@ -66,7 +82,7 @@ If you receive an error, you are likely missing the required permissions. To lea
 In addition, if you are running a Pipeline, then the Workspace MSI must have Storage Blob Data Owner or Storage Blob Data Contributor permissions as well. To learn how to grant your workspace identity this permission, visit: [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
 ## Check the environment configuration file
-An environment configuration file can be used to upgrade the Conda environment. This acceptable file formats for Python pool management are listed [here](./apache-spark-manage-python-packages.md).
+An environment configuration file can be used to upgrade the Conda environment. This acceptable file formats for Python pool management are listed as [Environment Specifications](./apache-spark-manage-pool-packages.md#environment-specification-formats).
 
 It is important to note the following restrictions:
    -  The contents of the requirements file must not include extra blank lines or characters. 
@@ -93,7 +109,7 @@ To recreate the environment and validate your updates:
     conda activate myenv
     ```
    
- 3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
+ 3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
 
 >[!IMPORTANT]
 >Issues may arrise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).

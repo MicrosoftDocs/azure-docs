@@ -1,5 +1,5 @@
 ---
-title: Sensitivity label reporting on your data in Microsoft Purview using Microsoft Purview Insights
+title: Sensitivity label reporting on your data in Microsoft Purview using Microsoft Purview Data Estate Insights
 description: This how-to guide describes how to view and use sensitivity label reporting on your data.
 author: batamig
 ms.author: bagol
@@ -7,16 +7,13 @@ ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 04/22/2022
-# Customer intent: As a security officer, I need to understand how to use Microsoft Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
+#Customer intent: As a security officer, I need to understand how to use Microsoft Purview Data Estate Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Sensitivity label insights about your data in Microsoft Purview
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
-
-> [!IMPORTANT]
-> Sensitivity labels in Microsoft Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets, Amazon RDS databases (public preview), Power BI
 
@@ -30,7 +27,7 @@ In this how-to guide, you'll learn how to:
  
 ## Prerequisites
 
-Before getting started with Microsoft Purview Insights, make sure that you've completed the following steps:
+Before getting started with Microsoft Purview Data Estate Insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
@@ -42,7 +39,7 @@ Before getting started with Microsoft Purview Insights, make sure that you've co
 
 For more information, see [Manage data sources in Microsoft Purview](manage-data-sources.md) and [Automatically label your data in Microsoft Purview](create-sensitivity-label.md).
 
-## Use Microsoft Purview Insights for sensitivity labels
+## Use Microsoft Purview Data Estate Insights for sensitivity labels
 
 Classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
@@ -52,7 +49,7 @@ Classifications are matched directly, such as a social security number, which ha
 
 In contrast, sensitivity labels are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
 
-Microsoft Purview Insights uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as those used with Microsoft 365 apps and services. This enables you to extend your existing sensitivity labels to assets in the data map.
+Microsoft Purview Data Estate Insights uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as those used with Microsoft 365 apps and services. This enables you to extend your existing sensitivity labels to assets in the data map.
 
 > [!NOTE]
 > After you have scanned your source types, give **Sensitivity labeling** Insights a couple of hours to reflect the new assets.
@@ -63,9 +60,9 @@ Microsoft Purview Insights uses the same classifications, also known as [sensiti
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Microsoft Purview account** tile.
 
-1. In Microsoft Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
+1. In Microsoft Purview, select the **Data Estate Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Data Estate Insights** area.
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Microsoft Purview **Sensitivity labeling insights** report.
+1. In the **Data Estate Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Microsoft Purview **Sensitivity labeling insights** report.
 
     > [!NOTE]
     > If this report is empty, you may not have extended your sensitivity labels to Microsoft Purview Data Map. For more information, see [Labeling in the Microsoft Purview Data Map](create-sensitivity-label.md).
@@ -118,7 +115,9 @@ For more information, see [How to automatically apply sensitivity labels to your
 
 ## Next steps
 
-Learn more about these Microsoft Purview insight reports:
+Learn how to use Data Estate Insights with sources below:
 
-- [Glossary insights](glossary-insights.md)
-- [Classification insights](./classification-insights.md)
+* [Learn how to use Asset insights](asset-insights.md)
+* [Learn how to use Data Stewardship](data-stewardship.md)
+* [Learn how to use Classification insights](classification-insights.md)
+* [Learn how to use Glossary insights](glossary-insights.md)

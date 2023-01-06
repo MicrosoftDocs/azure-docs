@@ -1,16 +1,16 @@
 ---
 title: Management stored procedures - Azure Database for MariaDB
 description: Learn which stored procedures in Azure Database for MariaDB are useful to help you configure data-in replication, set the timezone, and kill queries.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 06/24/2022
 ---
 
 # Azure Database for MariaDB management stored procedures
 
-Stored procedures are available on Azure Database for MariaDB servers to help manage your MariaDB server. This includes managing your server's connections, queries, and setting up Data-in Replication.  
+Stored procedures are available on Azure Database for MariaDB servers to help manage your MariaDB server. This includes managing your server's connections, queries, and setting up Data-in Replication.
 
 ## Data-in Replication stored procedures
 
@@ -39,5 +39,6 @@ The following stored procedures are available in Azure Database for MariaDB to m
 |*mysql.az_load_timezone*|N/A|N/A|Loads time zone tables to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
 
 ## Next steps
+
 - Learn how to set up [Data-in Replication](howto-data-in-replication.md)
 - Learn how to use the [time zone tables](howto-server-parameters.md#working-with-the-time-zone-parameter)

@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 03/17/2022
+ms.date: 09/26/2022
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint

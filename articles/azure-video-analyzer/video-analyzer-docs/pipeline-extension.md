@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Pipeline extension
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. Your analytics extension plugin can make use of traditional image-processing techniques or computer vision AI models. Pipeline extensions are enabled by including an extension processor node in the pipeline flow. The extension processor node relays video frames to the configured endpoint and acts as the interface to your extension. The connection can be made to a local or remote endpoint and it can be secured by authentication and TLS encryption, if necessary. Additionally, the pipeline extension processor node allows for optional scaling and encoding of the video frames before they are submitted to your custom extension.
 
 Video Analyzer supports the following pipeline extension processors:

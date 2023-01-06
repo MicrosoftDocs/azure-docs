@@ -119,7 +119,7 @@ In this example, the client certificate is set in the policy rather than retriev
 -   **Policy scopes:** all scopes  
 
 ##  <a name="ManagedIdentity"></a> Authenticate with managed identity  
- Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
+ Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme. API Management caches the token until it expires.
 
 Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` is not provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Azure Active Directory.
 
@@ -154,14 +154,14 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ```
 
 ```xml
-<authentication-managed-identity resource="Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+<authentication-managed-identity resource="AD_application_id"/> <!--Application (client) ID of your own Azure AD Application-->
 ```
 
 #### Use managed identity and set header manually
 
 ```xml
-<authentication-managed-identity resource="Client_id_of_Backend"
-   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<authentication-managed-identity resource="AD_application_id"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Application (client) ID of your own Azure AD Application-->
 <set-header name="Authorization" exists-action="override">
    <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
 </set-header>

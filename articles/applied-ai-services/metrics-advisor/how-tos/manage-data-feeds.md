@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 10/25/2022
 ms.author: mbullwin
 ---
 
@@ -47,13 +47,13 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 
 ## Manage permission of a data feed
 
-Workspace access is controlled by the Metrics Advisor resource, which uses Azure Active Directory for authentication. Another layer of permission control is applied to metric data.
+Azure operations can be divided into two categories - control plane and data plane. You use the control plane to manage resources in your subscription. You use the data plane to use capabilities exposed by your instance of a resource type.
+Metrics Advisor requires at least a 'Reader' role to use its capabilities, but cannot perform edit/delete action to the resource itself.
 
-Metrics Advisor lets you grant permissions to different groups of people on different data feeds. There are two types of roles: 
+Within Metrics Advisor there're other fine-grained roles to enable permission control on specific entities, like data feeds, hooks, credentials etc. There are two types of roles:
 
-- **Administrator**: Has full permissions to manage a data feed, including modify and delete.
-- **Viewer**: Has access to a read-only view of the data feed.
- 
+- **Administrator**: Has full permissions to manage a data feed, hook, credentials, etc. including modify and delete.
+- **Viewer**: Has access to a read-only view of the data feed, hook, credentials, etc.
 
 ## Advanced settings
 

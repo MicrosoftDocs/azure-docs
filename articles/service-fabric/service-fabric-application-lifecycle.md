@@ -1,10 +1,14 @@
 ---
 title: Application lifecycle in Service Fabric
 description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
-
+service: service-fabric
+ms.service: service-fabric
+author: tomvcassidy
+ms.author: tomcassidy
 ms.topic: conceptual
-ms.date: 1/19/2018
+ms.date: 05/25/2022
 ---
+
 # Service Fabric application lifecycle
 As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
@@ -74,6 +78,53 @@ See the [Application upgrade tutorial](service-fabric-application-upgrade-tutori
 4. An *operator* removes the application package from the ImageStore using the [**RemoveApplicationPackage** method](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) or the [**Remove-ServiceFabricApplicationPackage** cmdlet](/powershell/module/servicefabric/remove-servicefabricapplicationpackage).
 
 See [Deploy an application](service-fabric-deploy-remove-applications.md) for examples.
+
+## Preserving disk space in cluster image store
+
+The ImageStoreService keeps copied and provisioned packages, which can lead to accumulation of files. File accumulation can cause the ImageStoreService (fabric:/System/ImageStoreService) to fill up the disk and can increase the build time for ImageStoreService replicas.
+
+To avoid file accumulation, use the following provisioning sequence:
+
+1. Copy package to ImageStore, and use the compress option
+
+1. Provision the package
+
+1. Remove the package in the image store
+
+1. Upgrade the application/cluster
+
+1. Unprovision the old version
+
+Steps 3 and 5 in the procedure above prevent the accumulation of files in the image store.
+
+### Configuration for automatic cleanup
+
+You can automate step 3 above using PowerShell or XML. This will cause the application package to be automatically deleted after the successful registration of the application type.
+
+[PowerShell](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps&preserve-view=true):
+
+```powershell
+Register-ServiceFabricApplicationTye -ApplicationPackageCleanupPolicy Automatic
+```
+
+XML:
+
+```xml
+<Section Name="Management">
+  <Parameter Name="CleanupApplicationPackageOnProvisionSuccess" Value="True" />
+</Section>
+```
+
+You can automate step 5 above using XML. This will cause unused application types to be automatically unregistered.
+
+```xml
+<Section Name="Management">
+  <Parameter Name="CleanupUnusedApplicationTypes" Value="true" />
+  <Parameter Name="PeriodicCleanupUnusedApplicationTypes" Value="true" />     
+  <Parameter Name="TriggerAppTypeCleanupOnProvisionSuccess" Value="true" />
+  <Parameter Name="MaxUnusedAppTypeVersionsToKeep" Value="3" />
+</Section>
+```
 
 ## Cleaning up files and data on nodes
 

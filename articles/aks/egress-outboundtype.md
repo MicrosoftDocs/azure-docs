@@ -34,7 +34,7 @@ An AKS cluster can be customized with a unique `outboundType` of type `loadBalan
 > Outbound type impacts only the egress traffic of your cluster. For more information, see [setting up ingress controllers](ingress-basic.md).
 
 > [!NOTE]
-> You can use your own [route table][byo-route-table] with UDR and kubenet networking. Make sure you cluster identity (service principal or managed identity) has Contributor permissions to the custom route table.
+> You can use your own [route table][byo-route-table] with UDR and kubenet networking. Make sure your cluster identity (service principal or managed identity) has Contributor permissions to the custom route table.
 
 ### Outbound type of loadBalancer
 
