@@ -1,10 +1,9 @@
 ---
 title: Azure Automation extension for Visual Studio Code
 description: Learn how to use the Azure Automation extension for Visual Studio Code to author runbooks.
-ms.date: 12/18/2022
+ms.date: 01/06/2023
 ms.topic: how-to
 ---
-
 
 # Use Azure Automation extension for Visual Studio Code
 
@@ -73,7 +72,7 @@ To run the Automation job, follow these steps:
 1. In Automation account, select the runbook.
 1. Right click and select **Start Automation job** to run the Automation job.
 
-   :::image type="content" source="media/runbook-authoring-extension-for-vscode/start-automation-job-inline.png" alt-text="Screenshot on how to run local version of job using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/start-automation-job-expanded.png":::
+   :::image type="content" source="media/runbook-authoring-extension-for-vscode/start-automation-job-inline.png" alt-text="Screenshot on how to run Automation job using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/start-automation-job-expanded.png":::
 
 ### Add new webhook
 
@@ -107,6 +106,21 @@ To add a webhook to the runbook, follow these steps:
 
    A notification appears that the variable is created, you can view the new variable in **fx Variables** option.
 
+### Run local in debug mode
+1. In Automation account, go to **Runbooks** and select a runbook.
+1. In the edit pane, add the break point.
+1. Right click on the runbook and select **Run local in Debug Mode**.
+  
+  :::image type="content" source="media/runbook-authoring-extension-for-vscode/run-local-debug-mode-inline.png" alt-text="Screenshot that shows the running of local runbook in debug mode." lightbox="media/runbook-authoring-extension-for-vscode/add-new-webhook-expanded.png":::
+
+### Compare local runbook
+1. In Automation account, go to **Runbooks** and select a runbook
+1. Right click on the runbook and select **Compare local runbook**.
+1. In the edit pane, you will see the information in two layouts - runbook copy and published/draft copy.
+  >[!NOTE]
+  >If the runbook is **InEdit** mode, you will have to select either the Compare Published content or Compare Draft content to compare.
+  
+  :::image type="content" source="media/runbook-authoring-extension-for-vscode/compare-local-runbook-inline.png" alt-text="Screenshot that shows how to compare local runbook." lightbox="media/runbook-authoring-extension-for-vscode/compare-local-runbook-expanded.png":::
 
 ## Next steps
 
