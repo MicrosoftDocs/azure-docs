@@ -34,7 +34,7 @@ The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and
 * [JavaScript](./javascript.md#enable-distributed-tracing)
 * [Python](opencensus-python.md)
 
-With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in the [Dependency auto-collection documentation](./auto-collect-dependencies.md).
+With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in the [Dependency auto-collection documentation](asp-net-dependencies.md#dependency-auto-collection).
 
  Any technology also can be tracked manually with a call to [TrackDependency](./api-custom-events-metrics.md) on the [TelemetryClient](./api-custom-events-metrics.md).
 

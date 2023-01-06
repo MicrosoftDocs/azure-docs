@@ -17,18 +17,19 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 
 # [Azure portal](#tab/azureportal)
 
+- Access to the Azure portal
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Two or more [Virtual Machine Scale Sets](../virtual-machine-scale-sets/quick-create-portal.md)
   - Ensure the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
 - An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the Virtual Machine Scale Sets.
   - The load balancer must also have a backend pool with health probes and load balancing rules attached.
-- Access to the Azure portal
+
 # [Azure CLI](#tab/azurecli/)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Two or more [Virtual Machine Scale Sets](../virtual-machine-scale-sets/quick-create-portal.md)
-  - Unsure that the upgrade policy is set to automatic.
+  - Ensure that the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
 - An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the Virtual Machine Scale Sets.
   - The load balancer must also have a backend pool with health probes and load balancing rules attached.
@@ -96,7 +97,7 @@ az vmss update \
 
 ```
 
-1. Repeat the steps to attach your second Virtual Machine Scale Set to the backend pool of the Azure Load Balancer with `az vmss update`.
+3. Repeat the steps to attach your second Virtual Machine Scale Set to the backend pool of the Azure Load Balancer with `az vmss update`.
 
 ---
 ## Next steps

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 12/21/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,6 +20,25 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## December 2022
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 
+    
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases in Linux environments. 
+
+    AzAcSnap 7 is being released with the following fixes and improvements: 
+    * Shortening of snapshot names
+    * Restore (`-c restore`) improvements
+    * Test (`-c test`) improvements 
+    * Validation improvements 
+    * Timeout improvements 
+    * Azure Backup integration improvements 
+    * Features moved to GA (generally available):
+        None
+    * The following features are now in preview: 
+        * Preliminary support for [Azure NetApp Files backup](backup-introduction.md)
+        * [IBM Db2 database](https://www.ibm.com/products/db2) support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
 
 * [Cross-zone replication](create-cross-zone-replication.md) (Preview)
 
@@ -30,6 +49,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
     
     In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+
+* [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
+
+    [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) is now supported on Azure NetApp Files with Standard network features. Azure Virtual WAN is a spoke-and-hub architecture, enabling cloud-hosted network hub connectivity between endpoints, creating networking, security, and routing functionalities in one interface. Use cases for Azure Virtual WAN include remote user VPN connectivity (point-to-site), private connectivity (ExpressRoute), intra-cloud connectivity, and VPN ExpressRoute inter-connectivity. 
 
 ## November 2022 
 

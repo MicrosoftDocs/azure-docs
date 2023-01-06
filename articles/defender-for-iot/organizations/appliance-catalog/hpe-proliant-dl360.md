@@ -147,11 +147,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 > For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
 >
 
-### Install iLO remotely from a virtual drive
+### Install OT sensor software with iLO
 
 This procedure describes how to install iLO software remotely from a virtual drive.
-
-**To install sensor software with iLO**:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 

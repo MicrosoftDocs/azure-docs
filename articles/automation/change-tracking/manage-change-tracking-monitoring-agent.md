@@ -3,7 +3,7 @@ title: Manage change tracking and inventory in Azure Automation using Azure Moni
 description: This article tells how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent (Preview)
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/24/2022
+ms.date: 12/28/2022
 ms.topic: conceptual
 ---
 
@@ -14,52 +14,94 @@ ms.topic: conceptual
 This article describes how to manage change tracking, and includes the procedure on how you can change a workspace and configure data collection rule.
 
 >[!NOTE]
-> Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs. For detailed information on how you can enable, see [Enable change tracking and inventory from portal](enable-vms-monitoring-agent.md)
+>Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs. For detailed information on how you can enable, see [Enable change tracking and inventory from portal](enable-vms-monitoring-agent.md)
 
 
-## Change a workspace
+## Configure Windows, Linux files, and Windows Registry using Data Collection Rules
 
-#### [For single VMs](#tab/workspace-singlevm)
+To manage tracking and inventory, ensure that you enable Change tracking with AMA on your VM. 
 
-1. Select the virtual machine, in search, enter **change tracking**.
-1. Select **Open change and inventory center**.
+1. In the Azure portal, select the virtual machine.
+1. Select a specific VM for which you would like to configure the Change tracking settings. 
+1. Under **Operations**, select **Change tracking**
+1. Select **Settings** to view the **Data Collection Rule Configuration** (DCR) page. Here, you can do the following actions:
+   1. Configure changes on a VM at a granular level.  
+   1. Select the filter to configure the workspace.
+   1. Use the filter to view all the DCRs that are configured to the specific LA workspace level.
+
+   >[!NOTE]
+   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](../../azure-monitor/essentials/data-collection-rule-overview.md).
+
+1. Select **Add** to configure new file settings
+   
+   #### [Windows Files](#tab/windows)
+
+    In the **Add Windows File setting** pane, enter the information for the file or folder to track and 
+    click **Save**. The following table defines the properties that you can use for the information.
+
+    |**Property**|**Description**|
+    |---|---|
+    |Enabled | True if the setting is applied, and false otherwise.|
+    |Item Name | Friendly name of the file to be tracked. | 
+    |Group | A group name to group files logically| 
+    |Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment variables, such as %winDir%\System32\\\*.*. 
+    |Path Type | The type of path. Possible values are File and Folder.|
+    |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+
+   #### [Linux Files](#tab/linux)
+
+    In the **Add Linux File for Change Tracking** page, enter the information for the file or directory to 
+    track and then select **Save**. The following table defines the properties that you can use for the information. 
     
-    :::image type="content" source="media/manage-change-tracking-monitoring-agent/select-change-and-inventory-center-inline.png" alt-text="Screenshot showing how to select change and inventory center from the portal." lightbox="media/manage-change-tracking-monitoring-agent/select-change-and-inventory-center-expanded.png":::
-
-1. Select the workspace from the filter, and select **Apply**.
-1. Select **Settings** to configure the data collection rule at the workspace level.
-
-
-#### [For multiple VMs](#tab/workspace-multiplevms)
-
-1. Select the virtual machine.
-1. In search, enter **change tracking** to view the change tracking and inventory page.
-1. In the **Stay up-to-date with all changes** layout, > **Log analytics workspace**, select **Change**.
-1. In **Custom Configuration** screen, provide the **Subscription**, **Location**, and **Workspace**. and select **OK**.
-
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/custom-configuration-inline.png" alt-text="Screenshot showing how to change a workspace." lightbox="media/manage-change-tracking-monitoring-agent/custom-configuration-expanded.png":::
+    |**Property**|**Description**|
+    |---|---|
+    |Enabled | True if the setting is applied, and false otherwise.|
+    |Item Name | Friendly name of the file to be tracked. | 
+    |Group | A group name to group files logically| 
+    |Path | The path to check for the file, for example, /etc/*.conf.  
+    |Path Type | The type of path. Possible values are File and Folder.|
+    |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+   
 ---
 
-## Configure data collection rule
+You can now view the virtual machines configured to the DCR.
 
-1. Select your virtual machine and in the search, enter **Change tracking**.
+### Configure using wildcards
+ 
+To configure the monitoring of files and folders using wildcards, do the following: 
 
-1. Select **Settings** to view the **Data Collection Rule Configuration**. This allows you to configure changes on a VM at a granular level. 
+- Wildcards are required for tracking multiple files. 
+- Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/.conf* 
+- If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs. 
+- When setting the path avoid general paths such as c:.** which will result in too many folders being traversed. 
 
-1. Select **+Add** to enter the file settings. Enter the **Name**, **Group**, **File path**, **Path Type** which can be either a file or folder and select **Add**.
 
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/add-windows-file-setting.png" alt-text="Screenshot showing how to enter file settings for a single virtual machine.":::
+## Disable Change Tracking from a virtual machine 
 
-1. Using the filter, you can further choose a specific data collection rule to configure changes to specific virtual machine.
+To remove change tracking with Azure Monitoring Agent from a virtual machine, follow these steps:
 
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/select-data-collection-rule-inline.png" alt-text="Screenshot showing to select data collection rule to further configure a virtual machine." lightbox="media/manage-change-tracking-monitoring-agent/select-data-collection-rule-expanded.png":::
+### Disassociate Data Collection Rule (DCR) from a VM
 
-1. In the **Edit windows file setting**, you can make changes to the existing rule and select **Save**.
+1. In Azure portal, select **Virtual Machines** and in the search, select the specific Virtual Machine. 
+1. In the Virtual Machine page, under **Operations**, select **Change tracking** or in the search, enter Change tracking and select it from the search result.
+1. Select **Settings** > **DCR** to view all the virtual machines associated with the DCR.
+1. Select the specific VM for which you want to disable the DCR.
+1. Select **Delete**.
+   
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
 
-> [!NOTE]
-> A single virtual machine will have one data collection rule. However, in a workspace, as there are many virtual machines, there will be multiple data collection rules but you will see the default data collection rule which is primarily the first data collection rule that you have created.
+   A notification appears to confirm the disassociation of the DCR for the selected VM.
 
+### Uninstall change tracking extension
+
+1. In the Azure portal, select **Virtual Machines** and in the search, select the specific VM for which you have already disassociated the DCR.
+1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
+1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
+
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshort of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
+
+1. Select **Uninstall**.
 
 ## Next steps
 
-* To learn about alerts, see [Configuring alerts](../change-tracking/configure-alerts.md)
+* To learn about alerts, see [Configuring alerts](../change-tracking/configure-alerts.md).
