@@ -15,9 +15,7 @@ ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, s
 
 # Deploy and score a machine learning model by using an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
@@ -422,6 +420,9 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
 > - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
 > - Local endpoints support only one deployment per endpoint. 
+
+> [!TIP]
+> You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
 
 ### Deploy the model locally
 
@@ -873,16 +874,16 @@ To understand how `update` works:
     ```
 
     > [!Note]
-    > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML. You can make updates without using the YAML by using the `--set` flag.
-    
+    > Updating by using YAML is declarative. That is, changes in the YAML are reflected in the underlying Azure Resource Manager resources (endpoints and deployments). A declarative approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *All* changes to endpoints and deployments (even `instance_count`) go through the YAML.
+
+    > [!TIP]
+    > With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-parameters) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+
 1. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 The `update` command also works with local deployments. Use the same `az ml online-deployment update` command with the `--local` flag.
-
-> [!TIP]
-> With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
 
 # [Python](#tab/python)
 

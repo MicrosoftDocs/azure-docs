@@ -137,6 +137,26 @@ This procedure describes additional steps required to support the AMQP protocol.
     sudo systemctl restart defender-iot-micro-agent.service
     ```
 
+**To add AMQP over web socket protocol support**:
+
+1. On your micro-agent machine, open the `/etc/defender_iot_micro_agent/conf.json` file and add the following content:
+
+    ```json
+    {
+    "IothubModule_TransportProtocol": "AMQP_WebSocket_Protocol"
+    }
+    ```
+1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
+
+1. Restart the micro-agent. Run
+
+    ```bash
+    sudo systemctl restart defender-iot-micro-agent.service
+    ```
+
+The agent will use this protocol, and communicate with the IoT Hub on port 443.
+Http Proxy configuration is supported for this protocol, in the case that proxy is also configured, the port of communication with the proxy will be as defined in the proxy configuration.
+
 ## Authenticate the micro agent
 
 There are two options that can be used to authenticate the Defender for IoT micro agent:

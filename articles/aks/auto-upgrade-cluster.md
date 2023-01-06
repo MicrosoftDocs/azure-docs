@@ -14,12 +14,17 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 > [!NOTE]
 > Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
+>
+> Auto-upgrade will first upgrade the control plane, and then proceed to upgrade agent pools one by one.
 
 ## Why use auto-upgrade
 
 Auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS and upstream Kubernetes.
 
 AKS follows a strict versioning window with regard to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Supported Kubernetes versions][supported-kubernetes-versions].
+
+
+Even if using node image auto upgrade (which won't change the Kubernetes version), it still requires MC to be in a supported version
 
 ## Using auto-upgrade
 
@@ -37,6 +42,9 @@ The following upgrade channels are available:
 
 > [!NOTE]
 > Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
+
+> [!NOTE]
+> Auto-upgrade requires the cluster's Kubernetes version to be within the [AKS support window][supported-kubernetes-versions], even if using the `node-image` channel.
 
 Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-aks-cluster].
 
@@ -60,6 +68,10 @@ If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start 
 > To ensure proper functionality, use a maintenance window of four hours or more.
 
 For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
+
+## Auto upgrade limitations
+
+If you’re using Auto-Upgrade you cannot anymore upgrade the control plane first, and then upgrade the individual node pools. Auto-Upgrade will always upgrade the control plane and the node pools together. In Auto-Upgrade there is no concept of upgrading the control plane only, and trying to run the command `az aks upgrade --control-plane-only` will raise the error: `NotAllAgentPoolOrchestratorVersionSpecifiedAndUnchanged: Using managed cluster api, all Agent pools' OrchestratorVersion must be all specified or all unspecified. If all specified, they must be stay unchanged or the same with control plane.`
 
 ## Best practices for auto-upgrade
 

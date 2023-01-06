@@ -96,8 +96,6 @@ Before deployment, verify operating system support for agents and extensions.
 - [Check requirements](../azure-arc/servers/prerequisites.md) for Azure Arc Connect Machine agent.
 - Check operating system support for the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md#supported-operating-systems) and [Azure Monitor agent](../azure-monitor/agents/agents-overview.md)
 
-
-
 ## Review agent provisioning
 
 When you enable Defender for Cloud plans, including Defender for Servers, you can select to automatically provision a number of agents. These are the agents that are relevant for Defender for Servers:
@@ -120,7 +118,6 @@ Manual installation | If you don't want Defender for Cloud to provision the Log 
 [Operations Manager agent](faq-data-collection-agents.yml#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-) | The Log Analytics agent can work side-by-side with the Operations Manager agent. The agents share common runtime libraries which will be updated when the Log Analytics agent is deployed.
 Removing the Log Analytics extension | If you remove the Log Analytics extension, Defender for Cloud won't be able to collect security data and recommendations/alerts will be missing. Within 24 hours, Defender for Cloud will determine that the extension is missing and reinstalls it.
 
-
 ## When shouldn't I use auto provisioning?
 
 You might want to opt out of automatic provisioning in the following circumstances.
@@ -131,13 +128,12 @@ You have critical VMs that shouldn't have agents installed. | Log Analytics agen
 If you're running the System Center Operations Manager agent version 2012 with Operations Manager 2012  | Log Analytics agent | With this configuration, don't turn on automatic provisioning, otherwise management capabilities might be lost.
 You want to configure a custom workspace | Log Analytics agent, Azure Monitor agent | You have two options with a custom workspace:<br/><br/> - Opt out of automatic provisioning when you first set up Defender for Cloud. Then, configure provisioning on your custom workspace.<br/><br/>- Let automatic provisioning run to install the Log Analytic agents on machines. Set a custom workspace, and then when asked, reconfigure existing VMs with the new workspace setting.
 
-
 ## Next steps
 
 After working through these planning steps, you can start deployment:
 
 - [Enable Defender for Servers](enable-enhanced-security.md) plans
-- [Connect on-premises machines](quickstart-onboard-aws.md) to Azure.
+- [Connect on-premises machines](quickstart-onboard-machines.md) to Azure.
 - [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
 - [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.
 - Learn about [scaling your Defender for Server deployment](plan-defender-for-servers-scale.md).

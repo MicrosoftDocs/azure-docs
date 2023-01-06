@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 12/16/2022
 ms.custom: references_regions
 ---
 <!-- 
@@ -19,30 +19,20 @@ ms.custom: references_regions
 
 This quickstart describes how to configure the Microsoft Dev Box service by using the Azure portal to enable development teams to self-serve dev boxes.
 
-In this quickstart, you'll perform the following tasks:
-
-* [Create a dev center](#create-a-dev-center)
-* [Create a network connection](#create-a-network-connection)
-* [Attach a network connection to a dev center](#attach-network-connection-to-dev-center)
-* [Create a dev box definition](#create-a-dev-box-definition)
-* [Create a project](#create-a-project)
-
-
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - Owner or Contributor permissions on an Azure Subscription or a specific resource group.
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
-- User licenses. Each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Endpoint Manager, and Azure Active Directory P1. 
-    - These licenses are available independently and also included in the following subscriptions:
-        - Microsoft 365 F3 
-        - Microsoft 365 E3 
-        - Microsoft 365 E5 
-        - Microsoft 365 A3 
-        - Microsoft 365 A5 
-        - Microsoft 365 Business Premium 
-        - Microsoft 365 Education Student Use Benefit
+- User licenses. To use Windows 365 Enterprise, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Endpoint Manager, and Azure Active Directory P1. 
+    - These licenses are available independently and also included in the following subscriptions: 
+       - Microsoft 365 F3 
+       - Microsoft 365 E3, Microsoft 365 E5 
+       - Microsoft 365 A3, Microsoft 365 A5
+       - Microsoft 365 Business Premium
+       - Microsoft 365 Education Student Use Benefit 
+- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your Windows licenses on Azure with Dev Box.
 
 ## Create a dev center
 
@@ -180,7 +170,7 @@ The following steps show you how to create and configure a dev box definition. Y
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
    |**Image**|Select the base operating system for the dev box. You can select an image from the Azure Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. |To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
-   |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
+   |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes won't be modified when an image version is updated.|
    |**Compute**|Select the compute combination for your dev box definition.||
    |**Storage**|Select the amount of storage for your dev box definition.||
 

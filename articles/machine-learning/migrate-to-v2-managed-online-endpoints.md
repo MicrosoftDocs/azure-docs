@@ -53,7 +53,7 @@ The upgrade tool will map the CPU/Memory requirement to corresponding SKU. If yo
 > When upgrading from ACI, there will be some changes in how you'll be charged. See [our blog](https://aka.ms/acimoemigration) for a rough cost comparison to help you choose the right VM SKUs for your workload.
 
 ### Network isolation
-For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model).
+For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md?tabs=model).
 
 > [!IMPORTANT]
 > As there are many settings for your workspace and VNet, we strongly suggest that redeploy through the Azure CLI extension v2 for machine learning instead of the script tool.

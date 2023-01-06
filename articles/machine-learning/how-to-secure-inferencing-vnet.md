@@ -52,7 +52,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 ## Secure managed online endpoints
 
-For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md) article.
+For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md) article.
 
 ## Secure Azure Kubernetes Service
 
