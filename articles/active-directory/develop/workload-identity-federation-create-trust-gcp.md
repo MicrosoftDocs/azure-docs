@@ -206,19 +206,21 @@ class ClientAssertionCredential implements TokenCredential {
 
         // Get the ID token from Google.
         return getGoogleIDToken() // calling this directly just for clarity, 
-                               // this should be a callback
-        // pass this as a client assertion to the confidential client app
-        .then((clientAssertion:any)=> {
-            var msalApp: any;
-            msalApp = new msal.ConfidentialClientApplication({
-                auth: {
-                    clientId: this.clientID,
-                    authority: this.aadAuthority + this.tenantID,
-                    clientAssertion: clientAssertion,
-                }
-            });
-            return msalApp.acquireTokenByClientCredential({ scopes })
-        })
+
+            let aadAudience = "api://AzureADTokenExchange"
+            const jwt = axios({
+            
+            url: "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=" 
+            + aadAudience,
+                method: "GET",
+                headers: {
+                    "Metadata-Flavor": "Google"
+                        }}).then(response => {
+                            console.log("AXIOS RESPONSE");
+                            return response.data;
+                    });
+                return jwt;
+
         .then(function(aadToken) {
             // return in form expected by TokenCredential.getToken
             let returnToken = {
