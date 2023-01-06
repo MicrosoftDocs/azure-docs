@@ -7,6 +7,7 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: kendownie
+recommendations: false
 ---
 
 # Update the password of your storage account identity in AD DS
