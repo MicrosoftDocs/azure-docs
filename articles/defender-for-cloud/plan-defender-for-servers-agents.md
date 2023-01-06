@@ -1,18 +1,20 @@
 ---
 title: Plan Defender for Servers agents and extensions deployment
-description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premises servers with Defender for Servers 
+description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premises servers with Microsoft Defender for Servers.
 ms.topic: conceptual
 ms.author: benmansheim
 author: bmansheim
 ms.date: 11/06/2022
 ---
-# Plan Defender for Servers agents/extensions and Azure Arc
+# Plan agents, extensions, and Azure Arc for Defender for Servers
 
-This article helps you to scale your Microsoft Defender for Servers deployment. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
+This article helps you plan your agents, extensions, and Azure Arc resources for your Microsoft Defender for Servers deployment.
 
-## Before you start 
+[Microsoft Defender for Cloud](defender-for-cloud-introduction.md) offers two paid plans for Defender for Servers.
 
-This article is the fifth part of the Defender for Servers planning guide. Before you begin, review:
+## Before you begin
+
+This article is the *fifth* article in the Defender for Servers planning guide series. Before you begin, review the earlier articles:
 
 1. [Start planning your deployment](plan-defender-for-servers.md)
 1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
@@ -21,32 +23,40 @@ This article is the fifth part of the Defender for Servers planning guide. Befor
 
 ## Review agents and extensions
 
-Defender for Servers plans use a number of agents/extensions.
+Defender for Servers plans use agents and extensions.
 
 ## Review Azure Arc requirements
 
-Azure Arc is used to onboard AWS, GCP, and on-premises machines to Azure, and is used by Defender for Cloud to protect non-Azure machines. 
+Azure Arc helps you onboard Amazon Web Services (AWS), Google Cloud Platform (GCP), and on-premises machines to Azure. Defender for Cloud uses Azure Arc to protect non-Azure machines.
 
-- **Foundational CSPM**:
-    - For free foundational CSPM features, you don't need Azure Arc running on AWS/GCP machines, but it's recommended for full functionality.
-    - You do need Azure Arc onboarding for on-premises machines.
-- **Defender for Servers plan**:
-    - To use the Defender for Servers, all AWS/GCP and on-premises machines should be Azure Arc-enabled.
-    - After setting up AWS/GCP connectors, Defender for Cloud can automatically deploy agents to AWS/GCP servers. This includes automatic deployment of the Azure Arc agent.
+### Foundational cloud security posture management
+
+For free foundational cloud security posture management (CSPM) features, Azure Arc running on AWS or GCP machines isn't required. But for full functionality, we recommend that you do have Azure Arc running on AWS or GCP machines.
+
+Azure Arc onboarding is required for on-premises machines.
+
+### Defender for Servers plan
+
+To use Defender for Servers, all AWS, GCP, and on-premises machines should be Azure Arc-enabled.
+
+After you set up AWS or GCP connectors, Defender for Cloud can automatically deploy agents to AWS or GCP servers. You can automatically deploy the Azure Arc agent.
 
 ### Plan for Azure Arc deployment
 
-1. Review [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md), and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
-1. Azure Arc installs the Connected Machine agent to connect to and manage machines hosted outside Azure. Review the following:
+To plan for Azure Arc deployment:
+
+1. Review the Azure Arc [planning recommendations](../azure-arc/servers/plan-at-scale-deployment.md) and [deployment prerequisites](../azure-arc/servers/prerequisites.md).
+1. Azure Arc installs the Connected Machine agent to connect to and manage machines that are hosted outside of Azure. Review the following information:
+
     - The [agent components and data collected from machines](../azure-arc/servers/agent-overview.md#agent-resources).
     - [Network and internet access ](../azure-arc/servers/network-requirements.md) for the agent.
     - [Connection options](../azure-arc/servers/deployment-options.md) for the agent.
 
+## The Log Analytics agent and the Azure Monitor agent
 
-## Log Analytics agent/Azure Monitor agent
+Defender for Cloud uses the Log Analytics agent and Azure Monitor agent to collect information from compute resources. Then, it sends the data to a Log Analytics workspace for more analysis. Review the [differences and recommendations for both agents](../azure-monitor/agents/agents-overview.md). 
 
-Defender for Cloud uses the Log Analytics agent/Azure Monitor agent to collect information from compute resources, and then sends it to a Log Analytics workspace for further analysis. Review the [differences and recommendations regarding both agents](../azure-monitor/agents/agents-overview.md). Agents are used in Defender for Servers as follows.
-
+The following table describes the agents that are used in Defender for Servers:
 
 Feature | Log Analytics agent | Azure Monitor agent
 --- | --- | --- 
@@ -57,18 +67,16 @@ Attack detection at the OS level and network layer, including fileless attack de
 File integrity monitoring (Plan 2 only)  | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent."::: 
 [Adaptive application controls](adaptive-application-controls.md) (Plan 2 only) | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Log Analytics agent."::: | :::image type="icon" source="./media/icons/yes-icon.png" alt-text="Icon that shows it's supported by the Azure Monitor agent.":::
 
-
 ## Qualys extension
 
-The Qualys extension is available in Defender for Servers Plan 2, and is deployed if you want to use Qualys for vulnerability assessment.
+The Qualys extension is available in Defender for Servers Plan 2. The extension is deployed if you want to use Qualys for vulnerability assessment.
 
 - The Qualys extension sends metadata for analysis to one of two Qualys datacenter regions, depending on your Azure region.
-    - If you're in a European Azure geography data is processed in Qualys' European data center. 
-    - For other regions data is processed in the US data center.
-- To use Qualys on a machine, the extension must be installed, and the machine must be able to communicate with the relevant network endpoint:
+    - If you're in a European Azure geography, data is processed in the Qualys European datacenter.
+    - For other regions, data is processed in the US datacenter.
+- To use Qualys on a machine, the extension must be installed and the machine must be able to communicate with the relevant network endpoint:
     - Europe datacenter: `https://qagpublic.qg2.apps.qualys.eu`
     - US datacenter: `https://qagpublic.qg3.apps.qualys.com`
-
 
 ## Guest configuration extension
 
@@ -98,18 +106,18 @@ Before deployment, verify operating system support for agents and extensions.
 
 ## Review agent provisioning
 
-When you enable Defender for Cloud plans, including Defender for Servers, you can select to automatically provision a number of agents. These are the agents that are relevant for Defender for Servers:
+When you enable Defender for Cloud plans, including Defender for Servers, you can choose to automatically provision some agents that are relevant for Defender for Servers:
 
-- Log Analytics agent/Azure Monitor agent for Azure VMs
-- Log Analytics agent/Azure Monitor agent for Azure Arc VMs
-- Qualys agent 
-- Guest configuration agent 
+- Log Analytics agent and Azure Monitor agent for Azure VMs
+- Log Analytics agent and Azure Monitor agent for Azure Arc VMs
+- Qualys agent
+- Guest configuration agent
 
-In addition, when you enable Defender for Servers Plan 1 or Plan 2, the Defender for Endpoint extension is automatically provisioned on all supported machines in the subscription.
+Also, when you enable Defender for Servers Plan 1 or Plan 2, the Defender for Endpoint extension is automatically provisioned on all supported machines in the subscription.
 
 ## Points to note
 
-**Provisioning** | **Details**
+Provisioning | Details
 --- | ---
 Defender for Endpoint sensor |  If machines are running Microsoft Antimalware, also known as System Center Endpoint Protection (SCEP), the Windows extension automatically removes it from the machine.<br/><br/> If you deploy on a machine that already has the legacy Microsoft Monitoring agent (MMA) Defender for Endpoint sensor running, after successfully installing the Defender for Cloud/Defender for Endpoint unified solution, the extension will stop and disable the legacy sensor. The change is transparent and the machine’s protection history is preserved.
 AWS/GCP machines | For these machines, you configure automatic provisioning when you set up the AWS or GCP connector.
@@ -130,10 +138,4 @@ You want to configure a custom workspace | Log Analytics agent, Azure Monitor ag
 
 ## Next steps
 
-After working through these planning steps, you can start deployment:
-
-- [Enable Defender for Servers](enable-enhanced-security.md) plans
-- [Connect on-premises machines](quickstart-onboard-machines.md) to Azure.
-- [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
-- [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.
-- Learn about [scaling your Defender for Server deployment](plan-defender-for-servers-scale.md).
+After you work through these planning steps, learn how to [scale your Defender for Servers deployment](plan-defender-for-servers-scale.md).
