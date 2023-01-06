@@ -65,7 +65,7 @@ Follow these steps to purchase a Reservation:
 1. Select **Azure Files** to buy a new Reservation.  
 1. Fill in the required fields as described in the following table:
 
-    ![Screenshot showing how to purchase Reservations](./media/files-reserve-capacity/select-reserved-capacity.png)
+    ![Screenshot showing how to purchase Reservations.](./media/files-reserve-capacity/select-reserved-capacity.png)
 
    |Field  |Description  |
    |---------|---------|
