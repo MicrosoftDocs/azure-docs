@@ -507,6 +507,9 @@
           items:
             - name: How to use the Dapr extension
               href: dapr.md
+            - name: Configure the Dapr extension
+              href: dapr-settings.md
+
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension

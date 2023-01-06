@@ -1,6 +1,6 @@
 ---
-title: Customize the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
-description: Learn how to customize the Dapr extension specifically for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
+title: Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
+description: Learn how to configure the Dapr extension specifically for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-service
@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 12/21/2022
 ---
 
-# Customize the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
+# Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
 
 To configure the [Dapr](https://dapr.io/) extension to work best for you and your project, you can set various configuration options, like:
 
