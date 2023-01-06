@@ -12,7 +12,7 @@ ms.author: stevelas
 
 You can use an Azure container registry to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
-To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) CLI to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage a variety of OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
+To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) CLI to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage various OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ Provide the credentials to `oras login`.
 
 ## Push a root artifact
 
-A root artifact is an artifact that has no `subject` parent. Root artifacts can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts, described later are artifacts that refer to another artifact. These can also be anything from a signature, software bill of materials, scan report or other evolving types.
+A root artifact is an artifact that has no `subject` parent. Root artifacts can be anything from a container image, a helm chart, a readme file for the repository. Reference artifacts, described in [Attach, push, and pull supply chain artifacts](container-registry-oras-artifacts.md) are artifacts that refer to another artifact. Reference artifacts can be anything from a signature, software bill of materials, scan report or other evolving types.
 
 For this example, create content that represents a markdown file:
 
@@ -67,13 +67,13 @@ echo 'Readme Content' > readme.md
 ```
 
 The following step pushes the `readme.md` file to `<myregistry>.azurecr.io/samples/artifact:readme`.
-- The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase) with the namespace and repo following: `/samples/artifact`.
+- The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase), followed by the namespace and repo : `/samples/artifact`.
 - The artifact is tagged `:readme`, to identify it uniquely from other artifacts listed in the repo (`:latest, :v1, :v1.0.1`).
 - The root artifact, an artifact that doesn't reference another, sets the type through the `-config` parameter.  
   - `/dev/null` represents an empty config object, where the value `:readme/example` identifies the artifact type.  
-  - `:readme/example` differentiates it from a container images which use `application/vnd.oci.image.config.v1+json`.
+  - `:readme/example` differentiates it from a container image, which uses `application/vnd.oci.image.config.v1+json`.
 - The `./readme.md` identifies the file uploaded, and the `:application/markdown` represents the [IANA `mediaType`][iana-mediatypes] of the file.  
-  See [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md) for additional information.
+  For more information, see [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md) for additional information.
 
 Use the `oras push` command to push the file to your registry. 
 
@@ -93,7 +93,7 @@ oras push $REGISTRY/samples/artifact:readme \
     .\readme.md:application/markdown
 ```
 
-Output for a successful push is similar to the following:
+Output for a successful push is similar to the following output:
 
 ```console
 Uploading 2fdeac43552b readme.md
