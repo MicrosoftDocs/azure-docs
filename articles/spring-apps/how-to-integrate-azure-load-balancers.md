@@ -68,6 +68,8 @@ To integrate with Azure Spring Apps service, complete the following configuratio
 1. Specify **Target type** as *IP address* or *FQDN*.
 1. Enter your Azure Spring Apps public endpoints.
 
+#### Can you please correct the generic FQDNs with servicename-appname.azuremicroservices.io the eastus.azuremicroservices is misleading opening this based on Asir's suggestion
+
     ![App Gateway 1](media/spring-cloud-load-balancers/app-gateway-1.png)
 
 ### Add Custom Probe
