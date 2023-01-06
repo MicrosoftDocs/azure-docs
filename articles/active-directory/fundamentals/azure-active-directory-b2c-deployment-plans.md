@@ -116,7 +116,7 @@ Azure AD B2C projects start with one or more client applications.
   * For example ASP.NET, Java, and Node.js
   * See, [Quickstart: Set up sign in for an ASP.NET application using Azure AD B2C](../../active-directory-b2c/quickstart-web-app-dotnet.md)
 * Verify where user attributes are stored
-  * For exaple, Lightweight Directory Access Protocol (LDAP) or databases
+  * For example, Lightweight Directory Access Protocol (LDAP) or databases
 
 ### User identity deployment checklist
 
@@ -135,14 +135,14 @@ Use the following checklist for onboarding an application
 
 |Area|Description|
 |---|---|
-|Application target user group | Select among nd customers, business customers, or a digital service. </br>Determine a need for employee sign-in.|
+|Application target user group | Select among end customers, business customers, or a digital service. </br>Determine a need for employee sign-in.|
 |Application business value| Understand the business need and/or goal to determine the best Azure AD B2C solution and integration with other client applications.|
 |Your identity groups| Cluster identities into groups with requirements, such as business-to-consumer (B2C), business-to-business (B2B) business-to-employee (B2E), and business-to-machine (B2M) for IoT device sign-in and service accounts.|
 |Identity provider (IdP)| See, [Select an identity provider](../../active-directory-b2c/add-identity-provider.md#select-an-identity-provider). For example, for a customer-to-customer (C2C) mobile app use an easy sign-in process. </br>B2C with digital services has compliance requirements. </br>Consider email sign-in. |
 |Regulatory constraints | Determine a need for remote profiles or privacy policies. |
 |Sign-in and sign-up flow | Confirm email verification or email verification during sign-up. </br>For check-out processes, see [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). </br>See the video, [Azure AD: Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
 |Application and authentication protocol| Implement client applications such as Web application, single-page application (SPA), or native. </br>Authentication protocols for client application and Azure AD B2C: OAuth, OIDC, and SAML. </br>See the video, [Azure AD: Protecting Web APIs with Azure AD](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9).|
-| User migration | Confirm if you will [migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md): Just-in-time (JIT) migration and bulk import/export. </br>See the video, [Azure Active Directory: Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2).|
+| User migration | Confirm if you'll [migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md): Just-in-time (JIT) migration and bulk import/export. </br>See the video, [Azure Active Directory: Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2).|
 
 Use the following checklist for delivery.
 
@@ -162,7 +162,7 @@ Use the following checklist to enhance application security.
   * MFA is recommended for users that trigger high-value transactions or other risk events. For example, banking, finance, and check-out processes.
   * See, [What authentication and verification methods are available in Azure AD?](../authentication/concept-authentication-methods.md)
 * Confirm use of anti-bot mechanisms
-* Assess the risk of attempts to create a fraudulent accounts or sign-in 
+* Assess the risk of attempts to create a fraudulent account or sign-in 
   * See, [Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C](../../active-directory-b2c/partner-dynamics-365-fraud-protection.md) 
 * Confirm needed conditional postures as part of sign-in or sign-up
 
@@ -192,7 +192,7 @@ Use the following checklist to help define user experience requirements.
 * Use screenshots and user stories to show the application end-user experience
   * For example, screenshots of sign-in, sign-up, sign-up/sign-in (SUSI), profile edit, and password reset
 * Look for hints passed through by using queryString parameters in your CIAM solution
-* For high user-experience customization consider a using front-end developer
+* For high user-experience customization, consider a using front-end developer
 * In Azure AD B2C, you can customize HTML and CSS
   * See, [Guidelines for using JavaScript](../../active-directory-b2c/javascript-and-page-layout.md?pivots=b2c-custom-policy#guidelines-for-using-javascript)
 * Implement an embedded experience by using iframe support:
