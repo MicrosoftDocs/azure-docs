@@ -54,7 +54,7 @@ See [Upload training and testing datasets](how-to-custom-speech-upload-data.md?p
 |`/datasets/{id}`|GET|[Datasets_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Get)|[GetDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDataset)|
 |`/datasets/{id}`|PATCH|[Datasets_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Update)|[UpdateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateDataset)|
 |`/datasets/{id}/blocks:commit`|POST|[Datasets_CommitBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_CommitBlocks)|Not applicable|
-|`/datasets/{id}/blocks`|GET|[Datasets_GetDatasetBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_GetDatasetBlocks)|Not applicable|
+|`/datasets/{id}/blocks`|GET|[Datasets_GetBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_GetBlocks)|Not applicable|
 |`/datasets/{id}/blocks`|PUT|[Datasets_UploadBlock](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_UploadBlock)|Not applicable|
 |`/datasets/{id}/files`|GET|[Datasets_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_ListFiles)|[GetDatasetFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasetFiles)|
 |`/datasets/{id}/files/{fileId}`|GET|[Datasets_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_GetFile)|[GetDatasetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasetFile)|
@@ -107,7 +107,7 @@ Health status provides insights about the overall health of the service and sub-
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
-|`/healthstatus`|GET|[HealthStatus_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/HealthStatus_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
+|`/healthstatus`|GET|[ServiceHealth_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/ServiceHealth_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
 
 ## Models
 
@@ -127,7 +127,7 @@ See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Cu
 |`/models/{id}/files/{fileId}`|GET|[Models_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetFile)|Not applicable|
 |`/models/{id}/manifest`|GET|[Models_GetCustomModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetCustomModelManifest)|[GetModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModelManifest)|
 |`/models/base`|GET|[Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels)|[GetBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModels)|
-|`/models/base/{id}`|GET|[Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModel)|[GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel)|
+|`/models/base/{id}`|GET|[Models_GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetBaseModel)|[GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel)|
 |`/models/base/{id}/manifest`|GET|[Models_GetBaseModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetBaseModelManifest)|[GetBaseModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelManifest)|
 |`/models/locales`|GET|[Models_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListSupportedLocales)|[GetSupportedLocalesForModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels)|
 

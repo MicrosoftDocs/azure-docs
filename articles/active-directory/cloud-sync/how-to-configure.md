@@ -43,6 +43,10 @@ To configure provisioning, follow these steps.
  7. Enter a **Notification email**. This email will be notified when provisioning isn't healthy.  It is recommended that you keep **Prevent accidental deletion** enabled and set the **Accidental deletion threshold** to a number that you wish to be notified about.  For more information, see [accidental deletes](#accidental-deletions) below.
  8. Move the selector to Enable, and select Save.
 
+ >[!NOTE]
+ >  During the configuration process the synchronization service account will be created with the format **ADToAADSyncServiceAccount@[TenantID].onmicrosoft.com** and you may get an error if multi-factor authentication is enabled for the synchronization service account, or other interactive authentication policies are accidentally enabled for the synchronization account. Removing multi-factor authentication or any interactive authentication policies for the synchronization service account should resolve the error and you can complete the configuration smoothly.
+
+
 ## Scope provisioning to specific users and groups
 You can scope the agent to synchronize specific users and groups by using on-premises Active Directory groups or organizational units. You can't configure groups and organizational units within a configuration. 
  >[!NOTE]
