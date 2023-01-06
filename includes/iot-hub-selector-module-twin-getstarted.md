@@ -3,7 +3,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: include
-ms.date: 07/27/2019
+ms.date: 01/05/2023
 ---
 > [!div class="op_single_selector"]
 > * [Portal](../articles/iot-hub/iot-hub-portal-csharp-module-twin-getstarted.md)
@@ -11,3 +11,4 @@ ms.date: 07/27/2019
 > * [Python](../articles/iot-hub/iot-hub-python-python-module-twin-getstarted.md)
 > * [C](../articles/iot-hub/iot-hub-c-c-module-twin-getstarted.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-module-twin-getstarted.md)
+> * [Azure CLI](../articles/iot-hub/iot-hub-cli-cli-module-twin-getstarted.md)
