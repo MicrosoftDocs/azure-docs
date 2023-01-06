@@ -219,7 +219,7 @@ You can provide additional arguments in an app setting. You can add app settings
 *  In the Linux Consumption plan, use app setting named `languageWorkers__java__arguments`.
 
 > [!IMPORTANT]  
-> In the Consumption plan, you must also add the WEBSITE_USE_PLACEHOLDER setting with a value of 0 for the customization to work. This setting does increase the cold start times for Java functions.
+> In the Consumption plan, this setting does increase the cold start times for Java functions.
 
 ### Azure portal
 
