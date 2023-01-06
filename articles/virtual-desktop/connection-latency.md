@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 01/05/2023
 ms.author: helohr
 manager: femila
+ms.custom: engagement-fy23
 ---
 # Analyze connection quality in Azure Virtual Desktop
 
