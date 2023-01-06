@@ -207,11 +207,15 @@ The following configurations are in addition to those listed in the [Prerequisit
     > [!IMPORTANT]
     > The compute instance/cluster is dynamically assigned an IP address when it is created. Since the address is not known before creation, and inbound access is required as part of the creation process, you cannot statically assign it on your firewall. Instead, if you are using a firewall with the VNet you must create a user-defined route to allow this inbound traffic.
 + In your VNet, allow **outbound** traffic to the following service tags:
-    * `AzureMachineLearning`: TCP on port 443, UDP on port 5831. This service tag is used to communicate with the Azure Machine Learning service.
-    * `BatchNodeManagement`: TCP port 443. This service tag is used to communicate with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.
-    * `Storage.region`: TCP port 443. Replace `region` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch.
-        > [!IMPORTANT]
-        > This outbound access could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.zs
+
+    | Service tag | Protocol | Port | Notes |
+    | ----- |:-----:|:-----:| ----- |
+    | `AzureMachineLearning` | TCP<br>UDP | 443<br>5831 | Communication with the Azure Machine Learning service.|
+    | `BatchNodeManagement` | TCP | 443| Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.region` | TCP | 443 | Replace `region` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+
+    > [!IMPORTANT]
+    > The outbound access to `Storage.region` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.zs
 
 Use the following information to create a compute instance or cluster with a public IP address in the VNet:
 
