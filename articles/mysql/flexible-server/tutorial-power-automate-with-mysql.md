@@ -39,12 +39,12 @@ Create a cloud flow when you want your automation to be triggered either automat
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | Automated cloud flows              | Create an automation that is triggered by an event such as arrival of an email from a specific person, or a mention of your company in social media.| Connectors for cloud or on-premises services connect your accounts and enable them to talk to each other. |
 | Instant cloud flows             | Start an automation with a click of a button. You can automate for repetitive tasks from your Desktop or Mobile devices. For example, instantly send a reminder to the team with a push of a button from your mobile device.                      |     Wide range of tasks such as requesting an approval, an action in Teams or SharePoint.                                                                                |
-| Scheduled flows                   | Schedule an automation such as daily data upload to SharePoint or a database.             |Tasks that need to be automated on a schedule.
+| Scheduled flows                   | Schedule an automation such as daily data upload to SharePoint or a database.             |Tasks that needs to be automated on a schedule.
 
-For this tutorial, we will use **instant cloud flow* that can be triggered manually from any device, easy-to-share instant flows automate tasks so you don’t have to repeat yourself.
+For this tutorial, we'll use **instant cloud flow* that can be triggered manually from any device, easy-to-share instant flows automate tasks so you don’t have to repeat yourself.
 
 ## Specify an event to start the flow
-Follow the steps to create a instant cloud flow with a manual trigger.
+Follow the steps to create an instant cloud flow with a manual trigger.
 
 1. In [Power Automate](https://flow.microsoft.com), select **Create** from the navigation bar on the left.
 2. Under **Start from blank*, select **Instant cloud flow**.
