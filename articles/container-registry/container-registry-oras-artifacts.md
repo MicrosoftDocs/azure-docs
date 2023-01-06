@@ -317,7 +317,7 @@ az acr manifest list-metadata \
 [oci-1_1-spec]:             https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1
 
 <!-- LINKS - internal -->
-[acr-authentication]:       /container-registry/container-registry-authentication.md?tabs=azure-cli
+[acr-authentication]:       /azure/container-registry/container-registry-authentication.md?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
 [az-acr-build]:             /cli/azure/acr#az_acr_build
 [az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show

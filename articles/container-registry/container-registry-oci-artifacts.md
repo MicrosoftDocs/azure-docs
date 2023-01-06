@@ -171,7 +171,7 @@ az acr repository delete \
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
-[acr-authentication]:       /articles/container-registry/container-registry-authentication.md?tabs=azure-cli
+[acr-authentication]:       /azure/container-registry/container-registry-authentication.md?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
 [az-acr-repository-show]:   /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
