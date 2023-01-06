@@ -66,6 +66,7 @@ Within these commands, the region must be specified for the `<location>` placeho
 
 #### [Azure China](#tab/azure-china)
 
-Azure Arc Kubernetes is not available in Azure China at this time.
+> [!NOTE]
+> Azure Arc Kubernetes is not available in Azure China regions at this time.
 
 ---
