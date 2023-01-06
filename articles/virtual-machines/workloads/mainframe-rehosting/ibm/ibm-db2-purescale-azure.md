@@ -1,9 +1,10 @@
 ---
 title:  IBM DB2 pureScale on Azure
 description: In this article, we show an architecture for running an IBM DB2 pureScale environment on Azure.
-author: njray
-manager: edprice
-editor: edprice
+author: sread
+manager: mamccrea 
+ms.author: swread
+editor: sread
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 ms.workload: infrastructure-services
