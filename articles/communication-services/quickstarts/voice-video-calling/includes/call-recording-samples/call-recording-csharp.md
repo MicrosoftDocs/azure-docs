@@ -141,7 +141,7 @@ Below is an example of the event schema.
 Use `DownloadStreamingAsync` API for downloading the recorded media.
 
 ```csharp
-var recordingDownloadUri = new Uri(downloadLocation);
+var recordingDownloadUri = new Uri(contentLocation);
 var response = await callAutomationClient.GetCallRecording().DownloadStreamingAsync(recordingDownloadUri);
 ```
 The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadStreamingAsync` method returns response of type `Response<Stream>`, which contains the downloaded content.
