@@ -42,7 +42,7 @@ To check which version your packet core instance is currently running, and wheth
 
 ## Plan for your upgrade
 
-We recommend upgrading your packet core instance during a maintenance window to minimize the impact of the upgrade on your service.
+The service will be unavailable during the upgrade period. We recommend upgrading your packet core instance during a maintenance window to minimize the impact of the upgrade on your service.
 
 When planning for your upgrade, make sure you're allowing sufficient time for an upgrade and a possible rollback in the event of any issues. In addition, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 

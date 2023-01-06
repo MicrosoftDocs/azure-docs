@@ -32,7 +32,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 ## Plan a maintenance window
 
-The following modifications will trigger a packet core reinstall:
+The following modifications will trigger a packet core reinstall, during which your service will be unavailable:
 
 - Attaching a new or existing data network to the packet core instance.
 - Detaching a data network from the packet core instance.
