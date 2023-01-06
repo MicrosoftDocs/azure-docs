@@ -123,6 +123,9 @@ N/A
 
 The following examples show how to copy an archived blob to a blob in the hot tier in a different storage account.
 
+> [!NOTE]
+> The destination and source account must be in the same region.
+
 #### [Portal](#tab/azure-portal)
 
 1. Navigate to the source storage account in the Azure portal.
