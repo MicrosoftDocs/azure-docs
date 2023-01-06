@@ -22,7 +22,7 @@ When Dynamic Allocation option is enabled, for every spark application submitted
 > [!NOTE]
 > **This conservative approach allows the platform to enable scaling from say 3 to 10 Nodes without running out of capacity, thereby providing users with greater reliability for job execution.**
 
-![Dynamic Allocation in Synapse Spark Pools](./media/reservation-of-executors-in-spark/da-overview.png)
+![Dynamic Allocation in Synapse Spark Pools](./media/reservation-of-executors-in-spark/dynamic-allocation-overview.png)
 
 ## What does the reservation of executors mean?
 
