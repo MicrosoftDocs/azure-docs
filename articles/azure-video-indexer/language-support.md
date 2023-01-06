@@ -30,22 +30,20 @@ The API returns a list of supported languages with the following values:
 
 Some notes for the above values are:
 
-Supported source language:
+- Supported source language:
 
-     If `isSourceLanguage` is `false`, the language is supported for translation only.  
-     If `isSourceLanguage` is `true`, the language is supported as source for transcription, translation, and search. 
-
-Language identification (auto detection): 
+   If `isSourceLanguage` is `false`, the language is supported for translation only.  
+   If `isSourceLanguage` is `true`, the language is supported as source for transcription, translation, and search. 
+- Language identification (auto detection): 
  
-   If `isAutoDetect` set to `true`, the language is supported for language identification (LID) and multi-language identification  (MLID).
-   
-The following insights are translated, otherwise will remain in English:
+   If `isAutoDetect` set to `true`, the language is supported for language identification (LID) and multi-language identification  (MLID).   
+- The following insights are translated, otherwise will remain in English:
   
-    - Transcript
-    - Keywords
-    - Topics
-    - Labels
-    - Frame patterns (Only to Hebrew as of now)
+     - Transcript
+     - Keywords
+     - Topics
+     - Labels
+     - Frame patterns (Only to Hebrew as of now)
 
 | **Language**   | **Code**       | **Supported source language** | **Language identification**  | **Customization** (language model)  |
 |:--------------:|:--------------:|:-----------------------------:|:----------------------------:|:-----------:|
