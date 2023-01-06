@@ -4,7 +4,7 @@ description: Use the portal to attach new or existing data disk to a Linux VM.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/13/2021
+ms.date: 01/06/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.collection: linux
@@ -103,7 +103,7 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 
 > [!IMPORTANT]
 > If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
-> The following instuctions will delete data on the disk.
+> The following instructions will delete data on the disk.
 
 If you are attaching a new disk, you need to partition the disk.
 
@@ -153,12 +153,12 @@ The output looks similar to the following example:
 ```
 
 > [!NOTE]
-> Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+> Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. You should create a backup of the **/etc/fstab** file is created before editing.
 
-Next, open the */etc/fstab* file in a text editor as follows:
+Next, open the **/etc/fstab** file in a text editor as follows:
 
 ```bash
-sudo nano /etc/fstab
+sudo vi /etc/fstab
 ```
 
 In this example, use the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Add the following line to the end of the `/etc/fstab` file:
@@ -167,7 +167,7 @@ In this example, use the UUID value for the `/dev/sdc1` device that was created 
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
-We used the nano editor, so when you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.
+We used the vi editor, so when you are done editing the file, press `Esc` to enter command mode and `wq` to save and close the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
@@ -200,7 +200,7 @@ You can see that `sdc` is now mounted at `/datadrive`.
 
 ### TRIM/UNMAP support for Linux in Azure
 
-Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.
+Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful to inform Azure that deleted pages are no longer valid and can be discarded. This feature can save money on disks that are billed based on the amount of consumed storage, such as unmanaged standard disks and disk snapshots.
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
@@ -222,6 +222,12 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
     ```bash
     sudo yum install util-linux
+    sudo fstrim /datadrive
+    ```
+
+    **SLSE**
+    
+    ```bash
     sudo fstrim /datadrive
     ```
 
