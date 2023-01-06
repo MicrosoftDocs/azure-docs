@@ -86,7 +86,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 
 ## Share your product ideas
 
-Have an idea for improving the for the Microsoft identity platform? Browse and vote for ideas submitted by others or submit your own:
+Have an idea for improving the Microsoft identity platform? Browse and vote for ideas submitted by others or submit your own:
 
 https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
 
