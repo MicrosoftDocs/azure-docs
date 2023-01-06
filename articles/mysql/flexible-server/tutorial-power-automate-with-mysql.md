@@ -31,15 +31,15 @@ In this quickstart shows how to create an automated workflow usingPower automate
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
-# Overview of cloud flows
+## Overview of cloud flows
 
 Create a cloud flow when you want your automation to be triggered either automatically, instantly, or via a schedule. Here are types of flows you can create and then use with Azure database for MySQL connector.
 
 | **Flow type**                                                                       | **Use case**                                                                                  | **Automation target**                                                                             |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| [Automated flows](get-started-logic-flow.md)                 | Create an automation that is triggered by an event such as arrival of an email from a specific person, or a mention of your company in social media.| [Connectors](/connectors/) for cloud or on-premises services connect your accounts and enable them to talk to each other. |
-| [Instant flows](introduction-to-button-flows.md)              | Start an automation with a click of a button. You can automate for repetitive tasks from your Desktop or Mobile devices. For example, instantly send a reminder to the team with a push of a button from your mobile device.                      |     Wide range of tasks such as requesting an approval, an action in Teams or SharePoint.                                                                                |
-| [Scheduled flows](run-scheduled-tasks.md)                    | Schedule an automation such as daily data upload to SharePoint or a database.             |Tasks that need to be automated on a schedule.
+| Automated flows              | Create an automation that is triggered by an event such as arrival of an email from a specific person, or a mention of your company in social media.| Connectors for cloud or on-premises services connect your accounts and enable them to talk to each other. |
+| Instant flows             | Start an automation with a click of a button. You can automate for repetitive tasks from your Desktop or Mobile devices. For example, instantly send a reminder to the team with a push of a button from your mobile device.                      |     Wide range of tasks such as requesting an approval, an action in Teams or SharePoint.                                                                                |
+| Scheduled flows                   | Schedule an automation such as daily data upload to SharePoint or a database.             |Tasks that need to be automated on a schedule.
 
 For this tutorial, we will use instant cloud flow which can be triggered manually from any device, easy-to-share instant flows automate tasks so you don’t have to repeat yourself.
 
@@ -49,7 +49,9 @@ First, you will need to select what event, or *trigger*, starts your flow.
 1. In [Power Automate](https://flow.microsoft.com), select **Create** from the navigation bar on the left.
 2. Under **Start from blank*, select **Instant cloud flow**.
 3. Give your flow a name in the **Flow name" field and select **Manually trigger a flow**. 
+
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/create-instant-cloud-flow.png" alt-text="Screenshot that shows how to create instant cloud flow app":::
+   
 4. Select the **Create** button at the bottom of the screen.
 
 ## Create a MySQL operation 
@@ -58,14 +60,17 @@ An operation is an action. Power automate flow allows you to add one or more adv
 1. Once the flow app is created, select **Next Step** to create an operation. 
 2. In the box that shows Search connectors and actions, enter **Azure database for MySQL**.
 3. Select **Azure database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
+
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/azure-mysql-connector-add-action.png" alt-text="Screenshot that shows how to view all the actions for Azure database for MySQL connector":::
 
 5. Add a new MySQL connection and enter the **authentication type**,**server name**, **database name**, **username**, **password** . Select **encrypt connection** if SSL is enabled on your MySQL server.
+
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/add-mysql-connection-information.png" alt-text="Screenshot that adding a new MySQL connection for Azure Database for MySQL server":::
 
->[!NOTE] If you get an error **Test connection failed. Details: Authentication to host '<servername>' for user '<username>' using method 'mysql_native_password' failed with message: Access denied for user '<username>'@'<IP address>' (using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
+>[!NOTE] If you get an error **Test connection failed. Details: Authentication to host `'servername'` for user `'username'` using method 'mysql_native_password' failed with message: Access denied for user `'username'@'IP address'`(using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
  
 5. After the connection is successfully added, provide the **servername, database name and table name** parameters for **Get Rows** operation using the newly added connection.  Select **advanced options** to add more filters or limit the number of rows returned.
+  
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/get-rows-from-table.png" alt-text="Screenshot that shows configuring Get Rows operation":::
 
 6. Select **Save**.
