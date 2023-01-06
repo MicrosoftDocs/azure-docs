@@ -203,7 +203,7 @@ When you enable video status overlay, you'll see a short message at the top of t
 
 2. Select **Show Advanced Settings**.
 
-3. Toggle **Video Status Overlay** to **On**. You'll need to refresh the webpage for the change to take effect.
+3. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
 
 ## Next steps
 

@@ -32,6 +32,7 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - AWS Training
       - BBC
       - Big Think
+      - Bleacher Report
       - Brightcove
       - CNBC
       - Coursera
@@ -48,7 +49,10 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - LinkedIn Learning
       - Microsoft Learn
       - Microsoft Stream
+      - NBC Sports
+      - The New York Times
       - Pluralsight
+      - Politico
       - Reddit
       - Reuters
    :::column-end:::
@@ -56,23 +60,16 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - Skillshare
       - The Guardian
       - Twitch
+      - Twitter
       - Udemy
       - UMU
       - U.S. News
       - Vidazoo
       - Vimeo
+      - The Wall Street Journal
       - Yahoo
       - Yammer
       - YouTube (including sites with embedded YouTube videos).
-   :::column-end:::
-   :::column span="":::
-      - The Wall Street Journal
-      - The New York Times
-      - Politico
-      - Twitter
-      - NBC Sports
-      - Bleacher Report
-      - Fox Sports
    :::column-end:::
 :::row-end:::
 
