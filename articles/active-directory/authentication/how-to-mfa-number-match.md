@@ -323,7 +323,7 @@ They'll see a prompt to supply a verification code. They must select their accou
 
 ### Can I opt out of number matching?
 
-Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants starting February 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. To protect the ecosystem and mitigate these threats, Microsoft will enable number matching for all tenants starting February 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
 
 ### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
 
