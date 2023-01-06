@@ -42,7 +42,7 @@ To use this feature, you submit raw unstructured text for analysis and handle th
     :::column-end:::
     :::column span="":::
         * [Language Studio website](https://language.cognitive.azure.com/tryout/linkedEntities)
-        * [Quickstart: Use Language Studio](../language-studio.md)
+        * [Quickstart: Use Language Studio](../../language-studio.md)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -53,18 +53,7 @@ To use this feature, you submit raw unstructured text for analysis and handle th
         Integrate entity linking into your applications using the REST API, or the client library available in a variety of languages.
     :::column-end:::
     :::column span="":::
-        * [Quickstart: Use entity linking](quickstart.md)
-   :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="":::
-        Docker container
-    :::column-end:::
-    :::column span="":::
-        Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons.
-    :::column-end:::
-    :::column span="":::
-        * [How to deploy on-premises](how-to/use-containers.md)
+        * [Quickstart: Use entity linking](../quickstart.md)
    :::column-end:::
 :::row-end:::
 
