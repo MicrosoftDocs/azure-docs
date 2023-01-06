@@ -14,7 +14,7 @@ manager: martinco
 
 ms.collection: M365-identity-device-management
 ---
-# Migrate from federation to cloud authentication 
+# Migrate from federation to cloud authentication  
 
 In this article, you learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](whatis-phs.md) or [Pass-through authentication (PTA)](how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](whatis-fed.md) to cloud authentication methods, the guidance substantially applies to other on premises systems as well.
 
