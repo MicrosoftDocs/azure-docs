@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: dbmsft
 ms.author: debdeepbasu
+ms.reviewer: sgilley
 ms.topic: troubleshooting 
 ms.date: 01/09/2023
 ---
