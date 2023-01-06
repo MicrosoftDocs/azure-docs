@@ -78,7 +78,7 @@
       href: authentication.md
     - name: Dapr integration
       href: dapr-overview.md
-    - name: Azure Arc-enable Kubernetes clusters
+    - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
 - name: How-to guides
   items:

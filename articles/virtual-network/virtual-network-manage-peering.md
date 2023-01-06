@@ -74,7 +74,8 @@ Before creating a peering, familiarize yourself with the [requirements and const
     :::image type="content" source="./media/virtual-network-manage-peering/add-peering.png" alt-text="Screenshot of peering configuration page." lightbox="./media/virtual-network-manage-peering/add-peering-expanded.png":::
 
     > [!NOTE]
-    > If you use a Virtual Network Gateway to send on-premises traffic transitively to a peered VNet, the peered VNet IP range for the on-premises VPN device must be set to 'interesting' traffic. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.
+    > If you use a Virtual Network Gateway to send on-premises traffic transitively to a peered VNet, the peered VNet IP range for the on-premises VPN device must be set to 'interesting' traffic. You may need to add all Azure VNet's CIDR addresses to the Site-2-Site IPSec VPN Tunnel configuration on the on-premises VPN device. CIDR addresses include resources like such as Hub, Spokes, and Point-2-Site IP address pools. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.
+    > Intersting traffic is communicated through Phase 2 security associations. The security association creates a dedicated VPN tunnel for each specified subnet. The on-premises and Azure VPN Gateway tier have to support the same number of Site-2-Site VPN tunnels and Azure VNet subnets. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.  Consult your on-premises VPN documentation for instructions to create Phase 2 security associations for each specified Azure VNet subnet. 
 
 1. Select the **Refresh** button after a few seconds, and the peering status will change from *Updating* to *Connected*.
 

@@ -1,9 +1,11 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+
 ms.service: storage
+ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
 ms.date: 11/03/2022
 ms.author: normesta
@@ -89,9 +91,6 @@ In the storage browser that appears in the Azure portal, you can't access a file
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. Applications that call Blob APIs will likely work.
 
-## Storage Analytics logs (classic)
-
-The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ## Windows Azure Storage Blob (WASB) driver
 
