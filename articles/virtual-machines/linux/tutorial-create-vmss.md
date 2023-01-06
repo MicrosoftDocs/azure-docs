@@ -75,7 +75,7 @@ Use the Azure portal to create a Flexible scale set.
     :::image type="content" source="media/tutorial-create-vmss/load-balancer-settings.png" alt-text="Load balancer settings.":::
 1. On the **Create a load balancer** page, type in a name for your load balancer and **Public IP address name**.
 1. For **Domain name label**, type in a name to use as a prefix for your domain name. This name must be unique.
-1. When you are done, select **Create**.
+1. When you're done, select **Create**.
     :::image type="content" source="media/tutorial-create-vmss/flex-load-balancer.png" alt-text="Create a load balancer.":::
 1. Back on the **Networking** tab, leave the default name for the backend pool.
 1. On the **Scaling** tab, leave the default instance count as *2*, or add in your own value. This is the number of VMs that will be created, so be aware of the costs and the limits on your subscription if you change this value.
@@ -124,9 +124,9 @@ Use the Azure portal to create a Flexible scale set.
       - npm install express -y
       - nodejs index.js
     ```
-1. When you are done, select **Review + create**.
+1. When you're done, select **Review + create**.
 1. Once you see that validation has passed, you can select **Create** at the bottom of the page to deploy your scale set.
-1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the `.pem` file was downloaded, you'll need the path to it in the next step.
 1. When the deployment is complete, select **Go to resource** to see your scale set.
 
 
@@ -134,7 +134,7 @@ Use the Azure portal to create a Flexible scale set.
 
 On the page for the scale set, select **Instances** from the left menu. 
 
-You will see a list of VMs that are part of your scale set. This list includes:
+You'll see a list of VMs that are part of your scale set. This list includes:
 
 - The name of the VM
 - The computer name used by the VM.
@@ -163,7 +163,7 @@ Test your scale set by connecting to it from a browser.
 
 ## Delete your scale set
 
-When you are done, you should delete the resource group, which will delete everything you deployed for your scale set.
+When you're done, you should delete the resource group, which will delete everything you deployed for your scale set.
 
 1. On the page for your scale set, select the **Resource group**. The page for your resource group will open.
 1. At the top of the page, select **Delete resource group**.
