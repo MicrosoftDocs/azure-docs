@@ -14,6 +14,8 @@ author: msmimart
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to setup Facebook as an identity provider for guest user login. 
 ---
 
 # Add Facebook as an identity provider for External Identities
