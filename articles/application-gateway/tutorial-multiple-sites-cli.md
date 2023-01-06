@@ -153,7 +153,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener contosoListener \
   --rule-type Basic \
-  --address-pool contosoPool
+  --address-pool contosoPool \
+  --priority 200
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -161,7 +162,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener fabrikamListener \
   --rule-type Basic \
-  --address-pool fabrikamPool
+  --address-pool fabrikamPool \
+  --priority 100
 
 az network application-gateway rule delete \
   --gateway-name myAppGateway \
