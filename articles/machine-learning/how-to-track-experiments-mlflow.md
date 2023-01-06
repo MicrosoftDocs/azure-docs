@@ -144,7 +144,7 @@ You can also filter experiment by status. It becomes useful to find runs that ar
 > [!WARNING]
 > Expressions containing `attributes.status` in the parameter `filter_string` are not support at the moment. Please use Pandas filtering expressions as shown in the next example.
 
-The following example shows all the runs that have been completed:
+The following example shows all the completed runs:
 
 ```python
 runs = mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
@@ -153,7 +153,7 @@ runs[runs.status == "FINISHED"]
   
 ## Getting metrics, parameters, artifacts and models
 
-By default, MLflow returns runs as a Pandas `Dataframe` containing a limited amount of information. You can get Python objects if needed, which may be useful to get details about them. Use the `output_format` parameter to control how output is returned:
+The method `search_runs` returns a a Pandas `Dataframe` containing a limited amount of information by default. You can get Python objects if needed, which may be useful to get details about them. Use the `output_format` parameter to control how output is returned:
 
 ```python
 runs = mlflow.search_runs(
@@ -229,9 +229,9 @@ model = mlflow.xgboost.load_model(model_local_path)
 ```
 
 > [!NOTE]
-> In the example above, we are assuming the model was created using `xgboost`. Change it to the flavor applies to your case.
+> The previous example assumes the model was created using `xgboost`. Change it to the flavor applies to your case.
 
-MLflow also allows you to both operations at once and download and load the model in a single instruction. MLflow will download the model to a temporary folder and load it from there. This can be done using the `load_model` method which uses an URI format to indicate from where the model has to be retrieved. In the case of loading a model from a run, the URI structure is as follows:
+MLflow also allows you to both operations at once and download and load the model in a single instruction. MLflow will download the model to a temporary folder and load it from there. The method `load_model` uses an URI format to indicate from where the model has to be retrieved. In the case of loading a model from a run, the URI structure is as follows:
 
 ```python
 model = mlflow.xgboost.load_model(f"runs:/{last_run.info.run_id}/{artifact_path}")
@@ -242,7 +242,7 @@ model = mlflow.xgboost.load_model(f"runs:/{last_run.info.run_id}/{artifact_path}
 
 ## Getting child (nested) runs
 
-MLflow supports the concept of child (nested) runs. They are useful when you need to spin off training routines requiring being tracked independently from the main training process. This is the typical case of hyper-parameter tuning for instance. You can query all the child runs of a specific run using the property tag `mlflow.parentRunId`, which contains the run ID of the parent run.
+MLflow supports the concept of child (nested) runs. They are useful when you need to spin off training routines requiring being tracked independently from the main training process. Hyper-parameter tuning optimization processes or Azure Machine Learning pipelines are typical examples of jobs that generate multiple child runs. You can query all the child runs of a specific run using the property tag `mlflow.parentRunId`, which contains the run ID of the parent run.
 
 ```python
 hyperopt_run = mlflow.last_active_run()
@@ -251,7 +251,7 @@ child_runs = mlflow.search_runs(
 )
 ```
 
-## Compare jobs and models in AzureML Studio (preview)
+## Compare jobs and models in AzureML studio (preview)
 
 To compare and evaluate the quality of your jobs and models in AzureML Studio, use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can compare the parameters, metrics, and tags between the jobs and/or models you selected.
 
