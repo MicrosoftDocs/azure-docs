@@ -35,7 +35,7 @@ This section outlines variations and considerations when using Azure AD External
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Azure China, see [Azure AD B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
+| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Microsoft Azure for customers in China, see [Azure AD B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
 
 ### Media
 
@@ -43,7 +43,7 @@ This section outlines variations and considerations when using Media services.
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Media Services | For Azure Media Services v3 feature variations in Azure in China, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  | 
+| Azure Media Services | For Azure Media Services v3 feature variations in Microsoft Azure for customers in China, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#china).  | 
 
 ### Microsoft Authentication Library (MSAL) 
 
