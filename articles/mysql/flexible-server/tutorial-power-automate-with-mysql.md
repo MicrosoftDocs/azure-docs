@@ -67,8 +67,8 @@ An operation is an action. Power automate flow allows you to add one or more adv
 
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/add-mysql-connection-information.png" alt-text="Screenshot that adding a new MySQL connection for Azure Database for MySQL server":::
 
-> [!NOTE] 
-> If you get an error **Test connection failed. Details: Authentication to host `'servername'` for user `'username'` using method 'mysql_native_password' failed with message: Access denied for user `'username'@'IP address'`(using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
+   > [!NOTE] 
+   > If you get an error **Test connection failed. Details: Authentication to host `'servername'` for user `'username'` using method 'mysql_native_password' failed with message: Access denied for user `'username'@'IP address'`(using password: YES)**, please update the firewall rules on MySQL server in [Azure protal](https://portal.azure.com) with this IP address. 
  
 5. After the connection is successfully added, provide the **servername, database name and table name** parameters for **Get Rows** operation using the newly added connection.  Select **advanced options** to add more filters or limit the number of rows returned.
   
