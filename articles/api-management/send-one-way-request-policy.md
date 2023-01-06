@@ -20,7 +20,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 ## Policy statement
 
 ```xml
-<send-one-way-request mode="new | copy">
+<send-one-way-request mode="new | copy" timeout="time in seconds">
   <set-url>request URL</set-url>
   <set-method>...</set-method>
   <set-header>...</set-header>
@@ -34,6 +34,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode | Determines whether this is a `new` request or a `copy` of the current request. In outbound mode, `mode=copy` does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | `new`      |
+| timeout| The timeout interval in seconds before the call to the URL fails.	 | No | 60 |
 
 
 ## Elements
@@ -60,7 +61,7 @@ This example uses the `send-one-way-request` policy to send a message to a Slack
 ```xml
 <choose>
     <when condition="@(context.Response.StatusCode >= 500)">
-      <send-one-way-request mode="new">
+      <send-one-way-request mode="new" timeout="20">
         <set-url>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</set-url>
         <set-method>POST</set-method>
         <set-body>@{
