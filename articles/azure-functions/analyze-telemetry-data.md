@@ -114,7 +114,7 @@ traces
 
 ## Telemetry correlation
 
-Logs from different functions may be correlated using operation_Id. Use the following query to get all the telemetry for a logical operation.
+Logs from different functions can be correlated using `operation_Id`. Use the following query to return all the logs for a specific logical operation.
 
 ```kusto
 traces
