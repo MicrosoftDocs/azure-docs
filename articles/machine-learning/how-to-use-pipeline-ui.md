@@ -263,7 +263,7 @@ Along with the profiling, you can also use the *Output + logs* (on the details p
   - In this view, you'll see more nodes than in critical path.
 - Compact view
   - You'll only see step jobs that are longer than 30 seconds.
-- Structured view.
+- Hierarchical view.
   - You'll see all jobs including pipeline component jobs and step jobs.
 
 ### Download the duration table
