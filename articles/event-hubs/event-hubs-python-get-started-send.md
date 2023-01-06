@@ -17,27 +17,47 @@ To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - Python 2.7 or 3.6 or later, with PIP installed and updated.
-- The Python package for Event Hubs. 
+- Visual Studio Code (recommended) or any other integrated development environment (IDE). 
+- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 
-    To install the package, run this command in a command prompt that has Python in its path:
+### Install the package(s) to send events
 
-    ```cmd
-    pip install azure-eventhub
-    ```
+To install the Python packages for Event Hubs, open a command prompt that has Python in its path. Change the directory to the folder where you want to keep your samples.
 
-    Install the following package for receiving the events using Azure Blob storage as the checkpoint store:
+### [Passwordless (Recommended)](#tab/passwordless)
 
-    ```cmd
-    pip install azure-eventhub-checkpointstoreblob-aio
-    ```
-- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You'll use the connection string later in this quickstart.
+```shell
+pip install azure-eventhub
+pip install azure-identity
+```
+
+### [Connection String](#tab/connection-string)
+
+```shell
+pip install azure-eventhub
+```
+
+---
+
+### Authenticate the app to Azure
+
+[!INCLUDE [event-hub-passwordless-template-tabbed](../../includes/passwordless/event-hub/event-hub-passwordless-template-tabbed-basic.md)]
+
 
 ## Send events
 In this section, create a Python script to send events to the event hub that you created earlier.
 
 1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-2. Create a script called *send.py*. This script sends a batch of events to the event hub that you created earlier.
-3. Paste the following code into *send.py*:
+1. Create a script called *send.py*. This script sends a batch of events to the event hub that you created earlier.
+1. Paste the following code into *send.py*:
+
+    ## [Passwordless (Recommended)](#tab/passwordless)
+
+    ```python
+    Python code
+    ```
+
+    ## [Connection String](#tab/connection-string)
 
     ```python
     import asyncio
@@ -65,12 +85,13 @@ In this section, create a Python script to send events to the event hub that you
     loop.run_until_complete(run())
 
     ```
-
+    ---
     > [!NOTE]
     > For the complete source code, including informational comments, go to the [GitHub send_async.py page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
     
 
 ## Receive events
+
 This quickstart uses Azure Blob storage as a checkpoint store. The checkpoint store is used to persist checkpoints (that is, the last read positions).  
 
 
