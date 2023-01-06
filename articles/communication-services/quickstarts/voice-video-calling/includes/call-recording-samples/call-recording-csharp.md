@@ -5,6 +5,9 @@ ms.date: 10/14/2022
 ms.topic: include
 ms.custom: public_preview
 ---
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording)
 
 ## Prerequisites
 
