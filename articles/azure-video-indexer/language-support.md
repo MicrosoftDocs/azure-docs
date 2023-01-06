@@ -13,7 +13,7 @@ ms.date: 12/12/2022
 
 This article provides a comprehensive list of language support by service features in Azure Video Indexer. For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
-The list below contains the source languages for transcription that are supported by the Video Indexer API. 
+The following list contains the source languages for transcription that are supported by the Azure Video Indexer API. 
 
 > [!NOTE]
 > Some languages are supported only through the API and not through the Video Indexer website or widgets.
