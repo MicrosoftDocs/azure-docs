@@ -113,7 +113,7 @@ ms.author: eur
 | `ms-MY` | Malay (Malaysia) | `ms-MY-OsmanNeural`<sup>4,5,6</sup> (Male)<br/>`ms-MY-YasminNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
 | `mt-MT` | Maltese (Malta) | `mt-MT-GraceNeural` (Female)<br/>`mt-MT-JosephNeural` (Male) | Not supported | 
 | `my-MM` | Burmese (Myanmar) | `my-MM-NilarNeural` (Female)<br/>`my-MM-ThihaNeural` (Male) | Not supported | 
-| `nb-NO` | Norwegian Bokm├Ñl (Norway) | `nb-NO-FinnNeural`<sup>4,5,6</sup> (Male)<br/>`nb-NO-IselinNeural`<sup>4,5,6</sup> (Female)<br/>`nb-NO-PernilleNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
+| `nb-NO` | Norwegian (Bokmål, Norway) | `nb-NO-FinnNeural`<sup>4,5,6</sup> (Male)<br/>`nb-NO-IselinNeural`<sup>4,5,6</sup> (Female)<br/>`nb-NO-PernilleNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
 | `ne-NP` | Nepali (Nepal) | `ne-NP-HemkalaNeural` (Female)<br/>`ne-NP-SagarNeural` (Male) | Not supported | 
 | `nl-BE` | Dutch (Belgium) | `nl-BE-ArnaudNeural`<sup>4,5,6</sup> (Male)<br/>`nl-BE-DenaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `nl-NL` | Dutch (Netherlands) | `nl-NL-ColetteNeural`<sup>4,5,6</sup> (Female)<br/>`nl-NL-FennaNeural`<sup>1,4,5,6</sup> (Female)<br/>`nl-NL-MaartenNeural`<sup>1,4,5,6</sup> (Male) | Custom Neural Voice Pro | 
