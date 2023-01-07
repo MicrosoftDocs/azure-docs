@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start/Chat) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ In Xcode, create a new project:
 
    :::image type="content" source="../../media/xcode-new-project-template-select.png" alt-text="Screenshot that shows the Xcode new project dialog, with iOS and the App template selected.":::
 
-1. In **Choose options for your new project**, for the product name, enter **Chat**. For the interface, select **Storyboard**. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
+1. In **Choose options for your new project**, for the product name, enter **UILibraryQuickStart**. For the interface, select **Storyboard**. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
    :::image type="content" source="../../media/xcode-new-project-details.png" alt-text="Screenshot that shows setting new project options in Xcode.":::
 
@@ -42,14 +42,14 @@ In Xcode, create a new project:
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
-1. Add the following code to your Podfile. Replace `Chat` with your project name.
+1. Add the following code to your Podfile. Replace `UILibraryQuickStart` with your project name.
 
     ```ruby
     platform :ios, '14.0'
     
-    target 'Chat' do
+    target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '0.1.0-beta.1'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta1'
     end
     ```
 
@@ -69,7 +69,7 @@ To initialize the composite:
 
 1. Go to `ViewController`.
 
-1. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters). Replace `<THREAD_ID>` with your chat thread ID.
+1. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters). 
 
     ```swift
     import UIKit
@@ -77,11 +77,12 @@ To initialize the composite:
     import AzureCommunicationUIChat
     
     class ViewController: UIViewController {
+        var chatAdapter: ChatAdapter?
     
         override func viewDidLoad() {
             super.viewDidLoad()
     
-            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
+            let button = UIButton()
             button.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
             button.layer.cornerRadius = 10
             button.backgroundColor = .systemBlue
@@ -90,6 +91,8 @@ To initialize the composite:
     
             button.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(button)
+            button.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 50).isActive = true
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
@@ -101,35 +104,49 @@ To initialize the composite:
                 return
             }
     
-            let chatAdapter = ChatAdapter(
-                identifier: communicationIdentifier,
+            self.chatAdapter = ChatAdapter(
+                endpoint: "<ENDPOINT_URL>", identifier: communicationIdentifier,
                 credential: communicationTokenCredential,
-                endpoint: "<ENDPOINT_URL>",
+                threadId: "<THREAD_ID>",
                 displayName: "<DISPLAY_NAME>")
     
-            chatAdapter.connect(threadId: "<THREAD_ID>") { [weak self] _ in
-                print("Chat connect completionHandler called")
-                DispatchQueue.main.async {
-                    let chatCompositeViewController = ChatCompositeViewController(
-                        with: chatAdapter)
-                    chatCompositeViewController.title = "Chat"
-                    let closeItem = UIBarButtonItem(
-                        barButtonSystemItem: .close,
-                        target: nil,
-                        action: #selector(self?.onBackBtnPressed))
-                    chatCompositeViewController.navigationItem.leftBarButtonItem = closeItem
-    
-                    let navController = UINavigationController(rootViewController: chatCompositeViewController)
-                    navController.modalPresentationStyle = .fullScreen
-                    self?.present(navController, animated: true, completion: nil)
+            Task { @MainActor in
+                guard let chatAdapter = self.chatAdapter else {
+                    return
                 }
+                try await chatAdapter.connect()
+                let chatCompositeViewController = ChatCompositeViewController(
+                    with: chatAdapter)
+    
+                let closeItem = UIBarButtonItem(
+                    barButtonSystemItem: .close,
+                    target: nil,
+                    action: #selector(self.onBackBtnPressed))
+                chatCompositeViewController.title = "Chat"
+                chatCompositeViewController.navigationItem.leftBarButtonItem = closeItem
+    
+                let navController = UINavigationController(rootViewController: chatCompositeViewController)
+                navController.modalPresentationStyle = .fullScreen
+    
+                self.present(navController, animated: true, completion: nil)
             }
         }
     
         @objc func onBackBtnPressed() {
             self.dismiss(animated: true, completion: nil)
+            Task { @MainActor in
+                self.chatAdapter?.disconnect(completionHandler: { [weak self] result in
+                    switch result {
+                    case .success:
+                        self?.chatAdapter = nil
+                    case .failure(let error):
+                        print("disconnect error \(error)")
+                    }
+                })
+            }
         }
     }
+
     ```
 
 ## Run the code
