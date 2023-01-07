@@ -6,6 +6,7 @@ ms.date: 01/07/2023
 ms.topic: include
 ms.author: eur
 ---
+
 | Locale (BCP-47) | Language | Text-to-speech voices |
 | ----- | ----- | ----- | ----- |
 | `af-ZA` | Afrikaans (South Africa) | `af-ZA-AdriNeural` (Female)<br/>`af-ZA-WillemNeural` (Male) |
@@ -112,7 +113,7 @@ ms.author: eur
 | `ms-MY` | Malay (Malaysia) | `ms-MY-OsmanNeural`<sup>4,5,6</sup> (Male)<br/>`ms-MY-YasminNeural`<sup>4,5,6</sup> (Female) |
 | `mt-MT` | Maltese (Malta) | `mt-MT-GraceNeural` (Female)<br/>`mt-MT-JosephNeural` (Male) |
 | `my-MM` | Burmese (Myanmar) | `my-MM-NilarNeural` (Female)<br/>`my-MM-ThihaNeural` (Male) |
-| `nb-NO` | Norwegian Bokm├Ñl (Norway) | `nb-NO-FinnNeural`<sup>4,5,6</sup> (Male)<br/>`nb-NO-IselinNeural`<sup>4,5,6</sup> (Female)<br/>`nb-NO-PernilleNeural`<sup>4,5,6</sup> (Female) |
+| `nb-NO` | Norwegian (Bokmål, Norway) | `nb-NO-FinnNeural`<sup>4,5,6</sup> (Male)<br/>`nb-NO-IselinNeural`<sup>4,5,6</sup> (Female)<br/>`nb-NO-PernilleNeural`<sup>4,5,6</sup> (Female) |
 | `ne-NP` | Nepali (Nepal) | `ne-NP-HemkalaNeural` (Female)<br/>`ne-NP-SagarNeural` (Male) |
 | `nl-BE` | Dutch (Belgium) | `nl-BE-ArnaudNeural`<sup>4,5,6</sup> (Male)<br/>`nl-BE-DenaNeural`<sup>4,5,6</sup> (Female) |
 | `nl-NL` | Dutch (Netherlands) | `nl-NL-ColetteNeural`<sup>4,5,6</sup> (Female)<br/>`nl-NL-FennaNeural`<sup>1,4,5,6</sup> (Female)<br/>`nl-NL-MaartenNeural`<sup>1,4,5,6</sup> (Male) |
