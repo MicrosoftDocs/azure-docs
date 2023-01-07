@@ -152,40 +152,42 @@ The following table describes the default resource usage:
 | VMware Spring Cloud Gateway                  | 2              | 1 core            | 2Gi                 |
 | VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2Gi                 |
 
-## Configure Application Performance Monitoring
+## Configure application performance monitoring
 
-There are several types of Application Performance Monitoring (APM) Java agents provided by Spring Cloud Gateway to monitor gateway managed by Azure Spring Apps. Use the two configurations to setup APM for Spring Cloud Gateway.
+There are several types of application performance monitoring (APM) Java agents provided by Spring Cloud Gateway to monitor a gateway managed by Azure Spring Apps.
 
-#### [Portal](#tab/Azure-portal)
+### [Azure portal](#tab/Azure-portal)
 
-The following steps are to set up APM using the Azure portal.
+Use the following steps to set up APM using the Azure portal:
 
-1. Open the **Spring Cloud Gateway** page and select **Configuration** tabs.
+1. Open the **Spring Cloud Gateway** page and select the **Configuration** tab.
 
-1. Choose the APM type to monitor gateway in the dropdown list of **APM**.
+1. Choose the APM type in the **APM** list to monitor a gateway.
 
-1. Fill the key-value pairs environment variables of APM in the **Properties** or **Secrets**. You can put variables with sensitive information in **Secrets**.
+1. Fill in the key-value pairs for the APM environment variables in the **Properties** or **Secrets** sections. You can put variables with sensitive information in **Secrets**.
 
-1. When all configurations provided, select **Save** at the bottom to save your changes.
+1. When you've provided all the configurations, select **Save** to save your changes.
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
-#### [CLI](#tab/Azure-CLI)
+### [Azure CLI](#tab/Azure-CLI)
 
-The following steps use the Azure CLI to set up APM.
-
-Run the following command
+Use the following command to set up APM using Azure CLI:
 
 ```azurecli
-az spring gateway update --apm-types <APM_TYPE> --properties <key=value> --secrets <key=value>
+az spring gateway update \
+    --apm-types <APM-type> \
+    --properties <key=value> \
+    --secrets <key=value>
 ```
 
+---
 
-The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic` and `ElasticAPM`. You can refer to their public documents about APM Java agent to see full functions provided and which environment variables are exposed. Azure Spring Apps will upgrade APM agent in the same cadence as deployed apps to keep compatibility of agents between Spring Cloud Gateway and apps.
+The supported APM types are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. For more information about the functions provided and which environment variables are exposed, see the public documentation for the APM Java agent you're using. Azure Spring Apps will upgrade the APM agent with the same cadence as deployed apps to keep compatibility of agents between Spring Cloud Gateway and apps.
 
 > [!NOTE]
-> By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`, which are mixed with Spring Cloud Gateway logs. You can check the version of APM agent used in logs. These logs can be queried in Log Analystics for troubleshooting.
-> Increase the cpu and memory of Spring Cloud Gateway to make APM agents work correctly.
+> By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are mixed with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
+> To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
 
 ## Next steps
 
