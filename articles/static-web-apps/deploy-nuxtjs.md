@@ -186,7 +186,7 @@ If the page is a dynamic page, for example `_id.vue`, it won't have enough infor
 
 Make changes to the app by updating the code and pushing it to GitHub. GitHub Actions automatically builds and deploys the app.
 
-For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://v3.nuxtjs.org/guide/deploy/providers/azure/).
+For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://nitro.unjs.io/deploy/providers/azure).
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
