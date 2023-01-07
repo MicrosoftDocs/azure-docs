@@ -27,7 +27,7 @@ Language support varies by Speech service functionality.
 
 # [Speech-to-text](#tab/stt)
 
-The table in this section summarizes the locales and voices supported for Speech-to-text and Text-to-speech. Please see the table footnotes for more details. 
+The table in this section summarizes the locales and voices supported for Speech-to-text. Please see the table footnotes for more details. 
 
 Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. 
 
