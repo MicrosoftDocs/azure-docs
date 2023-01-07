@@ -166,19 +166,26 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 - In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
-    **Ubuntu**
+# [Ubuntu](#tab/ubuntu)
 
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+# [Red Hat](#tab/rhel)
 
     ```bash
     sudo yum install util-linux
     sudo fstrim /datadrive
     ```
+
+# [SUSE](#tab/suse)
+    
+    ```bash
+    sudo fstrim /datadrive
+    ```
+---
 
 ## Troubleshooting
 

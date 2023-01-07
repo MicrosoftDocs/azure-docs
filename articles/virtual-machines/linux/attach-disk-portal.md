@@ -75,7 +75,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0       4G
 ```
 
-In this example, the disk that I added is `sdc`. It is a LUN 0 and is 4GB.
+In this example, the disk that added was `sdc`. It is a LUN 0 and is 4GB.
 
 For a more complex example, here is what multiple data disks look like in the portal:
 
@@ -108,7 +108,7 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 If you are attaching a new disk, you need to partition the disk.
 
 The `parted` utility can be used to partition and to format a data disk.
-- It is recommended that you use the latest version `parted` that is available for your distro.
+- Use the latest version `parted` that is available for your distro.
 - If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
 
 
@@ -211,25 +211,26 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```
 * In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
   
-    **Ubuntu**
-  
+# [Ubuntu](#tab/ubuntu)
+
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
-  
-    **RHEL/CentOS**
+
+# [Red Hat](#tab/rhel)
 
     ```bash
     sudo yum install util-linux
     sudo fstrim /datadrive
     ```
 
-    **SLSE**
+# [SUSE](#tab/suse)
     
     ```bash
     sudo fstrim /datadrive
     ```
+---
 
 ## Next steps
 
