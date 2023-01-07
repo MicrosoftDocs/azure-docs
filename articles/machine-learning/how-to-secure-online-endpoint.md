@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 12/08/2022
+ms.date: 01/06/2023
 ms.custom: event-tier1-build-2022
 ---
 
@@ -62,7 +62,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
-* For online deployments with egress public network access parameter set to disabled, access from the deployments to Microsoft Container Registry (MCR) is restricted. If you want to leverage container images from MCR, recommendation is to push the images into the Azure Container Registry (ACR) which is attached with the workspace. The images in this ACR is accessible via the private endpoint which is automatically created on behalf of you when you set egress public network access parameter to disabled.
+* For online deployments with egress public network access parameter set to disabled, access from the deployments to Microsoft Container Registry (MCR) is restricted. If you want to leverage container images from MCR (such as when using curated environment or mlflow no-code deployment), recommendation is to push the images into the Azure Container Registry (ACR) which is attached with the workspace. The images in this ACR is accessible to secured deployments via the private endpoints which are automatically created on behalf of you when you set egress public network access parameter to disabled. For a quick example, please refer to this [custom container example](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container/minimal/single-model).
 
 * Secure outbound communication creates three private endpoints per deployment. One to the Azure Blob storage, one to the Azure Container Registry, and one to your workspace.
 
