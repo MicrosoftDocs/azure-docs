@@ -5,7 +5,7 @@ author: toolboc
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 01/05/2023
 ms.author: pdecarlo
 
 ---
