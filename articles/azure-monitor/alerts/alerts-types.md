@@ -107,7 +107,7 @@ You can specify the scope of monitoring with a single metric alert rule in one o
 
 Dynamic thresholds use advanced machine learning to:
 - Learn the historical behavior of metrics.
-- Identify patterns and adapt to metric changes over time, such as hourly, daily or weekly patterns.
+- Identify patterns and adapt to metric changes over time, such as hourly, daily, or weekly patterns.
 - Recognize anomalies that indicate possible service issues.
 - Calculate the most appropriate threshold for the metric.
 
