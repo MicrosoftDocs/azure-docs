@@ -69,7 +69,7 @@ const PermissionsModal = (props: { isOpen: boolean, type: "denied" | "request" |
 Here we'll add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
 `checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we'll ensure we handle the `unknown` case when prompting the user for permissions.
 
-`devicePermissionUtils.ts`
+`DevicePermissionUtils.ts`
 
 ```ts
 import { DeviceAccess } from "@azure/communication-calling";
@@ -115,10 +115,9 @@ In this component we'll display different prompts to the user based on the devic
 import { useEffect, useState } from 'react';
 import { CheckingDeviceAccessPrompt, PermissionsDeniedPrompt, AcceptDevicePermissionRequestPrompt } from './DevicePermissionPrompts';
 import { useCallClient } from '@azure/communication-react';
-import { checkDevicePermissionsState, requestCameraAndMicrophonePermissions } from '../helpers/devicePermissionUtils';
+import { checkDevicePermissionsState, requestCameraAndMicrophonePermissions } from './DevicePermissionUtils';
 
 export type DevicesAccessChecksState = 'runningDeviceAccessChecks' |
-  'runningDeviceAccessChecks' |
   'checkingDeviceAccess' |
   'promptingForDeviceAccess' |
   'deniedDeviceAccess';
@@ -187,14 +186,16 @@ export const DeviceAccessChecksComponent = (props: {
 ```
 After we have finished creating this component we will add it to the `App.tsx` file like so:
 
+Add the import.
 ```ts
-...
-import { DeviceAccessChecksComponent } from './components/DeviceAccessChecksComponent';
-...
-
+import { DeviceAccessChecksComponent } from './DeviceAccessChecksComponent';
+```
+Update the `TestingState` type to be the following.
+```ts
 type TestingState = 'runningEnvironmentChecks' | 'runningDeviceAccessChecks' | 'finished';
-...
-
+```
+Then update the `App` component.
+```ts
 /**
  * Entry point of a React app.
  *

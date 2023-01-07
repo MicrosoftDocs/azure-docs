@@ -12,10 +12,9 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
+# Getting started with Call Readiness and the UI Library
 
 When a user intends to join a call, their primary focus is on the conversation they want to have with the other person(s) on the call – this could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It is critical to ensure their readiness for the call.
-
-![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)
 
 It may be impossible to predict every issue or combination of issues that may arise, but by leveraging this tutorial you can:
 
@@ -23,6 +22,7 @@ It may be impossible to predict every issue or combination of issues that may ar
 2. Only expose an issue if it is going to negatively impact the experience
 3. Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
 
+![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)
 Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). This can be run by users for further troubleshooting in customer support scenarios.
 
 ## Tutorial Structure
@@ -85,7 +85,7 @@ To set up the [React](https://reactjs.org/) App, we'll use the create-react-app 
 
 ```bash
 # Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-call-readiness-app --template communication-react
+npx create-react-app ui-library-call-readiness-app --template communication-react 
 
 # Change to the directory of the newly created App.
 cd ui-library-call-readiness-app
@@ -99,8 +99,8 @@ For this quickstart, we'll be modifying files inside of the `src` folder.
 As this feature is in public preview, you must use the beta versions of the Azure Communication Services npm packages. Use the `npm install` command to install these packages:
 
 ```bash
-# Install Public Preview versions of the Azure Communication Services Libraries.
-npm install @azure/communication-calling@dev @azure/communication-react@dev
+# Install Public Preview versions of the Azure Communication Services Libraries. (peer deps is needed to reconcile alpha dependencies)
+npm install @azure/communication-calling@dev @azure/communication-react@dev --legacy-peer-deps
 ```
 
 ### Initial App Setup
