@@ -4,7 +4,7 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/03/2022
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
