@@ -10,4 +10,4 @@ Generally, connectivity requirements include these principles:
 - All HTTP connections use HTTPS and SSL/TLS with officially signed and verifiable certificates.
 - All connections are outbound unless otherwise specified.   
 
-To use proxy, verify that the agents meet the network requirements. See [Meet network requirements](../../kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+To use proxy, verify that the agents meet the network requirements in this article. 
