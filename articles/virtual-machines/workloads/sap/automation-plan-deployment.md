@@ -94,12 +94,26 @@ The workload zone provides the following services for the SAP Applications:
 
 Before you design your workload zone layout, consider the following questions:
 
-* How many workload zones does your scenario require?
 * In which regions do you need to deploy workloads?
-* What storage type do you need for the shared storage?
-* What's your [deployment scenario](#supported-deployment-scenarios)?
+* How many workload zones does your scenario require (development, quality assurance, production etc)?
+* Are you deploying into new Virtual networks or are you using existing virtual networks 
+* How is DNS configured (integrate with existing DNS or deploy a Private DNS zone in the control plane)?
+* What storage type do you need for the shared storage (Azure Files NFS, Azure NetApp Files)?
 
 For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
+
+### Windows based deployments
+
+When doing Windows based deployments the Virtual Machines in the workload zone's Virtual Network need to be able to communicate with Active Directory in order to join the SAP Virtual Machines to the Active Directory Domain. The provided DNS name needs to be resolvable by the Active Directory.
+
+The workload zone key vault must contain the following secrets:
+
+| Credential                                             | Name                                      | Example                                 |
+| ------------------------------------------------------ | ----------------------------------------- | --------------------------------------- | 
+| Account that can perform domain join activities        | [IDENTIFIER]-ad-svc-account               | DEV-WEEU-SAP01-ad-svc-account           | 
+| Password for the account that performs the domain join | [IDENTIFIER]-ad-svc-account-password      | DEV-WEEU-SAP01-ad-svc-account-password  | 
+| sidadm account password                                | [IDENTIFIER]-winsidadm_password_id        | DEV-WEEU-SAP01-winsidadm_password_id    | 
+| SID Service account password                           | [IDENTIFIER]-svc-sidadm-password          | DEV-WEEU-SAP01-svc-sidadm-password      | 
 
 
 ## Credentials management
@@ -110,13 +124,15 @@ The automation framework uses [Service Principals](#service-principal-creation) 
 
 The automation framework will use the workload zone key vault for storing both the automation user credentials and the SAP system credentials. The virtual machine credentials are named as follows:
 
-| Credential         | Name                            | Example                         |
-| ------------------ | ------------------------------- | ------------------------------- | 
-| Private key        | [IDENTIFIER]-sshkey             | DEV-WEEU-SAP01-sid-sshkey       | 
-| Public key         | [IDENTIFIER]-sshkey-pub         | DEV-WEEU-SAP01-sid-sshkey-pub   | 
-| Username           | [IDENTIFIER]-username           | DEV-WEEU-SAP01-sid-username     | 
-| Password           | [IDENTIFIER]-password           | DEV-WEEU-SAP01-sid-password     | 
-| sidadm Password    | [IDENTIFIER]-[SID]-sap-password | DEV-WEEU-SAP01-X00-sap-password | 
+| Credential                   | Name                               | Example                              |
+| ---------------------------- | ---------------------------------- | ------------------------------------ | 
+| Private key                  | [IDENTIFIER]-sshkey                | DEV-WEEU-SAP01-sid-sshkey            | 
+| Public key                   | [IDENTIFIER]-sshkey-pub            | DEV-WEEU-SAP01-sid-sshkey-pub        | 
+| Username                     | [IDENTIFIER]-username              | DEV-WEEU-SAP01-sid-username          | 
+| Password                     | [IDENTIFIER]-password              | DEV-WEEU-SAP01-sid-password          | 
+| sidadm Password              | [IDENTIFIER]-[SID]-sap-password    | DEV-WEEU-SAP01-X00-sap-password      | 
+| sidadm account password      | [IDENTIFIER]-winsidadm_password_id | DEV-WEEU-SAP01-winsidadm_password_id | 
+| SID Service account password | [IDENTIFIER]-svc-sidadm-password   | DEV-WEEU-SAP01-svc-sidadm-password   | 
 
 
 ### Service principal creation
@@ -182,16 +198,20 @@ The following table shows the required permissions for the service principal:
 
 ## DevOps structure
 
-The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
+The deployment framework uses three separate repositories for the deployment artifacts. For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. 
 
-For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP on Azure Deployment Automation Framework bootstrap repository](https://github.com/Azure/sap-automation-bootstrap/) into your source control repository.
+### Main repository
+
+This repository contains the Terraform parameter files and the files needed for the Ansible playbooks for all the workload zone and system deployments. 
+
+You can create this repository by cloning the [SAP on Azure Deployment Automation Framework bootstrap repository](https://github.com/Azure/sap-automation-bootstrap/) into your source control repository.
 
 > [!IMPORTANT]
-> Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
+> This repository must be the default repository for your Azure DevOps project.
 
-### Folder structure
+#### Folder structure
 
-The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files. The first top-level folder, called **sap-automation**, has the automation framework files that you don't need to change in most use cases. The second top-level folder, called **WORKSPACES**, contains subfolders with configuration files for your deployment settings.
+The following sample folder hierarchy shows how to structure your configuration files along with the automation framework files.
 
 | Folder name | Contents | Description |
 | ----------- | -------- | ----------- |
@@ -203,6 +223,28 @@ The following sample folder hierarchy shows how to structure your configuration 
 | SYSTEM | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](automation-configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. for example, **PROD-WEEU-SAPO00-ABC**. |
 
 :::image type="content" source="./media/automation-plan-deployment/folder-structure.png" alt-text="Screenshot of example folder structure, showing separate folders for SAP HANA and multiple workload environments.":::
+
+> [!IMPORTANT]
+> Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
+
+### Code repository
+
+This repository contains the Terraform automation templates and the Ansible playbooks as well as the deployment pipelines and scripts. For most use cases, consider this repository as read-only and don't modify it.
+
+You can create this repository by cloning the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/) into your source control repository.
+
+> [!IMPORTANT]
+> This repository should be named 'sap-automation'.
+
+### Sample repository
+
+This repository contains the sample Bill of Materials files and the sample Terraform configuration files.
+
+You can create this repository by cloning the [SAP on Azure Deployment Automation Framework samples repository](https://github.com/Azure/sap-automation-samples/) into your source control repository.
+
+> [!IMPORTANT]
+> This repository should be named 'samples'.
+
 
 ## Supported deployment scenarios
 
