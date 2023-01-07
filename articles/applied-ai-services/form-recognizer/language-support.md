@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: overview
-ms.date: 10/20/2022
+ms.topic: reference
+ms.date: 01/06/2023
 ms.author: lajanuar
 ---
 
