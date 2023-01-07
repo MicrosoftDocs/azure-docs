@@ -128,9 +128,6 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
     > [!NOTE]
     > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
-    
-    > [!NOTE]
-    > Users with attribute set scope role assignments currently can see other attribute sets and custom security attribute definitions.
 
 #### PowerShell
 
