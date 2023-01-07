@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) Automated ML NLP Text NER job YAML schema'
+title: 'CLI (v2) Automated ML NLP text NER job YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) Automated ML NLP Text NER job YAML schema.
+description: Reference documentation for the CLI (v2) automated ML NLP text NER job YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,11 +18,13 @@ ms.reviewer: ssalgado
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextNERJob.schema.json
-
-
-
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
+
+This article provides a reference for some syntax concepts you will encounter while configuring these YAML files for NLP text NER jobs.
+
+The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextNERJob.schema.json
 
 ## YAML syntax
 
@@ -48,6 +50,8 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | | |
 | `outputs.best_model` | object | Dictionary of output configurations for best model. For more information, see [Best model output configuration](#best-model-output-configuration). | | |
 
+
+Other syntax used in configurations:
 ### Limits
 
 | Key | Type | Description | Allowed values | Default value |
