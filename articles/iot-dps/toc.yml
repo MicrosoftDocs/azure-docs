@@ -161,7 +161,7 @@ items:
   - name: .NET (Service)
     href: /dotnet/api/microsoft.azure.devices.provisioning.service
   - name: .NET (Management)
-    href: /dotnet/api/overview/azure/deviceprovisioningservice/management
+    href: /dotnet/api/overview/azure/resourcemanager.deviceprovisioningservices-readme
   - name: Java (Device)
     href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
   - name: Java (Service)
