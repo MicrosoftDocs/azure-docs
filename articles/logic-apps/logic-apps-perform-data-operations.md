@@ -407,13 +407,11 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some properties and values in JSON format. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
-   ![Starting sample logic app for "Create HTML table"](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   ![Starting sample logic app for "Create HTML table"](./media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png)
 
 1. In your logic app where you want to create an HTML table, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
-
-     ![Select "New step" for "Create HTML table" action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -586,8 +584,6 @@ If you prefer working in the code view editor, you can copy the example **Filter
 
    * To add an action under the last step, select **New step**.
 
-     ![Select "New step" for "Filter array" action](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
-
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. In the search box, enter `filter array` as your filter. From the actions list, select the **Filter array** action.
@@ -648,8 +644,6 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    * To add an action under the last step, select **New step**.
 
-     ![SSelect "New step" for "Join" action](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
-
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. In the search box, enter `join` as your filter. From the actions list, select this action: **Join**
@@ -707,8 +701,6 @@ If you prefer working in the code view editor, you can copy the example **Parse 
 1. In your logic app where you want to parse the JSON content, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
-
-     ![Select "New step" for "Parse JSON" action](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
@@ -783,8 +775,6 @@ If you prefer working in the code view editor, you can copy the example **Select
 1. In your logic app where you want to create the array, follow one of these steps: 
 
    * To add an action under the last step, select **New step**.
-
-     ![Select "New step" for "Select" action](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
