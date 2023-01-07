@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer SDKs
 titleSuffix: Azure Applied AI Services
-description: The Form Recognizer software development kit (SDK) exposes Form Recognizer models, features and capabilities, making it easier to develop document-processing applications.
+description: The Form Recognizer software development kits (SDKs) expose Form Recognizer models, features and capabilities, using C#, Java, JavaScript, or Python.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
