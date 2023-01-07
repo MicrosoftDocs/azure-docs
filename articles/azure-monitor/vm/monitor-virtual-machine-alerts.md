@@ -12,9 +12,7 @@ ms.reviewer: Xema Pathak
 
 # Monitor virtual machines with Azure Monitor: Alerts
 
-This article is part of the scenario content [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). 
-
-[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from the Azure Monitor agent. 
+This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from the Azure Monitor agent. 
 
 This article presents alerting concepts specific to virtual machines and common alert rules used by other Azure Monitor customers. See [Monitor virtual machines with Azure Monitor: Workloads](monitor-virtual-machine-workloads.md) for guidance on using these concepts to create other alert rules based on your particular requirements.
 
@@ -25,7 +23,7 @@ This article presents alerting concepts specific to virtual machines and common 
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Recommended alert rules
-Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for an Azure virtual machine. These are a good starting point for basic monitoring but will not provide sufficient alerting for most enterprise implementations for the following reasons:
+Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for any Azure virtual machine. These are a good starting point for basic monitoring but will not provide sufficient alerting for most enterprise implementations for the following reasons:
 
 - Recommended alerts only apply to Azure virtual machines and not hybrid machines.
 - Recommended alerts only include host metrics and not guest metrics or logs. These are useful to monitor the health of the machine itself but give you minimal visibility into the workloads and applications running on the machine.
@@ -40,32 +38,27 @@ The type of alert rule that you create for a particular scenario depends on wher
 
 | Type | Common uses for virtual machines | Data sources |
 |:---|:---|:---|
-| [Metric](../alerts/alerts-types.md#metric-alerts) | Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.  | - Host metrics for Azure virtual machines, which are collected automatically.<br>- Metrics that are collected by the Azure Monitor agent from the guest operating system. |
-| [Log](../alerts/alerts-types.md#log-alerts)  | - Alert when a particular event or pattern of events from Windows event log or syslog are found. These alert rules will typically measure table rows returned from the query.<br>- Alert based on a calculation of numeric data across multiple machines. These alert rules will typically measure the calculation of a numeric column. | Data collected in a Log Analytics workspace. |
+| [Metric](../alerts/alerts-types.md#metric-alerts) | Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.  | - Host metrics for Azure virtual machines, which are collected automatically.<br>- Metrics collected by the Azure Monitor agent from the guest operating system. |
+| [Log](../alerts/alerts-types.md#log-alerts)  | - Alert when a particular event or pattern of events from Windows event log or syslog are found. These alert rules will typically measure table rows returned from the query.<br>- Alert based on a calculation of numeric data across multiple machines. These alert rules will typically measure the calculation of a numeric column in the query results. | Data collected in a Log Analytics workspace. |
 
-
-| Type | Common uses for virtual machines | Data sources |
-|:---|:---|:---|
-| [Metric](../alerts/alerts-types.md#metric-alerts) | Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.  | - Host metrics for Azure virtual machines, which are collected automatically.<br>- Metrics that are collected by the Azure Monitor agent from the guest operating system. |
-| [Log](../alerts/alerts-types.md#log-alerts)  | - Alert when a particular event or pattern of events from Windows event log or syslog are found. These alert rules will typically measure table rows returned from the query.<br>- Alert based on a calculation of numeric data across multiple machines. These alert rules will typically measure the calculation of a numeric column. | Data collected in a Log Analytics workspace. |
 
 ## Scaling alert rules
-Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. There are different strategies to limit the number of alert rules you need to manage depending on the type of rule.
+Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. There are different strategies to limit the number of alert rules you need to manage depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
 
 ### Metric alert rules
-Virtual machines support multiple resource metric alert rules as described in [Monitor multiple resources](../alerts/alerts-types.md#metric-alerts). This allows you to create a single metric alert rule that applies to all virtual machines in a resource group or subscription within the same region. Start with the [recommended alerts](#recommended-alert-rules) creating a corresponding rule for each using your subscription or a resource group as the target resource. You will need to create duplicate rules for each region if you have machines in multiple regions.
+Virtual machines support multiple resource metric alert rules as described in [Monitor multiple resources](../alerts/alerts-types.md#metric-alerts). This allows you to create a single metric alert rule that applies to all virtual machines in a resource group or subscription within the same region. Start with the [recommended alerts](#recommended-alert-rules) and [create a corresponding rule]() for each using your subscription or a resource group as the target resource. You will need to create duplicate rules for each region if you have machines in multiple regions.
 
 As you identify requirements for additional metric alert rules, use this same strategy of using a subscription or resource group as the target resource to minimize the number of alert rules you need to manage and ensure that they're automatically applied to any new machines.
 
 ### Log alert rules
 
-If you set the target resource of a log alert rule to a specific machine, then queries are limited to data associated with that machine giving you individual alerts for it. This would require a separate alert rule for each machine though.
+If you set the target resource of a log alert rule to a specific machine, then queries are limited to data associated with that machine giving you individual alerts for it. This would require a separate alert rule for each machine.
 
 If you set the target resource of a log alert rule to a Log Analytics workspace, you have access to all data in that workspace which allows you to alert on data from all machines in the workgroup with a single rule. This gives you the option of creating a single alert for all machines or using dimensions to create a separate alert for each machine. 
 
-For example, you may want to alert when an error event is created by any machine in the Windows event log. You would first need to create a data collection rule as described in [XXX]() to send these events to the `Event` table in the Log Analytics workspace. You could then create an alert rule using the workspace as the target resource and the condition shown below. 
+For example, you may want to alert when an error event is created by any machine in the Windows event log. You would first need to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) to send these events to the `Event` table in the Log Analytics workspace. You could then create an alert rule that queries this table using the workspace as the target resource and the condition shown below. 
 
-The query will return a record for any error messages on any machine. The **Split by dimensions** option specifies the **_ResourceId** meaning that if the query returns records for multiple machines, a separate alert will be created for each.
+The query will return a record for any error messages on any machine. Use the **Split by dimensions** option and specify **_ResourceId** to instruct the rule to create an alert for each machine if multiple machines are returned in the results.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
 
@@ -76,6 +69,8 @@ The following section lists common alert rules for virtual machines in Azure Mon
 
 ### Machine unavailable
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the VM availability metric which is currently in public preview. See [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md) for a complete walk through on this metric.
+
+As described in [Scaling alert rules](#scaling-alert-rules), create an availability alert rule using a subscription or resource group as the target resource to have the rule apply to multiple virtual machines, including new machines that you create after the alter rule.
 
 ### Agent heartbeat
 The agent heartbeat is slightly different than the machine unavailable alert because it relies on the Azure Monitor agent to send a heartbeat. This can alert you if the machine is running, but the agent is unresponsive.

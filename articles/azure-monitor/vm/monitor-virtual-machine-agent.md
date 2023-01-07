@@ -1,30 +1,34 @@
 ---
-title: 'Monitor virtual machines with Azure Monitor: Configure monitoring'
-description: Learn how to configure virtual machines for monitoring in Azure Monitor. Monitor virtual machines and their workloads with an Azure Monitor scenario.
+title: 'Monitor virtual machines with Azure Monitor: Deploy agent'
+description: Learn how to deploy the Azure Monitor agent to your virtual machines for monitoring in Azure Monitor. Monitor virtual machines and their workloads with an Azure Monitor guide.
 ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/21/2021
+ms.date: 01/05/2023
 ms.reviewer: Xema Pathak
 
 ---
 
 # Monitor virtual machines with Azure Monitor: Deploy agent
-This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor.
+This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to deploy the Azure Monitor agent to your Azure and hybrid virtual machines in Azure Monitor.
 
 > [!NOTE]
 > This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
 
-This article discusses configuration of the most common Azure Monitor features to monitor the virtual machine host and its guest operating system. Depending on your particular environment and business requirements, you might not want to implement all features enabled by this configuration. Each section describes what features are enabled by that configuration and whether it potentially results in additional cost. This information will help you assess whether to perform each step of the configuration. For detailed pricing information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+Any monitoring tool like Azure Monitor, requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor uses the [Azure Monitor agent](../agents/agents-overview.md), which supports virtual machines in Azure, other cloud environments, and on-premises. The Azure Monitor agent replaces legacy agents that are still available but should only be used if you require particular functionality not yet available with Azure Monitor agent. Most users will be able to use Azure Monitor without the legacy agents.
 
-A general description of each feature enabled by this configuration is provided in the [overview for the scenario](monitor-virtual-machine.md). That article also includes links to content that provides a detailed description of each feature to further help you assess your requirements.
+The legacy agents include the following:
 
+- [Log Analytics agent](../agents/log-analytics-agent.md): Supports virtual machines in Azure, other cloud environments, and on-premises. Sends data to Azure Monitor Logs. This agent is the same agent used for System Center Operations Manager.
+- [Azure Diagnostic extension](../agents/diagnostics-extension-overview.md): Supports Azure Monitor virtual machines only. Sends data to Azure Monitor Metrics, Azure Event Hubs, and Azure Storage.
+
+See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for the current features supported by Azure Monitor agent. See [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md) for details on migrating to the Azure Monitor agent if you already have the Log Analytics agent deployed.
 
 ## Prerequisites
 
 ### Create a Log Analytics workspace
-You require at least one Log Analytics workspace to collect telemetry from the Azure Monitor agent. There's no cost for the workspace, but you do incur ingestion and retention costs when you collect data. For more information, see [Azure Monitor Logs pricing details](../logs/cost-logs.md).
+You don't need a Log Analytics workspace to deploy the Azure Monitor agent, but you will need one to collect the data that it sends. There's no cost for the workspace, but you do incur ingestion and retention costs when you collect data. 
 
 Many environments use a single workspace for all their virtual machines and other Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. If you're getting started with Azure Monitor, start with a single workspace and consider creating more workspaces as your requirements evolve. [VM insights]() will create a default workspace which you can use to get started quickly.
 
@@ -64,14 +68,20 @@ You still can monitor these machines with Azure Monitor, but you need to manuall
 > [!NOTE]
 > The private endpoint for Azure Arc-enabled servers is currently in public preview. The endpoint allows your hybrid machines to securely connect to Azure by using a private IP address from your virtual network.
 
-## Deploy Azure Monitor agent
-There are multiple methods for deploying the Azure Monitor agent to your virtual machines depending on whether you use the [agent extension](../agents/azure-monitor-agent-manage.md) or the [client installer](../agents/azure-monitor-agent-windows-client.md). The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#install).
+## Agent deployment options
+The Azure Monitor agent is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md), so you can install it using a variety of standard methods including PowerShell, CLI, and Resource Manager templates. See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md) for details on each.
 
+Other notable methods for installation are described below.
+### Data collection rule in the Azure portal
+When you create a data collection rule in the Azure portal as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md), you have the option of specifying virtual machines to receive it. The Azure Monitor agent will be automatically installed on any 
+
+One method to deploy the Azure Monitor agent with the Azure Monitor agent is to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). The agent will automatically be deployed to any machines that don't already have it.
+
+### Azure Policy
+If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Use Azure Policy](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy.
 
 ### VM insights
-VM insights provides simplified onboarding of agents in the Azure portal. With a single click for a particular machine, it installs the Azure Monitor agent, connects to a workspace, and starts collecting performance data. You can optionally have it install the dependency agent and collect processes and dependency data to enable the map feature of VM insights. The dependency agent uses the Azure Monitor agent to deliver the data that it collects, so there are no additional network or firewall considerations.
-
-There's no direct cost for VM insights, but there is a cost for the ingestion and retention of data collected in the Log Analytics workspace.
+VM insights provides simplified onboarding of agents in the Azure portal. With a single click for a particular machine, it installs the Azure Monitor agent, connects to a workspace, and starts collecting performance data. You can optionally have it install the dependency agent and collect processes and dependency data to enable the map feature of VM insights.
 
 You can enable VM insights on individual machines by using the same methods for Azure virtual machines and Azure Arc-enabled servers. These methods include onboarding individual machines with the Azure portal or Azure Resource Manager templates or enabling machines at scale by using Azure Policy. For different options to enable VM insights for your machines, see [Enable VM insights overview](vminsights-enable-overview.md). To create a policy that automatically enables VM insights on any new machines as they're created, see [Enable VM insights by using Azure Policy](vminsights-enable-policy.md).
 
@@ -79,13 +89,15 @@ VM insights also includes a simplified interface for [managing Azure Policy defi
 
 > [!NOTE]
 > VM insights gives you an option to install either the Azure Monitor agent or Log Analytics agent, but the Azure Monitor agent is recommended. It only installs the Dependency agent if you choose to enable the Map feature.
-### Azure Policy
-If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Use Azure Policy](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy.
 
+
+### Windows client installer
+Use the [Windows client installer](../agents/azure-monitor-agent-windows-client.md)
+The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#install).
 
 ## Next steps
 
+* [Configure data collection](monitor-virtual-machine-data-collection.md)
 * [Analyze monitoring data collected for virtual machines](monitor-virtual-machine-analyze.md)
 * [Create alerts from collected data](monitor-virtual-machine-alerts.md)
 * [Monitor workloads running on virtual machines](monitor-virtual-machine-workloads.md)
-

@@ -56,8 +56,8 @@ items:
       items:
       - name: Overview
         href: vm/monitor-virtual-machine.md
-      - name: Configure monitoring
-        href: vm/monitor-virtual-machine-configure.md
+      - name: Deploy agents
+        href: vm/monitor-virtual-machine-agent.md
       - name: Analyze data
         href: vm/monitor-virtual-machine-analyze.md
       - name: Monitor security
