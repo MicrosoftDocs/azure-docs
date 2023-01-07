@@ -230,7 +230,7 @@ If you prefer working in the code view editor, you can copy the example **Create
    > those properties as inputs, use the action named [Parse JSON](#parse-json-action) 
    > before you use the **Create CSV table** action.
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Create CSV table" action, and selected inputs to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png)
+   ![Screenshot showing the designer for a Consumption workflow, the "Create CSV table" action, and selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png)
 
    The following screenshot shows the finished example **Create CSV table** action:
 
@@ -240,7 +240,41 @@ If you prefer working in the code view editor, you can copy the example **Create
 
 ### [Standard](#tab/standard)
 
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
+
+   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png)
+
+1. In your workflow where you want to create the output, follow one of these steps:
+
+   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create csv table**.
+
+1. From the actions list, select the action named **Create CSV table**.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "create csv table" entered, and the "Create CSV table" action selected.](./media/logic-apps-perform-data-operations/select-create-csv-table-action-standard.png)
+
+1. In the **From** box, enter the array or expression to use for creating the table.
+
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+
+   > [!NOTE]
+   >
+   > To create user-friendly tokens for the properties in JSON objects so you can select 
+   > those properties as inputs, use the action named [Parse JSON](#parse-json-action) 
+   > before you use the **Create CSV table** action.
+
+   ![Screenshot showing the designer for a Standard workflow, the "Create CSV table" action, and selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-standard.png)
+
+   The following screenshot shows the finished example **Create CSV table** action:
+
+   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/finished-create-csv-table-action-standard.png)
+
+1. Save your logic app. On the designer toolbar, select **Save**.
 
 ---
 
@@ -266,6 +300,8 @@ Oranges,2
 #### Work in designer view
 
 In the action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified array property and becomes a column in your table.
+
+##### [Consupmtion](#tab/consumption)
 
 1. Under **Value**, on each row that you want, click inside the edit box so that the dynamic content list appears.
 
