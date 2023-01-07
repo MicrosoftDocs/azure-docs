@@ -25,7 +25,7 @@ The `phoneme` element is used for phonetic pronunciation in SSML documents. Alwa
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
+> For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=tts) table.
 
 Usage of the `phoneme` element's attributes are described in the following table.
 
@@ -73,7 +73,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 You can define how single entities (such as company, a medical term, or an emoji) are read in SSML by using the [phoneme](#phoneme-element) and [sub](#sub-element) elements. To define how multiple entities are read, create an XML structured custom lexicon file. Then you upload the custom lexicon XML file and reference it with the SSML `lexicon` element.
 
 > [!NOTE]
-> For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=stt-tts) table.
+> For a list of locales that support custom lexicon, see footnotes in the [language support](language-support.md?tabs=tts) table.
 > 
 > The `lexicon` element is not supported by the [Long Audio API](migrate-to-batch-synthesis.md#text-inputs). For long-form text-to-speech, use the [batch synthesis API](batch-synthesis.md) (Preview) instead.
 
@@ -304,4 +304,4 @@ The text-to-speech output for this example is "a squared plus b squared equals c
 
 - [SSML overview](speech-synthesis-markup.md)
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)

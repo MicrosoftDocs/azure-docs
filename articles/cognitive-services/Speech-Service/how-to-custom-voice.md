@@ -19,7 +19,7 @@ Content for [Custom Neural Voice](https://aka.ms/customvoice) like data, models,
 > [!TIP]
 > Try [Custom Neural Voice (CNV) Lite](custom-neural-voice-lite.md) to demo and evaluate CNV before investing in professional recordings to create a higher-quality voice. 
 
-All it takes to get started are a handful of audio files and the associated transcriptions. See if Custom Neural Voice supports your [language](language-support.md?tabs=stt-tts) and [region](regions.md#speech-service).
+All it takes to get started are a handful of audio files and the associated transcriptions. See if Custom Neural Voice supports your [language](language-support.md?tabs=tts) and [region](regions.md#speech-service).
 
 ## Create a Custom Neural Voice Pro project
 

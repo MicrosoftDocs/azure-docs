@@ -19,9 +19,9 @@ Custom Neural Voice (CNV) is a text-to-speech feature that lets you create a one
 > [!IMPORTANT]
 > Custom Neural Voice access is [limited](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
 
-Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=stt-tts). The prebuilt neural voices work very well in most text-to-speech scenarios if a unique voice isn't required.
+Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=tts). The prebuilt neural voices work very well in most text-to-speech scenarios if a unique voice isn't required.
 
-Custom Neural Voice is based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model. You can create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md?tabs=stt-tts) for Custom Neural Voice.
+Custom Neural Voice is based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model. You can create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md?tabs=tts) for Custom Neural Voice.
 
 ## How does it work?
 

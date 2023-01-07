@@ -18,7 +18,7 @@ keywords: speech to text, speech to text software
 
 In this overview, you learn about the benefits and capabilities of the speech-to-text feature of the Speech service, which is part of Azure Cognitive Services.
 
-Speech-to-text, also known as speech recognition, enables real-time or offline transcription of audio streams into text. For a full list of available speech-to-text languages, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+Speech-to-text, also known as speech recognition, enables real-time or offline transcription of audio streams into text. For a full list of available speech-to-text languages, see [Language and voice support for the Speech service](language-support.md?tabs=stt).
 
 > [!NOTE]
 > Microsoft uses the same recognition technology for Cortana and Office products.
@@ -40,7 +40,7 @@ The Azure speech-to-text service analyzes audio in real-time or batch to transcr
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, building a custom speech model makes sense by training with additional data associated with that specific domain. You can create and train custom acoustic, language, and pronunciation models. For more information, see [Custom Speech](./custom-speech-overview.md) and [Speech-to-text REST API](rest-speech-to-text.md).
 
-Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md?tabs=stt-tts).
+Customization options vary by language or locale. To verify support, see [Language and voice support for the Speech service](./language-support.md?tabs=stt).
 
 ## Next steps
 

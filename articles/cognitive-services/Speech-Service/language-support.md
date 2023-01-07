@@ -23,17 +23,25 @@ Language support varies by Speech service functionality.
 
 **Choose a Speech feature**
 
-# [Speech-to-text and Text-to-speech](#tab/stt-tts)
+# [Speech-to-text](#tab/stt)
 
 The table in this section summarizes the locales and voices supported for Speech-to-text and Text-to-speech. Please see the table footnotes for more details. 
 
-Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. Additional remarks for Text-to-speech locales are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. 
 
-[!INCLUDE [Language support include](includes/language-support/stt-tts.md)]
+[!INCLUDE [Language support include](includes/language-support/stt.md)]
 
 ### Custom Speech
 
 To improve Speech-to-text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
+
+# [Text-to-speech](#tab/tts)
+
+The table in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details.
+
+Additional remarks for Text-to-speech locales are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+
+[!INCLUDE [Language support include](includes/language-support/tts.md)]
 
 ### Prebuilt neural voices
 
