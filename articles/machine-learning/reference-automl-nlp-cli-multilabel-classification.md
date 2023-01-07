@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) Automated ML NLP Text Classification Multilabel job YAML schema'
+title: 'CLI (v2) Automated ML NLP text classification multilabel job YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) Automated ML NLP Text Classification Multilabel job YAML schema.
+description: Reference documentation for the CLI (v2) automated ML NLP text classification multilabel job YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: 
@@ -18,10 +18,14 @@ ms.reviewer: ssalgado
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextClassificationMultilabelJob.schema.json
-
-
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
+
+This article provides a reference for some syntax concepts you will encounter while configuring these YAML files for NLP text classification multilabel jobs.
+
+The source JSON schema can be found at 
+https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextClassificationMultilabelJob.schema.json
 
 ## YAML syntax
 
@@ -47,6 +51,8 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `search_space` | object | Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. All parameters that are fixable via `training_parameters` are supported here (to be instead swept over). See  [supported hyperparameters](#supported-hyperparameters) for more detail. <br> There are two types of hyperparameters: <br> - **Discrete Hyperparameters**: Discrete hyperparameters are specified as a [`choice`](./reference-yaml-job-sweep.md#choice) among discrete values. `choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. Advanced discrete hyperparameters can also be specified using a distribution - [`randint`](./reference-yaml-job-sweep.md#randint), [`qlognormal`, `qnormal`](./reference-yaml-job-sweep.md#qlognormal-qnormal), [`qloguniform`, `quniform`](./reference-yaml-job-sweep.md#qloguniform-quniform). For more information, see this [section](./how-to-tune-hyperparameters.md#discrete-hyperparameters). <br> - **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions are - [`lognormal`, `normal`](./reference-yaml-job-sweep.md#lognormal-normal), [`loguniform`](./reference-yaml-job-sweep.md#loguniform), [`uniform`](./reference-yaml-job-sweep.md#uniform). For more information, see this [section](./how-to-tune-hyperparameters.md#continuous-hyperparameters). <br> <br> See [parameter expressions](./reference-yaml-job-sweep.md#parameter-expressions) section for the set of possible expressions to use.  | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | | |
 | `outputs.best_model` | object | Dictionary of output configurations for best model. For more information, see [Best model output configuration](#best-model-output-configuration). | | |
+
+Other syntax used in configurations:
 
 ### Limits
 
