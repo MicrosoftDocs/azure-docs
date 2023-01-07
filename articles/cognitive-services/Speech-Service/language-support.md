@@ -41,7 +41,19 @@ To improve Speech-to-text recognition accuracy, customization is available for s
 
 The tables in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details.
 
-Additional remarks for Text-to-speech locales are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+Additional remarks for Text-to-speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+
+[!INCLUDE [Language support include](includes/language-support/tts.md)]
+
+### Voice styles and roles
+
+In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
+
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
+
+Use the following table to determine supported styles and roles for each neural voice.
+
+[!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
 
 ### Prebuilt neural voices
 
@@ -56,18 +68,6 @@ Please note that the following neural voices are retired.
 
 - The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
-
-[!INCLUDE [Language support include](includes/language-support/tts.md)]
-
-### Voice styles and roles
-
-In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
-
-To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
-
-Use the following table to determine supported styles and roles for each neural voice.
-
-[!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
 
 ### Custom Neural Voice
 
