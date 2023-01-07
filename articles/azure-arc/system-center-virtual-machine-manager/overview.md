@@ -65,6 +65,8 @@ In addition, SCVMM requires the following exception:
 | --- | --- | --- | --- | --- |
 | SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+
 For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ## Next steps

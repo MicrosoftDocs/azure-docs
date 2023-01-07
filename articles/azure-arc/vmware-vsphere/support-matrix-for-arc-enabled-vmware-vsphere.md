@@ -43,6 +43,8 @@ For Arc-enabled VMware vSphere, resource bridge has the following minimum virtua
 
 ### Resource bridge networking requirements
 
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+
 The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
 
 [!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
