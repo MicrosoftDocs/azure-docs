@@ -11,7 +11,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
 
  # Integrate with CallKit
 
-  In this document we will go through how to integrate CallKit with your iOS application. 
+  In this document, we'll go through how to integrate CallKit with your iOS application. 
 
   > [!NOTE]
   > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling iOS SDK
@@ -60,7 +60,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   options.callKitRemoteInfo = CallKitRemoteInfo()
   ```
 
-  1. Assign value for `callKitRemoteInfo.displayNameForCallKit` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayNameForCallKit` is exactly how it will show up in the last dialled call log.
+  1. Assign value for `callKitRemoteInfo.displayNameForCallKit` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayNameForCallKit` is exactly how it will show up in the last dialed call log.
 
   ```Swift
   options.callKitRemoteInfo.displayNameForCallKit = "DISPLAY_NAME"
@@ -80,7 +80,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
 
   Configure the properties of `CallKitOptions` instance: 
 
-  Block that is passed to variable `provideRemoteInfo` will be called by the SDK when we receive an incoming call and we need to get a display name for the incoming caller which we need to pass to the CallKit.
+  Block that is passed to variable `provideRemoteInfo` will be called by the SDK when we receive an incoming call and we need to get a display name for the incoming caller, which we need to pass to the CallKit.
 
   ```Swift
   callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
@@ -126,7 +126,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
 
   ### Handle incoming push notification payload
 
-  When the app receives incoming push notification payload, we need to call `handlePush` to process it. With this API we can raise the `IncomingCall` event.
+  When the app receives incoming push notification payload, we need to call `handlePush` to process it. ACS Calling SDK will then raise the `IncomingCall` event.
 
   ```Swift
   public func handlePushNotification(_ pushPayload: PKPushPayload)
@@ -143,7 +143,7 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   ```
 
   We can use `reportIncomingCallFromKillState` to handle push notifications when the app is closed. 
-  `reportIncomingCallFromKillState` API should not be called if `CallAgent` instance is already available when push is received.
+  `reportIncomingCallFromKillState` API shouldn't be called if `CallAgent` instance is already available when push is received.
 
   ```Swift
   if let agent = self.callAgent {
@@ -178,8 +178,8 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   
  ## CallKit Integration (within App)
   
-  If you wist to integrate the CallKit within the app and not use the CallKit implementation in the SDK , please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
-  But one of the important thing to take care of is to start the audio at the right time. Like following
+  If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, please take a look at the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
+  But one of the important things to take care of is to start the audio at the right time. Like following
   
  ```Swift
 let mutedAudioOptions = AudioOptions()
@@ -194,7 +194,7 @@ callAgent.startCall(participants: participants,
                     completionHandler: completionBlock)
 ```
 
-This will ensure that physical audio devices are not used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`. Otherwise the call may get dropped or no audio will be flowing.
+Muting speaker and microphone will ensure that physical audio devices aren't used until the CallKit calls the `didActivateAudioSession` on `CXProviderDelegate`. Otherwise the call may get dropped or no audio will be flowing.
 
 ```Swift
 func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
@@ -211,7 +211,7 @@ func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) 
 }
 ```
 
-NOTE: In some cases CallKit does not call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is recieved. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
+NOTE: In some cases CallKit doesn't call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is received. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
 
   ## Next steps
   - [Learn how to manage video](./manage-video.md)
