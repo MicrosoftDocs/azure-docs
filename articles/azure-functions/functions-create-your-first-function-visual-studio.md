@@ -46,10 +46,12 @@ The Azure Functions project template in Visual Studio creates a C# class library
     | --- | --- |  --- |
     | **.NET 6.0 (Long Term Support)** | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
     | **.NET 6.0 Isolated (Long Term Support)** |  [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
+    | **.NET 7.0 Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
+    | **.NET Framework Isolated v4** | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
     | **.NET Core 3.1 (Long Term Support)** | [In-process](functions-dotnet-class-library.md) | .NET Core 3.1 is no longer a supported version of .NET and isn't supported by Functions version 4.x. Use .NET 6.0 instead.  |
-    | **.NET Framework v1** | [In-process](functions-dotnet-class-library.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. Requires version 1.x of the Functions runtime. You can also [run on .NET Framework 4.8 in the .NET isolated process model](dotnet-isolated-process-guide.md#supported-versions). |
+    | **.NET Framework v1** | [In-process](functions-dotnet-class-library.md) | Choose this option when your functions need to use libraries only supported on older versions of .NET Framework. Requires version 1.x of the Functions runtime. |
 
-    The two process models use different APIs, and each process model uses a different template when generating the function project code.
+    The two process models use different APIs, and each process model uses a different template when generating the function project code. If you don't see options for .NET 6.0 and later .NET runtime versions, you may need to [update your Azure Functions tools installation](https://developercommunity.visualstudio.com/t/Sometimes-the-Visual-Studio-functions-wo/10224478?).
 
 1. For the remaining **Additional information** settings, use the values in the following table:
      
