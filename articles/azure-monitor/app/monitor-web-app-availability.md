@@ -2,7 +2,7 @@
 title: Monitor availability with URL ping tests - Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 11/15/2022
 ms.reviewer: sdash
 ---
 

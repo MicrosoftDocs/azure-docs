@@ -4,18 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: Microsoft lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Translator, and how to enable and manage CMK. 
 author: erindormier
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2022
 ms.author: egeaney
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
 
 # Translator encryption of data at rest
 
-Translator automatically encrypts your data, which you upload to build custom translation models, when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
+Translator automatically encrypts your uploaded data when it's persisted to the cloud helping to meet your organizational security and compliance goals.
 
 ## About Cognitive Services encryption
 
@@ -23,22 +22,22 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 ## About encryption key management
 
-By default, your subscription uses Microsoft-managed encryption keys. If you are using a pricing tier that supports Customer-managed keys, you can see the encryption settings for your resource in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
+By default, your subscription uses Microsoft-managed encryption keys. If you're using a pricing tier that supports Customer-managed keys, you can see the encryption settings for your resource in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
 
 ![View Encryption settings](../media/cognitive-services-encryption/encryptionblade.png)
 
-For subscriptions that only support Microsoft-managed encryption keys, you will not have an **Encryption** section.
+For subscriptions that only support Microsoft-managed encryption keys, you won't have an **Encryption** section.
 
 ## Customer-managed keys with Azure Key Vault
 
-By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
+By default, your subscription uses Microsoft-managed encryption keys. There's also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
 
 > [!IMPORTANT]
 > Customer-managed keys are available for all pricing tiers for the Translator service. To request the ability to use customer-managed keys, fill out and submit the [Translator Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Translator service, you will need to create a new Translator resource. Once your Translator resource is created, you can use Azure Key Vault to set up your managed identity.
 
 Follow these steps to enable customer-managed keys for Translator:
 
-1. Create your new regional Translator or regional Cognitive Services resource. This will not work with a global resource.
+1. Create your new regional Translator or regional Cognitive Services resource. Customer-managed keys won't work with a global resource.
 2. Enabled Managed Identity in the Azure portal, and add your customer-managed key information.
 3. Create a new workspace in Custom Translator and associate this subscription information.
 
@@ -46,7 +45,7 @@ Follow these steps to enable customer-managed keys for Translator:
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Cognitive Services resource and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
-A new Cognitive Services resource is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Cognitive Services resource. The managed identity is available as soon as the resource is created.
+A new Cognitive Services resource is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault. The key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Cognitive Services resource. The managed identity is available as soon as the resource is created.
 
 To learn how to use customer-managed keys with Azure Key Vault for Cognitive Services encryption, see:
 
@@ -73,7 +72,7 @@ Only RSA keys of size 2048 are supported with Cognitive Services encryption. For
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource and your models will be undeployed, as the encryption key is inaccessible by Cognitive Services. All uploaded data will also be deleted from Custom Translator.
 
-
 ## Next steps
 
-* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)
+> [!div class="nextstepaction"]
+> [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

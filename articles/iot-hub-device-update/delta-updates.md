@@ -33,19 +33,13 @@ The Device Update agent _orchestrates_ the update process on the device, includi
 
 ### Update handler
 
-An update handler integrates with the Device Update agent to perform the actual update install. For delta updates, start with the [`microsoft/swupdate:2` update handler](https://github.com/Azure/iot-hub-device-update/blob/release/1.0/src/extensions/step_handlers/swupdate_handler_v2/README.md) if you don't already have your own SWUpdate update handler that you want to modify. **If you use your own update handler, be sure to enable zstd decompression in SWUpdate**.
+An update handler integrates with the Device Update agent to perform the actual update install. For delta updates, start with the [`microsoft/swupdate:2` update handler](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/step_handlers/swupdate_handler_v2/README.md) if you don't already have your own SWUpdate update handler that you want to modify. **If you use your own update handler, be sure to enable zstd decompression in SWUpdate**.
 
 ### Delta processor
 
 The delta processor re-creates the original SWU image file on your device after the delta file has been downloaded, so your update handler can install the SWU file. You'll find all the delta processor code in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
 
-To add the delta processor component to your device image and configure it for use, use apt-get to install the proper Debian package for your platform (it should be named `ms-adu_diffs_x.x.x_amd64.deb` for amd64):  
-
-```bash
-sudo apt-get install <path to Debian package>
-```
-
-Alternatively, on a non-Debian Linux device you can install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
+To add the delta processor component to your device image and configure it for use, follow the README.md instructions to use CMAKE to build the delta processor from source. From there, install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
 
 ```bash
 sudo cp <path to libadudiffapi.so> /usr/lib/libadudiffapi.so
@@ -80,8 +74,8 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) Github repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
-| .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux-ubuntu.md). Only the Runtime is required. |
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
+| .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
 
 ### Dependencies
 
@@ -108,7 +102,7 @@ If your SWU files are signed (likely), you'll need another argument as well:
 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive] "[signing_command]"`
 
-- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present).
+- In addition to using [recompressed_target_archive] as the target file, providing a signing command string parameter will run recompress_and_sign_tool.py to create the file [recompressed_target_archive] and have the sw-description file within the archive signed (meaning a sw-description.sig file will be present). You can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. Open the script, edit it to add the path to your private key file, then save it. See the examples section below for sample usage.
 
 The following table describes the arguments in more detail:
 
@@ -138,7 +132,7 @@ sudo ./DiffGenTool
 /mnt/o/temp/[recompressed file to be created.swu]
 ```  
 
-If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
+If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script referenced previously. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
 
 _Creating diff between input source file and recompressed/re-signed target file:_
 
@@ -159,7 +153,11 @@ sudo ./DiffGenTool
 
 The basic process of importing an update to the Device Update service is unchanged  for delta updates, so if you haven't already, be sure to review this page: [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
-The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
+The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). For delta updates, your import manifest will need to reference two files:
+- The _recompressed_ target SWU image created when you ran the DiffGen tool.
+- The delta file created when you ran the DiffGen tool.
+
+The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
 
 To create an import manifest for your delta update using the Related Files feature, you'll need to add [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) elements to your import manifest.
 
@@ -183,7 +181,7 @@ The `downloadHandler` element is used to specify how the Device Update agent wil
 You can use the Azure Command Line Interface (CLI) to generate an import manifest for your delta update. If you haven't used the Azure CLI to create an import manifest before, refer to [these instructions](create-update.md#create-a-basic-device-update-import-manifest).
 
 ```azurecli
-    az iot du update init v5 `
+    az iot du update init v5
 --update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
 --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report>
 --step handler=microsoft/swupdate:2 properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'>
@@ -224,7 +222,7 @@ If the delta update failed but did a successful fallback to the full image, it w
 
 If the update was unsuccessful, it will show an error status that can be interpreted using the instructions below:
 
-- Start with the Device Update Agent errors in [result.h](https://github.com/Azure/iot-hub-device-update/blob/release/1.0/src/inc/aduc/result.h).
+- Start with the Device Update Agent errors in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h).
 
   - Errors from the Device Update Agent that are specific to the Download Handler functionality used for delta updates begin with 0x9:
 
@@ -237,7 +235,7 @@ If the update was unsuccessful, it will show an error status that can be interpr
     | SOURCE_UPDATE_CACHE | 9 | 0x09 | Indicates errors in Delta Download handler extension Source Update Cache.   Example: 0x909XXXXX |
     | DELTA_PROCESSOR | 10 | 0x0A | Error code for errors from delta processor API.   Example: 0x90AXXXXX |
 
-  - If the error code isn't present in [result.h](https://github.com/Azure/iot-hub-device-update/blob/early-access/0.9/src/inc/aduc/result.h), it's likely an error in the delta processor component (separate from the Device Update agent). If so, the extendedResultCode will be a negative decimal value of the following hexadecimal format: 0x90AXXXXX
+  - If the error code isn't present in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h), it's likely an error in the delta processor component (separate from the Device Update agent). If so, the extendedResultCode will be a negative decimal value of the following hexadecimal format: 0x90AXXXXX
 
     - 9 is "Delta Facility"
     - 0A is "Delta Processor Component" (ADUC_COMPONENT_DELTA_DOWNLOAD_HANDLER_DELTA_PROCESSOR)

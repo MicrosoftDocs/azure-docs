@@ -8,7 +8,7 @@ ms.subservice: core
 author: Blackmist
 ms.author: larryfr
 ms.topic: troubleshooting 
-ms.date: 06/22/2022
+ms.date: 11/04/2022
 ---
 
 # Troubleshoot `descriptors cannot not be created directly` error

@@ -3,7 +3,6 @@ title: Custom container CI/CD from GitHub Actions
 description: Learn how to use GitHub Actions to deploy your custom Linux container to App Service from a CI/CD pipeline.
 ms.topic: article
 ms.date: 12/15/2021
-ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli 
 ms.devlang: azurecli

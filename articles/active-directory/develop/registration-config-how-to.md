@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/09/2022
 ms.author: ryanwi
 ROBOTS: NOINDEX
 ---

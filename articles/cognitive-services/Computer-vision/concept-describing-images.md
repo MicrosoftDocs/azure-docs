@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 11/03/2022
 ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---

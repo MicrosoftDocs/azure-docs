@@ -25,7 +25,7 @@ Create a new Java project and a configuration file to connect to Azure Cosmos DB
 
 ### Create a new Java project
 
-Using your favorite integrated development environment (IDE), create a new Java project with groupId `test` and artifactId `crud`. In the project's root directory, add a *pom.xml* file with the following contents. This file configures [Apache Maven](https://maven.apache.org) to use Java 18 and a recent PostgreSQL driver for Java.
+Using your favorite integrated development environment (IDE), create a new Java project with groupId `test` and artifactId `crud`. In the project's root directory, add a *pom.xml* file with the following contents. This file configures [Apache Maven](https://maven.apache.org) to use Java 8 and a recent PostgreSQL driver for Java.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

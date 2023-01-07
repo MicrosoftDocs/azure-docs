@@ -24,7 +24,7 @@ To use Azure RBAC, you must enable Azure Active Directory authentication. You ca
 ## Add role assignment to Language resource
 
 Azure RBAC can be assigned to a Language resource. To grant access to an Azure resource, you add a role assignment.
-1. In the [Azure portal](https://ms.portal.azure.com/), select **All services**. 
+1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
 1. Select **Cognitive Services**, and navigate to your specific Language resource. 
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.

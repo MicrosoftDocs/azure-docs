@@ -85,9 +85,9 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. In a local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
-1. Open the **SimulatedDevice.py** file in a text editor of your choice.
+1. Open the **SimulatedDeviceSync.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.py**.
+    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDeviceSync.py**.
 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
@@ -95,10 +95,10 @@ The simulated device application connects to a device-specific endpoint on your 
     pip install azure-iot-device
     ```
 
-1. In the local terminal window, run the following commands to run the simulated device application:
+1. In the local terminal window, run the following commands to run the simulated device application: 
 
     ```cmd/sh
-    python SimulatedDevice.py
+    python SimulatedDeviceSync.py
     ```
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:

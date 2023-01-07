@@ -29,7 +29,10 @@ When accessing Azure Virtual Desktop using hybrid identities, sometimes the User
 
 ### Cloud-only identity
 
-Azure Virtual Desktop supports cloud-only identities when using [Azure AD-joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+
+>[!NOTE]
+>You can also assign hybrid identities to Azure Virtual Desktop Application groups that host Session hosts of join type Azure AD joined.
 
 ### Third-party identity providers
 

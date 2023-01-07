@@ -39,7 +39,10 @@ The above tutorial provides a walkthrough for scheduling a contact with Aqua and
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
 >   - **Size:** Standard_D8s_v5 or higher
->   - **IP Address:** Ensure that the VM has at least one standard public IP address
+>   - **IP Address:** Ensure that the VM has internet access for downloading tools by having one standard public IP address
+
+> [!TIP]
+> The Public IP Address here is only for internet connectivity not Contact Data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 At the end of this step, you should have the raw direct broadcast data saved as ```.bin``` files under the ```~/aquadata``` folder on the ```receiver-vm```. 
 
@@ -195,6 +198,9 @@ cd ~/drl/data/pub/gsfcdata/aqua/modis/
 ```
 
 ## Next steps
+
+To easily deploy downstream components necessary to receive and process spaceborne earth observation data using Azure Orbital Ground Station, see:
+- [Azure Orbital Integration](https://github.com/Azure/azure-orbital-integration)
 
 For an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics, see: 
 

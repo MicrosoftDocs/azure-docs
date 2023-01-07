@@ -1,31 +1,31 @@
 ---
-title: Deploy certificates
+title: Setting SSL/TLS appliance certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
 ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
-# About certificates
+# Certificates for appliance encryption and authentication (OT appliances)
 
 This article provides information needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components: 
 
-- Between users and the web console of the appliance. 
-- Between the sensors and an on-premises management console. 
+- Between users and the web console of the appliance.
+- Between the sensors and an on-premises management console.
 - Between a management console and a High Availability management console.
-- To the REST API on the sensor and on-premises management console. 
+- To the REST API on the sensor and on-premises management console.
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign in certificate page.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign-in certificate page.":::
 
 ## About certificate generation methods
 
 All certificate generation methods are supported using:  
 
-- Private and Enterprise Key Infrastructures (Private PKI) 
-- Public Key Infrastructures (Public PKI) 
+- Private and Enterprise Key Infrastructures (Private PKI). 
+- Public Key Infrastructures (Public PKI). 
 - Certificates locally generated on the appliance (locally self-signed). 
 
 > [!Important]
@@ -43,26 +43,26 @@ Validation is evaluated against:
 
 Validation is carried out twice:
 
-1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
+1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate can't be uploaded.
 1. When initiating encrypted communication between:
 
     - Defender for IoT system components, for example, a sensor and on-premises management console.
 
-    - Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
+    - Defender for IoT and certain third party servers defined in alert forwarding rules. For more information, see [Forward OT alert information](how-to-forward-alert-information-to-partners.md).
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
-## About certificate upload to Defender for IoT
+## About certificate upload to Defender for IoT appliances
 
 Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor and on-premises management console web application.
 
 When signing into the sensor and on-premises management console for the first time, Admin users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended.
 
-If the certificate is not created properly by the certificate lead or there are connection issues to it, the certificate cannot be uploaded and users will be forced to work with a locally signed certificate.  
+If the certificate isn't created properly by the certificate lead or there are connection issues to it, the certificate can't be uploaded and users will be forced to work with a locally signed certificate.  
 
-The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
+The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continue, even if a certificate is invalid.
 
-## Certificate deployment tasks
+## Certificate deployment
 
 This section describes the steps you need to take to ensure that certificate deployment runs smoothly.
 
@@ -70,44 +70,44 @@ This section describes the steps you need to take to ensure that certificate dep
 
 - A security, PKI or certificate specialist is creating or overseeing certificate creation. 
 - You create a unique certificate for each sensor, management console and HA machine.
-- You meet certificate creation requirements. See [Certificate creation requirements](#certificate-creation-requirements).
+- You meet [certificate creation requirements](#supported-ssl-certificates).
 - Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
-## Certificate creation requirements
+## Supported SSL certificates
 
-This section covers certificate creation requirement, including:
+This section covers requirements for successful certificate deployment, including:
 
-- [Port access requirements for certificate validation](#port-access-requirements-for-certificate-validation)
+- [CRL server access for certificate validation](#crl-server-access-for-certificate-validation)
 
-- [File type requirements](#file-type-requirements)
+- [Supported certificate file types](#supported-certificate-file-types)
 
 - [Key file requirements](#key-file-requirements)
 
-- [Certificate chain file requirements (if .pem is used)](#certificate-chain-file-requirements-if-pem-is-used)
+- [Using a certificate chain (optional)](#using-a-certificate-chain-optional)
 
-### Port access requirements for certificate validation
+### CRL server access for certificate validation
 
 If you are working with certificate validation, verify access to port 80 is available.
 
-Certificate validation is evaluated against a Certificate Revocation List, and the certificate expiration date. This means appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. 
+Certificate validation is evaluated against a Certificate Revocation List, and the certificate expiration date. This means the appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. 
 
-Some organizational security policies may block access to this port. If your organization does not have access to port 80, you can: 
+Some organizational security policies may block access to this port. If your organization doesn't have access to port 80, you can: 
 
 1. Define another URL and a specific port in the certificate.
 
-    - The URL should be defined as http: //  rather than https: // .
+    - The URL should be defined as `http: //`  rather than `https: //`.
 
     - Verify that the destination CRL server can listen on the port you defined. 
 
 1. Use a proxy server that will access the CRL on port 80.
 
-### File type requirements
+### Supported certificate file types
 
-Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT does not require this file type.
+Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require a .pem file. Defender for IoT doesn't require this file type.
 
 **.crt – certificate container file**
 
-A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
+A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file isn't recognized by Windows Explorer.
 
 **.key – Private key file**
 
@@ -121,11 +121,11 @@ You may need to convert existing files types to supported types. See [Convert ex
 
 ### Certificate file parameter requirements
 
-Verify that you have met the following parameter requirements before creating a certificate:
+Verify that you've met the following parameter requirements before creating a certificate:
 
 - [CRT file requirements](#crt-file-requirements)
 - [Key file requirements](#key-file-requirements)
-- [Certificate chain file requirements (if .pem is used)](#certificate-chain-file-requirements-if-pem-is-used)
+- [Using a certificate chain (optional)](#using-a-certificate-chain-optional)
 
 ### CRT file requirements
 
@@ -142,47 +142,49 @@ This section covers .crt field requirements.
 - Subject (OU) Org Unit = defined, for example, Contoso Labs 
 - Subject (O)rganization = defined, for example, Contoso Inc. 
 
-Certificates with other parameters might work, but Microsoft doesn't support them.  
+> [!IMPORTANT]
+> Certificates with other parameters might work, but Microsoft doesn't support them.
+> Wildcard SSL certificates (public key certificates that can be used on multiple subdomains such as *.contoso.com) are not supported and insecure. Each appliance should use a unique CN.
 
 ### Key file requirements
 
 Use either RSA 2048 bits or 4096 bits.
 
-When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. in addition, there is an increase in CPU usage during handshakes.
+When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. In addition, there's an increase in CPU usage during handshakes.
 
-### Certificate chain file requirements (if .pem is used)
+### Using a certificate chain (optional)
 
 A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
 
 Bag attributes are supported in the certificate chain file.
 
-## Create certificates
+## Create SSL certificates
 
-Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. See Test certificates for information on testing the files you create.
+Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
 
 If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](#crt-file-requirements) for information about this parameter.
 
-Consult a security, PKI, or other qualified certificate lead if you do not have an application that can automatically create certificates.
+Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
 
 You can [Test certificates you create](#test-certificates-you-create).  
 
-You can also convert existing certificate files if you do not want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
+You can also convert existing certificate files if you don't want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
 
 ### Sample Certificate
 
-You can compare your certificate to the sample certificate below. Verify that the same fields exits and that the order of the fields is the same.
+Compare your certificate to the following sample certificate. Verify that the same fields exits and that the order of the fields is the same:
 
 :::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="Screenshot of a sample certificate.":::
 
 ## Test certificates you create
 
-You can test certificates before deploying them to your sensors and on-premises management consoles. If you want to check the information within the certificate .csr file or private key file, use these commands:
+Test certificates before deploying them to your sensors and on-premises management consoles. If you want to check the information within the certificate .csr file or private key file, use these commands:
 
 | **Test** | **CLI command** |
 |--|--|
-| Check a Certificate Signing Request (CSR) | openssl req -text -noout -verify -in CSR.csr |
-| Check a private key  | openssl rsa -in privateKey.key -check  |
-| Check a certificate  | openssl x509 -in certificate.crt -text -noout |
+| Check a Certificate Signing Request (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
+| Check a private key  | `openssl rsa -in privateKey.key -check`  |
+| Check a certificate  | `openssl x509 -in certificate.crt -text -noout` |
 
 If these tests fail, review [Certificate file parameter requirements](#certificate-file-parameter-requirements) to verify file parameters are accurate, or consult your certificate lead.
 
@@ -203,16 +205,16 @@ This section covers various issues that may occur during certificate upload and 
 
 ### Troubleshoot CA-Certificate Upload  
 
-Admin users attempting to log in to the sensor or on-premises management console for the first time will not be able to upload the CA-signed certificate if the certificate is not created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
+Admin users attempting to log in to the sensor or on-premises management console for the first time will not be able to upload the CA-signed certificate if the certificate isn't created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
 
 | **Certificate validation error** | **Recommendation** |
 |--|--|
 | Passphrase does not match to the key | Validate that you typed the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
-| Cannot validate chain of trust. The provided Certificate and Root CA do not match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
-|This certificate has been revoked by the CRL and cannot be trusted for a secure connection | Create a new unrevoked certificate. |
-|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate.You can use a proxy server if there are limitations in establishing a direct connection.  
+| Cannot validate chain of trust. The provided Certificate and Root CA don't match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
+| This SSL certificate has expired and isn't considered valid.  | Create a new certificate with valid dates.|
+| This SSL certificate has expired and isn't considered valid.  | Create a new certificate with valid dates.|
+|This certificate has been revoked by the CRL and can't be trusted for a secure connection | Create a new unrevoked certificate. |
+|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate. You can use a proxy server if there are limitations in establishing a direct connection.  
 |Certificate validation failed  | This indicates a general error in the appliance. Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
 
 ### Troubleshoot file conversions  
@@ -222,7 +224,7 @@ Your file conversion may not create a valid certificate. For example, the file s
 If the conversion fails:  
 
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
-- Make sure the file parameters are accurate. See, [File type requirements](#file-type-requirements) and  [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
+- Make sure the file parameters are accurate. See [Supported certificate file types](#supported-certificate-file-types) and [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
 
 ## Next steps

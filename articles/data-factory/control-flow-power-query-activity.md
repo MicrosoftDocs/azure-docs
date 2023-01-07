@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 12/12/2021
+ms.date: 10/27/2022
 ---
 
 # Power Query activity in Azure Data Factory
 
 The Power Query activity allows you to build and execute Power Query mash-ups to execute data wrangling at scale in a Data Factory pipeline. You can create a new Power Query mash-up from the New resources menu option or by adding a Power Activity to your pipeline.
 
-![Screenshot that shows Power Query in the factory resources pane.](media/data-flow/power-query-activity-1.png)
+:::image type="content" source="media/data-flow/power-query-activity-1.png" alt-text="Diagram that shows the General tab of the Power Query activity.":::
 
 You can work directly inside of the Power Query mash-up editor to perform interactive data exploration and then save your work. Once complete, you can take your Power Query activity and add it to a pipeline. Azure Data Factory will automatically scale it out and operationalize your data wrangling using Azure Data Factory's data flow Spark environment.
 
@@ -42,7 +42,7 @@ To use a Power Query activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-power-query-activity/for-each-activity-using-power-query-output.png" alt-text="Shows the ForEach Activity's Settings tab with &nbsp;Add dynamic content&nbsp; link for the Items property.":::
 
-1. Any activity outputs are displayed and can be used when defining your dynamic content by selecting them in the **Add dynamic content** pane.
+1. Any activity outputs are displayed and can be used when defining your dynamic content by selecting them in the **Pipeline expression builder** pane.
 
    :::image type="content" source="media/control-flow-power-query-activity/using-power-query-output-in-dynamic-content.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane referencing the Power Query defined above.":::
 
