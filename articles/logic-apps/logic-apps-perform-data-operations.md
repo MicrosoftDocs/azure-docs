@@ -301,7 +301,7 @@ Oranges,2
 
 In the action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified array property and becomes a column in your table.
 
-##### [Consupmtion](#tab/consumption)
+##### [Consumption](#tab/consumption)
 
 1. Under **Value**, on each row that you want, click inside the edit box so that the dynamic content list appears.
 
