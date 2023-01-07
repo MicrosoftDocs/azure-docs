@@ -17,6 +17,8 @@ ms.custom: references_regions
 
 The following tables summarize language support for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), [pronunciation assessment](how-to-pronunciation-assessment.md), [speech translation](speech-translation.md), [speaker recognition](speaker-recognition-overview.md), and additional service features.
 
+You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
+
 ## Supported languages
 
 Language support varies by Speech service functionality. 
@@ -37,11 +39,9 @@ To improve Speech-to-text recognition accuracy, customization is available for s
 
 # [Text-to-speech](#tab/tts)
 
-The table in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details.
+The tables in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details.
 
 Additional remarks for Text-to-speech locales are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below. 
-
-[!INCLUDE [Language support include](includes/language-support/tts.md)]
 
 ### Prebuilt neural voices
 
@@ -56,6 +56,8 @@ Please note that the following neural voices are retired.
 
 - The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
+
+[!INCLUDE [Language support include](includes/language-support/tts.md)]
 
 ### Voice styles and roles
 
@@ -75,9 +77,7 @@ Select the right locale that matches your training data to train a custom neural
 
 With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.
 
-### Get locales via API and SDK
-
-You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
+[!INCLUDE [Language support include](includes/language-support/tts-cnv.md)]
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
