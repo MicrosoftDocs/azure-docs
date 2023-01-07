@@ -1,11 +1,12 @@
 ---
 ms.date: 01/06/2023
-ms.topic: "CallKit integration in ACS Calling SDK"
-author: "raosanat"
-ms.author: "sanathr"
-title: "CallKit integration in ACS Calling SDK"
-ms.prod
-description: "Steps on how to integrate CallKit with ACS Calling SDK"
+ms.topic: how-to
+author: raosanat
+ms.author: sanathr
+title: CallKit integration in ACS Calling SDK
+ms.service: azure-communication-services
+ms.subservice: calling
+description: Steps on how to integrate CallKit with ACS Calling SDK
 ---
 
  # Integrate with CallKit
