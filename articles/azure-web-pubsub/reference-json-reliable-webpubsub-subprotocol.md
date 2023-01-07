@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 01/04/2023
 ---
 
-#  Azure Web PubSub supported Reliable JSON WebSocket subprotocol
-     
-This document describes the subprotocol `json.reliable.webpubsub.azure.v1`.
+# Azure Web PubSub supported Reliable JSON WebSocket subprotocol
 
-When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be **JSON** payloads.
+The JSON WebSocket subprotocol, `json.reliable.webpubsub.azure.v1`, enables the highly reliable exchange of publish/subscribe messages directly between clients even under network issues.
+
+This document describes the subprotocol json.reliable.webpubsub.azure.v1.
 
 > [!NOTE]
 > Reliable protocols are still in preview. Some changes are expected in future.
 
 ## Overview
 
-Subprotocol `json.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `json.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.
+When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pubsub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  A *Reliable PubSub WebSocket client* can reconnect a dropped connection.
 
-For example, in JS, a Reliable PubSub WebSocket client can be created using:
+For example, in JavaScript, you can create a *Reliable PubSub WebSocket client* with the following code:
+
 ```js
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
 ```
 
 When using `json.reliable.webpubsub.azure.v1` subprotocol, see [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber for clients.
+
+When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be **JSON** payloads.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
