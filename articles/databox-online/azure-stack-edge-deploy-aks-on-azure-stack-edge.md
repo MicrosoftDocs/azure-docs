@@ -13,7 +13,7 @@ ms.author: alkohli
 ---
 # Deploy Azure Kubernetes service on Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
 > [!NOTE]
 > Use this procedure only if you are an SAP or a PMEC customer.
