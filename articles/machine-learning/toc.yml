@@ -758,6 +758,8 @@
     - name: How to troubleshoot data access
       displayName: troubleshoot, data, debug, image
       href: how-to-troubleshoot-data-access.md
+    - name: Troubleshoot validation for schema failed error
+      href: how-to-troubleshoot-validation-for-schema-failed-error.md
 - name: Reference
   items:
     - name: Python SDK v1
