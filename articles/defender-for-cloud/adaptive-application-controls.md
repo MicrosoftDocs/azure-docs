@@ -54,7 +54,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the Workload protections dashboard and from the advanced protection area, select **Adaptive application controls**.
 
-    :::image type="content" source="./media/adaptive-application/opening-adaptive-application-control.png" alt-text="Screenshot showing opening adaptive application controls from the Azure Dashboard." lightbox="./media/adaptive-application/opening-adaptive-application-control.png":::
+    :::image type="content" source="./media/adaptive-application/opening-adaptive-application-control-new.png" alt-text="Screenshot showing opening adaptive application controls from the Azure Dashboard." lightbox="./media/adaptive-application/opening-adaptive-application-control.png":::
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
@@ -176,7 +176,7 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-   ![Recent alerts.](./media/adaptive-application/recent-alerts.png)
+    :::image type="content" source="./media/adaptive-application/recent-alerts.png" alt-text="Screenshot showing the group settings page for adaptive application controls." lightbox="./media/adaptive-application/recent-alerts.png"::: 
 
 1. For further details, and the list of affected machines, select an alert.
 
