@@ -55,7 +55,9 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
 **To import the SSL certificate:**
 
-1. select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the **"Your connection to this site isn't secure"** warning message. For example:
+1. Sign-in to your sensor console, using the sensor's IP address, without a secure connection.
+
+1. Select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the warning message **"Your connection to this site isn't secure"**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar.":::
 
@@ -71,7 +73,9 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-copy-to-file.png" alt-text="Screenshot of the SSL certificate details tab.":::
 
-1. In the **Certificate Export Wizard**, select **Next**, then in the **Export File Format** screen, select **DER encoded binary X.509 (.CER)** and **Next** again. For example:
+1. In the **Certificate Export Wizard**, select **Next**.
+
+1. In the **Export File Format** screen, select **DER encoded binary X.509 (.CER)**, then select **Next**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-wizard-der-encoded.png" alt-text="Screenshot of the export file format screen.":::
 
@@ -81,7 +85,7 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
 1. To check the certificate's common name, open the certificate file again and select the **Details** tab, then select the **Subject** field.
 
-    The certificate's common name will then appear next to **CN =**. For example:
+    The certificate's common name will then appear next to **CN**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-cn.png" alt-text="Screenshot of the SSL certificate's common name.":::
 
@@ -97,13 +101,13 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-screen.png" alt-text="Screenshot of the certificate store screen.":::
 
-1. Select **Place all certificates in the following store**, then select **Browse** and select the **Trusted Root Certification Authorities**. When you're done, select **Next**. For example:
+1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder.":::
 
 1. Select **Finish** to import the certificate.
 
-1. Sign-in to your sensor console without a secure connection again. In the **Your connection isn't private** screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message. For example:
+1. Sign-in to your sensor console without a secure connection again. In the **Your connection isn't private** warning screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private.png" alt-text="Screenshot of the connection isn't private screen.":::
 
