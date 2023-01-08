@@ -49,7 +49,7 @@ The following firewall URL exceptions are needed for the Azure Arc resource brid
 
 [!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
 
-In addition, VMWare VSphere requires the following exception:
+In addition, VMware VSphere requires the following exception:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
