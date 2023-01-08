@@ -60,14 +60,14 @@ In this example, we are going to create a deployment that can write directly to 
 
 Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 MODEL_NAME='heart-classifier'
 az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/sdk)
 
 ```python
 model_name = 'heart-classifier'
@@ -136,11 +136,11 @@ Follow the next steps to create a deployment using the previous scoring script:
 
 1. First, let's create an environment where the scoring script can be executed:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    Let's get a reference to the environment:
    
@@ -156,7 +156,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    > [!NOTE]
    > This example assumes you have an endpoint created with the name `heart-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
@@ -192,7 +192,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    az ml batch-deployment create -f endpoint.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new deployment under the created endpoint, use the following script:
    
@@ -235,11 +235,12 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
 1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    Create a data asset definition in `YAML`:
    
    __heart-dataset-unlabeled.yml__
+   
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
    name: heart-dataset-unlabeled
@@ -254,7 +255,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    data_path = "resources/heart-dataset/"
@@ -266,12 +267,23 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
        description="An unlabeled dataset for heart classification",
        name=dataset_name,
    )
+   ```
+   
+   Then, create the data asset:
+   
+   ```python
    ml_client.data.create_or_update(heart_dataset_unlabeled)
+   ```
+   
+   To get the newly created data asset, use:
+   
+   ```python
+   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
    ```
    
 1. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name')
@@ -280,7 +292,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
@@ -293,13 +305,13 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
 1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -314,7 +326,7 @@ The job generates a named output called `score` where all the generated files ar
 
 You can download the results of the job by using the job name:
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 To download the predictions, use the following command:
 
@@ -322,7 +334,7 @@ To download the predictions, use the following command:
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/sdk)
 
 ```python
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')

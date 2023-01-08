@@ -16,7 +16,7 @@ ms.author: amsliu
 
 # Create and manage downloadable access review history report in Microsoft Entra access reviews
 
-With Microsoft Entra Access Reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
+With access reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
  
 ## Who can access and request review history
 

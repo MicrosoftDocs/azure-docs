@@ -176,14 +176,14 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     # [Azure CLI](#tab/azure-cli/in-process)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
 
     # [Azure CLI](#tab/azure-cli/isolated-process)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
@@ -191,7 +191,7 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     # [Azure PowerShell](#tab/azure-powershell/in-process)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
@@ -199,15 +199,12 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     # [Azure PowerShell](#tab/azure-powershell/isolated-process)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
 
     ---
-
-    > [!NOTE]
-    > This command creates a function app using the 3.x version of the Azure Functions runtime. The `func azure functionapp publish` command that you'll run later updates the app to version 4.x.
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 

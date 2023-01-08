@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want checklists and tips to help troubleshoot entitlement management to unblock users from performing their job.
 
 ---
-# Troubleshoot Microsoft Entra entitlement management
+# Troubleshoot entitlement management
 
-This article describes some items you should check to help you troubleshoot Microsoft Entra entitlement management.
+This article describes some items you should check to help you troubleshoot entitlement management.
 
 ## Administration
 

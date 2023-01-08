@@ -51,7 +51,7 @@ The following are optional configuration options that you can use when triggerin
 
   When you set maxRecordsPerFile but don't configure `spark.cosmos.asns.merge.partitioned.files`, the records could split across files before reaching the maxRecordsPerFile. The file split also depends on the available parallelism on the pool.
 
-* `spark.cosmos.asns.partitioning.shuffle.partitions` - It controls parallelism during partitioned writes to the partitioned store. This config is needed only for initial partitioning for larger collections. It's set to the number of available cores on the Spark pool. The default value is 200. lower value could waste resources if the pool is not being used for other workloads. Higher value typically doesn't cause issues, because some tasks complete early and can start more tasks while the slow ones are executing. If you want partitioning job to complete faster, it is a good practice to increase the pool size.
+* `spark.cosmos.asns.partitioning.shuffle.partitions` - It controls parallelism during partitioned writes to the partitioned store. This config is needed only for initial partitioning for larger collections. It's set to the number of available cores on the Spark pool. The default value is 200. Lower values could waste resources if the pool is not being used for other workloads. Higher value typically doesn't cause issues, because some tasks complete early and can start more tasks while the slow ones are executing. If you want partitioning job to complete faster, it is a good practice to increase the pool size.
 
 # [Python](#tab/python)
 

@@ -52,8 +52,6 @@ Once a route is created, data stops flowing to the built-in-endpoint, unless a r
 
 #### Was the Fallback route disabled?
 
-The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
-
 The fallback route sends all the messages that don't satisfy any of the query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, the fallback route must be enabled to receive all data at the built-in-endpoint.
 
 You can enable or disable the fallback route in the Azure portal by using the Message Routing blade for the IoT hub. You can also use the Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for a fallback route.

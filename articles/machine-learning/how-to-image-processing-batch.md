@@ -54,7 +54,7 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
 
 1. Downloading a copy of the model:
 
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
     
     ```azurecli
     wget https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip
@@ -62,7 +62,7 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
     unzip model.zip -d imagenet-classifier
     ```
     
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
 
     ```python
     import os
@@ -78,14 +78,14 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
     
 2. Register the model:
    
-    # [Azure ML CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     MODEL_NAME='imagenet-classifier'
     az ml model create --name $MODEL_NAME --type "custom_model" --path "imagenet-classifier/model"
     ```
 
-    # [Azure ML SDK for Python](#tab/sdk)
+    # [Python](#tab/sdk)
 
     ```python
     model_name = 'imagenet-classifier'
@@ -163,11 +163,11 @@ One the scoring script is created, it's time to create a batch deployment for it
 
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so we can reutilize this environment. We are just going to add a couple of dependencies in a `conda.yml` file.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    Let's get a reference to the environment:
    
@@ -183,7 +183,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    > [!NOTE]
    > This example assumes you have an endpoint created with the name `imagenet-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
@@ -220,7 +220,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    az ml batch-deployment create -f deployment.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    
@@ -275,14 +275,14 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
 1. Let's download the associated sample data:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```bash
    wget https://azuremlexampledata.blob.core.windows.net/data/imagenet-1000.zip
    unzip imagenet-1000.zip -d /tmp/imagenet-1000
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    !wget https://azuremlexampledata.blob.core.windows.net/data/imagenet-1000.zip
@@ -291,11 +291,12 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
 2. Now, let's create the data asset from the data just downloaded
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    Create a data asset definition in `YAML`:
    
    __imagenet-sample-unlabeled.yml__
+   
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
    name: imagenet-sample-unlabeled
@@ -310,7 +311,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    az ml data create -f imagenet-sample-unlabeled.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    data_path = "/tmp/imagenet-1000"
@@ -322,12 +323,23 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
        description="A sample of 1000 images from the original ImageNet dataset",
        name=dataset_name,
    )
+   ```
+   
+   Then, create the data asset:
+   
+   ```python
    ml_client.data.create_or_update(imagenet_sample)
+   ```
+   
+   To get the newly created data asset, use:
+   
+   ```python
+   imagenet_sample = ml_client.data.get(dataset_name, label="latest")
    ```
    
 3. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:imagenet-sample-unlabeled@latest | jq -r '.name')
@@ -336,7 +348,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=imagenet_sample.id)
@@ -352,13 +364,13 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
 4. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -366,7 +378,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
 5. Once the deployment is finished, we can download the predictions:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
 
    To download the predictions, use the following command:
 
@@ -374,7 +386,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    az ml job download --name $JOB_NAME --output-name score --download-path ./
    ```
 
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
 
    ```python
    ml_client.jobs.download(name=job.name, output_name='score', download_path='./')

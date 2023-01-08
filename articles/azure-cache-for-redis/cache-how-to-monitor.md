@@ -153,7 +153,7 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
   - Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows:
     - **Failover** – when a cache fails over (subordinate promotes to primary)
     - **Dataloss** – when there's data loss on the cache
-    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough
+    - **UnresponsiveClients** – when the clients aren't reading data from the server fast enough, and specifically, when the number of bytes in the Redis server output buffer for a client goes over 1,000,000 bytes
     - **AOF** – when there's an issue related to AOF persistence
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB

@@ -1,27 +1,25 @@
 ---
-title: Azure portal administration for direct Enterprise Agreements
-description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
+title: EA Billing administration on the Azure portal
+description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2022
+ms.date: 01/04/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
 ---
 
-# Azure portal administration for direct Enterprise Agreements
+# EA Billing administration on the Azure portal
 
-This article explains the common tasks that a direct Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer.
-
-Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. Indirect EAs are managed using the [Azure Enterprise portal](https://ea.azure.com/). For more information about managing indirect EAs, see [Azure EA portal administration](ea-portal-administration.md).
+This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 
 > [!NOTE]
-> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
-> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## Manage your enrollment
 
@@ -31,7 +29,7 @@ If you've been set up as the enterprise administrator, then go to the Azure po
 
 If you have more than one billing account, select a billing account from billing scope menu. You can view your billing account properties and policy from the left menu.
 
-Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U]
 
@@ -176,7 +174,7 @@ The structure of accounts and subscriptions affect how they're administered and 
 
 After a new account is added to the enrollment, the account owner is sent an account ownership email that's used to confirm ownership.
 
-Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
 
@@ -355,7 +353,7 @@ An Azure EA account is an organizational unit in the Azure portal. In the Azure 
 
 ## Enable the Enterprise Dev/Test offer
 
-As an EA admin, you can allow account owners in your organization to create subscriptions based on the EA Dev/Test offer. To do so, select the **Dev/Test** option in the account properties. After you've selected the Dev/Test option, let the account owner know so that they can create EA Dev/Test subscriptions needed for their teams of Dev/Test subscribers. The offer enables active Visual Studio subscribers to run development and testing workloads on Azure at special Dev/Test rates. It provides access to the full gallery of Dev/Test images including Windows 8.1 and Windows 10.
+As an EA admin, you can allow account owners in your organization to create subscriptions based on the EA Dev/Test offer. To do so, select the **Dev/Test** option in the Edit account window. After you've selected the Dev/Test option, let the account owner know so that they can create EA Dev/Test subscriptions needed for their teams of Dev/Test subscribers. The offer enables active Visual Studio subscribers to run development and testing workloads on Azure at special Dev/Test rates. It provides access to the full gallery of Dev/Test images including Windows 8.1 and Windows 10.
 
 ### To set up the Enterprise Dev/Test offer
 
@@ -364,8 +362,10 @@ As an EA admin, you can allow account owners in your organization to create subs
 1. In the left menu, select **Billing scopes** and then select a billing account scope.
 1. In the left menu, select **Accounts**.
 1. Select the account where you want to enable Dev/Test access.
-1. On the enrollment account page, select **Edit**.
-1. On the Edit account page, select **Dev/Test** and then select **Save**.
+1. On the enrollment account Overview page, select **Edit Account detail**.
+1. In the Edit account window, select **Dev/Test** and then select **Save**.
+
+:::image type="content" source="./media/direct-ea-administration/dev-test-option.png" alt-text="Screenshot showing navigation to the Dev/Test option." lightbox="./media/direct-ea-administration/dev-test-option.png" :::
 
 When a user is added as an account owner, any Azure subscriptions associated with the user that are based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as pay-as-you-go, that are associated with the account owner get converted to Microsoft Azure Enterprise offers.
 
@@ -386,7 +386,7 @@ When you create different subscriptions for each application environment, you he
 - You can associate subscriptions with any number of services.
 - The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
-Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8]
 

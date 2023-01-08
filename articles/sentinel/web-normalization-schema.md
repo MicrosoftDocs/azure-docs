@@ -41,7 +41,7 @@ The most important fields in a Web Session schema are:
 
 - [Url](#url), which reports the url that the client requested from the server.
 - The [SrcIpAddr](network-normalization-schema.md#srcipaddr) (aliased to [IpAddr](network-normalization-schema.md#ipaddr)), which represents the IP address from which the request was generated. 
-- [EventResultDetails](#eventresultdetails), which reports the HTTP Status Code.
+- [EventResultDetails](#eventresultdetails) field, which reports the HTTP Status Code.
 
 Web Session events may also include [User](network-normalization-schema.md#user) and [Process](process-events-normalization-schema.md) information for the user and process initiating the request. 
 
@@ -83,6 +83,7 @@ The following filtering parameters are available:
 | **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
@@ -90,10 +91,6 @@ For example, to filter only Web sessions for a specified list of domain names, u
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_WebSession (url_has_any = torProxies)
 ```
-
-> [!TIP]
-> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
->
 
 ## Schema details
 
@@ -135,8 +132,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **Class** | **Fields** |
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
-| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
-| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br> - [EventOwner](normalization-common-fields.md#eventowner)<br>- [DvcZone](normalization-common-fields.md#dvczone)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)<br>- [DvcSubscriptionId](normalization-common-fields.md#dvcsubscriptionid)|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br>- [EventUid](normalization-common-fields.md#eventuid)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br> - [EventOwner](normalization-common-fields.md#eventowner)<br>- [DvcZone](normalization-common-fields.md#dvczone)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)<br>- [DvcScopeId](normalization-common-fields.md#dvcscopeid)<br>- [DvcScope](normalization-common-fields.md#dvcscope)|
 
 
 
@@ -149,6 +146,7 @@ The following ASIM Network Session schema fields have specific guidelines when u
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
 - The field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
 - For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
+- The fields `NetworkRuleName` and `NetworkRuleNumber` are renamed `RuleName` and `RuleNumber` respectively.
 
 Web Session events are commonly reported by intermediate devices that terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermediate device, use the [ASIM Network Session schema](network-normalization-schema.md) [Intermediary device fields](network-normalization-schema.md#Intermediary)
 
