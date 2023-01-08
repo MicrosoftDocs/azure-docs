@@ -51,6 +51,10 @@ Check your configuration and ensure it matches your requirements. If the configu
 
 You now need to wait for your resource to be provisioned. Upon completion your onboarding team will reach out to you. We also recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks as updating ACLs in the Azure and Teams environments is done on a periodic basis.
 
+Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
+
+:::image type="content" source="media/deploy/gotoresourcegroup.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
+
 ## 4. Complete the JSON onboarding file
 
 Your onboarding team will require additional information to complete your Operator Connect onboarding. If you're being onboarded to Operator Connect/Teams Phone Mobile by Microsoft, the onboarding team will reach out to you.
@@ -68,12 +72,6 @@ Your Azure Communications Gateway will require a custom domain name inside your 
 1. Complete the following procedure: [Add your custom domain name to Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
 1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
 1. Complete the following procedure: [Verify your custom domain name](/azure/active-directory/fundamentals/add-custom-domain).
-
-## 7. Finish deploying your Azure Communications Gateway
-
-Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
-
-:::image type="content" source="media/deploy/gotoresourcegroup.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
 ## Next steps
 
