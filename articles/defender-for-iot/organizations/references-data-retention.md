@@ -13,7 +13,7 @@ Each storage location affords a certain storage capacity and retention times. Th
 
 ## Device data retention periods
 
-The following table lists how long device data in stored in each Defender for IoT location.
+The following table lists how long device data is stored in each Defender for IoT location.
 
 | Storage type | Details |
 |---------|---------|
@@ -23,7 +23,7 @@ The following table lists how long device data in stored in each Defender for Io
 
 ## Alert data retention
 
-The following table lists how long alert data in stored in each Defender for IoT location. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
+The following table lists how long alert data is stored in each Defender for IoT location. Alert data is stored as listed, regardless of the alert's status, or whether it's been learned or muted.
 
 | Storage type | Details |
 |---------|---------|
@@ -51,7 +51,7 @@ For more information, see [Enhance security posture with security recommendation
 
 OT event timeline data is stored on OT network sensors only, and the storage capacity differs depending on the sensor's [hardware profile](ot-appliance-sizing.md).
 
-The retention of event timeline data is not time limited. If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
+The retention of event timeline data is not limited by time. If a sensor exceeds its maximum storage size, the oldest event timeline data file is deleted to accommodate the new one.
 
 The following table lists the maximum number of events that can be stored for each hardware profile:
 
@@ -85,11 +85,12 @@ For more information, see:
 ## On-premises backup file capacity
 
 Both the OT network sensor and the on-premises management console have automated backups running daily.
-The following table describes the default maximum sizes for each storage location.
 
 On both the OT sensor and the on-premises management console, older backup files are overridden when the configured storage capacity has reached its maximum.
 
  For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files).
+
+The following table describes the default maximum sizes for each storage location.
 
 | Storage type | Details |
 |---------|---------|
