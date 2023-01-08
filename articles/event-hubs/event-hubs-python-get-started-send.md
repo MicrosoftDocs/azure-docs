@@ -2,7 +2,7 @@
 title: Send or receive events from Azure Event Hubs using Python (latest)
 description: This article provides a walkthrough for creating a Python application that sends/receives events to/from Azure Event Hubs using the latest azure-eventhub package.
 ms.topic: quickstart
-ms.date: 10/10/2022
+ms.date: 01/08/2023
 ms.devlang: python
 ms.custom: mode-api
 ---
@@ -20,18 +20,18 @@ To complete this quickstart, you need the following prerequisites:
 - Visual Studio Code (recommended) or any other integrated development environment (IDE). 
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 
-### Install the package(s) to send events
+### Install the packages to send events
 
 To install the Python packages for Event Hubs, open a command prompt that has Python in its path. Change the directory to the folder where you want to keep your samples.
 
-### [Passwordless (Recommended)](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 ```shell
 pip install azure-eventhub
 pip install azure-identity
 ```
 
-### [Connection String](#tab/connection-string)
+## [Connection String](#tab/connection-string)
 
 ```shell
 pip install azure-eventhub
@@ -54,7 +54,7 @@ In this section, create a Python script to send events to the event hub that you
     ## [Passwordless (Recommended)](#tab/passwordless)
 
     ```python
-    Python code
+    TBD
     ```
 
     ## [Connection String](#tab/connection-string)
@@ -100,24 +100,59 @@ This quickstart uses Azure Blob storage as a checkpoint store. The checkpoint st
 >
 > For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the [synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) samples on GitHub. 
 
-
 ### Create an Azure storage account and a blob container
 Create an Azure storage account and a blob container in it by doing the following steps:
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
-2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+3. Authenticate to the blob container.
 
 Be sure to record the connection string and container name for later use in the receive code.
 
+## [Passwordless (Recommended)](#tab/passwordless)
+
+[!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
+
+## [Connection String](#tab/connection-string)
+
+[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+
+---
+
+### Install the packages to receive events
+
+For the receiving side, you need to install a few more packages. In this quickstart, you use Azure Blob storage to persist checkpoints so that the program doesn't read the events that it has already read. It performs metadata checkpoints on received messages at regular intervals in a blob. This approach makes it easy to continue receiving messages later from where you left off.
+
+## [Passwordless (Recommended)](#tab/passwordless)
+
+```shell
+pip install azure-storage-blob
+pip install azure-eventhub-checkpointstoreblob-aio
+pip install azure-identity
+```
+
+## [Connection String](#tab/connection-string)
+
+```shell
+pip install azure-storage-blob
+pip install azure-eventhub-checkpointstoreblob-aio
+```
 
 ### Create a Python script to receive events
 
 In this section, you create a Python script to receive events from your event hub:
 
 1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-2. Create a script called *recv.py*.
-3. Paste the following code into *recv.py*:
+1. Create a script called *recv.py*.
+1. Paste the following code into *recv.py*:
+
+    ## [Passwordless (Recommended)](#tab/passwordless)
+
+    ```python
+    TBD
+    ```
+
+    ## [Connection String](#tab/connection-string)
 
     ```python
     import asyncio
@@ -148,6 +183,8 @@ In this section, you create a Python script to receive events from your event hu
         # Run the main method.
         loop.run_until_complete(main())    
     ```
+
+    ---
 
     > [!NOTE]
     > For the complete source code, including additional informational comments, go to the [GitHub recv_with_checkpoint_store_async.py 
