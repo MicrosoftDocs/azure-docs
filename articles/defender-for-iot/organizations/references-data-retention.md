@@ -37,8 +37,8 @@ The following table lists how long PCAP data is stored in each Defender for IoT 
 
 | Storage type | Details |
 |---------|---------|
-| **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
-| **OT network sensor** | 90 days, depending on the sensor's storage capacity. <br><br> The maximum size of PCAP file storage is set by default to 133,120 MB. If a sensor exceeds this size, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
+| **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data](how-to-manage-cloud-alerts.md#access-alert-pcap-data). |
+| **OT network sensor** | 90 days, depending on the sensor's storage capacity. <br><br> The maximum size of PCAP file storage is set by default to 133,120 MB. If a sensor exceeds this size, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Access alert PCAP data](how-to-view-alerts.md#access-alert-pcap-data). |
 | **On-promises management console** | PCAP files aren't stored on the on-premises management console and are only accessed from the on-premises management console via a direct link to the OT sensor. |
 
 ## Security recommendation retention
