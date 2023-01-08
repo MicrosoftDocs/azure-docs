@@ -81,7 +81,7 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Determine user connection quality
+      - name: Analyze user connection quality
         href: connection-latency.md
       - name: Azure Private Link
         href: private-link-overview.md
@@ -343,6 +343,8 @@
     href: drain-mode.md
   - name: Network connectivity
     items:
+    - name: Collect and query user connection quality data
+      href: connection-quality-monitoring.md
     - name: Check access to required URLs
       href: required-url-check-tool.md
     - name: Configure RDP Shortpath
