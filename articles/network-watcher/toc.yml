@@ -139,19 +139,19 @@
       items:
       - name: Manage a packet capture
         items:
-        - name: Azure portal VM
+        - name: Virtual machine - portal
           href: network-watcher-packet-capture-manage-portal.md
-        - name: Azure portal virtual machine scale set
+        - name: Virtual machine scale set - portal
           href: network-watcher-packet-capture-manage-portal-vmss.md
-        - name: Azure PowerShell VM
+        - name: Virtual machine - PowerShell
           href: network-watcher-packet-capture-manage-powershell.md
-        - name: Azure PowerShell virtual machine scale set
+        - name: Virtual machine scale set - PowerShell
           href: network-watcher-packet-capture-manage-powershell-vmss.md
-        - name: The Azure CLI
+        - name: Virtual machine - Azure CLI
           href: network-watcher-packet-capture-manage-cli.md
-        - name: REST VM
+        - name: Virtual machine - REST
           href: network-watcher-packet-capture-manage-rest.md
-        - name: REST virtual machine scale set
+        - name: Virtual machine scale set - REST
           href: network-watcher-packet-capture-manage-rest-vmss.md
       - name: Analyze a packet capture
         items:
