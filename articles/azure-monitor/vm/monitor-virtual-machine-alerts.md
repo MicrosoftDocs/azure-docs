@@ -244,6 +244,50 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
+### Windows and Linux events
+The following sample creates an alert when a specific Windows event is created. It uses a metric measurement alert rule to create a separate alert for each computer.
+
+- **Create an alert rule on a specific Windows event.**
+
+   This example shows an event in the Application log. Specify a threshold of 0 and consecutive breaches greater than 0.
+
+    ```kusto
+    Event 
+    | where EventLog == "Application"
+    | where EventID == 123 
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+- **Create an alert rule on Syslog events with a particular severity.**
+
+   The following example shows error authorization events. Specify a threshold of 0 and consecutive breaches greater than 0.
+
+    ```kusto
+    Syslog
+    | where Facility == "auth"
+    | where SeverityLevel == "err"
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+### Custom performance counters
+
+- **Create an alert on the maximum value of a counter.**
+    
+    ```kusto
+    Perf 
+    | where CounterName == "My Counter" 
+    | summarize AggregatedValue = max(CounterValue) by Computer
+    ```
+
+- **Create an alert on the average value of a counter.**
+
+    ```kusto
+    Perf 
+    | where CounterName == "My Counter" 
+    | summarize AggregatedValue = avg(CounterValue) by Computer
+    ```
+
+
 ## Next steps
 
 * [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)

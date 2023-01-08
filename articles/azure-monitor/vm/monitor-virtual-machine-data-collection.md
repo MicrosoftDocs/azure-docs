@@ -1,11 +1,11 @@
 ---
-title: 'Monitor virtual machines with Azure Monitor: Configure monitoring'
-description: Learn how to configure virtual machines for monitoring in Azure Monitor. Monitor virtual machines and their workloads with an Azure Monitor scenario.
+title: 'Monitor virtual machines with Azure Monitor: Collect data'
+description: Learn how to configure data collection for virtual machines for monitoring in Azure Monitor. Monitor virtual machines and their workloads with an Azure Monitor guide.
 ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/21/2021
+ms.date: 01/05/2023
 ms.reviewer: Xema Pathak
 
 ---

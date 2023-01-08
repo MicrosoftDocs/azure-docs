@@ -11,10 +11,10 @@ ms.reviewer: Xema Pathak
 ---
 
 # Monitor virtual machines with Azure Monitor: Workloads
-This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to monitor workloads that are running on the guest operating systems of your virtual machines. This article includes details on analyzing and alerting on different sources of data on your virtual machines.
+This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to monitor common workloads that are running on the guest operating systems of your virtual machines. This article includes details on analyzing and alerting on different sources of data on your virtual machines.
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md) or [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md). 
+> This guide describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md) or [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md). 
 
 
 
@@ -22,6 +22,9 @@ This article is part of the scenario [Monitor virtual machines and their workloa
 
 ## Convert management pack logic
 A significant number of customers who implement Azure Monitor currently monitor their virtual machine workloads by using management packs in System Center Operations Manager. There are no migration tools to convert assets from Operations Manager to Azure Monitor because the platforms are fundamentally different. Your migration instead constitutes a standard Azure Monitor implementation while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
+
+> [!NOTE]
+> [Azure Monitor SCOM Managed Instance (preview)](scom-managed-instance-overview.md) is now in public preview. This allows you to move your existing SCOM environment into the Azure portal with Azure Monitor while continuing to use the same management packs. The rest of the recommendations in this article still apply as you migrate your monitoring logic into Azure Monitor.
 
 Instead of attempting to replicate the entire functionality of a management pack, analyze the critical monitoring provided by the management pack. Decide whether you can replicate those monitoring requirements by using the methods described in the previous sections. In many cases, you can configure data collection and alert rules in Azure Monitor that replicate enough functionality that you can retire a particular management pack. Management packs can often include hundreds and even thousands of rules and monitors.
 
@@ -42,51 +45,6 @@ Evaluate the output to identify specific alerts for migration. Ignore any alerts
 
 
 
-### Sample alert rules
-The following sample creates an alert when a specific Windows event is created. It uses a metric measurement alert rule to create a separate alert for each computer.
-
-- **Create an alert rule on a specific Windows event.**
-
-   This example shows an event in the Application log. Specify a threshold of 0 and consecutive breaches greater than 0.
-
-    ```kusto
-    Event 
-    | where EventLog == "Application"
-    | where EventID == 123 
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
-    ```
-
-- **Create an alert rule on Syslog events with a particular severity.**
-
-   The following example shows error authorization events. Specify a threshold of 0 and consecutive breaches greater than 0.
-
-    ```kusto
-    Syslog
-    | where Facility == "auth"
-    | where SeverityLevel == "err"
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
-    ```
-
-
-## Custom performance counters
-
-### Sample alerts
-
-- **Create an alert on the maximum value of a counter.**
-    
-    ```kusto
-    Perf 
-    | where CounterName == "My Counter" 
-    | summarize AggregatedValue = max(CounterValue) by Computer
-    ```
-
-- **Create an alert on the average value of a counter.**
-
-    ```kusto
-    Perf 
-    | where CounterName == "My Counter" 
-    | summarize AggregatedValue = avg(CounterValue) by Computer
-    ```
 
 ## Text logs
 Some applications write events written to a text log stored on the virtual machine. Define a [custom log](../agents/data-sources-custom-logs.md) in the Log Analytics workspace to collect these events. You define the location of the text log and its detailed configuration. There's a cost for the ingestion and retention of this data in the workspace.
