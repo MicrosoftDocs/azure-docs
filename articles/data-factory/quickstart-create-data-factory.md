@@ -70,8 +70,6 @@ A quick creation experience provided in the Azure Data Factory Studio to enable 
 
 1. For **Version**, select **V2**.
 
-1. Select **Next: Git configuration**, and then select **Configure Git later** check box.
-
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
 1. Select **Launch Studio** to open Azure Data Factory Studio to start the Azure Data Factory user interface (UI) application on a separate browser tab.

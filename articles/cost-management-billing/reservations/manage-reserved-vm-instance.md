@@ -4,9 +4,9 @@ description: Learn how to manage Azure Reservations. See steps to change the res
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 # Manage Reservations for Azure resources

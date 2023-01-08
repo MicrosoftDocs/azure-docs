@@ -372,6 +372,28 @@ The following entities are grouped and listed by country:
 :::row-end:::
 :::row:::
     :::column span="":::
+        **Entity**
+
+        Belgium national number V2
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        To get this entity category, add `BENationalNumberV2` to the `piiCategories` parameter. `BENationalNumberV2` will be returned in the API response if detected.
+      
+        Also returned with `domain=phi`.
+    :::column-end:::
+    :::column span="":::
+      **Supported document languages**
+
+      `fr`, `de`
+      
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column span="":::
 
         Belgium Value Added Tax (VAT) number
 

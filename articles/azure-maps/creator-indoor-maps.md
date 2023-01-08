@@ -259,7 +259,7 @@ Applications can use the Render V2-Get Map Tile API to request tilesets. The til
 
 ### Web Feature Service API
 
-You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r4.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](https://docs.opengeospatial.org/DRAFTS/17-069r4.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 ### Alias API
 
@@ -308,7 +308,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [basemap]: supported-map-styles.md
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
-[routeset]: /rest/api/maps/v20220901preview/routestset
+[routeset]: /rest/api/maps/v20220901preview/routeset
 [wayfind]: /rest/api/maps/v20220901preview/wayfinding
 [wayfinding path] /rest/api/maps/v20220901preview/wayfinding/path
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control

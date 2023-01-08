@@ -164,7 +164,7 @@ With traffic blocked across all of your VNets, you need an exception to allow tr
 
 In this section, you create a new rule collection that will allow high-risk traffic to a subset of virtual networks you've defined in a network group, and create security admin rule to add to our existing security admin configuration.
 
-> [!Important]
+> [!IMPORTANT]
 > In order for your security admin rule to allow traffic to your application virtual networks, the priority needs to be set to a **lower number** than existing rules blocking traffic. 
 >
 >For example, an all network rule blocking **SSH** has a priority of **10** so your allow rule should have a priority from **1 to 9**.

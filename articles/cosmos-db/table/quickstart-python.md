@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/23/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022, py-fresh-zinc
 ---
 
 # Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB
@@ -431,7 +431,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the API for Table.  
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app. Now you can query your data using the API for Table.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the API for Table](import.md)
+> [Query Azure Cosmos DB by using the API for Table](tutorial-query.md)
