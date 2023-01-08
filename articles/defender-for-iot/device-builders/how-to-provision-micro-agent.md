@@ -35,7 +35,7 @@ To learn how to configure the Microsoft Defender for IoT micro agent for Edge de
 
 1. [Configure the micro agent to use the created module](tutorial-standalone-agent-binary-installation.md#authenticate-using-a-module-identity-connection-string) (note that the device does not have to exist yet).
 
-1. Navigate back to DPS and provision the device through DPS.
+1. Navigate back to DPS and [provision the device through DPS](/azure/iot-dps/quick-create-simulated-device-x509).
 
 1. Navigate to the configured device in the destination IoT Hub.
 
