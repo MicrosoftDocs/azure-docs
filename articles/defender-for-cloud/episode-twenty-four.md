@@ -1,12 +1,12 @@
 ---
-title: Enhancements in Defender for SQL Vulnerability Assessment | Defender for Cloud in the field
+title: Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Enhancements in Defender for SQL Vulnerability Assessment
 ms.topic: reference
 ms.date: 01/05/2023
 ---
 
-# Enhancements in Defender for SQL Vulnerability Assessment | Defender for Cloud in the Field
+# Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Catalin Esanu joins Yuri Diogenes to talk about the enhancements in Defender for SQL Vulnerability Assessment (VA) capability that were announced. Catalin explains how the new SQL VA Express changed to allow a frictionless onboarding experience and how it became easier to manage VA baselines. Catalin demonstrates how to enable this experience and how to customize the baseline with companion scripts.
 <br>
