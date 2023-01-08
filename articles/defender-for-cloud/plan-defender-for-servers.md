@@ -3,9 +3,10 @@ title: Plan a Defender for Servers deployment to protect on-premises and multicl
 description: Design a solution to protect on-premises and multicloud servers with Defender for Servers 
 ms.topic: conceptual
 ms.date: 11/06/2022
-ms.author: benmansheim
 author: bmansheim
+ms.author: benmansheim
 ---
+
 # Plan Defender for Servers deployment
 
 Defender for Servers extends protection to your Windows and Linux machines running in Azure, AWS, GCP, and on-premises. Defender for Servers integrates with Microsoft Defender for Endpoint to provide endpoint detection and response (EDR), and also provides a host of additional threat protection features.

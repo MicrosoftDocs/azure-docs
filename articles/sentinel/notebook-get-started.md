@@ -9,8 +9,6 @@ ms.date: 11/09/2021
 
 # Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This tutorial describes how to run the **Getting Started Guide For Microsoft Sentinel ML Notebooks** notebook, which sets up basic configurations for running Jupyter notebooks in Microsoft Sentinel and running simple data queries.
 
 The **Getting Started Guide for Microsoft Sentinel ML Notebooks** notebook uses MSTICPy, a Python library of Cybersecurity tools built by Microsoft, which provides threat hunting and investigation functionality.

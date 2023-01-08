@@ -37,7 +37,6 @@ These metrics are available for Azure Database for MySQL:
 |Host CPU percent|cpu_percent|Percent|Host CPU percent is total utilization of CPU to process all the tasks on your server over a selected period. This metric includes workload of your Azure Database for MySQL Flexible Server and Azure MySQL process. High CPU percent can help you find if your database server has more workload than it can handle. This metric is equivalent to total CPU utilization similar to utilization of CPU on any virtual machine.|
 |Host Network In |network_bytes_ingress|Bytes|Total sum of incoming network traffic on the server for a selected period. This metric includes traffic to your database and to Azure MySQL features like monitoring, logs etc.|
 |Host Network out|network_bytes_egress|Bytes|Total sum of outgoing network traffic on the server for a selected period. This metric includes traffic from your database and from Azure MySQL features like monitoring, logs etc.|
-|Replication Lag|replication_lag|Seconds|Replication lag is the number of seconds the replica is behind in replaying the transactions received from the source server. This metric is calculated from "Seconds_behind_Master" from the command "SHOW SLAVE STATUS" and is available for replica servers only. For more information, see "[Monitor replication latency](../single-server/how-to-troubleshoot-replication-latency.md)"|
 |Active Connections|active_connection|Count|The number of active connections to the server. Active connections are the total number of [threads connected](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Threads_connected) to your server, which also includes threads from [azure_superuser](../single-server/how-to-create-users.md).|
 |Backup Storage Used|backup_storage_used|Bytes|The amount of backup storage used.|
 |IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
@@ -49,6 +48,21 @@ These metrics are available for Azure Database for MySQL:
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your MySQL server, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|
 |Slow_queries|slow_queries|Count|The total count of slow queries on your server in the selected time range.|
+
+
+## Replication metrics
+
+|Metric display name|Metric|Unit|Description|
+|---|---|---|---|
+|Replication Lag|replication_lag|Seconds|Replication lag is the number of seconds the replica is behind in replaying the transactions received from the source server. This metric is calculated from "Seconds_behind_Master" from the command "SHOW SLAVE STATUS" and is available for replica servers only. For more information, see "[Monitor replication latency](../single-server/how-to-troubleshoot-replication-latency.md)"|
+|Replica IO Status|replica_io_running|State|Replica IO Status indicates the state of [replication I/O thread](https://dev.mysql.com/doc/refman/8.0/en/replication-implementation-details.html). Metric value is 1 if the I/O thread is running and 0 if not.|
+|Replica SQL Status|replica_sql_running|State|Replica SQL Status indicates the state of [replication SQL thread](https://dev.mysql.com/doc/refman/8.0/en/replication-implementation-details.html). Metric value is 1 if the SQL thread is running and 0 if not.|
+|HA IO Status|ha_io_running|State|HA IO Status indicates the state of [HA replication](./concepts-high-availability.md). Metric value is 1 if the I/O thread is running and 0 if not.|
+|HA SQL Status|ha_sql_running|State|HA SQL Status indicates the state of [HA replication](./concepts-high-availability.md). Metric value is 1 if the SQL thread is running and 0 if not.|
+
+
+> [!NOTE]
+> For [read replicas](./concepts-read-replicas.md) in Azure Database for MySQL Flexible Server, value of Replica_IO_Running from MySQL command "[SHOW SLAVE STATUS](https://dev.mysql.com/doc/refman/5.7/en/replication-administration-status.html)" or "[SHOW REPLICA STATUS](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html)" will be denoted as "NO" and should be ignored, for genuine status of I/O thread of your read replicas kindly refer to [Replica IO Status](#replication-metrics) from Metrics under Monitoring blade. 
 
 
 ## Enhanced metrics
