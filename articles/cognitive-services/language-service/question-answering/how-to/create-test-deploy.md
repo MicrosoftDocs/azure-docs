@@ -22,7 +22,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
-2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
+2. Scroll down to the **Understand questions and conversational language** section and select **Open custom question answering**.
 
     > [!div class="mx-imgBorder"]
     > ![Open custom question answering](../media/create-test-deploy/open-custom-question-answering.png)

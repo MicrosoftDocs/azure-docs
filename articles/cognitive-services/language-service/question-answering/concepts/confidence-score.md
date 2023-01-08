@@ -21,11 +21,11 @@ The following table indicates typical confidence associated for a given score.
 
 |Score Value|Score Meaning|Example Query|
 |--|--|--|
-|90 - 100|A near exact match of user query and a KB question|
+|0.90 - 1.00|A near exact match of user query and a KB question|
 |> 70|High confidence - typically a good answer that completely answers the user's query|
-|50 - 70|Medium confidence - typically a fairly good answer that should answer the main intent of the user query|
-|30 - 50|Low confidence - typically a related answer, that partially answers the user's intent|
-|< 30|Very low confidence - typically does not answer the user's query, but has some matching words or phrases |
+|0.50 - 0.70|Medium confidence - typically a fairly good answer that should answer the main intent of the user query|
+|0.30 - 0.50|Low confidence - typically a related answer, that partially answers the user's intent|
+|< 0.30|Very low confidence - typically does not answer the user's query, but has some matching words or phrases |
 |0|No match, so the answer is not returned.|
 
 ## Choose a score threshold
