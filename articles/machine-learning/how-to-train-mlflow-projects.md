@@ -25,7 +25,7 @@ In this article, learn how to submit training jobs with [MLflow Projects](https:
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
-* Using Azure Machine Learning as a backedn of MLflow projects requires the package `azureml-core`:
+* Using Azure Machine Learning as backend for MLflow projects requires the package `azureml-core`:
 
   ```bash
   pip install azureml-core
