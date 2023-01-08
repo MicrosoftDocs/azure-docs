@@ -1,5 +1,5 @@
 ---
-title: What's new in the Remote Desktop client for Windows
+title: What's new in the Remote Desktop client for Windows - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr

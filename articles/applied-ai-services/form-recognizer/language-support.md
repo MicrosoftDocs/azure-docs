@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: overview
-ms.date: 10/20/2022
+ms.topic: reference
+ms.date: 01/06/2023
 ms.author: lajanuar
 ---
 
@@ -511,7 +511,7 @@ Prebuilt Receipt and Business Cards support all English receipts and business ca
 
 |Language| Locale code |
 |:-----|:----:|
-|English (Austrialia)|`en-au`|
+|English (Australia)|`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|

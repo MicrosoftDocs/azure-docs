@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 # Application Insights for Java 2.x
 
 > [!CAUTION]
-> This article applies to Application Insights Java 2.x, which is no longer recommended.
+> This article applies to Application Insights Java 2.x, which is [no longer recommended](https://azure.microsoft.com/updates/application-insights-java-2x-retirement/).
 >
 > Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
@@ -82,7 +82,7 @@ If your project is already set up to use Gradle for build, merge the following c
 
 ---
 
-#### Questions
+#### Frequently asked questions
 
 * What's the relationship between the `-web-auto`, `-web`, and `-core` components?
   * `applicationinsights-web-auto` gives you metrics that track HTTP servlet request counts and response times by automatically registering the Application Insights servlet filter at runtime.
