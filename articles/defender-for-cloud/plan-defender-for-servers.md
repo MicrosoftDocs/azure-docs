@@ -28,7 +28,7 @@ The intended audience of this guide includes cloud solution and infrastructure a
 Before you begin to review the series of articles in the Defender for Servers planning guide:
 
 - Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-- If you're deploying for AWS or GCP machines, review the [multi-cloud planning guide](plan-multicloud-security-get-started.md).
+- If you're deploying for AWS or GCP machines, review the [multicloud planning guide](plan-multicloud-security-get-started.md).
 
 ## Deployment overview
 
