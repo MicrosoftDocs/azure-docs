@@ -34,6 +34,20 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.
 
+### Configure logging
+
+Front Door logs information about every request that it receives. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients.
+
+There are multiple Front Door logs:
+
+- **Activity log** can be used to identify slow requests, determine error rates, and understand how Front Door's caching behavior is working for your solution.
+- **Web application firewall logs** can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked.
+- **Health probe logs** can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
+
+The activity log and web application firewall log includes a tracking reference, which is also propagated to the origin through the `X-Azure-Ref` request header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
+
+For more information, see [Azure Front Door logs](standard-premium/how-to-logs.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
+
 ## TLS best practices
 
 ### Use end-to-end TLS
@@ -59,20 +73,6 @@ For more information, see [Configure HTTPS on an Azure Front Door custom domain 
 If you decide to use your own TLS certificates, then consider setting the Key Vault certificate version to 'Latest'. By using 'Latest', you avoid having to reconfigure Front Door to use new versions of your certificate and waiting for the certificate to be deployed throughout Front Door's environments.
 
 For more information, see [Select the certificate for Azure Front Door to deploy](standard-premium/how-to-configure-https-custom-domain.md#select-the-certificate-for-azure-front-door-to-deploy).
-
-### Configure logging
-
-Front Door logs information about every request that it receives. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients.
-
-There are multiple Front Door logs:
-
-- **Activity log** can be used to identify slow requests, determine error rates, and understand how Front Door's caching behavior is working for your solution.
-- **Web application firewall logs** can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked.
-- **Health probe logs** can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
-
-The activity log and web application firewall log includes a tracking reference, which is also propagated to the origin through the `X-Azure-Ref` request header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
-
-For more information, see [Azure Front Door logs](standard-premium/how-to-logs.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
 
 ## Domain name best practices
 
