@@ -183,7 +183,7 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 > [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md)
 
 > [!div class="nextstepaction"]
-> [Define and view OT sensor settings from the Azure portal (Public preview)](config-sensor-settings-portal.md)
+> [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md)
 
 > [!div class="nextstepaction"]
 > [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
