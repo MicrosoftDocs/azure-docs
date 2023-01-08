@@ -35,7 +35,7 @@ This section describes the steps you need to take to ensure that certificate dep
 
 Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
 
-If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](about-certificates.md#crt-file-requirements) for information about this parameter.
+If you aren't carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](about-certificates.md#crt-file-requirements) for information about this parameter.
 
 Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
 
@@ -51,7 +51,7 @@ Compare your certificate to the following sample certificate. Verify that the sa
 
 ## Import SSL certificates
 
-When you sign-in to your sensor console without a secure connection, you will get a warning screen alerting you that your connection isn't private. If you continue on to the sensor console anyway, you'll see an alert in the address bar of your web browser.
+When you sign-in to your sensor console without a secure connection, you'll get a warning screen alerting you that your connection isn't private. If you continue on to the sensor console anyway, you'll see an alert in the address bar of your web browser.
 
 **To import the SSL certificate:**
 
@@ -63,33 +63,55 @@ When you sign-in to your sensor console without a secure connection, you will ge
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/show-certificate.png" alt-text="Screenshot of where to view the SSL certificate.":::
 
-1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
+1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-certificate.png" alt-text="Screenshot of where to export the SSL certificate.":::
 
 1. Open the certificate file you downloaded and select the **Details** tab, then select **Copy to file** to open the **Certificate Export Wizard**. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-copy-to-file.png" alt-text="Screenshot of where to download the SSL certificate from.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-copy-to-file.png" alt-text="Screenshot of the SSL certificate details tab.":::
 
-1. In the **Certificate Export Wizard**, select **Next**, then select **DER encoded binary X.509 (.CER)**.
+1. In the **Certificate Export Wizard**, select **Next**, then select **DER encoded binary X.509 (.CER)** and **Next** again. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-wizard-der-encoded.png" alt-text="Screenshot of the export file format screen.":::
 
 1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
 
-1. In the **Completing the Certificate Export Wizard** screen, you'll see a summary of the settings you selected. Select **Finish** to export the certificate.
+1. Select **Finish** to export the certificate.
 
-1. Open the certificate file again and select the **Details** tab, then select the **Subject** field. <!-- Not sure what this is supposed to be about, but there's an emphasis on CN -->
+1. To check the certificate's common name, open the certificate file again and select the **Details** tab, then select the **Subject** field. The certificate's common name will then appear next to **CN =**. For example:
 
-1. In the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-cn.png" alt-text="Screenshot of the SSL certificate's common name.":::
 
-1. Select **Local Machine**, then select **Next**.
+1. Open the certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
 
-1. If a **User Allow Control** prompt shows up, select **Yes** to allow the the app to make changes to your device.
+1. In **Store Location**, select **Local Machine**, then select **Next**.
 
-1. In the Certificate Store screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**.
+1. If a **User Allow Control** prompt appears, select **Yes** to allow the app to make changes to your device.
 
-1. Select **Place all certificates in the following store**, then select **Browse** and select the **Trusted Root Certification Authorities** > **OK** > **Next** > **Finish**.
+1. In the **Certificate Store** screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**. For example:
 
-1. Sign in to your sensor console without a secure connection again, and click on the error message to expand it. <!-- Again, not sure what this is about, but the Subject here apparently matches the CN in the certificate details. That seems important -->
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-screen.png" alt-text="Screenshot of the certificate store screen.":::
 
-1. Hosts. <!-- Something about a file titled hosts where there is a line that has the sensor IP address and the same subject line as in the error message and the CN line in the details tab -->
+1. Select **Place all certificates in the following store**, then select **Browse** and select the **Trusted Root Certification Authorities**. When you're done, select **Next**. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder.":::
+
+1. Select **Finish** to import the certificate.
+
+1. Sign-in to your sensor console without a secure connection again. In the **Your connection isn't private** screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private.png" alt-text="Screenshot of the connection isn't private screen.":::
+
+1. Select the error message to expand it, and then copy the name next to **Subject**. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private-details.png" alt-text="Screenshot of the connection isn't private screen with the details expanded.":::
+
+1. In your local file explorer, browse to **This PC > Local Disk (C:) > Windows > System32 > drivers > etc**, and open the **hosts** file.
+
+1. In the hosts file, add in a line at the end of document with the sensor's IP address and the the SSL certificate's common name that you copied in the previous steps. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file.":::
 
 ## Test certificates you create
 
@@ -120,7 +142,7 @@ This section covers various issues that may occur during certificate upload and 
 
 ### Troubleshoot CA-Certificate Upload  
 
-Admin users attempting to log in to the sensor or on-premises management console for the first time will not be able to upload the CA-signed certificate if the certificate isn't created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
+Admin users attempting to sign-in to the sensor or on-premises management console for the first time won't be able to upload the CA-signed certificate if the certificate isn't created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
 
 | **Certificate validation error** | **Recommendation** |
 |--|--|
