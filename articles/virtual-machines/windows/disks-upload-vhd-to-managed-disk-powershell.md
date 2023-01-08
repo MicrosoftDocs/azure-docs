@@ -88,6 +88,7 @@ $name = <desired-managed-disk-name>
 # $Zone = <desired-zone>
 # $sku=<desired-SKU>
 # -DataAccessAuthMode 'AzureActiveDirectory'
+# -DiskHyperVGeneration = V1 or V2. This applies only to OS disks.
 
 # To use $Zone or #sku, add -Zone or -DiskSKU parameters to the command
 Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $location -DiskName $name
