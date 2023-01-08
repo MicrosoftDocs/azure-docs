@@ -45,7 +45,7 @@ To set up a Log Analytics workspace for data collection:
 
 1. [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
     
-    Azure Monitor Logs creates Azure tables in your workspace automatically based on Azure services you use and [data collection settings](#2-collect-data) you define for Azure resources.
+    Azure Monitor Logs creates Azure tables in your workspace automatically based on Azure services you use and [data collection settings](#4-collect-data) you define for Azure resources.
 
 1. [Configure your workspace](../logs/log-analytics-workspace-overview.md) based on needs such as access control, billing, data transformation, and data retention and archiving.
 
@@ -54,7 +54,18 @@ To set up a Log Analytics workspace for data collection:
     1. Set a data retention and archiving for specific tables that's different the workspace-level data retention and archiving policy. 
     1. Modify the table schema.
 
-## 2. Migrate applications
+## 2. Migrate Splunk apps and artifacts
+
+|Splunk Artifact| Azure Monitor|
+|---|---|
+|Alerts|[Alert rules](../alerts/alerts-create-new-alert-rule.md)|
+|Alert actions|[Action groups](../alerts/action-groups.md)|
+|Source Types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
+|Searches||
+|Dashboard||
+|Reports||
+|Namespaces||
+|Permissions||
 
 ## 3. Ingest historical data
 
