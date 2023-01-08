@@ -67,11 +67,11 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-certificate.png" alt-text="Screenshot of where to export the SSL certificate.":::
 
-1. Open the certificate file you downloaded and select the **Details** tab, then select **Copy to file** to open the **Certificate Export Wizard**. For example:
+1. Open the certificate file you downloaded and select the **Details** tab, then select **Copy to file** to run the **Certificate Export Wizard**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-copy-to-file.png" alt-text="Screenshot of the SSL certificate details tab.":::
 
-1. In the **Certificate Export Wizard**, select **Next**, then select **DER encoded binary X.509 (.CER)** and **Next** again. For example:
+1. In the **Certificate Export Wizard**, select **Next**, then in the **Export File Format** screen, select **DER encoded binary X.509 (.CER)** and **Next** again. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-wizard-der-encoded.png" alt-text="Screenshot of the export file format screen.":::
 
@@ -79,11 +79,15 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
 1. Select **Finish** to export the certificate.
 
-1. To check the certificate's common name, open the certificate file again and select the **Details** tab, then select the **Subject** field. The certificate's common name will then appear next to **CN =**. For example:
+1. To check the certificate's common name, open the certificate file again and select the **Details** tab, then select the **Subject** field.
+
+    The certificate's common name will then appear next to **CN =**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-cn.png" alt-text="Screenshot of the SSL certificate's common name.":::
 
-1. Open the certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
+1. Open the certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/install-certificate-wizard.png" alt-text="Screenshot of where to start the install certificate wizard.":::
 
 1. In **Store Location**, select **Local Machine**, then select **Next**.
 
@@ -109,9 +113,9 @@ When you sign-in to your sensor console without a secure connection, you'll get 
 
 1. In your local file explorer, browse to **This PC > Local Disk (C:) > Windows > System32 > drivers > etc**, and open the **hosts** file.
 
-1. In the hosts file, add in a line at the end of document with the sensor's IP address and the the SSL certificate's common name that you copied in the previous steps. For example:
+1. In the hosts file, add in a line at the end of document with the sensor's IP address and the the SSL certificate's common name that you copied in the previous steps. When you're done, save the changes. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png":::
 
 ## Test certificates you create
 
