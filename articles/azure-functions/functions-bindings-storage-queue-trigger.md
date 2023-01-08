@@ -147,7 +147,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#configuration-1) section explains these properties.
+The [configuration](#configuration) section explains these properties.
 
 > [!NOTE]
 > The name parameter reflects as `context.bindings.<name>` in the JavaScript code which contains the queue item payload. This payload is also passed as the second parameter to the function.
