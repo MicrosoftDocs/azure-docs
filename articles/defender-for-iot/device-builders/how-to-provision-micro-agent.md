@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article explains how to provision the standalone Microsoft Defender for IoT micro agent using [Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md) with [X.509 certificate attestation](../../iot-dps/concepts-x509-attestation.md).
 
-To learn how to configure the Microsoft Defender for IoT micro agent for Edge devices see [Create and provision IoT Edge devices at scale](/azure/iot-edge/how-to-provision-devices-at-scale-linux-tpm?view=iotedge-1.4&tabs=physical-device%2Cubuntu)
+To learn how to configure the Microsoft Defender for IoT micro agent for Edge devices see [Create and provision IoT Edge devices at scale](/azure/iot-edge/how-to-provision-devices-at-scale-linux-tpm)
 
 ## Prerequisites
 
