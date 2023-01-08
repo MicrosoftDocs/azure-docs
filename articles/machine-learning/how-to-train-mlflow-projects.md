@@ -19,7 +19,7 @@ In this article, learn how to submit training jobs with [MLflow Projects](https:
 
 [MLflow Projects](https://mlflow.org/docs/latest/projects.html) allow for you to organize and describe your code to let other data scientists (or automated tools) run it. MLflow Projects with Azure Machine Learning enable you to track and manage your training runs in your workspace.
 
-[Learn more about the MLflow and Azure Machine Learning integration.](concept-mlflow.md).
+[Learn more about the MLflow and Azure Machine Learning integration.](concept-mlflow.md)
 
 ## Prerequisites
 
