@@ -58,7 +58,7 @@ Now that you have the integration URLs, you can create a new Custom Vision proje
 
 ### Create new project
 
-When you call the [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API, add the optional parameters _exportModelContainerUri_ and _notificationQueueUri_. Assign the URL values you got in the previous section. 
+When you call the [CreateProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API, add the optional parameters _exportModelContainerUri_ and _notificationQueueUri_. Assign the URL values you got in the previous section. 
 
 ```curl
 curl -v -X POST "{endpoint}/customvision/v3.3/Training/projects?exportModelContainerUri={inputUri}&notificationQueueUri={inputUri}&name={inputName}"
@@ -96,7 +96,7 @@ If you receive a `200/OK` response, that means the URLs have been set up success
 
 ### Update existing project
 
-To update an existing project with Azure storage feature integration, call the [UpdateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb1) API, using the ID of the project you want to update. 
+To update an existing project with Azure storage feature integration, call the [UpdateProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb1) API, using the ID of the project you want to update. 
 
 ```curl
 curl -v -X PATCH "{endpoint}/customvision/v3.3/Training/projects/{projectId}"
@@ -152,7 +152,7 @@ In your notification queue, you should see a test notification in the following 
 
 ## Get event notifications
 
-When you're ready, call the [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API on your project to do an ordinary training operation.
+When you're ready, call the [TrainProject](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API on your project to do an ordinary training operation.
 
 In your Storage notification queue, you'll receive a notification once training finishes:
 
@@ -173,7 +173,7 @@ The `"trainingStatus"` field may be either `"TrainingCompleted"` or `"TrainingFa
 
 ## Get model export backups
 
-When you're ready, call the [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddece) API to export a trained model into a specified platform.
+When you're ready, call the [ExportIteration](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddece) API to export a trained model into a specified platform.
 
 In your designated storage container, a backup copy of the exported model will appear. The blob name will have the format:
 
@@ -202,5 +202,5 @@ The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`
 ## Next steps
 
 In this guide, you learned how to copy and back up a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
-* [REST API reference documentation (training)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
-* [REST API reference documentation (prediction)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)
+* [REST API reference documentation (training)](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [REST API reference documentation (prediction)](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)

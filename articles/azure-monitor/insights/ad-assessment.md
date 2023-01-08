@@ -160,7 +160,7 @@ After the next scheduled health check runs, by default every seven days, the spe
 
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
-## AD Health Check solutions FAQ
+## Frequently asked questions
 
 *What checks are performed by the AD Assessment solution?*
 
