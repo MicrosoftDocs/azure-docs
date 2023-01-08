@@ -31,7 +31,7 @@ To learn how to configure the Microsoft Defender for IoT micro agent for Edge de
   
 1. Navigate into your destination IoT Hub.
 
-1. Create a new module issued by the same certificate.
+1. [Create a new module](tutorial-create-micro-agent-module-twin.md) issued by the same certificate.
 
 1. Configure the micro agent to use the created module (note that the device does not have to exist yet).
 
