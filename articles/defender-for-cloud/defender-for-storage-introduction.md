@@ -3,8 +3,11 @@ title: Microsoft Defender for Storage - the benefits and features
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 07/12/2022
+author: bmansheim
+ms.author: benmansheim
 ms.topic: overview
 ---
+
 # Overview of Microsoft Defender for Storage
 
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
