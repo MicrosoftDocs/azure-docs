@@ -107,8 +107,8 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
     Sign into your OT sensor console and select the **Alerts** page on the left, and then do one of the following:
 
-    - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page, in the **Take Action** tab, select **Learn**.
+  - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+  - On an alert details page, in the **Take Action** tab, select **Learn**.
 
 - **To mute an alert**:
 
@@ -123,7 +123,6 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
     1. On the **Take action** tab, toggle off the **Alert learn** or **Alert mute** option.
 
     After you unlearn or unmute an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
-
 
 ## Access alert PCAP data
 
@@ -179,7 +178,6 @@ If your admin has [created custom comments](how-to-accelerate-alert-incident-res
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -199,3 +197,6 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
+
+> [!div class="nextstepaction"]
+> [Data retention across Microsoft Defender for IoT](references-data-retention.md)
