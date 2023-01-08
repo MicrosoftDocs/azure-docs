@@ -14,21 +14,23 @@ This guide helps you design and plan an effective Defender for Servers deploymen
 
 ## About this guide
 
-The intended audience of this guide includes cloud solution and infrastructure architects, security architects and analysts, and anyone who's involved in protecting cloud and hybrid servers and workloads. The guide answers these questions:
+The intended audience of this guide is cloud solution and infrastructure architects, security architects and analysts, and anyone who's involved in protecting cloud and hybrid servers and workloads. 
+
+The guide answers these questions:
 
 - What does Defender for Servers do and how is it deployed?
 - Where will my data be stored and what Log Analytics workspaces do I need?
 - Who needs access to my Defender for Servers resources?
 - Which Defender for Servers plan should I choose and which vulnerability assessment solution should I use?
-- When do I need to use Azure Arc and which agents and extensions must be deployed?
+- When do I need to use Azure Arc and which agents and extensions are required?
 - How do I scale a deployment?
 
 ## Before you begin
 
-Before you begin to review the series of articles in the Defender for Servers planning guide:
+Before you review the series of articles in the Defender for Servers planning guide:
 
-- Review pricing details for [Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
-- If you're deploying for AWS or GCP machines, review the [multicloud planning guide](plan-multicloud-security-get-started.md).
+- Review Defender for Servers [pricing details](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+- If you're deploying for AWS machines or GCP projects, review the [multicloud planning guide](plan-multicloud-security-get-started.md).
 
 ## Deployment overview
 
@@ -41,4 +43,4 @@ The following diagram shows an overview of the Defender for Servers deployment p
 
 ## Next steps
 
-You've begun the planning process. Review the next article in this planning guide series to [understand how your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md).
+You've begun the Defender for Servers planning process. Review the next article in the planning guide to [understand how your data is stored and the Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md).

@@ -1,13 +1,13 @@
 ---
-title: Review data residency and workspace design for Defender for Servers 
-description: Plan data residency and review workspace design for Microsoft Defender for Servers.
+title: Plan Defender for Servers data residency and workspaces 
+description: Review data residency and workspace design for Microsoft Defender for Servers.
 ms.topic: conceptual
 ms.author: benmansheim
 author: bmansheim
 ms.date: 11/06/2022
 ms.custom: references_regions
 ---
-# Review data residency and workspace design
+# Plan data residency and workspaces for Defender for Servers
 
 This article helps you understand how your data is stored in Microsoft Defender for Servers and how Log Analytics workspaces are used in Defender for Servers.
 
@@ -15,7 +15,7 @@ This article helps you understand how your data is stored in Microsoft Defender 
 
 ## Before you begin
 
-This article is the *second* article in the Defender for Servers planning guide series. Before you begin, review [Start planning your deployment](plan-defender-for-servers.md).
+This article is the *second* article in the Defender for Servers planning guide series. Begin by [planning your deployment](plan-defender-for-servers.md).
 
 ## Understand data residency
 
@@ -28,6 +28,8 @@ Before you deploy Defender for Servers, it's important for you to understand dat
 
 ### Storage locations
 
+Understand where Defender for Cloud stores data and how you can work with your data:
+
 **Data** | **Location**
 --- | ---  
 **Security alerts and recommendations** | - Stored in the Defender for Cloud back end and accessible via the Azure portal, Azure Resource Graph, and REST APIs.<br/><br/> - You can export the data to a Log Analytics workspace by using [continuous export](continuous-export.md).
@@ -36,6 +38,8 @@ Before you deploy Defender for Servers, it's important for you to understand dat
 ## Workspace considerations
 
 In Defender for Cloud, you can store server data in the default Log Analytics workspace for your Defender for Cloud deployment or in a custom workspace.
+
+Here's more information:
 
 - By default, when you first create your Defender for Cloud deployment, a new resource group and a default workspace are created in the subscription region for each subscription that has Defender for Cloud enabled.
 - When you use only free foundational cloud security posture management (CSPM), Defender for Cloud sets up the default workspace with the *SecurityCenterFree* solution enabled.
@@ -59,7 +63,7 @@ You can store your server information in the default workspace or you can use a 
 
 - You must enable the Defender for Servers plan in the custom workspace.
 - The custom workspace must be associated with the Azure subscription in which Defender for Cloud is enabled.
-- You must have read permissions for the workspace at a minimum.
+- You must have at least read permissions for the workspace.
 - If the *Security & Audit* solution is installed in a workspace, Defender for Cloud uses the existing solution.
 
 Learn more about [Log Analytics workspace design strategy and criteria](../azure-monitor/logs/workspace-design.md).

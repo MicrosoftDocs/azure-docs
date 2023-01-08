@@ -1,12 +1,12 @@
 ---
-title: Plan roles and permissions for Defender for Servers 
+title: Plan Defender for Servers roles and permissions 
 description: Review roles and permissions for Microsoft Defender for Servers.
 ms.topic: conceptual
 ms.author: benmansheim
 author: bmansheim
 ms.date: 11/06/2022
 ---
-# Review Defender for Servers roles and permissions
+# Plan roles and permissions for Defender for Servers
 
 This article helps you understand how to control access to your Defender for Servers deployment.
 
@@ -14,7 +14,7 @@ This article helps you understand how to control access to your Defender for Ser
 
 ## Before you begin
 
-This article is the *third* article in the Defender for Servers planning guide series. Before you begin, review the earlier articles:
+This article is the *third* article in the Defender for Servers planning guide. Before you begin, review the earlier articles:
 
 1. [Start planning your deployment](plan-defender-for-servers.md)
 1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
@@ -23,7 +23,7 @@ This article is the *third* article in the Defender for Servers planning guide s
 
 In complex enterprises, different teams manage different [security functions](/azure/cloud-adoption-framework/organize/cloud-security) in the organization.
 
-Identifying ownership for server and endpoint security is critical. Ownership that's undefined or hidden in organizational silos  increases risk for the organization. Security operations (SecOps) teams that need to identify and follow threats across the enterprise are hindered. Deployments might be delayed or not secure.
+It's critical that you identify ownership for server and endpoint security in your organization. Ownership that's undefined or hidden in organizational silos  increases risk for the organization. Security operations (SecOps) teams that need to identify and follow threats across the enterprise are hindered. Deployments might be delayed or they might not be secure.
 
 Security leadership should identify the teams, roles, and individuals that are responsible for making and implementing decisions about server security.
 

@@ -8,7 +8,9 @@ ms.date: 11/06/2022
 ---
 # Scale a Defender for Servers deployment
 
-This article helps you scale your Microsoft Defender for Servers deployment. Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
+This article helps you scale your Microsoft Defender for Servers deployment.
+
+[Microsoft Defender for Cloud](defender-for-cloud-introduction.md) offers two paid plans for Defender for Servers.
 
 ## Before you begin
 
@@ -31,20 +33,20 @@ When you enable a Defender for Cloud subscription, this process occurs:
 In the next sections, review considerations for specific steps as you scale your deployment:
 
 - Scale a Cloud Security Benchmark deployment
-- Scale a Defender for Server plan
+- Scale a Defender for Servers plan
 - Scale auto provisioning
 
 ## Scale a Cloud Security Benchmark deployment
 
 In a scaled deployment, you might want the Cloud Security Benchmark (formerly the Azure Security Benchmark) to be automatically assigned.
 
-The assignment is inherited for every existing and future subscription underneath the management group. To set up your deployment to automatically apply the benchmark, assign the policy initiative to your management group (root) instead of to each subscription.
+The assignment is inherited for every existing and future subscription in the management group. To set up your deployment to automatically apply the benchmark, assign the policy initiative to your management group (root) instead of to each subscription.
 
 You can get the *Azure Security Benchmark* policy definition on [GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json).
 
 [Learn more](onboard-management-group.md) about using a built-in policy definition to register a resource provider.
 
-## Scale a Defender for Server plan
+## Scale a Defender for Servers plan
 
 You can use a policy definition to enable Defender for Servers at scale:
 
