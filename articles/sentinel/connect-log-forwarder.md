@@ -56,7 +56,7 @@ Your machine must meet the following requirements:
     - Syslog-ng: 2.1 - 3.22.1
 
 - **Packages**
-    - You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have **Python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
 
 - **Syslog RFC support**
   - Syslog RFC 3164

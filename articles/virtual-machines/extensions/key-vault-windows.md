@@ -38,8 +38,8 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 
 ## Updates in Version 3.0
 
-- Adding ACL permission to downloaded certificates
-- Store configuration per certificate
+- Ability to add ACL permission to downloaded certificates
+- Certificate Store configuration per certificate
 - Exportable private keys
 
 ## Prerequisites
@@ -80,7 +80,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KVVMExtensionForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -100,7 +100,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "[https://myvault.vault.azure.net/secrets/mycertificate]">
         },
         "authenticationSettings": {
-          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/oauth2/token">,
           "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }
        }
@@ -114,7 +114,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KVVMExtensionForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -148,7 +148,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           ]>
         },
         "authenticationSettings": {
-          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/oauth2/token">,
           "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }
        }
@@ -174,7 +174,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2022-08-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
@@ -184,14 +184,14 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
 | requireInitialSync | false | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
-| msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity/oauth2/token | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 ### [Version-3.0](#tab/version3)  
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2022-08-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 3.0 | int |
@@ -204,7 +204,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | observedCertificates/certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
 | observedCertificates/keyExportable(optional) | false | boolean |
 | observedCertificates/accounts(optional) | ["Network Service", "Local Service"] | string array |
-| msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity/oauth2/token | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 ---
@@ -221,7 +221,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KeyVaultForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -240,7 +240,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         },
           "authenticationSettings": {
-          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/oauth2/token">,
           "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }      
       }
@@ -254,7 +254,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KeyVaultForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -296,7 +296,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
         ]>
         },
           "authenticationSettings": {
-          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/oauth2/token">,
           "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }      
       }
@@ -412,7 +412,7 @@ Example settings (settings.json):
         ]
         },
           "authenticationSettings": {
-          "msiEndpoint":  "http://169.254.169.254/metadata/identity/ouath2/token",
+          "msiEndpoint":  "http://169.254.169.254/metadata/identity/oauth2/token",
           "msiClientId":  "c7373ae5-91c2-4165-8ab6-7381d6e75619"
         }      
      }
@@ -516,7 +516,7 @@ Example settings (settings.json):
         ]
         },
           "authenticationSettings": {
-          "msiEndpoint":  "http://169.254.169.254/metadata/identity/ouath2/token",
+          "msiEndpoint":  "http://169.254.169.254/metadata/identity/oauth2/token",
           "msiClientId":  "c7373ae5-91c2-4165-8ab6-7381d6e75619"
         }      
      }

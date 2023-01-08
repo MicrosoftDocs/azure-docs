@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/19/2022
 ms.author: kendownie
 ms.custom: engagement-fy23
+recommendations: false
 ---
 
 # Configure directory and file-level permissions over SMB
