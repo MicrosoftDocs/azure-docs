@@ -79,7 +79,6 @@ You can update software on your sensors individually, directly from each sensor 
 > For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 >
 
-<<<<<<< HEAD
 
 # [From the Azure portal (Public preview)](#tab/portal)
 
@@ -114,11 +113,7 @@ This procedure describes how to send a software version update to an OT sensor a
 
 If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
 
-
-# [From each sensor](#tab/sensor)
-=======
 # [From an OT sensor UI](#tab/sensor)
->>>>>>> c5403fca3fc0015d53accafbe71909203b2d27fc
 
 This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console's UI.
 
