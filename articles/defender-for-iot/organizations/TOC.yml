@@ -40,10 +40,13 @@
       items:
       - name: Overview
         href: manage-users-overview.md
+        displayName: users, user
       - name: Azure roles for OT and Enterprise IoT monitoring
         href: roles-azure.md
+        displayName: users, user
       - name: On-premises roles for OT monitoring
         href: roles-on-premises.md
+        displayName: users, user
     - name: OT system architecture
       href: architecture.md
     - name: OT sensor cloud connection methods
@@ -220,10 +223,13 @@
     items:
     - name: Azure portal
       href: manage-users-portal.md
+      displayName: users, user
     - name: OT sensor console
       href: manage-users-sensor.md
+      displayName: users, user
     - name: On-premises management console
       href: manage-users-on-premises-management-console.md
+      displayName: users, user
     - name: Audit user activity
       href: track-user-activity.md
   - name: OT system maintenance
