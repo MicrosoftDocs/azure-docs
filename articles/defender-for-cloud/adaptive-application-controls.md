@@ -16,7 +16,7 @@ Learn about the benefits of Microsoft Defender for Cloud's adaptive application 
 
 Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. 
 
-Often, organizations have collections of machines that routinely run the same processes. Microsoft Defender for Cloud uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allowlists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
+Often, organizations have collections of machines that routinely run the same processes. Microsoft Defender for Cloud uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allowlists are based on your specific Azure workloads, and you can further customize the recommendations using the following instructions.
 
 When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
 
@@ -73,12 +73,12 @@ Select the recommendation, or open the adaptive application controls page to vie
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
       - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
-      - AppLocker is not available (Windows Server Core installations)
+      - AppLocker isn't available (Windows Server Core installations)
 
       > [!TIP]
       > Defender for Cloud needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently protected by Microsoft Defender for Servers, will appear under the **No recommendation** tab.
 
-1. Open the **Recommended** tab. The groups of machines with recommended allowlists appears.
+1. Open the **Recommended** tab. The groups of machines with recommended allowlists appear.
 
    ![Recommended tab.](./media/adaptive-application/adaptive-application-recommended-tab.png)
 
@@ -212,13 +212,13 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programmatically, use our REST API. 
 
-The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](/rest/api/defenderforcloud/adaptive-application-controls).
+The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](https://learn.microsoft.com/rest/api/defenderforcloud/adaptive-application-controls).
 
-Some of the functions that are available from the REST API:
+Some of the functions available from the REST API include:
 
 * **List** retrieves all your group recommendations and provides a JSON with an object for each group.
 
-* **Get** retrieves the JSON with the full recommendation data (that is, list of machines, publisher/path rules, and so on).
+* **Get** retrieves the JSON with the full recommendation data (list of machines, publisher/path rules, etc.).
 
 * **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
  
@@ -234,7 +234,7 @@ Some of the functions that are available from the REST API:
 - [Why do I see a Qualys app in my recommended applications?](#why-do-i-see-a-qualys-app-in-my-recommended-applications)
 
 ### Are there any options to enforce the application controls?
-No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
+No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are customizable as shown on this page.
 
 ### Why do I see a Qualys app in my recommended applications?
 [Microsoft Defender for Servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Defender for Cloud. For details of this scanner and instructions for how to deploy it, see [Defender for Cloud's integrated Qualys vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
