@@ -60,7 +60,7 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Limit | Value |
 | --- | --- |
 | Metric names per run |50|
-| Metric rows per metric name |10 million|
+| Metric rows per metric name |1 million|
 | Columns per metric row |15|
 | Metric column name length |255 characters |
 | Metric column value length |255 characters |

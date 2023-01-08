@@ -54,7 +54,7 @@ Smart detection notifications are enabled by default. They are sent to users tha
 
 Emails about smart detection performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
 
-## FAQ
+## Frequently asked questions
 
 * *So, Microsoft staff look at my data?*
   * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../app/data-retention-privacy.md).
