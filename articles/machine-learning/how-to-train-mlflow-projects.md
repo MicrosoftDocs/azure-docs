@@ -33,27 +33,10 @@ In this article, learn how to submit training jobs with [MLflow Projects](https:
 
 ### Connect to your workspace
 
-First, let's connect MLflow to your Azure Machine Learning workspace.
+If you're working outside Azure Machine Learning, you need to configure MLflow to point to your Azure Machine Learning workspace's tracking URI. You can find the instructions at [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md).
 
-# [Azure Machine Learning compute](#tab/aml)
 
-Tracking is already configured for you. Your default credentials will also be used when working with MLflow.
-
-# [Remote compute](#tab/remote)
-
-**Configure tracking URI**
-
-[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
-
-**Configure authentication**
-
-Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
-
-[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
-
----
-
-## Track MLflow Projects in Azure Machine Learning
+## Track MLflow Projects in Azure Machine Learning workspaces
 
 This example shows how to submit MLflow projects and track them Azure Machine Learning.
 
@@ -98,9 +81,9 @@ This example shows how to submit MLflow projects and track them Azure Machine Le
   
     View your runs and metrics in the [Azure Machine Learning studio](https://ml.azure.com).
 
-## Train MLflow projects in Azure Machine Learning workspaces
+## Train MLflow projects in Azure Machine Learning jobs
 
-This example shows how to submit MLflow projects on a remote compute with Azure Machine Learning tracking.
+This example shows how to submit MLflow projects as a job running on Azure Machine Learning compute.
 
 1. Create the backend configuration object, in this case we are going to indicate `COMPUTE`. This parameter references the name of your remote compute cluster you want to use for running your project. If `COMPUTE` is present, the project will be automatically submitted as an Azure Machine Learning job to the indicated compute. 
 
