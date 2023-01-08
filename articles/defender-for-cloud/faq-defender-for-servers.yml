@@ -38,16 +38,16 @@ sections:
 
           State | Details | Billing
           --- | --- | ---
-          Starting | VM starting ups | Not billed
-          Running | Normal working states | Billed
-          Stopping | Transitional, moves to Stopped state when finisheds | Billed
+          Starting | VM starting up. | Not billed
+          Running | Normal working state. | Billed
+          Stopping | Transitional, moves to Stopped state when finished. | Billed
           Stopped | VM shut down from within guest OS or by using PowerOff APIs. Hardware is still allocated, and the machine remains on the host. | Billed
           Deallocating | Transitional, moves to Deallocated state when finished. | Not billed
           Deallocated | VM stopped and removed from the host. | Not billed 
 
           **Azure Arc machines:**
 
-          **State** | **Details* | **Billing**
+          **State** | **Details** | **Billing**
           --- | --- | ---
           Connecting | Servers connected, but heartbeat not yet received. | Not billed
           Connected | Receiving regular heartbeat from Connected Machine agent. | Billed
@@ -93,7 +93,7 @@ sections:
       - question: |
           Am I charged for machines that don't have Log Analytics installed?
         answer: |
-          Yes. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account or GCP project, you're charged for all machines that are connected to your Azure subscription or your AWS account. The term *machines* includes Azure virtual machines, Azure virtual machine scale set instances, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
+          Yes. When you enable Microsoft Defender for Servers on an Azure subscription or a connected AWS account or GCP project, you're charged for all machines that are connected to your Azure subscription or your AWS account. The term *machines* includes Azure virtual machines, Azure Virtual Machine Scale Sets instances, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
       - question: |
           If an agent reports to multiple workspaces, am I charged twice?
