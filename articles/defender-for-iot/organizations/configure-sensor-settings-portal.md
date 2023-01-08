@@ -21,9 +21,7 @@ To define sensor settings, make sure that you have the following:
 
 - **An Azure subscription onboarded to Defender for IoT**. If you need to, [sign up for a free account](https://azure.microsoft.com/free/) and then use the [Quickstart: Get started with Defender for IoT](getting-started.md) to onboard.
 
-- **Permissions**:
-
-<!--yair to check with idan. is this the sensor owner operator role?-->
+- **Permissions**: <!--yair to check with idan. is this the sensor owner operator role?-->
 
     - To view settings that others have defined, sign in with a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
 
@@ -70,7 +68,7 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 
     The **Sensor settings (Preview)** page shows any settings already defined for your subscriptions, listed by setting type. Expand or collapse each type to view detailed configurations. For example:
 
-    :::image type="content" source="media/define-sensor-settings-portal/view-settings.png" alt-text="Screenshot of OT sensor settings on the Azure portal.":::
+    :::image type="content" source="media/configure-sensor-settings-portal/view-settings.png" alt-text="Screenshot of OT sensor settings on the Azure portal.":::
 
 1. Select a specific setting to view it's exact configuration and the site, zones, or individual sensors where the setting is applied.
 
@@ -85,7 +83,7 @@ To delete a sensor setting altogether:
 
 For example:
 
-:::image type="content" source="media/define-sensor-settings-portal/delete-setting.png" alt-text="Screenshot of the Delete setting option.":::
+:::image type="content" source="media/configure-sensor-settings-portal/delete-setting.png" alt-text="Screenshot of the Delete setting option.":::
 
 ## Edit settings for disconnected sensors
 
