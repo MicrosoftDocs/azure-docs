@@ -4,11 +4,10 @@ description: This document helps you use adaptive application control in Microso
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/08/2023
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
-
 
 
 Learn about the benefits of Microsoft Defender for Cloud's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
@@ -55,7 +54,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
 1. Open the Workload protections dashboard and from the advanced protection area, select **Adaptive application controls**.
 
-    :::image type="content" source="./media/adaptive-application/opening-adaptive-application-control.png" alt-text="Opening adaptive application controls from the Azure Dashboard." lightbox="./media/adaptive-application/opening-adaptive-application-control.png":::
+    :::image type="content" source="./media/adaptive-application/opening-adaptive-application-control.png" alt-text="Screenshot showing opening adaptive application controls from the Azure Dashboard." lightbox="./media/adaptive-application/opening-adaptive-application-control.png":::
 
     The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
 
@@ -66,7 +65,7 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allowlist configured. We recommend that you enable adaptive application controls for these groups.
     
       > [!TIP]
-      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a partially consistent list of applications. Microsoft Defender for Cloud can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
+      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a partially consistent list of applications. Microsoft Defender for Cloud can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Edit a group's adaptive application controls rule](#edit-a-groups-adaptive-application-controls-rule).
       >
       > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
 
@@ -89,7 +88,7 @@ Select the recommendation, or open the adaptive application controls page to vie
 
    ![Configure a new rule.](./media/adaptive-application/adaptive-application-create-rule.png)
 
-   1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to removed them from this rule.
+   1. **Select machines** - By default, all machines in the identified group are selected. Unselect any to remove them from this rule.
    
    1. **Recommended applications** - Review this list of applications that are common to the machines within this group, and recommended to be allowed to run.
    
@@ -98,7 +97,7 @@ Select the recommendation, or open the adaptive application controls page to vie
       > [!TIP]
       > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
       > 
-      > Applications are defined by their publishers, if an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
+      > Applications are defined by their publishers; if an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
 
    1. To apply the rule, select **Audit**. 
 
@@ -140,11 +139,11 @@ To edit the rules for a group of machines:
 
 ## Review and edit a group's settings
 
-1. To view the details and settings of your group, select **Group settings**
+1. To view the details and settings of your group, select **Group settings**.
 
     This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
 
-    :::image type="content" source="./media/adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls." lightbox="./media/adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/adaptive-application/adaptive-application-group-settings.png" alt-text="Screenshot showing the group settings page for adaptive application controls." lightbox="./media/adaptive-application/adaptive-application-group-settings.png":::
 
 1. Optionally, modify the group's name or file type protection modes.
 
@@ -183,7 +182,7 @@ To remediate the issues:
 
     The security alerts page shows more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
 
-    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the time that adaptive application controls created the alert.":::
+    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="Screenshot showing the start time of adaptive application controls alerts is the time that adaptive application controls created the alert.":::
 
     > [!NOTE]
     > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the security alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
@@ -191,11 +190,11 @@ To remediate the issues:
 
 ## Move a machine from one group to another
 
-When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, doing so removes any application control rules that were applied to the machine.
+When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group; doing so removes any application control rules that were applied to the machine.
 
 1. Open the **Workload protections dashboard** and from the advanced protection area, select **Adaptive application controls**.
 
-1. From the **Adaptive application controls** page, from the **Configured** tab, select the group containing the  machine to be moved.
+1. From the **Adaptive application controls** page, from the **Configured** tab, select the group containing the machine to be moved.
 
 1. Open the list of  **Configured machines**.
 
