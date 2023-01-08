@@ -38,7 +38,8 @@ Elastic integration with Azure can only be set up by users who have *Owner* or *
 
 * The EA subscription doesn't allow Marketplace purchases.
 
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+
 
 ## Get support
 
