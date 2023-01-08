@@ -51,7 +51,45 @@ Compare your certificate to the following sample certificate. Verify that the sa
 
 ## Import SSL certificates
 
-Add in instructions and screenshots here.
+When you sign-in to your sensor console without a secure connection, you will get a warning screen alerting you that your connection isn't private. If you continue on to the sensor console anyway, you'll see an alert in the address bar of your web browser.
+
+**To import the SSL certificate:**
+
+1. select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the **"Your connection to this site isn't secure"** warning message. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar.":::
+
+1. Select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the SSL certificate for this website. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/show-certificate.png" alt-text="Screenshot of where to view the SSL certificate.":::
+
+1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
+
+1. Open the certificate file you downloaded and select the **Details** tab, then select **Copy to file** to open the **Certificate Export Wizard**. For example:
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-copy-to-file.png" alt-text="Screenshot of where to download the SSL certificate from.":::
+
+1. In the **Certificate Export Wizard**, select **Next**, then select **DER encoded binary X.509 (.CER)**.
+
+1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
+
+1. In the **Completing the Certificate Export Wizard** screen, you'll see a summary of the settings you selected. Select **Finish** to export the certificate.
+
+1. Open the certificate file again and select the **Details** tab, then select the **Subject** field. <!-- Not sure what this is supposed to be about, but there's an emphasis on CN -->
+
+1. In the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
+
+1. Select **Local Machine**, then select **Next**.
+
+1. If a **User Allow Control** prompt shows up, select **Yes** to allow the the app to make changes to your device.
+
+1. In the Certificate Store screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**.
+
+1. Select **Place all certificates in the following store**, then select **Browse** and select the **Trusted Root Certification Authorities** > **OK** > **Next** > **Finish**.
+
+1. Sign in to your sensor console without a secure connection again, and click on the error message to expand it. <!-- Again, not sure what this is about, but the Subject here apparently matches the CN in the certificate details. That seems important -->
+
+1. Hosts. <!-- Something about a file titled hosts where there is a line that has the sensor IP address and the same subject line as in the error message and the CN line in the details tab -->
 
 ## Test certificates you create
 
