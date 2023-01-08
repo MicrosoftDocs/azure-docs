@@ -13,11 +13,11 @@ ms.date: 01/05/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=cbd8ace6-4602-4900-bb73-cf8986605639" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:23](/shows/mdc-in-the-field/threat-intelligence#time=01m23s) - Architecture change in SQL VA
-- [05:30](/shows/mdc-in-the-field/threat-intelligence#time=05m30s) - Enabling SQL VA Express
-- [06:25](/shows/mdc-in-the-field/threat-intelligence#time=06m25s) -  Performance considerations
-- [08:49](/shows/mdc-in-the-field/threat-intelligence#time=08m49s) - Other additions to SQL VA Express
-- [12:56](/shows/mdc-in-the-field/threat-intelligence#time=12m56s) - Demonstration
+- [01:23](/shows/mdc-in-the-field/defender-sql-enhancements#time=01m23s) - Architecture change in SQL VA
+- [05:30](/shows/mdc-in-the-field/defender-sql-enhancements#time=05m30s) - Enabling SQL VA Express
+- [06:25](/shows/mdc-in-the-field/defender-sql-enhancements#time=06m25s) -  Performance considerations
+- [08:49](/shows/mdc-in-the-field/defender-sql-enhancements#time=08m49s) - Other additions to SQL VA Express
+- [12:56](/shows/mdc-in-the-field/defender-sql-enhancements#time=12m56s) - Demonstration
 
 
 ## Recommended resources
