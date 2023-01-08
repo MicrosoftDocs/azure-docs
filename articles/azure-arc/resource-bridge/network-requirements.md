@@ -9,6 +9,8 @@ ms.date: 12/06/2022
 
 This article describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
 
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
 
 ## Additional network requirements

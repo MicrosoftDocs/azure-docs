@@ -13,11 +13,6 @@ ms.date: 12/13/2022
 | Azure monitor APIs | 443 |`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com` | Outbound<br/> Inbound | Azure Data Studio and Azure CLI connect to the Azure Resource Manager APIs to send and retrieve data to and from Azure for some features. See [Azure Monitor APIs](#azure-monitor-apis).
 | Azure Arc data processing service | 443 |`san-af-<region>-prod.azurewebsites.net` | Outbound<br/> Inbound |
 
-
-All HTTPS connections to Azure and the Microsoft Container Registry are encrypted using SSL/TLS using officially signed and verifiable certificates.
-
-To use proxy, verify that the agents meet the network requirements. See [Meet network requirements](../../kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
-
 ### Azure Monitor APIs
 
 Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.

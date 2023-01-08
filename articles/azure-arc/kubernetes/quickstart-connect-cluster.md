@@ -131,6 +131,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ## Meet network requirements
 
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
 
 For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
