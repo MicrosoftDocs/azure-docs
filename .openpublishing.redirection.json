@@ -1164,6 +1164,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/external-identities/add-user-without-invite.md",
+            "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+            "redirect_document_id": true
+    	 },
+        {
             "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
             "redirect_url": "/azure/active-directory-b2c",
             "redirect_document_id": false
@@ -27837,6 +27842,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-get-started-classic.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
             "redirect_document_id": false
         },
         {

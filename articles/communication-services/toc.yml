@@ -294,6 +294,9 @@ items:
       - name: Presence Events
         href: ../event-grid/communication-services-presence-events.md
         maintainContext: true
+      - name: Email Events
+        href: ../event-grid/communication-services-email-events.md
+        maintainContext: true
   - name: Teams interoperability
     items:
       - name: Overview
@@ -406,6 +409,8 @@ items:
       href: how-tos/ui-library-sdk/theming.md
     - name: Participant View Data Injection
       href: how-tos/ui-library-sdk/data-model.md
+    - name: Troubleshooting
+      href: how-tos/ui-library-sdk/troubleshooting.md
   - name: Using the Call Automation library
     items: 
     - name: Control and steer calls

@@ -200,7 +200,7 @@ In this section, we're going to walk through how you can set up alerts for your 
  
 1. In this example, let's use the **Event Hubs** action type, so we'll need to input the **subscription name**, **Event Hub namespace**, and select an **Event Hub name**. Then click on **OK**. 
 
-    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/azure/event-hubs/event-hub-create.md?context=/azure/synapse-analytics/context/context)
+    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/rest/api/eventhub/create-event-hub)
     
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-create-action-group-2.png" alt-text="Screenshot that shows how to create an action group and specify an action type when an alert rule's conditions are met.":::
 
