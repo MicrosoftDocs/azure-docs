@@ -138,6 +138,8 @@ pip install azure-storage-blob
 pip install azure-eventhub-checkpointstoreblob-aio
 ```
 
+---
+
 ### Create a Python script to receive events
 
 In this section, you create a Python script to receive events from your event hub:
