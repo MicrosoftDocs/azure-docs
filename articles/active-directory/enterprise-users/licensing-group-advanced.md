@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2022
+ms.date: 01/09/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
