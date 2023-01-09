@@ -230,7 +230,7 @@ You need to use the same config settings as above, and you need to disable `job/
 #### Volcano scheduler integration supporting cluster autoscaler
 As discussed in this [thread](https://github.com/volcano-sh/volcano/issues/2558) , the **gang plugin** is not working well with the cluster autoscaler(CA) and also the node autoscaler in AKS. 
 
-If you use the volcano that comes with the AzureML extension via setting `installVolcano=true`, the extension will have a scheduler config by default, which configures the **gang** plugin to prevent job deadlock. Therefore, the the cluster autoscaler(CA) in AKS cluster will not be supported with the volcano installed by extension.
+If you use the volcano that comes with the AzureML extension via setting `installVolcano=true`, the extension will have a scheduler config by default, which configures the **gang** plugin to prevent job deadlock. Therefore, the cluster autoscaler(CA) in AKS cluster will not be supported with the volcano installed by extension.
 
 For the case above, if you prefer the AKS cluster autoscaler could work normally, you can configure this `volcanoScheduler.schedulerConfigMap` parameter through updating extension, and specify a custom config of **no gang** volcano scheduler to it, for example:
 
@@ -255,7 +255,7 @@ volcano-scheduler.conf: |
 
 To use this config in your AKS cluster, you need to follow the steps below:  
 1. Create a configmap file with the above config in the azureml namespace. This namespace will generally be created when you install the AzureML extension.
-1. Set `volcanoScheduler.schedulerConfigMap=<configmap name>` in the extension config to apply this configmap. And you need to skip the resource validation when install the extension by configuring `amloperator.skipResourceValidation=true`. For example:
+1. Set `volcanoScheduler.schedulerConfigMap=<configmap name>` in the extension config to apply this configmap. And you need to skip the resource validation when installing the extension by configuring `amloperator.skipResourceValidation=true`. For example:
     ```azurecli
     az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config volcanoScheduler.schedulerConfigMap=<configmap name> amloperator.skipResourceValidation=true --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
     ```

@@ -523,7 +523,7 @@ Below is a list of reasons you might run into this error when creating/updating 
 To mitigate this error, refer to the following steps: 
 * Check the `node selector` definition of the `instance type` you used, and `node label` configuration of your cluster nodes. 
 * Check `instance type` and the node SKU size for AKS cluster or the node resource for Arc-Kubernetes cluster.
-  * If the cluster is under-resourced, you can reduce the instance type resource requirement or use the another instance type with smaller resource required. 
+  * If the cluster is under-resourced, you can reduce the instance type resource requirement or use another instance type with smaller resource required. 
 * If the cluster has no more resource to meet the requirement of the deployment, delete some deployment to release resources.
 
 
