@@ -275,7 +275,7 @@ Downstream devices send telemetry and messages to the gateway device, where the 
 
 * The IoT Edge hub module is deployed to the device.
 
-  When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module, the IoT Edge hub, starts as well. If the **edgeHub** module isn't running on your device, create a deployment for your device.
+  When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module and the IoT Edge hub start as well. If the **edgeHub** module isn't running on your device, create a deployment for your device.
 
 * The IoT Edge hub module has routes set up to handle incoming messages from downstream devices.
 

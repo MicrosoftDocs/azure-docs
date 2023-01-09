@@ -79,7 +79,7 @@ The following table lists the file and directory permissions required for the Io
 
 Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. The trust bundle is available for IoT Edge and modules to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
-1. Get a publicly-trusted root CA certificate from a PKI provider.
+1. Get a publicly trusted root CA certificate from a PKI provider.
 
 1. Check the certificate meets [format requirements](#format-requirements).
 
@@ -423,7 +423,7 @@ In this scenario, the bootstrap certificate and private key are expected to be l
 
    * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/lp/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
 
-1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly-trusted root TLS certificate.
+1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly trusted root TLS certificate.
 
    ```toml
    [cert_issuance.est]
