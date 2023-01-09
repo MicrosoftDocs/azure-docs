@@ -106,7 +106,7 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
 The perfect forward secrecy feature can cause disconnection problems. If the VPN device has perfect forward secrecy enabled, disable the feature. Then update the VPN gateway IPsec policy.
 
-> [!Note] > 
+> [!Note]
 > VPN gateways do not reply to ICMP on their local address.
 ## Next steps
 
