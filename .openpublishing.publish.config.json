@@ -387,6 +387,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-mavaisma-r-azureml",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "mavaisma-r-azureml",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-v2samplesreorg",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "v2samplesreorg",
@@ -749,7 +755,7 @@
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
       "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
-      "branch": "main",
+      "branch": "reference-architecture",
       "branch_mapping": {}
     },
     {

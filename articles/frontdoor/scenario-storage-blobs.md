@@ -101,6 +101,8 @@ To use Private Link in this solution, you must deploy the premium tier of Front 
 
 To deploy this scenario by using Bicep or JSON ARM templates, [see this quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-storage-blobs-private-link).
 
+To deploy this scenario by using Terraform, [see this quickstart](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-premium-storage-blobs-private-link).
+
 ## Next steps
 
 Learn how to [create a Front Door profile](create-front-door-portal.md).

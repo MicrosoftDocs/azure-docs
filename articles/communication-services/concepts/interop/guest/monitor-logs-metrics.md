@@ -27,7 +27,7 @@ If Azure Communication Services resource and Teams meeting organizer tenants are
 - b1902c3e-b9f7-4650-9b23-5772bd429747 - Teams convenient recording
 
 ## Microsoft Teams logs
-Teams administrator can see Teams external users in the overview of the meeting (section `Manage users` -> `Select user` -> `Meetings & calls` -> `Select meeting`). The summary logs can be found when selecting individual Teams external users (continue `Participant details` -> `Anonymous user`). For more details about the call legs, proceed with [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com). You can learn more about the call quality dashboard [here](/microsoftteams/cqd-what-is-call-quality-dashboard.md).
+Teams administrator can see Teams external users in the overview of the meeting (section `Manage users` -> `Select user` -> `Meetings & calls` -> `Select meeting`). The summary logs can be found when selecting individual Teams external users (continue `Participant details` -> `Anonymous user`). For more details about the call legs, proceed with [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com). You can learn more about the call quality dashboard [here](/microsoftteams/cqd-what-is-call-quality-dashboard).
 
 ## Next steps
 

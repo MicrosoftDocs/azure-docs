@@ -1,7 +1,9 @@
 ---
 title: Use the Azure Data Lake Storage Gen2 URI
+titleSuffix: Azure Storage
 description: Learn URI syntax for the abfs scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage Gen2).
 author: normesta
+
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 12/06/2018

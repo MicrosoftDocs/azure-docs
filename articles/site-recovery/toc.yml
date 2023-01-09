@@ -29,11 +29,11 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
-  - name: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs (preview) 
+  - name: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
     items:
     - name: Set up disaster recovery to another region using PowerShell
       href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-    - name: Set up disaster recovery to another Public MEC (preview) using PowerShell 
+    - name: Set up disaster recovery to another Public MEC using PowerShell 
       href: tutorial-replicate-vms-edge-zone-to-another-zone.md
     - name: Set up disaster recovery using the Recovery Services vault
       href: disaster-recovery-for-edge-zone-vm-tutorial.md

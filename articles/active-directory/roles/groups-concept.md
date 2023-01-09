@@ -38,6 +38,7 @@ Role-assignable groups have the following restrictions:
 - The `isAssignableToRole` property is **immutable**. Once a group is created with this property set, it can't be changed.
 - You can't make an existing group a role-assignable group.
 - A maximum of 500 role-assignable groups can be created in a single Azure AD organization (tenant).
+- You can't assign licenses to a role-assignable group.
 
 ## How are role-assignable groups protected?
 

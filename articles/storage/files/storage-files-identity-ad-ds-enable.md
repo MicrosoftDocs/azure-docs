@@ -7,7 +7,8 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: kendownie 
-ms.custom: devx-track-azurepowershell
+ms.custom: engagement-fy23, devx-track-azurepowershell
+recommendations: false
 ---
 
 # Enable AD DS authentication for Azure file shares

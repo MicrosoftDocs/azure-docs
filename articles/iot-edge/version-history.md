@@ -3,14 +3,14 @@ title: IoT Edge version history and release notes
 description: Release history and notes for IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/25/2022
+ms.date: 10/24/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ---
 
 # Azure IoT Edge versions and release notes
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge is a product built from the open-source IoT Edge project hosted on GitHub. All new releases are made available in the [Azure IoT Edge project](https://github.com/Azure/azure-iotedge). Contributions and bug reports can be made on the [open-source IoT Edge project](https://github.com/Azure/iotedge).
 
