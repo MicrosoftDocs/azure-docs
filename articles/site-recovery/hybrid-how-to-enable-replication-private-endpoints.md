@@ -296,6 +296,8 @@ to private IPs.
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
 
+   1. If you're using modernized architecture for protection VMware or Physical machines, then create another private DNS zone for **privatelink.prod.migration.windowsazure.com** also. This endpoint will be used by Site Recovery to perform the discovery of on-premises environment.
+
 1. Link the private DNS zone to your virtual network.
 
    You now need to link the private DNS zone that you created to the bypass.
