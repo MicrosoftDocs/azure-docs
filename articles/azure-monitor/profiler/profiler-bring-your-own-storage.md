@@ -325,7 +325,7 @@ For general Profiler troubleshooting, refer to the [Profiler Troubleshoot docume
 
 For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](../app/snapshot-debugger-troubleshoot.md).
 
-## FAQs
+## Frequently asked questions
 
 ### If I have enabled Profiler/Snapshot Debugger and BYOS, will my data be migrated into my Storage Account?
 
