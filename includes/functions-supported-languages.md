@@ -2,12 +2,12 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/8/2022
+ms.date: 01/09/2023
 ms.author: glenga
 ms.custom: include file
 ---
 
-|Language                                 |1.x         |2.x - End of Life since Dec 13th 2022 | 3.x - End of Life since Dec 13th 2022 | 4.x |
+|Language                                 |1.x         |2.x - on December 13, 2022 | 3.x - End of Life on December 13, 2022 | 4.x |
 |-----------------------------------------|------------|---| --- | --- |
 |[C#](../articles/azure-functions/functions-dotnet-class-library.md)|GA (.NET Framework 4.8)|GA (.NET Core 2.1<sup>1</sup>)| GA (.NET Core 3.1)<br/> | GA (.NET 6.0)<br/>[GA (.NET 7.0)](../articles/azure-functions/dotnet-isolated-process-guide.md)<br/>[GA (.NET Framework 4.8)](../articles/azure-functions/dotnet-isolated-process-guide.md) |
 |[JavaScript](../articles/azure-functions/functions-reference-node.md#node-version)|GA (Node.js 6)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | GA (Node.js 14)<br/>GA (Node.js 16)<br/>Preview (Node.js 18) |

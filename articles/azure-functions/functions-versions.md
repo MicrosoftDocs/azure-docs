@@ -124,18 +124,16 @@ You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if yo
 # [Version 1.x](#tab/v1)
 
 ```xml
-<TargetFramework>net472</TargetFramework>
+<TargetFramework>net48</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 ---
 
 ### VS Code and Azure Functions Core Tools
 
-[Azure Functions Core Tools](functions-run-local.md) is used for command-line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. To develop against version 4.x, install version 4.x of the Core Tools. Version 3.x development requires version 3.x of the Core Tools, and so on. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
+[Azure Functions Core Tools](functions-run-local.md) is used for command-line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation.  To create apps in `~3`, you update the `azureFunctions.projectRuntime` user setting to `~3`.
-
-![Azure Functions extension runtime setting](./media/functions-versions/vs-code-version-runtime.png)
+For Visual Studio Code development, you may also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed.  This setting also updates the templates and languages used during function app creation. 
 
 ## Bindings
 

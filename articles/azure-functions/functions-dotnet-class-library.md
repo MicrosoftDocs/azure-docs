@@ -176,10 +176,10 @@ Below are the relevant parts of the `.csproj` files, showing different target fr
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net461</TargetFramework>
+  <TargetFramework>net48</TargetFramework>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
 </ItemGroup>
 ```
 ---
@@ -195,7 +195,7 @@ The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub rep
 
 Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects on your local computer. The Core Tools is a command-line interface for the Functions runtime.
 
-If you install the Core Tools using the Windows installer (MSI) package or by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 2.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For both 1.x and 2.x, you can see what version is being used in the console output when you run a Functions project:
+If you install the Core Tools using the Windows installer (MSI) package or by using npm, that doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 4.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For Functions 1.x , you can see what version is being used in the console output when you run a Functions project:
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
@@ -205,7 +205,7 @@ If you install the Core Tools using the Windows installer (MSI) package or by us
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.1 and .NET 6 (in-proc and isolated) and .NET 7 and requires [version 3.0 or 4.0 of the Azure Functions runtime](functions-versions.md).
+ReadyToRun is available in .NET 6 (in-proc and isolated) and .NET 7 and requires [version 4.0 of the Azure Functions runtime](functions-versions.md).
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
