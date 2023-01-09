@@ -95,10 +95,6 @@
   - name: Azure Resource Graph queries
     displayName: sample, query, queries, resource, graph
     href: ./resource-graph-samples.md
-  - name: PowerShell script sample - Enable vulnerability assessment on a SQL server
-    href: powershell-sample-vulnerability-assessment-azure-sql.md
-  - name: PowerShell script sample - Set up baselines on Azure SQL databases
-    href: powershell-sample-vulnerability-assessment-baselines.md
 
 - name: Concepts
   items:
