@@ -143,7 +143,6 @@ If you don't have your own certificate authority and want to use demo certificat
    sudo chmod 600 /var/aziot/secrets/*
    ```
 
-1. 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
