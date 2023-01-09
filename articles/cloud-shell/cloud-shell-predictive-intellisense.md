@@ -72,8 +72,8 @@ Set-PSReadLineOption -PredictionSource None
 ## Keep your changes permanent
 
 The commands to change the prediction color and enable/disable predictions only affect the current
-session. To make these changes reflected every time you start Cloud Shell, create or edit a
-PowerShell Profile. The following instructions will will guide you through configuring a profile for
+session. To make these changes reflect every time you start Cloud Shell, create or edit a
+PowerShell Profile. The following instructions will guide you through configuring a profile for
 Cloud Shell. For more details on PowerShell profiles, see [About_Profiles][06]
 
 ### How to check if you have a PowerShell profile in Cloud Shell
@@ -121,7 +121,7 @@ If the output is **True**, then a profile already exists. Edit the existing prof
 commands to configure the color and behavior of Predictive IntelliSense. Use the built-in
 open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][04].
 
-Use the built in Cloud Shell editor to edit the profile:
+Use the built-in Cloud Shell editor to edit the profile:
 
 ```powershell
 Code $Profile
