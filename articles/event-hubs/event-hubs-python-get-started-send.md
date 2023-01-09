@@ -120,7 +120,7 @@ In this section, create a Python script to send events to the event hub that you
     ```
     ---
     > [!NOTE]
-    > For examples of other options for sending events to Event Hub asynchronously using a connection string, see the [GitHub send_async.py page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py). The patterns shown there are also applicable to sending events using a credential.
+    > For examples of other options for sending events to Event Hub asynchronously using a connection string, see the [GitHub send_async.py page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py). The patterns shown there are also applicable to sending events passwordless.
     
 
 ## Receive events
@@ -266,7 +266,7 @@ In this section, you create a Python script to receive events from your event hu
 
     > [!NOTE]
     > For examples of other options for receiving events from Event Hub asynchronously using a connection string, see the [GitHub recv_with_checkpoint_store_async.py 
-page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py). The patterns shown there are also applicable to receiving events using a credential.
+page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py). The patterns shown there are also applicable to receiving events passwordless.
 
 
 ### Run the receiver app
@@ -291,11 +291,11 @@ The receiver window should display the messages that were sent to the event hub.
 
 If you don't see results from *recy.py*, run *send.py* several times.
 
-If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you are using the `azure.identity.aio`.
+If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you're using the `azure.identity.aio`.
 
 If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [async-credentials help in the Azure SDK repo](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#async-credentials).
 
-If events received have different partition IDs, this is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
+If you receive events with different partition IDs, this result is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
 
 ## Next steps
 
