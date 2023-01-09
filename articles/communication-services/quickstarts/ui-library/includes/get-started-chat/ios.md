@@ -69,7 +69,7 @@ To initialize the composite:
 
 1. Go to `ViewController`.
 
-1. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters). 
+2. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters). 
 
     ```swift
     import UIKit
@@ -148,6 +148,8 @@ To initialize the composite:
     }
 
     ```
+
+3. If you choose to put chat view in a frame that is smaller than the screen size, the recommended minimum width is 250 and the recommended minimum height is 300.
 
 ## Run the code
 
