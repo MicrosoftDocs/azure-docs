@@ -1,5 +1,5 @@
 --- 
-title: "Quickstart: Apache Spark jobs in Azure Machine Learning (preview)"
+title: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to submit Apache Spark jobs with Azure Machine Learning
 author: ynpandey
