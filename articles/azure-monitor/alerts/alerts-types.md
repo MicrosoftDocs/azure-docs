@@ -45,7 +45,7 @@ You can create rules by using these metrics:
 
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
-- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions).
+- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-by-using-dimensions).
 - You can use [dynamic thresholds](#dynamic-thresholds) driven by machine learning.
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
@@ -197,19 +197,19 @@ Resource Health alerts are a type of activity alert. The [Resource Health overvi
 
 Resource Health relies on signals from different Azure services to assess whether a resource is healthy. If a resource is unhealthy, Resource Health analyzes more information to determine the source of the problem. It also reports on actions that Microsoft is taking to fix the problem and identifies actions you can take to address it.
 
-## Smart Detection alerts
+## Smart detection alerts
 
-After you set up Application Insights for your project and your app generates a certain amount of data, Smart Detection takes 24 hours to learn the normal behavior of your app. Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others, and the overall failure rate might go up as load increases.
+After you set up Application Insights for your project and your app generates a certain amount of data, smart detection takes 24 hours to learn the normal behavior of your app. Your app's performance has a typical pattern of behavior. Some requests or dependency calls will be more prone to failure than others, and the overall failure rate might go up as load increases.
 
-Smart Detection uses machine learning to find these anomalies. Smart Detection monitors the data received from your app, and in particular the failure rates. Application Insights automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests.
+Smart detection uses machine learning to find these anomalies. Smart detection monitors the data received from your app, and in particular the failure rates. Application Insights automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests.
 
-As data comes into Application Insights from your web app, Smart Detection compares the current behavior with the patterns seen over the past few days. If there's an abnormal rise in failure rate compared to previous performance, an analysis is triggered.
+As data comes into Application Insights from your web app, smart detection compares the current behavior with the patterns seen over the past few days. If there's an abnormal rise in failure rate compared to previous performance, an analysis is triggered.
 
 To help you triage and diagnose a problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature doesn't need setup or configuration because it uses machine learning algorithms to predict the normal failure rate.
 
-Although metric alerts tell you there might be a problem, Smart Detection starts the diagnostic work for you. It performs much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, which helps you to quickly get to the root of the problem.
+Although metric alerts tell you there might be a problem, smart detection starts the diagnostic work for you. It performs much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, which helps you to quickly get to the root of the problem.
 
-Smart Detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
+Smart detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
 
 ## Prometheus alerts (preview)
 
@@ -218,4 +218,4 @@ Prometheus alerts are based on metric values stored in [Azure Monitor managed se
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
-- Learn more about [Smart Detection](proactive-failure-diagnostics.md).
+- Learn more about [smart detection](proactive-failure-diagnostics.md).
