@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/07/2021
+ms.date: 01/09/2023
 ms.custom: seodec18, seo-nov-2020, ignite-2022
 ---
 # Change feed in Azure Cosmos DB
@@ -27,15 +27,35 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 |Python|Yes|Yes|Yes|Yes|No|
 |Node/JS|Yes|Yes|Yes|Yes|No|
 
-## Change feed and different operations
+## Working with change feed
 
-Today, you see all inserts and updates in the change feed. You can't filter the change feed for a specific type of operation. One possible alternative, is to add a "soft marker" on the item for updates and filter based on that when processing items in the change feed.
+You can work with change feed using the following options:
 
-Currently change feed doesn't log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. You can read the change feed as far back as the origin of your container but if an item is deleted, it will be removed from the change feed.
+* [Using change feed with Azure Functions](change-feed-functions.md)
+* [Using change feed with change feed processor](change-feed-processor.md) 
+* [Using change feed with pull model](nosql/change-feed-pull-model.md) 
+
+Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
+
+:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Distributed processing of Azure Cosmos DB change feed" border="false":::
+
+## Features of change feed
+
+* Change feed is enabled by default for all Azure Cosmos DB accounts. 
+
+* You can use your [provisioned throughput](request-units.md) to read from the change feed, just like any other Azure Cosmos DB operation, in any of the regions associated with your Azure Cosmos DB database.
+
+* The change feed includes inserts and update operations made to items within the container. If you are using [all versions and deletes mode (preview)](#all-versions-and-deletes-mode-preview), you will also get changes from delete operations and TTL expirations.
+
+* Each change included in the change log appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
+
+* Changes are available in parallel for all logical partition keys of an Azure Cosmos DB container. This capability allows changes from large containers to be processed in parallel by multiple consumers.
+
+* Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, takes precedence over the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs.
 
 ### Sort order of items in change feed
 
-Change feed items come in the order of their modification time. This sort order is guaranteed per logical partition key.
+Change feed items come in the order of their modification time. This sort order is guaranteed per logical partition key, and there is no guaranteed order across the partition key values.
 
 ### Consistency level
 
@@ -45,44 +65,17 @@ While consuming the change feed in an Eventual consistency level, there could be
 
 In a multi-region Azure Cosmos DB account, if a write-region fails over, change feed will work across the manual failover operation and it will be contiguous.
 
-### Change feed and Time to Live (TTL)
+## Change feed modes
 
-If a TTL (Time to Live) property is set on an item to -1, change feed will persist forever. If the data is not deleted, it will remain in the change feed.  
+There are two change feed modes available: latest version mode and all versions and deletes mode. The mode that change feed is read in determines which operations changes are captured from as well as the metadata available for each change. It is possible to consume the change feed in different modes across multiple applications for the same Azure Cosmos DB account.
 
-### Change feed and _etag, _lsn or _ts
+### Latest version mode
 
-The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch ID that is added for change feed only; it represents the transaction ID. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and it is used for concurrency control. The _etag property tells about the version of the item, whereas the ETag property is used for sequencing the feed.
+In latest version change feed mode, you see the latest change from an insert or update for all items in the feed, and the feed will be available for the life of the container. There is no indication whether a given change is from an insert or an update operation, and deletes aren't captured. Changes can be read from any point in time as far back as the origin of your container, but if an item is deleted, it will be removed from the change feed. See the [latest version change feed mode](nosql/change-feed-latest-version.md) article to learn more.
 
-## Working with change feed
+### All versions and deletes mode (preview)
 
-You can work with change feed using the following options:
-
-* [Using change feed with Azure Functions](change-feed-functions.md)
-* [Using change feed with change feed processor](change-feed-processor.md) 
-
-Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
-
-:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Distributed processing of Azure Cosmos DB change feed" border="false":::
-
-## Features of change feed
-
-* Change feed is enabled by default for all Azure Cosmos DB accounts.
-
-* You can use your [provisioned throughput](request-units.md) to read from the change feed, just like any other Azure Cosmos DB operation, in any of the regions associated with your Azure Cosmos DB database.
-
-* The change feed includes inserts and update operations made to items within the container. You can capture deletes by setting a "soft-delete" flag within your items (for example, documents) in place of deletes. Alternatively, you can set a finite expiration period for your items with the [TTL capability](time-to-live.md). For example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process the changes within a shorter time interval than the TTL expiration period.
-
-* Only the most recent change for a given item is included in the change log. Intermediate changes may not be available.
-
-* Each change included in the change log appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
-
-* The change feed is sorted by the order of modification within each logical partition key value. There is no guaranteed order across the partition key values.
-
-* Changes can be synchronized from any point-in-time, that is there is no fixed data retention period for which changes are available.
-
-* Changes are available in parallel for all logical partition keys of an Azure Cosmos DB container. This capability allows changes from large containers to be processed in parallel by multiple consumers.
-
-* Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, takes precedence over the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs.
+All versions and deletes (preview) mode allows you to see all changes to items from creates, updates, and deletes. You will get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. To read from the change feed in all versions and deletes mode, you must have [continuous backups](continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account which creates Azure Cosmos DB’s all versions and deletes change log. In this mode, you will only be able to read changes that occurred within the continuous backup period configured for the account. See the [all versions and deletes change feed mode](nosql/change-feed-all-versions-and-deletes.md) article to learn more, including how to enroll in the preview.
 
 ## Change feed in APIs for Cassandra and MongoDB
 
