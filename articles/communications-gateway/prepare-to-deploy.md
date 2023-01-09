@@ -107,7 +107,7 @@ Each App registration you created in step 3 requires a dedicated Key Vault (that
 1. Your onboarding team will use the ResourceID to request a Private-Endpoint. That request triggers an approval request to appear in the Key Vault. You must approve this request.
 
 ### 4.2 Create Secrets
-You must create a Secret for each App registration whilst preparing to deploy Azure Communication Gateway and then regularly rotate these secrets (for more information, see <placeholder>). A Secret will expire in 70 days or earlier. For each of your App registrations:
+You must create a Secret for each App registration whilst preparing to deploy Azure Communication Gateway and then regularly rotate these secrets (for more information, see *placeholder*). A Secret will expire in 70 days or earlier. For each of your App registrations:
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it in the search bar, it will appear under the **Services** subheading. 
 1. Select **Certificates & secrets**.
 1. Select **New client secret**. 
@@ -137,7 +137,7 @@ This step must be performed on your Operator Tenant. It will give the Applicatio
 Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You're required to have two Azure Regions with cross-connect functionality. 
 
 To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner).
-    :::image type="content" source="media/prepare-to-deploy/redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
+    :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
 
 ## 6. Collect basic information for deploying an Azure Communications Gateway
 
