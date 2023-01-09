@@ -25,10 +25,10 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 
 | Release | Latest version |
 |---|---|
-| Generally available | 1.0.5555.1010 |
-| In-flight | 1.0.5739.9000/1.0.5739.9800 |
+| Generally available | 1.0.5739.9000/1.0.5739.9800 |
+| In-flight | N/A |
 
-## Version 1.0.5739.9000/1.0.5739.9800 (in-flight)
+## Version 1.0.5739.9000/1.0.5739.9800
 
 >[!NOTE]
 >You may see version 1.0.5739.9000 or 1.0.5739.9800 installed on session hosts depending on whether the host pool is configured to be a [validation environment](create-validation-host-pool.md). Version 1.0.5739.9000 was released to validation environments and version 1.0.5739.9800 was released to all other environments.
