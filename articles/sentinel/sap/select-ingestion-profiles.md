@@ -11,9 +11,7 @@ ms.date: 01/03/2023
 
 This article explains how to select the profile for your SAP solution. We recommend that you select an ingestion profile that maximizes your security coverage while meeting your budget requirements. 
 
-Because SAP is a business application, and business processes tend to be seasonal, it may be difficult to predict the overall volume of logs over time. To address this issue, we recommend that you keep all logs on for two weeks, and learn from the observed activity. This learning can later be revised during business activity peaks, or major landscape transformations.
-
-As one way to select a profile, you can turn on all logs for a while, and then reevaluate the ingestion profile according to the expected cost related to the ingestion. If needed, you can [simulate expected costs](../billing-monitor-costs.md). 
+Because SAP is a business application, and business processes tend to be seasonal, it may be difficult to predict the overall volume of logs over time. To address this issue, we recommend that you keep all logs on for two weeks, and learn from the observed activity. This learning can later be revised during business activity peaks, or major landscape transformations. 
 
 The following sections show typical customer configuration profiles for SAP log ingestion.
 
