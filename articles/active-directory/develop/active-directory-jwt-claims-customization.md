@@ -1,5 +1,5 @@
 ---
-title: Customize app JSON Web Token (JWT) claims
+title: Customize app JSON Web Token (JWT) claims (Preview)
 description: Learn how to customize the claims issued by Microsoft identity platform in the JSON web token (JWT) token for enterprise applications.
 services: active-directory
 author: davidmu1
@@ -13,11 +13,11 @@ ms.author: davidmu
 ms.custom: aaddev
 ---
 
-# Customize claims issued in the JSON web token (JWT) for enterprise applications
+# Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)
 
 The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
-These JSON Web tokens (JWT) used by OIDC & OAuth applications contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
+These JSON Web tokens (JWT) used by OIDC & OAuth applications (preview) contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
 
 In an [OIDC response](v2-protocols-oidc.md), *claims* data is typically contained in the ID Token issued by the identity provider in the form of a JWT.
 

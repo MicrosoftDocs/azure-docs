@@ -502,7 +502,7 @@ The output of the commands resembles the following example:
 [nfs-overview]:/windows-server/storage/nfs/nfs-overview
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
-[data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/master/storage/share.go
+[data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/shared/shared.go
 [vhd-disk-feature]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/disk
 
 <!-- LINKS - internal -->
