@@ -19,6 +19,7 @@ Some more complex solutions may require creating a chain of trust to establish s
 ## Limitations and other details
 
 The following scenarios are **not** supported:
+
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
 - User/Password authentication
@@ -31,10 +32,9 @@ By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* Latest version of [Azure CLI installed](/cli/azure/install-azure-cli).
+The latest version of the Azure CLI. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Configuring an HTTP proxy using Azure CLI 
+## Configuring an HTTP proxy using the Azure CLI
 
 Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON file.
 
@@ -52,7 +52,7 @@ The schema for the config file looks like this:
 ```
 
 * `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
-* `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
+* `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this isn't specified, then `httpProxy` is used for both HTTP and HTTPS connections.
 * `noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
 * `trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. Currently only the `PEM` format is supported.
 
@@ -106,7 +106,7 @@ In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. I
 
 ## Handling CA rollover
 
-Values for *httpProxy*, *httpsProxy*, and *noProxy* cannot be changed after cluster creation. However, to support rolling CA certs, the value for *trustedCa* can be changed and applied to the cluster with the [az aks update][az-aks-update] command.
+Values for *httpProxy*, *httpsProxy*, and *noProxy* can't be changed after cluster creation. However, to support rolling CA certs, the value for *trustedCa* can be changed and applied to the cluster with the [az aks update][az-aks-update] command.
 
 For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action will update the cluster:
 
@@ -116,21 +116,20 @@ az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-co
 
 ## Monitoring add-on configuration
 
-When using the HTTP proxy with the Monitoring add-on, the following configurations are supported:
+The HTTP proxy with the Monitoring add-on supports the following configurations:
 
   - Outbound proxy without authentication
   - Outbound proxy with username & password authentication
   - Outbound proxy with trusted cert for Log Analytics endpoint
 
-The following configurations are not supported:
+The following configurations aren't supported:
 
-  - The Custom Metrics and Recommended Alerts features are not supported when using proxy with trusted cert
-  - Outbound proxy is not supported with Azure Monitor Private Link Scope (AMPLS)
+  - The Custom Metrics and Recommended Alerts features aren't supported when you use a proxy with trusted certificates
+  - Outbound proxy isn't supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 
 For more information regarding the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].
-
 
 <!-- LINKS - internal -->
 [aks-egress]: ./limit-egress-traffic.md
