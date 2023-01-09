@@ -1,8 +1,8 @@
 ---
-title: Resiliency in Azure Bot Service 
+title: Reliability in Azure Bot Service 
 description: Find out about reliability in Azure Bot Service  
 author: hibrenda 
-ms.author: anaharris-ms
+ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
 ms.prod: non-product-specific
