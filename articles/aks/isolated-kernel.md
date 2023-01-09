@@ -21,7 +21,7 @@ This article helps you understand this new feature, and how to implement it.
 
 - The Azure CLI version x.xx.x or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` Azure CLI extension version x.x.xxx or later to select the Mariner 2.0 operating system SKU. 
+- The `aks-preview` Azure CLI extension version x.x.xxx or later to select the Mariner 2.0 operating system SKU.
 
 - 1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
 
@@ -258,8 +258,102 @@ You can also specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_p
 
 ---
 
+## Deploy application
+
+To demonstrate the isolation of an application on the AKS cluster deployed earlier, perform the following steps.
+
+1. Create a file named *trusted-app.yaml* to describe a trusted DaemonSet, and then paste the following manifest.
+
+    ```yml
+    apiVersion: apps/v1
+    kind: DaemonSet
+    metadata:
+      name: trusted
+    spec:
+      selector:
+        matchLabels:
+          app: trusted
+      template:
+        metadata:
+          labels:
+            app: trusted
+        spec:
+          containers:
+          - name: container1
+            image: fangluguopub.azurecr.io/ubuntu-debug
+            command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+            volumeMounts:
+            - mountPath: "/host"
+              name: host-root  
+          volumes:
+            - name: host-root
+              hostPath:
+                path: "/"
+                type: ""
+          hostNetwork: true
+          hostPID: true
+          hostIPC: true
+    ```
+
+2. Deploy the a Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *trusted-app.yaml* file:
+
+    ```bash
+    kubectl apply -f trusted-app.yaml
+    ```
+
+   The output of the command resembles the following example:
+
+    ```output
+    Blah
+    ```
+
+3. Create a file named *untrusted-app.yaml* to describe an un-trusted DaemonSet, and then paste the following manifest.
+
+    ```yml
+    apiVersion: apps/v1
+    kind: DaemonSet
+    metadata:
+      name: untrusted
+    spec:
+      selector:
+        matchLabels:
+          app: untrusted
+      template:
+        metadata:
+          labels:
+            app: untrusted
+        spec:
+          runtimeClassName: kata-qemu
+          containers:
+          - name: container1
+            image: fangluguopub.azurecr.io/ubuntu-debug
+            command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+            volumeMounts:
+            - mountPath: "/host"
+              name: host-root  
+          volumes:
+            - name: host-root
+              hostPath:
+                path: "/"
+                type: ""
+          hostNetwork: true
+          hostPID: true
+          hostIPC: true
+    ```
+
+4. Deploy the a Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
+
+    ```bash
+    kubectl apply -f untrusted-app.yaml
+    ```
+
+   The output of the command resembles the following example:
+
+    ```output
+    Blah
+    ```
+
 <!-- EXTERNAL LINKS -->
-[install-kubectl-on-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 [kata-containers-overview]: https://katacontainers.io/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
