@@ -18,7 +18,7 @@ ms.custom: kr2b-contr-experiment
 | Composite | Use Cases |
 | :-------- | :-------- |
 | [CallComposite](../../../quickstarts/ui-library/get-started-composites.md)  | Calling experience that allows users to start or join a call. Inside the experience, users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams interoperability, `CallComposite` includes lobby functionality so that users can wait to be admitted. |
-| [ChatComposite](../../../quickstarts/ui-library/get-started-composites.md)  | The `ChatComposite` brings a real-time text messaging experience to users. Specifically, users can send and receive a chat message with events from typing indicators and read receipt. In addition, users can also receive system messages such as participant added or removed and changes to chat title. |
+| [ChatComposite](../../../quickstarts/ui-library/get-started-chat-ui-library.md)  | The `ChatComposite` brings a real-time text messaging experience to users. Specifically, users can send and receive a chat message with events from typing indicators and read receipt. In addition, users can also receive system messages such as participant added or removed and changes to chat title. |
 
 ## Composites Scenarios for Calling
 
