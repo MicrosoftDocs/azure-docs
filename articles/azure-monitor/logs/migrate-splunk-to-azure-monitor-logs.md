@@ -56,7 +56,7 @@ To set up a Log Analytics workspace for data collection:
 
 ## 2. Migrate Splunk apps and artifacts
 
-|Splunk Artifact| Azure Monitor|
+|Splunk artifact| Azure Monitor artifact|
 |---|---|
 |Alerts|[Alert rules](../alerts/alerts-create-new-alert-rule.md)|
 |Alert actions|[Action groups](../alerts/action-groups.md)|
