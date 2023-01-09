@@ -23,8 +23,8 @@ PBR materials aren't a universal solution, though. There are materials that refl
 
 The following material properties are exposed in the runtime API, for instance on the [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial) or the [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial), respectively.
 
-* `PbrFlags`: Misc feature bits can be combined in this bit mask to enable the following features:
-  * `TransparentMaterial`:  For PBR materials, there's only one transparency setting: it's enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering pipeline is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
+* `PbrFlags`: Misc feature flags can be combined in this bit mask to enable the following features:
+  * `TransparentMaterial`:  For PBR materials, there's only one transparency setting: it's enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering method is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
   Transparent geometry is expensive to render. If you only need holes in a surface, for example for the leaves of a tree, it's better to use alpha clipping instead.
 
   ![Spheres rendered with zero to full transparency](./media/transparency.png)
@@ -32,10 +32,11 @@ The following material properties are exposed in the runtime API, for instance o
 
   > [!IMPORTANT]
   > If any material is supposed to be switched from opaque to transparent at runtime, the renderer must use the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md). This limitation does not apply to materials that are converted as transparent materials to begin with.
+  
   * `UseVertexColor`: If the mesh contains :::no-loc text="vertex"::: colors and this option is enabled, the meshes' :::no-loc text="vertex"::: color is multiplied into the `AlbedoColor` and `AlbedoMap`. By default `UseVertexColor` is disabled.
   * `DoubleSided`: If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
-  * `SpecularHighlights`: Enables specular highlights for this material.
-  * `AlphaClipped`: Enables hard cut-outs on a per-pixel basis based on the alpha value being below the value of `AlphaClipThreshold` (see below). This works for opaque materials as well.
+  * `SpecularHighlights`: Enables specular highlights for this material. By default, the `SpecularHighlights` flag is enabled.
+  * `AlphaClipped`: Enables hard cut-outs on a per-pixel basis, based on the alpha value being below the value of `AlphaClipThreshold` (see below). This works for opaque materials as well.
   * `FresnelEffect`: This material flag enables the additive [fresnel effect](../../overview/features/fresnel-effect.md) on the respective material. The appearance of the effect is governed by the other fresnel parameters `FresnelEffectColor` and `FresnelEffectExponent` explained below.
   * `TransparencyWritesDepth`: If the `TransparencyWritesDepth` flag is set on the material and the material is transparent, objects using this material will also contribute to the final depth buffer. See the PBR material flag *transparent* in the next section. Enabling this feature is recommended if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. For mixed opaque/transparent scenes, this setting may introduce implausible reprojection behavior or reprojection artifacts. For this reason, the default and recommended setting for the general use case is to disable this flag. The written depth values are taken from the per-pixel depth layer of the object that is closest to the camera.
 
@@ -46,17 +47,17 @@ The following material properties are exposed in the runtime API, for instance o
 
 * `AlbedoMap`: A [2D texture](../../concepts/textures.md) for per-pixel albedo values.
 
-* `AlphaClipThreshold`: If the `AlphaClipped` bit is set on the `PbrFlags` property, all pixels where the albedo alpha value is lower than `AlphaClipThreshold` won't be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. Alpha clipped materials are still slower to render than fully opaque materials, though. By default alpha clipping is disabled.
+* `AlphaClipThreshold`: If the `AlphaClipped` flag is set on the `PbrFlags` property, all pixels where the albedo alpha value is lower than `AlphaClipThreshold` won't be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. Alpha clipped materials are still slower to render than fully opaque materials, though. By default alpha clipping is disabled.
 
 * `TexCoordScale` and `TexCoordOffset`: The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
 
-* `FresnelEffectColor`: The fresnel color used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the base color of the fresnel shine (see [fresnel effect](../../overview/features/fresnel-effect.md) for a full explanation). Currently only the rgb-channel values are important and the alpha value will be ignored.
+* `FresnelEffectColor`: The fresnel color used for this material. Only important when the fresnel effect flag has been set on this material (see above). This property controls the base color of the fresnel shine (see [fresnel effect](../../overview/features/fresnel-effect.md) for a full explanation). Currently only the RGB-channel values are important and the alpha value will be ignored.
 
-* `FresnelEffectExponent`: The fresnel exponent used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the spread of the fresnel shine. The minimum value 0.01 causes a spread across the whole object. The maximum value 10.0 constricts the shine to only the most gracing edges visible.
+* `FresnelEffectExponent`: The fresnel exponent used for this material. Only important when the fresnel effect flag has been set on this material (see above). This property controls the spread of the fresnel shine. The minimum value 0.01 causes a spread across the whole object. The maximum value 10.0 constricts the shine to only the most grazing edges visible.
 
 * `PbrVertexAlphaMode`: Determines how the alpha channel of vertex colors is used. The following modes are provided:
   * `Occlusion`: The alpha value represents an ambient occlusion value and therefore only affects the indirect lighting from the sky box.
-  * `LightMask`: The alpha value serves as scale factor for the overall amount of lighting applied, meaning the alpha can be used to darken areas. This affects both indirect and direct lighting.
+  * `LightMask`: The alpha value serves as a scale factor for the overall amount of lighting applied, meaning the alpha can be used to darken areas. This affects both indirect and direct lighting.
   * `Opacity`: The alpha represents how opaque (1.0) or transparent (0.0) the material is.
 
 * `NormalMap`: To simulate fine grained detail, a [normal map](https://en.wikipedia.org/wiki/Normal_mapping) can be provided.
@@ -70,14 +71,14 @@ The following material properties are exposed in the runtime API, for instance o
 
   In the picture above, the sphere in the bottom-right corner looks like a real metal material, the bottom-left looks like ceramic or plastic. The albedo color is also changing according to physical properties. With increasing roughness, the material loses reflection sharpness.
 
-* `AOMap` and `AOScale`: [Ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion) makes objects with crevices look more realistic by adding shadows to occluded areas. Occlusion value range from `0.0` to `1.0`, where `0.0` means darkness (occluded) and `1.0` means no occlusions. If a 2D texture is provided as an occlusion map, the effect is enabled and *aoScale* acts as a multiplier.
+* `AOMap` and `AOScale`: [Ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion) makes objects with crevices look more realistic by adding shadows to occluded areas. Occlusion value range from `0.0` to `1.0`, where `0.0` means darkness (occluded) and `1.0` means no occlusions. If a 2D texture is provided as an occlusion map, the effect is enabled and `AOScale` acts as a multiplier.
 
   ![An object rendered with and without ambient occlusion](./media/boom-box-ao2.gif)
 
 ## Color material overrides during conversion
 
 A subset of color material properties can be overridden during model conversion through the [material override file](../../how-tos/conversion/override-materials.md).
-The following table shows the mapping between runtime property documented above and the property name in the override file:
+The following table shows the mapping between runtime properties documented above and the corresponding property name in the override file:
 
 | Material property name      | Property name in override file|
 |:----------------------------|:---------------------|
