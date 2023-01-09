@@ -16,7 +16,7 @@ ms.workload: na
 # About Microsoft Security Code Analysis
 
 > [!Note]
-> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension was retired. MSCA is replaced by the [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension). Follow the instructions in [Configure](/azure/defender-for-cloud/azure-devops-extension) to install and configure the extension.
+> Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the [Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension). Follow the instructions in [Configure](/azure/defender-for-cloud/azure-devops-extension) to install and configure the extension.
 
 With the Microsoft Security Code Analysis extension, teams can add security code analysis to their Azure DevOps continuous integration and delivery (CI/CD) pipelines. This analysis is recommended by the [Secure Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/practices) experts at Microsoft.
 
