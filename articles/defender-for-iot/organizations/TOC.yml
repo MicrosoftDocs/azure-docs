@@ -245,8 +245,8 @@
       items:
       - name: Work with device notifications
         href: how-to-work-with-device-notifications.md
-      - name: Enhance port and VLAN name resolution
-        href: how-to-enhance-port-and-vlan-name-resolution.md
+      - name: Customize port and VLAN names
+        href: how-to-customize-port-and-vlan-names.md
       - name: Import device information
         href: how-to-import-device-information.md
     - name: Track sensor activity
