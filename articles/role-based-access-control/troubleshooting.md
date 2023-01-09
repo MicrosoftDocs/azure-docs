@@ -134,7 +134,7 @@ For more information, see [Assign Azure roles to a new service principal using t
 
 **Solution 2**
 
-If you are creating a new user or service principal using Azure PowerShell, set the `ObjectType` parameter to `User` or `ServicePrincipal` when creating the role assignment using [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For more information, see [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md).
+If you are creating a new user or service principal using Azure PowerShell, set the `ObjectType` parameter to `User` or `ServicePrincipal` when creating the role assignment using [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). The same underlying API version restrictions of Solution 1 still apply. For more information, see [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md).
 
 **Solution 3**
 
