@@ -31,11 +31,10 @@ When it comes to defining the offer along with its pricing models, it is importa
 * Each managed application plan has a pricing model associated with it.
 * Pricing model has a monthly recurring fee, which can be set to $0.
 * In addition to the recurring fee, the plan can also include optional dimensions used to charge customers for usage not included in the flat rate. Each dimension represents a billable unit that your service will communicate to Microsoft using the [Marketplace metering service API](marketplace-metering-service-apis.md).
+> [!IMPORTANT]
+> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
-* > [!IMPORTANT]
-   > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
-
-  > [!Note]
+> [!Note]
 > Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies).
 ## Sample offer
 
@@ -120,5 +119,6 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 **Video tutorial**
 
 - [Metered Billing for Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196310)
+
 
 
