@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 # Read or update a user account by using Azure Active Directory B2C custom policy 
 
-In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, the custom policy doesn't handle a scenario of trying to create an account of a user who already exists. You can write an Azure Active Directory B2C (Azure AD B2C) Technical Profile that checks if a user exists before a new user account is added. The Azure AD Technical Profile can use the *email* claim as a unique identifier to query Azure AD storage.     
+In the [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, the custom policy doesn't handle a scenario where a user tried to create an account that already exists. You can write an Azure Active Directory B2C (Azure AD B2C) Technical Profile that checks if a user exists before a new user account is added. The Azure AD Technical Profile can use the *email* claim as a unique identifier to query Azure AD storage.     
 
 In this article, you'll learn how to write an Azure AD B2C custom policy to create a new user account or update an existing one.
 
