@@ -52,8 +52,6 @@ If you don't yet have a workspace, create one now:
 
 You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials.
 
-If you already have a compute instance, skip this section and continue to [Upload files](#upload-files).  
-
 Create a compute instance now.  
 
 1. On the left navigation, select **Notebooks**.
@@ -77,7 +75,9 @@ Review the parts of the studio on the left-hand navigation bar:
 
 * The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  If you have a new workspace, there's nothing in any of these sections yet.
 
-* The **Manage** section of the studio lets you create and manage compute  data and external services you link to your workspace.  
+* The **Manage** section of the studio lets you create and manage compute and external services you link to your workspace. It's also where you can create and manage a **Data labeling** project.
+
+:::image type="content" source="media/quickstart-create-resources/overview.png" alt-text="Screenshot of Azure ML studio.":::
 
 ### Workspace diagnostics
 
