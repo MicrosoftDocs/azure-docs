@@ -211,7 +211,8 @@ func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) 
 }
 ```
 
-NOTE: In some cases CallKit doesn't call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is received. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
+> [!NOTE]
+> In some cases CallKit doesn't call `didActivateAudioSession` even though the app has elevated audio permissions, in that case the audio will stay muted until the call back is received. And the UI has to reflect the state of the speaker and microphone. The remote participant/s in the call will see that the user has muted audio as well. User will have to manually unmute in those cases.
 
   ## Next steps
   - [Learn how to manage video](./manage-video.md)
