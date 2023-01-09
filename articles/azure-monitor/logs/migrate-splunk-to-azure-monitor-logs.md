@@ -61,11 +61,11 @@ To set up a Log Analytics workspace for data collection:
 |Alerts|[Alert rules](../alerts/alerts-create-new-alert-rule.md)|
 |Alert actions|[Action groups](../alerts/action-groups.md)|
 |Source Types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
-|Searches||
-|Dashboard||
-|Reports||
-|Namespaces||
-|Permissions||
+|Searches|[Queries](../logs/get-started-queries.md)|
+|Dashboards|[Workbooks](../visualize/workbooks-overview.md)|
+|Reports|[Azure Monitor Insights](../insights/insights-overview.md)|
+|Namespaces|[Log Analytics workspaces](../logs/log-analytics-workspace-overview.md) and [Azure resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md)|
+|Permissions|[Access management](../logs/manage-access.md)|
 
 ## 3. Ingest historical data
 
