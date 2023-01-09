@@ -126,7 +126,7 @@ The result is a handle to the workspace that you'll use to manage other resource
 
 ## Register the model
 
-If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you've registered an MLflow model as part of the training script and can skip to the next section. 
+If you already completed the earlier Day 1 tutorials, "Train model responsibly" or "Create reusable pipeline", you've registered an MLflow model as part of the training script and can skip to the [Confirm that the model is registered](#confirm-that-the-model-is-registered) section.
 
 If you didn't complete either of those tutorials, you'll need to register the model. Registering your model before deployment is a recommended best practice.
 
@@ -183,7 +183,7 @@ Azure Machine Learning allows you to implement both [online endpoints?](concept-
 
 ## Create an online endpoint
 
-Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier#:~:text=A%20universally%20unique%20identifier%20(UUID,%2C%20for%20practical%20purposes%2C%20unique). For more information on the endpoint naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+Now that you have a registered model, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using a universally unique identifier [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#:~:text=A%20universally%20unique%20identifier%20(UUID,%2C%20for%20practical%20purposes%2C%20unique). For more information on the endpoint naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
 
 > [!NOTE]
 > Expect the endpoint creation to take approximately 6 to 8 minutes.
@@ -302,7 +302,7 @@ endpoint.traffic = {"blue": 100}
 ml_client.online_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-## Check the status of the endpoint
+### Check the status of the endpoint
 You can check the status of the endpoint to see whether the model was deployed without error:
 
 
@@ -323,7 +323,7 @@ print(endpoint.traffic)
 print(endpoint.scoring_uri)
 ```
 
-## Test the endpoint with sample data
+### Test the endpoint with sample data
 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
@@ -343,7 +343,7 @@ ml_client.online_endpoints.invoke(
 )
 ```
 
-## Get logs of the deployment
+### Get logs of the deployment
 Check the logs to see whether the endpoint/deployment were invoked successfuly
 If you face errors, see [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md).
 
@@ -374,7 +374,7 @@ green_deployment = ManagedOnlineDeployment(
 green_deployment = ml_client.online_deployments.begin_create_or_update(green_deployment).result()
 ```
 
-## Scale deployment to handle more traffic
+### Scale deployment to handle more traffic
 
 Using the `MLClient` created earlier, we'll get a handle to the `green` deployment. The deployment can be scaled by increasing or decreasing the `instance_count`.
 
@@ -418,7 +418,7 @@ logs = ml_client.online_deployments.get_logs(name="green", endpoint_name=online_
 print(logs)
 ```
 
-## View metrics using Azure Monitor
+### View metrics using Azure Monitor
 You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for online endpoints/deployments in the metrics page of the AzureML studio.
 
 ![metrics page 1](./images/deploy-metrics-1.png)
@@ -429,7 +429,7 @@ If you open the metrics for the online endpoint, you can set it up to see metric
 
 See [Monitor online endpoints](how-to-monitor-online-endpoints.md) for details.
 
-## Send all traffic to the new deployment
+### Send all traffic to the new deployment
 Once you're fully satisfied with your `green` deployment, switch all traffic to it.
 
 
@@ -438,7 +438,7 @@ endpoint.traffic = {"blue": 0, "green": 100}
 ml_client.begin_create_or_update(endpoint).result()
 ```
 
-## Delete the old deployment
+### Delete the old deployment
 Remove the old (blue) deployment:
 
 
