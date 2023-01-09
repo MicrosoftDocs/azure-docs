@@ -21,22 +21,30 @@ Connectivity to the Arc Kubernetes endpoints is required for all Kubernetes base
 
 [!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
+For an example, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](kubernetes/quickstart-connect-cluster.md).
+
 ## Azure Arc-enabled data services
 
 This section describes additional requirements specific to Azure Arc-enabled data services, in addition to the Arc Kubernetes endpoints listed above.
 
 [!INCLUDE [network-requirements](data/includes/network-requirements.md)]
 
+For more information, see [Connectivity modes and requirements](data/connectivity.md).
+
 ## Azure Arc-enabled servers
 
 Connectivity to Arc-enabled server endpoints is required for:
 
 - Azure Arc-enabled SQL Server
-- Azure Arc resource bridge (preview)
-- Azure Arc-enabled VMware vSphere (preview)
-- Azure Arc-enabled System Center Virtual Machine Manager (preview)
+- Azure Arc-enabled VMware vSphere (preview) <sup>*</sup>
+- Azure Arc-enabled System Center Virtual Machine Manager (preview) <sup>*</sup>
+- Azure Arc-enabled Azure Stack (HCI) (preview) <sup>*</sup>
+
+   <sup>*</sup>Only required for guest management enabled.
 
 [!INCLUDE [network-requirements](servers/includes/network-requirements.md)]
+
+For examples, see [Connected Machine agent network requirements](servers/network-requirements.md)].
 
 ## Azure Arc resource bridge (preview)
 
@@ -44,18 +52,22 @@ This section describes additional networking requirements specific to deploying 
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
-## System Center Virtual Machine Manager (preview)
+## Azure Arc-enabled System Center Virtual Machine Manager (preview)
 
-System Center Virtual Machine Manager (SCVMM) requires the connectivity described below:
+Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) requires the connectivity described below:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
 | SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 
-## VMware vSphere (preview)
 
-VMware vSphere requires the connectivity described below:
+For more information, see [Overview of Arc-enabled System Center Virtual Machine Manager (preview)](system-center-virtual-machine-manager/overview.md).
+## Azure Arc-enabled VMware vSphere (preview)
+
+Azure Arc-enabled VMware vSphere requires the connectivity described below:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
 | vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
+
+For more information, see [Support matrix for Azure Arc-enabled VMware vSphere (preview)](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
