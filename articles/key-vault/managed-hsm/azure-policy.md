@@ -12,14 +12,14 @@ ms.topic: how-to
 
 # Integrate Azure Managed HSM with Azure Policy
 
-[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they will be able to see a drill-down of which resources and components are compliant and which are not.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
+[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill-down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
 
 Example Usage Scenarios:
 
-- You currently don't have a solution to perform an audit across your organization, or you are conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You are looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
+- You currently don't have a solution to perform an audit across your organization, or you are conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You're looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
 - You want to enforce your company security policies and stop individuals from creating certain cryptographic keys, but you don't have an automated way to block their creation.
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
-- You want to be sure that you can roll-back enforcement of new policies if there is a live-site issue. You need a one-click solution to turn off enforcement of the policy.
+- You want to be sure that you can roll back enforcement of new policies if there's a live-site issue. You need a one-click solution to turn off enforcement of the policy.
 - You are relying on a third-party solution for auditing your environment and you want to use an internal Microsoft offering.
 
 ## Types of policy effects and guidance
@@ -45,7 +45,7 @@ This policy audits all keys in your Managed HSMs and flags keys that do not have
 
 ### Keys should have more than the specified number of days before expiration
 
-If a key is too close to expiration, an organizational delay to rotate the key may result in an outage. Keys should be rotated at a specified number of days prior to expiration to provide sufficient time to react to a failure. This policy will audit keys that are too close to their expiration date and allows you to set this threshold in days. You can also use this policy to prevent the creation of new keys that are too close to their expiration date.
+If a key is too close to expiration, an organizational delay to rotate the key may result in an outage. Keys should be rotated at a specified number of days prior to expiration to provide sufficient time to react to a failure. This policy will audit keys too close to their expiration date and allows you to set this threshold in days. You can also use this policy to prevent the creation of new keys too close to their expiration date.
 
 ### Keys using RSA cryptography should have a specified minimum key size
 
@@ -91,7 +91,7 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 
 ### Create policy assignments - define rules of audit and/or deny
 
-Policy assignments have concrete values defined for policy definitions' parameters. In [Azure portal](https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true}) (also in private preview), go to "Policy" blade, filter on the "Key Vault" category, find these four preview key governance policy definitions. Select one, then select "Assign" button on top. Fill in each field. If the policy assignment is for request denials, use a clear name about the policy because, when a request is denied, the policy assignment's name will appear in the error. Select Next, uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service will need up to 30 minutes to enforce "Deny" assignments.
+Policy assignments have concrete values defined for policy definitions' parameters. In [Azure portal](https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true}) (also in private preview), go to "Policy", filter on the "Key Vault" category, find these four preview key governance policy definitions. Select one, then select "Assign" button on top. Fill in each field. If the policy assignment is for request denials, use a clear name about the policy because, when a request is denied, the policy assignment's name will appear in the error. Select Next, uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service will need up to 30 minutes to enforce "Deny" assignments.
 
 - [Preview]: Azure Key Vault Managed HSM keys should have an expiration date
 - [Preview]: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size
@@ -103,7 +103,7 @@ You can also do this operation using the Azure CLI. See [Create a policy assignm
 ### Test your setup
 
 Try to update/create a key that violates the rule, if you have a policy assignment with effect "Deny", it will return 403 to your request.
-Review the scan result of inventory keys of auditing policy assignments. After 12 hours, check the Policy blade's Compliance menu, filter on the "Key Vault" category, and find your assignments. Select on each of them, to check the compliance result report.
+Review the scan result of inventory keys of auditing policy assignments. After 12 hours, check the Policy's Compliance menu, filter on the "Key Vault" category, and find your assignments. Select on each of them, to check the compliance result report.
 
 ## Troubleshooting
   
