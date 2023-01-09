@@ -28,8 +28,8 @@ Predictive IntelliSense is a feature of the **PSReadLine** module. It provides s
 complete commands based on items from your history and from predictor modules, like
 **Az.Tools.Predictor**.
 
-Prediction suggestions appear as colored text following the user's cursor. The image below shows the
-default `InlineView` of the suggestion. Pressing <kbd>RightArrow</kbd> key accepts an inline
+Prediction suggestions appear as colored text following the user's cursor. The following image shows
+the default `InlineView` of the suggestion. Pressing <kbd>RightArrow</kbd> key accepts an inline
 suggestion. After accepting the suggestion, you can edit the command line before hitting
 <kbd>Enter</kbd> to run the command.
 
@@ -72,9 +72,8 @@ Set-PSReadLineOption -PredictionSource None
 ## Keep your changes permanent
 
 The commands to change the prediction color and enable/disable predictions only affect the current
-session. To make these changes reflect every time you start Cloud Shell, create or edit a
-PowerShell Profile. The following instructions will guide you through configuring a profile for
-Cloud Shell. For more details on PowerShell profiles, see [About_Profiles][06]
+session. Add these commands to your PowerShell profile so that they are available every time you start Cloud Shell. The following instructions will guide you through configuring a profile for
+Cloud Shell. For more information on PowerShell profiles, see [About_Profiles][06]
 
 ### How to check if you have a PowerShell profile in Cloud Shell
 
@@ -107,8 +106,8 @@ UnixMode   User             Group                 LastWriteTime           Size N
 
 Use the built-in open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][04].
 
-Below is an example of profile commands that set the prediction color to default light grey and
-enables History predictions.
+The following example shows the profile commands that set the prediction color to default light grey
+and enables History predictions.
 
 ```powershell
 Set-PSReadLineOption -PredictionSource History
