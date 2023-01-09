@@ -45,6 +45,7 @@ pip install azure-eventhub
 
 
 ## Send events
+
 In this section, create a Python script to send events to the event hub that you created earlier.
 
 1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/).
@@ -54,7 +55,38 @@ In this section, create a Python script to send events to the event hub that you
     ## [Passwordless (Recommended)](#tab/passwordless)
 
     ```python
-    TBD
+    import asyncio
+    from azure.eventhub.aio import EventHubProducerClient
+    from azure.eventhub import EventData
+    from azure.identity import DefaultAzureCredential
+    
+    EVENT_HUB_CONNECTION_STR = "EVENT HUBS NAMESPACE - CONNECTION STRING"
+    EVENT_HUB_NAMESPACE = "EVENT HUBS NAMESPACE"
+    EVENT_HUB_NAME = "EVENT HUB NAME"
+    
+    async def run():
+        # Create a producer client to send messages to the event hub.
+        # Specify a credential that has correct role assigned to access
+        # event hubs namespace and the event hub name.
+        producer = EventHubProducerClient(
+            credential=DefaultAzureCredential(),
+            fully_qualified_namespace=EVENT_HUB_NAMESPACE,
+            eventhub_name=EVENT_HUB_NAME
+        )
+        async with producer:
+            # Create a batch.
+            event_data_batch = await producer.create_batch()
+    
+            # Add events to the batch.
+            event_data_batch.add(EventData('First event '))
+            event_data_batch.add(EventData('Second event'))
+            event_data_batch.add(EventData('Third event'))
+    
+            # Send the batch of events to the event hub.
+            await producer.send_batch(event_data_batch)
+    
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run())
     ```
 
     ## [Connection String](#tab/connection-string)
@@ -151,7 +183,47 @@ In this section, you create a Python script to receive events from your event hu
     ## [Passwordless (Recommended)](#tab/passwordless)
 
     ```python
-    TBD
+    import asyncio
+    from azure.eventhub.aio import EventHubConsumerClient
+    from azure.eventhub.extensions.checkpointstoreblobaio import BlobCheckpointStore
+    from azure.identity import DefaultAzureCredential
+    
+    AZURE_STORAGE_CONNECTION_STRING = "AZURE STORAGE CONNECTION STRING"
+    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
+    EVENT_HUB_NAMESPACE = "EVENT HUBS NAMESPACE"
+    EVENT_HUB_NAME = "EVENT HUB NAME"
+    
+    async def on_event(partition_context, event):
+        # Print the event data.
+        print("Received the event: \"{}\" from the partition with ID: \"{}\"".format(event.body_as_str(encoding='UTF-8'), partition_context.partition_id))
+    
+        # Update the checkpoint so that the program doesn't read the events
+        # that it has already read when you run it next time.
+        await partition_context.update_checkpoint(event)
+    
+    async def main():
+        # Create an Azure blob checkpoint store to store the checkpoints.
+        checkpoint_store = BlobCheckpointStore.from_connection_string(
+            AZURE_STORAGE_CONNECTION_STRING, 
+            BLOB_CONTAINER_NAME
+        )
+    
+        # Create a consumer client for the event hub.
+        client = EventHubConsumerClient(
+            credential=DefaultAzureCredential(),
+            fully_qualified_namespace=EVENT_HUB_NAMESPACE,
+            eventhub_name=EVENT_HUB_NAME,
+            consumer_group="$Default", 
+            checkpoint_store=checkpoint_store
+        )
+        async with client:
+            # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
+            await client.receive(on_event=on_event,  starting_position="-1")
+    
+    if __name__ == '__main__':
+        loop = asyncio.get_event_loop()
+        # Run the main method.
+        loop.run_until_complete(main())
     ```
 
     ## [Connection String](#tab/connection-string)
@@ -211,8 +283,8 @@ python send.py
 
 The receiver window should display the messages that were sent to the event hub.
 
-
 ## Next steps
+
 In this quickstart, you've sent and received events asynchronously. To learn how to send and receive events synchronously, go to the [GitHub sync_samples page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples/sync_samples).
 
 For all the samples (both synchronous and asynchronous) on GitHub, go to [Azure Event Hubs client library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples).
