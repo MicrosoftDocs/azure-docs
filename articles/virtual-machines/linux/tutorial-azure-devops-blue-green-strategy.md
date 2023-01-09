@@ -1,5 +1,5 @@
 ---
-title: Configure canary deployments for Azure Linux virtual machines
+title: Configure blue-green deployments for Azure Linux virtual machines
 description: Learn how to set up a classic release pipeline and deploy to Linux virtual machines using the blue-green deployment strategy.
 author: moala
 tags: azure-devops-pipelines

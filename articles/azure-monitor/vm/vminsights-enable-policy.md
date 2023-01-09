@@ -33,34 +33,33 @@ The initiatives apply to new machines you create and machines you modify, but no
 
 To assign a VM insights policy initiative to a subscription or management group from the Azure portal:
 
-1. Select **Azure Monitor** > **Virtual machines**. 
-1. Select **Overview** > **Other onboarding options** and then **Enable** under **Enable using policy**.
+1. Search for and open **Policy**. 
+1. Select **Assignments** > **Assign initiative**.
 
-    The **Azure Monitor for VMs Policy Coverage** lists the tenant root group, which consists of the top-level management groups and subscriptions in your tenant. To assign an initiative to a lower-level management group or subscription, select one of the management groups to drill down in your [hierarchy of management groups](../../governance/management-groups/overview.md#hierarchy-of-management-groups-and-subscriptions). 
+    :::image type="content" source="media/vminsights-enable-policy/vm-insights-assign-initiative.png" lightbox="media/vminsights-enable-policy/vm-insights-assign-initiative.png" alt-text="Screenshot that shows the Policy Assignments screen with the Assign initiative button highlighted.":::
 
-    :::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot showing other onboarding options page of VM insights with the Enable using policy option.":::
-   
-1. Select **Assign Policy** to assign a policy to a subscription or management group.
-
-    [![Create assignment](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
-    
-1. (Optional) Change the **Assignment name** and add a **Description**. 
-1. Select **Exclusions** to exclude specific resources from the policy assignment. For example, if your scope is a management group, you might specify a subscription in that management group to be excluded from the assignment.
+    This opens the **Assign initiative** screen.
 
     [![Assign initiative](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
-1. On the **Parameters** tab, select a **Log Analytics workspace** to which all virtual machines in the assignment will send data. For virtual machines to send data to different workspaces, create multiple assignments, each with their own scope. 
+1. Configure the initiative assignment:
 
-    If you're assigning a legacy initiative, the workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md).
-
-    [![Workspace](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
-   
-    > [!NOTE]
-    > If you select a workspace that's not within the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. Otherwise, you might get a deployment failure like `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+    1. In the **Scope** field, select the management group or subscription to which you'll assign the initiative. 
+    1. (Optional) Select **Exclusions** to exclude specific resources from the initiative assignment. For example, if your scope is a management group, you might specify a subscription in that management group to be excluded from the assignment.
+    1. Select the ellipsis (...) next to **Initiative assignment** to launch the policy definition picker, and select one of the VM insights initiatives. 
+    1. (Optional) Change the **Assignment name** and add a **Description**. 
+    1. On the **Parameters** tab, select a **Log Analytics workspace** to which all virtual machines in the assignment will send data. For virtual machines to send data to different workspaces, create multiple assignments, each with their own scope. 
+    
+        If you're assigning a legacy initiative, the workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md).
+    
+        [![Workspace](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+       
+        > [!NOTE]
+        > If you select a workspace that's not within the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. Otherwise, you might get a deployment failure like `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 1. Select **Review + Create** to review the initiative assignment details and select **Create** to create the assignment. 
 
-    Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. For more information about creating remediation tasks, see [Remediate compliance results](#create-a-remediate-task).
+    Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. For more information about creating remediation tasks, see [Remediate compliance results](#create-a-remediation-task).
 
 ## Review compliance for a VM insights policy initiative 
 
@@ -68,12 +67,16 @@ After you assign an initiative, you can review and manage compliance for the ini
 
 To see how many virtual machines exist in each of the management groups or subscriptions and their compliance status:
 
-1. Select **Azure Monitor** > **Virtual machines**. 
-1. Select **Overview** > **Other onboarding options** and then **Enable** under **Enable using policy**.
+1. Search for and open **Azure Monitor**. 
+1. Select **Virtual machines** > **Overview** > **Other onboarding options** and then **Enable** under **Enable using policy**.
+
+    :::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot showing other onboarding options page of VM insights with the Enable using policy option.":::
+
+    This opens the **Azure Monitor for VMs Policy Coverage** page.
 
     [![VM insights Manage Policy page](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
-    This table describes the compliance information provided on the **Azure Monitor for VMs Policy Coverage** page.
+    The following table describes the compliance information presented on the **Azure Monitor for VMs Policy Coverage** page.
     
     | Function | Description | 
     |----------|-------------| 
@@ -106,10 +109,9 @@ To see how many virtual machines exist in each of the management groups or subsc
 
 1. Select a policy definition to open the **Policy compliance** page. 
 
-## Create a remediate task
+## Create a remediation task
 
 If your assignment doesn't show 100% compliance, create remediation tasks to evaluate and enable existing VMs. You'll most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
-
 
 To create a remediation task:
    
@@ -121,12 +123,16 @@ To create a remediation task:
     
     [![New remediation task](media/vminsights-enable-policy/new-remediation-task.png)](media/vminsights-enable-policy/new-remediation-task.png#lightbox)
 
-1. Review **Remediation settings** and **Resources to remediate** and modify as necessary. 
-1. To track the progress of remediation tasks, select **Remediate** from the **Policy** menu and select the **Remediation tasks** tab. 
+1. Review **Remediation settings** and **Resources to remediate** and modify as necessary, then select **Remediate** to create the task. 
 
-    [![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
-        
     Once the remediation tasks are complete, your VMs should be compliant with agents installed and enabled for VM insights. 
+
+## Track remediation tasks
+
+To track the progress of remediation tasks, select **Remediate** from the **Policy** menu and select the **Remediation tasks** tab. 
+
+[![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
+
     
 ## Next steps
 

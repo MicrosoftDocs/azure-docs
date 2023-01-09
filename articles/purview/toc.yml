@@ -395,6 +395,8 @@ items:
       href: how-to-workflow-self-service-data-access-hybrid.md
     - name: Approval for business terms
       href: how-to-workflow-business-terms-approval.md
+    - name: Approval for data asset curation
+      href: how-to-workflow-asset-curation.md
     - name: Manage requests and approvals
       href: how-to-workflow-manage-requests-approvals.md
     - name: Manage workflow runs
@@ -436,7 +438,7 @@ items:
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
-      href: /dotnet/api/overview/azure/purviewresourceprovider
+      href: /dotnet/api/overview/azure/purview
     - name: PowerShell
       href: /powershell/module/az.purview/
     - name: Python
