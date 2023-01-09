@@ -32,7 +32,7 @@ Each revision to your API can be accessed using a specially formed URL. Append `
 
 `https://apis.contoso.com/customers;rev=3/leads?customerId=123`
 
-By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](./api-management-access-restriction-policies.md#RestrictCallerIPs) to prevent external callers from accessing a revision that is still under development.
+By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](ip-filter-policy.md) to prevent external callers from accessing a revision that is still under development.
 
 > [!NOTE]
 > The `;rev={id}` must be appended to the API ID, and not the URI path.
