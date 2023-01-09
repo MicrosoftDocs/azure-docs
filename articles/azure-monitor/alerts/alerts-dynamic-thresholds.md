@@ -112,7 +112,7 @@ When a metric value exhibits large fluctuations, dynamic thresholds may build a 
 - The sensitivity is set to low.
 - The metric exhibits an irregular behavior with high variance, which appears as spikes or dips in the data.
 
-Consider making the model less sensitive by choosing a higher sensitivity or selecting a larger **Aggregation granularity** (Period).  You can also use the **Ignore data before** option to exclude a recent irregularity from the historical data used to build the model.
+Consider making the model less sensitive by choosing a higher sensitivity or selecting a larger **Aggregation granularity (Period)**.  You can also use the **Ignore data before** option to exclude a recent irregularity from the historical data used to build the model.
 
 ## The Dynamic Thresholds alert rule is too noisy or fires too much
 
