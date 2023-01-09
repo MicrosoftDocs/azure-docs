@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/09/2022
 ---
 
-# Subscribe to Grafana Enterprise (preview) and start using Grafana Enterprise plugins
+# Enable Grafana Enterprise (preview)
 
 In this guide, learn how to activate the Grafana Enterprise (preview) add-on in Azure Managed Grafana, update your Grafana Enterprise plan, and access [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).
 
@@ -39,23 +39,21 @@ Grafana Enterprise plugins, as of January 2023:
 > [!NOTE]
 > Grafana Enterprise plugins are directly supported by Grafana Labs. For more information and an updated list, go to [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).
 
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- This guide assumes that you already know the basics of [creating an Azure Managed Grafana instance](quickstart-managed-grafana-portal.md).
-
-## Activate and manage Grafana Enterprise (preview)
-
 You can enable access to Grafana Enterprise plugins by selecting a Grafana Enterprise plan when creating a new workspace, or you can add a Grafana Enterprise plan on an already-created Azure Managed Grafana instance.
 
 > [!NOTE]
 > The Grafana Enterprise monthly plan is a paid plan, owned and charged by Grafana Labs, through Azure Marketplace. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
 
 > [!IMPORTANT]
-> Grafana Enterprise is currently in PREVIEW with Azure Managed Grafana.
+> Grafana Enterprise is currently in preview within Azure Managed Grafana.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### Create an Azure Managed Grafana workspace with a Grafana Enterprise plan enabled
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- This guide assumes that you already know the basics of [creating an Azure Managed Grafana instance](quickstart-managed-grafana-portal.md).
+
+## Create a workspace with Grafana Enterprise enabled
 
 To activate Grafana Enterprise plugins when creating an Azure Managed Grafana Workspace, in **Create a Grafana Workspace**, go to the **Basics** tab and follow the steps below:
 
@@ -74,7 +72,7 @@ To activate Grafana Enterprise plugins when creating an Azure Managed Grafana Wo
 
 1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Create** to finalize the creation of your new Azure Managed Grafana instance.
 
-### Activate Grafana Enterprise on an existing workspace
+## Activate Grafana Enterprise on an existing workspace
 
 To enable Grafana Enterprise on an existing Azure Managed Grafana instance, follow the steps below:
 
@@ -85,7 +83,7 @@ To enable Grafana Enterprise on an existing Azure Managed Grafana instance, foll
         > Each Azure subscription can benefit from one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month. If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
   1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Update** to finalize the creation of your new Azure Managed Grafana instance.
 
-### Update a Grafana Enterprise plan
+## Update a Grafana Enterprise plan
 
 To update the Grafana Enterprise plan of an existing Azure Managed Grafana instance, optionally follow the steps below:
 
@@ -102,7 +100,7 @@ The Azure platform displays some useful links at the bottom of the page.
 
 ## Start using Grafana Enterprise plugins
 
-Grafana Enterprise gives you access to preinstalled plugins reserved for Grafana Enterprise customers. Once you've activated a Grafana Enterprise plan, go to the Grafana UI, and then select **Configuration >  Data sources** from the left menu to set up a data source.
+Grafana Enterprise gives you access to preinstalled plugins reserved for Grafana Enterprise customers. Once you've activated a Grafana Enterprise plan, go to the Grafana platform, and then select **Configuration >  Data sources** from the left menu to set up a data source.
 
 :::image type="content" source="media/grafana-enterprise/access-data-sources.png" alt-text="Screenshot of the Grafana dashboard. Access data sources.":::
 
