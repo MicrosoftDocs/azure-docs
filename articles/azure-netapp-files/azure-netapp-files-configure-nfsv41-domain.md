@@ -11,7 +11,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/09/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
@@ -23,7 +23,7 @@ NFSv4 introduces the concept of an authentication domain. Azure NetApp Files cur
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you will see file permissions as follows:  
+Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you'll see file permissions as follows:  
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
@@ -59,7 +59,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
 1. Select **Configure.**
-1. To use the default domin, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
+1. To use the default domain, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
 1. Select **Save**.
@@ -83,7 +83,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
-    The following examples shows the initial configuration of `/etc/idmapd.conf` before changes:
+    The following examples illustrate the initial configuration of `/etc/idmapd.conf` before changes:
 
     ```
     [General]
@@ -127,7 +127,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 2. Unmount any currently mounted NFS volumes.
 3. Update the `/etc/idmapd.conf` file.
-4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or simply reboot the host.
+4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or reboot the host.
 5. Mount the NFS volumes as required.   
 
     See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
@@ -155,5 +155,5 @@ On `Host2`, note that the test user accounts have not been created, but the same
 ## Next steps
 
 * [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 

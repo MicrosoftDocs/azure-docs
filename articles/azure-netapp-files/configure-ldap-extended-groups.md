@@ -1,5 +1,5 @@
 ---
-title: Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes | Microsoft Docs
+title: Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes | Microsoft Docs
 description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume by using Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 01/09/2023
 ms.author: anfdocs
 ---
-# Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes
+# Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
 
 When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access files and directories in the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
 
@@ -23,9 +23,9 @@ Azure NetApp Files supports fetching of extended groups from the LDAP name servi
 
 When it’s determined that LDAP will be used for operations such as name lookup and fetching extended groups, the following process occurs:
 
-1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the ADDS/AADDS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
-1. If the TCP connection over the defined ADDS/AADDS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the ADDS/AADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
-1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the ADDS/AADDS LDAP server (domain controller).
+1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the AD DS/Azure AD DS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
+1. If the TCP connection over the defined AD DS/Azure AD DS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the AD DS/Azure ADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
+1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the AD DS/Azure AD DS LDAP server (domain controller).
 The following information is passed to the server in the query:
    * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
    * Search scope type (subtree)
@@ -33,15 +33,15 @@ The following information is passed to the server in the query:
    * UID or username 
    * Requested attributes (`uid`, `uidNumber`, `gidNumber` for users, or `gidNumber` for groups) 
 1. If the user or group isn’t found, the request fails, and access is denied.
-1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes.  It also reduces the load on the ADDS/AADDS LDAP server.
+1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the AD DS/Azure AD DS LDAP server.
 
 ## Considerations
 
 * You can enable the LDAP with extended groups feature only during volume creation. This feature cannot be retroactively enabled on existing volumes.  
 
-* LDAP with extended groups is supported only with Active Directory Domain Services (ADDS) or Azure Active Directory Domain services (AADDS). OpenLDAP or other third-party LDAP directory services are not supported. 
+* LDAP with extended groups is supported only with Active Directory Domain Services (AD DS) or Azure Active Directory Domain services (Azure AD DS). OpenLDAP or other third-party LDAP directory services are not supported. 
 
-* LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (AADDS).  
+* LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (Azure AD DS).  
 
 * You cannot modify the LDAP option setting (enabled or disabled) after you have created the volume.  
 
