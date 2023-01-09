@@ -5,9 +5,7 @@ services: Azure
 documentationcenter: ''
 author: theJasonHelmick
 manager: mgreene
-tags: cloud-shell
 
-ms.assetid:
 ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -87,19 +85,9 @@ profile exists in Cloud Shell.
 Test-Path -Path $Profile
 ```
 
-If the output is **True**, then a profile already exists. Edit the existing profile to add the
-commands to configure the color and behavior of Predictive IntelliSense. Use the built-in
-open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][04].
-
-Use the built in Cloud Shell editor to edit the profile:
-
-```powershell
-Code $Profile
-```
+### How to Create a PowerShell profile in Cloud Shell
 
 If the output is **False**, create a profile and add the customized color and behavior commands.
-
-### How to Create a PowerShell profile in Cloud Shell
 
 To store configuration commands for Predictive IntelliSense, Use the `New-Item` cmdlet to create a
 PowerShell profile.
@@ -127,14 +115,26 @@ Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -Colors @{ InLinePrediction = '#8d8d8d' }
 ```
 
+### How to Edit a PowerShell profile in Cloud Shell
+
+If the output is **True**, then a profile already exists. Edit the existing profile to add the
+commands to configure the color and behavior of Predictive IntelliSense. Use the built-in
+open-source editor to edit the profile. To learn more, see [Azure Cloud Shell editor][04].
+
+Use the built in Cloud Shell editor to edit the profile:
+
+```powershell
+Code $Profile
+```
+
 For more information about configuring PSReadLine and managing predictors, see
 [Using predictors in PSReadLine][05].
 
 <!-- link references -->
-[01]: https://learn.microsoft.com/powershell/module/psreadline/about/about_psreadline
-[02]: https://learn.microsoft.com/powershell/azure/az-predictor
-[03]: https://learn.microsoft.com/powershell/module/psreadline/set-psreadlineoption
-[04]: https://learn.microsoft.com/azure/cloud-shell/using-cloud-shell-editor
-[05]: https://learn.microsoft.com/powershell/scripting/learn/shell/using-predictors
-[06]: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles
+[01]: /powershell/module/psreadline/about/about_psreadline
+[02]: /powershell/azure/az-predictor
+[03]: /powershell/module/psreadline/set-psreadlineoption
+[04]: /azure/cloud-shell/using-cloud-shell-editor
+[05]: /powershell/scripting/learn/shell/using-predictors
+[06]: /powershell/module/microsoft.powershell.core/about/about_profiles
 
