@@ -28,11 +28,11 @@ A new set of alert rules is created when you migrate an Application Insights res
 | Degradation in trace severity ratio (preview)      | Trace severity degradation - *\<Application Insights resource name\>*|
 | Abnormal rise in exception volume (preview)        | Exception anomalies - *\<Application Insights resource name\>*|
 | Potential memory leak detected (preview)           | Potential memory leak - *\<Application Insights resource name\>*|
-| Slow page load time                                | Discontinued <sup>(3)</sup>  |
-| Slow server response time                          | Discontinued <sup>(3)</sup>  |
-| Long dependency duration                           | Discontinued <sup>(3)</sup>  |
-| Potential security issue detected (preview)        | Discontinued <sup>(3)</sup>  |
-| Abnormal rise in daily data volume (preview)       | Discontinued <sup>(3)</sup>  |
+| Slow page load time                                | No longer supported <sup>(3)</sup>  |
+| Slow server response time                          | No longer supported <sup>(3)</sup>  |
+| Long dependency duration                           | No longer supported <sup>(3)</sup>  |
+| Potential security issue detected (preview)        | No longer supported <sup>(3)</sup>  |
+| Abnormal rise in daily data volume (preview)       | No longer supported <sup>(3)</sup>  |
 
 <sup>(1)</sup> The name of the rule as it appears in the smart detection **Settings** pane.<br>
 <sup>(2)</sup> The name of the new alert rule after migration.<br>
@@ -50,7 +50,7 @@ You need to apply the migration to each Application Insights resource separately
 As part of migration, each new alert rule is automatically configured with an action group. The migration can assign a default action group for each rule. The default action group is configured according to the rule notification before the migration:
 
 - If the smart detection rule had the default email or no notifications configured, the new alert rule is configured with an action group named Application Insights Smart Detection.
-    - If the migration tool finds an existing action group with that name, it links the new alert rule to that action group.  
+    - If the migration tool finds an existing action group with that name, it links the new alert rule to that action group.
     - Otherwise, it creates a new action group with that name. The new group is configured for Email Azure Resource Manager Role actions and sends notification to your Azure Resource Manager Monitoring Contributor and Monitoring Reader users.
 
 - If the default email notification was changed before migration, an action group called Application Insights Smart Detection \<n\> is created, with an email action sending notifications to the previously configured email addresses.
@@ -115,11 +115,11 @@ To migrate all the Application Insights resources in a subscription, *body.txt* 
 }
 ```
 
-`ActionGroupCreationPolicy` selects the policy for migrating the email settings in the smart detection rules into action groups. Allowed values are:
+The `ActionGroupCreationPolicy` parameter selects the policy for migrating the email settings in the smart detection rules into action groups. Allowed values are:
 
 - **Auto**: Uses the default action groups as described in this document.
 - **Custom**: Creates all alert rules with the action group specified in `customActionGroupName`.
-- *\<blank\>*: If `ActionGroupCreationPolicy` isn't specified, the `Auto` policy is used.
+- **\<blank\>**: If `ActionGroupCreationPolicy` isn't specified, the `Auto` policy is used.
 
 ### Migrate your smart detection by using ARM templates
 
@@ -303,9 +303,9 @@ After migration, you can view your smart detection alerts by selecting the **Ale
 
 ![Screenshot that shows smart detection alerts.](media/alerts-smart-detections-migration/smart-detector-alerts.png)
 
-You can also still see the available detections in the smart detection feed of your Application Insights resource.
+You can also still see the available detections in the **Smart Detection** feed of your Application Insights resource.
 
-![Screenshot that shows the smart detection feed.](media/alerts-smart-detections-migration/smart-detection-feed.png)
+![Screenshot that shows the Smart Detection feed.](media/alerts-smart-detections-migration/smart-detection-feed.png)
 
 ## Manage smart detection alert rules settings after migration
 
@@ -325,7 +325,7 @@ After the migration is finished, you access the new smart detection alert rules 
 
 1. For **Signal type**, select **Smart Detector** to filter and present the smart detection alert rules.
 
-   ![Screenshot that shows smart detector rules.](media/alerts-smart-detections-migration/smart-detector-rules.png)
+   ![Screenshot that shows smart detection rules.](media/alerts-smart-detections-migration/smart-detector-rules.png)
 
 ### Enable or disable smart detection alert rules
 
