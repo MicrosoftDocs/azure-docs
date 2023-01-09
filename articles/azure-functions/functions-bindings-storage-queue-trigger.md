@@ -210,7 +210,7 @@ Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to read a queue message passed to a function via a trigger. The example depends on whether you use decorators to define the function or function.json.
+The following example demonstrates how to read a queue message passed to a function via a trigger. The example depends on whether you use the v1 or v2 Python programming model.
 
 # [v2](#tab/python-v2)
 
