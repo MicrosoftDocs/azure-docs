@@ -51,7 +51,7 @@ You need to register your approval system as an application in your Azure AD ten
 9. On the **API permissions** page, select **Grant admin consent for (your tenant name)**, and then select **Yes**.
 10. Under **Manage** in the left menu, select **Certificates & secrets**, and then select **New client secret**.
 11. Enter a **Description** for the secret, for example _Approvals client secret_, and select the duration for when the client secret **Expires**. Then select **Add**.
-12. Copy the value of the client secret.
+12. Copy the value of the client secret. Client secret values can be viewed only immediately after creation. Make sure to save the secret when created, before leaving the page.
 
 :::image type="content" source="media/self-service-sign-up-add-approvals/client-secret-value-copy.png" alt-text="Screenshot of copying the client secret. ":::
 
