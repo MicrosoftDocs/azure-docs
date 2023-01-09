@@ -54,7 +54,7 @@ Finally, because the app calls a protected API (in this case Microsoft Graph), i
 Run the following command to download the templates for `Microsoft.Identity.Web`, which we'll make use of in this tutorial.
 
 ```dotnetcli
-dotnet new install Microsoft.Identity.Web.ProjectTemplates
+dotnet new --install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.

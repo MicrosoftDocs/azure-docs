@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: container-instances
 ms.date: 11/29/2022
 ---
 
@@ -221,7 +221,7 @@ When an entire Azure region or datacenter experiences downtime, your mission-cri
 > [Azure Cache for Redis Premium service tiers](../container-instances/availability-zones.md#next-steps)
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/reliability/overview.md)
+> [Reliability in Azure](/azure/reliability/overview)
 
 
 

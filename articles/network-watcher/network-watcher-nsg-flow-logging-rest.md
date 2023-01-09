@@ -4,13 +4,13 @@ titleSuffix: Azure Network Watcher
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: harsha-cs
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/13/2021
-ms.author: damendo
+ms.author: harshacs
 ms.custom: engagement-fy23
 
 ---

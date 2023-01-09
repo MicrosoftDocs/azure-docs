@@ -85,13 +85,13 @@ items:
 - name: Reference
   items:
   - name: Custom Vision Training API  
-    href: https://go.microsoft.com/fwlink/?linkid=865446
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3
   - name: Custom Vision Prediction API 
-    href: https://go.microsoft.com/fwlink/?linkid=865445
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/customvision
+      href: /dotnet/api/overview/azure/custom-vision
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/customvision
     - name: Node.js - Training

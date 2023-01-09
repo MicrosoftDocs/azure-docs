@@ -97,13 +97,128 @@ If you have a new resource or missing metric data, Dynamic Thresholds won't trig
 
 The system automatically recognizes prolonged outages and removes them from the threshold learning algorithm. As a result, despite prolonged outages, dynamic thresholds understand the data. Service issues are detected with the same sensitivity as before an outage occurred.
 
+## The Dynamic Thresholds borders don't seem to fit the data
+
+If the behavior of a metric changed recently, the changes won't necessarily be reflected in the Dynamic Threshold borders (upper and lower bounds) immediately. The borders are calculated based on metric data from the last 10 days. When you view the Dynamic Threshold borders for a given metric, look at the metric trend in the last week and not only for recent hours or days.
+
+## Why is weekly seasonality not detected by Dynamic Thresholds?
+
+To identify weekly seasonality, the Dynamic Thresholds model requires at least three weeks of historical data. When enough historical data is available, any weekly seasonality that exists in the metric data is identified and the model is adjusted accordingly.
+
+## Dynamic Thresholds is showing values that are not within the range of expected values
+
+When a metric value exhibits large fluctuations, dynamic thresholds may build a wide model around the metric values, which can result in a lower or higher boundary than expected. This scenario can happen when:
+
+- The sensitivity is set to low.
+- The metric exhibits an irregular behavior with high variance, which appears as spikes or dips in the data.
+
+Consider making the model less sensitive by choosing a higher sensitivity or selecting a larger **Aggregation granularity (Period)**.  You can also use the **Ignore data before** option to exclude a recent irregularity from the historical data used to build the model.
+
+## The Dynamic Thresholds alert rule is too noisy or fires too much
+
+To reduce the sensitivity of your Dynamic Thresholds alert rule, use one of the following options:
+
+- **Threshold sensitivity:** Set the sensitivity to **Low** to be more tolerant for deviations.
+- **Number of violations (under Advanced settings):** Configure the alert rule to trigger only if several deviations occur within a certain period of time. This setting makes the rule less susceptible to transient deviations.
+
+## The Dynamic Thresholds alert rule doesn't fire or is not sensitive enough
+
+Sometimes an alert rule won't trigger, even when a high sensitivity is configured. This scenario usually happens when the metric's distribution is highly irregular.
+Consider one of the following options:
+
+* Move to monitoring a complementary metric that's suitable for your scenario, if applicable. For example, check for changes in success rate rather than failure rate.
+* Try selecting a different value for **Aggregation granularity (Period)**.
+* Check if there was a drastic change in the metric behavior in the last 10 days, for example, an outage. An abrupt change can affect the upper and lower thresholds calculated for the metric and make them broader. Wait for a few days until the outage is no longer taken into the thresholds calculation. Or use the **Ignore data before** option under **Advanced settings**.
+* If your data has weekly seasonality, but not enough history is available for the metric, the calculated thresholds can result in having broad upper and lower bounds. For example, the calculation can treat weekdays and weekends in the same way and build wide borders that don't always fit the data. This issue should resolve itself after enough metric history is available. Then, the correct seasonality will be detected and the calculated thresholds will update accordingly.
+
+## Metrics not supported by Dynamic Thresholds
+
+Dynamic thresholds are supported for most metrics, but some metrics can't use dynamic thresholds.
+
+The following table lists the metrics that aren't supported by Dynamic Thresholds.
+
+| Resource type | Metric name |
+| --- | --- |
+| Microsoft.ClassicStorage/storageAccounts | UsedCapacity |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | BlobCapacity |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | BlobCount |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | IndexCapacity |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileCapacity |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareSnapshotCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareSnapshotSize |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareQuota |
+| Microsoft.Compute/disks | Composite Disk Read Bytes/sec |
+| Microsoft.Compute/disks | Composite Disk Read Operations/sec |
+| Microsoft.Compute/disks | Composite Disk Write Bytes/sec |
+| Microsoft.Compute/disks | Composite Disk Write Operations/sec |
+| Microsoft.ContainerService/managedClusters | NodesCount |
+| Microsoft.ContainerService/managedClusters | PodCount |
+| Microsoft.ContainerService/managedClusters | CompletedJobsCount |
+| Microsoft.ContainerService/managedClusters | RestartingContainerCount |
+| Microsoft.ContainerService/managedClusters | OomKilledContainerCount |
+| Microsoft.Devices/IotHubs | TotalDeviceCount |
+| Microsoft.Devices/IotHubs | ConnectedDeviceCount |
+| Microsoft.Devices/IotHubs | TotalDeviceCount |
+| Microsoft.Devices/IotHubs | ConnectedDeviceCount |
+| Microsoft.DocumentDB/databaseAccounts | CassandraConnectionClosures |
+| Microsoft.EventHub/clusters | Size |
+| Microsoft.EventHub/namespaces | Size |
+| Microsoft.IoTCentral/IoTApps | connectedDeviceCount |
+| Microsoft.IoTCentral/IoTApps | provisionedDeviceCount |
+| Microsoft.Kubernetes/connectedClusters | NodesCount |
+| Microsoft.Kubernetes/connectedClusters | PodCount |
+| Microsoft.Kubernetes/connectedClusters | CompletedJobsCount |
+| Microsoft.Kubernetes/connectedClusters | RestartingContainerCount |
+| Microsoft.Kubernetes/connectedClusters | OomKilledContainerCount |
+| Microsoft.MachineLearningServices/workspaces/onlineEndpoints | RequestsPerMinute |
+| Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments | DeploymentCapacity |
+| Microsoft.Maps/accounts | CreatorUsage |
+| Microsoft.Media/mediaservices/streamingEndpoints | EgressBandwidth |
+| Microsoft.Network/applicationGateways | Throughput |
+| Microsoft.Network/azureFirewalls | Throughput |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayPacketsPerSecond |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayNumberOfVmInVnet |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayBitsPerSecond |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayPacketsPerSecond |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayNumberOfVmInVnet |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.ServiceBus/namespaces | Size |
+| Microsoft.ServiceBus/namespaces | Messages |
+| Microsoft.ServiceBus/namespaces | ActiveMessages |
+| Microsoft.ServiceBus/namespaces | DeadletteredMessages |
+| Microsoft.ServiceBus/namespaces | ScheduledMessages |
+| Microsoft.ServiceFabricMesh/applications | AllocatedCpu |
+| Microsoft.ServiceFabricMesh/applications | AllocatedMemory |
+| Microsoft.ServiceFabricMesh/applications | ActualCpu |
+| Microsoft.ServiceFabricMesh/applications | ActualMemory |
+| Microsoft.ServiceFabricMesh/applications | ApplicationStatus |
+| Microsoft.ServiceFabricMesh/applications | ServiceStatus |
+| Microsoft.ServiceFabricMesh/applications | ServiceReplicaStatus |
+| Microsoft.ServiceFabricMesh/applications | ContainerStatus |
+| Microsoft.ServiceFabricMesh/applications | RestartCount |
+| Microsoft.Storage/storageAccounts | UsedCapacity |
+| Microsoft.Storage/storageAccounts/blobServices | BlobCapacity |
+| Microsoft.Storage/storageAccounts/blobServices | BlobCount |
+| Microsoft.Storage/storageAccounts/blobServices | BlobProvisionedSize |
+| Microsoft.Storage/storageAccounts/blobServices | IndexCapacity |
+| Microsoft.Storage/storageAccounts/fileServices | FileCapacity |
+| Microsoft.Storage/storageAccounts/fileServices | FileCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotSize |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareCapacityQuota |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareProvisionedIOPS |
+
 ## Dynamic Thresholds best practices
 
 Dynamic Thresholds can be applied to most platform and custom metrics in Azure Monitor, and it was also tuned for the common application and infrastructure metrics.
 
 The following items are best practices on how to configure alerts on some of these metrics by using Dynamic Thresholds.
 
-### Configure dynamic thresholds on virtual machine CPU percentage metrics
+## Configure dynamic thresholds on virtual machine CPU percentage metrics
 
 1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The **Monitor** view consolidates all your monitoring settings and data in one view.
 
@@ -140,7 +255,7 @@ The following items are best practices on how to configure alerts on some of the
 > [!NOTE]
 > Metric alert rules created through the portal are created in the same resource group as the target resource.
 
-### Configure dynamic thresholds on Application Insights HTTP request execution time
+## Configure dynamic thresholds on Application Insights HTTP request execution time
 
 1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The **Monitor** view consolidates all your monitoring settings and data in one view.
 
