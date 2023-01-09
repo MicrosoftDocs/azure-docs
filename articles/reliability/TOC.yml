@@ -33,7 +33,7 @@
       - name: Azure Container instances
         href: migrate-container-instances.md
       - name: Azure Database for MySQL - Flexible Server
-        href: migrate-db-mysql-flex.md
+        href: migrate-database-mysql-flex.md
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
