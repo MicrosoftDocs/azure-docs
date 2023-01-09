@@ -175,7 +175,7 @@ When developers subscribe to a product, they're granted the primary and secondar
 
 With [policies][API Management policies], an API publisher can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call-rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. 
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./choose-policy.md) and [Set variable](./set-variable-policy.md) policies are based on policy expressions. 
 
 Policies can be applied at different scopes, depending on your needs: global (all APIs), a product, a specific API, or an API operation. 
 

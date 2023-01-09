@@ -90,9 +90,6 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 | Upload of long audios or audios without script | N/A | Yes |
 | Max number of simultaneous model trainings | N/A | 3 |
 | Max number of custom endpoints | N/A | 50 |
-| Concurrent request limit for Custom Neural Voice |  |  |
-| Default value | N/A | 10 |
-| Adjustable | N/A | Yes<sup>5</sup> |
 
 #### Audio Content Creation tool
 

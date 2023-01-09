@@ -5,13 +5,17 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 12/12/2022
+ms.date: 12/14/2022
 ms.custom: mvc
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (January 2022)
+- Envision savings with [Azure Savings Plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) (ASP) savings option with Azure Migrate assessments. ASP as a savings option setting is now available for Azure VM assessment, Azure SQL assessment and Azure App Service assessment. 
+- Azure Migrate is now supported in Sweden geography. [Learn more](migrate-support-matrix.md#public-cloud)
 
 ## Update (December 2022)
 - General Availability: Perform software inventory and agentless dependency analysis at-scale for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
@@ -25,6 +29,8 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
     - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
     - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
     - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (November 2022)
 
@@ -44,10 +50,11 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 - Enhanced notifications for test migration and migration completion status. 
 - Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
 - Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 
 ## Update (June 2022)
 
@@ -170,7 +177,7 @@ Azure Migrate supports deployments in Azure Government.
 
 A script-based installation is now available to set up the [Azure Migrate appliance](migrate-appliance.md):
 
-- The script-based installation is an alternative to the .OVA (VMware)/VHD (Hyper-V) installation of the appliance.
+- The script-based installation is an alternative to the *.OVA* (VMware)/VHD (Hyper-V) installation of the appliance.
 - It provides a PowerShell installer script that can be used to set up the appliance for VMware/Hyper-V on an existing machine running Windows Server 2016.
 
 ## Update (November 2019)

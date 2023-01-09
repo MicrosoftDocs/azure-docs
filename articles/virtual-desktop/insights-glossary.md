@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Virtual Desktop glossary - Azure
+title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
 services: virtual-desktop
 author: Heidilohr

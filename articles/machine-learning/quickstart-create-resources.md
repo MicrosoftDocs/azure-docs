@@ -8,6 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 08/26/2022
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
@@ -129,5 +130,5 @@ You now have an Azure Machine Learning workspace that contains:
 Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
+> [Quickstart: Run Jupyter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
 >

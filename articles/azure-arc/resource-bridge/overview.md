@@ -1,16 +1,18 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 11/03/2022
+ms.date: 01/06/2023
 ms.topic: overview
 ms.custom: references_regions 
 ---
 
 # What is Azure Arc resource bridge (preview)?
 
-Azure Arc resource bridge (preview) is part of the core Azure Arc platform, and is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/overview) and VMware.
+Azure Arc resource bridge (preview) is part of the core Azure Arc platform, and is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-overview), VMware ([Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/) preview), and System Center Virtual Machine Manager (SCVMM) ([Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/) preview).
 
-The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster that requires no user management. This virtual appliance delivers the following benefits:
+Arc resource bridge is a packaged virtual machine that hosts a *management* Kubernetes cluster and requires no user management. The virtual machine is deployed on the on-premises infrastructure, and an ARM resource of Arc resource bridge is created in Azure. The two resources are then connected, allowing VM self-service and management from Azure. The on-premises resource bridge uses guest management to tag local resources, making them available in Azure.
+
+Arc resource bridge delivers the following benefits:
 
 * Enables VM self-servicing from Azure without having to create and manage a Kubernetes cluster.
 * Fully supported by Microsoft, including updates to core components.
@@ -27,7 +29,7 @@ Azure Arc resource bridge (preview) hosts other components such as [custom locat
 * The platform layer that includes the custom location and cluster extension.
 * The solution layer for each service supported by Arc resource bridge (that is, the different type of VMs).
 
-:::image type="content" source="media/overview/architecture-overview.png" alt-text="Azure Arc resource bridge architecture diagram." border="false":::
+:::image type="content" source="media/overview/architecture-overview.png" alt-text="Azure Arc resource bridge architecture diagram." border="false" lightbox="media/overview/architecture-overview.png":::
 
 Azure Arc resource bridge (preview) can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge (preview):
 
@@ -49,6 +51,10 @@ To summarize, the Azure resources are projections of the resources running in yo
 
 Through Azure Arc resource bridge (preview), you can accomplish the following for each private cloud infrastructure from Azure:
 
+### Azure Stack HCI
+
+You can provision and manage on-premises Windows and Linux virtual machines (VMs) running on Azure Stack HCI clusters.
+
 ### VMware vSphere
 
 By registering resource pools, networks, and VM templates, you can represent a subset of your vCenter resources in Azure to enable self-service. Integration with Azure allows you to manage access to your vCenter resources in Azure to maintain a secure environment. You can also perform various operations on the VMware virtual machines that are enabled by Arc-enabled VMware vSphere:
@@ -60,11 +66,7 @@ By registering resource pools, networks, and VM templates, you can represent a s
 * Enable guest management
 * Install extensions
 
-### Azure Stack HCI
-
-You can provision and manage on-premises Windows and Linux virtual machines (VMs) running on Azure Stack HCI clusters.
-
-### System Center Virtual Machine Manager (SCVMM) 
+### System Center Virtual Machine Manager (SCVMM)
 
 You can connect an SCVMM management server to Azure by deploying Azure Arc resource bridge (preview) in the VMM environment. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and perform various operations on them:
 

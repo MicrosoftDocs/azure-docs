@@ -16,7 +16,7 @@ metadata:
   ms.collection: collection
   author: kengaderdus
   ms.author: kengaderdus
-  ms.date: 08/31/2022
+  ms.date: 12/14/2022
 
 ## FRONT MATTER END
 
@@ -125,15 +125,11 @@ conceptualContent:
           - text: Protocols
             url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
             itemType: concept
-          # - text: Authentication library
-            # url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-            # itemType: concept
-          # - text: Identity providers
-            # url: add-identity-provider.md
-            # itemType: concept
-          - text: Authenticate users in a Node.js web app(Quick course)
-            url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
-            itemType: learn
+          - text: Authentication library
+            url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            itemType: concept
+       
+
     ## CARD 3 ######################
     - title: 'Authenticate: Sign in users'
       links:
@@ -155,6 +151,10 @@ conceptualContent:
           - text: Enable single sign-on (SSO)
             url: session-behavior.md
             itemType: how-to-guide
+
+          - text: Authenticate users in a Node.js web app(Quick course)
+            url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
+            itemType: learn
           # - text: 'Quickstart: Single-page app'
             # url: configure-authentication-sample-spa-app.md
             # itemType: quickstart

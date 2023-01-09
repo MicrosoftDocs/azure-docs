@@ -90,7 +90,7 @@ When making requests to API Management using `curl`, a REST client such as Postm
 
 The response includes the **Ocp-Apim-Trace-Location** header, with a URL to the location of the trace data in Azure blob storage.
 
-For information about customizing trace information, see the [trace](api-management-advanced-policies.md#Trace) policy.
+For information about customizing trace information, see the [trace](trace-policy.md) policy.
 
 ## Next steps
 

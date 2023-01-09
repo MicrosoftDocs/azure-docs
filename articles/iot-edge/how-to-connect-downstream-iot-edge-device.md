@@ -4,7 +4,7 @@ description: Step by step adaptable manual instructions on how to create a hiera
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 09/01/2022
+ms.date: 01/05/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ monikerRange: ">=iotedge-2020-11"
 
 # Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This setup is also known as "nested edge".
 

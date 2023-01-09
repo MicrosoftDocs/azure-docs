@@ -30,24 +30,6 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
-## Create a DDoS protection plan
-
-1. Sign-in to the [Azure portal](https://portal.azure.com).
-
-2. In the search box, enter **DDoS protection plan**. Select **DDoS protection plan** in the search results and then select **Create**.
-
-3. In the **Create a DDoS protection plan** page, enter or select the following information on the **Basics** tab:
-
-    | Setting | Value |
-    |--|--|
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.  </br> Enter **myResourceGroup**. </br> Select **OK**. |
-    | **Instance details** |   |
-    | Name | Enter **myDDoSPlan**. |
-    | Region | Select **West Europe**. |
-
-4. Select **Review + create** and then select **Create** to deploy the DDoS protection plan.
 
 ## Create a virtual network and bastion host
 
@@ -103,11 +85,9 @@ You use the bastion host to connect securely to the VM for testing the private e
     | AzureBastionSubnet address space | Enter **10.1.1.0/26** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-13. Under **DDoS Protection Standard**, select **Enable**. Then for **DDoS Protection Plan**, select the **myDDoSPlan** resource created in the last section.
+13. Select the **Review + create** tab or select the **Review + create** button.
 
-14. Select the **Review + create** tab or select the **Review + create** button.
-
-15. Select **Create**.
+14. Select **Create**.
     
     > [!NOTE]
     > The virtual network and subnet are created immediately. The Bastion host creation is submitted as a job and will complete within 10 minutes. You can proceed to the next steps while the Bastion host is created.
@@ -116,11 +96,13 @@ You use the bastion host to connect securely to the VM for testing the private e
 
 Next, create a VM that you can use to test the private endpoint.
 
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. Select **+ Create** then **Azure virtual machine** in **Virtual machines**.
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+
+3. Select **+ Create** then **Azure virtual machine** in **Virtual machines**.
    
-3. In the **Basics** tab of **Create a virtual machine**, enter or select the following information.
+4. In the **Basics** tab of **Create a virtual machine**, enter or select the following information.
 
     | Setting                        | Value                                             |
     |--------------------------------|---------------------------------------------------|
@@ -142,9 +124,9 @@ Next, create a VM that you can use to test the private endpoint.
     | Public inbound ports | Select **None**. |
 
 
-4. Select the **Networking** tab.
+5. Select the **Networking** tab.
   
-5. In the **Networking** tab, enter or select the following information.
+6. In the **Networking** tab, enter or select the following information.
 
     |Setting                     | Value               |
     |----------------------------|---------------------|
@@ -155,9 +137,9 @@ Next, create a VM that you can use to test the private endpoint.
     | NIC network security group | Select **Basic**.   |
     | Public inbound ports       | Select **None**.    |
    
-6. Select **Review + create**. 
+7. Select **Review + create**. 
   
-7. Review the settings, and then select **Create**.
+8. Review the settings, and then select **Create**.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 

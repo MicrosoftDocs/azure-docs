@@ -17,7 +17,7 @@ ms.custom: engagement-fy23
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure an external provider for OAuth 2.0 user authorization.
 
-Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is then passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](api-management-access-restriction-policies.md#ValidateJWT), or in the backend service.
+Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is then passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](validate-jwt-policy.md), or in the backend service.
 
 ## Prerequisites
 
@@ -276,7 +276,7 @@ After saving the OAuth 2.0 server configuration, configure an API or APIs to use
 
 In the configuration so far, API Management doesn't validate the access token. It only passes the token in the authorization header to the backend API.
 
-To pre-authorize requests, configure a [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it.
+To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it.
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
