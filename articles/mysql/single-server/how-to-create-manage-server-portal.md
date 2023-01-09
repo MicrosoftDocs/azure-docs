@@ -3,8 +3,8 @@ title: Manage server - Azure portal - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure portal.
 ms.service: mysql
 ms.subservice: single-server
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
