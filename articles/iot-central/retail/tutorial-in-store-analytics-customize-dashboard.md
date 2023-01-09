@@ -142,7 +142,7 @@ To add tiles to display environmental data from the RuuviTag sensors:
 
 1. Select a **Device instance** of one of the two RuuviTag sensors. In the Contoso store example, select **Zone 1 Ruuvi** to create a telemetry tile for Zone 1.
 
-1. In the **Telemetry** list, select **Relative humidity** and **Temperature**. These are the telemetry items that are displayed for each zone on the tile.
+1. In the **Telemetry** list, select **Relative humidity** and **Temperature**, the telemetry items that are displayed for each zone on the tile.
 
 1. Select **Add tile**. This new tile displays combined humidity and temperature telemetry for the selected sensor.
 
