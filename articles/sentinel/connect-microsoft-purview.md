@@ -38,7 +38,7 @@ For more information:
 - Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
 
 When you enable the Microsoft Purview Information Protection connector, audit logs stream into the standardized 
-`MicrosoftPurviewInformationProtection` table. Data is gathered through the [Office Management API](/office/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. The new standardized schema is adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters.
+`MicrosoftPurviewInformationProtection` table. Data is gathered through the [Office Management API](/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. The new standardized schema is adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters.
 
 Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md).
 
