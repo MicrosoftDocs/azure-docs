@@ -23,6 +23,10 @@
     href: tutorial-respond-threats-playbook.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
+  - name: Detect Log4j vulnerability exploits
+    href: tutorial-log4j-detection.md
+  - name: Detect threats and produce enriched alerts
+    href: tutorial-customize-analytics-rule-query.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
