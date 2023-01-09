@@ -4,7 +4,7 @@ description: Step by step adaptable manual instructions on how to create a hiera
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 09/01/2022
+ms.date: 01/09/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -140,23 +140,54 @@ To configure your parent device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge parent device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the preferred directory `/var/aziot` for the certificates and keys.
+01. Check the certificate meets [format requirements](#format-requirements).
 
-01. Install the **root CA certificate** on the parent IoT Edge device. First, copy the root certificate into the certificate directory and add `.crt` to the end of the file name. Next, update the certificate store on the device using the platform-specific command.
+01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. The examples in this article use the preferred directory `/var/aziot/certs` for the certificates and `/var/aziot/secrets` for keys.
+
+01. Install the **root CA certificate** on the parent IoT Edge device. Copy the root certificate into the certificate directory, add `.crt` to the end of the file name, and set permissions. Next, update the certificate store on the device using the platform-specific command.
 
     **Debian or Ubuntu:**
 
     ```bash
-    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+    # Make the directory as root if doesn't exist
+    sudo mkdir /var/aziot/certs -p
 
+    # Change cert directory user and group ownership to aziotcs and set permissions
+    sudo chown aziotcs:aziotcs /var/aziot/certs
+    sudo chmod 755 /var/aziot/certs
+    
+    # Copy certificate into certificate directories
+    
+    sudo cp azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
+    sudo cp azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certificates/azure-iot-test-only.root.ca.cert.pem.crt
+
+    # Give aziotcs ownership to certificate and set read and write permission for aziotcs, read-only for others
+    sudo chown aziotcs:aziotcs /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem
+    sudo chmod 644 /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem
+
+    # Update the certificate store
     sudo update-ca-certificates
     ```
 
     **IoT Edge for Linux on Windows (EFLOW):**
 
     ```bash
-    sudo cp /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+    # Make the directory as root if doesn't exist
+    sudo mkdir /var/aziot/certs -p
 
+    # Change cert directory user and group ownership to aziotcs and set permissions
+    sudo chown aziotcs:aziotcs /var/aziot/certs
+    sudo chmod 755 /var/aziot/certs
+    
+    # Copy certificate into certificate directories
+    sudo cp azure-iot-test-only.root.ca.cert.pem /var/aziot/certs/
+    sudo cp azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
+
+    # Give aziotcs ownership to certificate and set read and write permission for aziotcs, read-only for others
+    sudo chown aziotcs:aziotcs /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem
+    sudo chmod 644 /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem
+
+    # Update the certificate store
     sudo update-ca-trust
     ```
     For more information about using `update-ca-trust`, see [CBL-Mariner SSL CA certificates management](https://github.com/microsoft/CBL-Mariner/blob/1.0/toolkit/docs/security/ca-certificates.md).

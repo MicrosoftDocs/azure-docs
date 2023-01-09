@@ -81,23 +81,22 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 
 1. Get a publicly-trusted root CA certificate from a PKI provider.
 
-1. Check the certificate [meets format requirements](#format-requirements).
+1. Check the certificate meets [format requirements](#format-requirements).
 
-1. Copy the PEM file and give IoT Edge's certificate access. For example, with `/var/aziot/certs` directory:
+1. Copy the PEM file and give IoT Edge's certificate service access. For example, with `/var/aziot/certs` directory:
 
    ```bash
    # Make the directory as root if doesn't exist
    sudo mkdir /var/aziot/certs -p
 
-   # Change ownership to aziotcs user
+   # Change cert directory user and group ownership to aziotcs and set permissions
    sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
    
    # Copy certificate into certs directory
-
    sudo cp root-ca.pem /var/aziot/certs
 
-   # Give aziotcs ownership to certificate
-   # Read and write for aziotcs, read-only for others
+   # Give aziotcs ownership to certificate and set read and write permission for aziotcs, read-only for others
    sudo chown aziotcs:aziotcs /var/aziot/certs/root-ca.pem
    sudo chmod 644 /var/aziot/certs/root-ca.pem
    ```
@@ -149,11 +148,16 @@ IoT Edge can use existing certificate and private key files to authenticate or a
 1. Copy the PEM file to the IoT Edge device where IoT Edge modules can have access. For example, `/var/aziot/` directory.
 
    ```bash
-   # Make the directory if doesn't exist
-   sudo mkdir /var/aziot/certs -p
-   sudo mkdir /var/aziot/secrets -p
+   # If the certificate and keys directories don't exist, create, set ownership, and set permissions
+   sudo mkdir -p /var/aziot/certs
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
 
-   # Copy certificate and private key over
+   sudo mkdir -p /var/aziot/secrets
+   sudo chown aziotks:aziotks /var/aziot/secrets
+   sudo chmod 700 /var/aziot/secrets
+
+   # Copy certificate and private key into the correct directory
    sudo cp my-cert.pem /var/aziot/certs
    sudo cp my-private-key.pem /var/aziot/secrets
    ```

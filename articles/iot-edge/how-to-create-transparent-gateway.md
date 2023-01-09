@@ -114,21 +114,41 @@ If you don't have your own certificate authority and want to use demo certificat
 
 # [IoT Edge](#tab/iotedge)
 
+1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
 1. If you created the certificates on a different machine, copy them over to your IoT Edge device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 1. Move the files to the preferred directory for certificates and keys. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. Create the certificates and keys directories and set permissions. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+
+   ```bash
+   # If the certificate and keys directories don't exist, create, set ownership, and set permissions
+   sudo mkdir -p /var/aziot/certs
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
+
+   sudo mkdir -p /var/aziot/secrets
+   sudo chown aziotks:aziotks /var/aziot/secrets
+   sudo chmod 700 /var/aziot/secrets
+   ```
 1. Change the ownership and permissions of the certificates and keys.
 
    ```bash
-   sudo chown aziotcs:aziotcs /var/aziot/certs
-   sudo chmod 644 /var/aziot/certs
+   # Give aziotcs ownership to certificates
+   # Read and write for aziotcs, read-only for others
+   sudo chown -R aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 644 /var/aziot/certs/*
 
-   sudo chown aziotks:aziotks /var/aziot/secrets
-   sudo chmod 600 /var/aziot/secrets
+   # Give aziotks ownership to private keys
+   # Read and write for aziotks, no permission for others
+   sudo chown -R aziotks:aziotks /var/aziot/secrets
+   sudo chmod 600 /var/aziot/secrets/*
    ```
 
+1. 
 # [IoT Edge for Linux on Windows](#tab/eflow)
 
 Now, you need to copy the certificates to the Azure IoT Edge for Linux on Windows virtual machine.
+
+1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
 1. Copy the certificates to the EFLOW virtual machine to a directory where you have write access. For example, the `/home/iotedge-user` home directory.
 
@@ -148,27 +168,42 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
    Connect-EflowVm
    ```
 
-1. Create the certificates directory. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
+1. Create the certificates and keys directories and set permissions. You should store your certificates and keys to the preferred `/var/aziot` directory. Use `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
    ```bash
+   # If the certificate and keys directories don't exist, create, set ownership, and set permissions
    sudo mkdir -p /var/aziot/certs
+   sudo chown aziotcs:aziotcs /var/aziot/certs
+   sudo chmod 755 /var/aziot/certs
+
    sudo mkdir -p /var/aziot/secrets
+   sudo chown aziotks:aziotks /var/aziot/secrets
+   sudo chmod 700 /var/aziot/secrets
    ```
 
 1. Move the certificates and keys to the preferred `/var/aziot` directory.
 
    ```bash
    # Move the IoT Edge device CA certificate and key to preferred location
+   sudo mv ~/azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
    sudo mv ~/iot-edge-device-ca-<cert name>-full-chain.cert.pem /var/aziot/certs
    sudo mv ~/iot-edge-device-ca-<cert name>.key.pem /var/aziot/secrets
-   sudo mv ~/azure-iot-test-only.root.ca.cert.pem /var/aziot/certs
    ```
 
 1. Change the ownership and permissions of the certificates and keys.
 
    ```bash
-   sudo chown -R iotedge /var/aziot/certs
-   sudo chmod 644 /var/aziot/secrets/iot-edge-device-ca-<cert name>.key.pem
+   # Give aziotcs ownership to certificate
+   # Read and write for aziotcs, read-only for others
+   sudo chown aziotcs:aziotcs /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem
+   sudo chown aziotcs:aziotcs /var/aziot/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem
+   sudo chmod 644 /var/aziot/certs/azure-iot-test-only.root.ca.cert.pem
+   sudo chmod 644 /var/aziot/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem
+
+   # Give aziotks ownership to private key
+   # Read and write for aziotks, no permission for others
+   sudo chown aziotks:aziotks /var/aziot/secrets/iot-edge-device-ca-<cert name>.key.pem
+   sudo chmod 600 /var/aziot/secrets/iot-edge-device-ca-<cert name>.key.pem
    ```
  
 1. Exit the EFLOW VM connection.
