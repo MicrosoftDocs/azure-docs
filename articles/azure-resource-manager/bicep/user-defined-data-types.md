@@ -2,7 +2,7 @@
 title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/09/2023
 ---
 
 # User-defined data types in Bicep (Preview)
@@ -13,7 +13,7 @@ Bicep version 1.2 or newer is required. To install the latest versions, see [Ins
 
 ## Enable the preview feature
 
-To enable this preview, modify your project's bicepconfig.json file to include the following JSON:
+To enable this preview, modify your project's [bicepconfig.json file](./bicep-config.md) to include the following JSON:
 
 ```json
 {
@@ -34,8 +34,13 @@ Valid type expression include:
 - Strings, integers, and booleans are valid data types to be used as type expressions.
 
     ```bicep
-    type myStringLiteral = 'string'
+    // a string type with three allowed values.
+    type myStringLiteral = 'bicep' | 'arm' | 'azure'
+
+    // an integer type with one allowed value
     type myIntLiteral = 10
+
+    // an boolean type with one allowed value
     type myBoolLiteral = true
     ```
 
@@ -52,15 +57,16 @@ Valid type expression include:
 - Array types can be declared by suffixing `[]` to any valid type expression.
 
     ```bicep
+    // A string type array
     type myStrStringsType1 = string[]
+    // A string type array with three allowed values
     type myStrStringsType2 = ('a' | 'b' | 'c')[]
 
     type myIntArrayOfArraysType = int[][]
 
+    // A mixed type array with four allowed values
     type myMixedTypeArrayType = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
-
-    Both **myStrStringsType1** and **myStrStringsType2** define a new array of strings. **myStrStringsType2** is defined with three allowed values.
 
 - Object types contain zero or more properties between curly brackets:
 
@@ -93,7 +99,7 @@ Valid type expression include:
     }
     ```
 
-    But the following would not be:
+    But the following would not be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional, there is no JSON object that would be able to fulfill this schema.
 
     ```bicep
     type invalidRecursiveObject = {
@@ -108,8 +114,6 @@ Valid type expression include:
       }
     }
     ```
-
-    Because none of level1, level2, level3, level4, or level5 is optional, there is no JSON object that would be able to fulfill this schema.
 
 - [Bicep unary operators](./operators.md) can be used with integer and boolean literals or references to integer or boolean literal-typed symbols:
 
@@ -128,7 +132,7 @@ Valid type expression include:
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-In addition to be used in the `type` statement, type expressions can also be used in these places:
+In addition to be used in the `type` statement, type expressions can also be used in these places for creating user-defined date types:
 
 - As the type clause of a `param` statement. For example:
 
@@ -144,12 +148,12 @@ In addition to be used in the `type` statement, type expressions can also be use
     ```bicep
     param storageAccountConfig {
      name: string
-      prperties: {
+      properties: {
         sku: string
       }
     } = {
       name: 'store$(uniqueString(resourceGroup().id)))'
-      prperties: {
+      properties: {
         sku: 'Standard_LRS'
       }
     }
@@ -211,5 +215,4 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Next steps
 
-* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](./syntax.md).
-* For a list of the available template functions, see [ARM template functions](template-functions.md).
+- For a list of the Bicep date types, see [Data types](./data-types.md).
