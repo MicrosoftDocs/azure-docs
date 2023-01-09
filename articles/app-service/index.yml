@@ -56,8 +56,6 @@ landingContent:
         links:
           - text: Secure with custom domain and certificate
             url: tutorial-secure-domain-certificate.md
-          - text: Secure a custom DNS name with a TLS/SSL binding
-            url: configure-ssl-bindings.md
           - text: Set up staging environments
             url: deploy-staging-slots.md
       - linkListType: how-to-guide
