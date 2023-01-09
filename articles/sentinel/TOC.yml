@@ -486,7 +486,9 @@
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
       - name: Configure SAP audit log monitoring rules
-        href: sap/configure-audit-log-rules.md 
+        href: sap/configure-audit-log-rules.md
+      - name: Select SAP ingestion profile
+        href: sap/select-ingestion-profiles.md 
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection

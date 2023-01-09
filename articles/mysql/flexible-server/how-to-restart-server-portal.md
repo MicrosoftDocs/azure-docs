@@ -4,8 +4,8 @@ description: This article describes how you can restart an Azure Database for My
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 10/26/2020
 ---
 
