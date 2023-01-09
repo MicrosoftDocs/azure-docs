@@ -289,13 +289,13 @@ The receiver window should display the messages that were sent to the event hub.
 
 ### Troubleshooting
 
-If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you are using the `azure.identity.aio`.
-
 If you don't see results from *recy.py*, run *send.py* several times.
+
+If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you are using the `azure.identity.aio`.
 
 If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [async-credentials help in the Azure SDK repo](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#async-credentials).
 
-If events received with different partition IDs, this is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
+If events received have different partition IDs, this is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
 
 ## Next steps
 
