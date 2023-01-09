@@ -871,8 +871,43 @@ Ensure that you're using a compatible python version
 * [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 ### Interactive auth was attempted
-- Failed to create or update the conda environment because pip attempted interactive authentication 
-- Instead, provide authentication via [workspace connection](https://aka.ms/azureml/environment/set-connection-v1)
+<!--issueDescription-->
+This can happen when pip attempts interactive authentication during package installation.
+
+**Potential causes:**
+* You've listed a package that requires authentication, but you haven't provided credentials
+* During the image build, pip tries to prompt the user to authenticate which fails the build
+because the user can't provide authentication during the running of the build
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Provide authentication via workspace connections
+
+*Applies to: Python SDK azureml V1*
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions V1 & V2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+**Resources**
+* [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK AzureML v2 workspace connections](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection?view=azure-python-preview)
+* [Azure CLI workspace connections](https://learn.microsoft.com/cli/azure/ml/connection?view=azure-cli-latest)
 
 ### Forbidden blob
 - Failed to create or update the conda environment because a blob contained in the associated storage account was inaccessible
