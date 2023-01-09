@@ -75,7 +75,7 @@
       href: tutorial-sql-server-to-virtual-machine-offline-ads.md
     - name: Known issues and troubleshooting
       href: known-issues-azure-sql-migration-azure-data-studio.md
-    - name: DMS v1
+    - name: Older tutorials
       items: 
       - name: to Azure SQL Database
         href: tutorial-sql-server-to-azure-sql.md
