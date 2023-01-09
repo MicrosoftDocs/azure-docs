@@ -95,6 +95,10 @@
   - name: Azure Resource Graph queries
     displayName: sample, query, queries, resource, graph
     href: ./resource-graph-samples.md
+  - name: PowerShell script sample - Enable vulnerability assessment on a SQL server
+    href: powershell-sample-vulnerability-assessment-azure-sql.md
+  - name: PowerShell script sample - Set up baselines on Azure SQL databases
+    href: powershell-sample-vulnerability-assessment-baselines.md
 
 - name: Concepts
   items:
@@ -648,7 +652,9 @@
     - name: Defender EASM
       href: episode-twenty-two.md
     - name: Defender Threat Intelligence (Defender TI)
-      href: episode-twenty-three.md 
+      href: episode-twenty-three.md
+    - name: Enhancements in Defender for SQL Vulnerability Assessment
+      href: episode-twenty-four.md 
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
