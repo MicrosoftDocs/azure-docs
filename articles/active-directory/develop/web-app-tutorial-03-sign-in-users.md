@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Add sign-in to an application"
 description: Add sign-in to an ASP.NET Core application using Visual Studio.
-author: davidmu1
-ms.author: davidmu
+author: cilwerner
+ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
