@@ -38,7 +38,8 @@ Service accounts are disabled by default in Azure Managed Grafana. If your exist
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
+1. Azure Managed Grafana CLI extension 0.3.0 or above is required. To update your extension, run `az extension update --name amg`.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
 
 ```azurecli-interactive
 az grafana update --name <azure-managed-grafana-name> ---service-account Enabled
