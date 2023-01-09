@@ -1,9 +1,9 @@
 ---
-title: Cognitive Services with SynapseML - Overview
-description: Cognitive Services with SynapseML - Overview
+title: cognitive-services-with-synapseml-overview
+description: cognitive-services-with-synapseml-overview
 author: JessicaXYWang
 ms.author: jessiwang
-ms.date: 01/08/2023
+ms.date: 01/09/2023
 ms.topic: tutorial
 ms.service: cognitive-search
 ---
@@ -21,7 +21,7 @@ ms.service: cognitive-search
 - Recognize Text: reads text from an image ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/RecognizeText.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.RecognizeText))
 - Thumbnail: generates a thumbnail of user-specified size from the image ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/GenerateThumbnails.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.GenerateThumbnails))
 - Recognize domain-specific content: recognizes domain-specific content (celebrity, landmark) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/RecognizeDomainSpecificContent.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.RecognizeDomainSpecificContent))
-- Tag: identifies list of words that are relevant to the in0put image ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/TagImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.TagImage))
+- Tag: identifies list of words that are relevant to the input image ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/TagImage.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.TagImage))
 
 [**Face**](https://azure.microsoft.com/services/cognitive-services/face/)
 - Detect: detects human faces in an image ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/DetectFace.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.DetectFace))
@@ -42,7 +42,7 @@ ms.service: cognitive-search
 - Language detection: detects language of the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/LanguageDetector.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.LanguageDetector))
 - Key phrase extraction: identifies the key talking points in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/KeyPhraseExtractor.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.KeyPhraseExtractor))
 - Named entity recognition: identifies known entities and general named entities in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/NER.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.NER))
-- Sentiment analysis: returns a score betwee 0 and 1 indicating the sentiment in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/TextSentiment.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.TextSentiment))
+- Sentiment analysis: returns a score between 0 and 1 indicating the sentiment in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/TextSentiment.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.TextSentiment))
 - Healthcare Entity Extraction: Extracts medical entities and relationships from text. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeHealthText.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeHealthText))
 
 
@@ -171,7 +171,7 @@ display(
 
 ## Text Analytics for Health Sample
 
-The [Text Analytics for Heatlth Service](https://docs.microsoft.com/azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner) extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.
+The [Text Analytics for Health Service](https://docs.microsoft.com/azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner) extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.
 
 
 ```python
@@ -230,7 +230,7 @@ display(
 ```
 
 ## Form Recognizer sample
-[Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents�the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. In this sample, we analyze a business card image and extract its information into structured data.
+[Form Recognizer](https://azure.microsoft.com/services/form-recognizer/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. In this sample, we analyze a business card image and extract its information into structured data.
 
 
 ```python
