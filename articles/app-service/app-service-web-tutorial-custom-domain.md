@@ -43,7 +43,7 @@ The DNS record type you need to add with your domain provider depends on the dom
     > [!NOTE]
     > To configure an App Service domain, see [Buy a custom domain name for Azure App Service](manage-custom-dns-buy-domain.md).
 
-1. For **TLS/SSL certificate**, select **App Service Managed Certificate** if your app is in **Basic** tier or above. If you want to remain in **Shared** tier, select **Add certificate later**.
+1. For **TLS/SSL certificate**, select **App Service Managed Certificate** if your app is in **Basic** tier or higher. If you want to remain in **Shared** tier, select **Add certificate later**.
 
 1. For **TLS/SSL type**, select the binding type you want.
 
@@ -55,7 +55,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 1. For each custom domain in App Service, you need two DNS records with your domain provider. The **Domain validation** section shows you two DNS records that you must add with your domain provider. Select the respective **Copy** button to help you with the next step.
 
-    The following screenshot shows the default selections for a `www.contoso.com` domain, which shows an CNAME record and a TXT record to add.
+    The following screenshot shows the default selections for a `www.contoso.com` domain, which shows a CNAME record and a TXT record to add.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate.":::
 
