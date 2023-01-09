@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/10/2022
 ms.topic: how-to
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 ms.devlang: azurecli
