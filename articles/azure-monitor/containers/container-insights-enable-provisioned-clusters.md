@@ -13,7 +13,7 @@ ms.reviewer: aul
 >[!NOTE]
 >Support for monitoring AKS hybrid clusters is currently private preview. We recommend only using preview features in safe testing environments.
 
-[Azure Monitor container insights](./container-insights-overview.md) provides a rich monitoring experience for [AKS hybrid clusters (preview)](https://learn.microsoft.com/azure/aks/hybrid/aks-hybrid-options-overview). This article describes how to setup Container insights to monitor an AKS hybrid cluster.
+[Azure Monitor container insights](./container-insights-overview.md) provides a rich monitoring experience for [AKS hybrid clusters (preview)](/azure/aks/hybrid/aks-hybrid-options-overview). This article describes how to setup Container insights to monitor an AKS hybrid cluster.
 
 
 
