@@ -26,7 +26,7 @@ sections:
 
           To request your discount, contact the Defender for Cloud support team through the Azure portal.
 
-          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for servers licenses that are applied to machines in the workspace.
+          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for Servers licenses that are applied to machines in the workspace.
           - The discount is effective starting on the approval date. The discount isn't retroactive.
 
       - question: |
