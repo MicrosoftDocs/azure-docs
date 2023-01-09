@@ -4,7 +4,7 @@ recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 author: KarlErickson
 ms.author: zhengchang
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
