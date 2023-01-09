@@ -195,7 +195,7 @@ Here are some example scenarios to show how connections are evaluated to decide 
 
 A UDP connection can only be established between the client device and the session host over a public network (internet). A direct connection, such as a VPN, is not available.
 
-:::image type="content" source="media/rdp-shortpath-scenario-1.png" alt-text="RDP Shortpath scenario 1." lightbox="media/rdp-shortpath-scenario-1.png":::
+:::image type="content" source="media/rdp-shortpath-scenario-1.png" alt-text="RDP Shortpath scenario 1.":::
 
 ### Scenario 2
 
@@ -203,7 +203,7 @@ A UDP connection can be established between the client device and the session ho
 
 In this example, a UDP connection using RDP Shortpath for public networks over the direct VPN connection will be made as it has the lowest latency, as shown by the green line.
 
-:::image type="content" source="media/rdp-shortpath-scenario-2.png" alt-text="RDP Shortpath scenario 2." lightbox="media/rdp-shortpath-scenario-2.png":::
+:::image type="content" source="media/rdp-shortpath-scenario-2.png" alt-text="RDP Shortpath scenario 2.":::
 
 ### Scenario 3
 
@@ -211,7 +211,7 @@ Both RDP Shortpath for public networks and managed networks are enabled. A UDP c
 
 Since going over a public network has additional steps, for example a NAT device, a load balancer, or a STUN server, it is likely that the first-found algorithm will select the connection using RDP Shortpath for managed networks and be established first.
 
-:::image type="content" source="media/rdp-shortpath-scenario-3.png" alt-text="RDP Shortpath scenario 3." lightbox="media/rdp-shortpath-scenario-3.png":::
+:::image type="content" source="media/rdp-shortpath-scenario-3.png" alt-text="RDP Shortpath scenario 3.":::
 
 ### Scenario 4
 
@@ -219,13 +219,13 @@ A UDP connection can be established between the client device and the session ho
 
 In this example, UDP is blocked on the direct VPN connection and the ICE/STUN protocol establishes a connection over the public network.
 
-:::image type="content" source="media/rdp-shortpath-scenario-4.png" alt-text="RDP Shortpath scenario 4." lightbox="media/rdp-shortpath-scenario-4.png":::
+:::image type="content" source="media/rdp-shortpath-scenario-4.png" alt-text="RDP Shortpath scenario 4.":::
 
 ### Scenario 5
 
 Both RDP Shortpath for public networks and managed networks are configured, however a UDP connection could not be established. In this instance, RDP Shortpath will fail and the connection will fall back to TCP-based reverse connect transport.
 
-:::image type="content" source="media/rdp-shortpath-scenario-5.png" alt-text="RDP Shortpath scenario 5." lightbox="media/rdp-shortpath-scenario-5.png":::
+:::image type="content" source="media/rdp-shortpath-scenario-5.png" alt-text="RDP Shortpath scenario 5.":::
 
 ## Next steps
 
