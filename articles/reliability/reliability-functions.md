@@ -42,7 +42,7 @@ Zone-redundant Premium plans are available in the following regions:
 
 | Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
 |------------------|----------------------|---------------|--------------------|----------------|
-| Brazil South     | France Central       | Qatar Central |                    | Australia East |
+| Brazil South     | France Central       | Qatar Central | South Africa North | Australia East |
 | Canada Central   | Germany West Central |               |                    | Central India  |
 | Central US       | North Europe         |               |                    | China North 3  |
 | East US          | Sweden Central       |               |                    | East Asia      |
