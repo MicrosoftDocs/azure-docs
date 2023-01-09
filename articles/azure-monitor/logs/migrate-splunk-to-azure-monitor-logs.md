@@ -29,7 +29,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 |[Table management](../logs/manage-logs-tables.md)|Azure Monitor Logs stores log data in tables. Table configuration lets you define the table schema, how long to retain data, and whether you need the data available for occasional auditing and troubleshooting or for ongoing data analysis and regular use by features and services.|
 |[Basic and Analytics log data plans](../logs/basic-logs-configure.md)| Azure Monitor Logs offers two log data plans that let you reduce log ingestion and retention costs and take advantage of Azure Monitor's advanced features and analytics capabilities based on your needs.<br/> The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. The **Analytics** plan makes log data available for interactive queries and use by features and services. |
 |[Archiving and quick access to archived data](../logs/data-retention-archive.md)| The cost-effective archive option keeps your logs in your Log Analytics workspace and lets you access archived log data immediately, when you need it. Archive configuration changes are also effective immediately because data is not physically transferred to external storage. |
-|[Data transformations](../essentials/data-collection-transformations.md)|Transformations let you filter or modify incoming data before it's sent to a Log Analytics workspace. Use transformations to remove sensitive data, enrich data in your Log Analytics workspace with additional or calculated information, and reduce data costs. |
+|[Data transformations](../essentials/data-collection-transformations.md)|Transformations let you filter or modify incoming data before it's sent to a Log Analytics workspace. Use transformations to remove sensitive data, enrich data in your Log Analytics workspace with additional or calculated information, and filter out data you don't need to reduce data costs. |
 |[Data collection rules](../essentials/data-collection-rule-overview.md)|Define which data to collect, how to transform that data, and where to send the data. |
 |[Kusto Query Language (KQL)](/azure/kusto/query/)|Azure Monitor Logs uses a large subset of KQL that's suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. Use the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) to translate your Splunk SPL knowledge to KQL. You can also [learn KQL with tutorials](../logs/get-started-queries.md) and [KQL training modules](/training/modules/analyze-logs-with-kql/).|
 |[Log Analytics](../logs/log-analytics-overview.md)| A tool in the Azure portal that's used to edit and run log queries on data collected to Azure Monitor Logs.|
@@ -47,12 +47,12 @@ To set up a Log Analytics workspace for data collection:
     
     Azure Monitor Logs creates Azure tables in your workspace automatically based on Azure services you use and [data collection settings](#4-collect-data) you define for Azure resources.
 
-1. [Configure your workspace](../logs/log-analytics-workspace-overview.md) based on needs such as access control, billing, data transformation, and data retention and archiving.
-
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
     1. Define a table's log data plan.
     1. Set a data retention and archiving for specific tables that's different the workspace-level data retention and archiving policy. 
     1. Modify the table schema.
+
+1. [Configure your workspace](../logs/log-analytics-workspace-overview.md) based on needs such as access control, billing, data transformation, and data retention and archiving.
 
 ## 2. Migrate Splunk apps and artifacts
 
