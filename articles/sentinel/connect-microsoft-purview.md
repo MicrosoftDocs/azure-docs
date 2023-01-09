@@ -31,13 +31,11 @@ With the connector, you can:
 
 ### Azure Information Protection connector vs. Microsoft Purview Information Protection connector
 
-This connector replaces the Azure Information Protection (AIP) data connector. Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
+This connector replaces the Azure Information Protection (AIP) data connector. The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 31, 2023**, the AIP analytics and audit logs public preview will be retired, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview).
 
-> [!NOTE]
-> The Azure Information Protection (AIP) data connector uses the AIP audit logs (public preview) feature. As of **March 18, 2022**, we are sunsetting the AIP analytics and audit logs public preview, and moving forward will be using the [Microsoft 365 auditing solution](/microsoft-365/compliance/auditing-solutions-overview). Full retirement is scheduled for **September 30, 2022**.
->
-> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
->
+For more information: 
+- See [Removed and retired services](/azure/information-protection/removed-sunset-services#azure-information-protection-analytics).
+- Learn how to [disconnect the AIP connector](#disconnect-the-azure-information-protection-connector).
 
 When you enable the Microsoft Purview Information Protection connector, audit logs stream into the standardized 
 `MicrosoftPurviewInformationProtection` table. Data is gathered through the [Office Management API](/office/office/office-365-management-api/office-365-management-activity-api-schema), which uses a structured schema. The new standardized schema is adjusted to enhance the deprecated schema used by AIP, with more fields and easier access to parameters.
@@ -56,6 +54,9 @@ Before you begin, verify that you have:
 
 ## Set up the connector
 
+> [!NOTE]
+> If you set the connector on a workspace located in a different region than your Office 365 location, data might be streamed across regions.
+
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 1. In the **Data connectors** blade, in the search bar, type *Purview*.
 1. Select the **Microsoft Purview Information Protection (Preview)** connector.
@@ -67,8 +68,6 @@ Before you begin, verify that you have:
 Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md). 
 
 ## Disconnect the Azure Information Protection connector
-
-If you the Azure Information Protection connector is still connected in your workspace, you must disconnect the Azure Information Protection connector. 
 
 We recommend to use the Azure Information Protection connector and the Microsoft Purview Information Protection connector simultaneously (both enabled) for a short testing period. After the testing period, we recommend that you disconnect the Azure Information Protection connector to avoid data duplication and redundant costs. 
 
