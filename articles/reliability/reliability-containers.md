@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: container-instances
 ms.date: 11/29/2022
 ---
 
