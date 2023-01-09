@@ -28,6 +28,8 @@ For more information, see the [ArcSight SmartConnectors Documentation](https://w
 
 This procedure describes how to create a forwarding rule from your OT sensor to send Defender for IoT alerts from that sensor to ArcSight.
 
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+
 For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
 
 1. Sign in to your OT sensor console and select **Forwarding** on the left.

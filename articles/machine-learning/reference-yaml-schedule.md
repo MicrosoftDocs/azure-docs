@@ -10,7 +10,7 @@ ms.topic: reference
 author: cloga
 ms.author: lochen
 ms.date: 08/15/2022
-ms.reviewer: laobri
+ms.reviewer: lagayhar
 ---
 
 # CLI (v2) schedule YAML schema

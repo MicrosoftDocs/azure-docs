@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Design your Microsoft Sentinel workspace architecture
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article provides a decision tree to help you make key decisions about how to design your Microsoft Sentinel workspace architecture. For more information, see [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md) and [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
 ## Prerequisites

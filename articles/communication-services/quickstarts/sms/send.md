@@ -28,7 +28,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 >[!VIDEO https://www.youtube.com/embed/YEyxSZqzF4o]
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Send SMS with Azure CLI](./includes/send-sms-azcli.md)]
+[!INCLUDE [Send SMS with Azure CLI](./includes/send-sms-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
