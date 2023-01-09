@@ -55,7 +55,7 @@ To change the owner of resources and set the ETA for remediation of recommendati
 1. For the resources that are assigned to you, set the owner of the resource:
     1. Select the resources that are owned by another person, and select **Change owner and set ETA**.
     1. Select **Change owner**, enter the email address of the owner of the resource, and select **Save**.
-    The owner of the resource gets a weekly email listing the recommendations that they are assigned to.
+    The owner of the resource gets a weekly email listing the recommendations that they are assigned.
 1. For resources that you own, set an ETA for remediation:
     1. Select resources that you plan to remediate by the same date, and select **Change owner and set ETA**.
     1. Select **Change ETA** and set the date by which you plan to remediate the recommendation for those resources.
@@ -65,9 +65,9 @@ The due date for the recommendation does not change, but the security team can s
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
-You can review recommendations in ARG both on the recommendations page or on an individual recommendation.
+You can review recommendations in ARG both on the Recommendations page or on an individual recommendation.
 
-The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that gives you the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
+The toolbar on the Recommendations page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that gives you the ability to query - across multiple subscriptions - Defender for Cloud's security posture data.
 
 ARG is designed to provide efficient resource exploration with the ability to query at scale across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
 
@@ -94,7 +94,7 @@ The Insights column of the page gives you more details for each recommendation. 
 
 Recommendations that aren't included in the calculations of your secure score, should still be remediated wherever possible, so that when the period ends they'll contribute towards your score instead of against it.
 
-## Download recommendations in a CSV report
+## Download recommendations to a CSV report
 
 Recommendations can be downloaded to a CSV report from the Recommendations page.
 
@@ -106,13 +106,13 @@ To download a CSV report of your recommendations:
 
     :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download C S V report from.":::
 
-You'll know the report is being prepared by the pop-up.
+You'll know the report is being prepared as indicated by the pop-up.
 
-:::image type="content" source="media/review-security-recommendations/preparing-report.png" alt-text="Screenshot of report being prepared.":::
+:::image type="content" source="media/review-security-recommendations/preparing-report.png" alt-text="Screenshot of pop-up indicating report being prepared.":::
 
 When the report is ready, you'll be notified by a second pop-up.
 
-:::image type="content" source="media/review-security-recommendations/downloaded-csv.png" alt-text="Screenshot letting you know your downloaded completed.":::
+:::image type="content" source="media/review-security-recommendations/downloaded-csv.png" alt-text="Screenshot of pop-up indicating your downloaded completed.":::
 
 ## Learn more
 
@@ -125,8 +125,8 @@ You can check out the following blogs:
 
 In this document, you were introduced to security recommendations in Defender for Cloud. For related information:
 
-- [Remediate recommendations](implement-security-recommendations.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Remediate recommendations](implement-security-recommendations.md)-Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
-- [Automate responses to Defender for Cloud triggers](workflow-automation.md)--Automate responses to recommendations
+- [Automate responses to Defender for Cloud triggers](workflow-automation.md)-Automate responses to recommendations
 - [Exempt a resource from a recommendation](exempt-resource.md)
 - [Security recommendations - a reference guide](recommendations-reference.md)
