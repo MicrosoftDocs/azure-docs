@@ -9,7 +9,11 @@ ms.date: 01/03/2023
 
 # Select SAP ingestion profile
 
-This article explains how to select the profile for you SAP solution. We recommend that you select an ingestion profile that maximizes your security coverage while meeting your budget requirements. As one way to select a profile, you can turn on all logs for a while, and then reevaluate the ingestion profile according the expected cost related to the ingestion. If needed, you can [simulate expected costs](../billing-monitor-costs.md). 
+This article explains how to select the profile for your SAP solution. We recommend that you select an ingestion profile that maximizes your security coverage while meeting your budget requirements. 
+
+Because SAP is a business application, and business processes tend to be seasonal, it may be difficult to predict the overall volume of logs over time. To address this issue, we recommend that you keep all logs on for two weeks, and learn from the observed activity. This learning can later be revised during business activity peaks, or major landscape transformations.
+
+As one way to select a profile, you can turn on all logs for a while, and then reevaluate the ingestion profile according to the expected cost related to the ingestion. If needed, you can [simulate expected costs](../billing-monitor-costs.md). 
 
 The following sections show typical customer configuration profiles for SAP log ingestion.
 
@@ -19,7 +23,7 @@ This profile includes complete coverage for:
 
 - Built-in analytics
 - The SAP user authorization master data tables, with users and privilege information
-- The ability to track changes and activities on the SAP landscape. This profile provides additional logging to allow for post-breach investigations and extended hunting abilities.
+- The ability to track changes and activities on the SAP landscape. This profile provides more logging information to allow for post-breach investigations and extended hunting abilities.
 
 ### systemconfig.ini file
 
@@ -74,7 +78,7 @@ USRACL_FULL = False
 
 ## Detection focused profile
 
-This profile includes the core security logs of the SAP landscape required for the majority of the analytic rules to perform well. Post-breach investigations and hunting capabilities are limited.
+This profile includes the core security logs of the SAP landscape required for the most of the analytics rules to perform well. Post-breach investigations and hunting capabilities are limited.
 
 ### systemconfig.ini
 
