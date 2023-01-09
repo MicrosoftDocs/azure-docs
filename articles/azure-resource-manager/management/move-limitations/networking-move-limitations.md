@@ -28,6 +28,10 @@ For more information, see [Scenario for move across subscriptions](../move-resou
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
+## VPN Gateways
+
+You cannot move VPN Gateways across subscriptions if they are of Basic SKU. Basic SKU is only meant for test environment usage and doesn't support resource move operation.
+
 ## Subnet links
 
 You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if an Azure Cache for Redis resource is deployed into a subnet, that subnet has a resource navigation link.
