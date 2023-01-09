@@ -41,7 +41,7 @@ az login
 
 az account set --subscription "Cluster Subscription Name"
 
-az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
 ```
 ## [Azure portal](#tab/create-portal)
 
@@ -108,7 +108,7 @@ az deployment group create --resource-group "Resource Group Name" --template-fil
 Showing the extension details:
 
 ```azcli
-az k8s-extension list --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice"
+az k8s-extension list --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice"
 ```
 
 
@@ -117,7 +117,7 @@ az k8s-extension list --cluster-name "Cluster Name" --resource-group "Resource G
 The command for deleting the extension:
 
 ```azcli
-az k8s-extension delete --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
+az k8s-extension delete --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
 ```
 
 ## Known Issues/Limitations
