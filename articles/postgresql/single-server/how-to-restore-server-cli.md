@@ -4,8 +4,8 @@ description: Learn how to set backup configurations and restore a server in Azur
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.date: 06/24/2022
