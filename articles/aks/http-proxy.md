@@ -4,7 +4,7 @@ description: Use the HTTP proxy configuration feature for Azure Kubernetes Servi
 services: container-service
 author: nickomang
 ms.topic: article
-ms.date: 05/23/2022
+ms.date: 01/09/2023
 ms.author: nickoman
 ---
 
@@ -25,6 +25,7 @@ The following scenarios are **not** supported:
 - Custom CAs for API server communication
 - Windows-based clusters
 - Node pools using Virtual Machine Availability Sets (VMAS)
+- Using * as wildcard attached to a domain suffix for noProxy
 
 By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 
@@ -52,7 +53,7 @@ The schema for the config file looks like this:
 
 `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
 `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
-`noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
+`noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying. 
 `trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the Kubernetes system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
 
 Example input:
