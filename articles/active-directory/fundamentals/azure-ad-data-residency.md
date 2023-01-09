@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/21/2022
+ms.date: 01/09/2023
 ms.author: jricketts
 ms.reviewer: jricketts
 ms.custom: "it-pro"
@@ -56,14 +56,13 @@ Use the following table to see Azure AD cloud solution models based on infrastru
 
 |Model|Locations|Data location|Operations personnel|Put a tenant in this model|
 |---|---|---|---|---|
-|Public geo located (2)|North America, EMEA, Japan, Asia/Pacific|At rest, in the target location. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Create the tenant in the sign-up experience. Choose the location for data residency.|
+|Public geo located|North America, EMEA, Japan, Asia/Pacific|At rest, in the target location. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Create the tenant in the sign-up experience. Choose the location for data residency.|
 |Public worldwide|Worldwide|All locations|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Tenant creation available via official support channel and subject to Microsoft discretion.|
 |Sovereign or national clouds|US government, China|At rest, in the target location. No exceptions.|Operated by a data custodian (1). Personnel are screened according to requirements.|Each national cloud instance has a sign-up experience.|
 
 **Table references**:
 
 (1) **Data custodians**: Data centers in the US government cloud are operated by Microsoft. In China, Azure AD is operated through a partnership with  [21Vianet](/microsoft-365/admin/services-in-china/services-in-china?redirectSourcePath=%252fen-us%252farticle%252fLearn-about-Office-365-operated-by-21Vianet-a8ab5061-3346-4da0-bb7c-5260822b53ae&view=o365-21vianet&viewFallbackFrom=o365-worldwide&preserve-view=true).  
-(2) **Authentication data**: Tenants outside the sovereign or national clouds have authentication information at rest in the continental United States.
 
 Learn more: 
 
@@ -75,16 +74,12 @@ Learn more:
 
 ## Data residency across Azure AD components
 
-In addition to authentication service data, Azure AD components and service data are stored on servers in the Azure AD instance’s region.
-
 Learn more: [Azure Active Directory, Product overview](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 
 > [!NOTE]
 > To understand service data location, such as Exchange Online, or Skype for Business, refer to the corresponding service documentation. 
 
 ### Azure AD components and data storage location
-
-Data storage for Azure AD components includes authentication, identity, MFA, and others.
 
 |Azure AD component|Description|Data storage location|
 |---|---|---|
