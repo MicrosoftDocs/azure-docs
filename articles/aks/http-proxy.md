@@ -140,3 +140,4 @@ For more information regarding the network requirements of AKS clusters, see [co
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[install-azure-cli]: /cli/azure/install-azure-cli
