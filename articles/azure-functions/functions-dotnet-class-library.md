@@ -28,19 +28,6 @@ Azure Functions supports C# and C# script programming languages. If you're looki
 
 [!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
-### Functions v2.x considerations
-
-Function apps that target the latest 2.x version (`~2`) are automatically upgraded to run on .NET Core 3.1. Because of breaking changes between .NET Core versions, not all apps developed and compiled against .NET Core 2.2 can be safely upgraded to .NET Core 3.1. You can opt out of this upgrade by pinning your function app to `~2.0`. Functions also detects incompatible APIs and may pin your app to `~2.0` to prevent incorrect execution on .NET Core 3.1. 
-
->[!NOTE]
->If your function app is pinned to `~2.0` and you change this version target to `~2`, your function app may break. If you deploy using ARM templates, check the version in your templates. If this occurs, change your version back to target `~2.0` and fix compatibility issues. 
-
-Function apps that target `~2.0` continue to run on .NET Core 2.2. This version of .NET Core no longer receives security and other maintenance updates. To learn more, see [this announcement page](https://github.com/Azure/app-service-announcements/issues/266). 
-
-You should work to make your functions compatible with .NET Core 3.1 as soon as possible. After you've resolved these issues, change your version back to `~2` or upgrade to `~3`. To learn more about targeting versions of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
-
-When running on Linux in a Premium or dedicated (App Service) plan, you pin your version by instead targeting a specific image by setting the `linuxFxVersion` site config setting to `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` To learn how to set `linuxFxVersion`, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux).
-
 ## Functions class library project
 
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
@@ -171,17 +158,17 @@ The generated *function.json* file includes a `configurationSource` property tha
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of the `.csproj` files, showing different target frameworks with the same `Sdk` package:
+Below are the relevant parts of the `.csproj` files, showing different target frameworks with the same `Sdk` package:
 
-# [v2.x+](#tab/v2)
+# [v4.x](#tab/v4)
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netcoreapp2.1</TargetFramework>
-  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+  <TargetFramework>net6.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
 </ItemGroup>
 ```
 
@@ -198,7 +185,7 @@ The same package is used for both version 1.x and 2.x of the Functions runtime. 
 ---
 
 
-Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 2.x triggers and bindings target .NET Core.
+Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 4.x triggers and bindings target .NET Core.
 
 The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), and indirectly on [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). These dependencies make sure that your project uses the versions of those packages that work with the Functions runtime version that the project targets. For example, `Newtonsoft.Json` has version 11 for .NET Framework 4.6.1, but the Functions runtime that targets .NET Framework 4.6.1 is only compatible with `Newtonsoft.Json` 9.0.1. So your function code in that project also has to use `Newtonsoft.Json` 9.0.1.
 

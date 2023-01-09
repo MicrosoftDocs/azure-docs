@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 10/22/2022
+ms.date: 01/09/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -50,7 +50,6 @@ The following major runtime version values are used:
 | Value | Runtime target |
 | ------ | -------- |
 | `~4` | 4.x |
-| `~3` | 3.x |
 | `~1` | 1.x |
 
 >[!IMPORTANT]
@@ -62,11 +61,6 @@ To resolve issues your function app may have when running on the latest major ve
 
 Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 
-### Pinning to version ~2.0
-
-.NET function apps running on version 2.x (`~2`) are automatically upgraded to run on .NET Core 3.1, which is a long-term support version of .NET Core 3. Running your .NET functions on .NET Core 3.1 allows you to take advantage of the latest security updates and product enhancements. 
-
-Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no longer receives security and other updates. To learn more, see [Functions v2.x considerations](functions-dotnet-class-library.md#functions-v2x-considerations). 
 
 ## Minimum extension versions
 
@@ -126,24 +120,6 @@ You can also choose `net6.0`, `net7.0`, or `net48` as the target framework if yo
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
 
-# [Version 3.x](#tab/v3)
-
-```xml
-<TargetFramework>netcoreapp3.1</TargetFramework>
-<AzureFunctionsVersion>v3</AzureFunctionsVersion>
-```
-
-You can also choose `net5.0` as the target framework if you're using [.NET isolated worker process functions](dotnet-isolated-process-guide.md).
-
-> [!NOTE]
-> Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
-
-# [Version 2.x](#tab/v2)
-
-```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
-<AzureFunctionsVersion>v2</AzureFunctionsVersion>
-```
 
 # [Version 1.x](#tab/v1)
 
