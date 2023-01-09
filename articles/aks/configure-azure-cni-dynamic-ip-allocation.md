@@ -7,17 +7,17 @@ ms.date: 01/09/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-## Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)
+# Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)
 
 A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, which results in the need to rebuild your entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allocating pod IPs from a subnet separate from the subnet hosting the AKS cluster.
 
 It offers the following benefits:
 
-    * **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.
-    * **Scalable and flexible**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
-    * **High performance**: Since pod are assigned VNet IPs, they have direct connectivity to other cluster pod and resources in the VNet. The solution supports very large clusters without any degradation in performance.
-    * **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using a VNet Network NAT, and using NSGs to filter traffic between node pools.  
-    * **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this new solution.
+* **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.
+* **Scalable and flexible**: Node and pod subnets can be scaled independently. A single pod subnet can be shared across multiple node pools of a cluster or across multiple AKS clusters deployed in the same VNet. You can also configure a separate pod subnet for a node pool.  
+* **High performance**: Since pod are assigned VNet IPs, they have direct connectivity to other cluster pod and resources in the VNet. The solution supports very large clusters without any degradation in performance.
+* **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using a VNet Network NAT, and using NSGs to filter traffic between node pools.  
+* **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this new solution.
 
 This article shows you how to use Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS.
 
@@ -64,49 +64,49 @@ Using dynamic allocation of IPs and enhanced subnet support in your cluster is s
 
 Create the virtual network with two subnets.
 
-    ```azurecli-interactive
-    resourceGroup="myResourceGroup"
-    vnet="myVirtualNetwork"
-    location="westcentralus"
+```azurecli-interactive
+resourceGroup="myResourceGroup"
+vnet="myVirtualNetwork"
+location="westcentralus"
 
-    # Create the resource group
-    az group create --name $resourceGroup --location $location
+# Create the resource group
+az group create --name $resourceGroup --location $location
 
-    # Create our two subnet network 
-    az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
-    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
-    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
-    ```
+# Create our two subnet network 
+az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+```
 
 Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`.
 
-    ```azurecli-interactive
-    clusterName="myAKSCluster"
-    subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+```azurecli-interactive
+clusterName="myAKSCluster"
+subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-    az aks create -n $clusterName -g $resourceGroup -l $location \
-      --max-pods 250 \
-      --node-count 2 \
-      --network-plugin azure \
-      --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
-      --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
-    ```
+az aks create -n $clusterName -g $resourceGroup -l $location \
+    --max-pods 250 \
+    --node-count 2 \
+    --network-plugin azure \
+    --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
+    --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
+```
 
 ### Adding node pool
 
 When adding node pool, reference the node subnet using `--vnet-subnet-id` and the pod subnet using `--pod-subnet-id`. The following example creates two new subnets that are then referenced in the creation of a new node pool:
 
-    ```azurecli-interactive
-    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
-    az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
+```azurecli-interactive
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
 
-    az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
-      --max-pods 250 \
-      --node-count 2 \
-      --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
-      --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
-      --no-wait
-    ```
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
+    --max-pods 250 \
+    --node-count 2 \
+    --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
+    --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
+    --no-wait
+```
 
 ## Dynamic allocation of IP addresses and enhanced subnet support FAQs
 
