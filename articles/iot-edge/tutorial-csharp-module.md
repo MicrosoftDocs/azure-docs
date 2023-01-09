@@ -6,7 +6,7 @@ author: PatAltimore
 
 
 ms.author: patricka
-ms.date: 07/30/2020
+ms.date: 07/30/2021
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, devx-track-csharp"
