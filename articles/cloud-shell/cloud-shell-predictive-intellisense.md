@@ -127,7 +127,7 @@ Use the built-in Cloud Shell editor to edit the profile:
 Code $Profile
 ```
 
-## Next Steps
+## Next steps
 
 For more information about configuring PSReadLine and managing predictors, see
 [Using predictors in PSReadLine][05].
