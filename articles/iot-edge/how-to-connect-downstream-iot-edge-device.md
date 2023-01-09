@@ -140,7 +140,7 @@ To configure your parent device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge parent device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Check your certificates meet the [format requirements](#format-requirements).
+01. Check your certificates meet the [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
 01. Transfer the **root CA certificate**, **parent device CA certificate**, and **parent private key** to the parent device. 
 
@@ -362,7 +362,7 @@ To configure your downstream device, open a local or remote command shell.
 
 To enable secure connections, every IoT Edge downstream device in a gateway scenario needs to be configured with a unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy. 
 
-01. Check your certificates meet the [format requirements](#format-requirements).
+01. Check your certificates meet the [format requirements](how-to-manage-device-certificates.md#format-requirements).
 
 01. Transfer the **root CA certificate**, **child device CA certificate**, and **child private key** to the downstream device. 
 
