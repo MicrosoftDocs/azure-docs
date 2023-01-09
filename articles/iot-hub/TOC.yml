@@ -377,6 +377,9 @@
             - name: Portal
               displayName: module twins, module identity
               href: iot-hub-portal-csharp-module-twin-getstarted.md
+            - name: CLI
+              displayName: module twins, module identity
+              href: iot-hub-cli-cli-module-twin-getstarted.md
             - name: .NET
               displayName: module twins, module identity
               href: iot-hub-csharp-csharp-module-twin-getstarted.md
@@ -389,9 +392,6 @@
             - name: C
               displayName: module twins, module identity
               href: iot-hub-c-c-module-twin-getstarted.md
-            - name: Azure CLI
-              displayName: module twins, module identity
-              href: iot-hub-cli-cli-module-twin-getstarted.md
         - name: Get started with device management
           items:
             - name: .NET
