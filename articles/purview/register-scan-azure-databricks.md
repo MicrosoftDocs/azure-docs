@@ -31,12 +31,11 @@ When scanning Azure Databricks source, Microsoft Purview supports:
    - Databases
    - Tables including the columns, foreign keys, unique constraints, and storage description
    - Views including the columns and storage description
-   - Processes
 
 - Fetching relationship between external tables and Azure Data Lake Storage Gen2/Azure Blob assets. 
 - Fetching static lineage on assets relationships among tables and views.
 
-This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore) in case you use it to scan Azure Databricks earlier:  
+This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore-source.md) in case you use it to scan Azure Databricks earlier:  
 
 - You can directly set up scan for Azure Databricks workspaces without direct HMS access. It uses Databricks personal access token for authentication and connects to a cluster to perform scan. 
 - The Databricks workspace info is captured.
@@ -58,8 +57,8 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
 * In your Azure Databricks workspace:
 
-   * [Generate a personal access token](https://learn.microsoft.com/azure/databricks/dev-tools/auth#--azure-databricks-personal-access-tokens), and store it as a secret in Azure Key Vault.
-   * [Create a cluster](https://learn.microsoft.com/azure/databricks/clusters/create-cluster). Note down the cluster ID - you can find it in Azure Databricks workspace -> Compute -> your cluster -> Tags -> Automatically added tags -> `ClusterId`.
+   * [Generate a personal access token](/azure/databricks/dev-tools/auth#--azure-databricks-personal-access-tokens), and store it as a secret in Azure Key Vault.
+   * [Create a cluster](/azure/databricks/clusters/create-cluster). Note down the cluster ID - you can find it in Azure Databricks workspace -> Compute -> your cluster -> Tags -> Automatically added tags -> `ClusterId`.
 
 ## Register
 
