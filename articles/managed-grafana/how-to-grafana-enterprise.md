@@ -1,24 +1,25 @@
 ---
 title: Subscribe to Grafana Enterprise
-description:  Access Grafana Enterprise plugins within Azure Managed Grafana
+description:  Activate Grafana Enterprise (preview) to access Grafana Enterprise plugins within Azure Managed Grafana
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 09/27/2022
+ms.date: 01/09/2022
 ---
 
-# Subscribe to Grafana Enterprise and start using Grafana Enterprise plugins
+# Subscribe to Grafana Enterprise (preview) and start using Grafana Enterprise plugins
 
-In this guide, learn how to activate the Grafana Enterprise add-on in Azure Managed Grafana, update your Grafana Enterprise plan, and access Grafana Enterprise plugins.
+In this guide, learn how to activate the Grafana Enterprise (preview) add-on in Azure Managed Grafana, update your Grafana Enterprise plan, and access [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).
 
-The Grafana Enterprise plans offered through Azure Managed Grafana enable users to access [Grafana Enterprise plugins](https://grafana.com/docs/plugins/) to do more with Azure Managed Grafana.
+The Grafana Enterprise plans offered through Azure Managed Grafana enable users to access Grafana Enterprise plugins to do more with Azure Managed Grafana.
 
-Grafana Enterprise plugins:
+Grafana Enterprise plugins, as of January 2023:
 
 - AppDynamics
 - Azure DevOps
 - Datadog
+- Databricks
 - Dynatrace
 - GitLab
 - Honeycomb
@@ -32,22 +33,27 @@ Grafana Enterprise plugins:
 - Snowflake
 - Splunk
 - Splunk Infrastructure Monitoring
+- Sqlyze Datasource
 - Wavefront
 
 > [!NOTE]
-> Grafana Enterprise plugins are directly supported by Grafana Labs.
+> Grafana Enterprise plugins are directly supported by Grafana Labs. For more information and an updated list, go to [Grafana Enterprise plugins](https://grafana.com/docs/plugins/).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - This guide assumes that you already know the basics of [creating an Azure Managed Grafana instance](quickstart-managed-grafana-portal.md).
 
-## Activate and manage Grafana Enterprise
+## Activate and manage Grafana Enterprise (preview)
 
 You can enable access to Grafana Enterprise plugins by selecting a Grafana Enterprise plan when creating a new workspace, or you can add a Grafana Enterprise plan on an already-created Azure Managed Grafana instance.
 
 > [!NOTE]
 > The Grafana Enterprise monthly plan is a paid plan, owned and charged by Grafana Labs, through Azure Marketplace. Go to [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/) for details.
+
+> [!IMPORTANT]
+> Grafana Enterprise is currently in PREVIEW with Azure Managed Grafana.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Create an Azure Managed Grafana workspace with a Grafana Enterprise plan enabled
 
