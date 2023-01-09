@@ -18,6 +18,9 @@ ms.author: anfdocs
 
 NFSv4 introduces the concept of an authentication domain. Azure NetApp Files currently supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
 
+>[!IMPORTANT]
+>This topic describes how to modify the NFSv4.1 domain for Azure on both AD/LDAP-enabled volumes and volumes not enabled for LDAP. Azure NetApp Files includes an option to configure the NFSv4.1 domain for all non-LDAP volumes in a subscription; this feature is current in preview and you must [register the feature](#register-the-feature) before using it.
+
 ## Default behavior of user/group mapping
 
 Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you will see file permissions as follows:  
@@ -26,7 +29,13 @@ Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `l
 
 As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default. This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
 
-## Register the feature
+## Configure NFSv4.1 domain  
+
+### [Portal](#tab/azure-portal)
+
+Using the Azure portal, you can update the account settings to set NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that NetApp account and region. 
+
+#### Register the feature
 
 Azure NetApp Files now supports the ability to set the NFSv4.1 domain for all non-LDAP volumes in a subscription using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
@@ -46,19 +55,25 @@ Azure NetApp Files now supports the ability to set the NFSv4.1 domain for all no
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-## Configure NFSv4.1 domain  
-
-### [Portal](#tab/azure-portal)
-<!-- Portal --> Customer can update the account settings to set the v4-id-domain on all SVMs holding non-ldap volumes for that subscription and region. After setting this property any new SVM created during volume create operation will also have this property set.
-Customer can uncheck and update this subscription wide setting via any NetApp account in the subscription and region to set the v4-id-domain back to default domain.
+#### Configure the NFSv4.1 domain
 
 1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
 1. Select **Configure.**
-1. Check the box next to **Use Default NFSv4 ID Domain**. In the text box, provide the name of the NFSv4 domain.
+1. To use the default domin, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
 
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
 1. Select **Save**.
+<!-- 
+#### Edit the NFSv4 domain
+
+1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
+1. Choose the domain name you want to edit. Select the the three dots `...` next to the name and choose **Edit.**
+ :::image type="content" source="../media/azure-netapp-files/nfsv4-edit-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-edit-domain.png":::
+1. Check or uncheck the box next to **Use Default NFSv4 ID Domain**. In the text box, provide the name of the NFSv4 domain.
+  :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
+1. Select **Save**.
+-->
 
 ### [CLI](#tab/bash)
 
@@ -124,15 +139,6 @@ The following example shows the resulting user/group change:
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 ---
-
-## Edit the NFSv4 domain
-
-1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
-1. Choose the domain name you want to edit. Select the the three dots `...` next to the name and choose **Edit.**
- :::image type="content" source="../media/azure-netapp-files/nfsv4-edit-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-edit-domain.png":::
-1. Check or uncheck the box next to **Use Default NFSv4 ID Domain**. In the text box, provide the name of the NFSv4 domain.
-  :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
-1. Select **Save**.
 
 <!-- preview -->
 
