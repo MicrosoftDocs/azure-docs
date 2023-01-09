@@ -122,6 +122,7 @@ This section provides references to SAP on Azure solutions.
 * [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md)
 * [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 * [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
+* [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
 
 ### SAP IQ-NLS
