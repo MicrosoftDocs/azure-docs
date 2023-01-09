@@ -92,7 +92,7 @@ Recommendations can have one of the following statuses:
 |1.3.3|Ensure that the `--use-service-account-credentials` argument is set to true|Scored|L1|Pass|
 |1.3.4|Ensure that the `--service-account-private-key-file` argument is set as appropriate|Scored|L1|Pass|
 |1.3.5|Ensure that the `--root-ca-file` argument is set as appropriate|Scored|L1|Pass|
-|1.3.6|Ensure that the RotateKubeletServerCertificate argument is set to true|Scored|L2|Pass|
+|1.3.6|Ensure that the RotateKubeletServerCertificate argument is set to true|Scored|L2|Fail|
 |1.3.7|Ensure that the `--bind-address` argument is set to 127.0.0.1|Scored|L1|Equivalent Control|
 |1.4|Scheduler||||
 |1.4.1|Ensure that the `--profiling` argument is set to false|Scored|L1|Pass|
@@ -113,16 +113,16 @@ Recommendations can have one of the following statuses:
 |3.2.2|Ensure that the audit policy covers key security concerns|Not Scored|L2|Pass|
 |4|Worker Nodes||||
 |4.1|Worker Node Configuration Files||||
-|4.1.1|Ensure that the kubelet service file permissions are set to 644 or more restrictive|Scored|L1|Pass|
+|4.1.1|Ensure that the kubelet service file permissions are set to 600 or more restrictive|Scored|L1|Pass|
 |4.1.2|Ensure that the kubelet service file ownership is set to root:root|Scored|L1|Pass|
-|4.1.3|Ensure that the proxy kubeconfig file permissions are set to 644 or more restrictive|Scored|L1|Pass|
-|4.1.4|Ensure that the proxy kubeconfig file ownership is set to root:root|Scored|L1|Pass|
-|4.1.5|Ensure that the kubelet.conf file permissions are set to 644 or more restrictive|Scored|L1|Pass|
-|4.1.6|Ensure that the kubelet.conf file ownership is set to root:root|Scored|L1|Pass|
-|4.1.7|Ensure that the certificate authorities file permissions are set to 644 or more restrictive|Scored|L1|Pass|
+|4.1.3|If a proxy kubeconfig file exists, ensure permissions are set to 600 or more restrictive|Scored|L1|N/A|
+|4.1.4|If a proxy kubeconfig file exists, ensure ownership is set to root:root|Scored|L1|N/A|
+|4.1.5|Ensure that the `--kubeconfig` kubelet.conf file permissions are set to 600 or more restrictive|Scored|L1|Pass|
+|4.1.6|Ensure that the `--kubeconfig` kubelet.conf file ownership is set to root:root|Scored|L1|Pass|
+|4.1.7|Ensure that the certificate authorities file permissions are set to 600 or more restrictive|Scored|L1|Pass|
 |4.1.8|Ensure that the client certificate authorities file ownership is set to root:root|Scored|L1|Pass|
-|4.1.9|Ensure that the kubelet configuration file has permissions set to 644 or more restrictive|Scored|L1|Pass|
-|4.1.10|Ensure that the kubelet configuration file ownership is set to root:root|Scored|L1|Pass|
+|4.1.9|If the kubelet config.yaml configuration file is being used, ensure permissions set to 600 or more restrictive|Scored|L1|Pass|
+|4.1.10|If the kubelet config.yaml configuration file is being used, ensure file ownership is set to root:root|Scored|L1|Pass|
 |4.2|Kubelet||||
 |4.2.1|Ensure that the `--anonymous-auth` argument is set to false|Scored|L1|Pass|
 |4.2.2|Ensure that the `--authorization-mode` argument is not set to AlwaysAllow|Scored|L1|Pass|
@@ -132,10 +132,10 @@ Recommendations can have one of the following statuses:
 |4.2.6|Ensure that the `--protect-kernel-defaults` argument is set to true|Scored|L1|Pass|
 |4.2.7|Ensure that the `--make-iptables-util-chains` argument is set to true|Scored|L1|Pass|
 |4.2.8|Ensure that the `--hostname-override` argument is not set|Not Scored|L1|Pass|
-|4.2.9|Ensure that the `--event-qps` argument is set to 0 or a level which ensures appropriate event capture|Not Scored|L2|Pass|
-|4.2.10|Ensure that the `--tls-cert-file`and `--tls-private-key-file` arguments are set as appropriate|Scored|L1|Equivalent Control|
+|4.2.9|Ensure that the eventRecordQPS argument is set to a level which ensures appropriate event capture|Not Scored|L2|Pass|
+|4.2.10|Ensure that the `--tls-cert-file`and `--tls-private-key-file` arguments are set as appropriate|Scored|L1|Pass|
 |4.2.11|Ensure that the `--rotate-certificates` argument is not set to false|Scored|L1|Pass|
-|4.2.12|Ensure that the RotateKubeletServerCertificate argument is set to true|Scored|L1|Fail|
+|4.2.12|Ensure that the RotateKubeletServerCertificate argument is set to true|Scored|L1|Pass|
 |4.2.13|Ensure that the Kubelet only makes use of Strong Cryptographic Ciphers|Not Scored|L1|Pass|
 |5|Policies||||
 |5.1|RBAC and Service Accounts||||
