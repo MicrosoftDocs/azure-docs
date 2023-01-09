@@ -37,7 +37,7 @@ To purchase in Azure Marketplace, you must meet the following prerequisites:
    az term accept \
        --publisher vmware-inc \
        --product azure-spring-cloud-vmware-tanzu-2 \
-       --plan tanzu-asc-ent-mtr
+       --plan asa-ent-hr-mtr
    ```
 
 ## View Azure Spring Apps Enterprise tier offering from Azure Marketplace

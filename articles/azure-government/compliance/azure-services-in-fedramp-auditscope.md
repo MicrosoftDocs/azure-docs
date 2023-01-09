@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 11/04/2022
+ms.date: 01/05/2023
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -250,7 +250,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: September 2022*
+*Last updated: January 2023*
 
 ### Terminology used
 
@@ -305,6 +305,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Stack Bridge](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Stack HCI](/azure-stack/hci/) | &#x2705; | &#x2705; |  |  |  |
 | [Azure Video Indexer](../../azure-video-indexer/index.yml)  | &#x2705; | &#x2705; | | | |
 | [Azure Virtual Desktop](../../virtual-desktop/index.yml) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Backup](../../backup/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

@@ -64,7 +64,7 @@ Administrators should be in control of application use by providing the right in
   - Investigate and hunt for consent phishing attacks by following the guidance on [advanced hunting with Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview).
 - Allow access to trusted applications and protect against those applications that aren't:
   - Use applications that have been publisher verified. [Publisher verification](../develop/publisher-verification-overview.md) helps administrators and users understand the authenticity of application developers through a Microsoft supported vetting process.
-  - [Configure user consent settings](./configure-user-consent.md?tabs=azure-portal) to allow users to only consent to specific trusted applications, such as applications developed by the organization or from verified publishers.
+  - [Configure user consent settings](./configure-user-consent.md?tabs=azure-portal) to allow users to only consent to specific trusted applications, such as applications developed by the organization or from verified publishers and only for low risk permissions you select.
   - Create proactive [application governance](/microsoft-365/compliance/app-governance-manage-app-governance) policies to monitor third-party application behavior on the Microsoft 365 platform to address common suspicious application behaviors.
 
 ## Next steps

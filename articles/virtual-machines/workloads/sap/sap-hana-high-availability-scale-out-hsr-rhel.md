@@ -185,19 +185,21 @@ It's best to use the standard load balancer. Here's how:
     1. Select **OK**.
     1. After the new front-end IP pool is created, note the pool IP address.
 
-1. Create a back-end pool and add all cluster VMs to the back-end pool:
-
-    1. Open the load balancer, select **backend pools**, and select **Add**.
-    1. Enter the name of the new back-end pool (for example, *hana-backend*).
-    1. Select **Add a virtual machine** > **Virtual machine**.
-    1. Select the virtual machines of the SAP HANA cluster and their IP addresses for the `client` subnet.
-    1. Select **Add**.
+1. Create a single back-end pool: 
+ 
+   1. Open the load balancer, select **Backend pools**, and then select **Add**.
+   1. Enter the name of the new back-end pool (for example, *hana-backend*).
+   2. Select **NIC** for Backend Pool Configuration. 
+   1. Select **Add a virtual machine**.
+   1. Select the virtual machines of the HANA cluster (the NICs for the `client` subnet).
+   1. Select **Add**.     
+   2. Select **Save**.
 
 1. Create a health probe:
 
     1. Open the load balancer, select **health probes**, and select **Add**.
     1. Enter the name of the new health probe (for example, *hana-hp*).
-    1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+    1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5.
     1. Select **OK**.
 
 1. Create the load-balancing rules:
@@ -205,6 +207,7 @@ It's best to use the standard load balancer. Here's how:
     1. Open the load balancer, select **load balancing rules**, and select **Add**.
     1. Enter the name of the new load balancer rule (for example, *hana-lb*).
     1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+    2. Increase idle timeout to 30 minutes
     1. Select **HA Ports**.
     1. Make sure to **enable Floating IP**.
     1. Select **OK**.

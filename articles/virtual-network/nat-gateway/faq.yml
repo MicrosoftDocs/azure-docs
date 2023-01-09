@@ -84,6 +84,10 @@ sections:
         answer: |
           Yes. NAT gateway can be associated with multiple subnets within a virtual network. It isn't required to be associated with all subnets within a virtual network. Each subnet within a virtual network can be configured with its own Virtual Network NAT. 
       
+      - question: What configuration must I make on the subnet route table to connect outbound with NAT gateway?
+        answer: |
+          No configuration on the subnet route table is required in order to start connecting outbound with NAT gateway. When NAT gateway is assigned to a subnet, NAT gateway becomes the next hop type for all internet destined traffic. Traffic can start connecting outbound to the internet as soon as NAT gateway is assigned to a subnet and at least one public IP address.
+      
       - question: Can Virtual Network NAT gateway be associated with a gateway subnet? 
         answer: |
           No. NAT gateway can't be associated with a [gateway](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
@@ -108,9 +112,7 @@ sections:
       
       - question: How does NAT gateway work with virtual networks that are peered to one another?
         answer: |
-          NAT gateway can only be used by a virtual network that the NAT gateway is directly connected to and cannot traverse multiple virtual networks. 
-
-          In a scenario in which virtual network A is peered with virtual network B and NAT gateway is directly associated with virtual network A, virtual network B cannot use NAT gateway to direct outbound traffic. Virtual network B will need its own NAT gateway to make outbound connections. 
+          NAT gateway cannot be directly associated to subnets across multiple virtual networks. Virtual networks in a hub and spoke model with Azure Firewall can provide outbound connectivity from spoke VNets when NAT gateway is attached to the Azure Firewall subnet in the Hub VNet. To learn more see, [Scale SNAT ports with Azure Virtual Network NAT](/azure/firewall/integrate-with-nat-gateway). 
       
       - question: How can I obtain logs for my NAT gateway resource?  
         answer: |

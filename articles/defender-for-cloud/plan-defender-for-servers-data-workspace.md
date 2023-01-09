@@ -2,7 +2,10 @@
 title: Plan data residency and workspace design for Defender for Servers 
 description: Review data residency and workspace design for Defender for Servers 
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/06/2022
+ms.custom: references_regions
 ---
 # Review data residency and workspace design
 

@@ -2,6 +2,8 @@
 title: Scale a Defender for Servers deployment 
 description: Scale protection of Azure, AWS, GCP, and on-premises servers with Defender for Servers 
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/06/2022
 ---
 # Scale a Defender for Servers deployment
@@ -15,6 +17,7 @@ This article is the fifth in the Defender for Servers planning guide series. Bef
 1. [Start planning your deployment](plan-defender-for-servers.md)
 1. [Understand where your data is stored, and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
 1. [Review access and role requirements](plan-defender-for-servers-roles.md)
+1. [Select a Defender for Servers plan](plan-defender-for-servers-select-plan.md)
 1. [Review Azure Arc and agent/extension requirements](plan-defender-for-servers-agents.md)
 
 

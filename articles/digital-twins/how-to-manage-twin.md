@@ -134,7 +134,7 @@ The defined properties of the digital twin are returned as top-level properties 
   - `lastUpdateTime` for twin properties. This is a timestamp indicating the date and time the property update message was processed by Azure Digital Twins
   - `sourceTime` for twin properties. This is an optional, writable property representing the timestamp when the property update was observed in the real world.
 
-You can read more about the fields contained in a digital twin in [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format). You can read more about the serialization helper classes like `BasicDigitalTwin` in [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+You can read more about the fields contained in a digital twin in [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format). You can read more about the serialization helper classes like `BasicDigitalTwin` in [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers-in-the-net-c-sdk).
 
 ## View all digital twins
 
@@ -282,7 +282,7 @@ Then, **copy the following code** of the runnable sample into your project:
 Next, complete the following steps to configure your project code:
 1. Add the **Room.json** file you downloaded earlier to your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), and the second provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

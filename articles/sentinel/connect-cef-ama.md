@@ -63,7 +63,7 @@ Before you begin, verify that you have:
 
 ### Configure a log forwarder
 
-To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. This machine must have Azure Arc installed (see the [prerequisites](#prerequisites)).
+To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. If this machine is not an Azure VM, it must have Azure Arc installed (see the [prerequisites](#prerequisites)).
 
 This machine has two components that take part in this process:
 
@@ -131,7 +131,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 > On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog.
 
 1. Select the **Collect** tab and select **Linux syslog** as the data source type.
-1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with lower severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_WARNING**, **LOG_NOTICE**, **LOG_INFO**, and **LOG_DEBUG** levels.
+1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
 
    :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR.":::
 
@@ -160,7 +160,7 @@ You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Le
 Run this command to launch the installation script:
  
 ```python
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
 ```
 The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
 

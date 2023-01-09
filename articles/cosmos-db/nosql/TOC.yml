@@ -428,6 +428,18 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-python-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-python-create-container.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes

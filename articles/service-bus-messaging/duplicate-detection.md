@@ -30,7 +30,6 @@ The *MessageId* can always be some GUID, but anchoring the identifier to the bus
 >- When **partitioning** is **enabled**, `MessageId+PartitionKey` is used to determine uniqueness. When sessions are enabled, partition key and session ID must be the same. 
 >- When **partitioning** is **disabled** (default), only `MessageId` is used to determine uniqueness.
 >- For information about SessionId, PartitionKey, and MessageId, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
->- The [premier tier](service-bus-premium-messaging.md) doesn't support partitioning, so we recommend that you use unique message IDs in your applications and not rely on partition keys for duplicate detection.
 
 ## Duplicate detection window size
 

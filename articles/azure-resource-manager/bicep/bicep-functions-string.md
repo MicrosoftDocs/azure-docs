@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 12/09/2022
 ---
 
 # String functions for Bicep
@@ -184,9 +184,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -717,10 +717,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -1039,8 +1039,8 @@ The following example shows how to convert different types of values to strings:
 
 ```bicep
 param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
+  valueA: 10
+  valueB: 'Example Text'
 }
 param testArray array = [
   'a'

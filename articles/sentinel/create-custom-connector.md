@@ -10,8 +10,6 @@ ms.author: lwainstein
 
 # Resources for creating Microsoft Sentinel custom connectors
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
 If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector.

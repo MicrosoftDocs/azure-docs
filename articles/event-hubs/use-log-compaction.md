@@ -15,7 +15,11 @@ In this article you'll, follow these key steps:
 - Consume events from a compacted event hub. 
 
 > [!NOTE] 
-> Log compaction feature is available only in **premium** and **dedicated** tiers. 
+> - This feature is currently in Preview.
+> - Log compaction feature is available only in **premium** and **dedicated** tiers. 
+
+> [!WARNING]
+> Use of the Log Compaction feature is **not eligible for product support through Microsoft Azure**.
 
 ## Create a compacted event hub/Kafka topic
 This section shows you how to create a compacted event hub using Azure portal and an Azure Resource Manager (ARM) template. 
