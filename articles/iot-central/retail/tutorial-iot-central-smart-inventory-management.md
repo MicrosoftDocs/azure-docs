@@ -35,7 +35,7 @@ An energy beacon broadcasts packets of data at regular intervals. Beacon data is
 
 ### RFID and BLE readers (1)
 
-An RFID reader converts the radio waves to a more usable form of data. Information that's collected from the tags is then stored in a local edge server or sent to the cloud via JSON-RPC 2.0 over Message Queuing Telemetry Transport (MQTT).
+An RFID reader converts the radio waves to a more usable form of data. Information that's collected from the tags is then stored on a local edge server or sent to the cloud via JSON-RPC 2.0 over Message Queuing Telemetry Transport (MQTT).
 
 BLE readers, also known as Access Points (AP), are similar to RFID readers. They're used to detect nearby Bluetooth signals and relay them to a local Azure IoT Edge instance or the cloud via JSON-RPC 2.0 over MQTT.
 
