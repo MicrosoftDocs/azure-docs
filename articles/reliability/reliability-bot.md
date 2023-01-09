@@ -5,7 +5,7 @@ author: hibrenda
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: bot-service
 ms.date: 01/06/2022 
 ---
 
