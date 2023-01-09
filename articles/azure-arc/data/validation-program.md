@@ -28,7 +28,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|)
+|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|
 
 ### Dell
 
