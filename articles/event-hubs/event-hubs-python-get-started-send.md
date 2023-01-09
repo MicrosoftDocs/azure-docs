@@ -291,7 +291,7 @@ The receiver window should display the messages that were sent to the event hub.
 
 If you don't see results from *recy.py*, run *send.py* several times.
 
-If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you're using the `azure.identity.aio`.
+If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you're using importing from `azure.identity.aio`.
 
 If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [async-credentials help in the Azure SDK repo](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#async-credentials).
 
