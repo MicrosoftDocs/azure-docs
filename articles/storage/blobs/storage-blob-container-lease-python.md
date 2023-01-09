@@ -18,7 +18,7 @@ ms.custom: devx-track-python, devguide-python
 
 This article shows how to create and manage container leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
-A lease establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. A lease on a container provides exclusive delete access to the container. A container lease only controls the ability to delete the container using the [Delete Container](/rest/api/storageservices/delete-container) operation. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations will succeed on a leased container without the lease ID. If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
+A lease establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. A lease on a container provides exclusive delete access to the container. A container lease only controls the ability to delete the container using the [Delete Container](/rest/api/storageservices/delete-container) REST API operation. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations will succeed on a leased container without the lease ID. If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
 You can use the Python client library to acquire, renew, release and break leases. Lease operations are handled by the [BlobLeaseClient](/python/api/azure-storage-blob/azure.storage.blob.blobleaseclient) class, which provides a client containing all lease operations for [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) and [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). To learn more about lease states and when you might perform an operation, see [Lease states and actions](#lease-states-and-actions).
 
@@ -82,9 +82,22 @@ When a lease expires, the lease ID is maintained by the Blob service until the c
 
 If a lease expires rather than being explicitly released, a client may need to wait up to one minute before a new lease can be acquired for the container. However, the client can renew the lease with the expired lease ID immediately.
 
+## Resources
+
+To learn more about leasing a container using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for leasing a container use the following REST API operation:
+
+- [Lease Container](/rest/api/storageservices/lease-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
 ## See also
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide/blob-lease.py)
-- [Lease Container](/rest/api/storageservices/lease-container)
-- [Lease Blob](/rest/api/storageservices/lease-blob)
 - [Managing Concurrency in Blob storage](concurrency-manage.md)

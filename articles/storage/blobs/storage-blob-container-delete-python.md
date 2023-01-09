@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Delete and restore a container in Azure Storage using the Python client library
 
-This article shows how to delete containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled container soft delete, you can restore deleted containers.
+This article shows how to delete containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
 ## Delete a container
 
@@ -40,7 +40,7 @@ The following example shows how to delete all containers that start with a speci
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. You can restore a soft deleted container by calling the following method of the `BlobServiceClient` class:
+When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. To learn more about container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md). You can restore a soft deleted container by calling the following method of the `BlobServiceClient` class:
 
 - [BlobServiceClient.undelete_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-undelete-container)
 
@@ -48,10 +48,24 @@ The following example finds a deleted container, gets the version of that delete
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_restore_container":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-delete.py)
-- [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md)
+To learn more about deleting a container using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for deleting or restoring a container use the following REST API operations:
+
 - [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+- [Restore Container](/rest/api/storageservices/restore-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+### See also
+
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)

@@ -36,7 +36,7 @@ To create a container, call the following method from the [BlobServiceClient](/p
 
 - [BlobServiceClient.create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-create-container)
 
-You can also create a container using one of the following methods from the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class:
+You can also create a container using the following method from the [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) class:
 
 - [ContainerClient.create_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-create-container)
 
@@ -50,7 +50,7 @@ This following example creates a container from a `BlobServiceClient` object:
 
 A root container serves as a default container for your storage account. Each storage account may have one root container, which must be named *$root*. The root container must be explicitly created or deleted.
 
-You can reference a blob stored in the root container without including the root container name. The root container enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob that is in the root container in the following manner:
+You can reference a blob stored in the root container without including the root container name. The root container enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob in the root container as follows:
 
 `https://accountname.blob.core.windows.net/default.html`
 
@@ -58,9 +58,18 @@ The following example creates a new `ContainerClient` object with the container 
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_root_container":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-create.py)
-- [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md)
+To learn more about creating a container using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for creating a container use the following REST API operation:
+
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
-- [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
