@@ -61,7 +61,7 @@ Create a workspace configuration file in one of the following methods:
     1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
     1. Select the **Download config file** link.
 
-    ![Azure portal](./media/how-to-configure-environment/configure.png)
+    :::image type="content" source="media/how-to-configure-environment/configure.png" alt-text="Screenshot: Download your config file." lightbox="media/how-to-configure-environment/configure.png":::
 
 * Azure Machine Learning Python SDK
 
