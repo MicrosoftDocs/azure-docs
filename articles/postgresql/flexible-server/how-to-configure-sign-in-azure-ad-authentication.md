@@ -38,6 +38,24 @@ The following steps are mandatory to use Azure AD authentication with Azure Data
 ```powershell
 Connect-AzureAD -TenantId <customer tenant id>
 ```
+A successful output will look similar to the following.
+
+```
+Account                       Environment TenantId                             TenantDomain                       AccountType
+-------                       ----------- --------                             ------------                       -----------
+passwordless-user@contoso.com AzureCloud  456e5515-431d-4a70-874d-bdae2ba97c1d <your tenant name>.onmicrosoft.com User
+```
+
+Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. This only needs to be done once per Azure tenant. First, check for the existence of the service principal in your tenant with this command. The specific ObjectId value is for the Azure Database for PostgreSQL Flexible Server service principal.
+```
+Get-AzureADServicePrincipal -ObjectId 0049e2e2-fcea-4bc4-af90-bdb29a9bbe98
+```
+If the service principal exists, you'll see the following output.
+```
+ObjectId                             AppId                                DisplayName
+--------                             -----                                -----------
+0049e2e2-fcea-4bc4-af90-bdb29a9bbe98 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9 Azure OSSRDBMS PostgreSQL Flexible Server
+```
 
 ### Grant read access
 
