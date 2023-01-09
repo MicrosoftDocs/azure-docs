@@ -72,7 +72,6 @@ Use the following list to help deploy applications and devices.
 * **Devices** - Evaluate device integration methods with Azure AD, choose the implementation plan, and more.
   * See, [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)  
 
-
 ## Hybrid scenarios  
 
 The following list describes features and services for productivity gains in hybrid scenarios.
@@ -84,8 +83,8 @@ The following list describes features and services for productivity gains in hyb
   * See, [Remote access to on-premises applications through Azure AD Application Proxy](/articles/active-directory/app-proxy/application-proxy.md)
   * See, [Plan an Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
 * **Seamless single sign-on (Seamless SSO)** - Use Seamless SSO for user sign-in, on corporate devices connected to a corporate network. Users don't need to enter passwords to sign in to Azure AD, and usually don't need to enter usernames. Authorized users access cloud-based apps without extra on-premises components:
-  * See, [Azure Active Directory Seamless Single Sign-On: Quickstart](../hybrid/how-to-connect-sso-quick-start.md) 
-  * See, [Azure Active Directory Seamless Single Sign-On: Technical deep dive](/articles/active-directory/hybrid/how-to-connect-sso-how-it-works.md)
+  * See, [Azure Active Directory SSO: Quickstart](../hybrid/how-to-connect-sso-quick-start.md) 
+  * See, [Azure Active Directory Seamless SSO: Technical deep dive](/articles/active-directory/hybrid/how-to-connect-sso-how-it-works.md)
 
 ## Users
 
