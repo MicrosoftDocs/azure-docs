@@ -8,20 +8,20 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/28/2022
+ms.date: 01/09/2023
 ms.author: shijaiswal 
 ms.custom: devx-track-azurepowershell, engagement-fy23
 
 ---
-# Use packet capture for proactive network monitoring with alerts and Azure Functions
+# Monitor networks proactively with alerts and Azure Functions using Packet Capture
 
 Network Watcher packet capture creates capture sessions to track traffic in and out of virtual machines. The capture file can have a filter that is defined to track only the traffic that you want to monitor. This data is stored in a storage blob or locally on the guest machine.
 
 This capability can be started remotely from other automation scenarios such as Azure Functions. Packet capture gives you the capability to run proactive captures based on defined network anomalies. Other uses include gathering network statistics, getting information about network intrusions, debugging client-server communications, and more.
 
-Resources that are deployed in Azure run 24 * 7. You and your staff can't actively monitor the status of all resources 24 * 7. For example, what happens if an issue occurs at 2 AM?
+Resources that are deployed in Azure run 24 * 7. It is difficult to actively monitor the status of all resources 24 * 7. For example, what happens if an issue occurs at 2 AM?
 
-By using Network Watcher, alerting and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
+By using Network Watcher alerting and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,18 +33,18 @@ By using Network Watcher, alerting and functions from within the Azure ecosystem
 
 ## Scenario
 
-In this example, your VM is utilizing more CPU percentage than usual and you want to be alerted. CPU percentage is used as an example here, but you can use any alert condition.
+In this example, your VM has more outgoing traffic than usual and you want to be alerted. Similarly, you can create alerts for any condition.
 
-When you're alerted, the packet-level data helps to understand why utilization has increased. You can take steps to return the virtual machine to regular utilization.
+When an alert is triggered, the packet-level data helps to analyze why the outgoing traffic has increased. You can take steps to return the virtual machine to its original state.
 
 This scenario assumes that you have an existing instance of Network Watcher and a resource group with a valid Virtual machine.
 
-The following list is an overview of the workflow that takes place:
+The following workflow that takes place when an alert is triggered:
 
 1. An alert is triggered on your VM.
 1. The alert calls your Azure function.
 1. Your Azure function processes the alert and starts a Network Watcher packet capture session.
-1. The packet capture runs on the VM and collects traffic.
+1. The packet capture runs on the VM and collects data.
 1. The packet capture file is uploaded to a storage account for review and diagnosis.
 
 To automate this process, we create and connect an alert on our VM to trigger when the incident occurs. We also create a function to call Network Watcher. 
@@ -56,7 +56,7 @@ This scenario does the following:
 
 ## Create an Azure function app
 
-The first step is to create an Azure function to process the alert and create a packet capture.
+To create an Azure function to process the alert and create a packet capture, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), search for *function app* in **All services** and select it.
 
@@ -66,7 +66,7 @@ The first step is to create an Azure function to process the alert and create a 
 
    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app.png" alt-text="Screenshot of the Create function app screen.":::
 
-2. In the **Basics** tab, enter the following values and select **OK** to create the app:
+2. In the **Basics** tab, enter the following values: 
    1. Under **Project Details**, select the **Subscription** for which you want to create the Function app and the **Resource Group** to contain the app.
    2. Under **Instance details**, do the following:
       1. Enter the name of the Function app. This name will be appended by *.azurewebsites.net*.
@@ -74,10 +74,11 @@ The first step is to create an Azure function to process the alert and create a 
       3. Select a **Runtime stack**.
       4. Select the version of the Runtime stack in **Version**.
       5. Select the **Region** in which you want to create the function app.
+   3. Select **OK** to create the app.
    3. Under **Operating System**, select the type of Operating system that you're currently using. Azure recommends the type of Operating system based on your runtime stack selection. 
    4. Under **Plan**, select the type of plan that you want to use for the function app. Choose from the following options:
-      - Consumption (Serverless) - For event-driven scaling for the lowest minimum cost 
-      - Functions Premium - For enterprise-level, serverless applications with event-based scaling and network isolation
+      - Consumption (Serverless) - For event-driven scaling for the most minimum cost. 
+      - Functions Premium - For enterprise-level, serverless applications with event-based scaling and network isolation.
       - App Service Plan - For reusing compute from an existing app service plan.
 3. Select **Review + create** to create the app.
 
@@ -100,10 +101,10 @@ The first step is to create an Azure function to process the alert and create a 
 
 ### Authentication
 
-To use the PowerShell cmdlets, you must authenticate. You configure authentication in the function app. To configure authentication, you must configure environment variables and upload an encrypted key file to the function app.
+To use the PowerShell cmdlets, you must configure authentication in the function app. To configure authentication, you must configure environment variables and upload an encrypted key file to the function app.
 
 > [!NOTE]
-> This scenario provides just one example of how to implement authentication with Azure Functions. There are other ways to do this.
+> This scenario provides only one example of how to implement authentication with Azure Functions. There are other ways to do the same action.
 
 #### Encrypted credentials
 
@@ -126,28 +127,26 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-In the App Service Editor of the function app, create a folder called **keys** under **AlertPacketCapturePowerShell**. Upload the **PassEncryptKey.key** file that you created in the previous PowerShell sample.
-
-:::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/key-function.png" alt-text="Screenshot of the Encryption key.":::
-
 ### Retrieve values for environment variables
 
-The final requirement is to set up the environment variables that are necessary to access the values for authentication. The following list shows the environment variables that are created:
+Set up the environment variables that are necessary to access the values for authentication. The following list shows the environment variables that are created:
 
 * AzureClientID
 * AzureTenant
 * AzureCredPassword
 
+If you already have an Application ID, use the AzureClientID, AzureTenant, and AzureCredPassword of that application. If you don't have one, proceed to [store the environment variables](#store-the-environment-variables).
+
 #### AzureClientID
 
 The client ID is the Application ID of an application in the Azure Active Directory.
 
-1. If you don't already have an application to use, run the following example to create an application.
+1. If you don't already have an application to use, run the following cmdlet to create an application.
 
     ```powershell
     $app = New-AzADApplication -DisplayName "ExampleAutomationAccount_MF" -HomePage "https://exampleapp.com" -IdentifierUris "https://exampleapp1.com/ExampleFunctionsAccount" -Password "<same password as defined earlier>"
     New-AzADServicePrincipal -ApplicationId $app.ApplicationId
-    Start-Sleep 15
+    Start-Sleep 15]
     New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
@@ -161,7 +160,7 @@ The client ID is the Application ID of an application in the Azure Active Direct
 
 #### AzureTenant
 
-Obtain the tenant ID by running the following PowerShell sample:
+Obtain the tenant ID by running the following PowerShell cmdlet:
 
 ```powershell
 (Get-AzSubscription -SubscriptionName "<subscriptionName>").TenantId
@@ -190,6 +189,8 @@ $Encryptedpassword
 
 ### Store the environment variables
 
+To store the environment variables, follow these steps:
+
 1. Go to the function app. Select **Configurations** > **Application settings**.
 
    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/application-insights.png" alt-text="Screenshot of the Application settings screen.":::
@@ -198,7 +199,7 @@ $Encryptedpassword
 
 ### Add PowerShell to the function
 
-It's now time to make calls into Network Watcher from within the Azure function. Depending on the requirements, the implementation of this function can vary. However, the general flow of the code is as follows:
+Now, make calls into Network Watcher from within the Azure function. Depending on the requirements, the implementation of this function can vary. However, the general flow of the code is as follows:
 
 1. Process input parameters.
 2. Query existing packet captures to verify limits and resolve name conflicts.
@@ -288,12 +289,6 @@ $clientid = $env:AzureClientId
 $password = ConvertTo-SecureString $pw -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential ($clientid, $password)
 
-# Credentials can also be provided as encrypted key file as mentioned below
-# $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key" 
-# $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath) 
-# $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword) 
-
-
 Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") { 
@@ -305,7 +300,7 @@ if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") {
     $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location  
 
     # Get existing packetCaptures 
-    # $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
+    packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
 
     # Remove existing packet capture created by the function (if it exists) 
     $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName) 
@@ -319,24 +314,18 @@ if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") {
         Write-Output "Initiating Packet Capture" 
         New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration 
     } 
-}        
-            
-
-                        
+}                               
  ``` 
-
 
 ## Configure an alert on a VM
 
-Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the CPU Percentage that is sent, but the alert can be triggered for many other metrics. 
+You can configure alerts to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the Network Out Total that is sent, but the alert can be triggered for many other metrics. 
 
 ### Create the alert rule
 
 Go to an existing virtual machine and [add an alert rule](../azure-monitor/alerts/alerts-classic-portal.md). Do the following in the **Create an Alert rule** screen.
 
-1. In the **Select a signal** pane, search for the name of the signal and select it. In this example, Percentage CPU is the selected signal. It denotes the percentage of allocated compute units that are in use by the VM.
-
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the Create action group screen.":::
+1. In the **Select a signal** pane, search for the name of the signal and select it. In this example, Network Out Total is the selected signal. It denotes the The number of bytes out on all network interfaces by the Virtual Machine.
 
 2. In the **Conditions** tab, set the following values and select **Next: Actions >**.
 
@@ -353,6 +342,7 @@ Go to an existing virtual machine and [add an alert rule](../azure-monitor/alert
 4. In the **Create action group** screen, select the **Subscription**, **Resource group**, and **Region**. Also enter the Action group name and the display name and select **Next: Notifications >**.
 5. In the screen that appears, select **Action type** as **Azure Function**. 
 6. In the Azure Function pane, select the **Subscription**, **Resource group**, **Function app**, and **Azure Function**.
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the Create action group screen.":::
 7. Select **No** in **Enable the common alert schema** slider and select **OK**. 
 
 
