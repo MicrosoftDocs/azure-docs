@@ -1,6 +1,6 @@
 ---
 title: Monitor AKS hybrid clusters
-ms.date: 11/10/2022
+ms.date: 01/10/2023
 ms.topic: article
 author: austonli
 ms.author: aul
@@ -75,11 +75,11 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 1. Download the Azure Resource Manager Template and Parameter files
 
 ```bash
-curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth/existingClusterOnboarding.json -o existingClusterOnboarding.json
+curl -L https://aka.ms/existingClusterOnboarding.json -o existingClusterOnboarding.json
 ```
 
 ```bash
-curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth/existingClusterParam.json -o existingClusterParam.json
+curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
 ```
 
 2. Edit the values in the parameter file.
