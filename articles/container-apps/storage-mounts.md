@@ -232,7 +232,8 @@ resource symbolicname 'Microsoft.App/containerApps@2022-06-01-preview' = {
 }
 ```
 
-See the [Bicep specification](https://learn.microsoft.com/en-us/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep) for a full example.
+See the [Bicep specification](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep) for a full example.
+
 
 ::: zone-end
 
@@ -532,6 +533,6 @@ The following Bicep snippets demonstrate how to add an Azure Files share to a Co
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
 
-See the [Bicep specification](https://learn.microsoft.com/en-us/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep) for a full example.
+See the [Bicep specification](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep) for a full example.
 
 ::: zone-end
