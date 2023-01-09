@@ -3,16 +3,13 @@ title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
 author: madsd
 ms.topic: how-to
-ms.date: 01/01/2023
+ms.date: 10/01/2023
 ms.author: madsd
 
 ---
 # Configure gateway-required virtual network integration
 
-Gateway-required virtual network integration supports connecting to a virtual network in another region or to a classic virtual network. Gateway-required virtual network integration only works for Windows plans.
-
->[!NOTE]
-> Gateway-required virtual network integration has moved to maintenance mode and will be removed 31. march 2024
+Gateway-required virtual network integration supports connecting to a virtual network in another region or to a classic virtual network. Gateway-required virtual network integration only works for Windows plans. We recommend using [regional virtual network integration](./overview-vnet-integration.md) to integrate with virtual networks.
 
 Gateway-required virtual network integration:
 
@@ -31,6 +28,8 @@ You can't use gateway-required virtual network integration:
 * To access service endpoint-secured resources.
 * To resolve App Settings referencing a network protected Key Vault.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
+
+[Regional virtual network integration](./overview-vnet-integration.md) mitigates the above mentioned limitations.
 
 ## Set up a gateway in your Azure virtual network
 
@@ -76,7 +75,7 @@ The App Service plan virtual network integration UI shows you all the virtual ne
 * **Sync network**: The sync network operation is used only for the gateway-required virtual network integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your virtual network, perform a sync network operation. This operation restarts any apps that use this virtual network. This operation won't work if you're using an app and a virtual network belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your virtual network.
 
-The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For regional virtual network integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet. For gateway-required virtual network integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
+The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For gateway-required virtual network integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
 > The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you'll need to allow access from the entire address range.
@@ -84,7 +83,7 @@ The private IP assigned to the instance is exposed via the environment variable 
 
 ## Gateway-required virtual network integration routing
 
-The routes that are defined in your virtual network are used to direct traffic into your virtual network from your app. To send more outbound traffic into the virtual network, add those address blocks here. This capability only works with gateway-required virtual network integration. Route tables don't affect your app traffic when you use gateway-required virtual network integration the way that they do with regional virtual network integration.
+The routes that are defined in your virtual network are used to direct traffic into your virtual network from your app. To send more outbound traffic into the virtual network, add those address blocks here. This capability only works with gateway-required virtual network integration. Route tables don't affect your app traffic when you use gateway-required virtual network integration.
 
 ## Gateway-required virtual network integration certificates
 
@@ -101,3 +100,5 @@ Three charges are related to the use of the gateway-required virtual network int
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 ## Troubleshooting
+
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

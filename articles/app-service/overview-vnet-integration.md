@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 10/05/2022
+ms.date: 10/01/2023
 ms.author: madsd
 
 ---
@@ -12,7 +12,7 @@ ms.author: madsd
 This article describes the Azure App Service virtual network integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md), you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network.
 
 >[!NOTE]
-> Gateway-required virtual network integration has moved to maintenance mode and will be removed 31. march 2024
+> Information about Gateway-required virtual network integration has [moved to a new location](./configure-gateway-required-vnet-integration.md).
 
 App Service has two variations:
 
@@ -195,7 +195,7 @@ If you use peering with virtual network integration, you don't need to do any mo
 
 Connecting and disconnecting with a virtual network is at an app level. Operations that can affect virtual network integration across multiple apps are at the App Service plan level. From the app > **Networking** > **VNet integration** portal, you can get details on your virtual network. You can see similar information at the App Service plan level in the **App Service plan** > **Networking** > **VNet integration** portal.
 
-The only operation you can take in the app view of your virtual network integration instance is to disconnect your app from the virtual network it's currently connected to. To disconnect your app from a virtual network, select **Disconnect**. Your app is restarted when you disconnect from a virtual network. Disconnecting doesn't change your virtual network. The subnet isn't removed. If you then want to delete your virtual network, first disconnect your app from the virtual network.
+TIn the app view of your virtual network integration instance you can disconnect your app from the virtual network and you can configure application routing. To disconnect your app from a virtual network, select **Disconnect**. Your app is restarted when you disconnect from a virtual network. Disconnecting doesn't change your virtual network. The subnet isn't removed. If you then want to delete your virtual network, first disconnect your app from the virtual network.
 
 The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
@@ -210,7 +210,7 @@ The virtual network integration feature has no extra charge for use beyond the A
 # Troubleshooting
 
 > [!NOTE]
-> Virtual network integration isn't supported for Docker Compose scenarios in App Service.
-> Access restrictions are ignored if a private endpoint is present.
+> * Virtual network integration isn't supported for Docker Compose scenarios in App Service.
+> * Access restrictions does not apply to traffic coming through a private endpoint.
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
