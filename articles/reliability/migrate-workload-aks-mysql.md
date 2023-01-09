@@ -2,7 +2,7 @@
 title: Migrate Azure Kubernetes Service and MySQL Flexible Server workloads to availability zone support 
 description: Learn how to migrate Azure Kubernetes Service and MySQL Flexible Server workloads to availability zone support.
 author: faister
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: anaharris 
