@@ -19,7 +19,7 @@ ms.date: 09/30/2022
   > [!IMPORTANT]
   > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or to view Azure recommendations in the migration wizard in Azure Data Studio.
 
-- Create a target instance of [Azure SQL Database](/azure/azure/azure-sql/database/single-database-create-quickstart).
+- Create a target instance of [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
 - Make sure that the SQL Server login that connects to the source SQL Server instance is a member of the db_datareader role and that the login for the target SQL Server instance is a member of the db_owner role.
 
