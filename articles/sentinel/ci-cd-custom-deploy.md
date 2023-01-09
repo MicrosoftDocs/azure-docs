@@ -166,7 +166,11 @@ Rather than passing parameters as inline values in your content files, you can [
 1. Is there a workspace-mapped parameter file? This would be a parameter file in the same directory as the content files that ends with .parameters-<WorkspaceID>.json
 1. Is there a default parameter file? This would be any parameter file in the same directory as the content files that ends with .parameters.json
      
-It's important to note that once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings. It is highly encouraged to map your parameter files through thrrough the configuration file or by specifying the workspace ID in the file name to avoid content clashes in scenarios with multiple deployments.
+It is encouraged to map your parameter files through through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
+
+> [!IMPORTANT]
+> Once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.
+> 
 
 Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file will also trigger a deployment of the paired content file(s) along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
