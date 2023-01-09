@@ -51,13 +51,18 @@ The schema for the config file looks like this:
 }
 ```
 
-`httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
-`httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
-`noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying. 
-`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the Kubernetes system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
+* `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
+* `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
+* `noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
+* `trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. Currently only the `PEM` format is supported.
+
+> [!IMPORTANT]
+> For compatibility with Go-based components that are part of the Kubernetes system, the certificate **must** support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
 
 Example input:
-Note the CA cert should be the base64 encoded string of the PEM format cert content.
+
+> [!NOTE]
+> The CA certificate should be the base64 encoded string of the PEM format cert content.
 
 ```json
 {
@@ -71,7 +76,7 @@ Note the CA cert should be the base64 encoded string of the PEM format cert cont
 }
 ```
 
-Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename via the `http-proxy-config` flag.
+Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename using the `http-proxy-config` flag.
 
 ```azurecli
 az aks create -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config.json
@@ -81,7 +86,7 @@ Your cluster will initialize with the HTTP proxy configured on the nodes.
 
 ## Configuring an HTTP proxy using Azure Resource Manager (ARM) templates
 
-Deploying an AKS cluster with an HTTP proxy configured via ARM template is straightforward. The same schema used for CLI deployment exists in the `Microsoft.ContainerService/managedClusters` definition under properties:
+Deploying an AKS cluster with an HTTP proxy configured using an ARM template is straightforward. The same schema used for CLI deployment exists in the `Microsoft.ContainerService/managedClusters` definition under properties:
 
 ```json
 "properties": {
@@ -123,7 +128,8 @@ The following configurations are not supported:
   - Outbound proxy is not supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
-- For more on the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].
+
+For more information regarding the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].
 
 
 <!-- LINKS - internal -->
