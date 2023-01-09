@@ -26,7 +26,7 @@ With the connector, you can:
 - Track adoption of labels, explore, query, and detect events.
 - Monitor labeled and protected documents and emails. 
 - Monitor user access to labeled documents and emails, while tracking classification changes. 
-- Gain visibility into activities performed on labels, policies, configurations, files and documents. This helps security teams identify security breaches, and risk and compliance violations.
+- Gain visibility into activities performed on labels, policies, configurations, files and documents. This visibility helps security teams identify security breaches, and risk and compliance violations.
 - Use the connector data during an audit, to prove that the organization is compliant.
 
 ### Azure Information Protection connector vs. Microsoft Purview Information Protection connector
@@ -63,13 +63,13 @@ Before you begin, verify that you have:
 1. Below the connector description, select **Open connector page**.
 1. Under **Configuration**, select **Connect**.
 
-    When a connection is established, the **Connect** button changes to **Disconnect**. You are now connected to the Microsoft Purview Information Protection. 
+    When a connection is established, the **Connect** button changes to **Disconnect**. You're now connected to the Microsoft Purview Information Protection. 
 
 Review the list of supported [audit log record types and activities](microsoft-purview-record-types-activities.md). 
 
 ## Disconnect the Azure Information Protection connector
 
-We recommend to use the Azure Information Protection connector and the Microsoft Purview Information Protection connector simultaneously (both enabled) for a short testing period. After the testing period, we recommend that you disconnect the Azure Information Protection connector to avoid data duplication and redundant costs. 
+We recommend using the Azure Information Protection connector and the Microsoft Purview Information Protection connector simultaneously (both enabled) for a short testing period. After the testing period, we recommend that you disconnect the Azure Information Protection connector to avoid data duplication and redundant costs. 
 
 To disconnect the Azure Information Protection connector:
 
