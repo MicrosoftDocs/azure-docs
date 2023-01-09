@@ -46,7 +46,7 @@ You need to scale your app up to **Basic** tier. **Basic** tier fulfills the min
 
 For more information on app scaling, see [Scale up an app in Azure App Service](manage-scale-up.md).
 
-## B. Configure custom domain
+## B. Configure a custom domain
 
 :::row:::
     :::column span="2":::
@@ -67,7 +67,7 @@ For more information on app scaling, see [Scale up an app in Azure App Service](
         1. Don't select **Validate** yet.        
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-secure-domain-certificate/add-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate." lightbox="./media/tutorial-secure-domain-certificate/add-custom-domain.png":::
+        :::image type="content" source="./media/tutorial-secure-domain-certificate/configure-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate." lightbox="./media/tutorial-secure-domain-certificate/add-custom-domain.png":::
     :::column-end:::
 :::row-end:::
 
@@ -149,3 +149,9 @@ The managed certificate is provided for free for the sole purpose of securing yo
 
 See [Add a private certificate to your app](configure-ssl-certificate.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
+## Next steps
+
+- [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+- [Purchase an App Service domain](manage-custom-dns-buy-domain.md)
+- [Add a private certificate to your app](configure-ssl-certificate.md)
+- [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

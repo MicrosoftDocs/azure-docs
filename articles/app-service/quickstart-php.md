@@ -287,3 +287,6 @@ This command may take a minute to run.
 
 > [!div class="nextstepaction"]
 > [Configure PHP app](configure-language-php.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

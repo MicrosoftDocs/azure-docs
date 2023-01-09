@@ -457,6 +457,9 @@ Congratulations, you've successfully completed this quickstart!
 > [!div class="nextstepaction"]
 > [Configure Node.js app](configure-language-nodejs.md)
 
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+
 Check out the other Azure extensions.
 
 * [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)

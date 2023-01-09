@@ -359,5 +359,6 @@ az group delete --name myResourceGroup
 
 - [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 - [Configure ASP.NET Core app](configure-language-dotnetcore.md)
+- [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 ::: zone-end

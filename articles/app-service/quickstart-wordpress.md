@@ -96,7 +96,7 @@ There's a couple approaches when migrating your WordPress app to App Service on 
 Congratulations, you've successfully completed this quickstart!
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map a custom domain name](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)

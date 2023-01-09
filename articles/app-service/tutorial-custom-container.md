@@ -1091,7 +1091,7 @@ What you learned:
 In the next tutorial, you learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 
