@@ -28,8 +28,8 @@ ms.reviewer: aul
 - [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the Log Analytics workspace.
 - To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
 - The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
-- Azure CLI version 2.39.0 or higher
-- Azure k8s-extension version 1.3.2 or higher
+- Azure CLI version 2.43.0 or higher
+- Azure k8s-extension version 1.3.7 or higher
 - Azure Resource-graph version 2.1.0
 
 ## Onboarding
@@ -41,7 +41,7 @@ az login
 
 az account set --subscription "Cluster Subscription Name"
 
-az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --release-train preview --configuration-settings omsagent.useAADAuth=true
+az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
 ```
 ## [Azure portal](#tab/create-portal)
 
@@ -111,42 +111,15 @@ Showing the extension details:
 az k8s-extension list --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice"
 ```
 
-### Extension status
-
-Querying the Azure Resource graph:
-
-```KQL
-Resources | where type =~ 'Microsoft.HybridContainerService/provisionedClusters'
-| project clusterResourceId = id, name, location, arcproperties = parse\_json(tolower(properties))
-| project clusterResourceId, name, location, kubernetesVersion = tostring(arcproperties.kubernetesversion)
-| join kind=leftouter(KubernetesConfigurationResources
-| where type =~'Microsoft.KubernetesConfiguration/extensions'
-| project extensionResourceId = id, extensionProperties = parse\_json(tolower(properties)), subscriptionId, resourceGroup | extend clusterResourceId = '\<your cluster resource id\>' ) on clusterResourceId
-```
-
-### Log Analytics data flow
-
-Validate all the Container Insights data types are getting ingested to your configured Azure Log analytics
-
-### Sample Query for checking in Azure Log analytics
-
-```KQL
-let SearchValue = "";//Please update term you would like to find in the table.
-KubePodInventory
-| where \* contains tostring(SearchValue)
-| take 1000
-Table name can be: ContainerInventory, ContainerLog, ContainerNodeInventory, InsightsMetrics, KubeEvents, KubeMonAgentEvents, KubeNodeInventory, KubePodInventory, KubeServices
-```
 
 ## Delete extension
 
 The command for deleting the extension:
 
 ```azcli
-az k8s-extension delete --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider “microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
+az k8s-extension delete --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
 ```
 
 ## Known Issues/Limitations
 
-- Currently we do not support the onboarding & insights (single and multi-cluster) experience through azure portal, this capability will be available at public preview.
 - Custom metrics, custom metric alerts and recommended alerts are not supported at this time.
