@@ -21,6 +21,10 @@ Defender for DevOps uses a central console to empower security teams with the ab
 Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps security. 
 
 ## Availability
+  > [!Note] 
+  > During preview, the GitHub connection will have a max limit of 2,000 repositories onboarded to Microsoft Defender for Cloud. If you have over 2,000 repositories, only the first 2,000 repositories sorted alphabetically will be onboarded.  
+  > 
+  > If your organization is interested in onboarding more than 2,000 repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
 
 | Aspect | Details |
 |--|--|
