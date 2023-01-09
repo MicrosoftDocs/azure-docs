@@ -120,7 +120,7 @@ In this section, create a Python script to send events to the event hub that you
     ```
     ---
     > [!NOTE]
-    > For the complete source code, including informational comments, go to the [GitHub send_async.py page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
+    > For examples of other options for sending events to Event Hub asynchronously using a connection string, see the [GitHub send_async.py page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py). The patterns shown there are also applicable to sending events using a credential.
     
 
 ## Receive events
@@ -265,8 +265,8 @@ In this section, you create a Python script to receive events from your event hu
     ---
 
     > [!NOTE]
-    > For the complete source code, including additional informational comments, go to the [GitHub recv_with_checkpoint_store_async.py 
-page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
+    > For examples of other options for receiving events from Event Hub asynchronously using a connection string, see the [GitHub recv_with_checkpoint_store_async.py 
+page](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py). The patterns shown there are also applicable to receiving events using a credential.
 
 
 ### Run the receiver app
