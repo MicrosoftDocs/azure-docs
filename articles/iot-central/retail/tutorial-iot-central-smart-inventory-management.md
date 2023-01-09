@@ -39,7 +39,7 @@ An RFID reader converts the radio waves to a more usable form of data. Informati
 
 BLE readers, also known as Access Points (AP), are similar to RFID readers. They're used to detect nearby Bluetooth signals and relay them to a local Azure IoT Edge instance or the cloud via JSON-RPC 2.0 over MQTT.
 
-Many readers are capable of reading RFID and beacon signals and providing additional sensor capability that's related to temperature and humidity, via accelerometer and gyroscope.
+Many readers can read RFID and beacon signals and provide additional sensor capability that's related to temperature and humidity, via accelerometer and gyroscope.
 
 ### Azure IoT Edge gateway (2)
 
@@ -85,7 +85,7 @@ After you deploy the application, your default dashboard is a smart, operator-fo
 
 On this dashboard are two different gateways, each providing telemetry about inventory, along with associated commands, jobs, and actions that you can perform.
 
-Thes dashboard is preconfigured to showcase the activity of the critical smart inventory-management device operations, and it's logically divided between two separate gateway device-management operations:
+This dashboard is preconfigured to display the activity of the critical smart inventory-management device. It's logically divided between two separate gateway device-management operations:
 
 * The warehouse is deployed with a fixed BLE gateway and BLE tags on pallets to track and trace inventory at a larger facility.
 
@@ -107,7 +107,7 @@ Thes dashboard is preconfigured to showcase the activity of the critical smart i
 
 Select the **Device templates** tab to display the gateway capability model. A capability model is structured around two separate interfaces:
 
-* **Gateway Telemetry and Property**: This interface represents all the telemetry that's related to sensors, location, device info, and device twin property capability, such as gateway thresholds and update intervals.
+* **Gateway Telemetry and Property**: This interface displays the telemetry that's related to sensors, location, device info, and device twin property capability, such as gateway thresholds and update intervals.
 
 * **Gateway Commands**: This interface organizes all the gateway command capabilities.
 
