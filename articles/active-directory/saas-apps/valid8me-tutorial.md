@@ -84,9 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Sign on URL** |
     |------------|
-    | `https://login.valid8me.com` |
     | `https://login.valid8me.com/?idp=https://sts.windows.net/${TenantID}/` |
-    | `https://<<client_name>>.valid8me.com` |
 
     > [!Note]
     > This value is not real. Update this value with the actual Sign on URL. Contact [valid8Me support team](mailto:support@valid8me.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
