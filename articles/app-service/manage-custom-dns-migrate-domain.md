@@ -35,7 +35,7 @@ When you finally migrate your custom DNS name from the old site to the App Servi
 
 ### Get domain verification ID
 
-Get the domain verification ID for you app by following the steps at [Get domain verification ID](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id).
+Get the domain verification ID for you app by following the steps at [Configure a custom domain](app-service-web-tutorial-custom-domain.md#1-configure-a-custom-domain).
 
 ### Create domain verification record
 
@@ -43,9 +43,9 @@ To verify domain ownership, add a TXT record for domain verification. The hostna
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| \@ (root) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id) |
-| www (sub) | _asuid.www_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id) |
-| \* (wildcard) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id) |
+| \@ (root) | _asuid_ | Domain verification ID shown in the **Add custom domain** dialog. |
+| www (sub) | _asuid.www_ | Domain verification ID shown in the **Add custom domain** dialog. |
+| \* (wildcard) | _asuid_ | Domain verification ID shown in the **Add custom domain** dialog. |
 
 In your DNS records page, note the record type of the DNS name you want to migrate. App Service supports mappings from CNAME and A records.
 

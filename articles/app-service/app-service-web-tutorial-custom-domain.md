@@ -36,7 +36,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 1. In the left menu for your app, select **Custom domains**.
 1. Select **Add custom domain**.
 
-    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-custom-domain.png" alt-text="A screenshot showing how to configure a new custom domain, along with a managed certificate.":::
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/add-custom-domain.png" alt-text="A screenshot showing how to open the Add custom domain dialog.":::
 
 1. For **Domain provider**, select **All other domain services** to configure a third-party domain.
 
@@ -164,7 +164,10 @@ Browse to the DNS names that you configured earlier.
 
 <a name="resolve-404-not-found" aria-hidden="true"></a>
 
-If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, most likely the browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+If you receive an HTTP 404 (Not Found) error when you browse to the URL of your custom domain, the two most-likely causes are:
+
+- The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+- You configured an IP-based certificate binding, and the app's IP address has changed because of it. [Remap the A record](configure-ssl-bindings.md#remap-records-for-ip-ssl) in your DNS entries to the new IP address.
 
 If you receive a `Page not secure` warning or error, it's because your domain doesn't have a certificate binding yet. [Add a private certificate for the domain](configure-ssl-certificate.md) and [configure the binding](configure-ssl-bindings.md).
 

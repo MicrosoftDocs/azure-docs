@@ -1088,7 +1088,7 @@ What you learned:
 
 ::: zone-end
 
-In the next tutorial, you learn how to map a custom DNS name to your app.
+In the next tutorial, you learn how to secure your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
 > [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
