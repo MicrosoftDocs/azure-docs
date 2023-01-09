@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 This article provides use cases for choosing a string (Raw ID) as a representation type of the [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over the CommunicationIdentifier derived types.
 
 ## Use cases for choosing an identifier
-A common task when implementing communication scenarios is to identify participants of conversations. When you're using Communication Services SDKs, *CommunicationIdentifier* provides the capability of uniquely identifying users.
+A common task when implementing communication scenarios is to identify participants of conversations. When you're using Communication Services SDKs, *CommunicationIdentifier* provides the capability of uniquely identifying these participants.
 
 CommunicationIdentifier has the following advantages:
 - Provides good auto-complete in IDEs.
