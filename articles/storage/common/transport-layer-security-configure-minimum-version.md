@@ -7,11 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 12/30/2022
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -26,6 +26,9 @@ Azure Storage accounts permit clients to send and receive data with the oldest v
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage secure TLS for your storage accounts.
 
 For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
+
+> [!NOTE]
+> The cipher suite used when clients send data to and receive data from a storage account is dependent on the TLS version used. It is not possible to configure a storage account to block the use of specific ciphers, other than by requiring a minimum TLS version. If you require the ability to allow only specific cipher suites when connecting to your storage account, consider using Azure Application Gateway. For more information about using Application Gateway for this purpose, see [Configure TLS policy versions and cipher suites on Azure Application Gateway](../../application-gateway/application-gateway-configure-ssl-policy-powershell.md).
 
 ## Detect the TLS version used by client applications
 

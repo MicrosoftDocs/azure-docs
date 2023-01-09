@@ -293,10 +293,14 @@ items:
       href: how-to-manage-term-templates.md
   - name: Classify
     items:
+    - name: Automatically apply classifications
+      href: apply-classifications.md
+    - name: Manually apply classifications
+      href: manually-apply-classifications.md
+    - name: System classifications
+      href: supported-classifications.md
     - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
-    - name: Apply classifications
-      href: apply-classifications.md
   - name: Label
     items:
     - name: Labeling in Microsoft Purview
@@ -395,6 +399,8 @@ items:
       href: how-to-workflow-self-service-data-access-hybrid.md
     - name: Approval for business terms
       href: how-to-workflow-business-terms-approval.md
+    - name: Approval for data asset curation
+      href: how-to-workflow-asset-curation.md
     - name: Manage requests and approvals
       href: how-to-workflow-manage-requests-approvals.md
     - name: Manage workflow runs
@@ -429,14 +435,12 @@ items:
       href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported classifications
-      href: supported-classifications.md
     - name: Limits
       href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
-      href: /dotnet/api/overview/azure/purviewresourceprovider
+      href: /dotnet/api/overview/azure/purview
     - name: PowerShell
       href: /powershell/module/az.purview/
     - name: Python

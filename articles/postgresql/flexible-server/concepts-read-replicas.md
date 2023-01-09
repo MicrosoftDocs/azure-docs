@@ -153,7 +153,7 @@ During creation of read replicas firewall rules and data encryption method can b
 ### Scaling
 
 Scaling vCores or between General Purpose and Memory Optimized:
-* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN), otherwise the secondary servers will not start. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 * **Scaling up**: First scale up a replica's compute, then scale up the primary. 
 * **Scaling down**: First scale down the primary's compute, then scale down the replica.
 

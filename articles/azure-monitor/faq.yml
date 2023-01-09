@@ -737,7 +737,7 @@ sections:
           
           ### Querying the telemetry
           
-          Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](./logs/log-query-overview.md) queries.
+          Use the [REST API](/rest/api/application-insights/) to run [Analytics](./logs/log-query-overview.md) queries.
           
       - question: |
           How can I set an alert on an event?
