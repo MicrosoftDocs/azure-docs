@@ -48,6 +48,6 @@ To learn how to configure the Microsoft Defender for IoT micro agent for Edge de
 
 ## Next steps
 
-> [Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md)
+[Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md)
 
-> [Configure pluggable Authentication Modules (PAM) to audit sign-in events (Preview)](configure-pam-to-audit-sign-in-events.md)
+[Configure pluggable Authentication Modules (PAM) to audit sign-in events (Preview)](configure-pam-to-audit-sign-in-events.md)
