@@ -17,7 +17,7 @@ Azure Communications Gateway sits at the edge of your network. This position all
 
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communication Gateway sits in your network.
 
-:::image type="content" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile I M S core. The mobile network also contains an application server for anchoring calls in the Microsoft Phone System." :::
+:::image type="content" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. The mobile network also contains an application server for anchoring calls in the Microsoft Phone System." :::
 
 Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
 
@@ -50,7 +50,7 @@ Your core mobile network must supply this information to Azure Communications Ga
 
 Your core mobile network must also be able to anchor and divert calls into the Microsoft Phone System. You can choose from the following options.
 
-- Deploying an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Microsoft Teams Phone Mobile Subscriber. The Application Server then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway.
+- Deploying Metaswitch MCP. MCP is an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Microsoft Teams Phone Mobile Subscriber. MCP then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway.
 - Using other routing capabilities in your core network to detect Teams Phone Mobile subscribers and route INVITEs to or from these subscribers into the Microsoft Phone System through Azure Communications Gateway.
 
 > [!IMPORTANT]
@@ -101,7 +101,7 @@ The Azure Communication Gateway service includes continuous monitoring for poten
 
 We'll investigate the potential fault, and determine whether the fault relates to Azure Communications Gateway or the Microsoft Phone System. We may require you to carry out some troubleshooting steps in your networks to help isolate the fault.
 
-Azure Communications Gateway provides service health dashboards that you can use to monitor the overall health of your Azure Communications Gateway deployment. You can also view detailed metrics about calls and Quality of Service. If you notice any concerning metrics on this dashboard, you can raise an Azure Communications Gateway support ticket.
+Azure Communications Gateway provides metrics that you can use to monitor the overall health of your Azure Communications Gateway deployment. You can also view detailed metrics about calls and Quality of Service. If you notice any concerning metrics, you can raise an Azure Communications Gateway support ticket.
 
 > [!WARNING]
 > TODO: Check that this agrees with the monitoring position and the monitoring article.

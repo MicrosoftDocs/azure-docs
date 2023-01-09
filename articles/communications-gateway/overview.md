@@ -16,7 +16,7 @@ Azure Communications Gateway enables Microsoft Teams calling through the Operato
 > [!IMPORTANT]
 > You must sign an Operator Connect or Teams Phone Mobile agreement with Microsoft to use this service.
 
-:::image type="content" source="media/azure-communications-gateway-overview.png" alt-text="Azure Communications Gateway connects to the Microsoft Phone System and to your fixed and mobile networks. Microsoft Teams clients connect to the Microsoft Phone system. Your networks connect to P S T N endpoints and to Teams Phone Mobile users.":::
+:::image type="content" source="media/azure-communications-gateway-overview.png" alt-text="Diagram that shows how Azure Communications Gateway connects to the Microsoft Phone System and to your fixed and mobile networks. Microsoft Teams clients connect to the Microsoft Phone system. Your networks connect to PSTN endpoints and to Teams Phone Mobile users.":::
 
 Azure Communications Gateway provides advanced SIP, RTP and HTTP interoperability functions (including Teams Certified SBC function) so that you can integrate with Operator Connect and Teams Phone Mobile quickly, reliably and in a secure manner. As part of Microsoft Azure, the network elements in Azure Communications Gateway are fully managed and include an availability SLA. This full management simplifies network operations integration and accelerates the timeline for adding new network functions into production.
 
@@ -24,7 +24,7 @@ Azure Communications Gateway provides advanced SIP, RTP and HTTP interoperabilit
 
 Azure Communications Gateway acts as the edge of your network, ensuring compliance with the requirements of the Operator Connect and Teams Phone Mobile programs.
 
-:::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Azure Communications Gateway deployment diagram showing Azure resources in two regions connecting to the Microsoft Phone System and operator networks. The details are described after the diagram.":::
+:::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text=" Diagram that shows Azure Communications Gateway deployment resources in two regions connecting to the Microsoft Phone System and operator networks. The details are described after the diagram.":::
 
 To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
 
@@ -61,14 +61,14 @@ Azure Communications Gateway includes optional API integration features. These f
 
 The Operator Connect specifications require the Call Duration Records produced by Microsoft Teams to match billing information from your network. You must therefore push Call Duration data into the Microsoft Teams environment. Azure Communications Gateway can push this data for you and supports customizable rounding of call duration figures to match your billing systems.
 
-### Swivel-chair portal
+### API Bridge Number Management Portal
 
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communication Gateway's swivel-chair portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communication Gateway's Number Management Portal portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
 
-The swivel-chair portal is available as part of the optional API Bridge feature.
+The Number Management Portal is available as part of the optional API Bridge feature.
 
 > [!TIP]
-> The swivel-chair portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
+> The API Bridge Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
 ### API mediation
 

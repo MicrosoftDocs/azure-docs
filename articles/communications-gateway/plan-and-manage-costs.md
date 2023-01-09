@@ -32,7 +32,7 @@ When you deploy or use Azure Communications Gateway, you'll be charged for your 
 - A "service availability" meter that is charged hourly and includes the use of 999 users for testing and early adoption.
 - A per-user meter that charges based on the number of users that are assigned to the deployment. This per-user fee is calculated from the maximum number of users during your billing cycle, excluding the initial 999 users included in the service availability fee.
 
-If you choose to deploy the API Bridge (for API mediation or the swivel chair portal), you'll also be charged for your API Bridge usage. Fees for API Bridge work in the same way as the SBC User meters: a service availability meter and a per-user meter. The number of users charged for the API Bridge is always the same as the number of users charged on the SBC User meters.
+If you choose to deploy the API Bridge (for API mediation or the API Bridge Number Management Portal), you'll also be charged for your API Bridge usage. Fees for API Bridge work in the same way as the SBC User meters: a service availability meter and a per-user meter. The number of users charged for the API Bridge is always the same as the number of users charged on the SBC User meters.
 
 > [!NOTE]
 > A user is any telephone number that meets all the following criteria.
