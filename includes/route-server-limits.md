@@ -14,6 +14,6 @@ ms.date: 01/09/2023
 
 <sup>1</sup> If your NVA advertises more routes than the limit, the BGP session will get dropped.
 
-<sup>2</sup> ExpressRoute Private Peering has a [limit](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits) of 1,000 routes per connection from Virtual Network Gateway towards ExpressRoute circuit. For instance, the total number of routes from all Virtual Network Address Spaces + Route Server Branch-to-branch, must not exceed 1000.
+<sup>2</sup> Azure private peering has a [limit](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits) of 1,000 routes per connection from Virtual Network Gateway towards ExpressRoute circuit. For instance, the total number of routes from VNet address space and Route Server, when **Branch-to-branch** enabled, must not exceed 1,000.
 
 <sup>3</sup> The number of VMs that Azure Route Server can support isn't a hard limit, and it depends on how the Route Server infrastructure is deployed within an Azure Region.
