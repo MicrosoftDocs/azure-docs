@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Integrate chat experiences in your app by using UI Library
 titleSuffix: An Azure Communication Services quickstart
-description: Get started with Azure Communication Services UI Library composites to add communication experiences to your applications.
+description: Get started with Azure Communication Services UI Library composites to add Chat communication experiences to your applications.
 author: dhiraj
 ms.author: jorgegarc
 ms.date: 11/29/2022
