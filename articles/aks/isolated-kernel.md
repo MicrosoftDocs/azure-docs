@@ -43,8 +43,6 @@ The solution architecture is based on the following components:
 * Microsoft Hyper-V Hypervisor
 * Integration with Kata Container framework
 
-
-
 ## Deploy
 
 Perform the following steps to deploy an AKS Mariner cluster using either the Azure CLI, an Azure Resource Manager (ARM) template, or with Terraform.
