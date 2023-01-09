@@ -122,4 +122,4 @@ az k8s-extension delete --cluster-name <cluster-name> --resource-group <cluster-
 
 ## Known Issues/Limitations
 
-- Custom metrics, custom metric alerts and recommended alerts are not supported at this time.
+- Windows containers are not supported currently
