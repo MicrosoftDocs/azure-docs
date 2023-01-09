@@ -1,5 +1,5 @@
 ---
-title: Select SAP ingestion profile
+title: Select the SAP ingestion profile for your Microsoft Sentinel for SAP solution
 description: This article shows you how to select the profile for your Microsoft Sentinel for SAP solution.
 author: kobymon
 ms.author: kobymin
