@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-service
 ms.topic: article
-ms.date: 01/06/2023
+ms.date: 01/09/2023
 ---
 
 # Configure the Dapr extension for your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes project
@@ -82,28 +82,6 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.daprControlPlaneOs=linux” \
 --configuration-settings "global.daprControlPlaneArch=amd64”
 ```
-
-## Set automatic CRD updates
-
-With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
-
-```azurecli
-az k8s-extension upgrade --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name dapr \
---extension-type Microsoft.Dapr \
---auto-upgrade-minor-version true \
---configuration-settings "global.ha.enabled=true" \
---configuration-settings "dapr_operator.replicaCount=2" \
---configuration-settings "global.daprControlPlaneOs=linux” \
---configuration-settings "global.daprControlPlaneArch=amd64” \
---configuration-settings "hooks.applyCrds=false"
-```
-
-> [!NOTE]
-> CRDs are only applied in case of upgrades and are skipped during downgrades.
-
 ## Configure the Dapr release namespace
 
 You can configure the release namespace. The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.
@@ -121,6 +99,8 @@ az k8s-extension create \
 --scope cluster \
 --release-namespace dapr-custom
 ```
+
+[Learn how to configure the Dapr release namespace if you already have Dapr installed](./dapr-migration.md).
 
 ## Show current configuration settings
 
@@ -177,6 +157,28 @@ If you want to use an outbound proxy with the Dapr extension for AKS, you can do
    - `HTTPS_PROXY`
    - `NO_PROXY`
 1. [Installing the proxy certificate in the sidecar](https://docs.dapr.io/operations/configuration/install-certificates/).
+
+## Disable automatic CRD updates
+
+With Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
+
+```azurecli
+az k8s-extension upgrade --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "global.daprControlPlaneOs=linux” \
+--configuration-settings "global.daprControlPlaneArch=amd64” \
+--configuration-settings "hooks.applyCrds=false"
+```
+
+> [!NOTE]
+> CRDs are only applied in case of upgrades and are skipped during downgrades.
+
 
 ## Meet network requirements
 

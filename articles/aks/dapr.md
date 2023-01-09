@@ -207,7 +207,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 ## Next Steps
 
-- Learn more about [additional settings aned preferences you can set on the Dapr extension][dapr-settings].
+- Learn more about [additional settings and preferences you can set on the Dapr extension][dapr-settings].
 - Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
 
 <!-- LINKS INTERNAL -->
