@@ -8,14 +8,13 @@ description: Collect metrics and logs of AKS hybrid clusters using Azure Monitor
 ms.reviewer: aul
 ---
 
-# Azure Monitor container insights for AKS hybrid clusters (preview)
-
-## Overview
+# Azure Monitor container insights for Azure Kubernetes Service (AKS) hybrid clusters (preview)
 
 >[!NOTE]
 >Support for monitoring AKS hybrid clusters is currently private preview. We recommend only using preview features in safe testing environments.
 
-[Azure Monitor container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) provides a rich monitoring experience for [AKS hybrid clusters (preview)](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-preview-overview).
+[Azure Monitor container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) provides a rich monitoring experience for [AKS hybrid clusters (preview)](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-preview-overview). This article describes how to setup Container insights to monitor an AKS hybrid cluster.
+
 
 
 ## Supported configurations
@@ -25,22 +24,55 @@ ms.reviewer: aul
 ## Pre-requisites
 
 - Pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
-
-- azure-cli: 2.39.0+
-
-- azure-cli-core: 2.39.0+
-
-- k8s-extension: 1.3.2+
-
-- hybridaks (for provisioned cluster operation, optional):0.1.3+
-
-- Resource-graph: 2.1.0+
+- Log Analytics workspace. Azure Monitor Container Insights supports a Log Analytics workspace in the regions listed under Azure [products by region page](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). You can create your own workspace using [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md), or [Azure portal](../logs/quick-create-workspace.md).
+- [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Azure Arc-enabled Kubernetes resource. If the Log Analytics workspace is in a different subscription, then [Log Analytics Contributor](../logs/manage-access.md#azure-rbac) role assignment is needed on the Log Analytics workspace.
+- To view the monitoring data, you need to have [Log Analytics Reader](../logs/manage-access.md#azure-rbac) role assignment on the Log Analytics workspace.
+- The following endpoints need to be enabled for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
+- Azure CLI version 2.39.0 or higher
+- Azure k8s-extension version 1.3.2 or higher
+- Azure Resource-graph version 2.1.0
 
 ## Onboarding
 
-## Extension Onboarding with ARM Template using Managed Identity Auth
+## [CLI](#tab/create-cli)
 
-1.1 Download the Azure Resource Manager Template and Parameter files
+```acli
+az login
+
+az account set --subscription "Cluster Subscription Name"
+
+az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --release-train preview --configuration-settings omsagent.useAADAuth=true
+```
+## [Azure portal](#tab/create-portal)
+
+### Onboarding from the AKS hybrid resource pane
+
+1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor.
+
+2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
+
+3. On the onboarding page, select the 'Configure Azure Monitor' button
+
+4. You can now choose the [Log Analytics workspace](../logs/quick-create-workspace.md) to send your metrics and logs data to.
+
+5. Select the 'Configure' button to deploy the Azure Monitor Container Insights cluster extension.
+
+### Onboarding from Azure Monitor pane
+
+1. In the Azure portal, navigate to the 'Monitor' pane, and select the 'Containers' option under the 'Insights' menu.
+
+2. Select the 'Unmonitored clusters' tab to view the AKS hybrid clusters that you can enable monitoring for.
+
+3. Click on the 'Enable' link next to the cluster that you want to enable monitoring for.
+
+4. Choose the Log Analytics workspace. 
+
+5. Select the 'Configure' button to continue.
+
+
+## [Resource Manager](#tab/create-arm)
+
+1. Download the Azure Resource Manager Template and Parameter files
 
 ```bash
 curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth/existingClusterOnboarding.json -o existingClusterOnboarding.json
@@ -50,7 +82,7 @@ curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-pr
 curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth/existingClusterParam.json -o existingClusterParam.json
 ```
 
-1.2 Edit the values in the parameter file.
+2. Edit the values in the parameter file.
 
   - For clusterResourceId and clusterRegion, use the values on the Overview page for the LCM cluster
   - For workspaceResourceId, use the resource ID of your Log Analytics workspace
@@ -58,7 +90,7 @@ curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-pr
   - For workspaceDomain, use the workspace domain value as “opinsights.azure.com” for public cloud and for Azure China cloud as “opinsights.azure.cn”
   - For resourceTagValues, leave as empty if not specific
 
-1.3 Deploy the ARM template
+3. Deploy the ARM template
 
 ```acli
 az login
@@ -68,15 +100,6 @@ az account set --subscription "Cluster Subscription Name"
 az deployment group create --resource-group "Resource Group Name" --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
 ```
 
-## Extension Onboarding with CLI using Managed Identity Auth
-
-```acli
-az login
-
-az account set --subscription "Cluster Subscription Name"
-
-az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --release-train preview --configuration-settings omsagent.useAADAuth=true
-```
 
 ## Validation
 
@@ -115,7 +138,7 @@ KubePodInventory
 Table name can be: ContainerInventory, ContainerLog, ContainerNodeInventory, InsightsMetrics, KubeEvents, KubeMonAgentEvents, KubeNodeInventory, KubePodInventory, KubeServices
 ```
 
-### Delete extension
+## Delete extension
 
 The command for deleting the extension:
 
