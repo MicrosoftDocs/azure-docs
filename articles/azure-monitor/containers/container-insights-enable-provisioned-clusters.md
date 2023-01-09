@@ -13,7 +13,7 @@ ms.reviewer: aul
 >[!NOTE]
 >Support for monitoring AKS hybrid clusters is currently private preview. We recommend only using preview features in safe testing environments.
 
-[Azure Monitor container insights](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview) provides a rich monitoring experience for [AKS hybrid clusters (preview)](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-preview-overview). This article describes how to setup Container insights to monitor an AKS hybrid cluster.
+[Azure Monitor container insights](./container-insights-overview.md) provides a rich monitoring experience for [AKS hybrid clusters (preview)](https://learn.microsoft.com/azure/aks/hybrid/aks-hybrid-options-overview). This article describes how to setup Container insights to monitor an AKS hybrid cluster.
 
 
 
@@ -92,14 +92,14 @@ curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-pr
 
 3. Deploy the ARM template
 
-```acli
+```azurecli
 az login
 
 az account set --subscription "Cluster Subscription Name"
 
 az deployment group create --resource-group "Resource Group Name" --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
 ```
-
+---
 
 ## Validation
 
