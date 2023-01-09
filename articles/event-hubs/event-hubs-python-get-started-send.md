@@ -60,8 +60,7 @@ In this section, create a Python script to send events to the event hub that you
     from azure.eventhub import EventData
     from azure.identity import DefaultAzureCredential
     
-    EVENT_HUB_CONNECTION_STR = "EVENT HUBS NAMESPACE - CONNECTION STRING"
-    EVENT_HUB_NAMESPACE = "EVENT HUBS NAMESPACE"
+    EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT HUBS NAMESPACE"
     EVENT_HUB_NAME = "EVENT HUB NAME"
     
     async def run():
@@ -69,9 +68,9 @@ In this section, create a Python script to send events to the event hub that you
         # Specify a credential that has correct role assigned to access
         # event hubs namespace and the event hub name.
         producer = EventHubProducerClient(
-            credential=DefaultAzureCredential(),
-            fully_qualified_namespace=EVENT_HUB_NAMESPACE,
-            eventhub_name=EVENT_HUB_NAME
+            fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
+            eventhub_name=EVENT_HUB_NAME,
+            credential=DefaultAzureCredential()
         )
         async with producer:
             # Create a batch.
@@ -85,8 +84,7 @@ In this section, create a Python script to send events to the event hub that you
             # Send the batch of events to the event hub.
             await producer.send_batch(event_data_batch)
     
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(run())
+    asyncio.run(run())
     ```
 
     ## [Connection String](#tab/connection-string)
@@ -113,9 +111,7 @@ In this section, create a Python script to send events to the event hub that you
             # Send the batch of events to the event hub.
             await producer.send_batch(event_data_batch)
 
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(run())
-
+    asyncio.run(run())
     ```
     ---
     > [!NOTE]
@@ -186,11 +182,11 @@ In this section, you create a Python script to receive events from your event hu
     import asyncio
     from azure.eventhub.aio import EventHubConsumerClient
     from azure.eventhub.extensions.checkpointstoreblobaio import BlobCheckpointStore
-    from azure.identity import DefaultAzureCredential
+    from azure.identity.aio import DefaultAzureCredential
     
     AZURE_STORAGE_CONNECTION_STRING = "AZURE STORAGE CONNECTION STRING"
     BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
-    EVENT_HUB_NAMESPACE = "EVENT HUBS NAMESPACE"
+    EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT HUBS NAMESPACE"
     EVENT_HUB_NAME = "EVENT HUB NAME"
     
     async def on_event(partition_context, event):
@@ -210,20 +206,19 @@ In this section, you create a Python script to receive events from your event hu
     
         # Create a consumer client for the event hub.
         client = EventHubConsumerClient(
-            credential=DefaultAzureCredential(),
-            fully_qualified_namespace=EVENT_HUB_NAMESPACE,
+            fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
             eventhub_name=EVENT_HUB_NAME,
-            consumer_group="$Default", 
-            checkpoint_store=checkpoint_store
+            consumer_group="$Default",
+            checkpoint_store=checkpoint_store,
+            credential=DefaultAzureCredential()
         )
         async with client:
             # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
             await client.receive(on_event=on_event,  starting_position="-1")
     
     if __name__ == '__main__':
-        loop = asyncio.get_event_loop()
         # Run the main method.
-        loop.run_until_complete(main())
+        asyncio.run(main())
     ```
 
     ## [Connection String](#tab/connection-string)
@@ -253,9 +248,8 @@ In this section, you create a Python script to receive events from your event hu
             await client.receive(on_event=on_event,  starting_position="-1")
 
     if __name__ == '__main__':
-        loop = asyncio.get_event_loop()
         # Run the main method.
-        loop.run_until_complete(main())    
+        asyncio.run(main())
     ```
 
     ---
