@@ -5,6 +5,7 @@
  author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
+ ms.date: 01/05/2023
  ms.author: patricka
  ms.custom: include file
 ---

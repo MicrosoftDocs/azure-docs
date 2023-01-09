@@ -401,6 +401,8 @@ items:
         href: how-tos/calling-sdk/browser-support.md
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+      - name: Integrate with CallKit in iOS
+        href: how-tos/calling-sdk/callkit-integration.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization

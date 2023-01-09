@@ -40,4 +40,4 @@ ms.date: 12/21/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Enhancements in Defender for SQL Vulnerability Assessment](episode-twenty-four.md)

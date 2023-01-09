@@ -91,7 +91,7 @@ On the other hand, while ASIM parsers are optimized, query time parsing can slow
 
 Currently, ASIM supports the following normalized tables as a destination for ingest time normalization:
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
-- [**ASimNetworkSessionLogs**](/azire/azure-monitor/reference/tables/asimnetworksessionlogs) for the [NetworkS Session](network-normalization-schema.md) schema 
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](network-normalization-schema.md) schema 
  
 For more information, see [Ingest Time Normalization](normalization-ingest-time.md).
 
