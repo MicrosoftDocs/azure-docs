@@ -509,7 +509,7 @@
               href: dapr.md
             - name: Configure the Dapr extension
               href: dapr-settings.md
-            - name: Migrate from Dapr OSS
+            - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md
