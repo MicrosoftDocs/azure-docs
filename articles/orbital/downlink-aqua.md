@@ -12,11 +12,11 @@ ms.author: wamota
 
 # Tutorial: Downlink data from NASA's Aqua public satellite
 
-You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink the data, you can process and analyze it in Azure. In this guide, you'll learn how to:
+You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink data, you can process and analyze it in Azure. In this guide, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create and authorize a spacecraft for the Aqua public satellite.
-> * Prepare a virtual machine (VM) to receive the downlinked Aqua data.
+> * Prepare a virtual machine (VM) to receive downlinked Aqua data.
 > * Configure a contact profile for an Aqua downlink mission.
 > * Schedule a contact with Aqua by using Azure Orbital and save the downlinked data.
 
@@ -112,7 +112,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    > [!TIP]
    > The public IP address here is only for internet connectivity, not contact data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
-3. Enter the following commands to create a temporary file system (tmpfs) on the virtual machine. This virtual machine is where the data will be written to avoid slow writes to disk.
+3. Enter the following commands to create a temporary file system (*tmpfs*) on the virtual machine. This virtual machine is where the data will be written to avoid slow writes to disk.
 
    ```console
    sudo mkdir /media/aqua
@@ -164,12 +164,12 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 8. Select the **Review + create** tab, or select the **Next: Review + create** button.
 9. Select **Create**.
 
-## Schedule a contact with Aqua by using Azure Orbital and save the downlinked data
+## Schedule a contact with Aqua and save the downlinked data
 
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. On the **Spacecraft** page, select **AQUA**.
 3. Select **Schedule contact** on the top bar of the spacecraft's overview.
-4. On the **Schedule contact** page, specify this information from the top of the page:
+4. On the **Schedule contact** page, specify this information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -186,7 +186,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    ```console
    socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
    ```
-9. After you run your contact, copy the output file from tmpfs into your home directory, to avoid overwriting the file when you run another contact:
+9. After you run your contact, copy the output file from *tmpfs* into your home directory, to avoid overwriting the file when you run another contact:
 
    ```console
    mkdir ~/aquadata
