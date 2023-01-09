@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/21/2022
+ms.date: 01/09/2023
 ms.author: banders
 ---
 
@@ -20,26 +20,15 @@ Although not required, Microsoft *recommends* that you take the following action
 * Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.
 * Shut down your services. Go to the [All resources](https://portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) page, and **Stop** any running virtual machines, applications, or other services.
 * Consider migrating your data. See [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
-* Delete all resources and all resource groups. 
-    * To later manually delete a subscription, you must first delete all resources associated with the subscription. 
-    * You may be unable to delete all resources, depending on your configuration. For example, if you have [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope). For more information, see the following [Immutable blobs](#immutable-blobs) section.
-        > [!NOTE]
-        > 30-90 days after you cancel a subscription, the subscription and all resources are automatically deleted, including immutable blobs.
+* Delete all resources and all resource groups.
+    * To later manually delete a subscription, you must first delete all resources associated with the subscription.
+    * You may be unable to delete all resources, depending on your configuration. For example, if you have immutable blobs. For more information, see [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope).
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > After you cancel your subscription, you'll receive a final invoice for the usage that you incurred in the last billing cycle.
 
 If you cancel an Azure Support plan, you're billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
-
-## Immutable blobs
-
-If you have any [Immutable Blobs](../../storage/blobs/immutable-storage-overview.md#scenarios-with-version-level-scope) under protection:
-
-- You can't delete the blob, storage account, resource group, or subscription.
-- You can cancel the subscription to mark all its resources, including immutable blobs, as inaccessible.
-- When the subscription is canceled, all data (including any locked blobs) is automatically deleted 30-90 days later.
-- You can create a [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to accelerate subscription cancellation and deletion. Azure support will also need email acknowledgment from the account administrator to cancel the subscription.
 
 ## Who can cancel a subscription?
 
