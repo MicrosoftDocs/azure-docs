@@ -52,9 +52,9 @@ This section describes additional networking requirements specific to deploying 
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
-## System Center Virtual Machine Manager (preview)
+## Azure Arc-enabled System Center Virtual Machine Manager (preview)
 
-System Center Virtual Machine Manager (SCVMM) requires the connectivity described below:
+Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) requires the connectivity described below:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
@@ -62,9 +62,9 @@ System Center Virtual Machine Manager (SCVMM) requires the connectivity describe
 
 
 For more information, see [Overview of Arc-enabled System Center Virtual Machine Manager (preview)](system-center-virtual-machine-manager/overview.md).
-## VMware vSphere (preview)
+## Azure Arc-enabled VMware vSphere (preview)
 
-VMware vSphere requires the connectivity described below:
+Azure Arc-enabled VMware vSphere requires the connectivity described below:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
