@@ -16,12 +16,10 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 
 ## Prerequisites
 
-* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI][az-acr-create].
-* **Azure CLI** - Version `2.29.1` or later is recommended. Run `az --version `to find the required. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-* **ORAS CLI** - Download and install the ORAS CLI `v0.16.0` for your operating system from the [ORAS installation guide](https://oras.land/cli/). 
-* **Docker** - ORAS optionally leverages the Docker desktop credential store for authentication.  
-  If Docker Desktop is installed, it must be running.  
-  You can use [Docker installed locally][docker-install] to build and push a container image, reference an existing container image or use [ACR Build][az-acr-build] to build remotely, in Azure.
+* **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or [az acr create][az-acr-create].
+* **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI](/cli/azure/install-azure-cli) for installation and/or upgrade.
+* **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
+* **Docker (Optional)** - While Docker Desktop is not required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.
 
 ## Configure a registry
 
@@ -206,12 +204,10 @@ tree ./download
 
 ## Remove the artifact (optional)
 
-To remove the artifact from your Azure container registry, use the [az acr repository delete][az-acr-repository-delete] command. The following example removes the artifact you stored there:
+To remove the artifact from your registry, use the `oras manifest delete` command.
 
-```azurecli
-az acr repository delete \
-    --name $REGISTRY \
-    --image samples/artifact:readme
+```bash
+ oras manifest delete $REGISTRY/samples/artifact:readme
 ```
 
 ## Next steps
@@ -222,9 +218,11 @@ az acr repository delete \
 
 <!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
+[oras-install-docs]:        https://oras.land/cli/
 [oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
 [acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[azure-cli-install]:        /cli/azure/install-azure-cli
