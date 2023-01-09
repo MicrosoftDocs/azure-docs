@@ -70,7 +70,7 @@ For each data network that you want to configure, collect all the values in the 
 
 ## Choose the authentication method for local monitoring tools
 
-You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access distributed tracing and the packet core dashboards for monitoring your site after you deploy it. We recommend setting up Azure AD authentication to improve security in your deployment.
+Azure Private 5G Core Preview provides dashboards for monitoring your deployment and a web GUI for collecting detailed signal traces. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
 
 If you want to access your local monitoring tools using Azure AD, before creating a site you'll need to follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 

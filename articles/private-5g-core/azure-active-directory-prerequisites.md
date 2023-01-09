@@ -18,14 +18,14 @@ In this how-to guide, you'll carry out the steps you need to complete before you
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that include the required permissions are, for example, Application administrator, Application developer, and Cloud application administrator.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference.md#application-developer) that include the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
 - Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this. <!-- TODO: update this to remove need for support -->
 
 ## Configure domain system name (DNS) for local monitoring IP
 
 When registering your application and configuring redirect URIs, you'll need your redirect URIs to contain a domain name rather than an IP address for accessing the local monitoring tools.
 
-1. In your local DNS server, configure the IP address for accessing local monitoring tools, which you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network), to resolve to a domain name of your choice.
+In your local DNS server, configure the IP address for accessing local monitoring tools, which you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network), to resolve to a domain name of your choice.
 
 ## Register application
 
@@ -40,7 +40,6 @@ You'll now register a new local monitoring application with Azure AD to establis
     1. In [Add credentials](/azure/active-directory/develop/quickstart-register-app#add-credentials), add a client secret with the following values:
 
         - In **Description**, type **Grafana OAuth**. <!-- TODO: why Grafana? -->
-        - In **Expires**, choose the option that best suits your deployment.
 
         Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
@@ -106,13 +105,13 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
         root_url: <Base64-encoded packet core dashboards redirect URI root>
     ```
 
-1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards. 
+1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the admin kubeconfig filename.
     
     `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin_kubeconfig>`
 
     `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin_kubeconfig>`
 
-1. Use the following commands to verify if the Secret Objects were applied correctly. You should see the correct **Name**, **Namespace** and **Type** values, along with the byte size of the encoded values.
+1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace** and **Type** values, along with the size of the encoded values in bytes.
 
     `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin_kubeconfig>`
 
