@@ -147,7 +147,7 @@ mlflow_model = Model(
 ml_client.models.create_or_update(mlflow_model)
 ```
 
-## Confirm that the model is registered
+### Confirm that the model is registered
 
 You can check the **Models** page in AzureML studio to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
 
