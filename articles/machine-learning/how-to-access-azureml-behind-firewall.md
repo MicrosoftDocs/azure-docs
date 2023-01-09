@@ -270,7 +270,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | API |\*.azureml.ms | TCP | 443 |
 | API | \*.azureml.net | TCP | 443 |
 | Model management | \*.modelmanagement.azureml.net | TCP | 443 |
-| Integrated notebook | \*.<region>.notebooks.azure.net | TCP | 443 |
+| Integrated notebook | \*.\<region\>.notebooks.azure.net | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.windows.net | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.windows.net | TCP | 443 |
 | Integrated notebook | \<storage\>.blob.core.windows.net | TCP | 443 |
