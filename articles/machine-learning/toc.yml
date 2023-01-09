@@ -62,6 +62,8 @@
 - name: Quickstart
   expanded: true
   items:
+    - name: Create ML resources to get started
+      href: quickstart-create-resources.md
     - name: Set up your cloud workstation
       href: quickstart-create-resources.md
     - name: Overview of Azure ML
