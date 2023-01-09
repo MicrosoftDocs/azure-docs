@@ -30,7 +30,7 @@ You should implement a strategy for configuring your DCRs so that they're manage
 Azure Monitor provides a basic level of monitoring for Azure virtual machines with little or no configuration.
 
 ### Platform metrics
-Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization. They can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#single-machine-experience), analyzed with [metrics explorer](../essentials/tutorial-metrics.md) for the machine in the Azure portal and used for [metric alerts](../azure-monitor/vm/tutorial-monitor-vm-alert-recommended.md).
+Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization. They can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#single-machine-experience), analyzed with [metrics explorer](../essentials/tutorial-metrics.md) for the machine in the Azure portal and used for [metric alerts](tutorial-monitor-vm-alert-recommended.md).
 
 ### Activity log
 The [Activity log](../essentials/activity-log.md) is collected automatically and includes the recent activity of the machine, such as any configuration changes and when it was stopped and started. You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal.
@@ -78,7 +78,7 @@ Use the following guidance as a recommended starting point for event collection.
 
 
 ## Performance counters
-Performance data from the client can be sent to either [Azure Monitor Metrics](../essentials/data-platform-metrics.md) or [Azure Monitor Logs](../essentials/data-platform-logs.md), and you'll typically send them to both destinations. If you enabled VM insights, then a common set of performance counters is collected in a Log Analytics workspace to support its performance charts. You can't modify this set of counters, but you can create additional DCRs to collect additional counters and send them to different destinations.
+Performance data from the client can be sent to either [Azure Monitor Metrics](../essentials/data-platform-metrics.md) or [Azure Monitor Logs](../logs/data-platform-logs.md), and you'll typically send them to both destinations. If you enabled VM insights, then a common set of performance counters is collected in a Log Analytics workspace to support its performance charts. You can't modify this set of counters, but you can create additional DCRs to collect additional counters and send them to different destinations.
 
 There are multiple reasons why you would want to create a DCR to collect guest performance:
 
@@ -109,9 +109,18 @@ Performance data collected by a DCR that you create is stored in the [Perf](/azu
 ## Configure additional data collection
 Create additional DCRs to collect other telemetry such as Windows and Syslog events and to send performance data to Azure Monitor Metrics. See the following for guidance on creating DCRs to collect different types of data. For a list of the data sources available and details on how to configure them, see [Agent data sources in Azure Monitor](../agents/agent-data-sources.md).
 
-- [IISlogs](agents/data-collection-iis.md)
-- [Text logs](agents/data-collection-text-log.md)
-- [SNMP traps](agents/data-collection-snmp-data.md)
+- [IISlogs](../agents/data-collection-iis.md)
+- [Text logs](../agents/data-collection-text-log.md)
+- [SNMP traps](../agents/data-collection-snmp-data.md)
+
+
+## Text logs
+Some applications write events written to a text log stored on the virtual machine. Create a [custom table and DCR](../agents/data-collection-text-log.md) to collect this data. You define the location of the text log, its detailed , and the schema of the custom tbale. There's a cost for the ingestion and retention of this data in the workspace.
+
+## IIS logs
+IIS running on Windows machines writes logs to a text file. Configure IIS log collection using [Collect IIS logs with Azure Monitor Agent](../agents/data-collection-iis.md). There's a cost for the ingestion and retention of this data in the workspace.
+
+Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) table in the Log Analytics workspace.
 
 
 ## Transformations

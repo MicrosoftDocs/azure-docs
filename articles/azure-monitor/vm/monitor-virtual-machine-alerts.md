@@ -65,7 +65,7 @@ The query will return a record for any error messages on any machine. Use the **
 
 ## Common alert rules
 
-The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. For guidance on which type of alert to use, see [Choose the alert type](#choose-the-alert-type). If you're unfamiliar with the process for creating alert rules in Azure Monitor, see [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
+The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. For guidance on which type of alert to use, see [Alert types](#alert-types). If you're unfamiliar with the process for creating alert rules in Azure Monitor, see [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
 
 ### Machine unavailable
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the VM availability metric which is currently in public preview. See [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md) for a complete walk through on this metric.

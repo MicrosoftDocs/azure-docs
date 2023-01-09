@@ -46,16 +46,7 @@ Evaluate the output to identify specific alerts for migration. Ignore any alerts
 
 
 
-## Text logs
-Some applications write events written to a text log stored on the virtual machine. Define a [custom log](../agents/data-sources-custom-logs.md) in the Log Analytics workspace to collect these events. You define the location of the text log and its detailed configuration. There's a cost for the ingestion and retention of this data in the workspace.
 
-Events from the text log are stored in a table with a name similar to **MyTable_CL**. You define the name and structure of the log when you configure it.
-
-
-## IIS logs
-IIS running on Windows machines writes logs to a text file. Configure IIS log collection using [Collect IIS logs with Azure Monitor Agent](../agents/data-collection-iis.md). There's a cost for the ingestion and retention of this data in the workspace.
-
-Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) table in the Log Analytics workspace.
 
 
 
@@ -198,10 +189,6 @@ A synthetic transaction connects to an application or service running on a machi
 |:---|:---|
 | [URL test](../app/monitor-web-app-availability.md) | Ensures that HTTP is available and returning a web page |
 | [Multistep test](../app/availability-multistep.md) | Simulates a user session |
-
-## SQL Server
-
-Use [SQL Insights (preview)](/azure/azure-sql/database/sql-insights-overview) to monitor SQL Server running on your virtual machines.
 
 ## Next steps
 

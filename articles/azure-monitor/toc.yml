@@ -58,10 +58,10 @@ items:
         href: vm/monitor-virtual-machine.md
       - name: Deploy agents
         href: vm/monitor-virtual-machine-agent.md
+      - name: Collect data
+        href: vm/monitor-virtual-machine-data-collection.md
       - name: Analyze data
         href: vm/monitor-virtual-machine-analyze.md
-      - name: Monitor security
-        href: vm/monitor-virtual-machine-security.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
       - name: Monitor workloads

@@ -78,7 +78,7 @@ When you create a data collection rule in the Azure portal as described in [Coll
 One method to deploy the Azure Monitor agent with the Azure Monitor agent is to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). The agent will automatically be deployed to any machines that don't already have it.
 
 ### Azure Policy
-If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Use Azure Policy](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy.
+If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Use Azure Policy](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy.
 
 ### VM insights
 VM insights provides simplified onboarding of agents in the Azure portal. With a single click for a particular machine, it installs the Azure Monitor agent, connects to a workspace, and starts collecting performance data. You can optionally have it install the dependency agent and collect processes and dependency data to enable the map feature of VM insights.
@@ -93,7 +93,7 @@ VM insights also includes a simplified interface for [managing Azure Policy defi
 
 ### Windows client installer
 Use the [Windows client installer](../agents/azure-monitor-agent-windows-client.md)
-The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#install).
+The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#install).
 
 ## Next steps
 
