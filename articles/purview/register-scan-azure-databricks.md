@@ -38,7 +38,7 @@ When scanning Azure Databricks source, Microsoft Purview supports:
 
 This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore) in case you use it to scan Azure Databricks earlier:  
 
-- You can directly set up scan for Azure Databricks workspaces without direct HMS access. It uses Databricks personal access token for authentication and connect to a cluster to perform scan. 
+- You can directly set up scan for Azure Databricks workspaces without direct HMS access. It uses Databricks personal access token for authentication and connects to a cluster to perform scan. 
 - The Databricks workspace info is captured.
 - The relationship between tables and storage assets is captured.
 
@@ -117,7 +117,7 @@ Use the following steps to scan Azure Databricks to automatically identify asset
 
    1. **Cluster ID**: Specify the cluster ID that Microsoft Purview will connect to and perform the scan. You can find it in Azure Databricks workspace -> Compute -> your cluster -> Tags -> Automatically added tags -> `ClusterId`. 
 
-   1. **Mount points**: Provide the mount point and Azure Storage source location string when you have external storage manually mounted to Databricks. Use the format `/mnt/<path>=abfss://<container>@<adls_gen2_storage_account>.dfs.core.windows.net/;/mnt/<path>=wasbs://<container>@<blob_storage_account>.blob.core.windows.net` It will be used to capture the relationship between tables and the corresponding storage assets in Microsoft Purview. This setting is optional, if it's not specified, such relationship will not be retrieved. 
+   1. **Mount points**: Provide the mount point and Azure Storage source location string when you have external storage manually mounted to Databricks. Use the format `/mnt/<path>=abfss://<container>@<adls_gen2_storage_account>.dfs.core.windows.net/;/mnt/<path>=wasbs://<container>@<blob_storage_account>.blob.core.windows.net` It will be used to capture the relationship between tables and the corresponding storage assets in Microsoft Purview. This setting is optional, if it's not specified, such relationship won't be retrieved. 
    
       You can get the list of mount points in your Databricks workspace by running the following Python command in a notebook:
 
@@ -170,7 +170,7 @@ From the Databricks workspace asset, you can find the associated Hive Metastore 
 
 Refer to the [supported capabilities](#supported-capabilities) section on the supported Azure Databricks scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
-Go to the Hive table/view asset -> lineage tab, you can see the asset relationship when applicable. For relationship between table and external storage assets, you will see Hive Table asset and the storage asset are directly connected bi-directionally, as they mutually impact each other.
+Go to the Hive table/view asset -> lineage tab, you can see the asset relationship when applicable. For relationship between table and external storage assets, you'll see Hive Table asset and the storage asset are directly connected bi-directionally, as they mutually impact each other.
 
 :::image type="content" source="media/register-scan-azure-databricks/lineage.png" alt-text="Screenshot that shows Azure Databricks lineage example." border="true":::
 
