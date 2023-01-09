@@ -25,19 +25,19 @@ Follow the steps in this article to manually apply classifications to [file](#ma
 
 1. [Search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) the Microsoft Purview Data Catalog for the file you're interested in and navigate to the asset detail page.
 
-    :::image type="content" source="./media/apply-classifications/asset-detail-page.png" alt-text="Screenshot showing the asset detail page.":::
+    :::image type="content" source="./media/apply-classifications/asset-detail-page.png" alt-text="Screenshot showing the asset detail page." lightbox="./media/apply-classifications/asset-detail-page.png":::
 
 1. On the **Overview** tab, view the **Classifications** section to see if there are any existing classifications. Select **Edit**.
 
 1. From the **Classifications** drop-down list, select the specific classifications you're interested in. In our example, we're adding **Credit Card Number**, which is a system classification and **CustomerAccountID**, which is a custom classification.
 
-    :::image type="content" source="./media/apply-classifications/select-classifications.png" alt-text="Screenshot showing how to select classifications to add to an asset.":::
+    :::image type="content" source="./media/apply-classifications/select-classifications.png" alt-text="Screenshot showing how to select classifications to add to an asset." lightbox="./media/apply-classifications/select-classifications.png":::
 
 1. Select **Save**.
 
 1. On the **Overview** tab, confirm that the classifications you selected appear under the **Classifications** section.
 
-    :::image type="content" source="./media/apply-classifications/confirm-classifications.png" alt-text="Screenshot showing how to confirm classifications were added to an asset.":::
+    :::image type="content" source="./media/apply-classifications/confirm-classifications.png" alt-text="Screenshot showing how to confirm classifications were added to an asset." lightbox="./media/apply-classifications/confirm-classifications.png":::
 
 ## Manually apply classification to a table asset
 
@@ -49,17 +49,17 @@ To add a classification to a table asset:
 
 1. Confirm that no classifications are assigned to the table. Select **Edit**.
 
-    :::image type="content" source="./media/apply-classifications/select-edit-from-table-asset.png" alt-text="Screenshot showing how to view and edit the classifications of a table asset.":::
+    :::image type="content" source="./media/apply-classifications/select-edit-from-table-asset.png" alt-text="Screenshot showing how to view and edit the classifications of a table asset." lightbox="./media/apply-classifications/select-edit-from-table-asset.png":::
 
 1. From the **Classifications** drop-down list, select one or more classifications. This example uses a custom classification named **CustomerInfo**, but you can select any classifications for this step.
 
-    :::image type="content" source="./media/apply-classifications/select-classifications-in-table.png" alt-text="Screenshot showing how to select classifications to add to a table asset.":::
+    :::image type="content" source="./media/apply-classifications/select-classifications-in-table.png" alt-text="Screenshot showing how to select classifications to add to a table asset." lightbox="./media/apply-classifications/select-classifications-in-table.png":::
 
 1. Select **Save** to save the classifications.
 
 1. On the **Overview** page, verify that Microsoft Purview added your new classifications.
 
-    :::image type="content" source="./media/apply-classifications/verify-classifications-added-to-table.png" alt-text="Screenshot showing how to verify that classifications were added to a table asset.":::
+    :::image type="content" source="./media/apply-classifications/verify-classifications-added-to-table.png" alt-text="Screenshot showing how to verify that classifications were added to a table asset." lightbox="./media/apply-classifications/verify-classifications-added-to-table.png":::
 
 ## Manually add classification to a column asset
 
@@ -71,17 +71,17 @@ Microsoft Purview automatically scans and adds classifications to all column ass
 
 1. Select the **Schema** tab.
 
-    :::image type="content" source="./media/apply-classifications/edit-column-schema.png" alt-text="Screenshot showing how to edit the schema of a column.":::
+    :::image type="content" source="./media/apply-classifications/edit-column-schema.png" alt-text="Screenshot showing how to edit the schema of a column." lightbox="./media/apply-classifications/edit-column-schema.png":::
 
 1. Identify the columns you're interested in and select **Add a classification**. This example adds a **Common Passwords** classification to the **PasswordHash** column.
 
-    :::image type="content" source="./media/apply-classifications/add-classification-to-column.png" alt-text="Screenshot showing how to add a classification to a column.":::
+    :::image type="content" source="./media/apply-classifications/add-classification-to-column.png" alt-text="Screenshot showing how to add a classification to a column." lightbox="./media/apply-classifications/add-classification-to-column.png":::
 
 1. Select **Save**.
 
 1. Select the **Schema** tab and confirm that the classification has been added to the column.
 
-    :::image type="content" source="./media/apply-classifications/confirm-classification-added.png" alt-text="Screenshot showing how to confirm that a classification was added to a column schema.":::
+    :::image type="content" source="./media/apply-classifications/confirm-classification-added.png" alt-text="Screenshot showing how to confirm that a classification was added to a column schema." lightbox="./media/apply-classifications/confirm-classification-added.png":::
 
 [!INCLUDE [classification-details](includes/classification-details.md)]
 

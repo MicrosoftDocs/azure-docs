@@ -18,7 +18,7 @@ Microsoft Purview captures important details like who applied a classification a
 
 Users with *Data Curator* role will see more details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
 
-:::image type="content" source="../media/apply-classifications/view-classification-detail.png" alt-text="Screenshot showing how to view classification detail.":::
+:::image type="content" source="../media/apply-classifications/view-classification-detail.png" alt-text="Screenshot showing how to view classification detail." lightbox="../media/apply-classifications/view-classification-detail.png":::
 
 ## Impact of rescanning on existing classifications
 

@@ -161,7 +161,7 @@ This CloudFormation template is available for download from the [Azure GitHub re
 
 1.	On the **Sources** page, select **Register.** On the **Register sources** page that appears on the right, select the **Database** tab, and then select **Amazon RDS (PostgreSQL)** or **Amazon RDS (SQL)**.
 
-    :::image type="content" source="media/register-scan-amazon-rds/register-amazon-rds.png" alt-text="Screenshot of the Register sources page to select Amazon RDS (PostgreSQL).":::
+    :::image type="content" source="media/register-scan-amazon-rds/register-amazon-rds.png" alt-text="Screenshot of the Register sources page to select Amazon RDS (PostgreSQL)." lightbox="media/register-scan-amazon-rds/register-amazon-rds.png":::
 
 1. Enter the details for your source:
 
@@ -489,7 +489,7 @@ If an error of `Invalid VPC service name` or `Invalid endpoint service` appears 
 
 1. Make sure that your VPC service name is correct. For example:
 
-    :::image type="content" source="media/register-scan-amazon-rds/locate-service-name.png" alt-text="Screenshot of the VPC service name in AWS.":::
+    :::image type="content" source="media/register-scan-amazon-rds/locate-service-name.png" alt-text="Screenshot of the VPC service name in AWS." lightbox="media/register-scan-amazon-rds/locate-service-name.png":::
 
 1. Make sure that the Microsoft ARN is listed in the allowed principals: `arn:aws:iam::181328463391:root`
 
