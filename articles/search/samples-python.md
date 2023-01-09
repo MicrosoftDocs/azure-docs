@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/04/2023
 ---
 
-# Python code samples for Azure Cognitive Search
+# Python samples for Azure Cognitive Search
 
 Learn about the Python code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/python/api/overview/azure/search-documents-readme) for the [**Azure SDK for Python**](/azure/developer/python/), which you can explore through the following links.
 
