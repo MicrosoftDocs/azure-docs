@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 12/23/2022
+ms.date: 01/05/2023
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -110,7 +110,7 @@ You can also use the following FQDNs to allow access to the required services fr
 
 ## Enable Cross Region Restore
 
-At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
+At the Recovery Services vault, you can enable Cross Region Restore. Learn [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
 [Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 
