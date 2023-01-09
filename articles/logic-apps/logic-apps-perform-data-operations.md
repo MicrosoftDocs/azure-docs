@@ -290,7 +290,9 @@ By default, the **Columns** property is set to automatically create the table co
 
 To return values from the array, you can use the [`item()` function](workflow-definition-language-functions-reference.md#item) with the **Create CSV table** action. In a `For_each` loop, you can use the [`items()` function](workflow-definition-language-functions-reference.md#items).
 
-For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view. Here is the result that this example returns:
+For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view.
+
+This example returns the following result:
 
 ```text
 Apples,1
@@ -299,34 +301,63 @@ Oranges,2
 
 #### Work in designer view
 
-In the action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified array property and becomes a column in your table.
+In the **Create CSV table** action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified array property and becomes a column in your table.
 
 ##### [Consumption](#tab/consumption)
 
-1. Under **Value**, on each row that you want, click inside the edit box so that the dynamic content list appears.
+1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
 
 1. In the dynamic content list, select **Expression**.
 
-1. In the expression editor, enter this expression that specifies the array property value that you want, and select **OK**.
+1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
 
-   `item()?['<array-property-name>']`
+   Syntax: `item()?['<array-property-name>']`
 
-   For example:
+   Examples:
 
-   * `item()?['Description']`
    * `item()?['Product_ID']`
+   * `item()?['Description']`
 
-   ![Dereference "Description" for "Create CSV table"](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+   ![Screenshot showing the "Create CSV table" action in a Consumption workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/csv-table-expression-consumption.png)
 
-1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
+1. Repeat the preceding steps for each array property. When you're done, your action looks similar to the following example:
 
-   !["item()" function in "Create CSV table"](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+   ![Screenshot showing the "Create CSV table" action in a Consumption workflow and the "item()" function.](./media/logic-apps-perform-data-operations/finished-csv-expression-consumption.png)
 
 1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
 
-   The **Create CSV table** action now appears like this example:
+   The **Create CSV table** action now appears similar to the following example:
 
-   !["Create CSV table" - resolved expressions, no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   ![Screenshot showing the "Create CSV table" action in a Consumption workflow and resolved expressions without headers.](./media/logic-apps-perform-data-operations/resolved-csv-expression-consumption.png)
+
+##### [Standard](#tab/standard)
+
+1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
+
+1. In the dynamic content list, select **Expression**.
+
+1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
+
+   Syntax: `item()?['<array-property-name>']`
+
+   Examples:
+
+   * `item()?['Product_ID']`
+   * `item()?['Description']`
+
+   ![Screenshot showing the "Create CSV table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/csv-table-expression-standard.png)
+
+1. Repeat the preceding steps for each array property. When you're done, your action looks similar to the following example:
+
+   ![Screenshot showing the "Create CSV table" action in a Standard workflow and the "item()" function.](./media/logic-apps-perform-data-operations/finished-csv-expression-standard.png)
+
+1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
+
+   The **Create CSV table** action now appears similar to the following example:
+
+   ![Screenshot showing the "Create CSV table" action in a Standard workflow and resolved expressions without headers.](./media/logic-apps-perform-data-operations/resolved-csv-expression-standard.png)
+
+---
 
 #### Work in code view
 
