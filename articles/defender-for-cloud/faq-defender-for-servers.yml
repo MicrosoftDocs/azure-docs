@@ -17,16 +17,16 @@ sections:
       - question: |
           Can I enable Defender for Servers on a subset of machines in a subscription?
         answer: |
-          No. When you enable Microsoft Defender for Servers on an Azure subscription or on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics agent and Azure Monitor agent installed.
+          No. When you enable Microsoft Defender for Servers on an Azure subscription or on a connected AWS account or GCP project, all connected machines are protected by Defender for Servers. This includes servers that don't have the Log Analytics agent or Azure Monitor agent installed.
 
       - question: |
           Can I get a discount if I already have a Microsoft Defender for Endpoint license?
         answer: |
-          If you already have a license for Microsoft Defender for Endpoint for your servers, you don't pay for that part of your Microsoft Defender for Servers Plan 2 license. 
+          If you already have a license for Microsoft Defender for Endpoint for Servers, you don't pay for that part of your Microsoft Defender for Servers Plan 2 license. 
 
           To request your discount, contact the Defender for Cloud support team through the Azure portal.
 
-          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for servers licenses that are applied for machines in the workspace.
+          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for servers licenses that are applied to machines in the workspace.
           - The discount is effective starting on the approval date. The discount isn't retroactive.
 
       - question: |

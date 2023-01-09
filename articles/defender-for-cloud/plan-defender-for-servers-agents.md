@@ -35,7 +35,7 @@ Azure Arc onboarding is required for on-premises machines.
 
 To use Defender for Servers, all AWS, GCP, and on-premises machines should be Azure Arc-enabled.
 
-After you set up AWS or GCP connectors, Defender for Cloud can automatically deploy agents to AWS or GCP servers. You can automatically deploy the Azure Arc agent.
+You can onboard the Azure Arc agent to your AWS or GCP servers automatically with the AWS or GCP multicloud connector.
 
 ### Plan for Azure Arc deployment
 

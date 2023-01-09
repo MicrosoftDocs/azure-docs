@@ -10,7 +10,7 @@ ms.date: 11/06/2022
 
 This article helps you select the Microsoft Defender for Servers plan that's right for your organization.
 
-[Microsoft Defender for Cloud](defender-for-cloud-introduction.md) offers two paid plans for Defender for Servers.
+Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
 ## Before you begin
 

@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 This article helps you understand how your data is stored in Microsoft Defender for Servers and how Log Analytics workspaces are used in Defender for Servers.
 
-[Microsoft Defender for Cloud](defender-for-cloud-introduction.md) offers two paid plans for Defender for Servers.
+Defender for Servers is one of the paid plans provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
 
 ## Before you begin
 
@@ -41,7 +41,7 @@ In Defender for Cloud, you can store server data in the default Log Analytics wo
 
 Here's more information:
 
-- By default, when you first create your Defender for Cloud deployment, a new resource group and a default workspace are created in the subscription region for each subscription that has Defender for Cloud enabled.
+- By default, when you enable Defender for Cloud for the first time, a new resource group and a default workspace are created in the subscription region for each subscription that has Defender for Cloud enabled.
 - When you use only free foundational cloud security posture management (CSPM), Defender for Cloud sets up the default workspace with the *SecurityCenterFree* solution enabled.
 - When you turn on a Defender for Cloud plan (including Defender for Servers), the plan is enabled for the default workspace, and the *Security* solution is enabled.
 - If you have virtual machines in multiple locations, Defender for Cloud creates multiple workspaces accordingly to ensure data compliance.
