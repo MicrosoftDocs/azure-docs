@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 12/20/2022
+ms.date: 01/02/2023
 ---
 
 # Create a dashboard in Azure Managed Grafana
@@ -34,7 +34,7 @@ To quickly create a dashboard, import a dashboard template from the Grafana Labs
     ### [Portal](#tab/azure-portal)
 
     1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
-    1. In your Grafana endpoint, go to **Dashboards > Import**.
+    1. In the Grafana portal, go to **Dashboards > Import**.
     1. On the **Import** page, under **Import via grafana.com**, paste the Grafana dashboard ID copied earlier, and select **Load**.
 
        :::image type="content" source="media/dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
@@ -62,7 +62,7 @@ If none of the pre-configured dashboards listed on the Grafana Labs website fit 
 ### [Portal](#tab/azure-portal)
 
 1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
-1. In your Grafana endpoint, go to **Dashboards > New Dashboard**.
+1. In the Grafana portal, go to **Dashboards > New Dashboard**.
 1. Select one of the following options:
    - **Add a new panel**: instantly creates a dashboard from scratch with a first default panel.
    - **Add a new row**: instantly creates a dashboard with a new empty row.
