@@ -28,7 +28,6 @@ Example Usage Scenarios:
 
 **Deny**: When the effect of a policy is set to deny, the policy will block the creation of new components such as weaker keys, and will block new versions of existing keys that do not comply with the policy definition. Existing non-compliant resources within a Managed HSM are not affected. The 'audit' capabilities will continue to operate.
 
-# [Data plane policies](#tab/data-plane)
 
 ### Keys using elliptic curve cryptography should have the specified curve names 
 
@@ -50,8 +49,6 @@ If a key is too close to expiration, an organizational delay to rotate the key m
 ### Keys using RSA cryptography should have a specified minimum key size
 
 Using RSA keys with smaller key sizes is not a secure design practice. You may be subject to audit and certification standards that mandate the use of a minimum key size. The following policy allows you to set a minimum key size requirement on your Managed HSM. You can audit keys that do not meet this minimum requirement. This policy can also be used to block the creation of new keys that do not meet the minimum key size requirement.
-
----
 
 ## Enabling and managing a Managed HSM policy through the Azure CLI
 
@@ -91,7 +88,7 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 
 ### Create policy assignments - define rules of audit and/or deny
 
-Policy assignments have concrete values defined for policy definitions' parameters. In [Azure portal](https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true}) (also in private preview), go to "Policy", filter on the "Key Vault" category, find these four preview key governance policy definitions. Select one, then select "Assign" button on top. Fill in each field. If the policy assignment is for request denials, use a clear name about the policy because, when a request is denied, the policy assignment's name will appear in the error. Select Next, uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service will need up to 30 minutes to enforce "Deny" assignments.
+Policy assignments have concrete values defined for policy definitions' parameters. In the [Azure portal](https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true}), go to "Policy", filter on the "Key Vault" category, find these four preview key governance policy definitions. Select one, then select "Assign" button on top. Fill in each field. If the policy assignment is for request denials, use a clear name about the policy because, when a request is denied, the policy assignment's name will appear in the error. Select Next, uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service will need up to 30 minutes to enforce "Deny" assignments.
 
 - [Preview]: Azure Key Vault Managed HSM keys should have an expiration date
 - [Preview]: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size
