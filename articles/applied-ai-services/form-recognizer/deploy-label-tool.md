@@ -96,7 +96,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 ### Continuous deployment
 
-After you have created your web app, you can enable the continuous deployment option:
+After you've created your web app, you can enable the continuous deployment option:
 
 * From the left pane, choose **Container settings**.
 * In the main window, navigate to Continuous deployment and toggle between the **On** and **Off** buttons to set your preference:
