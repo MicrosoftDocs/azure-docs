@@ -43,16 +43,16 @@ The Dapr service you deploy:
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git) to your local machine.
+1. Clone the [sample Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-) to your local machine.
 
    ```bash
-   git clone https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git
+   git clone https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-.git
    ```
 
 1. Navigate into the sample's root directory.
 
    ```bash
-   cd bindings-dapr-nodejs-cron-postgres
+   cd bindings-dapr-nodejs-cron-postgres-
    ```
 
 ### Run the Dapr application using the Dapr CLI
@@ -73,7 +73,7 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
 1. Open a new terminal window and navigate into `/batch` in the sample directory.
 
    ```bash
-   cd bindings-dapr-nodejs-cron-postgres/batch
+   cd bindings-dapr-nodejs-cron-postgres-/batch
    ```
 
 1. Install the dependencies:
@@ -121,10 +121,10 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 
 ### Prepare the project
 
-1. Navigate into the [sample's](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres.git) root directory.
+1. Navigate into the [sample's](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-) root directory.
 
    ```bash
-   cd bindings-dapr-nodejs-cron-postgres
+   cd bindings-dapr-nodejs-cron-postgres-
    ```
 
 ### Run using Azure Developer CLI
@@ -207,14 +207,14 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 Upon successful completion of the `azd up` command:
 
 - The Dapr bindings application was initialized.
-- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
 - The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 ### How to make your Dapr container app `azd`-compatible
 
 While [Microsoft provides several templates to get started deploying with `azd`](/developer/azure-developer-cli/azd-templates.md), you can make your own Dapr application `azd`-compatible. Learn more about [how to `azd`-ify your application](/developer/azure-developer-cli/make-azd-compatible.md). 
 
-To make [the above Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres) `azd`-compatible, it required the following components:
+To make [the above Dapr application](https://github.com/Azure-Samples/bindings-dapr-nodejs-cron-postgres-) `azd`-compatible, it required the following components:
 
 - Application code (JavaScript application and Dapr input and output binding components)
 - Infra-as-code (in this case, Bicep) needed to provision Azure resources, including monitoring and CI/CD
@@ -231,7 +231,7 @@ The next section explains the key parts of the `azd` template that help deploy t
 Locate the Bicep files for the Dapr application in the `./infra` directory:
 
 ```bash
-cd bindings-dapr-nodejs-cron-postgres/infra
+cd bindings-dapr-nodejs-cron-postgres-/infra
 ```
 
 The `./infra` directory contains the following files and directories:
