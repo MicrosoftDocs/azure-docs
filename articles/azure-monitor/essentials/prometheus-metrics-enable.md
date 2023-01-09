@@ -269,7 +269,7 @@ The `aks-preview` extension needs to be installed using the following command. F
 ```azurecli
 az extension add --name aks-preview
 ```
-Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster. This doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
+Use the following command to remove the agent from the cluster nodes and delete the recording rules created for the data being collected from the cluster along with the Data Collection Rule Associations (DCRA) that link the DCE or DCR with your cluster. This doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
 
 ```azurecli
 az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
