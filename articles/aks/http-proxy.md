@@ -76,7 +76,7 @@ Example input:
 }
 ```
 
-Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename using the `http-proxy-config` flag.
+Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, provide a value for *trustedCa*. Next, deploy a cluster, passing in your filename using the `http-proxy-config` flag.
 
 ```azurecli
 az aks create -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config.json
@@ -102,13 +102,13 @@ Deploying an AKS cluster with an HTTP proxy configured using an ARM template is 
 }
 ```
 
-In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If necessary, also provide a value for `*trustedCa*. Deploy the template, and your cluster should initialize with your HTTP proxy configured on the nodes.
+In your template, provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If necessary, provide a value for *trustedCa*. Deploy the template, and your cluster should initialize with your HTTP proxy configured on the nodes.
 
 ## Handling CA rollover
 
 Values for *httpProxy*, *httpsProxy*, and *noProxy* can't be changed after cluster creation. However, to support rolling CA certs, the value for *trustedCa* can be changed and applied to the cluster with the [az aks update][az-aks-update] command.
 
-For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action will update the cluster:
+For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following action updates the cluster:
 
 ```azurecli
 az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
