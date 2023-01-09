@@ -56,13 +56,15 @@ You'll now register a new local monitoring application with Azure AD to establis
 
 1. Collect the values in the following table.
 
-    |Value  | How to collect  |
-    |---------|---------|
-    | **Tenant ID** | In the Azure portal, search for Azure Active Directory. You can find the **Tenant ID** field in the Overview page. |
-    | **Application (client) ID** | Navigate to the new local monitoring app registration you just created. You can find the **Application (client) ID** field in the Overview page, under the **Essentials** heading. |
-    | **Client secret** | You collected this when creating the client secret in the previous step. |
-    | **Distributed tracing redirect URI root** | Make a note of the first part of the distributed tracing redirect URI: **https://*\<local monitoring domain\>*/sas**. |
-    | **Packet core dashboards redirect URI root** | Make a note of the first part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. |
+    |Value  | How to collect  |  Kubernetes secret parameter name
+    |---------|---------|---------|
+    | **Tenant ID** | In the Azure portal, search for Azure Active Directory. You can find the **Tenant ID** field in the Overview page. | `tenant_id` |
+    | **Application (client) ID** | Navigate to the new local monitoring app registration you just created. You can find the **Application (client) ID** field in the Overview page, under the **Essentials** heading. | `client_id` |
+    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. | `auth_url` |
+    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field. | `token_url` |
+    | **Client secret** | You collected this when creating the client secret in the previous step. | `client_secret` |
+    | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>*/**. | `redirect_uri_root` |
+    | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
 
 ## Create Kubernetes Secret Objects
 
@@ -84,7 +86,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
     data:
         client_id: <Base64-encoded client ID>
         client_secret: <Base64-encoded client secret>
-        redirect_url_root: <Base64-encoded distributed tracing redirect URI root>
+        redirect_uri_root: <Base64-encoded distributed tracing redirect URI root>
         tenant_id: <Base64-encoded tenant ID>
     ```
 1. Create a Kubernetes secret for the packet core dashboards by creating a *secret-azure-ad-grafana.yaml* file containing the Base64-encoded values. The secret must be named **grafana-auth-secrets**.
@@ -99,8 +101,9 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
     data:
         client_id: <Base64-encoded client ID>
         client_secret: <Base64-encoded client secret>
-        redirect_url_root: <Base64-encoded packet core dashboards redirect URI root>
-        tenant_id: <Base64-encoded tenant ID>
+        auth_url: <Base64-encoded authorization URL>
+        token_url: <Base64-encoded token URL>
+        root_url: <Base64-encoded packet core dashboards redirect URI root>
     ```
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards. 
@@ -111,9 +114,9 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
 
 1. Use the following commands to verify if the Secret Objects were applied correctly. You should see the correct **Name**, **Namespace** and **Type** values, along with the byte size of the encoded values.
 
-    `kubectl describe secrets -n <DeploymentNamespace> sas-auth-secrets --kubeconfig=<admin_kubeconfig>`
+    `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin_kubeconfig>`
 
-    `kubectl describe secrets -n <DeploymentNamespace> grafana-auth-secrets --kubeconfig=<admin_kubeconfig>`
+    `kubectl describe secrets -n <deployment namespace> grafana-auth-secrets --kubeconfig=<admin_kubeconfig>`
 
 ## Next steps
 
