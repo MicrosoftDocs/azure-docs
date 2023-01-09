@@ -2,17 +2,20 @@
 title: Microsoft Defender for Cloud's workload protection dashboard and its features
 description: Learn about the features of Microsoft Defender for Cloud's workload protection dashboard
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ---
 
 # The workload protections dashboard
 
 This dashboard provides:
 
-- Visibility into your Microsoft Defender for Cloud coverage across your different resource types
-- Links to configure advanced threat protection capabilities
-- The onboarding state and agent installation
-- Threat detection alerts
+- Visibility into your Microsoft Defender for Cloud coverage across your different resource types.
+
+- Links to configure advanced threat protection capabilities.
+
+- The onboarding state and agent installation.
+
+- Threat detection alerts.
 
 To access the workload protections dashboard, select **Workload protections** from the Cloud Security section of Defender for Cloud's menu.
 
