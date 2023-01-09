@@ -8,7 +8,7 @@ ms.date: 01/09/2023
 | Resource | Limit |
 |----------|-------|
 | Number of BGP peers supported | 8 |
-| Number of routes each BGP peer can advertise to Azure Route Server <sup>1</sup> | 1000 |
+| Number of routes each BGP peer can advertise to Azure Route Server <sup>1</sup> | 1,000 |
 | Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway <sup>2</sup>  | 200 |
 | Number of VMs in the virtual network (including peered virtual networks) that Azure Route Server can support <sup>3</sup> | 4,000 |
 
