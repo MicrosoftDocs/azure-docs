@@ -1,16 +1,15 @@
 ---
-title: 'Locations and connectivity providers: Azure ExpressRoute | Microsoft Docs'
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by location.
+title: 'Locations and connectivity providers: Azure ExpressRoute'
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 01/09/2023
 ms.author: duau
-ms.custom: references_regions
-
+ms.custom: references_regions, template-concept, engagement-fy23
 ---
+
 # ExpressRoute partners and peering locations
 
 > [!div class="op_single_selector"]
@@ -22,7 +21,6 @@ The tables in this article provide information on ExpressRoute geographical cove
 
 > [!Note]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
->
 >
 
 ## Azure regions
@@ -39,11 +37,11 @@ You will have access to Azure services across all regions within a geopolitical 
 
 The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md).
 
-* **Local Azure Regions** are the ones that [ExpressRoute Local](expressroute-faqs.md) at each peering location can access. **n/a** indicates that ExpressRoute Local is not available at that peering location.
+* **Local Azure Regions** refers to the regions that can be accessed by [ExpressRoute Local](expressroute-faqs.md#expressroute-local) at each peering location. **n/a** indicates that ExpressRoute Local is not available at that peering location.
 
 * **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
-* **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
+* **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
 
 ### Global commercial Azure
 | **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
@@ -138,7 +136,6 @@ The following table shows connectivity locations and the service providers for e
 | **Washington DC2** | [Coresite VA2](https://www.coresite.com/data-center/va2-reston-va) | 1 | East US, East US 2 | n/a | CenturyLink Cloud Connect, Coresite, Intelsat, Megaport, Viasat, Zayo | 
 | **Zurich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Switzerland North | Supported | Colt, Equinix, Intercloud, Interxion, Megaport, Swisscom, Zayo |
 
- **+** denotes coming soon
 
 ### National cloud environments
 
@@ -166,8 +163,6 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Shanghai2** | GDS | n/a | Supported | China Telecom, China Unicom, GDS |
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
-
-** ExpressRoute Local is not available in this location.
 
 ## <a name="c1partners"></a>Connectivity through Exchange providers
 If your connectivity provider is not listed in previous sections, you can still create a connection.
@@ -236,9 +231,10 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **North America** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
 | **South America** |Avanade Inc., Venha Pra Nuvem |
+
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-* Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* Ensure that all prerequisites are met. For more information, see [ExpressRoute prerequisites & checklist](expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
