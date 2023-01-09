@@ -78,7 +78,7 @@ To add the repository:
 
 1. Sync your project with the Gradle files. To sync the project, on the **File** menu, select **Sync Project With Gradle Files**.
 
-## Add a button to Activity_main.xml
+## Add a button to activity_main.xml
 
 In the *app/src/main/res/layout/activity_main.xml* layout file, add the following code to create a button to start the composite:
 
@@ -115,7 +115,8 @@ To initialize the composite:
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-package com.example.uilibraryquickstart.chat
+package com.example.uilibraryquickstart
+
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -124,9 +125,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.azure.android.communication.common.CommunicationTokenCredential
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions
+import com.azure.android.communication.common.CommunicationUserIdentifier
 import com.azure.android.communication.ui.chat.ChatAdapter
 import com.azure.android.communication.ui.chat.ChatAdapterBuilder
-import com.azure.android.communication.ui.chat.presentation.ChatCompositeView
+import com.azure.android.communication.ui.chat.presentation.ChatThreadView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var chatAdapter: ChatAdapter
@@ -145,7 +147,7 @@ class MainActivity : AppCompatActivity() {
             chatAdapter = ChatAdapterBuilder()
                 .endpoint(endpoint)
                 .credential(communicationTokenCredential)
-                .identity(acsIdentity)
+                .identity(CommunicationUserIdentifier(acsIdentity))
                 .displayName(displayName)
                 .threadId(threadId)
                 .build()
@@ -223,7 +225,8 @@ class MainActivity : AppCompatActivity() {
 #### [Java](#tab/java)
 
 ```java
-package com.example.uilibraryquickstart.chat;
+package com.example.uilibraryquickstart;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
@@ -233,9 +236,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.ui.chat.ChatAdapter;
 import com.azure.android.communication.ui.chat.ChatAdapterBuilder;
-import com.azure.android.communication.ui.chat.presentation.ChatCompositeView;
+import com.azure.android.communication.ui.chat.presentation.ChatThreadView;
+
 public class MainActivity extends AppCompatActivity {
     private ChatAdapter chatAdapter;
 
@@ -252,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             chatAdapter = new ChatAdapterBuilder()
                     .endpoint(endpoint())
                     .credential(communicationTokenCredential)
-                    .identity(acsIdentity())
+                    .identity(new CommunicationUserIdentifier(acsIdentity()))
                     .displayName(displayName())
                     .threadId(threadId())
                     .build();
