@@ -75,8 +75,9 @@ Security DevOps uses the following Open Source tools:
         - uses: actions/setup-dotnet@v1
           with:
             dotnet-version: |
+              3.1.x
               5.0.x
-              6.0.x
+              6.0.x              
 
         # Run analyzers
         - name: Run Microsoft Security DevOps Analysis
