@@ -157,7 +157,7 @@ The following example performs clean-up actions if a cancellation request has be
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 6 (both in-process and isolated worker process), and .NET 7, and it requires [version 3.0 or later](functions-versions.md) of the Azure Functions runtime.
+ReadyToRun is available in .NET 6 (both in-process and isolated worker process), and .NET 7, and it requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
