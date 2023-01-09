@@ -59,7 +59,7 @@ In this article you learn how to secure the following training compute resources
 + An existing virtual network and subnet to use with your compute resources. This VNet must be in the same subscription as your Azure Machine Learning workspace.
 
     - We recommend putting the storage accounts used by your workspace and training jobs in the same Azure region that you plan to use for your compute instances and clusters. If they are not in the same Azure region, you may incur data transfer costs and increased network latency.
-    - Make sure that **websocket** communication is allowed to `*.instances.azureml.net` and `*.instances.azureml.ms` in your VNet. Websockets are used by Jupyter on compute instances.
+    - Make sure that **WebSocket** communication is allowed to `*.instances.azureml.net` and `*.instances.azureml.ms` in your VNet. WebSockets are used by Jupyter on compute instances.
 
 + An existing subnet in the virtual network. This subnet is used when creating compute instances and clusters.
 

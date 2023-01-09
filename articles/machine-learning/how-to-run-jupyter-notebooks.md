@@ -352,4 +352,4 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
 * [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
-* [Working in secure environments](./how-to-secure-training-vnet.md#compute-cluster)
+* [Working in secure environments](./how-to-secure-training-vnet.md)
