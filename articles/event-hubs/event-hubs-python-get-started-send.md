@@ -63,6 +63,8 @@ In this section, create a Python script to send events to the event hub that you
     EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT HUBS NAMESPACE"
     EVENT_HUB_NAME = "EVENT HUB NAME"
     
+    credential = DefaultAzureCredential()
+    
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a credential that has correct role assigned to access
@@ -70,7 +72,7 @@ In this section, create a Python script to send events to the event hub that you
         producer = EventHubProducerClient(
             fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
             eventhub_name=EVENT_HUB_NAME,
-            credential=DefaultAzureCredential()
+            credential=credential
         )
         async with producer:
             # Create a batch.
@@ -83,6 +85,9 @@ In this section, create a Python script to send events to the event hub that you
     
             # Send the batch of events to the event hub.
             await producer.send_batch(event_data_batch)
+    
+            # Close credential when no longer needed.
+            await credential.close()
     
     asyncio.run(run())
     ```
@@ -184,10 +189,12 @@ In this section, you create a Python script to receive events from your event hu
     from azure.eventhub.extensions.checkpointstoreblobaio import BlobCheckpointStore
     from azure.identity.aio import DefaultAzureCredential
     
-    AZURE_STORAGE_CONNECTION_STRING = "AZURE STORAGE CONNECTION STRING"
-    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
-    EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT HUBS NAMESPACE"
-    EVENT_HUB_NAME = "EVENT HUB NAME"
+    AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=vmagelostorage;AccountKey=VvQid1kVmpZXZ7vNqkBnbfdymbTzBbm15quqHmYwupQwgkOMQB/VhCgYH3sq3Iao4wmqzV+D1o4T+AStkjQPNg==;EndpointSuffix=core.windows.net"
+    BLOB_CONTAINER_NAME = "event-hubs"
+    EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "vmagelo-event-hubs.servicebus.windows.net"
+    EVENT_HUB_NAME = "test-hub"
+    
+    credential = DefaultAzureCredential()
     
     async def on_event(partition_context, event):
         # Print the event data.
@@ -208,13 +215,16 @@ In this section, you create a Python script to receive events from your event hu
         client = EventHubConsumerClient(
             fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
             eventhub_name=EVENT_HUB_NAME,
-            consumer_group="$Default",
+            consumer_group="$Default", 
             checkpoint_store=checkpoint_store,
-            credential=DefaultAzureCredential()
+            credential=credential
         )
         async with client:
             # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
             await client.receive(on_event=on_event,  starting_position="-1")
+    
+        # Close credential when no longer needed.
+        await credential.close()
     
     if __name__ == '__main__':
         # Run the main method.
