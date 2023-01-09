@@ -284,7 +284,7 @@ After changing the key ID (including key name and key version), you can use [az 
 > [!WARNING]
 > Remember to update all secrets after key rotation. Otherwise, the secrets will be inaccessible if the old keys are not existing or working.
 > 
-> Once you rotate the key, the old key (key1) is still cached and shouldn't be deleted. If you want to delete the old key (key1) immediately, you need to rotate the  key twice. Then key2 and key3 are cached, and key1 can be deleted without impacting existing cluster.
+> Once you rotate the key, the old key (key1) is still cached and shouldn't be deleted. If you want to delete the old key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without impacting existing cluster.
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $NewKEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
