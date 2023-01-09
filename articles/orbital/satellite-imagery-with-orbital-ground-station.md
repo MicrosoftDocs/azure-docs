@@ -97,7 +97,8 @@ Port forward the vncserver port (5901) over SSH to your local machine:
 ```bash
 ssh -L 5901:localhost:5901 azureuser@receiver-vm
 ```
-Note: Use either public IP address of VM DNS name to replace receiver-Vm in this command.
+> [!NOTE]
+> Use either public IP address of VM DNS name to replace receiver-Vm in this command.
 
 1. On your local machine, download and install [TightVNC Viewer](https://www.tightvnc.com/download.php). 
 1. Start the TightVNC Viewer and connect to ```localhost:5901```. 
@@ -109,8 +110,9 @@ From the GNOME Desktop, go to **Applications** > **Internet** > **Firefox** to s
 
 Log on to the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=325&type=software) website and download the **RT-STPS** installation files and the **IPOPP downloader script** under software downloads. The downloaded files will land under ~/Downloads.
 
-Note: use the same machine to download and run
-downloader_DRL-IPOPP_4.1.sh.
+> [!NOTE]
+> Use the same machine to download and run
+> `downloader_DRL-IPOPP_4.1.sh.`
 
 ### Install RT-STPS
 ```bash
