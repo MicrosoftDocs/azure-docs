@@ -7,7 +7,7 @@ ms.date: 01/05/2023
 
 ---
 
-# Kernel Isolation (preview) on Azure Kubernetes Service (AKS)
+# Pod Sandboxing (preview) on Azure Kubernetes Service (AKS)
 
 To mitigate security risks of your container workloads running on Azure Kubernetes Service (AKS) that share kernel and container host resources to untrusted or potentially malicious code, a mechanism called Pod Sandboxing (preview) is introduced to provide an isolation boundary between the container application and the shared kernel and resources of the container host (for example CPU, memory, networking, etc.).
 
@@ -304,7 +304,7 @@ To demonstrate the isolation of an application on the AKS cluster deployed earli
    The output of the command resembles the following example:
 
     ```output
-    Blah
+    daemonset.apps/trusted created
     ```
 
 3. Create a file named *untrusted-app.yaml* to describe an un-trusted DaemonSet, and then paste the following manifest.
@@ -350,8 +350,9 @@ To demonstrate the isolation of an application on the AKS cluster deployed earli
    The output of the command resembles the following example:
 
     ```output
-    Blah
+    daemonset.apps/untrusted created
     ```
+
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
