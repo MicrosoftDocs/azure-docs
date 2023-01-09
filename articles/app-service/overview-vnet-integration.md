@@ -19,7 +19,7 @@ App Service has two variations:
 * The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
 * The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated and Isolated v2 pricing tiers.
 
-The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](../environment/overview.md), it's already in a virtual network and doesn't require use of the VNet integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
+The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it's already in a virtual network and doesn't require use of the VNet integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
 
 Virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is used only to make outbound calls from your app into your virtual network. Refer to [private endpoint](./networking/private-endpoint.md) for inbound private access.
 
