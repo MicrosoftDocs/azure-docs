@@ -3,7 +3,7 @@ title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
 author: madsd
 ms.topic: how-to
-ms.date: 10/01/2023
+ms.date: 01/10/2023
 ms.author: madsd
 
 ---
@@ -91,7 +91,7 @@ When gateway-required virtual network integration is enabled, there's a required
 
 If certificates or network information is changed, select **Sync Network**. When you select **Sync Network**, you cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
 
-# Pricing details
+## Pricing details
 
 Three charges are related to the use of the gateway-required virtual network integration feature:
 
