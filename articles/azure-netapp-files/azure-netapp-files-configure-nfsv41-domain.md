@@ -60,7 +60,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
 1. Select **Configure.**
 1. To use the default domin, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
-
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
 1. Select **Save**.
@@ -75,7 +74,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select **Save**.
 -->
 
-### [CLI](#tab/bash)
+### [CLI](#tab/cli)
 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
@@ -138,9 +137,8 @@ The following example shows the resulting user/group change:
 ![Screenshot that shows an example of the resulting user/group change.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
----
 
-<!-- preview -->
+---
 
 ## Behavior of other (non-root) users and groups
 
