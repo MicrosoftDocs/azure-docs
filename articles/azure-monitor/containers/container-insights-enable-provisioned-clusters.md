@@ -39,9 +39,9 @@ ms.reviewer: aul
 ```acli
 az login
 
-az account set --subscription "Cluster Subscription Name"
+az account set --subscription <cluster-subscription-name>
 
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
 ```
 ## [Azure portal](#tab/create-portal)
 
@@ -95,9 +95,9 @@ curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-pr
 ```azurecli
 az login
 
-az account set --subscription "Cluster Subscription Name"
+az account set --subscription <cluster-subscription-name>
 
-az deployment group create --resource-group "Resource Group Name" --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
+az deployment group create --resource-group <resource-group> --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
 ```
 ---
 
@@ -108,7 +108,7 @@ az deployment group create --resource-group "Resource Group Name" --template-fil
 Showing the extension details:
 
 ```azcli
-az k8s-extension list --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice"
+az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice"
 ```
 
 
@@ -117,7 +117,7 @@ az k8s-extension list --cluster-name <cluster-name> --resource-group <cluster-re
 The command for deleting the extension:
 
 ```azcli
-az k8s-extension delete --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
+az k8s-extension delete --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
 ```
 
 ## Known Issues/Limitations
