@@ -120,6 +120,8 @@ If needing to remove your action run command Linux extension, refer to the below
 ```azurecli-interactive
 az vm run-command invoke  --command-id RemoveRunCommandLinuxExtension --name vmname -g rgname
 ```
+> [!NOTE]
+> When you execute a Run Command again, the extension will get installed automatically. Hence, you can use the extension removal command to troubleshoot any issues related to the extension.
 
 ## Next steps
 
