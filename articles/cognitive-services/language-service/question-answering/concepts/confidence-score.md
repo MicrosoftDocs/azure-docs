@@ -44,7 +44,7 @@ Set the threshold score as a property of the [REST API JSON body](../quickstart/
 
 ## Improve confidence scores
 
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [synonyms](../tutorials/adding-synonyms.md) to add synonyms to keywords in your project.
+To improve the confidence score of a particular response to a user query, you can add the user query to the project as an alternate question on that response. You can also use case-insensitive [synonyms](../tutorials/adding-synonyms.md) to add synonyms to keywords in your project.
 
 ## Similar confidence scores
 
@@ -56,7 +56,7 @@ The confidence score of an answer may change negligibly between the test and dep
 
 The test index holds all the question and answer pairs of your project. When querying the test index, the query applies to the entire index then results are restricted to the partition for that specific project. If the test query results are negatively impacting your ability to validate the project, you can:
 * Organize your project using one of the following:
-    * One resource restricted to one project: restrict your single language resource (and the resulting Azure Cognitive Search test index) to a project/knowledge base.
+    * One resource restricted to one project: restrict your single language resource (and the resulting Azure Cognitive Search test index) to a project.
     * Two resources - one for test, one for production: have two language resources, using one for testing (with its own test and  production indexes) and one for production (also having its own test and production indexes)
 * Always use the same parameters when querying both your test and production projects.
 

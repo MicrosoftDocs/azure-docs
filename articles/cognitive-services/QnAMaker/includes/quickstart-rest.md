@@ -38,7 +38,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
 -H "Content-Type:application/json" \
 -H "Content-Size:107" \
--d '{ name: "QnA Maker FAQ",urls: [ "https://learn.microsoft.com/azure/cognitive-services/qnamaker/faqs"]}'
+-d "{ name: 'QnA Maker FAQ', urls: ['https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs']}"
 ```
 
 The cURL response from QnA Maker includes the `operationId` , which is required to [get status of the operation](#get-status-of-operation).
@@ -163,7 +163,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 -H "Authorization: EndpointKey REPLACE-WITH-YOUR-RUNTIME-KEY" \
 -H "Content-Type:application/json" \
 -H "Content-Size:159" \
--d '{"question": "How are QnA Maker and LUIS used together?","top": 6,"isTest": true,  "scoreThreshold": 20, "strictFilters": [], "userId": "sd53lsY="}'
+-d "{'question': 'How are QnA Maker and LUIS used together?', 'top': 6, 'isTest': true, 'scoreThreshold': 20, 'strictFilters': [], 'userId': 'sd53lsY='}"
 ```
 
 A successful response includes the top answer along with other information a client application, such as a chat bot, needs to display an answer to the user.
