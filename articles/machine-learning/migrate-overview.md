@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 10/21/2021
+ms.date: 11/30/2022
 ---
 
 # Migrate to Azure Machine Learning from ML Studio (classic)

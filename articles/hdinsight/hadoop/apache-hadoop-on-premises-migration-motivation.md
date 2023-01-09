@@ -4,7 +4,7 @@ description: Learn the motivation and benefits for migrating on-premises Hadoop 
 ms.service: hdinsight
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/30/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
@@ -117,7 +117,6 @@ This section provides template questionnaires to help gather important informati
 |Spark batch jobs|50 jobs -- every 15 minutes||
 |Spark Streaming jobs|5 jobs -- every 3 minutes||
 |Structured Streaming jobs|5 jobs -- every minute||
-|ML Model training jobs|2 jobs -- once in a week||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||

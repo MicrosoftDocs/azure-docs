@@ -12,7 +12,7 @@
 
 | Resource | Limit |
 | --- | --- |
-| Data throughput |30 Gbps|
+| Max Data throughput | 100 Gbps for Premium, 30 Gbps for Standard, 250 Mbps for Basic (preview) SKU<br><br> For more information, see [Azure Firewall performance](../articles/firewall/firewall-performance.md#performance-data). |
 |Rule limits|20,000 unique source/destinations in network rules <br><br> **Unique source/destinations in network** = sum of (unique source addresses * unique destination addresses for each rule)|
 |Total size of rules within a single Rule Collection Group| 1 MB for Firewall policies created before July 2022<br>2 MB for Firewall policies created after July 2022|
 |Number of Rule Collection Groups in a firewall policy|50 for Firewall policies created before July 2022<br>60 for Firewall policies created after July 2022|

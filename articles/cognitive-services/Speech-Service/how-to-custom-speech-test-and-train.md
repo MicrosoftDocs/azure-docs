@@ -45,7 +45,7 @@ Training with plain text or structured text usually finishes within a few minute
 > 
 > Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample Custom Speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
-If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST API.
+If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. See footnotes in the [regions](regions.md#speech-service) table for more information. In regions with dedicated hardware for Custom Speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) REST API.
 
 ## Consider datasets by scenario
 
@@ -102,7 +102,7 @@ Custom Speech projects require audio files with these properties:
 | File format              | RIFF (WAV)                          |
 | Sample rate              | 8,000 Hz or 16,000 Hz               |
 | Channels                 | 1 (mono)                            |
-| Maximum length per audio | 2 hours (testing) / 60 s (training) |
+| Maximum length per audio | 2 hours (testing) / 60 s (training)<br/><br/>Training with audio has a maximum audio length of 60 seconds per file. For audio files longer than 60 seconds, only the corresponding transcription files will be used for training. If all audio files are longer than 60 seconds, the training will fail.|
 | Sample format            | PCM, 16-bit                         |
 | Archive format           | .zip                                |
 | Maximum zip size         | 2 GB or 10,000 files                |

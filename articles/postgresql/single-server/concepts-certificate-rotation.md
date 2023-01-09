@@ -26,7 +26,7 @@ The new certificate is rolled out and in effect starting December, 2022 (12/2022
 
 ## What change will be performed starting December 2022 (12/2022)?
 
-Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
+Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 

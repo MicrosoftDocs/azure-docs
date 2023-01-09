@@ -118,6 +118,8 @@ with the new platform.
 
 As a result, new Linux packages will require custom module development.
 
+Linux content authored using ChefInspec remains supported but should only be used for legacy configurations. 
+
 #### Will I have to add "Reasons" property to custom resources?
 
 Implementing the

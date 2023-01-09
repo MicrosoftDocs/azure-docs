@@ -33,6 +33,8 @@ items:
     href: how-to-data-source-plugins-managed-identity.md
   - name: Modify access permissions to Azure Monitor
     href: how-to-permissions.md
+  - name: Create a dashboard
+    href: how-to-create-dashboard.md
   - name: Share a Managed Grafana instance
     href: how-to-share-grafana-workspace.md
   - name: Monitor a Managed Grafana instance

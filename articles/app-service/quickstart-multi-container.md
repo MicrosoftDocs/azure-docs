@@ -26,7 +26,7 @@ This article requires version 2.0.32 or later of the Azure CLI. If using Azure C
 
 ## Download the sample
 
-For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
+For this quickstart, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 

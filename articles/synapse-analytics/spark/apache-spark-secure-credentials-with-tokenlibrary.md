@@ -54,6 +54,25 @@ Console.WriteLine(TokenLibrary.help());
 
 ::: zone-end
 
+Get result:
+
+```
+getAccessToken(resource: String): returns AAD token for a given resource.
+getAADToken(tenantId: String, clientId: String, clientSecret: String, resource: String): returns AAD token for a given clientId and resource.
+isValidToken(token: String): returns true if token hasn't expired.
+getConnectionString(linkedService: String): returns connection string or credentials for the linked service.
+getConnectionStringAsMap(linkedService: String): returns connection string as a map. 
+getFullConnectionString(linkedService: String): returns full connection string for the linked service.
+getFullConnectionStringAsMap(linkedService: String): returns full connection string as a map.
+getPropertiesAll(linkedService: String): returns all the properties of the linked service.
+getPropertiesAsMap(linkedService: String): returns all the properties of the linked service as a Map[String, Any]
+getSecret(akvName: String, secret: String, linkedService: String): returns AKV secret for a given akvName, secret key and AKV linked service using workspace MSI.
+getSecret(akvName: String, secret: String): returns AKV secret for a given akvName, secret key using user credentials.
+getSecretWithLS(linkedService: String, secret: String): returns AKV secret for a given AKV linked service, secret key.
+putSecret(akvName: String, secretName: String, secretValue: String): puts AKV secret for a given akvName, secret name. 
+putSecretWithLS(linkedService: String, secretName: String, secretValue: String): puts AKV secret for a given linked service, secret name.
+```
+
 ## TokenLibrary for Azure Data Lake Storage Gen2
 
 #### ADLS Gen2 Primary Storage

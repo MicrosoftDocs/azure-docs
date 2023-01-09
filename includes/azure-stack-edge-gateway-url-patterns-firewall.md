@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/03/2022
+ms.date: 12/06/2022
 ms.author: alkohli
 ---
 
@@ -16,5 +16,6 @@ ms.author: alkohli
 |    `https://azureprofilerfrontdoor.cloudapp.net`     |    Azure Traffic Manager |
 |    http://\*.data.microsoft.com     |    Telemetry service in Windows, see the update for customer experience and diagnostic telemetry |
 |    `http://<vault-name>.vault.azure.net:443`     |    Key Vault |
+|    `https://azstrpprod.trafficmanager.net/*`    |Remote Management  |
 <!--|    http://www.msftconnecttest.com/connecttest.txt  |    For diagnostics     ||  |-->   
 

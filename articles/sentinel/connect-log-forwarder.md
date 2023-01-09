@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To ingest Syslog and CEF logs into Microsoft Sentinel, particularly from devices and appliances onto which you can't install the Log Analytics agent directly, you'll need to designate and configure a Linux machine that will collect the logs from your devices and forward them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. 
 
 This machine has two components that take part in this process:
@@ -58,7 +56,7 @@ Your machine must meet the following requirements:
     - Syslog-ng: 2.1 - 3.22.1
 
 - **Packages**
-    - You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have **Python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
 
 - **Syslog RFC support**
   - Syslog RFC 3164

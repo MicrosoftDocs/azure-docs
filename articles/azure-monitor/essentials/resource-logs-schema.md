@@ -68,12 +68,13 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Diagnostic logging in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
-| Azure DDoS Protection | [Logging for Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
+| Azure DDoS Protection | [Logging for Azure DDoS Protection](../../ddos-protection/monitor-ddos-protection-reference.md#log-schemas) |
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Azure Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
+| Azure Functions | [Monitoring Azure Functions Data Reference Resource Logs](https://learn.microsoft.com/azure/azure-functions/monitor-functions-reference#resource-logs) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Azure IoT Hub Device Provisioning Service| [Device Provisioning Service operations](../../iot-dps/monitor-iot-dps-reference.md#resource-logs) |
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |

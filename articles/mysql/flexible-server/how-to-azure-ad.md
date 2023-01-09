@@ -55,7 +55,7 @@ To create an Azure AD Admin user, follow the following steps.
     - [GroupMember.Read.All](/graph/permissions-reference#group-permissions): Allows access to Azure AD group information.
     - [Application.Read.ALL](/graph/permissions-reference#application-resource-permissions): Allows access to Azure AD service principal (application) information.
 
-For guidance about how to grant and use the permissions, refer to [Microsoft Graph permissions](/graph/permissions-reference)
+For guidance about how to grant and use the permissions, refer to [Overview of Microsoft Graph permissions](/graph/permissions-overview)
 
 After you grant the permissions to the UMI, they're enabled for all servers or instances created with the UMI assigned as a server identity.
 

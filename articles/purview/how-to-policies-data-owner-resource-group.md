@@ -23,7 +23,7 @@ In this guide we cover how to register an entire resource group or subscription 
 **Only these data sources are enabled for access policies on resource group or subscription**. Follow the **Prerequisites** section that is specific to the data source(s) in these guides:
 * [Data owner policies on an Azure Storage account](./how-to-policies-data-owner-storage.md#prerequisites)
 * [Data owner policies on an Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#prerequisites)(*)
-* [Data owner policies on an Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md#prerequisites)(*)
+* [Data owner policies on an Azure Arc-enabled SQL Server](./how-to-policies-data-owner-arc-sql-server.md#prerequisites)(*)
 
 (*) The *Modify* action is not currently supported for SQL-type data sources.
 
@@ -42,7 +42,7 @@ In the end, your resource will have the  **Data Use Management** toggle **Enable
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 >[!Important]
-> - If you create a policy on a resource group or subscription and want to have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently and enable *Data use management* which captures their App ID: [See this document](./how-to-policies-devops-arc-sql-server.md#register-data-sources-in-microsoft-purview).
+> - If you create a policy on a resource group or subscription and want to have it enforced in Azure Arc-enabled SQL Servers, you will need to also register those servers independently and enable *Data use management* which captures their App ID: [See this document](./how-to-policies-devops-arc-sql-server.md#register-data-sources-in-microsoft-purview).
 
 
 ## Create and publish a data owner policy

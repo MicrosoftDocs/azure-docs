@@ -90,16 +90,10 @@ For TLS1.2 the following cipher suites are supported:
 
 Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
 
-* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
-* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
 * TLS_RSA_WITH_AES_256_GCM_SHA384
@@ -111,8 +105,7 @@ Using custom domains with TLS1.0/1.1 enabled the following cipher suites are sup
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-Azure Front Door doesn’t support configuring specific cipher suites. You can get your own custom TLS/SSL certificate from your Certificate Authority (For example: Verisign, Entrust, or DigiCert). Then have specific cipher suites marked on the certificate when you generate it. 
-
+Azure Front Door doesn’t support configuring specific cipher suites.
 ## Next steps
 
 * [Configure a custom domain](front-door-custom-domain.md) for Azure Front Door.

@@ -119,7 +119,6 @@ When the report is ready, you'll be notified by a second pop-up.
 You can check out the following blogs:
 
 - [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
-- [Custom assessments and standards in Microsoft Defender for Cloud for AWS workloads (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575)
 - [New enhancements added to network security dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-enhancements-added-to-network-security-dashboard/ba-p/2896021)
 
 ## Next steps

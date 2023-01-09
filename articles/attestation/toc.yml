@@ -23,6 +23,8 @@
   items:
   - name: Authoring an attestation policy
     href: author-sign-policy.md
+  - name: Enforce custom TCB baseline for SGX attestation
+    href: custom-tcb-baseline-enforcement.md
   - name: Create a Private Endpoint - PowerShell
     href: private-endpoint-powershell.md
   - name: Azure Diagnostic Monitoring

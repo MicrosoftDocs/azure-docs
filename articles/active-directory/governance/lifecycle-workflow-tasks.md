@@ -1,5 +1,5 @@
 ---
-title: Lifecycle Workflows tasks and definitions - Azure Active Directory
+title: Lifecycle Workflows tasks and definitions
 description: This article guides a user on Workflow task definitions and task parameters.
 author: OWinfreyATL
 ms.author: owinfrey
@@ -309,7 +309,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 
 ```Example for usage within the workflow
 {
-             "category": "joiner,leaver",
+            "category": "joiner,leaver",
             "description": "Run a Custom Task Extension to call-out to an external system.",
             "displayName": "Run a Custom Task Extension",
             "isEnabled": true,
@@ -318,7 +318,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
             "arguments": [
                 {
                     "name": "customTaskExtensionID",
-                    "value": ""<ID of your Custom Task Extension>""
+                    "value": "<ID of your Custom Task Extension>"
                 }
             ]
 }

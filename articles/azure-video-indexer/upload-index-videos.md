@@ -51,7 +51,7 @@ This section describes some of the optional parameters and when to set them. For
 
 #### externalID
 
-Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer portal can be searched via the specified external ID.
+Use this parameter to specify an ID that will be associated with the video. The ID can be applied to integration into an external video content management (VCM) system. The videos that are in the Azure Video Indexer website can be searched via the specified external ID.
 
 #### callbackUrl
 
@@ -118,7 +118,7 @@ After you copy the following code into your development platform, you'll need to
 
   To get your API key:
 
-  1. Go to the [Azure Video Indexer  API developer portal](https://api-portal.videoindexer.ai/).
+  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
   1. Sign in.
   1. Go to **Products** > **Authorization** > **Authorization subscription**.
   1. Copy the **Primary key** value.
