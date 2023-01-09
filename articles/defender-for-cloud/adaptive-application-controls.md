@@ -176,7 +176,7 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-    :::image type="content" source="./media/adaptive-application/recent-alerts.png" alt-text="Screenshot showing the group settings page for adaptive application controls." lightbox="./media/adaptive-application/recent-alerts.png"::: 
+    :::image type="content" source="./media/adaptive-application/recent-alerts.png" alt-text="Screenshot showing selecting a group the group settings page for adaptive application controls." lightbox="./media/adaptive-application/recent-alerts.png"::: 
 
 1. For further details, and the list of affected machines, select an alert.
 
