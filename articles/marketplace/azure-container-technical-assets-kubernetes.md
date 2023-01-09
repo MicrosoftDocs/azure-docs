@@ -258,7 +258,7 @@ The fields used in the manifest are as follows:
 |applicationName|String|Name of the application| 
 |publisher|String|Name of the Publisher|
 |description|String|Short description of the package|
-|version|SemVer string|SemVer string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
+|version|String in `#.#.#` format|Version string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
 |helmChart|String|Local directory where the Helm chart can be found relative to this `manifest.yaml`|
 |clusterARMTemplate|String|Local path where an ARM template that describes an AKS cluster that meets the requirements in restrictions field can be found|
 |uiDefinition|String|Local path where a JSON file that describes an Azure portal Create experience can be found|

@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 09/20/2022
+ms.date: 01/09/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -242,9 +242,9 @@ The following features have known limitations in Azure Government:
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
 
-### National clouds and MSAL
+### [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)
 
-The Microsoft Authentication Library (MSAL) enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
+The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
 
 ## Management and governance
 
