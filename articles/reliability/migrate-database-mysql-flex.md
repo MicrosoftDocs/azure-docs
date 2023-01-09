@@ -76,7 +76,7 @@ You can migrate from one Azure Database for Flexible server to another with mini
 >Data-in Replication isn't supported for HA-enabled servers. The workaround is to provision the target server with zone-redundant HA first and then disable HA before configuring Data-in Replication. Once the replication completes, enable zone-redundant HA once again on the target server.
 
 
-## Next Steps
+## Next steps
 
 Learn more about:
 
