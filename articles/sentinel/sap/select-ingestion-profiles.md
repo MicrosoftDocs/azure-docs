@@ -80,7 +80,7 @@ USRACL_FULL = False
 
 This profile includes the core security logs of the SAP landscape required for the most of the analytics rules to perform well. Post-breach investigations and hunting capabilities are limited.
 
-### systemconfig.ini
+### systemconfig.ini file
 
 ```
 [Logs Activation Status]
@@ -184,3 +184,29 @@ AGR_FLAGS_INCREMENTAL = False
 SNCSYSACL_FULL = False
 USRACL_FULL = False
 ```
+## Next steps
+
+Learn more about the Microsoft Sentinel Solution for SAP:
+
+- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
+- [Enable and configure SAP auditing](configure-audit.md)
+- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+
+Troubleshooting:
+
+- [Troubleshoot your Microsoft Sentinel Solution for SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Configure SAP Transport Management System](configure-transport.md)
+
+Reference files:
+
+- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Update script reference](reference-update.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md)
+
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
