@@ -61,7 +61,7 @@
   - name: Resiliency
     items:
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-recovery-services-vault.md
+      href: ../availability-zones/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
@@ -611,7 +611,9 @@
     - name: Ransomware protection
       items:
       - name: Overview
-        href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
+        href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Integrate with Microsoft Defender's ransomware alerts
+        href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
       - name: FAQ-Protection against Ransomware
         href: protect-backups-from-ransomware-faq.yml
     - name: Security for hybrid backups

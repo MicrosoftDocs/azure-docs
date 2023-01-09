@@ -37,11 +37,16 @@ To create a new service principal:
 1. On the **Register an application** page:
     1. Enter a **Name** for the application (the service principal name).
     1. Select **Accounts in this organizational directory only (_&lt;your tenant's name&gt;_ only - Single tenant)**.
-    1. For **Redirect URI (optional)**, select **Web** and enter a value. This value doesn't need to be a valid URI.
+    1. For **Redirect URI (optional)**, select **Web** and enter a value. This value doesn't need to be a valid endpoint. `https://exampleURI.com` will do.
     1. Select **Register**.
+
+    :::image type="content" source="./media/tutorial-using-rest-apis/application-registration.png" alt-text="Screenshot of the application registration page, with the above options filled out.":::
+
 1. On the new service principal page, copy the values of the **Display name** and the **Application (client) ID** to save for later.
 
    The application ID is the `client_id` value in the sample code.
+
+   :::image type="content" source="./media/tutorial-using-rest-apis/application-id.png" alt-text="Screenshot of the application page in the portal with the Application (client) ID highlighted.":::
 
 To use the service principal (application), you need to know the service principal's password that can be found by:
 
@@ -79,16 +84,30 @@ Once the new service principal is created, you need to assign the data plane rol
     > Only members of the Collection Admin role can assign data plane roles in Microsoft Purview. For more information about Microsoft Purview roles, see [Access Control in Microsoft Purview](./catalog-permissions.md).
 
 ## Get token
+
 You can send a POST request to the following URL to get access token.
 
-https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
+`https://login.microsoftonline.com/{your-tenant-id}/oauth2/token`
 
-The following parameters need to be passed to the above URL.
+You can find your Tenant ID by searching for **Tenant Properties** in the Azure portal. The ID will be available on the tenant properties page.
+
+The following parameters need to be passed to the above URL:
 
 - **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Microsoft Purview account.
 - **client_secret**: client secret created for the above application.
 - **grant_type**: This should be ‘client_credentials’.
 - **resource**: This should be ‘https://purview.azure.net’
+
+Here's a sample POST request in PowerShell:
+
+```azurepowershell
+$tenantID = "12a345bc-67d1-ef89-abcd-efg12345abcde"
+
+$url = "https://login.microsoftonline.com/$tenantID/oauth2/token"
+$params = @{ client_id = "a1234bcd-5678-9012-abcd-abcd1234abcd"; client_secret = "abcd~a1234bcd56789012abcdabcd1234abcd"; grant_type = "client_credentials"; resource = ‘https://purview.azure.net’ }
+
+Invoke-WebRequest $url -Method Post -Body $params -UseBasicParsing | ConvertFrom-Json
+```
  
 Sample response token:
 

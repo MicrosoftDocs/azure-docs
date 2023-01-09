@@ -27,7 +27,6 @@ This quickstart requires [.NET Core 6.0 SDK](https://dotnet.microsoft.com/downlo
 
 ## Register and download the app
 
-
 The application can be built using either an automatic or manual configuration.
 
 ### Automatic configuration
@@ -60,19 +59,15 @@ To register the application and add the registration information to the solution
 
 #### Step 2: Download your Visual Studio project
 
-
 [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-This project can be run in either Visual Studio or Visual Studio for Mac and can be downloaded from the [code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip). 
-
+This project can be run in either Visual Studio or Visual Studio for Mac and can be downloaded from the [code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip).
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
-
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
-
 
 1. Open the solution in Visual Studio: *1-Call-MSGraph\daemon-console.sln* (optional).
 1. In *appsettings.json*, replace the values of `Tenant`, `ClientId`, and `ClientSecret`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
@@ -89,7 +84,6 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
    - Replace `Enter_the_Client_Secret_Here` with the client secret that you created in step 1.
     To generate a new key, go to the **Certificates & secrets** page.
 
-
 #### Step 4: Admin consent
 
 Running the application now results in the output `HTTP 403 - Forbidden* error: "Insufficient privileges to complete the operation`. This error occurs because any app-only permission requires a global administrator of the directory to give consent to the application. Select one of the following options, depending on the role.
@@ -97,7 +91,6 @@ Running the application now results in the output `HTTP 403 - Forbidden* error: 
 ##### Global tenant administrator
 
 For a global tenant administrator, go to **Enterprise applications** in the Azure portal. Select the app registration, and select **Permissions** from the **Security** section of the left pane. Then select the large button labeled **Grant admin consent for {Tenant Name}** (where **{Tenant Name}** is the name of the directory).
-
 
 ##### Standard user
 
@@ -108,8 +101,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 In the URL:
-* Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
-* `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
+
+- Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
+- `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
 
 The error `AADSTS50011: No reply address is registered for the application` may be displayed after you grant consent to the app by using the preceding URL. This error occurs because the application and the URL don't have a redirect URI. This can be ignored.
 
@@ -121,12 +115,14 @@ In Visual Studio, press **F5** to run the application. Otherwise, run the applic
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
+
 In that code:
-* `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
+
+- `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
 A list of users in Azure Active Directory should be displayed as a result.
 
-This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, we recommend to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
+This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it is recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
 
 ## More information
 

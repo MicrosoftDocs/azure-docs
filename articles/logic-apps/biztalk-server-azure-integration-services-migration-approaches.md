@@ -1,15 +1,18 @@
 ---
 title: 'Migration approaches: BizTalk Server to Azure Integration Services'
-description: Learn about planning considerations, migration options, and best practices for moving from BizTalk Server to Azure Integration Services.
+description: Learn about migration strategies, planning, and best practices for moving from BizTalk Server to Azure Integration Services.
 services: logic-apps
+ms.service: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
+author: kewear
+ms.author: kewear
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/13/2022
-# As a BizTalk Server customer, I want to learn about the planning considerations, migration options, and best practices when considering a move from BizTalk Server workloads to Azure Integration Services.
+ms.date: 12/15/2022
+# As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Integration Services.
 ---
 
-# Migration approaches for moving from BizTalk Server to Azure Integration Services
+# Migration approaches for BizTalk Server to Azure Integration Services
 
 This guide covers migration strategies and resources along with planning considerations and best practices to help you deliver successful migration solutions.
 
@@ -45,7 +48,7 @@ With BizTalk Server 2013 and later, you can choose to run your BizTalk servers o
 Although BizTalk Server and Azure Integration Services capabilities might overlap, they work better when you use them together. Most organizations who don't move their entire infrastructure to the cloud mainly have the following reasons:
 
 - Company policies
-- Country policies  
+- Country/regional policies  
 - Industry domain-specific policies  
 
 Also, not all functionalities or applications exist in the cloud, or some that are available might not be as robust as those on premises. However, to keep pace with the cloud revolution and to extend business capabilities, many organizations start by using SaaS offerings alongside their on-premises systems. Many business processes can benefit from cloud-based development and implementation strategies.
