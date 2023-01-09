@@ -1,5 +1,5 @@
 ---
-title: Predictive IntelliSense in Cloud Shell
+title: Predictive IntelliSense in Azure Cloud Shell
 description: Azure Cloud Shell uses Predictive IntelliSense
 services: Azure
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.date: 10/11/2022
 ms.author: jahelmic
 ---
 
-# Predictive IntelliSense in Cloud Shell
+# Predictive IntelliSense in Azure Cloud Shell
 
 Beginning January 2023 Azure Cloud Shell uses the version of [PSReadLine][01] that has Predictive
 IntelliSense enabled by default. We've also installed and enabled the Azure PowerShell predictor
@@ -33,11 +33,11 @@ the default `InlineView` of the suggestion. Pressing <kbd>RightArrow</kbd> key a
 suggestion. After accepting the suggestion, you can edit the command line before hitting
 <kbd>Enter</kbd> to run the command.
 
-![Suggestion in InlineView mode](./media/predictive-intellisense/cs-inline.png)
+![Suggestion in InlineView mode](./media/predictive-intellisense/cloud-shell-inline.png)
 
 PSReadLine also offers a `ListView` presentation of the suggestions.
 
-![Suggestions in ListView mode](./media/predictive-intellisense/cs-listview.png)
+![Suggestions in ListView mode](./media/predictive-intellisense/cloud-shell-list-view.png)
 
 In `ListView` mode, use the arrow keys to scroll through the available suggestions. List view also
 shows the source of the prediction.
@@ -127,8 +127,13 @@ Use the built-in Cloud Shell editor to edit the profile:
 Code $Profile
 ```
 
+## Next Steps
+
 For more information about configuring PSReadLine and managing predictors, see
 [Using predictors in PSReadLine][05].
+
+For more information on PowerShell profiles, see [About_Profiles][06].
+
 
 <!-- link references -->
 [01]: /powershell/module/psreadline/about/about_psreadline
