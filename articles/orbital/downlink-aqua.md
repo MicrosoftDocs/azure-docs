@@ -15,7 +15,7 @@ ms.author: wamota
 You can communicate with satellites directly from Azure by using the Azure Orbital Ground Station service. After you downlink the data, you can process and analyze it in Azure. In this guide, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create and authorize a spacecraft for Aqua.
+> * Create and authorize a spacecraft for the Aqua public satellite.
 > * Prepare a virtual machine (VM) to receive the downlinked Aqua data.
 > * Configure a contact profile for an Aqua downlink mission.
 > * Schedule a contact with Aqua by using Azure Orbital and save the downlinked data.
@@ -30,16 +30,16 @@ You can communicate with satellites directly from Azure by using the Azure Orbit
 Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/portal).
 
 > [!NOTE]
-> For all the procedures in this tutorial, follow the steps exactly as shown, or you won't be able to find the resources. Use the preceding link above to sign in directly to the Azure Orbital Preview page.
+> For all the procedures in this tutorial, follow the steps exactly as shown, or you won't be able to find the resources. Use the preceding link to sign in directly to the Azure Orbital Preview page.
 
 ## Create a spacecraft resource for Aqua
 
 1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. On the **Spacecraft** page, select **Create**.
-3. Learn an up-to-date Two-Line Element (TLE) for Aqua by checking [CelesTrak](https://celestrak.com/NORAD/elements/active.txt).
+3. Get an up-to-date Two-Line Element (TLE) for Aqua by checking [CelesTrak](https://celestrak.com/NORAD/elements/active.txt).
    
    > [!NOTE]
-   > Periodically update this TLE value to ensure that it's up to date before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
+   > Be sure to update this TLE value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
 
 4. In **Create spacecraft resource**, on the **Basics** tab, enter or select this information:
 
@@ -63,7 +63,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | **Bandwidth** | Enter **15**. |
    | **Polarization** | Select **RHCP**. |
 
-7. Select the **Review + create** tab, or select the **Review + create** button.
+7. Select the **Review + create** tab, or select the **Next: Review + create** button.
 8. Select **Create**.
 
 ## Request authorization of the new Aqua spacecraft resource
@@ -78,7 +78,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Summary** | Enter **Request authorization for Aqua**. |
+   | **Summary** | Enter **Request authorization for AQUA**. |
    | **Issue type** |	Select **Technical**. |
    | **Subscription** |	Select the subscription in which you created the spacecraft resource. |
    | **Service** |	Select **My services**. |
@@ -95,7 +95,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | **File upload** |	Upload any pertinent licensing material, if applicable. |
 
 6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
-7. Select the **Review + create** tab, or select the **Review + create** button.
+7. Select the **Review + create** tab, or select the **Next: Review + create** button.
 8. Select **Create**.
 
    > [!NOTE]
@@ -135,7 +135,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | --- | --- |
    | **Subscription** | Select your subscription. |
    | **Resource group** | Select your resource group. |
-   | **Name** | Enter **Aqua_Downlink**. |
+   | **Name** | Enter **AQUA_Downlink**. |
    | **Region** | Select **West US 2**. |
    | **Minimum viable contact duration** | Enter **PT1M**. |
    | **Minimum elevation** | Enter **5.0**. |
@@ -144,7 +144,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | **Event Hubs Instance** | Select an Event Hubs instance that belongs to the previously selected namespace. This field appears only if you select an Event Hubs namespace first. |
 
 4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page. Then, select **Add new Link**.
-6. On the **Add Link** page, enter or select this information:
+6. On the **Add Link** pane, enter or select this information:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -161,32 +161,32 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
    | **Decoding Configuration** | Leave this field blank. |
 
 7. Select the **Submit** button.
-8. Select the **Review + create** tab, or select the **Review + create** button.
+8. Select the **Review + create** tab, or select the **Next: Review + create** button.
 9. Select **Create**.
 
 ## Schedule a contact with Aqua by using Azure Orbital and save the downlinked data
 
 1. In the Azure portal's search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. On the **Spacecraft** page, select **Aqua**.
+2. On the **Spacecraft** page, select **AQUA**.
 3. Select **Schedule contact** on the top bar of the spacecraft's overview.
 4. On the **Schedule contact** page, specify this information from the top of the page:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Contact profile** | Select **Aqua_Downlink**. |
+   | **Contact profile** | Select **AQUA_Downlink**. |
    | **Ground station** | Select **Quincy**. |
    | **Start time** | Identify a start time for the contact availability window. |
    | **End time** | Identify an end time for the contact availability window. |
 
 5. Select **Search** to view available contact times.
 6. Select one or more contact windows, and then select **Schedule**.
-7. View the scheduled contact by selecting the **Aqua** spacecraft and going to **Contacts**.
-8. Shortly before you start running the contact, start listening on port 56001, and output the data received in the file: 
+7. View the scheduled contact by selecting the **AQUA** spacecraft and going to **Contacts**.
+8. Shortly before you start running the contact, start listening on port 56001 and output the data received in the file: 
 
    ```console
    socat -u tcp-listen:56001,fork create:/media/aqua/out.bin
    ```
-9. After you run your contact, copy the output file from the tmpfs into your home directory, to avoid overwriting the file when you run another contact:
+9. After you run your contact, copy the output file from tmpfs into your home directory, to avoid overwriting the file when you run another contact:
 
    ```console
    mkdir ~/aquadata
