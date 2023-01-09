@@ -169,7 +169,7 @@ Now that you have a registered model, you can create an endpoint and deployment.
 
 After you train a machine learning model, you need to deploy it so that others can use it for inferencing. Azure Machine Learning allows you to create **endpoints** and **deployments** for this purpose.
 
-An **endpoint** is an interface, based on the HTTPS protocol, that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
+An **endpoint**, in this context, is a path, based on the HTTPS protocol, that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
 - Authentication using "key & token" based auth 
 - SSL termination 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
