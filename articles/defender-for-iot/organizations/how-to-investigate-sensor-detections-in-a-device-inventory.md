@@ -128,7 +128,7 @@ You can delete a single device when they’ve been inactive for more than 10 min
 
 This procedure is supported for the *cyberx* and admin users only.
 
-1. Select the **Last Seen** filter icon in the Inventory.
+1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.
 1. Select **Apply**.
 1. Select **Delete Inactive Devices**. In the prompt displayed, enter the reason you're deleting the devices, and then select **Delete**.

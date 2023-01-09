@@ -652,7 +652,9 @@
     - name: Defender EASM
       href: episode-twenty-two.md
     - name: Defender Threat Intelligence (Defender TI)
-      href: episode-twenty-three.md 
+      href: episode-twenty-three.md
+    - name: Enhancements in Defender for SQL Vulnerability Assessment
+      href: episode-twenty-four.md 
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
