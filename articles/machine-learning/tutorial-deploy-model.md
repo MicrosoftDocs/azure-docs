@@ -169,7 +169,7 @@ Now that you have a registered model, you can create an endpoint and deployment.
 
 After you train a machine learning model, you need to deploy it so that others can use it for inferencing. Azure Machine Learning allows you to create **endpoints** and **deployments** for this purpose.
 
-An **endpoint**, in this context, is a path, based on the HTTPS protocol, that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
+An **endpoint**, in this context, is an HTTPS path that provides an interface for clients to send requests (input data) and receive the inferencing (scoring) output of a trained model. An endpoint provides:
 - Authentication using "key & token" based auth 
 - SSL termination 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
@@ -179,7 +179,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning allows you to implement both [online endpoints?](concept-endpoints.md#what-are-online-endpoints) and [batch endpoints](concept-endpoints.md#what-are-batch-endpoints). In this tutorial, we'll walk you through the steps of implementing a managed online endpoint—that is, a web service in the Azure cloud that receives data from clients and sends back responses in real-time.
+Azure Machine Learning allows you to implement both [online endpoints](concept-endpoints.md#what-are-online-endpoints) and [batch endpoints](concept-endpoints.md#what-are-batch-endpoints). In this tutorial, we'll walk you through the steps of implementing a managed online endpoint—that is, a web service in the Azure cloud that receives data from clients and sends back responses in real-time.
 
 ## Create an online endpoint
 
