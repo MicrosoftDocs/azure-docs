@@ -15,6 +15,11 @@ ms.custom:
 
 This article explains how to use the Azure Cosmos DB SDKs to delete all items by logical partition key value. 
 
+> [!IMPORTANT]
+> Delete items by partition key value is in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Feature overview
  
 The delete by partition key feature is an asynchronous, background operation that allows you to delete all documents with the same logical partition key value, using the Comsos SDK.
