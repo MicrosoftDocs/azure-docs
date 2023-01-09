@@ -598,7 +598,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - Right-click a device on the map to view contextual information about the device, including related alerts, event timeline data, and connected devices.
 
-- To enable the ability to collapse IT networks, ensure that the **Toggle IT Networks Grouping** option is enabled. This option is now only available from the map.
+- Select **Disable Display IT Networks Groups** to prevent the ability to collapse IT networks in the map. This option is turned on by default.
 
 - The **Simplified Map View** option has been removed.
 
