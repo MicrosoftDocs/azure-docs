@@ -116,17 +116,17 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-widgets.png" alt-text="Screenshot showing the sensor health widgets." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-health-widgets.png":::
 
-    - **Unhealthy** indicates one of the following scenarios:
+    **Unsupported** means that the sensor has a software version installed that is no longer supported.
 
-        - Sensor traffic to Azure isn't stable
-        - Sensor fails regular sanity tests
-        - No traffic detected by the sensor
-        - Sensor software version is no longer supported
-        - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
+    **Unhealthy** indicates one of the following scenarios:
 
-        For more information, see our [Sensor health message reference](sensor-health-messages.md).
+    - Sensor traffic to Azure isn't stable
+    - Sensor fails regular sanity tests
+    - No traffic detected by the sensor
+    - Sensor software version is no longer supported
+    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
 
-    - **Unsupported** means that the sensor has a software version install that is no longer supported.
+    For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
 1. To check on specific sensor issues, filter the grid by sensor health, and select one or more issues to verify. For example:
 
