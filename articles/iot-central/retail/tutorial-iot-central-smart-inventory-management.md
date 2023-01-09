@@ -43,7 +43,7 @@ Many readers are capable of reading RFID and beacon signals and providing additi
 
 ### Azure IoT Edge gateway (2)
 
-Azure IoT Edge server provides a place to preprocess that data locally before sending it on to the cloud. We can also deploy cloud workloads artificial intelligence, Azure and third-party services, business logic using standard containers.
+Azure IoT Edge server provides a place to preprocess the data locally before sending it on to the cloud. We can also deploy cloud workloads artificial intelligence, Azure and third-party services, and business logic by using standard containers.
 
 ### Device management with IoT Central
 
@@ -51,7 +51,9 @@ Azure IoT Central is a solution-development platform that simplifies IoT device 
 
 ### Business insights and actions using data egress (3)
 
-IoT Central platform provides rich extensibility options through Continuous Data Export (CDE) and APIs. Business insights that are based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application. Insights can be achieved by using webhook, service bus, event hub, or blob storage to build, train, and deploy machine learning models and further enrich insights.
+The IoT Central platform provides rich extensibility options through Continuous Data Export (CDE) and APIs. Business insights that are based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application. 
+
+You can use a webhook, service bus, event hub, or blob storage to build, train, and deploy machine learning models and further enrich insights.
 
 In this tutorial, you'll learn how to:
 
