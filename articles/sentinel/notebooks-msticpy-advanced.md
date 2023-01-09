@@ -1,8 +1,8 @@
 ---
 title: Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel
 description: Learn about advanced configurations available for Jupyter notebooks with MSTICPy when working in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: austinmccollum
+ms.author: austinmc
 ms.topic: how-to
 ms.date: 01/09/2023
 ---
