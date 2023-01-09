@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/10/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
@@ -20,7 +19,7 @@ recommendations: false
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 >[!TIP]
 >

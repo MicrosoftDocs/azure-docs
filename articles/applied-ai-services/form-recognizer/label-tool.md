@@ -18,6 +18,8 @@ recommendations: false
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
+**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+
 >[!TIP]
 >
 > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
