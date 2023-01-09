@@ -36,6 +36,7 @@ The following modifications will trigger a packet core reinstall, during which y
 
 - Attaching a new or existing data network to the packet core instance.
 - Detaching a data network from the packet core instance.
+- Changing the packet core instance's **Custom ARC location** field.
 
 If you're making any of these changes, we recommend modifying your packet core instance during a maintenance window to minimize the impact on your service. If you're making a change that doesn't trigger a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
