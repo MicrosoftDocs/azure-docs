@@ -37,7 +37,7 @@ To quickly create a dashboard, import a dashboard template from the Grafana Labs
     1. In the Grafana portal, go to **Dashboards > Import**.
     1. On the **Import** page, under **Import via grafana.com**, paste the Grafana dashboard ID copied earlier, and select **Load**.
 
-       :::image type="content" source="media/dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
+       :::image type="content" source="media/create-dashboard/import-load.png" alt-text="Screenshot of the Grafana instance. Load dashboard to import.":::
 
     1. Optionally update the dashboard name, folder and UID.
     1. Select a datasource and select **Import**.
@@ -68,7 +68,7 @@ If none of the pre-configured dashboards listed on the Grafana Labs website fit 
    - **Add a new row**: instantly creates a dashboard with a new empty row.
    - **Add a panel from the panel library**: instantly creates a dashboard with an existing reusable panel from another instance you have access to.
 
-   :::image type="content" source="media/dashboard/from-scratch.png" alt-text="Screenshot of the Grafana instance. Create a new dashboard.":::
+   :::image type="content" source="media/create-dashboard/from-scratch.png" alt-text="Screenshot of the Grafana instance. Create a new dashboard.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -109,7 +109,7 @@ To copy a Grafana dashboard:
 1. Select **Save as**
 1. Enter a new name and/or a new folder and select **Save**
 
-   :::image type="content" source="media\dashboard\copy-dashboard.png" alt-text="Screenshot of the Grafana instance. Duplicate a dashboard.":::
+   :::image type="content" source="media\create-dashboard\copy-dashboard.png" alt-text="Screenshot of the Grafana instance. Duplicate a dashboard.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -153,7 +153,7 @@ To update a Grafana panel, follow the steps below.
 
 1. Review the panel to check if you're satisfied with it or want to make some edits.
 
-     :::image type="content" source="media/dashboard/visualization.png" alt-text="Screenshot of the Grafana instance. Example of visualization.":::
+     :::image type="content" source="media/create-dashboard/visualization.png" alt-text="Screenshot of the Grafana instance. Example of visualization.":::
 
 1. In the lower part of the page:
    1. **Query** tab:
@@ -161,7 +161,7 @@ To update a Grafana panel, follow the steps below.
       1. Update the query. Each data source has a specific query editor that provides different features and capabilities for that type of [data source](https://grafana.com/docs/grafana/v9.1/datasources/#querying).
       1. Select **+ Query** or **+ Expression** to add a new query or expression.
 
-    :::image type="content" source="media/dashboard/edit-query.png" alt-text="Screenshot of the Grafana instance. Queries.":::
+    :::image type="content" source="media/create-dashboard/edit-query.png" alt-text="Screenshot of the Grafana instance. Queries.":::
 
    1. **Transform** tab:  filter data or queries, and organize or combine data before the data is visualized.
    1. **Alert** tab: set alert rules and notifications.
@@ -172,7 +172,7 @@ To update a Grafana panel, follow the steps below.
    1. Select the time icon to update the time range
    1. Select the visualization drop-down menu to choose a visualization type that best supports your use case. Go to [visualization](https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/) for more information.
 
-    :::image type="content" source="media/dashboard/panel-time-visualization-options.png" alt-text="Screenshot of the Grafana instance. Time, visualization and more options.":::
+    :::image type="content" source="media/create-dashboard/panel-time-visualization-options.png" alt-text="Screenshot of the Grafana instance. Time, visualization and more options.":::
 
 1. On the right hand side, select the **Panel options** icon to review and update various panel options.
 
