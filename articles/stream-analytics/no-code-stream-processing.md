@@ -1,8 +1,8 @@
 ---
 title: No-code stream processing through Azure Stream Analytics
 description: Learn about processing your real-time data streams in Azure Event Hubs by using the Azure Stream Analytics no-code editor.
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022, ignite-2022
@@ -143,7 +143,7 @@ The **Manage fields** transformation allows you to add, remove, or rename fields
 
 :::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot that shows selections for managing fields." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
 
-You can also add new field with the **Build-in Functions** to aggregate the data from upstream. Currently, the build-in functions we support are some functions in **String Functions**, **Date and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics.md).
+You can also add new field with the **Build-in Functions** to aggregate the data from upstream. Currently, the build-in functions we support are some functions in **String Functions**, **Date and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics).
 
 :::image type="content" source="./media/no-code-stream-processing/build-in-functions-managed-fields.png" alt-text="Screenshot that shows the build-in functions." lightbox="./media/no-code-stream-processing/build-in-functions-managed-fields.png" :::
 

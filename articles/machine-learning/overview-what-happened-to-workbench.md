@@ -5,11 +5,11 @@ description: Azure Machine Learning is an integrated data science solution to mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: reference
 ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/01/2022
+ms.date: 11/04/2022
 ---
 # What happened to Azure Machine Learning Workbench?
 

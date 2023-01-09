@@ -9,7 +9,9 @@ ms.date: 10/12/2022
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
+
 # Deploy Next.js websites on Azure Static Web Apps
+
 Next.js support on Azure Static Web Apps can be categorized as two deployment models, [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
 
 ## Static HTML export
@@ -36,7 +38,7 @@ The following example shows the GitHub Actions job that is enabled for static ex
         uses: azure/static-web-apps-deploy@latest
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
@@ -65,16 +67,4 @@ Key features that are available in the preview are:
 
 Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutorial to learn how to deploy a hybrid Next.js application to Azure.
 
-### Unsupported features in preview
-
-During the preview, the following features of Static Web Apps are unsupported for Next.js with server-side rendering:
-
-- APIs using Azure Functions, Azure AppService, Azure Container Apps or Azure API Management.
-- Deployment via the SWA CLI.
-
-- Static Web Apps provided Authentication and Authorization.
-  - Instead, you can use the Next.js [Authentication](https://nextjs.org/docs/authentication) feature.
-- The `staticwebapps.config.json` file.
-  - Features such as custom headers and routing can be controlled using the `next.config.js` file.
-- `skip_app_build` and `skip_api_build` can't be used.
-- The maximum app size for the hybrid Next.js application is 100 MB. Consider using Static HTML exported Next.js apps if your requirement is more than 100 MB.
+[!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]

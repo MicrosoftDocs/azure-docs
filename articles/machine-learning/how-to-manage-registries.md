@@ -91,7 +91,7 @@ You can create registries in AzureML studio using the following steps:
     > [!TIP]
     > If you are in a workspace, navigate to the global UI by clicking your organization or tenant name in the navigation pane to find the __Registries__ entry.  You can also go directly there by navigating to [https://ml.azure.com/registries](https://ml.azure.com/registries).
 
-    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-button.png" alt-text="Screenshot of the create registry screen.":::
+    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-button.png" lightbox="./media/how-to-manage-registries/studio-create-registry-button.png" alt-text="Screenshot of the create registry screen.":::
 	
 1. Enter the registry name, select the subscription and resource group and then select __Next__.
 

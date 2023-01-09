@@ -18,16 +18,12 @@ Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in
 
 The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
 
+* [ST_AREA](st-area.md)
 * [ST_DISTANCE](st-distance.md)
 * [ST_INTERSECTS](st-intersects.md)
 * [ST_ISVALID](st-isvalid.md)
 * [ST_ISVALIDDETAILED](st-isvaliddetailed.md)
 * [ST_WITHIN](st-within.md)
-
-
-
-
-  
 
 ## Next steps
 

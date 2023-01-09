@@ -1,6 +1,6 @@
 ---
-title: Configuring external tools for the SAP deployment automation framework
-description: Describes how to configure external tools for using SAP deployment automation framework.
+title: Configuring external tools for the SAP on Azure Deployment Automation Framework
+description: Describes how to configure external tools for using SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configuring external tools to use with the SAP deployment automation framework
+# Configuring external tools to use with the SAP on Azure Deployment Automation Framework
 
-This document describes how to configure external tools to use the SAP deployment automation framework.
+This document describes how to configure external tools to use the SAP on Azure Deployment Automation Framework.
 
 ## Configuring Visual Studio Code
 

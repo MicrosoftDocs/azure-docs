@@ -1,5 +1,5 @@
 ---
-title: Manage a Datadog resource - Azure partner solutions
+title: Manage a Datadog resource
 description: This article describes management of a Datadog resource in the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.topic: conceptual
 ms.date: 05/28/2021

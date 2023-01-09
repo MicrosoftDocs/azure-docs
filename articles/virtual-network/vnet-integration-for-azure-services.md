@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: This article describes different methods of integrating an Azure service to a virtual network that enables you to securely access the Azure service.
 services: virtual-network
 documentationcenter: na
-author: mbender-ms
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom: ignite-2022
 ms.date: 12/01/2020
-ms.author: mbender
+ms.author: allensu
 ---
 
 

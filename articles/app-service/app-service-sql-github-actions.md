@@ -70,9 +70,7 @@ In the example, replace the placeholders with your subscription ID, resource gro
 
 ## Configure the GitHub secret for authentication
 
-In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
-
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-service-principal.md)]
 
 ## Add a SQL Server secret
 

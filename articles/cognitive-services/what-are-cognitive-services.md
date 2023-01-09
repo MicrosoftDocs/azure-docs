@@ -70,7 +70,7 @@ You can create a Cognitive Services resource with hands-on quickstarts using any
 
 * [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
 * [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
-* [Azure SDK client libraries](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Azure SDK client libraries](cognitive-services-apis-create-account-client-library.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
 * [Azure Resource Manager (ARM template)](./create-account-resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM template)")
 
 ## Use Cognitive Services in different development environments

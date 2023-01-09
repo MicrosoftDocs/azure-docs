@@ -68,6 +68,7 @@ To gain access to the Azure Cosmos DB account access keys from the Resource Mana
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
+
 The response includes the details of the system-assigned managed identity (note the principalID as it is used in the next section):
 
 ```output  
@@ -125,16 +126,18 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element as been shortened for brevity.
     
-    ```bash
-    {"access_token":"eyJ0eXAiOi...",
-     "expires_in":"3599",
-     "expires_on":"1518503375",
-     "not_before":"1518499475",
-     "resource":"https://management.azure.com/",
-     "token_type":"Bearer",
-     "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"}
-     ```
-    
+    ```json
+    {
+      "access_token":"eyJ0eXAiOi...",
+      "expires_in":"3599",
+      "expires_on":"1518503375",
+      "not_before":"1518499475",
+      "resource":"https://management.azure.com/",
+      "token_type":"Bearer",
+      "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"
+    }
+    ```
+
 ### Get access keys from Azure Resource Manager to make Azure Cosmos DB calls
 
 Now use CURL to call Resource Manager using the access token retrieved in the previous section to retrieve the Azure Cosmos DB account access key. Once we have the access key, we can query Azure Cosmos DB. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier.  If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`:

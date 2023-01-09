@@ -2,10 +2,10 @@
 
 title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.author: mbender
+ms.author: allensu
 ms.topic: overview
 ms.date: 09/19/2022
 #customer-intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs

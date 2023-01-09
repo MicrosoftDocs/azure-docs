@@ -9,8 +9,6 @@ ms.author: yelevin
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by analytics rules to being invoked by automation rules.
 
 ## Why to migrate
@@ -48,9 +46,9 @@ It's important to understand that the playbook itself won't change at all. Only 
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/see-playbooks.png" alt-text="Screenshot of automation rules and playbooks screen.":::
 
-1. Select **+ Add new** under **Automation rules (Preview)** (in the upper half of the screen) to create a new automation rule.
+1. Select **+ Add new** under **Automation rules** (in the upper half of the screen) to create a new automation rule.
 
-1. In the **Create new automation rule** panel, under **Trigger**, select **When alert is created (Preview)**.
+1. In the **Create new automation rule** panel, under **Trigger**, select **When alert is created**.
 
     :::image type="content" source="media/migrate-playbooks-to-automation-rules/select-trigger.png" alt-text="Screenshot of creating automation rule in analytics rule screen.":::
 
@@ -70,7 +68,7 @@ It's important to understand that the playbook itself won't change at all. Only 
 
 1. From the top menu bar, select **Create -> Automation rule**.
 
-1. In the **Create new automation rule** panel, in the **Trigger** drop-down, select **When alert is created (preview)**.
+1. In the **Create new automation rule** panel, in the **Trigger** drop-down, select **When alert is created**.
 
 1. Under **Conditions**, select the analytics rules you want to run a particular playbook or a set of playbooks on.
 

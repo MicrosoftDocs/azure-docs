@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 10/27/2022
 ms.author: victorh
 ---
 
@@ -218,24 +218,23 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 > For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](../aks/egress-outboundtype.md#limitations).
 
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md). 
+> Additional features can be added to the cluster deployment such as [**Private Cluster**](../aks/private-clusters.md) or changing the [**OS SKU**](../aks/cluster-configuration.md#mariner-os).
 >
 > The AKS feature for [**API server authorized IP ranges**](../aks/api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 \
-  --network-plugin $PLUGIN \
+  --network-plugin azure \
   --outbound-type userDefinedRouting \
   --vnet-subnet-id $SUBNETID \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
 ```
 
 > [!NOTE]
-> For creating and using your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment.][add role to identity]
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
 > 
-> If you are not using the CLI but using your own VNet or route table which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
-
+> To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported. 
 
 ### Enable developer access to the API server
 
@@ -541,3 +540,6 @@ az group delete -g $RG
 ## Next steps
 
 - Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md).
+
+<!-- LINKS - Internal -->
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity

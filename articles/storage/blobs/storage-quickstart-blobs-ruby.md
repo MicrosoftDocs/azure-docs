@@ -198,4 +198,4 @@ In this quickstart, you learned how to transfer files between Azure Blob Storage
 > [!div class="nextstepaction"]
 > [Storage account overview](../common/storage-account-overview.md)
 
-For more information about the Storage Explorer and Blobs, see [Manage Azure Blob Storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information about the Storage Explorer and Blobs, see [Manage Azure Blob Storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json).

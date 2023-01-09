@@ -96,4 +96,5 @@ You can also access Resource Health by selecting **All services** and typing **r
 
 Check out these references to learn more about Resource Health:
 -  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Resource Health virtual machine Health Annotations](resource-health-vm-annotation.md)
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)

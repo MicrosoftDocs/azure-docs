@@ -30,8 +30,7 @@ Before you get started, you must disable automatic updates for MSIX app attach a
 ```cmd
 rem Disable Store auto update:
 
-reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 0 /f
-Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Automatic app update" /Disable
+reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 2 /f
 Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Scheduled Start" /Disable
 
 rem Disable Content Delivery auto download apps that they want to promote to users:

@@ -188,6 +188,7 @@ For more information about other features supported by application manifests, re
 - [Configure security policies for your application](service-fabric-application-runas-security.md).
 - [Setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
 - [Encrypt secrets in the application manifest](service-fabric-application-secret-management.md)
+- [Azure Service Fabric security best practices](service-fabric-best-practices-security.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 09/27/2022
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
@@ -21,15 +21,15 @@ Role-based access control (RBAC) is a popular mechanism to enforce authorization
 
 By using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
 
-Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles aren't mutually exclusive; they can be used in tandem to provide even finer-grained access control.
+Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles aren't mutually exclusive; they can be used together to provide even finer-grained access control.
 
 ## Declare roles for an application
 
-You define app roles by using the [Azure portal](https://portal.azure.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted individually to the user and the user's group memberships. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+You define app roles by using the [Azure portal](https://portal.azure.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
 
 Currently, if you add a service principal to a group, and then assign an app role to that group, Azure AD doesn't add the `roles` claim to tokens it issues.
 
-App roles are declared using the app roles by using [App roles UI](#app-roles-ui) in the Azure portal:
+App roles are declared using App roles UI in the Azure portal:
 
 The number of roles you add counts toward application manifest limits enforced by Azure AD. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
 
@@ -114,7 +114,7 @@ The **Status** column should reflect that consent has been **Granted for \<tenan
 
 If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application, either access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
 
-If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an access token to call the API, a roles claim is included in the access token. Your next step is to add code to your web API to check for those roles when the API is called.
+If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an ID token to call the API, a roles claim is included in the ID token. Your next step is to add code to your web API to check for those roles when the API is called.
 
 To learn how to add authorization to your web API, see [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md).
 

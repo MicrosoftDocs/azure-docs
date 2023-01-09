@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 12/28/2022
+ms.custom: engagement-fy23
 ---
 
 # Support matrix for physical server discovery and assessment 
@@ -35,11 +36,7 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
-**Permissions:**
-
-Set up an account that the appliance can use to access the physical servers.
-
-**Windows servers**
+## Permissions for Windows server
 
 For Windows servers, use a domain account for domain-joined servers, and a local account for servers that aren't domain-joined. The user account can be created in one of the two ways:
 
@@ -56,46 +53,38 @@ For Windows servers, use a domain account for domain-joined servers, and a local
 - The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed here.
 - In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md) to enable the required permissions.
 
-    > [!Note]
-    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
+> [!Note]
+> For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
 
-**Linux servers**
+> [!Note]
+> To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager. Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 
-For Linux servers, based on the features you want to perform, you can create a user account in one of three ways:
+## Permissions for Linux server
+
+For Linux servers, based on the features you want to perform, you can create a user account in one of two ways:
 
 ### Option 1
-- You need a root account on the servers that you want to discover. This account can be used to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis.
+- You need a sudo user account on the servers that you want to discover. This account can be used to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
+- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
+- Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
+
+    Operating system | Versions
+    --- | ---
+    Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x
+    Cent OS | 5.1, 5.9, 5.11, 6.x, 7.x, 8.x
+    Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04
+    Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
+    SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
+    Debian | 7, 8, 9, 10, 11
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
 
 > [!Note]
 > If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, it recommended to use Option 1.
 
 ### Option 2
-- To discover the configuration and performance metadata from Linux servers, you can provide a user account with sudo permissions.
-- The support to add a user account with sudo access is provided by default with the new appliance installer script downloaded from portal after July 20, 2021.
-- For older appliances, you can enable the capability by following these steps:
-    1. On the server running the appliance, open the Registry Editor.
-    1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-    1. Create a registry key ‘isSudo’ with DWORD value of 1.
-
-    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
-
-- For the sudo user, you need to provide the bin/bash NOPASSWD permission in the sudoers file in addition to the commands mentioned in the table [here](discovered-metadata.md#linux-server-metadata).
-- The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
-
-    Operating system | Versions 
-    --- | ---
-    Red Hat Enterprise Linux | 6,7,8
-    Cent OS | 6.6, 8.2
-    Ubuntu | 14.04,16.04,18.04
-    SUSE Linux | 11.4, 12.4
-    Debian | 7, 10
-    Amazon Linux | 2.0.2021
-    CoreOS Container | 2345.3.0
-    > [!Note]
-    > 'Sudo' account is currently not supported to perform software inventory (discovery of installed applications) and enable agentless dependency analysis.
-
-### Option 3
-- If you can't provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry and provide a non-root account with the required capabilities using the following commands:
+- If you can't provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on appliance server and provide a non-root account with the required capabilities using the following commands:
 
     **Command** | **Purpose**
     --- | --- |
@@ -104,7 +93,7 @@ For Linux servers, based on the features you want to perform, you can create a u
     setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
     chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
 
-    To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+- To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
 
 ## Azure Migrate appliance requirements
 
@@ -146,7 +135,7 @@ After the appliance is connected, it gathers configuration and performance data 
 
 Support | Details
 --- | ---
-**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
+**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
@@ -171,7 +160,7 @@ Support | Details
 **Operating systems** | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 **Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date
 **Windows server access** | A user account (local or domain) with administrator permissions on servers.
-**Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls</code><br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
+**Linux server access** | Sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you have enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked. <br/> <br/> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files, set using the following commands: <br/><br/> <code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls</code><br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
 **Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
 **Discovery method** |  Agentless dependency analysis is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 

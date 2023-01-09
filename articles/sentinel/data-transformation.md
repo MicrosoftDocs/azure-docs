@@ -32,7 +32,13 @@ You can filter at the record (row) level, by specifying criteria for which recor
 - Help to reduce costs, as you reduce storage requirements
 - Improve performance, as fewer query-time adjustments are needed
 
-Ingestion-time data transformation supports [multiple-workspace scenarios](extend-sentinel-across-workspaces-tenants.md). You would create separate DCRs for each workspace.
+Ingestion-time data transformation supports [multiple-workspace scenarios](extend-sentinel-across-workspaces-tenants.md).
+
+### Normalization
+
+Ingest-time transformation also allows you to normalize logs when ingested into built-in or customer ASIM normalized tables. Using ingest-time normalization improves normalized queries performance.
+
+For more information on ingest-time normalization using transformations, refer to [Ingest-time normalization](normalization-ingest-time.md).
 
 ### Enrichment and tagging
 
@@ -46,9 +52,11 @@ Ingestion-time transformations can also be used to mask or remove personal infor
 
 ## Data ingestion flow in Microsoft Sentinel
 
-The following image shows where ingestion-time data transformation enters the data ingestion flow into Microsoft Sentinel.
+The following image shows where ingestion-time data transformation enters the data ingestion flow in Microsoft Sentinel.
 
-Microsoft Sentinel collects data into the Log Analytics workspace from multiple sources. Data from built-in data connectors is processed in Log Analytics using some combination of hardcoded workflows and ingestion-time transformations, and data ingested directly into the logs ingestion API endpoint is , and then stored in either standard or custom tables.
+Microsoft Sentinel collects data into the Log Analytics workspace from multiple sources. 
+- Data from built-in data connectors is processed in Log Analytics using some combination of hardcoded workflows and ingestion-time transformations in the workspace DCR. This data can be stored in standard tables or in a specific set of custom tables.
+- Data ingested directly into the Logs ingestion API endpoint is processed by a standard DCR that may include an ingestion-time transformation. This data can then be stored in either standard or custom tables of any kind.
 
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
@@ -91,7 +99,8 @@ Only the following tables are currently supported for custom log ingestion:
 - [**SecurityEvent**](/azure/azure-monitor/reference/tables/securityevent)
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
-- **ASIMDnsActivityLog**
+- [**ASimDnsActivityLog**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
 
 ## Known issues
 
@@ -125,3 +134,4 @@ For more in-depth information on ingestion-time transformation, the Custom Logs 
 - [Data collection transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 - [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+

@@ -6,11 +6,12 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/30/2022
+ms.date: 12/13/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Customer-managed keys for Azure Storage encryption
@@ -70,8 +71,8 @@ You can configure customer-managed keys with the key vault and storage account i
 
 To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in different Azure AD tenants, see one of the following articles:
 
-- [Configure cross-tenant customer-managed keys for a new storage account (preview)](customer-managed-keys-configure-cross-tenant-new-account.md)
-- [Configure cross-tenant customer-managed keys for an existing storage account (preview)](customer-managed-keys-configure-cross-tenant-existing-account.md)
+- [Configure cross-tenant customer-managed keys for a new storage account](customer-managed-keys-configure-cross-tenant-new-account.md)
+- [Configure cross-tenant customer-managed keys for an existing storage account](customer-managed-keys-configure-cross-tenant-existing-account.md)
 
 When you enable or disable customer-managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account doesn't need to be re-encrypted.
 
@@ -98,6 +99,8 @@ When you configure encryption with customer-managed keys, you have two options f
 - **Automatically update the key version:** To automatically update a customer-managed key when a new version is available, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks the key vault or managed HSM daily for a new version of a customer-managed key. If a new key version is available, then Azure Storage automatically uses the latest version of the key.
 
     Azure Storage checks the key vault for a new key version only once daily. When you rotate a key, be sure to wait 24 hours before disabling the older version.
+
+    If the storage account was previously configured for manual updating of the key version and you want to change it to update automatically, you might need to explicitly change the key version to an empty string. For details on how to do this, see [Configure encryption for automatic updating of key versions](customer-managed-keys-configure-existing-account.md#configure-encryption-for-automatic-updating-of-key-versions).
 
 - **Manually update the key version:** To use a specific version of a key for Azure Storage encryption, specify that key version when you enable encryption with customer-managed keys for the storage account. If you specify the key version, then Azure Storage uses that version for encryption until you manually update the key version.
 

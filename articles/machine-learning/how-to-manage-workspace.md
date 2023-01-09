@@ -338,7 +338,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 ## Examples
 
-Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/resources/workspace/workspace.ipynb).
+Examples in this article come from [workspace.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb).
 
 ## Next steps
 

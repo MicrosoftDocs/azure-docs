@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 10/27/2022
 ---
 
 # Managed identities for Azure Stream Analytics
@@ -33,7 +33,7 @@ Stream Analytics supports two types of managed identities:
 
 Below is a table that shows Azure Stream Analytics inputs and outputs that support system-assigned managed identity or user-assigned managed identity:
 
-| Type            |  Adapter                      | User-assigned managed identity (Preview)                               | System-assigned managed identity       |
+| Type            |  Adapter                      | User-assigned managed identity                                         | System-assigned managed identity       |
 |-----------------|-------------------------------|------------------------------------------------------------------------|------------------------------------------|
 | Storage Account | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
 | Inputs          | Event Hubs                    | Yes                                                                    | Yes                                      |

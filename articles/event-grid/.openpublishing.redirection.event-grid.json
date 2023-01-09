@@ -59,6 +59,11 @@
       "source_path": "deliver-events-to-partner-destinations.md",
       "redirect_url": "/azure/event-grid/partner-events-overview-for-partners",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "event-schema-farmbeats.md",
+      "redirect_url": "/azure/event-grid/system-topics",
+      "redirect_document_id": false
     }    
   ]
 }

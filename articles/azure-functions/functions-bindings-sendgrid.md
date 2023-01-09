@@ -26,7 +26,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -50,7 +50,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Functions 1.x doesn't support running in an isolated process.
+Functions 1.x doesn't support running in an isolated worker process.
 
 # [Functions v2.x+](#tab/functionsv2/csharp-script)
 
@@ -159,7 +159,7 @@ You can omit setting the attribute's `ApiKey` property if you have your API key 
 
 # [Isolated process](#tab/isolated-process)
 
-We don't currently have an example for using the SendGrid binding in a function app running in an isolated process. 
+We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
 
 # [C# Script](#tab/csharp-script)
 
@@ -381,7 +381,7 @@ public class HttpTriggerSendGrid {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
 # [In-process](#tab/in-process)
 
@@ -397,7 +397,7 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [SendG
 
 # [Isolated process](#tab/isolated-process)
 
-In [isolated process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
+In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
 
 | Attribute/annotation property | Description | 
 |-------------------------------|-------------|

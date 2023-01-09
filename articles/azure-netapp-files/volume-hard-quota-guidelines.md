@@ -261,7 +261,7 @@ There's no change in resource limits for Azure NetApp Files beyond the quota cha
 
 ### Is there an example ANFCapacityManager workflow?  
 
-Yes. See the [Volume AutoGrow Workflow Example GitHub page](https://github.com/ANFTechTeam/ANFCapacityManager/blob/main/ResizeWorkflow.md).
+Yes. See the [Volume AutoGrow Workflow Example GitHub page](https://github.com/ANFTechTeam/ANFCapacityManager/blob/master/ResizeWorkflow.md).
 
 ### Is ANFCapacityManager Microsoft supported?  
 

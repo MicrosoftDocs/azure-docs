@@ -19,7 +19,7 @@ This article describes a set of different tools used to transfer your historical
 
 ## Azure Monitor Basic Logs/Archive 
 
-Before you ingest data to Azure Monitor Basic Logs or Archive, for lower ingestion prices, ensure that the table you're writing to is [configured as Basic Logs](../azure-monitor/logs/basic-logs-configure.md#check-table-configuration). Review the [Azure Monitor custom log ingestion tool](#azure-monitor-custom-log-ingestion-tool) and the [direct API](#direct-api) method for Azure Monitor Basic Logs. 
+Before you ingest data to Azure Monitor Basic Logs or Archive, for lower ingestion prices, ensure that the table you're writing to is [configured as Basic Logs](../azure-monitor/logs/basic-logs-configure.md). Review the [Azure Monitor custom log ingestion tool](#azure-monitor-custom-log-ingestion-tool) and the [direct API](#direct-api) method for Azure Monitor Basic Logs. 
 
 ### Azure Monitor custom log ingestion tool 
 
@@ -58,7 +58,7 @@ If you choose LightIngest, review these tips and best practices.
 
 ### Logstash 
 
-[Logstash](https://www.elastic.co/products/logstash) is an open source, server-side data processing pipeline that ingests data from many sources simultaneously, transforms the data, and then sends the data to your favorite "stash". Learn how to [ingest data from Logstash to Azure Data Explorer](/azure/data-explorer/ingest-data-logstash). Logstash runs only on Windows machines.
+[Logstash](https://www.elastic.co/products/logstash) is an open source, server-side data processing pipeline that ingests data from many sources simultaneously, transforms the data, and then sends the data to your favorite "stash". Learn how to [ingest data from Logstash to Azure Data Explorer](/azure/data-explorer/ingest-data-logstash). Logstash runs  on Windows, Linux and MacOS Machines.
 
 To optimize performance, [configure the Logstash tier size](https://www.elastic.co/guide/en/logstash/current/deploying-and-scaling.html) according to the events per second. We recommend that you use [LightIngest](#lightingest) wherever possible, because LightIngest relies on the ADX cluster computing to perform the copy. 
 

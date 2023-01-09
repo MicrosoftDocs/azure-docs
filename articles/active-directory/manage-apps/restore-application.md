@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/28/2022
+ms.date: 11/02/2022
 ms.author: jomondi
 ms.reviewer: sureshja
 ms.custom: mode-other
@@ -53,8 +53,11 @@ To recover your enterprise application with its previous configurations, first d
 1. To view the recently deleted enterprise application, run the following command:
 
    ```powershell
-   Get-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b'
-   ```   
+   Get-AzureADMSDeletedDirectoryObject -Id <id>
+   ```
+
+Replace id with the object ID of the service principal that you want to restore.
+ 
 :::zone-end
 
 :::zone pivot="ms-powershell"
@@ -64,8 +67,10 @@ To recover your enterprise application with its previous configurations, first d
 1. To view the recently deleted enterprise applications, run the following command:
    
    ```powershell
-   Get-MgDirectoryDeletedItem -DirectoryObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Get-MgDirectoryDeletedItem -DirectoryObjectId <id>
    ```
+Replace id with the object ID of the service principal that you want to restore.
+
 :::zone-end
 
 :::zone pivot="ms-graph"
@@ -77,7 +82,11 @@ To get the list of deleted enterprise applications in your tenant, run the follo
    ```http
    GET https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.servicePrincipal
    ```
-Record the ID of the enterprise application you want to restore.
+From the list of deleted service principals generated, record the ID of the enterprise application you want to restore.
+
+Alternatively, if you want to get the specific enterprise application that was deleted, fetch the deleted service principal and filter the results by the client's application ID (appId) property using the following syntax:
+
+`https://graph.microsoft.com/v1.0/directory/deletedItems/microsoft.graph.servicePrincipal?$filter=appId eq '{appId}'`. Once you've retrieved the object ID of the deleted service principal, proceed to restore it.
 
 :::zone-end
 
@@ -89,8 +98,11 @@ Record the ID of the enterprise application you want to restore.
 
 
    ```powershell  
-   Restore-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Restore-AzureADMSDeletedDirectoryObject -Id <id>
    ```
+
+Replace id with the object ID of the service principal that you want to restore.
+
 :::zone-end
 
 :::zone pivot="ms-powershell"
@@ -98,8 +110,11 @@ Record the ID of the enterprise application you want to restore.
 1. To restore the enterprise application, run the following command:
 
    ```powershell   
-   Restore-MgDirectoryObject -DirectoryObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Restore-MgDirectoryObject -DirectoryObjectId <id>
    ```
+
+Replace id with the object ID of the service principal that you want to restore.
+
 :::zone-end
    
 :::zone pivot="ms-graph"
@@ -109,6 +124,9 @@ Record the ID of the enterprise application you want to restore.
    ```http
    POST https://graph.microsoft.com/v1.0/directory/deletedItems/{id}/restore
    ```
+
+Replace id with the object ID of the service principal that you want to restore.
+
 :::zone-end
 
 ## Permanently delete an enterprise application
@@ -121,7 +139,7 @@ Record the ID of the enterprise application you want to restore.
 To permanently delete a soft deleted enterprise application, run the following command:
 
 ```powershell
-Remove-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b'
+Remove-AzureADMSDeletedDirectoryObject -Id <id>
 ```
 :::zone-end
 
@@ -130,7 +148,7 @@ Remove-AzureADMSDeletedDirectoryObject -Id 'd4142c52-179b-4d31-b5b9-08940873507b
 1. To permanently delete the soft deleted enterprise application, run the following command:
    
    ```powershell
-   Remove-MgDirectoryDeletedItem -DirectoryObjectId 'd4142c52-179b-4d31-b5b9-08940873507b'
+   Remove-MgDirectoryDeletedItem -DirectoryObjectId <id>
    ``` 
 
 :::zone-end

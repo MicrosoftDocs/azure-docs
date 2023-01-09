@@ -1,7 +1,7 @@
 ---
 author: karavar
 ms.author: vakarand
-ms.date: 09/01/2022
+ms.date: 10/28/2022
 ms.service: active-directory
 ms.subservice: managed-identity
 ms.topic: include
@@ -109,7 +109,7 @@ $multiTenantApp = New-AzADApplication -DisplayName $multiTenantAppName `
 # Object ID for the new multi-tenant app
 $objectId = $multiTenantApp.Id
 # Application (client) ID for the multi-tenant app
-$appId = $multiTenantApp.AppId
+$multiTenantAppObjectId = $multiTenantApp.AppId
 ```
 
 #### The service provider creates a user-assigned managed identity

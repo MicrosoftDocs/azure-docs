@@ -7,7 +7,6 @@ ms.date: 06/14/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: abjork
 ---
 
 # Tutorial: Deploy and walk through the solar panel monitoring application template
@@ -23,7 +22,7 @@ Key application functionality:
 - Built-in visualization and dashboards
 - Extensibility for custom solution development
 
-:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-app-architecture.png" alt-text="solar panel architecture.":::
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-app-architecture.png" alt-text="Diagram showing the architecture of the solar panel application." border="false":::
 
 This architecture consists of the following components. Some applications may not require every component listed here.
 
@@ -54,7 +53,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Energy** tab:
 
-    :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-build.png" alt-text="Smart meter template":::
+    :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-build.png" alt-text="Screenshot showing the Azure IoT Central build site with the energy app templates.":::
 
 1. Select **Create app** under **Solar panel monitoring**.
 
@@ -82,23 +81,22 @@ Adatum is a fictitious energy company that monitors and manages solar panels. On
 
 The app comes with a sample solar panel device. To see device details, select **Devices**.
 
-:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device.png" alt-text="Screenshot of Solar Panel Monitoring Template Devices.":::
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device.png" alt-text="Screenshot showing the devices page in the solar panel monitoring application." lightbox="media/tutorial-iot-central-solar-panel/solar-panel-device.png":::
 
-Select the sample device, **SP0123456789**. From the **Update Properties** tab, you can update the writable properties of the device and see a visual of the updated values on the dashboard. 
+Select the sample device, **SP0123456789**. From the **Update Properties** tab, you can update the writable properties of the device and see a visual of the updated values on the dashboard.
 
-:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png" alt-text="Screenshot of Solar Panel Monitoring Template Update Properties tab.":::
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png" alt-text="Screenshot showing the device property page in the solar panel monitoring application." lightbox="media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png":::
 
 ### Device template
 
 To see the solar panel device model, select the **Device templates** tab. The model has predefined interfaces for data, properties, commands, and views.
 
-:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png" alt-text="Screenshot of Solar Panel Monitoring Template Device templates.":::
+:::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png" alt-text="Screenshot showing the device template page in the solar panel monitoring application." lightbox="media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png":::
+
+## Customize your application
+
+[!INCLUDE [iot-central-customize-appearance](../../../includes/iot-central-customize-appearance.md)]
 
 ## Clean up resources
 
-If you decide not to continue using this application, delete your application with the following steps:
-
-1. From the left pane, select **Application**.
-1. Select **Management** > **Delete**. 
-
-    :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png" alt-text="Screenshot of Solar Panel Monitoring Template Administration.":::
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]

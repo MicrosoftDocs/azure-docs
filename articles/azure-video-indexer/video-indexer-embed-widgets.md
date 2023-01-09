@@ -251,7 +251,7 @@ If you embed Azure Video Indexer insights with your own [Azure Media Player](htt
 
 ### Cognitive Insights widget
 
-You can choose the types of insights that you want. To do this, specify them as a value to the following URL parameter that's added to the embed code that you get (from the API or from the web app): `&widgets=<list of wanted widgets>`.
+You can choose the types of insights that you want. To do this, specify them as a value to the following URL parameter that's added to the embed code that you get (from the [API](https://aka.ms/avam-dev-portal) or from the [Azure Video Indexer](https://www.videoindexer.ai/) website): `&widgets=<list of wanted widgets>`.
 
 The possible values are: `people`, `animatedCharacters` , `keywords`, `labels`, `sentiments`, `emotions`, `topics`, `keyframes`, `transcript`, `ocr`, `speakers`, `scenes`, and `namedEntities`.
 

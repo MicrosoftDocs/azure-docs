@@ -1,7 +1,9 @@
 ---
-title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Best practices for using Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
@@ -16,8 +18,8 @@ This article provides best practice guidelines that help you optimize performanc
 
 For general suggestions around structuring a data lake, see these articles:
 
-- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=/azure/storage/blobs/toc.json)
+- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=/azure/storage/blobs/toc.json)
 
 ## Find documentation
 
@@ -110,13 +112,13 @@ Every workload has different requirements on how the data is consumed, but these
 
 In IoT workloads, there can be a great deal of data being ingested that spans across numerous products, devices, organizations, and customers. It's important to pre-plan the directory layout for organization, security, and efficient processing of the data for down-stream consumers. A general template to consider might be the following layout:
 
-`*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*`
+- *{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 For example, landing telemetry for an airplane engine within the UK might look like the following structure:
 
-`*UK/Planes/BA1293/Engine1/2017/08/11/12/*`
+- *UK/Planes/BA1293/Engine1/2017/08/11/12/*
 
-In this example, by putting the date at the end of the directory structure, you can use ACLs to more easily secure regions and subject matters to specific users and groups. If you put the data structure at the beginning, it would be much more difficult to secure these regions and subject matters. For example, if you wanted to provide access only to UK data or certain planes, you'd need to apply a separate permission for numerous directories under every hour directory. This structure would also exponentially increase the number of directories as time went on.
+In this example, by putting the date at the end of the directory structure, you can use ACLs to more easily secure regions and subject matters to specific users and groups. If you put the date structure at the beginning, it would be much more difficult to secure these regions and subject matters. For example, if you wanted to provide access only to UK data or certain planes, you'd need to apply a separate permission for numerous directories under every hour directory. This structure would also exponentially increase the number of directories as time went on.
 
 #### Batch jobs structure
 
@@ -124,14 +126,14 @@ A commonly used approach in batch processing is to place data into an "in" direc
 
 Sometimes file processing is unsuccessful due to data corruption or unexpected formats. In such cases, a directory structure might benefit from a **/bad** folder to move the files to for further inspection. The batch job might also handle the reporting or notification of these *bad* files for manual intervention. Consider the following template structure:
 
-`*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*\`
-`*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/*\`
-`*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*`
+- *{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*
+- *{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/*
+- *{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 For example, a marketing firm receives daily data extracts of customer updates from their clients in North America. It might look like the following snippet before and after being processed:
 
-`*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\`
-`*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*`
+- *NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*
+- *NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
 
 In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn't a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/), or [Apache Airflow](https://airflow.apache.org/) would trigger a daily Hive or Spark job to process and write the data into a Hive table.
 
@@ -141,13 +143,13 @@ For Hive workloads, partition pruning of time-series data can help some queries 
 
 Those pipelines that ingest time-series data, often place their files with a structured naming for files and folders. Below is a common example we see for data that is structured by date:
 
-*\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*
+*/DataSet/YYYY/MM/DD/datafile_YYYY_MM_DD.tsv*
 
 Notice that the datetime information appears both as folders and in the filename.
 
 For date and time, the following is a common pattern
 
-*\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
+*/DataSet/YYYY/MM/DD/HH/mm/datafile_YYYY_MM_DD_HH_mm.tsv*
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
@@ -202,5 +204,5 @@ Azure Storage logs in Azure Monitor can be enabled through the Azure portal, Pow
 
 - [Key considerations for Azure Data Lake Storage](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations)
 - [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
-- [The hitchhiker's guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
+- [The hitchhiker's guide to the Data Lake](https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/)
 - [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

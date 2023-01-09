@@ -346,11 +346,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 * **Expired token**: If you run into an expired token issue, sign out of your Azure ML studio, sign back in, and then restart the notebook kernel.
 
-* **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use one of the following methods:
-
-    * Use the SDK to upload the data to a datastore. For more information, see [Create data assets](how-to-create-data-assets.md?tabs=Python-SDK).
-    * Use [Azure Data Factory](v1/how-to-data-ingest-adf.md) to create a data ingestion pipeline.
-
+* **File upload limit**: When uploading a file through the notebook's file explorer, you are limited files that are smaller than 5TB. If you need to upload a file larger than this, we recommend that you use the SDK to upload the data to a datastore. For more information, see [Create data assets](how-to-create-data-assets.md?tabs=Python-SDK).
 
 ## Next steps
 

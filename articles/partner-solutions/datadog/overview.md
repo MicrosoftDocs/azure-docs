@@ -1,5 +1,5 @@
 ---
-title: Datadog overview - Azure partner solutions
+title: Datadog overview
 description: Learn about using Datadog in the Azure Marketplace.
 ms.topic: conceptual
 ms.date: 05/28/2021

@@ -2,10 +2,10 @@
 title: Azure PowerShell Samples for Azure Data Share
 description: Learn about Azure PowerShell Sample scripts to help you create and manage data shares in Azure Data Share. 
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+author: sidontha
+ms.author: sidontha
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 10/27/2022
 ---
 
 # Azure PowerShell samples for Azure Data Share

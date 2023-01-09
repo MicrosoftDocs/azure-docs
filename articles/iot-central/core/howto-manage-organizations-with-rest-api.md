@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage organizations in Azure IoT Central
 description: How to use the IoT Central REST API to manage organizations in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 03/08/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -191,13 +191,13 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organ
 
 ### Manage roles
 
-The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more see, [How to manage IoT Central organizations](howto-create-organizations.md):
+The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more, see [How to manage IoT Central organizations](howto-create-organizations.md):
 
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example that includes the application role and organization role IDs. 
+The response to this request looks like the following example that includes the application role and organization role IDs.
 
 ```json
 {
@@ -344,7 +344,7 @@ The request body has some required fields:
 * `@displayName`: Display name of the device.
 * `@enabled`: declares that this object is an interface.
 * `@etag`: ETag used to prevent conflict in device updates.
-* `simulated`: Whether the device is simulated.
+* `simulated`: Is the device simulated?
 * `template` : The device template definition for the device.
 * `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
 
@@ -394,7 +394,7 @@ The request body has some required fields:
 * `description`: Short summary of device group.
 * `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {

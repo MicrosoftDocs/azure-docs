@@ -5,8 +5,9 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 10/28/2022
 ms.author: victorh
+ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal

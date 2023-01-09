@@ -66,7 +66,7 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
 1. Select **Blank Template** and then **Code Editor**.
 1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
 
-    ```HTML
+    ```html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
     <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1">
@@ -154,16 +154,15 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
                <td valign="top" width="50%"></td>
            </tr>
        </table>
-  </body>
+    </body>
     </html>
     ```
 
-1. Expand **Settings** on the left, and for **Version Name**, enter a template version. 
+1. Expand **Settings** on the left, and for **Version Name**, enter a template version.
 1. For **Subject**, enter `{{subject}}`.
 1. A the top of the page, select **Save**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
-
 
 [!INCLUDE [active-directory-b2c-important-for-custom-email-provider](../../includes/active-directory-b2c-important-for-custom-email-provider.md)]
 
@@ -323,11 +322,12 @@ Add the following technical profiles to the `<ClaimsProviders>` element.
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
           <Item Key="Operation">GenerateCode</Item>
-          <Item Key="CodeExpirationInSeconds">1200</Item>
+          <Item Key="CodeExpirationInSeconds">600</Item>
           <Item Key="CodeLength">6</Item>
           <Item Key="CharacterSet">0-9</Item>
-          <Item Key="ReuseSameCode">true</Item>
           <Item Key="NumRetryAttempts">5</Item>
+          <Item Key="NumCodeGenerationAttempts">10</Item>
+          <Item Key="ReuseSameCode">false</Item>
         </Metadata>
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />

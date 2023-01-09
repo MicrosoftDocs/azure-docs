@@ -4,7 +4,7 @@ description: Learn how to create an Azure HDInsight cluster that uses Availabili
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/15/2022
+ms.date: 01/05/2023
 ---
 
 # Create an HDInsight cluster that uses Availability Zones (Preview)
@@ -39,6 +39,7 @@ HDInsight clusters can currently be created using availability zones in the foll
  - Japan East
  - Korea Central
  - North Europe
+ - Qatar Central
  - Southeast Asia
  - South Central US
  - UK South
@@ -93,11 +94,8 @@ When the HDInsight cluster is ready, you can check the location to see which ava
 ```
 
 ## Scale up the cluster
+
 You can scale up an HDInsight cluster with more worker nodes. The newly added worker nodes will be placed in the same Availability zone of this cluster. 
-
-**Limitations**: 
-
- - Availability zone feature in HDInsight does not support clusters that require managed disks (Kafka cluster and Accelerated write feature enabled HBase cluster) 
 
 ## Best practices
 
