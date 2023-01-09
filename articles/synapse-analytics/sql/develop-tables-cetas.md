@@ -134,7 +134,7 @@ SELECT * FROM population_by_year_state
 
 In this example we can see example of a template code for writing CETAS with a View as source and using Managed Identity as an authentication.
 
-'''
+```sql
 CREATE DATABASE [<mydatabase>];
 GO
 
@@ -165,7 +165,7 @@ CREATE EXTERNAL TABLE [dbo].[<myexternaltable>] WITH (
 ) AS
 SELECT * FROM [<myview>];
 GO
-'''
+```
 
 ## Supported data types
 
