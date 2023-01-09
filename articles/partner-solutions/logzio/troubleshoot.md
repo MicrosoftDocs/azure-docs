@@ -15,7 +15,7 @@ This article describes how to troubleshoot the Logz.io integration with Azure.
 
 ## Owner role needed to create resource
 
-To set up Logz.io, you must be assigned the [Owner role](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) in the Azure subscription. Before you begin this integration, [check your access](/azure/role-based-access-control/check-access).
+To set up Logz.io, you must be assigned the [Owner role](/azure/role-based-access-control/rbac-and-directory-admin-roles) in the Azure subscription. Before you begin this integration, [check your access](/azure/role-based-access-control/check-access).
 
 ## Single sign-on errors
 
