@@ -33,7 +33,7 @@ Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly li
 
 ## Features of analytical store 
 
-When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the Change Feed or ETL to sync the data.
+When you enable analytical store on an Azure Cosmos DB container, a new column-store is internally created based on the operational data in your container. This column store is persisted separately from the row-oriented transactional store for that container, in a storage account that is fully managed by Azure Cosmos DB, in an internal subscription. Customers don't need to spend time with storage administration. The inserts, updates, and deletes to your operational data are automatically synced to analytical store. You don't need the Change Feed or ETL to sync the data.
 
 ## Column store for analytical workloads on operational data
 

@@ -185,11 +185,11 @@ To change the price of an offer that has already been published, see [Changing p
 
 Customers see the offer price in their tenant currency, or in their billing account currency if the customers have selected a specific subscription for their purchase.
 
-Microsoft receives payments from customers in the customer account billing currency and pays you in the currency you selected in Partner Center. Microsoft converts the customer currency using the exchange rate of the month of the transaction.
+Microsoft receives payments from customers in the customer account billing currency and pays you in the currency you selected in the Partner Center. Microsoft converts the customer currency using the exchange rate of the month of the transaction.
 
 Microsoft converts offer prices using exchange rates sourced directly from the WMR exchange rates (4pm London WM/Refinitiv). Microsoft sources WMR rates on both a daily and monthly basis.
 
-The following illustration shows the currency conversion flow:
+The following illustration shows the currency conversion flow, with up to 3 different foreign exchanges used, depending on the offer currency, customer agreement currency, and ISV currency:
 
 ![The screenshot shows the updated currency exchange flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-13.png)
 
@@ -214,6 +214,7 @@ As an ISV, you have several options available to minimize impact of foreign exch
    - If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
    - If possible, have the customer billing profile to be set in USD
    - For multi-year deals, plan them as several one-year private offers, each with an upfront one-time payment
+
 
 
 
