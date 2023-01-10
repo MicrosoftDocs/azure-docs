@@ -90,7 +90,7 @@ Before starting this procedure, verify that:
 
 1. Select **System Settings** from the side menu.
 
-1. Under the Connection String, select the *eye icon* button to view the full connection string, and copy only the part of the string that is to the right of the **:**, after the IP address.
+1. Under the Connection String, select the *eye icon* button to view the full connection string, and copy only the part of the string that is to the right of the ```:``` after the IP address.
 
     For example:
 
