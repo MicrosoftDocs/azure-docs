@@ -130,3 +130,4 @@ Check out the invitation API reference in [https://developer.microsoft.com/graph
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Add and invite guest users](add-users-administrator.md)
 - [The elements of the B2B collaboration invitation email](invitation-email-elements.md)
+

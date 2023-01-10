@@ -201,7 +201,7 @@ You can access resources in a storage account by any language that can make HTTP
 ### Azure Storage management API and library references
 
 - [Storage Resource Provider REST API](/rest/api/storagerp/)
-- [Storage Resource Provider Client Library for .NET](/dotnet/api/overview/azure/storage/management)
+- [Storage Resource Provider Client Library for .NET](/dotnet/api/overview/azure/resourcemanager.storage-readme)
 - [Storage Service Management REST API (Classic)](/previous-versions/azure/reference/ee460790(v=azure.100))
 - [Azure NetApp Files REST API](../../azure-netapp-files/azure-netapp-files-develop-with-rest-api.md)
 

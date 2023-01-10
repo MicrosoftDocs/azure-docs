@@ -3,7 +3,7 @@ title: Azure Network Watcher | Microsoft Docs
 description: Learn about Azure Network Watcher's monitoring, diagnostics, metrics, and logging capabilities for resources in a virtual network.
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: shijaiswal
 
 # Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 

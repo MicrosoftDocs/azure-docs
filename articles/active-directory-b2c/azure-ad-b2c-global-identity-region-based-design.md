@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C global identity framework region-based design considerations 
+title: Build a global identity solution with region-based approach
 titleSuffix: Azure AD B2C
 description: Learn the region-based design consideration for Azure AD B2C to provide customer identity management for global customers.
 services: active-directory-b2c
