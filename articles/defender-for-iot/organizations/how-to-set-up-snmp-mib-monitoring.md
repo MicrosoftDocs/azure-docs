@@ -31,14 +31,25 @@ Supported SNMP versions are SNMP version 2 and version 3. The SNMP protocol util
 
 ## Set up SNMP monitoring
 
+Set up SNMP monitoring through the OT sensor console.
+
+You can also download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data, from the same **SNMP MIB monitoring configuration** pane.
+
 To set up SNMP monitoring:
 
 1. Sign in to your OT sensor as an **Admin** user.
 1. Select **System Settings** on the left and then, under **Sensor Management**, select **SNMP MIB Monitoring**.
 1. Select **+ Add host** and enter the IP address of the server that performs the system health monitoring. You can add multiple servers.
+
+    For example:
+
+    :::image type="content" source="media/configure-active-monitoring/set-up-snmp-mib-monitoring.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page." lightbox="media/configure-active-monitoring/set-up-snmp-mib-monitoring.png":::
+
 1. In the **Authentication** section, select the SNMP version:
     - If you select **V2**, type a string in **SNMP v2 Community String**.
+
         You can enter up to 32 characters, and include any combination of alphanumeric characters with no spaces.
+
     - If you select **V3**, specify the following parameters:
 
         | Parameter | Description |
@@ -46,18 +57,10 @@ To set up SNMP monitoring:
         | **Username** | Enter a unique username. <br><br> The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters with no spaces. <br><br> The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Password** | Enter a case-sensitive authentication password. <br><br> The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters. <br><br> The password for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Auth Type** | Select **MD5** or **SHA-1**. |
-        | **Encryption** | Select **DES** (56-bit key size)<sup>[1](#1)</sup> or **AES** (AES 128 bits supported)<sup>[2](#2)</sup>. <br><br> For more information, see [Prerequisites for AES and 3-DES Encryption Support for SNMP Version 3](#prerequisites-for-aes-and-3-des-encryption-support-for-snmp-version-3) |
+        | **Encryption** | Select **DES** (56-bit key size) or **AES** (AES 128 bits supported). <br><br> - RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3). <br> - RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model. |
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters. |
 
-    <a name="1"></a><sup>1</sup> RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3)
-
-    <a name="2"></a><sup>2</sup> RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model
-
-    For example:
-
-    :::image type="content" source="media/configure-active-monitoring/set-up-snmp-mib-monitoring.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
-
-1. Select **Save**.
+1. When you're done adding servers, select **Save**.
 
 ## Download the SNMP MIB file
 
@@ -91,7 +94,6 @@ Note that:
 
 - Non-existing keys respond with null, HTTP 200.
 - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
-- You can download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data.
 
 ## Next steps
 
