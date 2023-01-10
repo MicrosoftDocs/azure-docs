@@ -29,8 +29,8 @@ In this how-to guide, you'll learn how to gather a remote diagnostics package fo
 1. Select **Generate diagnostics package**. This will open a **Generate diagnostics package** side panel.
 1. Enter the **Storage account blob URL** that was configured for diagnostics storage.
 1. Select **Proceed**.
-1. AP5GC online service will generate a package and upload it to the provided storage account URL. Once it reports that it has succeeded, proceed.
-1. Report the SAS URI to Azure support. Azure support will access the diagnostics using the provided SAS URI and provide support.
+1. AP5GC online service will generate a package and upload it to the provided storage account URL. Once AP5GC reports that the upload has succeeded, report the SAS URI to Azure support.
+1. Azure support will access the diagnostics using the provided SAS URI and provide support based on the information.
 
 ## Troubleshooting
 
@@ -40,6 +40,8 @@ In this how-to guide, you'll learn how to gather a remote diagnostics package fo
 - If this does not resolve the issue, share the correlation ID of the failed request with AP5GC support for investigation.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+
+To continue to monitor your 5G core:
+
+- [Enable log analytics](enable-log-analytics-for-private-5g-core.md)
+- [Monitor log analytics](monitor-5g-core-with-log-analytics.md)
