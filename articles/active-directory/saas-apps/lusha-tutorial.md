@@ -60,7 +60,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user doesn't have to perform any step as the app is already pre-integrated with Azure.
 
 1. If you want to configure **SP** initiated SSO, then perform the following step:  
 
@@ -77,7 +77,7 @@ To configure single sign-on on **Lusha** side, you need to send the **App Federa
 
 ### Create Lusha test user
 
-In this section, a user called B.Simon is created in Lusha. Lusha supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Lusha, a new one is created after authentication.
+In this section, a user called B.Simon is created in Lusha. Lusha supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Lusha, a new one is created after authentication.
 
 ## Test SSO 
 
