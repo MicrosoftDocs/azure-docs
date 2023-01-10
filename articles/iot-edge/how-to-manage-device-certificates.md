@@ -64,7 +64,7 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
-## File and directory permissions requirements
+## Permission requirements
 
 The following table lists the file and directory permissions required for the IoT Edge certificates. The preferred directory for the certificates is `/var/aziot/certs/` and `/var/aziot/secrets/` for keys.
 
@@ -74,6 +74,29 @@ The following table lists the file and directory permissions required for the Io
 | Certificate files in `/var/aziot/certs/` | -wr-r--r-- (644) | aziotcs |
 | `/var/aziot/secrets/` keys directory | drwx------ (700)| aziotks |
 | Key files in `/var/aziot/secrets/` | -wr------- (600) | aziotks |
+
+To create the directories, set the permissions, and set the owner, run the following commands:
+
+```bash
+# If the certificate and keys directories don't exist, create, set ownership, and set permissions
+sudo mkdir -p /var/aziot/certs
+sudo chown aziotcs:aziotcs /var/aziot/certs
+sudo chmod 755 /var/aziot/certs
+
+sudo mkdir -p /var/aziot/secrets
+sudo chown aziotks:aziotks /var/aziot/secrets
+sudo chmod 700 /var/aziot/secrets
+
+# Give aziotcs ownership to certificates
+# Read and write for aziotcs, read-only for others
+sudo chown -R aziotcs:aziotcs /var/aziot/certs
+sudo chmod 644 /var/aziot/certs/*
+
+# Give aziotks ownership to private keys
+# Read and write for aziotks, no permission for others
+sudo chown -R aziotks:aziotks /var/aziot/secrets
+sudo chmod 600 /var/aziot/secrets/*
+```
 
 ## Manage trusted root CA (trust bundle)
 
@@ -86,7 +109,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 1. Copy the PEM file and give IoT Edge's certificate service access. For example, with `/var/aziot/certs` directory:
 
    ```bash
-   # Make the directory as root if doesn't exist
+   # Make the directory if doesn't exist
    sudo mkdir /var/aziot/certs -p
 
    # Change cert directory user and group ownership to aziotcs and set permissions
@@ -171,7 +194,7 @@ IoT Edge can use existing certificate and private key files to authenticate or a
    sudo chmod 644 /var/aziot/certs/my-cert.pem
 
    # Give aziotks ownership to private key
-   # Read and write for aziotks, no permission for other
+   # Read and write for aziotks, no permission for others
    sudo chown aziotks:aziotks /var/aziot/secrets/my-private-key.pem
    sudo chmod 600 /var/aziot/secrets/my-private-key.pem
    ```
