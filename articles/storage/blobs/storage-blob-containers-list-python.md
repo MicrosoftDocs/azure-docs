@@ -40,7 +40,7 @@ The following example lists all containers, including metadata, and specifies a 
 
 The following example lists all containers that begin with the specified prefix:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_prefix":::
 
 ## Resources
 
