@@ -63,9 +63,11 @@ If you already have a compute instance, skip this section and continue to [Uploa
 
 Create a compute instance now.  
 
-1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page.  (You'll only see this if you don't yet have a compute instance in your workspace.)
-1. Supply a name, Keep all the defaults on the first page.
+1. Select **Create compute** in the middle of the page.  (You'll only see this option if you don't yet have a compute instance in your workspace.)
+1. Supply a name. Keep all the defaults on the first page.
+1. Select **Next** to see **Advanced Settings**.
+1. Select **Enable idle shutdown** so that the machine will shut down after a period of inactivity.  
+1. Keep the default values for the rest of the page.
 1. Select **Create**.
 
 In about two minutes, you'll see the State of the compute instance change from Creating to Running. It's now ready to go.
