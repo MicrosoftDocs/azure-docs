@@ -465,7 +465,7 @@ You can [browse through the data catalog](how-to-browse-catalog.md) or [search t
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage.png" alt-text="Screenshot that shows lineage details from stored procedures.":::
 
-    When applicable, you can further drill down to see the lineage at SQL statement level within a stored procedure, along with column level lineage. When using Self-hosted Integraton Runtime for scan, retrieving the lineage drilldown information is supported since version 5.25.8374.1.
+    When applicable, you can further drill down to see the lineage at SQL statement level within a stored procedure, along with column level lineage. When using Self-hosted Integration Runtime for scan, retrieving the lineage drilldown information during scan is supported since version 5.25.8374.1.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-lineage-drilldown.png" alt-text="Screenshot that shows stored procedure lineage drilldown.":::
 
