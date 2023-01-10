@@ -19,7 +19,9 @@ Azure Cognitive Service for Language is a cloud-based service that provides Natu
 
 ## Available features
 
-This Language service unifies the known Microsoft services of Text Analytics, QnA Maker, and LUIS and provides several new features as well. Migrating your use from those aformentioned features is explained in a section below. These features can either be:
+This Language service unifies the following previously available Cognitive Services: Text Analytics, QnA Maker, and LUIS. If you need to migrate from these services, see [the migration section](#migrate-from-text-analytics-qna-maker-or-language-understanding-luis) below.
+
+The Language service also provides several new features as well, which can either be:
 
 * Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
