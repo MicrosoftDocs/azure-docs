@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/08/2022
+ms.date: 01/10/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins data history (with Azure Data Explorer)
 
-**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that graph lifecycle and property updates are automatically historized to Azure Data Explorer.
+**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that graph updates are automatically historized to Azure Data Explorer. These historized updates include twin property updates, and optionally twin and relationship lifecycle events.
 
-Once graph updates are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
+Once graph updates are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data. This can be used to look back in time at what the state of the graph used to be, or to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins.
 
 For more of an introduction to data history, including a quick demo, watch the following IoT show video:
 
@@ -36,11 +36,7 @@ These resources are connected into the following flow:
 
 :::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through an event hub, to Azure Data Explorer.":::
 
-Data moves through these resources in this order:
-1. A data event occurs in Azure Digital Twins. The [event types](#data-types-and-schemas) included in data history are relationship lifecycle events, twin lifecycle events, and twin property update events.
-1. Data history forwards a message containing the event's information and metadata to the event hub. 
-1. The event hub forwards the message to the target Azure Data Explorer cluster, where it's sorted into the appropriate table based on which [type of event](#data-types-and-schemas) it is.
-1. The Azure Data Explorer cluster maps the message fields to the [data history schema](#data-types-and-schemas) for that table, and stores the data as a timestamped record in the table.
+When the digital twin graph is updated, the information passes through the event hub into the target Azure Data Explorer cluster, where Azure Data Explorer stores the data as a timestamped record in the corresponding table.
 
 When working with data history, use the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the APIs.
 
@@ -55,6 +51,8 @@ Each Azure Digital Twins instance will have its own data history connection targ
 ## Creating a data history connection
 
 Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
+
+The command will always create a table for historized twin property events, which can use the default name or a custom name that you provide. Twin property deletions can optionally be included in this table. If you provide table names for relationship lifecycle events and twin lifecycle events, the command will also create tables to historize these event types.
 
 For step-by-step instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
@@ -75,39 +73,9 @@ Data history historizes three types of events from your Azure Digital Twins inst
 
 The rest of this section describes the three Azure Data Explorer tables in detail, including default table names and the data schema for each table.
 
-### Relationship lifecycle events
-
-The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_relationshipevents*. If your Azure Digital Twins instance name has dashes in it, they'll be changed to underscores.
-
-The time series data for relationship lifecycle events is stored with the following schema:
-
-| Attribute | Type | Description |
-| --- | --- | --- |
-| `RelationshipId` | String | The relationship ID. This field is set by the system and isn't writable by users. |
-| `Name` | String | The name of the realtionship |
-| `TimeStamp` | DateTime | The date/time the relationship lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `ServiceId` | The service instance ID of the Azure IoT service logging the record |
-| `Action` | The type of relationship lifecycle event (create or delete) |
-| `Source` | The source twin ID. This is the ID of the twin where the relationship originates. |
-| `Target` | The target twin ID. This is the ID of the twin where the relationship arrives. |
-
-### Twin lifecycle events
-
-The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>_twinevents*. If your Azure Digital Twins instance name has dashes in it, they'll be changed to underscores.
-
-The time series data for twin lifecycle events is stored with the following schema:
-
-| Attribute | Type | Description |
-| --- | --- | --- |
-| `TwinId` | String | The twin ID |
-| `TimeStamp` | DateTime | The date/time the twin lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
-| `Action` | String | The type of twin lifecycle event (create or delete) |
-| `ModelId` | String | The DTDL model ID (DTMI) |
-
 ### Twin property updates
 
-The Azure Data Explorer table for relationship lifecycle events has a default name of *adt_dh_<instance_name>_<region_name>*. If your Azure Digital Twins instance name has dashes in it, they'll be changed to underscores.
+The Azure Data Explorer table for relationship lifecycle events has a default name of *AdtPropertyEvents*. You can leave the default name when you're creating the connection, or specify a custom table name.
 
 The time series data for twin property updates is stored with the following schema:
 
@@ -122,6 +90,7 @@ The time series data for twin property updates is stored with the following sche
 | `Value` | Dynamic | The value of the updated property |
 | `RelationshipId` | String | When a property defined on a *relationship* (as opposed to twins or devices) is updated, this field is populated with the ID of the relationship. When a *twin* property is updated, this field is empty. |
 | `RelationshipTarget` | String | When a property defined on a *relationship* (as opposed to twins or devices) is updated, this field is populated with the twin ID of the twin targeted by the relationship. When a *twin* property is updated, this field is empty. |
+| `Action` | String | This column only exists if you choose to historize property delete events. If so, this column contains the type of twin property event (update or delete) |
 
 Below is an example table of twin property updates stored to Azure Data Explorer.
 
@@ -137,6 +106,36 @@ Below is an example table of twin property updates stored to Azure Data Explorer
 You may need to store a property with multiple fields. These properties are represented with a JSON object in the `Value` attribute of the schema.
 
 For instance, if you're representing a property with three fields for roll, pitch, and yaw, data history will store the following JSON object as the `Value`: `{"roll": 20, "pitch": 15, "yaw": 45}`.
+
+### Twin lifecycle events
+
+The Azure Data Explorer table for twin lifecycle events has a custom name that you'll specify when creating the data history connection.
+
+The time series data for twin lifecycle events is stored with the following schema:
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| `TwinId` | String | The twin ID |
+| `TimeStamp` | DateTime | The date/time the twin lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
+| `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
+| `Action` | String | The type of twin lifecycle event (create or delete) |
+| `ModelId` | String | The DTDL model ID (DTMI) |
+
+### Relationship lifecycle events
+
+The Azure Data Explorer table for relationship lifecycle events has a custom name that you'll specify when creating the data history connection.
+
+The time series data for relationship lifecycle events is stored with the following schema:
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| `RelationshipId` | String | The relationship ID. This field is set by the system and isn't writable by users. |
+| `Name` | String | The name of the realtionship |
+| `TimeStamp` | DateTime | The date/time the relationship lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
+| `ServiceId` | The service instance ID of the Azure IoT service logging the record |
+| `Action` | The type of relationship lifecycle event (create or delete) |
+| `Source` | The source twin ID. This is the ID of the twin where the relationship originates. |
+| `Target` | The target twin ID. This is the ID of the twin where the relationship arrives. |
 
 ## Pricing
 

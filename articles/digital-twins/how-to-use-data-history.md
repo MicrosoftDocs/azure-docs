@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and use data history for Azure Digital Twins, using the CLI or Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/08/2022
+ms.date: 01/10/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -18,7 +18,7 @@ ms.custom: event-tier1-build-2022
 
 # Use Azure Digital Twins data history
 
-[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing graph lifecycle and property updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
+[Data history](concepts-data-history.md) is an Azure Digital Twins feature for automatically historizing graph updates to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). This data can be queried using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to gain insights about your environment over time.
 
 This article shows how to set up a working data history connection between Azure Digital Twins and Azure Data Explorer. It uses the [Azure CLI](/cli/azure/what-is-azure-cli) and the [Azure portal](https://portal.azure.com) to set up and connect the required data history resources, including:
 * an Azure Digital Twins instance
@@ -68,6 +68,13 @@ eventhub="<name-for-your-event-hub>"
 clustername="<name-for-your-cluster>"  
 # Database name can contain only alphanumeric, spaces, dash and dot characters, and be up to 260 characters in length.
 databasename="<name-for-your-database>"
+
+# Enter a name for the table where relationship create and delete events will be stored.
+relationshiplifecycletablename="<name-for-your-relationship-lifecycle-events-table>"
+# Enter a name for the table where twin create and delete events will be stored.
+twinlifecycletablename="<name-for-your-twin-lifecycle-events-table>"
+# Optionally, enter a custom name for the table where twin property updates will be stored. If not provided, the table will be named AdtPropertyEvents.
+twinpropertytablename="<name-for-your-twin-property-events-table>"
 ```
 
 ## Create an Azure Digital Twins instance with a managed identity
@@ -154,12 +161,15 @@ This command will also create three tables in your Azure Data Explorer database 
 
 # [CLI](#tab/cli) 
 
-Use the command in this section to create a data history connection and the tables in Azure Data Explorer.
+Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command will always create a table for historized twin property events, and the parameter options included with the code below also create the tables for relationship lifecycle and twin lifecycle events.
 
 >[!NOTE]
->By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the parameter options for this command, which can be seen by running `az dt data-history connection create adx -h` or viewing the reference documentation: [az dt data-history connection create adx](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx).
+>By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can specify resources that are in different resource groups using the [parameter options](/cli/azure/dt/data-history/connection/create#az-dt-data-history-connection-create-adx) for this command.
 
-The command below uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session). It contains required parameters to create the new Azure Data Explorer tables, and an optional parameter to turn on historization for twin property deletions. 
+The command below uses local variables that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session) and has several parameters, including...
+* The names of the relationship lifecycle and twin lifecycle tables in Azure Data Explorer (these parameters are optional if you don't want to historize these event types, but required if you do want to historize these event types)
+* An optional parameter for the name of the twin property event table (if this value is not provided, this table will be named *AdtPropertyEvents*) 
+* An optional parameter to turn on historization for twin property deletions (events that remove properties entirely)
 
 ```azurecli-interactive
 az dt data-history connection create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
@@ -197,7 +207,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Next**.
 
-4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier. You can choose custom names for the tables that will store the event data in Azure Data Explorer, or leave them blank to use the default table names. You can also choose here whether twin property deletions should be included with the historized data.
+4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier. You can choose a custom name for the table that will store twin property updates, or leave it blank to use the default table name of *AdtPropertyEvents*, and you can choose whether twin property deletions (events that remove properties entirely) should be included with the historized data. If you want to historize twin lifecycle and relationship lifecycle events, enter custom names for these tables. 
     :::image type="content"  source="media/how-to-use-data-history/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-use-data-history/store.png":::
 
     Select **Next**.
@@ -225,7 +235,7 @@ After setting up the data history connection, you can optionally remove the role
 
 Now that your data history connection is set up, you can test it with data from your digital twins.
 
-If you already have twins in your Azure Digital Twins instance that are receiving property updates and undergoing lifecycle events, you can skip this section and visualize the results using your own resources. 
+If you already have twins in your Azure Digital Twins instance that are actively receiving graph updates (including twin property updates or updates from changing the structure of the graph by creating or deleting elements), you can skip this section and visualize the results using your own resources. 
 
 Otherwise, continue through this section to set up a sample graph that will undergo twin and relationship lifecycle events and generate twin property updates. 
 
@@ -327,7 +337,7 @@ You can also add and run the following command to view 100 records in the table:
 
 Next, run a query based on the data of your twins to see the contextualized time series data. 
 
-Use the query below to chart the outflow of all salt machine twins in the sample Oslo dairy factory. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the data history time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance-host-name>` placeholder with the host name of your instance.
+Use the query below to chart the outflow of all salt machine twins in the sample Oslo dairy factory. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the data history time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance-host-name>` placeholder with the host name of your instance, and the `<table-name>` placeholder with the name of your twin property events table.
 
 ```kusto
 let ADTendpoint = "https://<ADT-instance-host-name>";
@@ -338,7 +348,7 @@ WHERE FACTORY.$dtId = 'OsloFactory'
 AND IS_OF_MODEL(SALT_MACHINE , 'dtmi:assetGen:SaltMachine;1')```;
 evaluate azure_digital_twins_query_request(ADTendpoint, ADTquery)
 | extend Id = tostring(tid)
-| join kind=inner (<table_name>) on Id
+| join kind=inner (<table-name>) on Id
 | extend val_double = todouble(Value)
 | where Key == "OutFlow"
 | render timechart with (ycolumns = val_double)
