@@ -33,12 +33,11 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
 
 - [**Disabled**](../../governance/policy/concepts/effects.md#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement will not take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
  
-- [**Modify**](../../governance/policy/concepts/effects.md#modify): when the effect of a policy is set to `Modify`, you can perform addition of resource tags, such as adding the `Deny` tag to  a network. This is useful to disable access to a public network for Azure Key Vault managed HSM. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `Modify` effect.
+- [**Modify**](../../governance/policy/concepts/effects.md#modify): when the effect of a policy is set to `Modify`, you can perform addition of resource tags, such as adding the `Deny` tag to  a network. This is useful to disable access to a public network for Azure Key Vault managed HSM. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `Modify` effect.
 
 - [**DeployIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `DeployIfNotExists`, a deployment template is executed when the condition is met. This can be used to configure diagnostic settings for Key Vault to log analytics workspace. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
 
 - [**AuditIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `AuditIfNotExists`, you can identify resources that lack the properties specified in the details of the policy condition. This is useful to identify Key Vaults that have no resource logs enabled. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
-
 
 ## Available Built-In Policy Definitions
 
@@ -46,67 +45,49 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 
 ### [Key Vault](#tab/keyvault)
 
-
 #### Network Access
 
-Reduce the risk of data leakage by restricting public network access, enabling [Azure Private Link](https://azure.microsoft.com/products/private-link/) connections,  creating private DNS zones to override DNS resolution for a private endpoint, and enabling [firewall protection](../../key-vault/general/network-security) so that the Key Vault is not accessible by default to any public IP.
+Reduce the risk of data leakage by restricting public network access, enabling [Azure Private Link](https://azure.microsoft.com/products/private-link/) connections,  creating private DNS zones to override DNS resolution for a private endpoint, and enabling [firewall protection](network-security.md) so that the Key Vault is not accessible by default to any public IP.
 
-- [Azure Key Vault should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F405c5871-3e91-4644-8a63-58e19d68ff5b)
-</br>Effects: Audit _(Default)_, Deny, Disabled
-
-- [**[Preview]** Azure Key Vault Managed HSM should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F19ea9d63-adee-4431-a95e-1913c6c1c75f)</br>Effects: Audit _(Default)_, Deny, Disabled
-
-- [**[Preview]**: Configure Key Vault Managed HSMs to disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F84d327c3-164a-4685-b453-900478614456)</br>Effects: Modify _(Default)_, Disabled
-
-
-- [**[Preview]**: Azure Key Vaults should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9)</br>Effects: Audit _(Default)_, Deny, Disabled
-
-
-- [**[Preview]**: Azure Key Vault Managed HSMs should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F59fee2f4-d439-4f1b-9b9a-982e1474bfd8)</br>Effects: Audit _(Default)_, Disabled
-
-
-- [**[Preview]**: Configure Azure Key Vaults with private endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d4fad1f-5189-4a42-b29e-cf7929c6b6df)</br>Effects: DeployIfNotExists _(Default)_, Disabled
-
-- [**[Preview]**: Configure Azure Key Vault Managed HSMs with private endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd1d6d8bb-cc7c-420f-8c7d-6f6f5279a844)</br>Effects: DeployIfNotExists _(Default)_, Disabled
-
-- [**[Preview]**: Configure Azure Key Vaults to use private DNS zones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac673a9a-f77d-4846-b2d8-a57f8e1c01d4)</br>Effects: DeployIfNotExists _(Default)_, Disabled
-
-- [Key Vaults should have firewall enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490)</br>Effects: Audit _(Default)_, Deny, Disabled
-
-- [Configure Key Vaults to enable firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac673a9a-f77d-4846-b2d8-a57f8e1c01dc)</br>Effects: Modify _(Default)_, Disabled
-
-</br>
+| Policy | Effects |
+|--|--|
+| [Azure Key Vault should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F405c5871-3e91-4644-8a63-58e19d68ff5b)
+ | Audit _(Default)_, Deny, Disabled |
+| [**[Preview]** Azure Key Vault Managed HSM should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F19ea9d63-adee-4431-a95e-1913c6c1c75f) | Audit _(Default)_, Deny, Disabled
+| [**[Preview]**: Configure Key Vault Managed HSMs to disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F84d327c3-164a-4685-b453-900478614456) | Modify _(Default)_, Disabled
+| [**[Preview]**: Azure Key Vaults should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) | Audit _(Default)_, Deny, Disabled
+| [**[Preview]**: Azure Key Vault Managed HSMs should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F59fee2f4-d439-4f1b-9b9a-982e1474bfd8) | Audit _(Default)_, Disabled
+| [**[Preview]**: Configure Azure Key Vaults with private endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d4fad1f-5189-4a42-b29e-cf7929c6b6df) | DeployIfNotExists _(Default)_, Disabled
+| [**[Preview]**: Configure Azure Key Vault Managed HSMs with private endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd1d6d8bb-cc7c-420f-8c7d-6f6f5279a844) | DeployIfNotExists _(Default)_, Disabled
+| [**[Preview]**: Configure Azure Key Vaults to use private DNS zones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac673a9a-f77d-4846-b2d8-a57f8e1c01d4) | DeployIfNotExists _(Default)_, Disabled
+| [Key Vaults should have firewall enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) | Audit _(Default)_, Deny, Disabled
+| [Configure Key Vaults to enable firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac673a9a-f77d-4846-b2d8-a57f8e1c01dc) | Modify _(Default)_, Disabled
 
 ---
 
 #### Deletion Protection
 
-Prevent permanent data loss of your Key Vault and its objects by enabling [soft-delete and purge protection](../../key-vault/general/soft-delete-overview). While soft-delete allows you to recover an accidentally deleted Key Vault for a configurable retention period, purge protection protects you from insider attacks by enforcing a mandatory retention period for soft-deleted Key Vaults. Purge protection can only be enabled once soft-delete is enabled. No one inside your organization or Microsoft will be able to purge your Key Vaults during the soft delete retention period.
+Prevent permanent data loss of your Key Vault and its objects by enabling [soft-delete and purge protection](soft-delete-overview.md). While soft-delete allows you to recover an accidentally deleted Key Vault for a configurable retention period, purge protection protects you from insider attacks by enforcing a mandatory retention period for soft-deleted Key Vaults. Purge protection can only be enabled once soft-delete is enabled. No one inside your organization or Microsoft will be able to purge your Key Vaults during the soft delete retention period.
 
-- [Key Vaults should have soft delete enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d)</br>Effects: Audit _(Default)_, Deny, Disabled
+| Policy | Effects |
+|--|--|
+| [Key Vaults should have soft delete enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d) | Audit _(Default)_, Deny, Disabled
+| [Key Vaults should have purge protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) | Audit _(Default)_, Deny, Disabled
+| [Azure Key Vault Managed HSMs should have purge protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) | Audit _(Default)_, Deny, Disabled
 
-- [Key Vaults should have purge protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)</br>Effects: Audit _(Default)_, Deny, Disabled
-
-- [Azure Key Vault Managed HSMs should have purge protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383)</br>Effects: Audit _(Default)_, Deny, Disabled
-
-</br>
 
 ---
 #### Diagnostics 
 
 Drive the enabling of resource logs to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised.
 
-- [Deploy diagnostic settings for Key Vaults to an Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2)</br>Effects: DeployIfNotExists _(Default)_
-
-- [Deploy - Configure diagnostic settings for Key Vault managed HSMs to an Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42)</br>Effects: DeployIfNotExists _(Default)_, Disabled
-
-- [Deploy - Configure diagnostic settings for Key Vaults to Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459)</br>Effects: DeployIfNotExists _(Default)_, Disabled
-
-- [Resource logs in Key Vaults should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21)</br>Effects: AuditIfNotExists _(Default)_, Disabled
-
-- [Resource logs in Key Vault managed HSMs should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b)</br>Effects: AuditIfNotExists _(Default)_, Disabled
-
-
+| Policy | Effects |
+|--|--|
+| [Deploy diagnostic settings for Key Vaults to an Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) | DeployIfNotExists _(Default)_
+| [Deploy - Configure diagnostic settings for Key Vault managed HSMs to an Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) | DeployIfNotExists _(Default)_, Disabled
+| [Deploy - Configure diagnostic settings for Key Vaults to Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459) | DeployIfNotExists _(Default)_, Disabled
+| [Resource logs in Key Vaults should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) | AuditIfNotExists _(Default)_, Disabled
+| [Resource logs in Key Vault managed HSMs should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) | AuditIfNotExists _(Default)_, Disabled
 
 ---
 ### [Certificates](#tab/certificates)
@@ -115,32 +96,27 @@ Drive the enabling of resource logs to recreate activity trails to use for inves
 
 Promote the use of short-lived certificates to mitigate undetected attacks, by minimizing the time-frame of ongoing damage and reducing the value of the certificate to attackers. When implementing short-lived certificates it is recommended to regularly monitor their expiration date to avoid outages, so that they can be rotated adequately before expiration. You can also control the lifetime action specified for certificates that are either within a certain number of days of their expiration or have reached a certain percentage of their usable life.
 
-- [**[Preview]**: Certificates should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a075868-4c26-42ef-914c-5bc007359560)
+| Policy | Effects |
+|--|--|
+| [**[Preview]**: Certificates should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a075868-4c26-42ef-914c-5bc007359560) | Effects: Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Certificates should not expire within the specified number of days
+](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) | Effects: Audit (_Default_), Deny, Disabled
+| [Certificates should have the specified lifetime action triggers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12ef42cb-9903-4e39-9c26-422d29570417) | Effects: Audit (_Default_), Deny, Disabled
 
-    Effects: Audit (_Default_), Deny, Disabled
-
-- [**[Preview]**: Certificates should not expire within the specified number of days
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427)
-
-    Effects: Audit (_Default_), Deny, Disabled
-    > [!NOTE]
-    > It is recommended to apply [the certificate expiration policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) multiple times with different expiration thresholds, for example, at 180, 90, 60, and 30-day thresholds.
-- [Certificates should have the specified lifetime action triggers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12ef42cb-9903-4e39-9c26-422d29570417)
-
-    Effects: Audit (_Default_), Deny, Disabled
-
+> [!NOTE]
+> It is recommended to apply [the certificate expiration policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) multiple times with different expiration thresholds, for example, at 180, 90, 60, and 30-day thresholds.
 ---
 
 #### Certificate Authority
 
 Audit or enforce the selection of a specific certificate authority to issue your certificates either relying on one of Azure Key Vault's integrated certificate authorities (Digicert or GlobalSign), or a non-integrated certificate authority of your preference. You can also audit or deny the creation of self-signed certificates.
 
-- [Certificates should be issued by the specified integrated certificate authority
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Certificates should be issued by the specified non-integrated certificate authority
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341)</br>Effect: Audit (_Default_), Deny, Disabled
-
+| Policy | Effects |
+|--|--|
+| [Certificates should be issued by the specified integrated certificate authority
+](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) | Audit (_Default_), Deny, Disabled
+| [Certificates should be issued by the specified non-integrated certificate authority
+](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) | Audit (_Default_), Deny, Disabled
 
 ---
 
@@ -148,19 +124,14 @@ Audit or enforce the selection of a specific certificate authority to issue your
 
 Restrict the type of your Key Vault's certificates to be RSA, ECC, or HSM-backed. If you use elliptic curve cryptography or ECC certificates, you can customize and select curve names such as P-256, P-256K, P-384, and P-521. If you use RSA certificates, you can choose a minimum key size for your certificates to be 2048 bits, 3072 bits, or 4096 bits.
 
-- [Certificates should use allowed key types
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f)</br>Effect: Audit (_Default_), Deny, Disabled
-
-
-- [Certificates using elliptic curve cryptography should have allowed curve names
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf)</br>Effect: Audit (_Default_), Deny, Disabled
-
-
-- [Certificates using RSA cryptography should have the specified minimum key size
-](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0)</br>Effect: Audit (_Default_), Deny, Disabled
-
-
-</br>
+| Policy | Effects |
+|--|--|
+| [Certificates should use allowed key types
+](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) | Audit (_Default_), Deny, Disabled
+| [Certificates using elliptic curve cryptography should have allowed curve names
+](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) | Audit (_Default_), Deny, Disabled
+| [Certificates using RSA cryptography should have the specified minimum key size
+](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) | Audit (_Default_), Deny, Disabled
 
 ---
 
@@ -170,27 +141,23 @@ Restrict the type of your Key Vault's certificates to be RSA, ECC, or HSM-backed
 
 An HSM is a hardware security module that stores keys. An HSM provides a physical layer of protection for cryptographic keys. The cryptographic key cannot leave a physical HSM which provides a greater level of security than a software key. Some organizations have compliance requirements that mandate the use of HSM keys. You can use this policy to audit any keys stored in your Key Vault that is not HSM backed. You can also use this policy to block the creation of new keys that are not HSM backed. This policy will apply to all key types, including RSA and ECC.
 
-- [Keys should be backed by a hardware security module (HSM)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F587c79fe-dd04-4a5e-9d0b-f89598c7261b)</br>Effect: Audit (_Default_), Deny, Disabled
+| Policy | Effects |
+|--|--|
+| [Keys should be backed by a hardware security module (HSM)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F587c79fe-dd04-4a5e-9d0b-f89598c7261b) | Audit (_Default_), Deny, Disabled
 
 
 #### Lifecycle of Keys
 
 With lifecycle management built-ins you can flag or block keys that do not have an expiration date, get alerts whenever delays in key rotation may result in an outage, prevent the creation of new keys that are close to their expiration date, limit the lifetime and active status of keys to drive key rotation, and preventing keys from being active for more than a specified number of days.
 
-- [Key Vault keys should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0)</br>Effect: Audit (_Default_), Deny, Disabled
-
-
-- [**[Preview]**: Managed HSM keys should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d478a74-21ba-4b9f-9d8f-8e6fced0eec5)</br>Effect: Audit (_Default_), Deny, Disabled
-
-
-- [Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5ff38825-c5d8-47c5-b70e-069a21955146)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [**[Preview]**: Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fad27588c-0198-4c84-81ef-08efd0274653)</br>Effect: Audit (_Default_), Deny, Disabled
-
-
-- [Keys should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F49a22571-d204-4c91-a7b6-09b1a586fbc9)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Keys should not be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9)</br>Effect: Audit (_Default_), Deny, Disabled
+| Policy | Effects |
+|--|--|
+| [Key Vault keys should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) | Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Managed HSM keys should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d478a74-21ba-4b9f-9d8f-8e6fced0eec5) | Audit (_Default_), Deny, Disabled
+| [Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5ff38825-c5d8-47c5-b70e-069a21955146) | Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fad27588c-0198-4c84-81ef-08efd0274653) | Audit (_Default_), Deny, Disabled
+| [Keys should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F49a22571-d204-4c91-a7b6-09b1a586fbc9) | Audit (_Default_), Deny, Disabled
+| [Keys should not be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9) | Audit (_Default_), Deny, Disabled
 
 > [!IMPORTANT]
 > **If your key has an activation date set**, [the policy above](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9) will calculate the number of days that have elapsed from the **activation date** of the key to the current date. If the number of days exceeds the threshold you set, the key will be marked as non-compliant with the policy. **If your key does not have an activation date set**, the policy will calculate the number of days that have elapsed from the **creation date** of the key to the current date. If the number of days exceeds the threshold you set, the key will be marked as non-compliant with the policy.
@@ -199,17 +166,13 @@ With lifecycle management built-ins you can flag or block keys that do not have 
 
 Restrict the type of your Key Vault's keys to be RSA, ECC, or HSM-backed. If you use elliptic curve cryptography or ECC keys, you can customize and select curve names such as P-256, P-256K, P-384, and P-521. If you use RSA keys, you can mandate the use of a minimum key size for current and new keys to be 2048 bits, 3072 bits, or 4096 bits. Keep in mind that using RSA keys with smaller key sizes is not a secure design practice, thus it is recommended to block the creation of new keys that do not meet the minimum size requirement.
 
-- [Keys should be the specified cryptographic type RSA or EC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75c4f823-d65c-4f29-a733-01d0077fdbcb)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Keys using elliptic curve cryptography should have the specified curve names](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff25f3c8-b739-4538-9d07-3d6d25cfb255)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [**[Preview]**: Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe58fd0c1-feac-4d12-92db-0a7e9421f53e)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Keys using RSA cryptography should have a specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82067dbb-e53b-4e06-b631-546d197452d9)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [**[Preview]**: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86810a98-8e91-4a44-8386-ec66d0de5d57)</br>Effect: Audit (_Default_), Deny, Disabled
-
-</br>
+| Policy | Effects |
+|--|--|
+| [Keys should be the specified cryptographic type RSA or EC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75c4f823-d65c-4f29-a733-01d0077fdbcb) | Audit (_Default_), Deny, Disabled
+| [Keys using elliptic curve cryptography should have the specified curve names](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff25f3c8-b739-4538-9d07-3d6d25cfb255) | Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe58fd0c1-feac-4d12-92db-0a7e9421f53e) | Audit (_Default_), Deny, Disabled
+| [Keys using RSA cryptography should have a specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82067dbb-e53b-4e06-b631-546d197452d9) | Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86810a98-8e91-4a44-8386-ec66d0de5d57) | Audit (_Default_), Deny, Disabled
 
 ---
 
@@ -219,26 +182,23 @@ Restrict the type of your Key Vault's keys to be RSA, ECC, or HSM-backed. If you
 
 With lifecycle management built-ins you can flag or block secrets that do not have an expiration date, get alerts whenever delays in secret rotation may result in an outage, prevent the creation of new keys that are close to their expiration date, limit the lifetime and active status of keys to drive key rotation, and preventing keys from being active for more than a specified number of days.
 
-
-- [Secrets should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Secrets should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0eb591a-5e70-4534-a8bf-04b9c489584a)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Secrets should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f)</br>Effect: Audit (_Default_), Deny, Disabled
-
-- [Secrets should not be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d99835-8a06-45ae-a8e0-87a91941ccfe)</br>Effect: Audit (_Default_), Deny, Disabled
+| Policy | Effects |
+|--|--|
+| [Secrets should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3) | Audit (_Default_), Deny, Disabled
+| [Secrets should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0eb591a-5e70-4534-a8bf-04b9c489584a) | Audit (_Default_), Deny, Disabled
+| [Secrets should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) | Audit (_Default_), Deny, Disabled
+| [Secrets should not be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d99835-8a06-45ae-a8e0-87a91941ccfe) | Audit (_Default_), Deny, Disabled
 
 > [!IMPORTANT]
 > **If your secret has an activation date set**, [the policy above](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d99835-8a06-45ae-a8e0-87a91941ccfe) will calculate the number of days that have elapsed from the **activation date** of the secret to the current date. If the number of days exceeds the threshold you set, the secret will be marked as non-compliant with the policy. **If your secret does not have an activation date set**, this policy will calculate the number of days that have elapsed from the **creation date** of the secret to the current date. If the number of days exceeds the threshold you set, the secret will be marked as non-compliant with the policy.
-
 
 #### Secret Attributes
 
 Any plain text or encoded file can be stored as a Key Vault secret. However, your organization may want to set different rotation policies and restrictions on passwords, connection strings, or certificates stored as keys. A content type tag can help a user see what is stored in a secret object without reading the value of the secret. You can audit secrets that don't have a content type tag set or prevent new secrets from being created if they don't have a content type tag set.
 
-- [Secrets should have content type set](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3)</br>Effect: Audit (_Default_), Deny, Disabled
-
-</br>
+| Policy | Effects |
+|--|--|
+| [Secrets should have content type set](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3) | Audit (_Default_), Deny, Disabled
 
 ---
 
@@ -332,7 +292,7 @@ If the compliance results show up as "Not Started" it may be due to the followin
 
 ## Next Steps
 
-- [Logging and frequently asked questions for Azure policy for Key Vault](../general/troubleshoot-azure-policy-for-key-vault.md)
+- [Logging and frequently asked questions for Azure policy for Key Vault](troubleshoot-azure-policy-for-key-vault.md)
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
 - Learn about [Microsoft cloud securiy benchmark on Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)
