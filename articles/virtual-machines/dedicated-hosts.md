@@ -84,11 +84,11 @@ Known issues and limitations when using automatic VM placement:
 
 ## Virtual machine scale set support
 
-Virtual machine scale sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for virtual machine scale sets.
+Virtual Machine Scale Sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for Virtual Machine Scale Sets.
 
-When creating a virtual machine scale set, you can specify an existing host group to have all of the VM instances created on dedicated hosts.
+When creating a Virtual Machine Scale Set, you can specify an existing host group to have all of the VM instances created on dedicated hosts.
 
-The following requirements apply when creating a virtual machine scale set in a dedicated host group:
+The following requirements apply when creating a Virtual Machine Scale Set in a dedicated host group:
 
 - Automatic VM placement needs to be enabled.
 - The availability setting of your host group should match your scale set.
