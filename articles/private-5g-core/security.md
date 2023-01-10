@@ -59,6 +59,10 @@ We recommend that you replace certificates at least once per year, including rem
 
 For more information on how to generate a Key Vault certificate, see [Certificate creation methods](/azure/key-vault/certificates/create-certificate).
 
+## Personally identifiable information
+
+[Diagnostics packages](gather-diagnostics.md) may contain *personally identifiable information (PII)*. When providing diagnostics package to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
+
 ## Next steps
 
 - [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)

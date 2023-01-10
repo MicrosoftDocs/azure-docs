@@ -68,6 +68,25 @@ For each data network that you want to configure, collect all the values in the 
    | The Domain Name System (DNS) server addresses to be provided to the UEs connected to this data network. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br>This value may be an empty list if you don't want to configure a DNS server for the data network. In this case, UEs in this data network will be unable to resolve domain names. | **DNS Addresses** |
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.</br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.  |**NAPT**|
 
+## Collect values for diagnostics package gathering
+
+You can use a storage account and user assigned managed identity, with write access to the storage account, to gather diagnostics packages for the site.
+
+If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You'll be able to change this configuration later.
+
+If you want to configure diagnostics package gathering during site creation, follow the steps below.
+
+1. Create a storage account for diagnostics.  
+    > [!IMPORTANT] Storage accounts have an associated cost. <!-- add link to costs -->
+    1. [Create a storage account](../storage/common/storage-account-create.md) with the following additional configuration:
+    1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
+    1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
+    1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
+    1. [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) for your diagnostics.
+1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with write access to the storage account created above.
+1. Navigate to the packet core control plane resource.
+1. Assign the user assigned managed identity you created to the packet core control plane resource.
+
 ## Collect local monitoring values
 
 You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a globally known and trusted certificate authority (CA), as this provides additional security to your deployment and allows your browser to recognize the certificate signer.
