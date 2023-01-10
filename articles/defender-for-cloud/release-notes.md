@@ -20,10 +20,9 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in January include:
 
-- [​New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
-- [Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts](#cleanup-of-deleted-azure-arc-machines-in-connected-aws-and-gcp-accounts)
+- [New version of the recommendation to find missing system updates (Preview)](#new-version-of-the-recommendation-to-find-missing-system-updates-preview)
 
-### ​New version of the recommendation to find missing system updates (Preview)
+### New version of the recommendation to find missing system updates (Preview)
 
 You no longer need an agent on your Azure VMs and Azure Arc machines to make sure the machines have all of the latest security or critical system updates.
 
@@ -35,12 +34,6 @@ To use the new recommendation you need to:
 - Turn on the [periodic assessment property](../update-center/assessment-options.md#periodic-assessment). For this, you can use the Quick Fix in a new recommendation, "Machines should be configured to periodically check for missing system updates".
 
 The existing "System updates should be installed on your machines" recommendation, which relies on the Log Analytics agent, is still available under the same control.
-
-### Cleanup of deleted Azure Arc machines in connected AWS and GCP accounts
-
-A machine connected to an AWS and GCP account and covered by Defender for Servers or Defender for SQL on machines is represented in Defender for Cloud as an Azure Arc machine. Until now, that machine wasn't deleted from the inventory when the machine was deleted from the AWS or GCP account. This leads to unnecessary Azure Arc resources left in Defender for Cloud that represent deleted machines.
-
-Defender for Cloud will now automatically delete Azure Arc machines when those machines are deleted in connected AWS or GCP account.
 
 ## December 2022
 
