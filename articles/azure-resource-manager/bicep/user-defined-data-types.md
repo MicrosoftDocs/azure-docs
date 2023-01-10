@@ -9,11 +9,11 @@ ms.date: 01/09/2023
 
 Learn how to use user-defined data types in Bicep.
 
-Bicep version 1.2 or newer is required. To install the latest versions, see [Install](./install.md).
+[Bicep version 1.2 or newer](./install.md) is required to use this feature.
 
 ## Enable the preview feature
 
-To enable this preview, modify your project's [bicepconfig.json file](./bicep-config.md) to include the following JSON:
+To enable this preview, modify your project's [bicepconfig.json](./bicep-config.md) file to include the following JSON:
 
 ```json
 {
@@ -25,26 +25,15 @@ To enable this preview, modify your project's [bicepconfig.json file](./bicep-co
 
 ## User-defined data type syntax
 
+You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
+
 ```bicep
 Type <userDefinedDataTypeName> = <typeExpression>
 ```
 
-Valid type expression include:
+The valid type expressions include:
 
-- Strings, integers, and booleans are valid data types to be used as type expressions.
-
-    ```bicep
-    // a string type with three allowed values.
-    type myStringLiteral = 'bicep' | 'arm' | 'azure'
-
-    // an integer type with one allowed value
-    type myIntLiteral = 10
-
-    // an boolean type with one allowed value
-    type myBoolLiteral = true
-    ```
-
-- Symbolic references of [Bicep data types](./data-types.md) or user-defined data types are valid type expressions.
+- Symbolic references are identifiers that refer to an *ambient* type (like `string` or `int`) or a user-defined type symbol declared in a `type` statement:
 
     ```bicep
     // Bicep data type reference
@@ -54,7 +43,20 @@ Valid type expression include:
     type myOtherStringType = myStringType
     ```
 
-- Array types can be declared by suffixing `[]` to any valid type expression.
+- Primitive literals, including strings, integers, and booleans, are valid type expressions. For example:
+
+    ```bicep
+    // a string type with three allowed values.
+    type myStringLiteralType = 'bicep' | 'arm' | 'azure'
+
+    // an integer type with one allowed value
+    type myIntLiteralType = 10
+
+    // an boolean type with one allowed value
+    type myBoolLiteralType = true
+    ```
+
+- Array types can be declared by suffixing `[]` to any valid type expression:
 
     ```bicep
     // A string type array
@@ -64,7 +66,7 @@ Valid type expression include:
 
     type myIntArrayOfArraysType = int[][]
 
-    // A mixed type array with four allowed values
+    // A mixed-type array with four allowed values
     type myMixedTypeArrayType = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
@@ -90,19 +92,19 @@ Valid type expression include:
 
     **Recursion**
 
-    Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the myObject definition in the following example is valid because the directly recursive recursiveProp property is optional:
+    Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
 
     ```bicep
-    type myObject = {
+    type myObjectType = {
       stringProp: string
-      recursiveProp?: myObject
+      recursiveProp?: myObjectType
     }
     ```
 
-    But the following would not be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional, there is no JSON object that would be able to fulfill this schema.
+    But the following would not be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
 
     ```bicep
-    type invalidRecursiveObject = {
+    type invalidRecursiveObjectType = {
       level1: {
         level2: {
           level3: {
