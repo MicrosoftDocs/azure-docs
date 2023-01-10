@@ -33,7 +33,7 @@ Verify Kubernetes RBAC is enabled using the Azure portal:
 
 * From your browser, sign in to the [Azure portal](https://portal.azure.com).
 * Navigate to Kubernetes services, and from the left-hand pane select **Cluster configuration**.
-* Under the **Authentication and Authorization** section, check to see if the **Local accounts with Kubernetes RBAC** option is shown.
+* Under the **Authentication and Authorization** section, check to see if the **Local accounts with Kubernetes RBAC** or the **Azure AD authentication with Kubernetes RBAC** option is shown.
 
 :::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of Authentication and Authorization page in Azure portal." lightbox="./media/azure-ad-rbac/rbac-portal.png":::
 
