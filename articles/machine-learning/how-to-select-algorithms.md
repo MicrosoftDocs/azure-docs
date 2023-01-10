@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: lgayhardt
 ms.author: lagayhar
-ms.reviewer: cgronlun
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ---
 # How to select algorithms for Azure Machine Learning

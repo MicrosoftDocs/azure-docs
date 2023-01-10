@@ -208,7 +208,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221102.1`<br>This is the remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221103.1`<br>This is the remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
     | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |
