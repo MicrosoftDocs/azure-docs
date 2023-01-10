@@ -21,6 +21,6 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 | Functions 1.x | .NET Framework 4.8 | n/a |
 
 
-<sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download). Support for .NET Framework 4.8 is in GA.    
+<sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download).    
 
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
