@@ -57,10 +57,22 @@ The following example reads in metadata values:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_get_container_metadata":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide-containers/container-properties-metadata.py)
-- [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md)
+To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for Python, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
+
 - [Get Container Properties](/rest/api/storageservices/get-container-properties) (REST API)
 - [Set Container Metadata](/rest/api/storageservices/set-container-metadata) (REST API)
 - [Get Container Metadata](/rest/api/storageservices/get-container-metadata) (REST API)
+
+The `get_container_properties` method retrieves container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+
+[!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
