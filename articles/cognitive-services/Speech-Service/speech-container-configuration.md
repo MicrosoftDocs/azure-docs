@@ -14,7 +14,7 @@ ms.author: eur
 
 # Configure Speech service containers
 
-Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The speech containers we currently support are, **speech-to-text**, **custom-speech-to-text**, **speech language identificatio**n and **neural-text-to-speech**.
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The supported speech containers are **speech-to-text**, **Custom speech-to-text**, **speech language identification** and **Neural text-to-speech**.
 
 The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings.
 
