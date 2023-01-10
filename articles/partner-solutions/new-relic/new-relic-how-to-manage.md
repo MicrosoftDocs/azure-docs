@@ -73,7 +73,7 @@ The column **Logs to New Relic** indicates whether the resource is sending logs 
 
 The column **Metrics to New Relic** indicates whether New Relic is receiving metrics that correspond to this resource.
 
-## Monitor virtual machines by the using the New Relic agent
+## Monitor virtual machines by using the New Relic agent
 
 You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
 
@@ -112,7 +112,7 @@ To install the New Relic agent, select the app service and then select **Install
 > App Service extensions are currently supported only for app services that are running on Windows operating systems. The list doesn't show app services that use Linux operating systems.
 
 > [!NOTE]
-> This screen currently shows only the web app type of app services. Managing agents for function apps is not supported at this time.
+> This page currently shows only the web app type of app services. Managing agents for function apps is not supported at this time.
 
 ## Delete a New Relic resource
 
@@ -124,7 +124,7 @@ To install the New Relic agent, select the app service and then select **Install
 
 If only one New Relic resource is mapped to a New Relic account, logs and metrics are no longer sent to New Relic. 
 
-For a New Relic organization where billing is managed through Azure Marketplace, deletion of the last associated New Relic resource also removes the corresponding Azure Marketplace billing relationship.
+For a New Relic organization where billing is managed through Azure Marketplace, deleting the last associated New Relic resource also removes the corresponding Azure Marketplace billing relationship.
 
 If you map more than one New Relic resource to the New Relic account by using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated with that New Relic resource. Because other Azure Native New Relic Service resources are linked with this New Relic account, billing continues through Azure Marketplace.
 
