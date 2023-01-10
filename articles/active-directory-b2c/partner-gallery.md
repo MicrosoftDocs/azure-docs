@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 1/15/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -110,6 +110,7 @@ Microsoft partners with the following ISVs for tools that can help with implemen
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-editor.md) provides a low code/no code experience for developers to create sophisticated authentication user journeys. The tool comes with integrated debugger and templates for the most used scenarios.|
+| ![Screenshot of a grit biometric authentication logo.](./media/partner-gallery/grit-logo.png) | [Grit biometric authentication](./partner-grit-authentication.md) provides users the option to sign in using finger print, face ID or [Windows Hello](https://support.microsoft.com/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0) for enhanced security. 
 
 ## Additional information
 
