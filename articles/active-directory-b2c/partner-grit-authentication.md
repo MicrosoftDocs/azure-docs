@@ -32,7 +32,7 @@ Biometric authentication has the following benefits:
 
 To get started, you'll need:
 
-- License to Grit's Visual IEF builder. Contact [Grit support](info@gritsoftwaresystems.com) for licensing details. For the purpose of this tutorial you don't need a license.
+- License to Grit's Visual IEF builder. Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
 
 - An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
@@ -54,11 +54,11 @@ For example, user has an account with Contoso. User accesses the account from th
 
 1. After logging in with the Android phone, user will be asked to enroll in biometrics. Any future logins will happen through biometrics.
 
-Using Grit's visual flow chart multiple other scenarios can be implemented. Contact [Grit](info@gritsoftwaresystems.com) to discuss your scenarios.
+Using Grit's visual flow chart multiple other scenarios can be implemented. Contact [Grit support](mailto:info@gritsoftwaresystems.com) to discuss your scenarios.
 
 ## Onboard with Grit's biometric authentication
 
-Contact [Grit support](info@gritsoftwaresystems.com) for details to get onboarded.
+Contact [Grit support](mailto:info@gritsoftwaresystems.com) for details to get onboarded.
 
 ### Configure Grit's biometric authentication with Azure AD B2C
 
