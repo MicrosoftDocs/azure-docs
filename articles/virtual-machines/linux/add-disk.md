@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 01/09/2023
 ms.author: rogarana
 ---
 
@@ -136,6 +136,8 @@ Next, open the */etc/fstab* file in a text editor. In the file, you'll use the U
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
+
+When you are done editing the file, save and close the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
