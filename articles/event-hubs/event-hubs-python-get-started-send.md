@@ -353,17 +353,19 @@ To run the script, open a command prompt that has Python in its path, and then r
 python send.py
 ```
 
-The receiver window should display the messages that were sent to the event hub.
+The receiver window should display the messages that were sent to the event hub. 
 
 ### Troubleshooting
 
-If you don't see results from *recy.py*, run *send.py* several times.
+If you don't see events in the receiver window or the code reports an error, try the following troubleshooting tips:
 
-If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you're using importing from `azure.identity.aio`.
+* If you don't see results from *recy.py*, run *send.py* several times.
 
-If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [async-credentials help in the Azure SDK repo](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#async-credentials).
+* If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you're using importing from `azure.identity.aio`.
 
-If you receive events with different partition IDs, this result is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
+* If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [async-credentials help in the Azure SDK repo](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#async-credentials).
+
+* If you receive events with different partition IDs, this result is expected. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information, see [Learn more about partitions](/azure/event-hubs/event-hubs-features#partitions).
 
 ## Next steps
 
