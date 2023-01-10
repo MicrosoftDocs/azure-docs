@@ -12,7 +12,9 @@ ms.custom: template-how-to
 
 # Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools
 
-In this how-to guide, you'll carry out the steps you need to complete before you can deploy or configure a site to use Azure Active Directory (Azure AD) to authenticate access to the distributed tracing and packet core dashboards.
+Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+
+In this how-to guide, you'll carry out the steps you need to complete before you can deploy or configure a site to use Azure AD to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
 
 ## Prerequisites
 
@@ -37,13 +39,11 @@ You'll now register a new local monitoring application with Azure AD to establis
         - https://*\<local monitoring domain\>*/sas/auth/aad/callback
         - https://*\<local monitoring domain\>*/grafana/login/azuread
 
-    1. In [Add credentials](/azure/active-directory/develop/quickstart-register-app#add-credentials), add a client secret with the following values:
-
-        - In **Description**, type **Grafana OAuth**. <!-- TODO: why Grafana? -->
+    1. In [Add credentials](/azure/active-directory/develop/quickstart-register-app#add-credentials), follow the steps to add a client secret.
 
         Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer and Editor) with the following configuration: <!-- TODO: check if this step and the next correctly replace the equivalent Manifest changes in the word doc -->
+1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer and Editor) with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
     - In **Value**, enter one of **Admin**, **Viewer** and **Editor** for each role you're creating.
@@ -111,7 +111,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
 
     `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin_kubeconfig>`
 
-1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace** and **Type** values, along with the size of the encoded values in bytes.
+1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace** and **Type** values, along with the size of the encoded values.
 
     `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin_kubeconfig>`
 

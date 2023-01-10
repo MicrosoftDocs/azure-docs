@@ -65,7 +65,7 @@ For more information on how to generate a Key Vault certificate, see [Certificat
 
 You can use [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 
 
-Azure AD provides ways to natively authenticate using passwordless methods to simplify the sign-in experience and reduce the risk of attacks. Therefore, to improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords.
+Azure AD allows you to natively authenticate using passwordless methods to simplify the sign-in experience and reduce the risk of attacks. Therefore, to improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords.
 
 If you decide to set up Azure AD for local monitoring access, before deploying a mobile network site, you'll need to follow the steps in [Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools](azure-active-directory-prerequisites.md).
 
