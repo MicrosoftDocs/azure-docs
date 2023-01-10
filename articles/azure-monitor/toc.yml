@@ -199,8 +199,6 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
-  - name: Data collection endpoints
-    href: essentials/data-collection-endpoint-overview.md
   - name: Transformations
     items:
       - name: Overview
@@ -378,6 +376,8 @@ items:
         href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: logs/create-pipeline-datacollector-api.md
+  - name: Data collection endpoints
+    href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
     items:
     - name: Private Link overview
