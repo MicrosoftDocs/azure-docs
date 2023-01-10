@@ -138,7 +138,7 @@ For instance, the “clientUpdateProhibited” status code prevents unauthorized
 
 ### Open Ports
 
-This section helps users understand how their IP space is managed, detecting services that are exposed on the open internet. Attackers commonly scan ports across the internet to look for known exploits related to service vulnerabilities or misconfigurations. Microsoft identifies these open ports to compliment vulnerability assessment tools, flagging observations for review to ensure they are properly managed by your information technology team.
+This section helps users understand how their IP space is managed, detecting services that are exposed on the open internet. Attackers commonly scan ports across the internet to look for known exploits related to service vulnerabilities or misconfigurations. Microsoft identifies these open ports to complement vulnerability assessment tools, flagging observations for review to ensure they are properly managed by your information technology team.
 
 ![Screenshot of open ports chart](media/Dashboards-15.png)
 
