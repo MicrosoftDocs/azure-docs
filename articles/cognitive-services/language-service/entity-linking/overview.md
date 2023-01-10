@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 01/10/2023
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
 ---
@@ -22,7 +22,7 @@ This documentation contains the following types of articles:
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific ways.
 
-## Get started with entity linking
+## Development options
 
 [!INCLUDE [development-options](includes/development-options.md)]
 
