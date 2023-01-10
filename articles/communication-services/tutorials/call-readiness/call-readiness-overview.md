@@ -16,6 +16,8 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)
+
 When a user intends to join a call, their primary focus is on the conversation they want to have with the other person(s) on the call – this could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It is critical to ensure their readiness for the call.
 
 It may be impossible to predict every issue or combination of issues that may arise, but by leveraging this tutorial you can:
@@ -24,7 +26,6 @@ It may be impossible to predict every issue or combination of issues that may ar
 2. Only expose an issue if it is going to negatively impact the experience
 3. Avoid making a user hunt for a resolution;  Offer guided help to resolve the issue
 
-![Flow of a user joining a call from an email link](../media/call-readiness/joining-call-from-email-link.png)
 Related to this tutorial is the Azure Communication Services [Network Testing Diagnostic Tool](../../concepts/developer-tools/network-diagnostic.md). This can be run by users for further troubleshooting in customer support scenarios.
 
 ## Tutorial Structure
