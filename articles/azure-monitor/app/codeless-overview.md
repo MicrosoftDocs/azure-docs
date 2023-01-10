@@ -2,7 +2,7 @@
 title: Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights | Microsoft Docs
 description: Overview of auto-instrumentation for Azure Monitor Application Insights - codeless application performance management
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 01/06/2023
 ms.reviewer: abinetabate
 ---
 
