@@ -2,9 +2,17 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/08/2022
+ms.date: 01/09/2023
 ms.author: eur
 ---
+
+### January 2023 release
+
+#### Custom Speech
+
+Support for audio + human-labeled transcript is added for additional locales: `ar-BH`, `ar-DZ`, `ar-EG`, `ar-MA`, `ar-SA`, `ar-TN`, `ar-YE`, and `ja-JP`.
+
+Support for structured text adaptation is added for locale `de-AT`.
 
 ### December 2022 release
 

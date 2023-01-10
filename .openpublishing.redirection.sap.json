@@ -1219,6 +1219,10 @@
       "redirect_url": "/azure/center-sap-solutions/workloads/supported-product-on-azure",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-get-started-classic.md",
+      "redirect_url": "/azure/center-sap-solutions/workloads/get-started",
+      "redirect_document_id": false
+    },
   ]
 }

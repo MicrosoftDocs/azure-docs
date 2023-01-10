@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Functions
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
-ms.prod: non-product-specific
+ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
 ms.date: 10/07/2022
 ---
@@ -42,7 +42,7 @@ Zone-redundant Premium plans are available in the following regions:
 
 | Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
 |------------------|----------------------|---------------|--------------------|----------------|
-| Brazil South     | France Central       | Qatar Central |                    | Australia East |
+| Brazil South     | France Central       | Qatar Central | South Africa North | Australia East |
 | Canada Central   | Germany West Central |               |                    | Central India  |
 | Central US       | North Europe         |               |                    | China North 3  |
 | East US          | Sweden Central       |               |                    | East Asia      |
