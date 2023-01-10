@@ -3,7 +3,7 @@ title: Deploy an agent-based Windows Hybrid Runbook Worker in Automation
 description: This article tells how to deploy an agent-based Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2021
+ms.date: 12/29/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -38,7 +38,6 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 The Hybrid Runbook Worker feature supports the following operating systems:
 
-* Windows Server 2022 (including Server Core)
 * Windows Server 2019 (including Server Core)
 * Windows Server 2016, version 1709 and 1803 (excluding Server Core)
 * Windows Server 2012, 2012 R2

@@ -33,7 +33,7 @@ These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), the user brings a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the user-provided content.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
 
 System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
@@ -56,7 +56,7 @@ Running a training script remotely requires the creation of a Docker image.
 ### Vulnerabilities
 
 Vulnerabilities can be addressed by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
-requirements. Mitigating vulnerabilities is time consuming and costly since it can require refractoring of code and infrastructure. With the prevalence
+requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
 of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
 
 There are some ways to decrease the impact of vulnerabilities:
@@ -94,7 +94,7 @@ for your jobs or model deployments while using system-managed environments.
 
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
 materialized is pushed to the container registry and used if experimentation or deployment is triggered for the corresponding environment. Azure
-Machine Learning does not delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
+Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. You
 can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
 to help scan images for vulnerabilities. To
 automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
@@ -589,12 +589,12 @@ If you haven't provided credentials for a private registry you're trying to pull
 
 ### I/O Error
 <!--issueDescription-->
-This can happen when a Docker image pull fails due to a network issue.  
+This issue can happen when a Docker image pull fails due to a network issue.  
 
 **Potential causes:**
 * Network connection issue, which could be temporary
 * Firewall is blocking the connection
-* ACR is unreachable and there's network isolation. For additional details, please see [ACR unreachable](#acr-unreachable). 
+* ACR is unreachable and there's network isolation. For more details, see [ACR unreachable](#acr-unreachable). 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -610,7 +610,7 @@ Assess your workspace set-up. Are you using a virtual network, or are any of the
 * Ensure that you've followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
 * Azure Machine Learning requires both inbound and outbound access to the public internet. If there's a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
 
-If you aren't using a virtual network, or if you have configured it correctly
+If you aren't using a virtual network, or if you've configured it correctly
 * Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
 
 ### *Conda issues during build*
@@ -659,12 +659,53 @@ If the conda channels/repositories are correct
 * Check to make sure that the packages listed in your conda specification exist in the channels/repositories you specified
 
 ### Compile error
-- Failed to build a package required for the conda environment
-- Another version of the failing package may work. If it doesn't, review the image build log, hunt for a solution, and update the environment definition.
+<!--issueDescription-->
+This issue can happen when there's a failure building a package required for the conda environment due to a compiler error.
+
+**Potential causes:**
+* A package was spelled incorrectly and therefore wasn't recognized
+* There's something wrong with the compiler
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+If you're using a compiler
+* Ensure that the compiler you're using is recognized
+* If needed, add an installation step to your Dockerfile
+* Verify the version of your compiler and check that all commands or options you're using are compatible with the compiler version
+* If necessary, upgrade your compiler version
+
+Ensure that all packages you've listed are spelled correctly and that any pinned versions are correct
+
+**Resources**
+* [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
+* [Example compiler issue](https://stackoverflow.com/questions/46504700/gcc-compiler-not-recognizing-fno-plt-option)
 
 ### Missing command
-- Failed to build a package required for the conda environment due to a missing command
-- Identify the missing command from the image build log, determine how to add it to your image, and then update the environment definition.
+<!--issueDescription-->
+This issue can happen when a command isn't recognized during an image build.
+
+**Potential causes:**
+* The command wasn't spelled correctly
+* The command can't be executed because a required package isn't installed
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+* Ensure that the command is spelled correctly
+* Ensure that any package needed to execute the command you're trying to perform is installed
+* If needed, add an installation step to your Dockerfile
+
+**Resources**
+* [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
 
 ### Conda timeout
 <!--issueDescription-->
@@ -767,14 +808,67 @@ dependencies:
 Name: my_environment
 ```
 
-### No matching distribution
-- Failed to find Python package matching a specified distribution
-- Search for the distribution you're looking for and ensure it exists: [pypi](https://aka.ms/azureml/environment/pypi)
+### No matching distribution 
+<!--issueDescription-->
+This issue can happen when there's no package found that matches the version you specified.
+
+**Potential causes:**
+* The package name was spelled incorrectly
+* The package and version can't be found on the channels or feeds that you specified
+* The version you specified doesn't exist
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+* Ensure that the package is spelled correctly and exists
+* Ensure that the version you specified for the package exists
+* Ensure that you've specified the channel from which the package will be installed. If you don't specify a channel, defaults will be used and those defaults may or may not have the package you're looking for
+
+How to list channels in a conda yaml specification:
+
+```
+channels:
+	- conda-forge
+	- anaconda
+dependencies:
+	- python = 3.8
+	- tensorflow = 2.8
+Name: my_environment
+```
+
+**Resources**
+* [Managing channels](https://aka.ms/azureml/environment/managing-conda-channels)
+* [pypi](https://aka.ms/azureml/environment/pypi)
 
 ### Can't build mpi4py
-- Failed to build wheel for mpi4py
-- Review and update your build environment or use a different installation method
-- See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
+<!--issueDescription-->
+This issue can happen when building wheels for mpi4py fails.
+
+**Potential causes:**
+* Requirements for a successful mpi4py installation aren't met
+* There's something wrong with the method you've chosen to install mpi4py
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that you have a working MPI installation (preference for MPI-3 support and for MPI being built with shared/dynamic libraries) 
+* See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
+* If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
+
+Ensure that you're using a compatible python version
+* Python 2.5 or 3.5+ is required, but Python 3.7+ is recommended
+* See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
+
+**Resources**
+* [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 ### Interactive auth was attempted
 - Failed to create or update the conda environment because pip attempted interactive authentication 

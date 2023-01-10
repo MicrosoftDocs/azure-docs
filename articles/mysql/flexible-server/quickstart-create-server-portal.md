@@ -10,7 +10,7 @@ ms.custom: mvc, mode-ui
 ms.date: 06/13/2022
 ---
 
-# Quickstart: Use the Azure portal to create an Azure Database for MySQL flexible server
+# Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

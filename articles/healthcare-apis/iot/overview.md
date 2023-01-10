@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 12/27/2022
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ The MedTech service is important because healthcare data can be difficult to acc
 
 The following diagram outlines the basic elements of how the MedTech service transforms medical device data into a standardized FHIR resource in the cloud.
 
-:::image type="content" source="media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing the MedTech service." lightbox="media/iot-what-is/what-is-simple-diagram.png":::
+:::image type="content" source="media/overview/what-is-simple-diagram.png" alt-text="Simple diagram showing the MedTech service." lightbox="media/overview/what-is-simple-diagram.png":::
 
 These elements are:
 

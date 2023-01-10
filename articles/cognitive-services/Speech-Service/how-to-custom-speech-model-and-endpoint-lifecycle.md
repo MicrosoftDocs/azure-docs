@@ -111,7 +111,7 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To get the training and transcription expiration dates for a base model, use the [Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) request to get available base models for all locales.
+To get the training and transcription expiration dates for a base model, use the [Models_GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_GetBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_ListBaseModels) request to get available base models for all locales.
 
 Make an HTTP GET request using the model URI as shown in the following example. Replace `BaseModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

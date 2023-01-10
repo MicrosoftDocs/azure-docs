@@ -1,5 +1,5 @@
 ---
-title: "Authentication on batch endpoints"
+title: "Authorization on batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how authentication works on Batch Endpoints.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Authentication on batch endpoints
+# Authorization on batch endpoints
 
 Batch endpoints support Azure Active Directory authentication, or `aad_token`. That means that in order to invoke a batch endpoint, the user must present a valid Azure Active Directory authentication token to the batch endpoint URI. Authorization is enforced at the endpoint level. The following article explains how to correctly interact with batch endpoints and the security requirements for it. 
 
@@ -21,7 +21,7 @@ Batch endpoints support Azure Active Directory authentication, or `aad_token`. T
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 
-## How authentication works
+## How authorization works
 
 To invoke a batch endpoint, the user must present a valid Azure Active Directory token representing a __security principal__. This principal can be a __user principal__ or a __service principal__. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. The identity needs the following permissions in order to successfully create a job:
 

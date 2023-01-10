@@ -48,7 +48,7 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- The Azure CLI
+- The Azure CLI and the Python SDK
 - Azure Resource Manager/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
@@ -70,7 +70,7 @@ To create an online endpoint, you need to specify the following elements:
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
-Learn how to deploy online endpoints from the [CLI](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
+Learn how to deploy online endpoints from the [CLI/SDK](how-to-deploy-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
 
 ### Test and deploy locally for faster debugging
 

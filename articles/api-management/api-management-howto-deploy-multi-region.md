@@ -100,8 +100,13 @@ To take advantage of geographical distribution of your system, you should have b
     </policies>
     ```
 
-> [!TIP]
-> You may also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically.
+### Use Traffic Manager for routing to regional backends
+
+You may also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically. 
+
+* For traffic distribution and failover, we recommend using Traffic Manager with the [**Geographic**](../traffic-manager/traffic-manager-routing-methods.md#geographic-traffic-routing-method) routing method. We don't recommend using Traffic Manager with the Weighted routing method with API Management backends.
+
+* For traffic control during maintenance operations, we recommend using the Priority routing method.
 
 ## <a name="custom-routing"> </a>Use custom routing to API Management regional gateways
 

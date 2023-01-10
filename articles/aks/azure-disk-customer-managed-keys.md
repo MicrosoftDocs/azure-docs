@@ -41,7 +41,7 @@ az account list-locations
 az group create -l myAzureRegionName -n myResourceGroup
 
 # Create an Azure Key Vault resource in a supported Azure region
-az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
+az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --enable-purge-protection true
 ```
 
 ## Create an instance of a DiskEncryptionSet
