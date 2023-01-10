@@ -14,6 +14,8 @@ ms.subservice: calling
 ---
 # Getting started with Call Readiness and the UI Library
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 When a user intends to join a call, their primary focus is on the conversation they want to have with the other person(s) on the call – this could be a doctor, teacher, financial advisor, or friend. The conversation itself may pose enough stress, let alone navigating the process of making sure they and their device(s) are ready to be seen and/or heard. It is critical to ensure their readiness for the call.
 
 It may be impossible to predict every issue or combination of issues that may arise, but by leveraging this tutorial you can:
@@ -51,27 +53,30 @@ The user flow of the App will be as follows:
 ![flow diagram showing user flow through the call readiness sample](../media/call-readiness/call-readiness-flow-diagram.png)
 <!--
 This is the mermaid definition for the above graph. Use this to edit and regenerate the graph.
+Arrows have been split with a / to prevent this comment block from breaking.
 ```mermaid
 flowchart TD
-    Start -\-> BrowserCheck{Is browser supported}
-    subgraph Part 1: Check Browser Support
-        BrowserCheck -\-> |yes| C1[Continue]
-        BrowserCheck -\-> |no|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
+    Start -/-> BrowserCheck{Is Environment supported}
+    subgraph S1[Part 1: Check Browser Support]
+        BrowserCheck -/-> |supported| C1[Continue]
+        BrowserCheck -/-> |operating system unsupported|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
+        BrowserCheck -/-> |browser unsupported|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
+        BrowserCheck -/-> |browser version unsupported|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
     end
-    subgraph Part 2: Get Device Permissions
-        C1 -\-> DeviceCheckStart{Check Device Permission State}
-        DeviceCheckStart -\-> |Device Permissions Unknown|DeviceCheckerGeneric[Show 'Checking for device permissions' Prompt]
-        DeviceCheckerGeneric -\->|Permissions updated| DeviceCheckStart
-        DeviceCheckStart -\-> |User needs prompted|DeviceCheckerPrompt[Show 'Please Accept Permissions' Prompt]
-        DeviceCheckerPrompt -\->|Permissions updated| DeviceCheckStart
-        DeviceCheckStart -\-> |Permissions Denied|DeviceCheckerDenied[Show 'Permissions Denied' Prompt]
-        DeviceCheckStart --\-> |Permissions Accepted|C2[Continue]
+    subgraph S2[Part 2: Get Device Permissions]
+        C1 -/-> DeviceCheckStart{Check Device Permission State}
+        DeviceCheckStart -/-> |Device Permissions Unknown|DeviceCheckerGeneric[Show 'Checking for device permissions' Prompt]
+        DeviceCheckerGeneric -/->|Permissions updated| DeviceCheckStart
+        DeviceCheckStart -/-> |User needs prompted|DeviceCheckerPrompt[Show 'Please Accept Permissions' Prompt]
+        DeviceCheckerPrompt -/->|Permissions updated| DeviceCheckStart
+        DeviceCheckStart -/-> |Permissions Denied|DeviceCheckerDenied[Show 'Permissions Denied' Prompt]
+        DeviceCheckStart --/-> |Permissions Accepted|C2[Continue]
     end
     subgraph Part 3: Device Setup
-        C2 -\-> DeviceSetup[Camera and Microphone Setup]
-        DeviceSetup -\-> |User updates Audio and Video| DeviceSetup
+        C2 -/-> DeviceSetup[Camera and Microphone Setup]
+        DeviceSetup -/-> |User updates Audio and Video| DeviceSetup
     end
-    DeviceSetup -\-> TestComplete[Test Complete]
+    DeviceSetup -/-> TestComplete[Test Complete]
 ```
 -->
 
@@ -103,6 +108,9 @@ As this feature is in public preview, you must use the beta versions of the Azur
 npm install @azure/communication-calling@dev @azure/communication-react@dev --legacy-peer-deps
 ```
 
+> [!NOTE]
+> If you are installing the communication packages into an existing App, `@azure/communication-react` currently does not support React v18. To downgrade to React v17 or less follow [these instructions](https://azure.github.io/communication-ui-library/?path=/docs/setup-communication-react--page).
+
 ### Initial App Setup
 
 To get us started, we'll replace the create-react-app default `App.tsx` content with a basic setup that:
@@ -111,7 +119,7 @@ To get us started, we'll replace the create-react-app default `App.tsx` content 
 - Sets a theme provider that can be used to set a custom theme
 - Create a [`StatefulCallClient`](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) with a provider that gives child components access to the call client
 
-`App.tsx`
+`src/App.tsx`
 
 ```ts
 import { CallClientProvider, createStatefulCallClient, FluentThemeProvider, useTheme } from '@azure/communication-react';

@@ -32,13 +32,13 @@ We'll also inform the user with a prompt if access isn't granted.
 
 ### Creating prompts for camera and microphone access
 
-We'll first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts will use the `CameraAndMicrophoneDomainPermissions` component
+We'll first create a series of device permissions prompts to get users into a state where they've accepted the microphone and camera permissions. These prompts will use the `CameraAndMicrophoneSitePermissions` component
 from the UI Library. Like the Unsupported Browser prompt, we'll also host these prompts inside a FluentUI `modal`.
 
-`DevicePermissionPrompts.tsx`
+`src/DevicePermissionPrompts.tsx`
 
 ```ts
-import { CameraAndMicrophoneDomainPermissions } from '@azure/communication-react';
+import { CameraAndMicrophoneSitePermissions } from '@azure/communication-react';
 import { Modal } from '@fluentui/react';
 
 export const AcceptDevicePermissionRequestPrompt = (props: { isOpen: boolean }): JSX.Element => (
@@ -55,7 +55,7 @@ export const PermissionsDeniedPrompt = (props: { isOpen: boolean }): JSX.Element
 
 const PermissionsModal = (props: { isOpen: boolean, type: "denied" | "request" | "check" }): JSX.Element => (
   <Modal isOpen={props.isOpen}>
-    <CameraAndMicrophoneDomainPermissions
+    <CameraAndMicrophoneSitePermissions
       appName={'this site'}
       type={props.type}
       onTroubleshootingClick={() => alert('This callback should be used to take the user to further troubleshooting')}
@@ -69,7 +69,7 @@ const PermissionsModal = (props: { isOpen: boolean, type: "denied" | "request" |
 Here we'll add two new utility functions to check and request for camera and microphone access. Create a file called `devicePermissionUtils.ts` with two functions `checkDevicePermissionsState` and `requestCameraAndMicrophonePermissions`.
 `checkDevicePermissionsState` will use the [PermissionAPI](https://developer.mozilla.org/docs/Web/API/Permissions_API). However, querying for camera and microphone isn't supported on Firefox and thus we ensure this method returns `unknown` in this case. Later we'll ensure we handle the `unknown` case when prompting the user for permissions.
 
-`DevicePermissionUtils.ts`
+`src/DevicePermissionUtils.ts`
 
 ```ts
 import { DeviceAccess } from "@azure/communication-calling";
@@ -79,7 +79,7 @@ import { StatefulCallClient } from "@azure/communication-react";
  * Check if the user needs to be prompted for camera and microphone permissions.
  *
  * @remarks
- * The Permissions API we are using isn't supported in Firefox, Android WebView or Safari < 16.
+ * The Permissions API we are using is not supported in Firefox, Android WebView or Safari < 16.
  * In those cases this will return 'unknown'.
  */
 export const checkDevicePermissionsState = async (): Promise<{camera: PermissionState, microphone: PermissionState} | 'unknown'> => {
@@ -109,7 +109,7 @@ In this component we'll display different prompts to the user based on the devic
 - If we're requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
 - If the permissions are denied, we'll display a prompt to the user informing them that they've denied permissions, and that they'll need to grant permissions to continue.
 
-`DeviceAccessChecksComponent.tsx`
+`src/DeviceAccessChecksComponent.tsx`
 
 ```ts
 import { useEffect, useState } from 'react';
@@ -184,17 +184,21 @@ export const DeviceAccessChecksComponent = (props: {
 }
 
 ```
-After we have finished creating this component we will add it to the `App.tsx` file like so:
 
-Add the import.
+After we have finished creating this component we will add it to the `App.tsx`. First, add the import:
+
 ```ts
 import { DeviceAccessChecksComponent } from './DeviceAccessChecksComponent';
 ```
-Update the `TestingState` type to be the following.
+
+Then update the `TestingState` type to be the following:
+
 ```ts
 type TestingState = 'runningEnvironmentChecks' | 'runningDeviceAccessChecks' | 'finished';
 ```
-Then update the `App` component.
+
+Finally, update the `App` component:
+
 ```ts
 /**
  * Entry point of a React app.
@@ -208,6 +212,7 @@ const App = (): JSX.Element => {
   return (
     <FluentThemeProvider>
       <CallClientProvider callClient={callClient}>
+        {/* Show a Preparing your session screen while running the environment checks */}
         {testState === 'runningEnvironmentChecks' && (
           <>
             <PreparingYourSession />
@@ -215,11 +220,11 @@ const App = (): JSX.Element => {
           </>
         )}
         
-        {/* Show a Preparing your session screen while running the call readiness checks */}
+        {/* Show a Preparing your session screen while running the device access checks */}
         {testState === 'runningDeviceAccessChecks' && (
           <>
             <PreparingYourSession />
-            <DeviceAccessChecksComponent onTestsSuccessful={() => setTestState('deviceSetup')} />
+            <DeviceAccessChecksComponent onTestsSuccessful={() => setTestState('finished')} />
           </>
         )}
 
@@ -232,12 +237,14 @@ const App = (): JSX.Element => {
 }
 
 export default App;
-
 ```
 
 The app will now present the user with prompts to guide them through device access:
 
 ![Gif showing user being prompted for camera and microphone access](../media/call-readiness/prompt-device-permissions.gif)
+
+> [!NOTE]
+> For testing we recommend visiting your app in InPrivate/Incognito mode so that camera and microphone permissions have not been previously granted for `localhost:3000`.
 
 ## Next steps
 

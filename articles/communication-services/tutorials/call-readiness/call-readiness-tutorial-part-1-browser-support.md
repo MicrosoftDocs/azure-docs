@@ -17,8 +17,6 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-# Overview
-
 In this tutorial, we'll be using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, as well as a rich set of APIs to understand the user state.
 
 ## Prerequisites
@@ -40,7 +38,7 @@ In this section, we'll create a page that displays "Preparing your session" whil
 
 Create a new file called `PreparingYourSession.tsx` where we'll create a spinner to show to the user while we perform asynchronous checks in the background:
 
-`PreparingYourSession.tsx`
+`src/PreparingYourSession.tsx`
 
 ```ts
 import { useTheme } from '@azure/communication-react';
@@ -92,18 +90,18 @@ const spinnerContainerStyles = (theme: ITheme): IStackStyles => ({
 ```
 
 We can then hook up this Preparing your session screen into our App.
-In the `App.tsx` and a variable `testState` to track the state of the app and while `testState` is in `runningEnvironmentChecks` state we'll show the Preparing Your Session Screen:
+In the `App.tsx` and a variable `testState` to track the state of the app and while `testState` is in `runningEnvironmentChecks` state we'll show the Preparing Your Session Screen.
 
-lets add these imports to our `App.tsx` file that we created in the overview.
+First, add the following imports to our `App.tsx` file that we created in the overview:
+
 ```ts
 import { useState } from 'react';
 import { PreparingYourSession } from './PreparingYourSession';
 ```
 
-After that's done, lets update our `App.tsx` file to include the new spinner.
+After that's done, update our `App.tsx` file to include the new spinner.
 
 ```ts
-
 type TestingState = 'runningEnvironmentChecks' | 'finished';
 
 const App = (): JSX.Element => {
@@ -113,7 +111,7 @@ const App = (): JSX.Element => {
     <FluentThemeProvider>
       <CallClientProvider callClient={callClient}>
         {/* Show a Preparing your session screen while running the call readiness checks */}
-        {testState === 'runningPreCallChecks' && (
+        {testState === 'runningEnvironmentChecks' && (
           <>
             <PreparingYourSession />
           </>
@@ -129,9 +127,9 @@ const App = (): JSX.Element => {
 
 ### Performing a Environment information check
 
-First create a utility file call `browserSupportUtils.tsx`. Inside this call, we'll add a method `checkBrowserSupport`. This method will use the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a request for the environment information that the Calling Stateful Client is running on.
+First create a utility file call `environmentSupportUtils.ts`. Inside this call, we'll add a method `checkEnvironmentSupport`. This method will use the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a request for the environment information that the Calling Stateful Client is running on.
 
-`EnvironmentSupportUtils.ts`
+`src/environmentSupportUtils.ts`
 
 ```ts
 import { Features, EnvrionmentInfo } from "@azure/communication-calling";
@@ -141,15 +139,18 @@ import { StatefulCallClient } from "@azure/communication-react";
 export const checkEnvironmentSupport = async (callClient: StatefulCallClient): Promise<EnvironmentInfo> =>
   await callClient.feature(Features.DebugInfo).getEnvironmentInfo();
 ```
+
 The data that returns from this call is the following:
- - Browser support
- - Browser version support
- - Operating system (Platform) support
- - Detailed environment information
+
+- Browser support
+- Browser version support
+- Operating system (Platform) support
+- Detailed environment information
 
 ### Informing the user they are on an unsupported browser
 
 Next, we will need to use this information provided from the Calling SDK to inform the user of the state of their environment if there is a issue. The UI library provides three different components to serve this purpose depending on what the issue is.
+
 - `UnsupportedOperatingSystem`
 - `UnsupportedBrowser`
 - `UnsupportedBrowserVersion`
@@ -157,7 +158,7 @@ Next, we will need to use this information provided from the Calling SDK to info
 To do this, we'll host the UI Library's components inside a [FluentUI Modal](https://developer.microsoft.com/fluentui#/controls/web/modal):
 Create a new file called `UnsupportedEnvironmentPrompts.tsx` where we'll create the different prompts:
 
-`UnsupportedEnvironmentPrompts.tsx`
+`src/UnsupportedEnvironmentPrompts.tsx`
 
 ```ts
 import { UnsupportedOperatingSystem, UnsupportedBrowser, UnsupportedBrowserVersion } from '@azure/communication-react';
@@ -194,13 +195,13 @@ We can then show these prompts in a Environment Check Component.
 Create a file called `EnvironmentChecksComponent.tsx` that will contain the logic for showing this prompt:
 This component will have a callback `onTestsSuccessful` that can take the user to the next page in the App.
 
-`EnvironmentChecksComponent.tsx`
+`src/EnvironmentChecksComponent.tsx`
 
 ```ts
 import { useEffect, useState } from 'react';
 import { BrowserUnsupportedPrompt, BrowserVersionUnsupportedPrompt, OperatingSystemUnsupportedPrompt } from './UnsupportedEnvironmentPrompts';
 import { useCallClient } from '@azure/communication-react';
-import { checkBrowserSupport } from './EnvironmentSupportUtils';
+import { checkEnvironmentSupport } from './environmentSupportUtils';
 
 export type EnvironmentChecksState = 'runningEnvironmentChecks' |
   'operatingSystemUnsupported' |
@@ -227,20 +228,20 @@ export const EnvironmentChecksComponent = (props: {
     const runCallReadinessChecks = async (): Promise<void> => {
 
       // First we will get the environment information from the calling SDK.
-      const environmentInfo = await checkBrowserSupport(callClient);
+      const environmentInfo = await checkEnvironmentSupport(callClient);
 
       if (!environmentInfo.isSupportedPlatform) {
         setCurrentCheckState('operatingSystemUnsupported');
-        // if the platform or operating system is not supported we'll stop here and display a modal to the user.
+        // If the platform or operating system is not supported we will stop here and display a modal to the user.
         return;
       } else if (!environmentInfo.isSupportedBrowser) {
         setCurrentCheckState('browserUnsupported');
-        // If browser support fails, we'll stop here and display a modal to the user.
+        // If browser support fails, we will stop here and display a modal to the user.
         return;
       } else if (!environmentInfo.isSupportedBrowserVersion) {
         setCurrentCheckState('browserVersionUnsupported');
         /**
-         *  if the browser version is unsupported, we'll stop here and show a modal that can allow the user 
+         *  If the browser version is unsupported, we will stop here and show a modal that can allow the user 
          *  to continue into the call.
          */
         return;
@@ -271,22 +272,22 @@ export const EnvironmentChecksComponent = (props: {
 We can then add the `EnvironmentChecksComponent` to the `App.tsx`. The App will then move the user to the _Device Checks_ stage once the test is successful using the `onTestsSuccessful` callback:
 
 Let's now import the new component into our app in `App.tsx`
+
 ```ts
 import { EnvironmentChecksComponent } from './EnvironmentChecksComponent';
 ```
 
-Then let's update the `App` component in `App.tsx` like this:
+Then let's update the `App` component in `App.tsx`:
 
 ```ts
-
 const App = (): JSX.Element => {
-  const [testState, setTestState] = useState<TestingState>('runningPreCallChecks');
+  const [testState, setTestState] = useState<TestingState>('runningEnvironmentChecks');
 
   return (
     <FluentThemeProvider>
       <CallClientProvider callClient={callClient}>
         {/* Show a Preparing your session screen while running the call readiness checks */}
-        {testState === 'runningPreCallChecks' && (
+        {testState === 'runningEnvironmentChecks' && (
           <>
             <PreparingYourSession />
             <EnvironmentChecksComponent
@@ -303,7 +304,7 @@ const App = (): JSX.Element => {
 }
 ```
 
-You can now run the app, if you are in an unsupported browser you'll see the unsupported browser prompt:
+You can now run the app. Try running on an [unsupported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) and you'll see the unsupported browser prompt:
 
 ![Gif showing browser check failing](../media/call-readiness/browser-support-check-failed.gif)
 

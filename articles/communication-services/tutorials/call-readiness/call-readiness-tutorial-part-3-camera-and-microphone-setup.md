@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Microphone and camera setup before a call using Azure Communication Services UI Library
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 This tutorial is a continuation of a three part series of Call Readiness tutorials and follows on from the previous two parts:
 
 - [Ensure user is on a supported browser](./call-readiness-tutorial-part-1-browser-support.md).
@@ -35,7 +37,7 @@ We'll present the user with a rich interface to choose their camera, microphone 
 
 First we'll create a new file called `DeviceSetup.tsx` and add some setup code, with a callback that will return the users chosen devices back to the App:
 
-`DeviceSetup.tsx`
+`src/DeviceSetup.tsx`
 
 ```ts
 import { PrimaryButton, Stack } from '@fluentui/react';
@@ -52,36 +54,54 @@ export const DeviceSetup = (props: {
 }
 ```
 
-We can then add this DeviceSetup to our App. Update the App to have a new testing state `deviceSetup`:
+We can then add this DeviceSetup to our App.
 
 - When the PreCallChecksComponent completes, it will now forward the user to the `deviceSetup` state.
 - When the user is in the `deviceSetup` state, we'll render the `DeviceSetup` component.
 - When the device setup is complete, we'll forward the user to the `finished` state. In a production App, this forward is typically when you would move the user to a call screen.
 
-`App.tsx`
+First import the DeviceSetup component we created:
+
+`src/App.tsx`
 
 ```ts
-...
-
 import { DeviceSetup } from './DeviceSetup';
+```
 
-...
+Then update the App to have a new testing state `deviceSetup`:
 
-type TestingState = 'runningPreCallChecks' | 'deviceSetup' | 'finished';
+```ts
+type TestingState = 'runningEnvironmentChecks' | 'runningDeviceAccessChecks' | 'deviceSetup' | 'finished';
+```
 
+And finally update our `App` component to transition the App to the device setup once the device access checks complete:
+
+```ts
+/**
+ * Entry point of a React app.
+ *
+ * This shows a PreparingYourSession component while the CallReadinessChecks are running.
+ * Once the CallReadinessChecks are finished, the TestComplete component is shown.
+ */
 const App = (): JSX.Element => {
-  const [testState, setTestState] = useState<TestingState>('runningPreCallChecks');
+  const [testState, setTestState] = useState<TestingState>('runningEnvironmentChecks');
 
   return (
     <FluentThemeProvider>
       <CallClientProvider callClient={callClient}>
-        {/* Show a Preparing your session screen while running the call readiness checks */}
-        {testState === 'runningPreCallChecks' && (
+        {/* Show a Preparing your session screen while running the environment checks */}
+        {testState === 'runningEnvironmentChecks' && (
           <>
             <PreparingYourSession />
-            <PreCallChecksComponent
-              onTestsSuccessful={() => setTestState('deviceSetup')}
-            />
+            <EnvironmentChecksComponent onTestsSuccessful={() => setTestState('runningDeviceAccessChecks')} />
+          </>
+        )}
+        
+        {/* Show a Preparing your session screen while running the device access checks */}
+        {testState === 'runningDeviceAccessChecks' && (
+          <>
+            <PreparingYourSession />
+            <DeviceAccessChecksComponent onTestsSuccessful={() => setTestState('deviceSetup')} />
           </>
         )}
 
@@ -107,10 +127,10 @@ const App = (): JSX.Element => {
 To present a list of selectable cameras, microphones and speakers to the user we can use the stateful call client.
 Here we'll create a series of React hooks. These React hooks will use the call client to query for available devices.
 The hooks will also ensure our application re-renders anytime the list changes, for example, if a new camera is plugged into the user's machine.
-For these hooks, we'll create a file called `deviceSetupHooks.tsx` and we'll create three hooks: `useMicrophones`, `useSpeakers` and `useCameras`.
+For these hooks, we'll create a file called `deviceSetupHooks.ts` and we'll create three hooks: `useMicrophones`, `useSpeakers` and `useCameras`.
 Each of these hooks will use `useCallClientStateChange` to update their lists anytime the user plugs/unplugs a device:
 
-`deviceSetupHooks.tsx`
+`src/deviceSetupHooks.ts`
 
 ```ts
 import { AudioDeviceInfo, VideoDeviceInfo } from "@azure/communication-calling";
@@ -207,7 +227,7 @@ We'll create new components that will use the hooks we created in `deviceSetupHo
 the chosen device when the user selects a different device from the dropdown.
 To house these new components, we'll create a file called `DeviceSelectionComponents.tsx` that will export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
 
-`DeviceSelectionComponents.tsx`
+`src/DeviceSelectionComponents.tsx`
 
 ```ts
 import { Dropdown } from '@fluentui/react';
@@ -288,17 +308,19 @@ const DeviceSelectionDropdown = (props: {
 
 ##### Add dropdowns to the Device Setup
 
-The camera, microphone and speaker dropdowns can then be added to the Device Setup component:
+The camera, microphone and speaker dropdowns can then be added to the Device Setup component.
 
-`deviceSetup.tsx`
+First, import the new Dropdowns:
+
+`src/DeviceSetup.tsx`
 
 ```ts
-...
-
 import { CameraSelectionDropdown, MicrophoneSelectionDropdown, SpeakerSelectionDropdown } from './DeviceSelectionComponents';
+```
 
-...
+Then create a component called `DeviceSetup` that houses these dropdowns. This component will also hold the local video preview we will create later.
 
+```ts
 export const DeviceSetup = (props: {
   /** Callback to let the parent component know what the chosen user device settings were */
   onDeviceSetupComplete: (userChosenDeviceState: { cameraOn: boolean; microphoneOn: boolean }) => void
@@ -324,9 +346,9 @@ export const DeviceSetup = (props: {
 
 Beside the dropdowns, we'll create a local video preview to allow the user to see what their camera is capturing. It will contain a small call controls bar with camera and microphone buttons to toggle camera on/off and microphone mute/unmute.
 
-First we'll add a new hook to our `deviceSetupHooks.tsx` called `useLocalPreview`. This hook will provide our react component with a localPreview to render and functions to start and stop the local preview:
+First we'll add a new hook to our `deviceSetupHooks.ts` called `useLocalPreview`. This hook will provide our react component with a localPreview to render and functions to start and stop the local preview:
 
-`deviceSetupHooks.tsx`
+`src/deviceSetupHooks.ts`
 
 ```ts
 /** A helper hook to providing functionality to create a local video preview */
@@ -385,7 +407,7 @@ export const useLocalPreview = (): {
 
 Then we'll create a new component called `LocalPreview.tsx` that will use that hook to display the local video preview to the user:
 
-`LocalPreview.tsx`
+`src/LocalPreview.tsx`
 
 ```ts
 import { StreamMedia, VideoTile, ControlBar, CameraButton, MicrophoneButton, useTheme } from '@azure/communication-react';
@@ -471,22 +493,20 @@ const localPreviewContainerMergedStyles = (theme: ITheme): string =>
 
 The local preview component can then be added to the Device Setup:
 
-`deviceSetup.tsx`
+`src/DeviceSetup.tsx`
 
 ```ts
-...
-
 import { LocalPreview } from './LocalPreview';
 import { useState } from 'react';
+```
 
-...
-
+```ts
 export const DeviceSetup = (props: {
   /** Callback to let the parent component know what the chosen user device settings were */
   onDeviceSetupComplete: (userChosenDeviceState: { cameraOn: boolean; microphoneOn: boolean }) => void
 }): JSX.Element => {
-  const [microphoneOn, setMicrophoneOn] = useState(true);
-  const [cameraOn, setCameraOn] = useState(true);
+  const [microphoneOn, setMicrophoneOn] = useState(false);
+  const [cameraOn, setCameraOn] = useState(false);
 
   return (
     <Stack verticalFill verticalAlign="center" horizontalAlign="center" tokens={{ childrenGap: '1rem' }}>
