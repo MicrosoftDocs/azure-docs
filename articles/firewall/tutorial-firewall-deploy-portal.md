@@ -62,8 +62,8 @@ The resource group contains all the resources used in this procedure.
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Create**.
 4. For **Subscription**, select your subscription.
-1. For **Resource group name**, type **Test-FW-RG**.
-1. For **Resource group location**, select a location. All other resources that you create must be in the same location.
+1. For **Resource group** name, type **Test-FW-RG**.
+1. For **Region**, select a region. All other resources that you create must be in the same region.
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -79,22 +79,22 @@ This VNet will have two subnets.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, select **Test-FW-RG**.
 1. For **Name**, type **Test-FW-VN**.
-1. For **Region**, select the same location that you used previously.
 1. Select **Next: IP addresses**.
-1. For **IPv4 Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnet name**, select **default**.
-1. For **Subnet name** change it to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+1. For **Address space**, accept the default **10.0.0.0/16**.
+1. Under **Subnet name**, select **default** and change it to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
 1. For **Address range**, change it to **10.0.1.0/26**.
-1. Select **Save**.
+1. For **Region**, select the same location that you used previously.
+1. Select **Review + Create**.
+1. Select **Create**.
 
    Next, create a subnet for the workload server.
 
-1. Select **Add subnet**.
-4. For **Subnet name**, type **Workload-SN**.
-5. For **Subnet address range**, type **10.0.2.0/24**.
-6. Select **Add**.
-7. Select **Review + create**.
-8. Select **Create**.
+1. When the deployment completes, select **Go to resource**.
+1. Select **Subnets**.
+1. Select **Add**.
+1. For **Name**, type **Workload-SN**.
+1. For **CIDR block**, type **10.0.2.0/24**.
+1. Select **OK**.
 
 ### Create a virtual machine
 
