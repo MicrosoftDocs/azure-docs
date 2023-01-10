@@ -17,7 +17,7 @@ ms.custom: template-how-to
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Azure Machine Learning supports submission of standalone machine learning jobs, and creation of [machine learning pipelines](./concept-ml-pipelines.md), that involve multiple machine learning workflow steps. Azure Machine Learning handles both standalone Spark job creation, and creation of reusable Spark components that Azure Machine Learning pipelines can use. In this article, you'll learn how to submit Spark jobs using:
-- Azure Machine Learning studio UI
+- Azure Machine Learning Studio UI
 - Azure Machine Learning CLI
 - Azure Machine Learning SDK
 
@@ -41,11 +41,11 @@ Azure Machine Learning supports submission of standalone machine learning jobs, 
 
 # [Studio UI](#tab/ui)
 
-These prerequisites cover the submission of a Spark job from Azure Machine Learning studio UI:
+These prerequisites cover the submission of a Spark job from Azure Machine Learning Studio UI:
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - To enable this feature:
-  1. Navigate to Azure Machine Learning studio UI.
+  1. Navigate to Azure Machine Learning Studio UI.
   2. Select **Manage preview features** (megaphone icon) from the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
   :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
@@ -403,16 +403,16 @@ This functionality isn't available in the Studio UI. The Studio UI doesn't suppo
 
 ---
 
-### Submit a standalone Spark job from Azure Machine Learning studio UI
-To submit a standalone Spark job using the Azure Machine Learning studio UI:
+### Submit a standalone Spark job from Azure Machine Learning Studio UI
+To submit a standalone Spark job using the Azure Machine Learning Studio UI:
 
-:::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
+:::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning Studio UI.":::
 
 - In the left pane, select **+ New**.
 - Select **Spark job (preview)**.
 - On the **Compute** screen:
  
-:::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job_compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
+:::image type="content" source="media/how-to-submit-spark-jobs/create_standalone_spark_job_compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning Studio UI.":::
 
 1. Under **Select compute type**, select **Spark automatic compute (Preview)** for Managed (Automatic) Spark compute, or **Attached compute** for an attached Synapse Spark pool.
 1. If you selected **Spark automatic compute (Preview)**:
