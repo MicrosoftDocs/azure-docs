@@ -96,7 +96,7 @@ Query keys are used for read-only access to documents within an index for operat
 
 Restricting access and operations in client apps is essential to safeguarding the search assets on your service. Always use a query key rather than an admin key for any query originating from a client app.
 
-### [**Azure portal**](#tab/portal-query
+### [**Azure portal**](#tab/portal-query)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
@@ -106,11 +106,11 @@ Restricting access and operations in client apps is essential to safeguarding th
 
    :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Screenshot of the query key management options." border="true":::
 
-### [**Azure CLI**](#tab/azure-cli-query
+### [**Azure CLI**](#tab/azure-cli-query)
 
 A script example showing query key usage can be found at [Create or delete query keys](search-manage-azure-cli.md#create-or-delete-query-keys).
 
-### [**.NET**](#tab/dotnet-query
+### [**.NET**](#tab/dotnet-query)
 
 A code example showing query key usage can be found in [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
