@@ -184,7 +184,7 @@ To configure MAPS, follow the instructions in [Azure Internet peering for Commun
  |The Azure subscription to use to create an Azure Communications Gateway resource. You must use the same subscription for all resources in your Azure Communications Gateway deployment. |**Project details: Subscription**|
  |The Azure resource group in which to create the Azure Communications Gateway resource. |**Project details: Resource group**|
  |The name for the deployment. |**Instance details: Name**|
- |This is the region in which your monitoring and billing data is processed. We recommend that you select a region near or co-located with the two regions that will be used for handling call traffic". |**Instance details: Region**
+ |This is the region in which your monitoring and billing data is processed. We recommend that you select a region near or co-located with the two regions that will be used for handling call traffic. |**Instance details: Region**
  |The voice codecs the Azure Communications Gateway will be able to support when communicating with your network. |**Project details: Supported Codecs**|
  |The Unified Communications as a Service (UCaaS) platform Azure Communications Gateway will support. These platforms are Teams Phone Mobile and Operator Connect Mobile. |**Project details: Supported Voice Platforms**|
  |Whether your Azure Communications Gateway resource should handle emergency calls as standard calls or directly route them to the Emergency Services Routing Proxy (ESRP). |**Project details: Emergency call handling**|
