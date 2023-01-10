@@ -1,7 +1,7 @@
 ---
 title: Update Defender for IoT OT monitoring software versions
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
-ms.date: 06/02/2022
+ms.date: 01/10/2023
 ms.topic: how-to
 ---
 
@@ -68,50 +68,72 @@ In such cases, make sure to update your on-premises management consoles *before*
 You can update software on your sensors individually, directly from each sensor console, or in bulk from the on-premises management console. Select one of the following tabs for the steps required in each method.
 
 > [!NOTE]
-> If you are updating from software versions earlier than [22.1.x](whats-new.md#update-to-version-221x), note that this version has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
+> If you are updating from software versions earlier than [22.1.x](whats-new.md#update-to-version-221x), note that [version 22.1.x](release-notes.md#2223-5) has a large update with more complicated background processes. Expect this update to take more time than earlier updates have required.
 >
 
-> [!IMPORTANT]
-> If you're using an on-premises management console to manage your sensors, make sure to update your on-premises management console software *before* you update your sensor software.
->
-> On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
->
-> For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
->
+### Prerequisites
+
+If you're using an on-premises management console to manage your sensors, make sure to update your on-premises management console software *before* you update your sensor software.
+
+On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
+
+For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 
 
 # [From the Azure portal (Public preview)](#tab/portal)
 
-This procedure describes how to send a software version update to an OT sensor and then run the update directly from the Azure portal.
+This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
 
 > [!TIP]
 > Sending your version update and running the update process are two separate steps, which can be done one right after the other or at different times.
 >
-> For example, have the update first sent to your sensor and then wait for an administrator to run the installation during a planned maintenance window.
+> For example, you might want to first send the update to your sensor and then an administrator to run the installation during a planned maintenance window.
+
+**Prerequisites**:
+
+- You must be updating a sensor from version [22.2.3](release-notes.md#2223-5) or higher.
+
+- Verify that your firewall rules are configured as needed to support remote updates. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal). <!--need to check this with Yair.-->
+
 
 **To send the software update to your OT sensor**:
 
 1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed.
 
-    If you know your site and sensor name, you can browse or search for it directly. Alternately, filter the sensors listed by *Sensor version*, to show sensors with versions earlier than the most recent version available, and *Remote updates supported*.
+    If you know your site and sensor name, you can browse or search for it directly. Alternately, filter the sensors listed by *Sensor version*, to show sensors with versions earlier than the most recent version available, and *Remote updates supported*. For example:
 
-1. Select one or more sensors to update, and then select **Update (Preview)** > **Upload package**. For a specific sensor, you can also access the **Upload package** option from the **...** options menu to the right of the sensor row.
+    :::image type="content" source="media/update-ot-software/filter-remote-update.png" alt-text="Screenshot of how to filter for OT sensors that are ready for remote update.":::
+
+1. Select one or more sensors to update, and then select **Update (Preview)** > **Send package**. For a specific sensor, you can also access the **Send package** option from the **...** options menu to the right of the sensor row. For example:
+
+    :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option.":::
 
 1. In the **Send package** pane that appears on the right, check to make sure that you're sending the correct software to the sensor you want to update. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
     To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Upload package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your update versions.
+1. When you're ready, select **Send package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column. 
 
-**Update your sensor from the Azure portal**
+    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false":::. 
 
-1. When the **Sensor version** column reads :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: *Ready to update*, select **Update (Preview)** in the toolbar > **Update sensor**.
+    Hover over the **Sensor version** value to see the source and target version for your update.
+
+**To run your sensor update from the Azure portal**:
+
+When the **Sensor version** column for your sensors reads :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false":::, you're ready to run your update.
+
+1. As in the previous step, either select multiple sensors that are ready to update, or select one sensor at a time.
+
+1. Select either **Update (Preview)** > **Update sensor** from the toolbar, or for an individual sensor, select the **...** options menu > **Update sensor**. For example:
+
+    :::image type="content" source="media/update-ot-software/update-sensor.png" alt-text="Screenshot of the Update sensor option.":::
 
 1. In the **Update sensor (Preview)** pane that appears on the right, verify your update details.
 
-    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to *Installing* until the update is complete, when the value switches to the new sensor version number instead.
+    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: until the update is complete, when the value switches to the new sensor version number instead.
 
 If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview) and [Sensor health message reference](sensor-health-messages.md).
+
 
 # [From an OT sensor UI](#tab/sensor)
 
