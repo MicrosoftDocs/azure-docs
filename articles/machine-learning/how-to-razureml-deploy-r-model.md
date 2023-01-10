@@ -5,7 +5,7 @@ description: 'Learn how to deploy your R model to an online (real-time) managed 
 ms.service: machine-learning
 ms.date: 11/10/2022
 ms.topic: how-to
-author: samuel100
+author: wahalulu
 ms.author: samkemp
 ms.reviewer: sgilley
 ms.devlang: r
@@ -15,102 +15,96 @@ ms.devlang: r
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you'll learn how to deploy an R model to a managed endpoint (Web API) so that your application can score new data against the model in near real-time. The steps you'll take are:
-
-> [!div class="checklist"]
-> - Package an R model using the [carrier package](https://github.com/r-lib/carrier) so that the model is reproducible.
-> - Create a scoring R script using [plumber](https://www.rplumber.io/).
-> - Create a custom Docker image containing all the required dependencies (for example; operating system, R version, R packages) to run your model in production.
-> - Deploy your custom image to an online managed endpoint so you can score new data against your model in near real-time.
-> - Test your deployed model.
+In this article, you'll learn how to deploy an R model to a managed endpoint (Web API) so that your application can score new data against the model in near real-time. 
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- A familiarity with the [R programming language](http://www.r-project.org).
-- The [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install).
-- A local machine with [R](http://www.r-project.org) installed, or an Azure Machine Learning compute instance that has been [setup with RStudio](how-to-create-manage-compute-instance.md#setup-rstudio-open-source). 
-- In your R environment, you'll need to install the [carrier package](https://github.com/r-lib/carrier) using `install.packages("carrier")`
+- An [Azure Machine Learning workspace](quickstart-create-resources.md).
+- An [Azure Container Registry] associated with the workspace
+- One or more models
+- Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
+- [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job.
+- An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
 
-## Set up folder structure for project
+## Create a folder with this structure
 
 Create this folder structure for your project:
+> ```
+> 📁 r-deploy-azureml
+> ├─ docker-context
+> │  ├─ Dockerfile
+> │  ├─ start_plumber.R
+> ├─ src
+> │  ├─ plumber.R
+> ├─ deployment.yml
+> ├─ endpoint.yml
+> ```
 
-```bash
-# create a parent project folder 
-mkdir azureml-deploy-r
+![NOTE]
+> The endpoint and deployment files are explained [later in the article](#deploy-model).
 
-# change directory to the project folder
-cd azureml-deploy-r
+### The `Dockerfile`
 
-# create a subfolder to store docker container build details
-mkdir docker-context
+This is the file that defines the container environment. You will also define the installation of any additional R packages here.
 
-# create a subfolder to store models
-mkdir models
+A sample **Dockerfile** will look like this:
 
-# create a subfolder to store R scripts
-mkdir scripts
+```dockerfile
+# REQUIRED: Begin with the latest R container with plumber
+FROM rstudio/plumber:latest
+
+# REQUIRED: Install carrier package to be able to use the crated model (wether from a training job
+# or uploaded)
+RUN R -e "install.packages('carrier', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
+
+# OPTIONAL: Install any additional R packages you may need for your model crate to run
+RUN R -e "install.packages('<PACKAGE-NAME>', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
+RUN R -e "install.packages('<PACKAGE-NAME>', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
+
+# REQUIRED
+ENTRYPOINT []
+
+COPY ./start_plumber.R /tmp/start_plumber.R 
+
+CMD ["Rscript", "/tmp/start_plumber.R"]
 ```
 
-> [!NOTE]
-> Your folder structure should look like:
->```
-> └── 📁 azureml-deploy-r 
->     ├── 📁 docker-context
->     ├── 📁 models
->     └── 📁 scripts
->```
+### The `plumber.R` file
 
-## Train and package an R Model
+> [!IMPORTANT]
+> This section shows how to structure the **plumber.R** script. Please read [`plumber's` documentation](https://www.rplumber.io/index.html) for detailed information about the `plumber` package.
 
-In an R console, execute the code below to train a model using `rpart` on the infamous `iris` dataset (which is built into R). The model is packaged into a *crate* using the [carrier package](https://github.com/r-lib/carrier), which creates functions in a self-contained environment. Using `crate` has two advantages:
+This is the R script where you will define the function for scoring. This scrip also performs the following tasks that are necessary to make all of this work. The script:
 
-1. They can easily be executed in another process.
-1. Their effects are reproducible. You can run them locally with the same results as on a different process.
+- Gets the path where the model is mounted from the `AZUREML_MODEL_DIR` environment variable 
+- Loads a model object created with the `crate` function from the `carrier` package which is saved as **crate.bin**.
+- _Unserializes_ the model object
+- Defines the scoring function
 
-```r
-# train.R
-library(rpart)
-library(carrier)
-
-# set working directory to the project
-setwd("./azureml-deploy-r")
-
-# train a model on the iris data
-model <- rpart(Species ~ ., data = iris, method = "class")
-
-# create a crate
-predictor <- crate(~ stats::predict(!!model, .x, method = "class"))
-
-# save the crate to an rds file
-saveRDS(predictor, file="./models/iris-model.rds")
-```
-
-## Create an R script to score new data using plumber
-
-You'll use [plumber](https://www.rplumber.io/) to create a web API by merely decorating your existing R source code with roxygen2-like comments.
-
-Create a new R file in the scripts subfolder of your project called `plumber.R` that contains the code below.
+> [!TIP]
+> Make sure that whatever your scoring function produces can be converted back to JSON. Some R objects are not easily converted.
 
 ```r
 # plumber.R
 # This script will be deployed to a managed endpoint to do the model scoring
 
-# << Get the model directory >>
+# REQUIRED
 # When you deploy a model as an online endpoint, AzureML mounts your model
 # to your endpoint. Model mounting enables you to deploy new versions of the model without
-# having to create a new Docker image. By default, a model registered with the name foo
-# and version 1 would be located at the following path inside of your deployed 
-# container: var/azureml-app/azureml-models/foo/1
+# having to create a new Docker image.
 
-# For example, if you have a directory structure of /azureml-examples/cli/endpoints/online/custom-container on your local # machine, where the model is named half_plus_two:
-# model_dir <- Sys.getenv("AZUREML_MODEL_DIR")
+model_dir <- Sys.getenv("AZUREML_MODEL_DIR")
 
-# << Read the predictor function >>
-# This reads the serialized predictor function we stored in a crate
-model <- readRDS(paste0(model_dir,"/models/iris-model.rds"))
+# REQUIRED
+# This reads the serialized model with its respecive predict/score method you 
+# registered. The loaded load_model object is a raw binary object.
+load_model <- readRDS(paste0(model_dir, "/models/crate.bin"))
 
+# REQUIRED
+# You have to unserialize the load_model object to make it its function
+scoring_function <- unserialize(load_model)
+
+# REQUIRED
 # << Readiness route vs. liveness route >>
 # An HTTP server defines paths for both liveness and readiness. A liveness route is used to
 # check whether the server is running. A readiness route is used to check whether the 
@@ -132,62 +126,27 @@ function() {
 
 # << The scoring function >>
 # This is the function that is deployed as a web API that will score the model
-# notice how it accepts parameters and posts back the classification.
+# Make sure that whatever you are producing as a score can be converted 
+# to JSON to be sent back as the API response
 
-#* @param sepal_length
-#* @param sepal_width
-#* @param petal_length
-#* @param petal_width
+#* @param forecast_horizon
 #* @post /score
-function(sepal_length, sepal_width, petal_length, petal_width) {
-  newdata <- data.frame(
-    Sepal.Length=sepal_length,
-    Sepal.Width=sepal_width,
-    Petal.Length=petal_length,
-    Petal.Width=petal_width
-  )
-  scores<-model(newdata)
-  return(colnames(scores)[which.max(scores)])
+function(forecast_horizon) {
+  scoring_function(as.numeric(forecast_horizon)) |> 
+    tibble::as_tibble() |> 
+    dplyr::transmute(period = as.character(yr_wk),
+                     dist = as.character(logmove),
+                     forecast = .mean) |> 
+    jsonlite::toJSON()
 }
-```
-
-Your project folder structure will look like:
 
 ```
-└── 📁 azureml-deploy-r 
-    ├── 📁 docker-context
-    ├── 📁 models
-    │   └── 📄iris-model.rds
-    └── 📁 scripts
-        └── 📄plumber.R
-```
 
-## Create a custom Docker image
+### The `start_plumber.R` file
 
-Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning - for example, plumber in R. These deployments still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
-
-In this section you'll learn how to bundle all your model dependencies (operating system, Linux packages, R packages) into a Docker image.
-
-### Create a `Dockerfile`
-
- A `Dockerfile` is a text document that contains all the commands a user could call on the command line to assemble an image. In your project docker-context subfolder, create a file called `Dockerfile` that contains:
-
-```dockerfile
-# ./docker-context/Dockerfile
-FROM rstudio/plumber:latest
-
-ENTRYPOINT []
-
-COPY ./start_plumber.R /tmp/start_plumber.R 
-
-CMD ["Rscript", "/tmp/start_plumber.R"]
-```
-
-You'll notice that the `Dockerfile` is going to run an R script called **start_plumber.R**, which will initialize plumber. In your project `docker-context` subfolder, create an R script called `start_plumber.R` that contains the following code:
+This is the R script that gets run when the container starts, and it calls your **plumber.R** script. Use the script below as-is.
 
 ```r
-# ./docker-context/start_plumber.R
-
 entry_script_path <- paste0(Sys.getenv('AML_APP_ROOT'),'/', Sys.getenv('AZUREML_ENTRY_SCRIPT'))
 
 pr <- plumber::plumb(entry_script_path)
@@ -203,27 +162,23 @@ if (packageVersion('plumber') >= '1.0.0') {
 do.call(pr$run, args)
 ```
 
-### Build container
+## Register model
 
-Your project folder structure will now look as follows:
+This article shows you how to register a model created in a training job run and packaged with crate. See the [modify R script article](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package) and the [run training job]() articles for mor information.
 
-```
-└── 📁 azureml-deploy-r 
-    ├── 📁 docker-context
-    │   └── 📄start_plumber.R
-    │   └── 📄Dockerfile
-    ├── 📁 models
-    │   └── 📄iris-model.rds
-    └── 📁 scripts
-        └── 📄plumber.R
-```
+@@sdgilley 
 
-To build the image in the cloud, execute the following bash commands in your terminal:
+Need screen shots
+
+
+## Build container
+
+To build the image in the cloud, execute the following bash commands in your terminal. Replace <IMAGE-NAME> with the name you want to give the image.
 
 ```bash
 WORKSPACE=$(az config get --query "defaults[?name == 'workspace'].value" -o tsv)
 ACR_NAME=$(az ml workspace show -n $WORKSPACE --query container_registry -o tsv | cut -d'/' -f9-)
-IMAGE_TAG=${ACR_NAME}.azurecr.io/r_server
+IMAGE_TAG=${ACR_NAME}.azurecr.io/<IMAGE-NAME>
 
 az acr build ./docker-context -t $IMAGE_TAG -r $ACR_NAME
 ```
@@ -235,9 +190,7 @@ The `az acr` command will automatically upload your docker-context folder - that
 
 ## Deploy model
 
-In this section of the article, you'll deploy the model and image built in the previous steps to a managed online endpoint. 
-
-### Create managed online endpoint
+In this section of the article, you'll define and create an [endpoint and deployment](concept-endpoints.md) to deploy the model and image built in the previous steps to a managed online endpoint. 
 
 An *endpoint* is an HTTPS endpoint that clients - such as an application - can call to receive the scoring output of a trained model. It provides:
 
@@ -246,48 +199,52 @@ An *endpoint* is an HTTPS endpoint that clients - such as an application - can c
 > - SSL termination
 > - A stable scoring URI (endpoint-name.region.inference.ml.Azure.com)
 
-In your project directory, create a new YAML file called **r-endpoint.yml** and populate it with:
+A *deployment* is a set of resources required for hosting the model that does the actual scoring. A ***single** endpoint* can contain ***multiple** deployments*. The load balancing capabilities of Azure Machine Learning managed *endpoints* allows you to give any percentage of traffic to each deployment. Traffic allocation can be used to do safe rollout blue/green deployments by balancing requests between different instances.
+
+### Create managed online endpoint
+
+In your project directory, add the **endpoint.yml** file with the code below. Replace <ENDPOINT-NAME> with the name you want to give your managed endpoint.
 
 ```yml
-# r-endpoint.yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
-name: r-endpoint-iris
+name: <ENDPOINT-NAME>
 auth_mode: aml_token
 ```
 
 Next, in your terminal execute the following CLI command to create an endpoint:
 
 ```azurecli
-az ml online-endpoint create -f r-endpoint.yml
+az ml online-endpoint create -f endpoint.yml
 ```
 
 ### Create deployment
 
-A *deployment* is a set of resources required for hosting the model that does the actual scoring. A ***single** endpoint* can contain ***multiple** deployments*. The load balancing capabilities of Azure Machine Learning managed *endpoints* allows you to give any percentage of traffic to each deployment. Traffic allocation can be used to do safe rollout blue/green deployments by balancing requests between different instances.
+To create your deployment, add the **deployment.yml** with the code below. 
 
-To create your deployment, add a YAML file to your project folder called **r-deployment.yml** and populate it with the following:
+* Replace <ENDPOINT-NAME> with the endpoint name you defined in the **environment.yml** file
+* Replace <DEPLOYMENT-NAME> with the name you want to give the deployment
+* Replace <MODEL-URL> with the registered model's URI in the form of `azureml:modelname@latest`
+* Replace <IMAGE-TAG> with the name of the created image you defined earlier
 
-> [!IMPORTANT]
-> In the YAML file below, update the `<ACR_NAME>` placeholder. You can find the Azure Container Registry name with:
+> [!TIP]
+> You can find the Azure Container Registry name with:
 >
-> ```azurecli
-> az ml workspace show -n $WORKSPACE --query container_registry -o tsv | cut -d'/' -f9-
+> ```bash
+> echo $IMAGE_TAG
 > ```
 
+
+
 ```yml
-# ./r-deployment.yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: r-deployment
-endpoint_name: r-endpoint-iris
+name: <DEPLOYMENT-NAME>
+endpoint_name: <ENDPOINT-NAME>
 code_configuration:
-  code: ./scripts
+  code: ./src
   scoring_script: plumber.R
-model:
-  name: rplumber
-  version: 1
-  path: ./models
+model: <MODEL-URI>
 environment:
-  image: <ACR_NAME>.azurecr.io/r_server
+  image: <IMAGE-TAG>
   inference_config:
     liveness_route:
       port: 8000
