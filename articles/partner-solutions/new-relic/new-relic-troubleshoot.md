@@ -19,7 +19,7 @@ Try the troubleshooting information in this article first. If that doesn't work,
 
 :::image type="content" source="media/new-relic-troubleshoot/new-relic-support.png" alt-text="Screenshot that shows the pane for a New Relic support request.":::
 
-## You got a purchase error
+## Fix common errors
 
 A purchase can fail because a valid credit card isn't connected to the Azure subscription, or because a payment method isn't associated with the subscription. To solve this problem, use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](/azure/cost-management-billing/manage/change-credit-card).
 
