@@ -25,7 +25,7 @@ OCI 1.1 Artifact Manifest support is an ACR preview feature and subject to [limi
 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI][az-acr-create].  
 *See [Preview limitations](#preview-limitations) for Azure cloud support.*
-* **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI](/cli/azure/install-azure-cli) for installation and/or upgrade.
+* **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI][azure-cli-install] for installation and/or upgrade.
 * **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
 * **Docker (Optional)** - To complete the walkthrough, a container image is referenced.
 You can use [Docker installed locally][docker-install] to build and push a container image, or use [`acr build`][az-acr-build] to build remotely in Azure.  
@@ -401,7 +401,7 @@ In this article, a graph of supply chain artifacts are created, discovered, prom
 
 <!-- LINKS - internal -->
 [acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
-[az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
+[az-acr-create]:            /azure/container-registry/container-registry-get-started-azure-cli
 [az-acr-build]:             /cli/azure/acr#az_acr_build
 [az-acr-manifest-metadata]: /cli/azure/acr/manifest/metadata
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

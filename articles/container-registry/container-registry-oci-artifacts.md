@@ -17,7 +17,7 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 ## Prerequisites
 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or [az acr create][az-acr-create].
-* **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI](/cli/azure/install-azure-cli) for installation and/or upgrade.
+* **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI][azure-cli-install] for installation and/or upgrade.
 * **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
 * **Docker (Optional)** - While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.
 
@@ -30,7 +30,6 @@ ACR_NAME=myregistry
 REGISTRY=$ACR_NAME.azurecr.io
 ```
 
-To create a new registry, see [Quickstart: Create a container registry using the Azure CLI][az-acr-create]
 ## Sign in to a registry
 
 Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
@@ -218,6 +217,6 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
 [acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
-[az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
+[az-acr-create]:            /azure/container-registry/container-registry-get-started-azure-cli
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
 [azure-cli-install]:        /cli/azure/install-azure-cli
