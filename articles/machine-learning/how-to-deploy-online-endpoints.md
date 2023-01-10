@@ -1101,6 +1101,10 @@ If you aren't going use the deployment, you should delete it by running the foll
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
+# [Studio](#tab/azure-studio)
+
+Add details
+
 # [ARM template](#tab/arm)
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
