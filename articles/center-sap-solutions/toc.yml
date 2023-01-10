@@ -20,8 +20,6 @@ items:
       href: workloads/get-started.md
     - name: What SAP workloads run on Azure?
       href: workloads/certifications.md
-    - name: Using SAP on Linux VMs
-      href: workloads/sap-get-started-classic.md
     - name: Disaster recovery overview and infrastructure
       href: workloads/disaster-recovery-overview-guide.md
     - name: Disaster recovery for SAP workloads

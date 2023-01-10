@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Keys client library f
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.author: mbaldwin
-ms.date: 01/05/2021
+ms.date: 01/04/2023
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -12,7 +12,8 @@ ms.devlang: java
 ---
 
 # Quickstart: Azure Key Vault Key client library for Java
-Get started with the Azure Key Vault Key client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
+
+Get started with the Azure Key Vault Key client library for Java. Follow these steps to install the package and try out example code for basic tasks.
 
 Additional resources:
 
@@ -27,7 +28,7 @@ Additional resources:
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) and [Apache Maven](https://maven.apache.org) in a Linux terminal window.
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) and [Apache Maven](https://maven.apache.org) in a Linux terminal window.
 
 ## Setting up
 This quickstart is using the Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/java/api/overview/azure/identity-readme).
@@ -133,7 +134,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 ## Object model
 The Azure Key Vault Key client library for Java allows you to manage keys. The [Code examples](#code-examples) section shows how to create a client, create a key, retrieve a key, and delete a key.
 
-The entire console app is [below](#sample-code).
+The entire console app is supplied in [Sample code](#sample-code).
 
 ## Code examples
 ### Add directives
@@ -151,9 +152,10 @@ import com.azure.security.keyvault.keys.models.KeyVaultKey;
 ```
 
 ### Authenticate and create a client
+
 In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/java/api/overview/azure/identity-readme).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. This example is using the ['DefaultAzureCredential()'](/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/java/api/overview/azure/identity-readme).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -166,7 +168,7 @@ KeyClient keyClient = new KeyClientBuilder()
 ```
 
 ### Create a key
-Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type -- we've assigned the value "myKey" to the `keyName` variable and use a an RSA `KeyType` in this sample.
+Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type. We've assigned the value "myKey" to the `keyName` variable and use a an RSA `KeyType` in this sample.
 
 ```java
 keyClient.createKey(keyName, KeyType.RSA);
@@ -262,7 +264,7 @@ public class App {
 ```
 
 ## Next steps
-In this quickstart you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read the [Key Vault security overview](../general/security-features.md)
