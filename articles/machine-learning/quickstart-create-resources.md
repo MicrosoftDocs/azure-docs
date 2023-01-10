@@ -22,9 +22,9 @@ In this quickstart, you'll create and work with:
 
 Once you've created the workspace and compute, you'll use them to:
 
-* Upload files
-* Run a Jupyter notebook
-* Run a Python script
+* Upload files to the cloud
+* Run a Jupyter notebook on the compute instance
+* Run a Python script on the compute instance
 
 Finally, you'll see how to use included sample notebooks to learn more about Azure Machine Learning.
 
