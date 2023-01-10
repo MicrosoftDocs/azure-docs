@@ -132,11 +132,16 @@ The pipeline requires the following parameters to be configured:
 To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
-2. Select __Pipeline__ > __Import from pipeline template__
-3. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
-4. A preview of the pipeline will show up in the portal. Click __Use this template__.
-5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
-6. Configure the parameters of the batch deployment you are using:
+
+1. Select __Pipeline__ > __Import from pipeline template__
+
+1. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
+
+1. A preview of the pipeline will show up in the portal. Click __Use this template__.
+
+1. The pipeline will be created for you with the name __Run-BatchEndpoint__.
+
+1. Configure the parameters of the batch deployment you are using:
 
   # [Using a Managed Identity](#tab/mi)
   
