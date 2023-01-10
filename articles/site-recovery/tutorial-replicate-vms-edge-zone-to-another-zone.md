@@ -34,7 +34,7 @@ Here the primary location is an Azure Public MEC and secondary location is anoth
     Get-InstalledModule -Name Az
     ```
 
-- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
+- Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](./azure-to-azure-support-matrix.md#linux).
 - Ensure the primary VM has a public IP. To validate, go to the VM NIC and check if public IP is attached to the NIC. Ensure that recovery VM has a public IP when you switch to protection direction. 
 
     >[!Note]
