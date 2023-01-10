@@ -20,7 +20,7 @@ For more information, see [Monitoring Azure Functions with Azure Monitor Applica
 
 ## Spring Boot
 
-Read the Spring Boot documentation [on this website](../app/java-in-process-agent.md).
+For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ## Third-party container images
 
