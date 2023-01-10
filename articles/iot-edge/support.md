@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/08/2022
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge supported platforms
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article explains what operating system platforms, IoT Edge runtimes, container engines, and components are supported by IoT Edge whether generally available or in preview.
 

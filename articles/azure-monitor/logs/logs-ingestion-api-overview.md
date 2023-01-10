@@ -72,7 +72,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 ```
 
 > [!NOTE]
-> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from DCR](tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
+> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from the DCR](tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
 
 ### Headers
 

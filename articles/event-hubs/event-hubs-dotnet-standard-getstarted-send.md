@@ -138,7 +138,6 @@ Here are the important steps from the code:
 In the code sample below, replace the `<CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters.
 
 ```csharp
-using Azure.Identity;
 using Azure.Messaging.EventHubs;
 using Azure.Messaging.EventHubs.Producer;
 using System.Text;

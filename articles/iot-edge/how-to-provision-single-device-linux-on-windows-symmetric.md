@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Create and provision an IoT Edge for Linux on Windows device using symmetric keys
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
 
@@ -48,16 +48,16 @@ This article covers using symmetric keys as your authentication method. If you w
 This article covers registering your IoT Edge device and installing IoT Edge for Linux on Windows. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
 
 <!-- Device registration prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
+[!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
 
 <!-- IoT Edge for Linux on Windows installation prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](../../includes/iot-edge-prerequisites-linux-on-windows.md)]
+[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](includes/iot-edge-prerequisites-linux-on-windows.md)]
 
 <!-- Register your device and View provisioning information H2s and content -->
-[!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
+[!INCLUDE [iot-edge-register-device-symmetric.md](includes/iot-edge-register-device-symmetric.md)]
 
 <!-- Install IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/iot-edge-install-linux-on-windows.md)]
+[!INCLUDE [install-iot-edge-linux-on-windows.md](includes/iot-edge-install-linux-on-windows.md)]
 
 ## Provision the device with its cloud identity
 
@@ -221,7 +221,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

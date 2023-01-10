@@ -62,7 +62,7 @@ When reading CSV data, the connector uses the Spark FAILFAST option by default. 
   .option("entity", "permissive") or .option("mode", "failfast")
 ```
 
-For example, [here's an example python sample.](https://github.com/Azure/spark-cdm-connector/blob/master/samples/SparkCDMsamplePython.ipynb)
+For example, [here's an example Python sample.](https://github.com/Azure/spark-cdm-connector/blob/master/samples/SparkCDMsamplePython.ipynb)
 
 ## Writing data
 

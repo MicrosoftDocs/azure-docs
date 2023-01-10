@@ -304,7 +304,7 @@
   - name: PowerShell
     href: /powershell/module/az.containerregistry
   - name: .NET
-    href: /dotnet/api/overview/azure/containerregistry
+    href: /dotnet/api/overview/azure/container-registry
   - name: Python
     href: /python/api/overview/azure/container-registry
   - name: Java

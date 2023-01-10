@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 6/30/2020
+ms.date: 9/12/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 In this article, we create three IoT Edge modules that receive messages from downstream IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 

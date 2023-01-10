@@ -28,7 +28,7 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 Install npm package:
 
 ```bash
-npm install @microsoft/applicationinsights-angularplugin-js
+npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
 ```
 
 ## Basic usage
