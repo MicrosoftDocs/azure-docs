@@ -20,7 +20,7 @@ The entity linking feature can be used to identify and disambiguate the identity
 
 ## Development options
 
-[!INCLUDE [development-options](includes/development-options.md)]
+[!INCLUDE [development-options](../includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 
