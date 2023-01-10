@@ -17,9 +17,17 @@ This document describes the subprotocol json.reliable.webpubsub.azure.v1.
 > [!NOTE]
 > Reliable protocols are still in preview. Some changes are expected in the future.
 
-When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pubsub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
+When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
 
-To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  A *Reliable PubSub WebSocket client* can reconnect a dropped connection.
+To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  
+
+A *Reliable PubSub WebSocket client* can:
+
+* reconnect a dropped connection.
+* recover from message loss.
+* join a group using [join requests](#join-groups).
+* publish messages directly to a group using [publish requests](#publish-messages).
+* route messages directly to upstream event handlers using [event requests](#send-custom-events).
 
 For example, you can create a *Reliable PubSub WebSocket client* with the following JavaScript code:
 
@@ -29,7 +37,7 @@ var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'j
 
 See [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection and message reliability for publisher and subscriber clients.
 
-When the client is using this subprotocol, both outgoing and incoming data frames are expected to contain JSON payloads.
+When the client is using this subprotocol, both outgoing and incoming data frames must contain JSON payloads.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
@@ -50,7 +58,7 @@ Format:
 
 Reliable PubSub WebSocket client must send a sequence ack message once it receives a message from the service. For more information, see [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
  
-* `sequenceId` is a incremental uint64 number from the message received.
+* `sequenceId` is an incremental uint64 number from the message received.
 
 ## Responses
 
@@ -58,7 +66,7 @@ Messages received by the client can be several types: `ack`, `message`, and `sys
 
 ### Ack response
 
-When the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response using an `async` `await` operation, and have a timeout handler when the ack response is not received during a certain period.
+When the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response using an `async` `await` operation, and have a timeout handler when the ack response isn't received during a certain period.
 
 Format:
 ```json
@@ -182,7 +190,7 @@ Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnec
 
 #### Disconnected
 
-When the server closes the connection, or when the service declines the client.
+The response when the server closes the connection or when the service declines the client connection.
 
 ```json
 {
