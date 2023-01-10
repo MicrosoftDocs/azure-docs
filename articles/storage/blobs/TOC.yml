@@ -422,8 +422,6 @@ items:
                   href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Configure customer-managed keys in a managed HSM
               href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Provide an encryption key on a request
-            href: storage-blob-customer-provided-key.md
           - name: Manage encryption scopes
             href: encryption-scope-manage.md
           - name: Enable infrastructure encryption for the account
@@ -464,8 +462,6 @@ items:
             href: soft-delete-blob-manage.md
         - name: Enable point-in-time restore
           href: point-in-time-restore-manage.md
-        - name: Create snapshots (.NET)
-          href: snapshots-manage-dotnet.md
         - name: Process change feed logs
           href: storage-blob-change-feed-how-to.md
         - name: Configure an immutability policy
@@ -508,8 +504,6 @@ items:
           href: object-replication-configure.md
         - name: Prevent object replication across tenants
           href: object-replication-prevent-cross-tenant-policies.md
-      - name: Manage concurrency
-        href: concurrency-manage.md
       - name: Host a static website
         items:
         - name: Host a static website
@@ -614,14 +608,22 @@ items:
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
               href: storage-blob-container-lease.md
+            - name: Create and manage snapshots
+              href: snapshots-manage-dotnet.md
           - name: Append blob actions
             items:
             - name: Append data to an append blob
               href: storage-blob-append.md
-          - name: Implement a retry policy
-            href: storage-retry-policy.md
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download.md
+          - name: Client library configuration options
+            items:
+            - name: Performance tuning for uploads and downloads
+              href: storage-blobs-tune-upload-download.md
+            - name: Implement a retry policy
+              href: storage-retry-policy.md
+            - name: Manage concurrency
+              href: concurrency-manage.md
+            - name: Provide an encryption key on a write request
+              href: storage-blob-customer-provided-key.md
         - name: Java
           items:
           - name: Get started

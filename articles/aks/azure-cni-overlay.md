@@ -115,13 +115,13 @@ Register the `AzureOverlayPreview` feature flag by using the [az feature registe
 az feature register --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AzureOverlayPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "AzureOverlayPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -158,3 +158,8 @@ The following steps create a new virtual network with a subnet for the cluster n
 ## Next steps
 
 To learn how to utilize AKS with your own Container Network Interface (CNI) plugin, see [Bring your own Container Network Interface (CNI) plugin](use-byo-cni.md).
+
+<!-- LINKS - internal -->
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
