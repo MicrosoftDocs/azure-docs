@@ -1,5 +1,5 @@
 ---
-title: Understand the machine configuration feature of Azure Policy
+title: Understand Azure Automanage Machine Configuration 
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
 ms.date: 01/03/2023

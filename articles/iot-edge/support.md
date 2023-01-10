@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/08/2022
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
