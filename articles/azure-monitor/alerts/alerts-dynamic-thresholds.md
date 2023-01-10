@@ -1,29 +1,35 @@
 ---
-title: Create alerts with Dynamic Thresholds in Azure Monitor
-description: Create alerts with machine learning-based Dynamic Thresholds.
-author: yanivlavi
-ms.author: yalavi
+title: Create alerts with dynamic thresholds in Azure Monitor metric alerts
+description: Create metric alerts with machine learning-based dynamic thresholds.
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.reviewer: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
 ---
 
 # Dynamic thresholds in metric alerts
 
-Dynamic thresholds in metric alerts use advanced machine learning to learn metrics' historical behavior and identify patterns and anomalies that indicate possible service issues. Dynamic thresholds in metric alerts support both a simple UI and operations at scale by allowing users to configure alert rules through the fully automated Azure Resource Manager API.
+Dynamic thresholds use advanced machine learning (ML) to:
+- Learn the historical behavior of metrics
+- Identify patterns and adapt to metric changes over time, such as hourly, daily or weekly patterns. 
+- Recognize anomalies that indicate possible service issues
+- Calculate the most appropriate threshold for the metric 
 
-An alert rule using dynamic thresholds only fires when the monitored metric doesn't behave as expected, based on its tailored thresholds.
+Dynamic thresholds uses algorithms and methods on continually updated data to constantly learn refine the thresholds. You don't have to know the "right" threshold for each metric, since the system adapts to the metrics’ behavior over time and alerts are fired based on deviations from its pattern.
 
-To send us feedback, use <azurealertsfeedback@microsoft.com>.
+Dynamic thresholds help you:
+- Create scalable alerts for hundreds of metric series with one alert rule. If you have fewer alert rules, you spend less time creating and managing alerts rules. Scalable alerting is especially useful for multiple dimensions or for multiple resources, such as to all resources in a subscription.
+- Create rules without having to know what threshold to configure. Using dynamic thresholds, you can configure metric alerts using high-level concepts, without having extensive domain knowledge about the metric.
+- Configure up metric alerts using high-level concepts without extensive domain knowledge about the metric
+- Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
+- Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate).
 
-Alert rules with dynamic thresholds provide:
+You can configure dynamic thresholds using:
+- the Azure portal
+- the fully automated Azure Resource Manager API
+- [metric alert templates](./alerts-metric-create-templates.md).
 
-- **Scalable alerting**. Dynamic thresholds alert rules can create tailored thresholds for hundreds of metric series at a time. They're as easy to define as an alert rule on a single metric. They give you fewer alerts to create and manage. You can use either the Azure portal or the Azure Resource Manager API to create them. The scalable approach is especially useful when you're dealing with metric dimensions or applying to multiple resources, such as to all subscription resources. Learn more about how to [configure metric alerts with dynamic thresholds by using templates](./alerts-metric-create-templates.md).
-- **Smart metric pattern recognition**. With our machine learning technology, we can automatically detect metric patterns and adapt to metric changes over time, which often includes seasonality patterns, such as hourly, daily, or weekly. Adapting to the metrics' behavior over time and alerting based on deviations from its pattern relieves the burden of knowing the "right" threshold for each metric. The machine learning algorithm used in dynamic thresholds is designed to prevent noisy (low precision) or wide (low recall) thresholds that don't have an expected pattern.
-- **Intuitive configuration**. Dynamic thresholds allow you to set up metric alerts by using high-level concepts. This way, you don't need to have extensive domain knowledge about the metric.
-
-## Configure alerts rules with dynamic thresholds
-
-Alerts with dynamic thresholds can be configured by using Azure Monitor metric alerts. Learn more about how to [configure metric alerts](alerts-metric.md).
 
 ## How are the thresholds calculated?
 
@@ -306,3 +312,8 @@ Use the following information to interpret the chart:
 - **Red dots**: Indicate other measured values outside of the allowed range. They won't fire more metric alerts, but the alert stays in the active state.
 - **Red area**: Shows the time when the metric value was outside of the allowed range. The alert remains in the active state as long as subsequent measured values are out of the allowed range, but no new alerts are fired.
 - **End of red area**: When the blue line is back inside the allowed values, the red area stops and the measured value line turns blue. The status of the metric alert fired at the time of the red dot with black outline is set to resolved.
+
+
+## Contact us
+
+Send us feedback about dynamic thresholds by mailing <azurealertsfeedback@microsoft.com>.

@@ -45,7 +45,7 @@ You can create rules using these metrics:
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
 - You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions). 
-- You can use [Dynamic thresholds](#dynamic-thresholds) driven by machine learning. 
+- You can use [dynamic thresholds](#dynamic-thresholds), which are driven by machine learning. 
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
@@ -55,6 +55,7 @@ The target of the metric alert rule can be:
 ### Multiple conditions
 
 When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
+
 ### Narrow the target using Dimensions
 
 Dimensions are name-value pairs that contain more data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. 
@@ -116,7 +117,7 @@ Dynamic thresholds help you:
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
 - Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate).
 
-See [this article](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
+See [dynamic thresholds](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
 ## Log alerts
 
