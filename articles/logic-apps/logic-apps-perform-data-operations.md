@@ -178,7 +178,7 @@ To confirm whether the **Compose** action creates the expected results, send you
    > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
    > select **See more** next to the **Compose** label in the list.
    >
-   > ![Screenshot showing the Azure portal, designer for an example Standard workflow, and dynamic content list with "See more" selected.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard-see-more.png)
+   > ![Screenshot showing the Azure portal, designer for an example Standard workflow, and dynamic content list with "See more" selected for the "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard-see-more.png)
 
    For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
@@ -198,7 +198,7 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the action named **Create CSV table**. You can then use the resulting table in actions that follow the **Create CSV table** action.
 
-If you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](logic-apps-data-operations-code-samples.md#create-csv-table-action-example). For more information about this action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
+To try the  **Create CSV table** action action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](logic-apps-data-operations-code-samples.md#create-csv-table-action-example). For more information about the **Create CSV table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
 ### [Consumption](#tab/consumption)
 
@@ -359,8 +359,8 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 1. From the designer, switch to code view.
 
-   **Consumption**: On the designer toolbar, select **Code view**.
-   **Standard**: On the workflow navigation menu, under **Developer**, select **Code**.
+   * **Consumption**: On the designer toolbar, select **Code view**.
+   * **Standard**: On the workflow navigation menu, under **Developer**, select **Code**.
 
 1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
 
@@ -400,23 +400,36 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 To confirm whether the **Create CSV table** action creates the expected results, send yourself a notification that includes output from the **Create CSV table** action.
 
+#### [Consumption](#tab/consumption)
+
 1. In your workflow, add an action that can send you the results from the **Create CSV table** action.
 
    This example continues by using the Office 365 Outlook action named **Send an email** action.
 
-1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Outputs**.
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Output**.
 
-   !["Output" fields for the "Create CSV table" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+   ![Screenshot showing the "Send an email" action with the "Output" field in the body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
+
+   > [!NOTE]
+   >
+   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Create CSV table** label in the list.
+   >
+   > ![Screenshot showing the designer for an example Consumption workflow and dynamic content list with "See more" selected for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-see-more.png)
+
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+
+   If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+
+   ![Email with "Create CSV table" action results](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
 
    > [!NOTE]
    >
    > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
 
-1. Now, manually run your logic app. On the designer toolbar, select **Run**.
+#### [Standard](#tab/standard)
 
-   Based on the email connector you used, here are the results you get:
-
-   ![Email with "Create CSV table" action results](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
+---
 
 <a name="create-html-table-action"></a>
 
