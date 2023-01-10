@@ -35,7 +35,7 @@ This section is required before you perform any of the steps in the other two co
 
 **Diagram 2**
 
-:::image type="content" source="./media/bgp-howto/gateway.png" alt-text="Diagram showing settings for virtual network gateway" border="false":::
+:::image type="content" source="./media/bgp-howto/gateway.png" alt-text="Diagram showing settings for virtual network gateway." border="false":::
 
 ### Create and configure TestVNet1
 
@@ -97,7 +97,7 @@ Run the following command.
 az network vnet-gateway list -g TestRG1
 ```
 
-Make a note of the the `bgpSettings` section at the top of the output. You'll use this
+Make a note of the `bgpSettings` section at the top of the output. You'll use this
 
 ```azurecli-interactive
 "bgpSettings": { 
