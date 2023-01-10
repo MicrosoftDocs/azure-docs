@@ -2,9 +2,9 @@
 title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
-ms.date: 12/26/2022
+ms.date: 01/10/2023
 ms.reviewer: lualderm
-ms.author: edbaynash
+ms.author: edbayansh
 
 ---
 
@@ -218,6 +218,13 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|No|
+
+
+## Microsoft.CodeSigning/codesigningaccounts   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|SignTransactions|Sign Transactions|Yes|
 
 
 ## Microsoft.CognitiveServices/accounts   <!-- Data source : naam-->
@@ -1418,4 +1425,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Mon Dec 26 2022 12:56:14 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Tue Jan 10 2023 10:06:09 GMT+0200 (Israel Standard Time)-->

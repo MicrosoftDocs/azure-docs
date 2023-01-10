@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor supported metrics by resource type
 description: List of metrics available for each resource type with Azure Monitor.
-author: EdB-MSFT
+author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 12/26/2022
+ms.date: 01/10/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -171,13 +171,23 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|CoresQuotaUsed|Yes|Reserved Cores|Count|Maximum|Number of reserved cores for container app revisions|revisionName|
 |Replicas|Yes|Replica Count|Count|Maximum|Number of replicas count of container app|revisionName|
 |Requests|Yes|Requests|Count|Total|Requests processed|revisionName, podName, statusCodeCategory, statusCode|
 |RestartCount|Yes|Replica Restart Count|Count|Maximum|Restart count of container app replicas|revisionName, podName|
 |RxBytes|Yes|Network In Bytes|Bytes|Total|Network received bytes|revisionName, podName|
+|TotalCoresQuotaUsed|Yes|Total Reserved Cores|Count|Average|Number of total reserved cores for the container app|No Dimensions|
 |TxBytes|Yes|Network Out Bytes|Bytes|Total|Network transmitted bytes|revisionName, podName|
 |UsageNanoCores|Yes|CPU Usage|NanoCores|Average|CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core|revisionName, podName|
 |WorkingSetBytes|Yes|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
+
+
+## Microsoft.App/managedEnvironments   <!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|EnvCoresQuotaLimit|Yes|Cores Quota Limit|Count|Average|The cores quota limit of managed environment|No Dimensions|
+|EnvCoresQuotaUtilization|Yes|Percentage Cores Used Out Of Limit|Percent|Average|The cores quota utilization of managed environment|No Dimensions|
 
 
 ## Microsoft.AppConfiguration/configurationStores   <!-- Data source : naam-->
@@ -809,10 +819,23 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalWrite|No|TotalWrite|BytesPerSecond|Average|The total lustre file system write per second|filesystem_name, category, system|
 
 
+## Microsoft.CodeSigning/codesigningaccounts   <!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|SignCompleted|Yes|SignCompleted|Count|Count|Completed Sign Request|CertType, Region, TenantId|
+|SignFailed|Yes|SignFailed|Count|Count|Failed Sign Request|CertType, Region, TenantId|
+
+
 ## Microsoft.CognitiveServices/accounts   <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|ActionFeatureIdOccurrences|Yes|Action Feature Occurrences|Count|Total|Number of times each action feature appears.|FeatureId, Mode, RunId|
+|ActionFeaturesPerEvent|Yes|Action Features Per Event|Count|Average|Average number of action features per event.|Mode, RunId|
+|ActionIdOccurrences|Yes|Action Occurences|Count|Total|Number of times each action appears.|ActionId, Mode, RunId|
+|ActionNamespacesPerEvent|Yes|Action Namespaces Per Event|Count|Average|Average number of action namespaces per event.|Mode, RunId|
+|ActionsPerEvent|Yes|Actions Per Event|Count|Average|Number of actions per event.|Mode, RunId|
 |AdaFineTunedTokenTransaction|Yes|Processed Ada FineTuned Inference Tokens|Count|Total|Number of Inference Tokens Processed on an Ada FineTuned Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |AdaFineTunedTrainingHours|Yes|Processed Ada FineTuned Training Hours|Count|Total|Number of Training Hours Processed on an Ada FineTuned Model|ApiName, FeatureName, UsageChannel, Region|
 |AdaTokenTransaction|Yes|Processed Ada Inference Tokens|Count|Total|Number of Inference Tokens Processed on an Ada Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
@@ -821,14 +844,21 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BabbageFineTunedTokenTransaction|Yes|Processed Babbage FineFuned Inference Tokens|Count|Total|Number of Inference Tokens processed on a Babbage FineFuned Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |BabbageFineTunedTrainingHours|Yes|Processed Babbage FineTuned Training Hours|Count|Total|Number of Training Hours Processed on a Babbage FineTuned Model|ApiName, FeatureName, UsageChannel, Region|
 |BabbageTokenTransaction|Yes|Processed Babbage Inference Tokens|Count|Total|Number of Inference Tokens Processed on a Babbage Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
-|BlockedCalls|Yes|Blocked Calls|Count|Total|Number of calls that exceeded rate or quota limit.|ApiName, OperationName, Region|
+|BaselineEstimatorSlotReward|Yes|Baseline Estimator Slot Reward|Count|Average|Baseline Estimator Reward by slot.|SlotId, SlotIndex, Mode, RunId|
+|BaselineRandomEstimatorSlotReward|Yes|Baseline Random Estimator Slot Reward|Count|Average|Baseline Random Estimator Reward by slot.|SlotId, SlotIndex, Mode, RunId|
+|BaselineRandomEventCount|Yes|Baseline Random Event count|Count|Total|Estimation for baseline random event count.|Mode, RunId|
+|BaselineRandomReward|Yes|Baseline Random Reward|Count|Total|Estimation for baseline random reward.|Mode, RunId|
+|BlockedCalls|Yes|Blocked Calls|Count|Total|Number of calls that exceeded rate or quota limit.|ApiName, OperationName, Region, RatelimitKey|
 |CharactersTrained|Yes|Characters Trained (Deprecated)|Count|Total|Total number of characters trained.|ApiName, OperationName, Region|
 |CharactersTranslated|Yes|Characters Translated (Deprecated)|Count|Total|Total number of characters in incoming text request.|ApiName, OperationName, Region|
-|ClientErrors|Yes|Client Errors|Count|Total|Number of calls with client side error (HTTP response code 4xx).|ApiName, OperationName, Region|
+|ClientErrors|Yes|Client Errors|Count|Total|Number of calls with client side error (HTTP response code 4xx).|ApiName, OperationName, Region, RatelimitKey|
 |CodeCushman001FineTunedTokenTransaction|Yes|Processed Code-Cushman-001 FineTuned Inference Tokens|Count|Total|Number of Inference Tokens Processed on a Code-Cushman-001 FineTuned Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |CodeCushman001FineTunedTrainingHours|Yes|Processed Code-Cushman-001 FineTuned Traning Hours|Count|Total|Number of Training Hours Processed on a Code-Cushman-001 FineTuned Model|ApiName, FeatureName, UsageChannel, Region|
 |CodeCushman001TokenTransaction|Yes|Processed Code-Cushman-001 Inference Tokens|Count|Total|Number of Inference Tokens Processed on a Code-Cushman-001 Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |ComputerVisionTransactions|Yes|Computer Vision Transactions|Count|Total|Number of Computer Vision Transactions|ApiName, FeatureName, UsageChannel, Region|
+|ContextFeatureIdOccurrences|Yes|Context Feature Occurrences|Count|Total|Number of times each context feature appears.|FeatureId, Mode, RunId|
+|ContextFeaturesPerEvent|Yes|Context Features Per Event|Count|Average|Number of context features per event.|Mode, RunId|
+|ContextNamespacesPerEvent|Yes|Context Namespaces Per Event|Count|Average|Number of context namespaces per event.|Mode, RunId|
 |CurieFineTunedTokenTransaction|Yes|Processed Curie FineTuned Inference Tokens|Count|Total|Number of Inference Tokens processed on a Curie FineTuned Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |CurieFineTunedTrainingHours|Yes|Processed Curie FineTuned Training Hours|Count|Total|Number of Training Hours Processed on a Curie FineTuned Model|ApiName, FeatureName, UsageChannel, Region|
 |CurieTokenTransaction|Yes|Processed Curie Inference Tokens|Count|Total|Number of Inference Tokens Processed on a Curie Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
@@ -844,26 +874,41 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |FaceImagesTrained|Yes|Face Images Trained|Count|Total|Number of images trained. 1,000 images trained per transaction.|ApiName, FeatureName, UsageChannel, Region|
 |FacesStored|Yes|Faces Stored|Count|Total|Number of faces stored, prorated daily. The number of faces stored is reported daily.|ApiName, FeatureName, UsageChannel, Region|
 |FaceTransactions|Yes|Face Transactions|Count|Total|Number of API calls made to Face service|ApiName, FeatureName, UsageChannel, Region|
+|FeatureCardinality_Action|Yes|Feature Cardinality by Action|Count|Average|Feature Cardinality based on Action.|FeatureId, Mode, RunId|
+|FeatureCardinality_Context|Yes|Feature Cardinality by Context|Count|Average|Feature Cardinality based on Context.|FeatureId, Mode, RunId|
+|FeatureCardinality_Slot|Yes|Feature Cardinality by Slot|Count|Average|Feature Cardinality based on Slot.|FeatureId, Mode, RunId|
 |FineTunedTrainingHours|Yes|Processed FineTuned Training Hours|Count|Total|Number of Training Hours Processed on an OpenAI FineTuned Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |ImagesStored|Yes|Images Stored|Count|Total|Number of Custom Vision images stored.|ApiName, FeatureName, UsageChannel, Region|
-|Latency|Yes|Latency|MilliSeconds|Average|Latency in milliseconds.|ApiName, OperationName, Region|
+|Latency|Yes|Latency|MilliSeconds|Average|Latency in milliseconds.|ApiName, OperationName, Region, RatelimitKey|
 |LearnedEvents|Yes|Learned Events|Count|Total|Number of Learned Events.|IsMatchBaseline, Mode, RunId|
 |LUISSpeechRequests|Yes|LUIS Speech Requests|Count|Total|Number of LUIS speech to intent understanding requests|ApiName, FeatureName, UsageChannel, Region|
 |LUISTextRequests|Yes|LUIS Text Requests|Count|Total|Number of LUIS text requests|ApiName, FeatureName, UsageChannel, Region|
 |MatchedRewards|Yes|Matched Rewards|Count|Total|Number of Matched Rewards.|Mode, RunId|
+|NonActivatedEvents|Yes|Non Activated Events|Count|Total|Number of skipped events.|Mode, RunId|
+|NumberOfSlots|Yes|Slots|Count|Average|Number of slots per event.|Mode, RunId|
 |NumberofSpeakerProfiles|Yes|Number of Speaker Profiles|Count|Total|Number of speaker profiles enrolled. Prorated hourly.|ApiName, FeatureName, UsageChannel, Region|
 |ObservedRewards|Yes|Observed Rewards|Count|Total|Number of Observed Rewards.|Mode, RunId|
+|OnlineEstimatorSlotReward|Yes|Online Estimator Slot Reward|Count|Average|Online Estimator Reward by slot.|SlotId, SlotIndex, Mode, RunId|
+|OnlineEventCount|Yes|Online Event Count|Count|Total|Estimation for online event count.|Mode, RunId|
+|OnlineReward|Yes|Online Reward|Count|Total|Estimation for online reward.|Mode, RunId|
 |ProcessedCharacters|Yes|Processed Characters|Count|Total|Number of Characters processed by Immersive Reader.|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedHealthTextRecords|Yes|Processed Health Text Records|Count|Total|Number of health text records processed|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedImages|Yes|Processed Images|Count|Total|Number of images processed|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedPages|Yes|Processed Pages|Count|Total|Number of pages processed|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedTextRecords|Yes|Processed Text Records|Count|Total|Count of Text Records.|ApiName, FeatureName, UsageChannel, Region|
 |QuestionAnsweringTextRecords|Yes|QA Text Records|Count|Total|Number of text records processed|ApiName, FeatureName, UsageChannel, Region|
-|ServerErrors|Yes|Server Errors|Count|Total|Number of calls with service internal error (HTTP response code 5xx).|ApiName, OperationName, Region|
+|Ratelimit|Yes|Ratelimit|Count|Total|The current ratelimit of the ratelimit key.|Region, RatelimitKey|
+|Reward|Yes|Average Reward Per Event|Count|Average|Average reward per event.|BaselineAction, ChosenActionId, MatchesBaseline, NonDefaultReward, Mode, RunId|
+|ServerErrors|Yes|Server Errors|Count|Total|Number of calls with service internal error (HTTP response code 5xx).|ApiName, OperationName, Region, RatelimitKey|
+|SlotFeatureIdOccurrences|Yes|Slot Feature Occurrences|Count|Total|Number of times each slot feature appears.|FeatureId, Mode, RunId|
+|SlotFeaturesPerEvent|Yes|Slot Features Per Event|Count|Average|Average number of slot features per event.|Mode, RunId|
+|SlotIdOccurrences|Yes|Slot Occurrences|Count|Total|Number of times each slot appears.|SlotId, SlotIndex, Mode, RunId|
+|SlotNamespacesPerEvent|Yes|Slot Namespaces Per Event|Count|Average|Average number of slot namespaces per event.|Mode, RunId|
+|SlotReward|Yes|Slot Reward|Count|Average|Reward per slot.|BaselineActionId, ChosenActionId, MatchesBaseline, NonDefaultReward, SlotId, SlotIndex, Mode, RunId|
 |SpeakerRecognitionTransactions|Yes|Speaker Recognition Transactions|Count|Total|Number of speaker recognition transactions|ApiName, FeatureName, UsageChannel, Region|
 |SpeechModelHostingHours|Yes|Speech Model Hosting Hours|Count|Total|Number of speech model hosting hours|ApiName, FeatureName, UsageChannel, Region|
 |SpeechSessionDuration|Yes|Speech Session Duration (Deprecated)|Seconds|Total|Total duration of speech session in seconds.|ApiName, OperationName, Region|
-|SuccessfulCalls|Yes|Successful Calls|Count|Total|Number of successful calls.|ApiName, OperationName, Region|
+|SuccessfulCalls|Yes|Successful Calls|Count|Total|Number of successful calls.|ApiName, OperationName, Region, RatelimitKey|
 |SynthesizedCharacters|Yes|Synthesized Characters|Count|Total|Number of Characters.|ApiName, FeatureName, UsageChannel, Region|
 |TextAda001TokenTransaction|Yes|Processed Text Ada 001 Inference Tokens|Count|Total|Number of Inference Tokens processed on a text-ada-001 model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |TextBabbage001TokenTransaction|Yes|Processed Text Babbage 001 Inference Tokens|Count|Total|Number of Inference Tokens processed on a text-babbage-001 model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
@@ -874,10 +919,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TextDavinci002TokenTransaction|Yes|Processed Text Davinci 002 Inference Tokens|Count|Total|Number of Inference Tokens Processed on a text-davinci-002 Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
 |TextTrainedCharacters|Yes|Text Trained Characters|Count|Total|Number of characters trained using text translation.|ApiName, FeatureName, UsageChannel, Region|
 |TokenTransaction|Yes|Processed Inference Tokens|Count|Total|Number of Inference Tokens Processed on an OpenAI Model|ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region|
-|TotalCalls|Yes|Total Calls|Count|Total|Total number of calls.|ApiName, OperationName, Region|
-|TotalErrors|Yes|Total Errors|Count|Total|Total number of calls with error response (HTTP response code 4xx or 5xx).|ApiName, OperationName, Region|
+|TotalCalls|Yes|Total Calls|Count|Total|Total number of calls.|ApiName, OperationName, Region, RatelimitKey|
+|TotalErrors|Yes|Total Errors|Count|Total|Total number of calls with error response (HTTP response code 4xx or 5xx).|ApiName, OperationName, Region, RatelimitKey|
+|TotalEvents|Yes|Total Events|Count|Total|Number of events.|Mode, RunId|
 |TotalTokenCalls|Yes|Total Token Calls|Count|Total|Total number of token calls.|ApiName, OperationName, Region|
 |TotalTransactions|Yes|Total Transactions (Deprecated)|Count|Total|Total number of transactions.|No Dimensions|
+|UserBaselineEventCount|Yes|User Baseline Event Count|Count|Total|Estimation for user defined baseline event count.|Mode, RunId|
+|UserBaselineReward|Yes|User Baseline Reward|Count|Total|Estimation for user defined baseline reward.|Mode, RunId|
 |VoiceModelHostingHours|Yes|Voice Model Hosting Hours|Count|Total|Number of Hours.|ApiName, FeatureName, UsageChannel, Region|
 |VoiceModelTrainingMinutes|Yes|Voice Model Training Minutes|Count|Total|Number of Minutes.|ApiName, FeatureName, UsageChannel, Region|
 
@@ -1489,8 +1537,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |active_connections|Yes|Active Connections|Count|Average|Active Connections|ServerName|
 |apps_reserved_memory_percent|Yes|Reserved Memory percent|Percent|Average|Percentage of Commit Memory Limit Reserved by Applications|ServerName|
-|cpu_credits_consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine. Only available on B-series burstable VMs|ServerName|
-|cpu_credits_remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst. Only available on B-series burstable VMs|ServerName|
+|cpu_credits_consumed|Yes|CPU Credits Consumed|Count|Average|Total number of credits consumed by the node. Only available when burstable compute is provisioned on the node.|ServerName|
+|cpu_credits_remaining|Yes|CPU Credits Remaining|Count|Average|Total number of credits available to burst. Only available when burstable compute is provisioned on the node.|ServerName|
 |cpu_percent|Yes|CPU percent|Percent|Average|CPU percent|ServerName|
 |iops|Yes|IOPS|Count|Average|IO operations per second|ServerName|
 |memory_percent|Yes|Memory percent|Percent|Average|Memory percent|ServerName|
@@ -4100,4 +4148,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Mon Dec 26 2022 12:56:14 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Tue Jan 10 2023 10:06:09 GMT+0200 (Israel Standard Time)-->
