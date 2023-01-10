@@ -1,12 +1,12 @@
 ---
 title: Migrate your Linux VMs to Azure Premium Storage with Azure Site Recovery 
 description: Migrate your existing virtual machines to Azure Premium Storage by using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
-author: luywang
+author: roygara
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
 ms.date: 08/15/2017
-ms.author: luywang
+ms.author: rogarana
 ms.subservice: disks
 ---
 # Use Site Recovery to migrate to Premium Storage
