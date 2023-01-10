@@ -64,7 +64,7 @@ The lab VM might be malfunctioning as a result of installing a software componen
 
 Azure Lab Services lets you redeploy, labeled *troubleshooting* in the Azure portal, or reset a lab VM. Both operations are similar, and result in the creation of a new virtual machine instance. However, there are fundamental differences that affect the user data on the lab VM.
 
-When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation and after a VM shutdown.
+When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](../virtual-machines/managed-disks-overview.md#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation and after a VM shutdown.
 
 Learn more about how to [redeploy a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#redeploy-vms).
 
