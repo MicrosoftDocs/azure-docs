@@ -570,6 +570,8 @@
         items:
         - name: Grit IEF editor 
           href: partner-grit-editor.md
+        - name: Grit biometric authentication
+          href: partner-grit-authentication.md
   # Automate
   - name: Automate 
     items:
