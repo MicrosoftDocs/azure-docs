@@ -36,13 +36,13 @@ The following modifications will trigger a packet core reinstall, during which y
 
 - Attaching a new or existing data network to the packet core instance.
 - Detaching a data network from the packet core instance.
-- Changing the packet core instance's **Custom ARC location** field.
+- Changing the packet core instance's custom location.
 
 If you're making any of these changes, we recommend modifying your packet core instance during a maintenance window to minimize the impact on your service. If you're making a change that doesn't trigger a reinstall, you can skip the next step and move to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 ## Back up deployment information
 
-The following list contains data that will get lost over a packet core reinstall. If you're making a change that triggers a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
+The following list contains the data that will be lost over a packet core reinstall. If you're making a change that triggers a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
 1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
