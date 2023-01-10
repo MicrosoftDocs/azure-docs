@@ -11,7 +11,7 @@ ms.author: danlep
 
 ---
 
-# Migrate API Management stv1 platform to stv2
+# Migrate an API Management hosted on the stv1 platform to stv2
 
 An API Management instance hosted on the `stv1` platform can be automatically migrated to the `stv2` platform using the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2?tabs=HTTP) REST API. For more information about the `stv1` and `stv2` platforms, see [Compute platform for API Management](compute-infrastructure.md).
 
