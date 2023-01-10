@@ -4,6 +4,7 @@ description: This document walks you through how to identify security recommenda
 ms.topic: how-to
 ms.date: 01/10/2023
 ---
+
 # Find recommendations that can improve your security posture
 
 To improve your [secure score](secure-score-security-controls.md), you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most impact on your score, or the ones that you were assigned to implement.
@@ -11,6 +12,7 @@ To improve your [secure score](secure-score-security-controls.md), you have to i
 To get to the list of recommendations:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Either:
     - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment you want to improve.
     - Go to **Recommendations** in the Defender for Cloud menu.
@@ -32,7 +34,7 @@ To find recommendations that can improve your secure score:
     - You can also use the search box and filters above the list of recommendations to find specific recommendations.
 1. Open a security control to see the recommendations that have unhealthy resources.
 
-When you [remediate](implement-security-recommendations.md) all of the recommendations in the security control, your secure score increases by the percentage points listed for the control.
+When you [remediate](implement-security-recommendations.md) all of the recommendations in the security control, your secure score increases by the percentage point listed for the control.
 
 ## Manage the owner and ETA of recommendations that are assigned to you
 
@@ -55,7 +57,9 @@ To change the owner of resources and set the ETA for remediation of recommendati
 1. For the resources that are assigned to you, set the owner of the resource:
     1. Select the resources that are owned by another person, and select **Change owner and set ETA**.
     1. Select **Change owner**, enter the email address of the owner of the resource, and select **Save**.
+
     The owner of the resource gets a weekly email listing the recommendations that they're assigned.
+
 1. For resources that you own, set an ETA for remediation:
     1. Select resources that you plan to remediate by the same date, and select **Change owner and set ETA**.
     1. Select **Change ETA** and set the date by which you plan to remediate the recommendation for those resources.

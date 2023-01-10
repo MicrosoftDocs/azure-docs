@@ -45,6 +45,8 @@ For more information, see [Device inventory column reference](#device-inventory-
 
 As you manage your network devices, you may need to update their details. For example, you may want to modify security value as assets change, or personalize the inventory to better identify devices, or if a device was classified incorrectly.
 
+If you're working with a cloud-connected sensor, any edits you make in the sensor console are updated in the Azure portal.
+
 **To edit device details**:
 
 1. Select one or more devices in the grid, and then select **View full details** in the pane on the right.
