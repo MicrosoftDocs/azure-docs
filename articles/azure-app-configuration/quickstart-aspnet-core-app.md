@@ -180,28 +180,15 @@ In this example, you'll update a web page to display its content using the setti
 
     ---
 
-1. Open *Index.cshtml.cs* in the *Pages* directory and update the file:
-
-    1. Add the `using Microsoft.Extensions.Options` namespace.
-    1. Update the `IndexModel` class.
-
-    #### [.NET 6.x](#tab/core6x)
+1. Open *Index.cshtml.cs* in the *Pages* directory, and update the `IndexModel` class with the following code. Add the `using Microsoft.Extensions.Options` namespace at the beginning of the file, if it's not already there.
 
     ```csharp
-    using Microsoft.AspNetCore.Mvc.RazorPages;
-
-    // Add using Microsoft.Extensions.Options;
-    using Microsoft.Extensions.Options;
-
-    namespace TestAppConfig.Pages;
-
-    // Update the IndexModel class
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-    
+
         public Settings Settings { get; }
-    
+
         public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
         {
             Settings = options.Value;
@@ -209,41 +196,6 @@ In this example, you'll update a web page to display its content using the setti
         }
     }
     ```
-
-    #### [.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.RazorPages;
-    using Microsoft.Extensions.Logging;
-    
-    // Add using Microsoft.Extensions.Options;
-    using Microsoft.Extensions.Options;
-    
-    namespace TestAppConfig.Pages
-    
-    // Update the IndexModel class
-    {
-        public class IndexModel : PageModel
-        {
-            private readonly ILogger<IndexModel> _logger;
-            
-            public Settings Settings { get; }
-    
-            public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
-            {
-                Settings = options. Value;
-                _logger = logger;
-            }
-        }
-    }
-    ```
-
-    ---
 
 1. Open *Index.cshtml* in the *Pages* directory, and update the content with the following code.
 
@@ -282,7 +234,7 @@ In this example, you'll update a web page to display its content using the setti
     dotnet run
     ```
 
-1. The output of the `dotnet run` command contains two URLs. Open a browser and navigate to one of these URLs to access your application. For example: `https://localhost:5001`.
+1. The output of the `dotnet run` command contains two URLs. Open a browser and navigate to either one of these URLs to access your application. For example: `https://localhost:5001`.
 
     If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*. When prompted to configure the port for preview, enter *5000*, and select *Open and browse*.
 
