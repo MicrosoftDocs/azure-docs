@@ -84,6 +84,8 @@
       - name: Observability
         href: observability.md
         displayName: monitoring
+      - name: Compute platform
+        href: compute-infrastructure.md
       - name: DevOps and CI/CD
         href: devops-api-development-templates.md  
       - name: APIs
@@ -139,6 +141,8 @@
             - name: Recover a deleted instance
               displayName: soft delete
               href: soft-delete.md
+            - name: Migrate to stv2 platform
+              href: migrate-stv1-to-stv2.md
             - name: Configure networking
               items:
                 - name: Connect to a virtual network
