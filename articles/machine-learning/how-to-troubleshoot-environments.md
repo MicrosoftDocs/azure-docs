@@ -931,8 +931,27 @@ Read the following to understand [how to authorize access to data in Azure stora
 Read the following if you're interested in [using SAS to access Azure storage resources](../storage/common/storage-sas-overview.md)
 
 ### Horovod build
-- Failed to create or update the conda environment because horovod failed to build
-- See [horovod installation](https://aka.ms/azureml/environment/install-horovod)
+<!--issueDescription-->
+This issue can happen when the conda environment fails to be created or updated because horovod failed to build.
+
+**Potential causes:**
+* Horovod installation requires other modules that you haven't installed
+* Horovod installation requires certain libraries that you haven't included
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
+* Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
+* Review the Build log for your failed build to see if there's an error message that surfaced when horovod failed to build
+* It's possible that the problem you're encountering is detailed in the troubleshooting guide, along with the solution
+
+**Resources**
+*[horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
 - Failed to create or update the conda environment because the conda command is missing 
