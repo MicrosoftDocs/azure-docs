@@ -2,7 +2,7 @@
 title: Improving your security posture with recommendations in Microsoft Defender for Cloud
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
-ms.date: 06/29/2022
+ms.date: 01/10/2023
 ---
 # Find recommendations that can improve your security posture
 
@@ -15,14 +15,14 @@ To get to the list of recommendations:
     - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment that you want to improve.
     - Go to **Recommendations** in the Defender for Cloud menu.
 
-You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations, and look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Security posture management improvements](episode-four.md)
 
 ## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
 
-Your [secure score is calculated](secure-score-security-controls.md?branch=main#how-your-secure-score-is-calculated) based on the security recommendations that you have implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
+Your [secure score is calculated](secure-score-security-controls.md?branch=main#how-your-secure-score-is-calculated) based on the security recommendations that you've implemented. In order to increase your score and improve your security posture, you have to find recommendations with unhealthy resources and [remediate those recommendations](implement-security-recommendations.md).
 
 The list of recommendations shows the **Potential score increase** that you can achieve when you remediate all of the recommendations in the security control.
 
@@ -36,9 +36,9 @@ When you [remediate](implement-security-recommendations.md) all of the recommend
 
 ## Manage the owner and ETA of recommendations that are assigned to you
 
-[Security teams can assign a recommendation](governance-rules.md) to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
+[Security teams can assign a recommendation](governance-rules.md) to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you're accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
 
-Recommendations are listed as **On time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
+Recommendations are listed as **On time** until their due date is passed, when they're changed to **Overdue**. Before the recommendation is overdue, the recommendation doesn't affect the secure score. The security team can also apply a grace period during which overdue recommendations continue to not affect the secure score.
 
 To help you plan your work and report on progress, you can set an ETA for the specific resources to show when you plan to have the recommendation resolved by for those resources. You can also change the owner of the recommendation for specific resources so that the person responsible for remediation is assigned to the resource.
 
@@ -49,19 +49,19 @@ To change the owner of resources and set the ETA for remediation of recommendati
 1. In the filters for list of recommendations, select **Show my items only**.
 
     - The status column indicates the recommendations that are on time, overdue, or completed.
-    - The insights column indicates the recommendations that are in a grace period, so they currently do not impact your secure score until they become overdue.
+    - The insights column indicates the recommendations that are in a grace period, so they currently don't affect your secure score until they become overdue.
 
 1. Select an on time or overdue recommendation.
 1. For the resources that are assigned to you, set the owner of the resource:
     1. Select the resources that are owned by another person, and select **Change owner and set ETA**.
     1. Select **Change owner**, enter the email address of the owner of the resource, and select **Save**.
-    The owner of the resource gets a weekly email listing the recommendations that they are assigned.
+    The owner of the resource gets a weekly email listing the recommendations that they're assigned.
 1. For resources that you own, set an ETA for remediation:
     1. Select resources that you plan to remediate by the same date, and select **Change owner and set ETA**.
     1. Select **Change ETA** and set the date by which you plan to remediate the recommendation for those resources.
     1. Enter a justification for the remediation by that date, and select **Save**.
 
-The due date for the recommendation does not change, but the security team can see that you plan to update the resources by the specified ETA date.
+The due date for the recommendation doesn't change, but the security team can see that you plan to update the resources by the specified ETA date.
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
@@ -106,7 +106,7 @@ To download a CSV report of your recommendations:
 
     :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download C S V report from.":::
 
-You'll know the report is being prepared as indicated by the pop-up.
+You'll know the report is being prepared when the pop-up appears.
 
 :::image type="content" source="media/review-security-recommendations/preparing-report.png" alt-text="Screenshot of pop-up indicating report being prepared.":::
 

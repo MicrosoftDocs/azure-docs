@@ -3,7 +3,7 @@ title: Integrate security solutions in Microsoft Defender for Cloud
 description: Learn about how Microsoft Defender for Cloud integrates with partners to enhance the overall security of your Azure resources.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/09/2023
+ms.date: 01/10/2023
 ---
 # Integrate security solutions in Microsoft Defender for Cloud
 
@@ -32,7 +32,7 @@ Defender for Cloud also offers vulnerability analysis for your:
 ## How security solutions are integrated
 Azure security solutions that are deployed from Defender for Cloud are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
-:::image type="content" source="./media/partner-integration/security-solutions-page-01-2023.png" alt-text="Partner solutions integration." lightbox="./media/partner-integration/security-solutions-page-01-2023.png":::
+:::image type="content" source="./media/partner-integration/security-solutions-page-01-2023.png" alt-text="Screenshot showing security Solutions page." lightbox="./media/partner-integration/security-solutions-page-01-2023.png":::
 
 ## Manage integrated Azure security solutions and other data sources
 
@@ -48,7 +48,7 @@ The **Connected solutions** section includes security solutions that are current
 
 ![Connected solutions.](./media/partner-integration/connected-solutions.png)
 
-The status of a partner solution can be:
+The status of a security solution can be:
 
 * **Healthy** (green) - no health issues.
 * **Unhealthy** (red) - there's a health issue that requires immediate attention.
