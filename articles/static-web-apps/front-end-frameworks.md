@@ -37,6 +37,7 @@ The intent of the table columns is explained by the following items:
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
+| [Hugo](https://gohugo.io/) | `public` | n/a |
 | [Hyperapp](https://hyperapp.dev/) | `/` | n/a |
 | [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | n/a |
 | [jQuery](https://jquery.com/) | `/` | n/a |
