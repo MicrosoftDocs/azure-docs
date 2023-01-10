@@ -55,9 +55,11 @@ The [Activity log](../essentials/activity-log.md) is collected automatically and
 You can [view the Activity log](../essentials/activity-log.md#view-the-activity-log) for an individual machine or for all resources in a subscription. You should [create a diagnostic setting](../essentials/diagnostic-settings.md) to send this data into the same Log Analytics workspace used by your Azure Monitor agent to analyze it with the other monitoring data collected for the virtual machine. There's no cost for ingestion or retention of Activity log data.
 
 ### VM insights
-When you enable VM insights, then it will create a data collection rule that collects the following:
+By default, [VM insights](../vm/vminsights-overview.md) will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. [Enable this collection](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) if you want to use this feature.
 
-- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace.
+When you enable VM insights, then it will create a data collection rule, with the **_MSVMI-_** prefix that collects the following:
+
+- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalize to use the same common name regardless of the operating system type.
 - If you specified processes and dependencies to be collected, then the following tables are populated:
   
   - [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) - Traffic for open server ports on the machine
@@ -65,8 +67,7 @@ When you enable VM insights, then it will create a data collection rule that col
   - [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) - Traffic for inbound and outbound connections to and from the machine
   - [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) - Processes running on the machine
 
-By default, VM insights will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. [Enable this collection](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) if you want to use this feature.
-
+A previously created data collection rule, can be used when enabling additional virtual machines, without being forced to create a new one for each VM.
 
 ## Collect Windows and Syslog events
 The operating system and applications in virtual machines will often write to the Windows Event Log or Syslog. You may create an alert as soon as a single event is found or wait for a series of matching events within a particular time window. You may also collect events for later analysis such as identifying particular trends over time, or for performing troubleshooting after a problem occurs.
