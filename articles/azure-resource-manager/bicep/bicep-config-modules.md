@@ -7,9 +7,9 @@ ms.date: 01/09/2023
 
 # Add module settings in the Bicep config file
 
-In a **bicepconfig.json** file, you can create aliases for module paths and configure credential precedence for restoring a module.
+In a **bicepconfig.json** file, you can create aliases for module paths and configure profile and credential precedence for publishing and restoring modules.
 
-This article describes the settings that are available for working with [modules](modules.md).
+This article describes the settings that are available for working with [Bicep modules](modules.md).
 
 ## Aliases for modules
 
@@ -120,7 +120,7 @@ You can override the public module registry alias definition in the bicepconfig.
 }
 ```
 
-## Credentials for publishing/restoring modules
+## Configure profiles and credentials
 
 To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the profile and the credential precedence for authenticating to the registry. By default, Bicep uses the `AzureCloud` profile and the credentials from the user authenticated in Azure CLI or Azure PowerShell. You can customize `currentProfile` and `credentialPrecedence` in the config file.
 
@@ -150,8 +150,9 @@ To [publish](bicep-cli.md#publish) modules to a private module registry or to [r
 }
 ```
 
-The available national profiles are:
+The available profiles are:
 
+- AzureCloud
 - AzureChinaCloud
 - AzureUSGovernment
 
