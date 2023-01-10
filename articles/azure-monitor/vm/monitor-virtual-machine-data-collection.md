@@ -42,7 +42,7 @@ By default, [VM insights](../vm/vminsights-overview.md) will not enable collecti
 
 When you enable VM insights, then it will create a data collection rule, with the **_MSVMI-_** prefix that collects the following:
 
-- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace.
+- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalize to use the same common name regardless of the operating system.
 - If you specified processes and dependencies to be collected, then the following tables are populated:
   
   - [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) - Traffic for open server ports on the machine
