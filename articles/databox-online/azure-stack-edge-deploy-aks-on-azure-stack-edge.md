@@ -121,10 +121,10 @@ There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optio
   
     Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
 
-   ```azurepowershell
+    ```azurepowershell
     [1d9nhq2.microsoftdatabox.com]: PS> Set-HcsKubeClusterArcInfo –CustomLocationsObjectId 51dfe1e8-70c6-4de5-a08e-e18aff23d815
     [1d9nhq2.microsoftdatabox.com]: PS>
-   ```
+    ```
 
 ## Specify static IP pools (optional)
 
@@ -145,11 +145,11 @@ Use the following steps to assign static IP pools in the local UI of your device
    1. **Second virtual network** – Name is **N3** and associated with **vswitch-port5**.
    1. **Third virtual network** – Name is **N6** and associated with **vswitch-port6**.
  
-      [![Screenshots that show the Add virtual network dialogs in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png#Lightbox)
+      [![Screenshots that show the Add virtual network dialogs in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png#lightbox)
 
     1. Once all three virtual networks are configured, they'll be listed under the virtual networks, as follows: 
  
-       [![Screenshot that shows the Advanced networking page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png#Lightbox)
+       [![Screenshot that shows the Advanced networking page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png#lightbox)
 
 1. Assign IP address pools to the virtual networks:
 
@@ -162,7 +162,7 @@ Use the following steps to assign static IP pools in the local UI of your device
    > [!NOTE]
    > You can't modify the IP pool settings once the AKS cluster is deployed.
 
-    [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#Lightbox)
+    [![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png#lightbox)
 
 ## Configure the compute virtual switch
 
@@ -188,11 +188,11 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 
 1. For the Kubernetes external service IPs, supply static IPs for services that are exposed outside the Kubernetes cluster. Each such service requires one IP. 
 
-    [![Screenshot that shows the Compute virtual switch options on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png#Lightbox)
+    [![Screenshot that shows the Compute virtual switch options on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page-compute-virtual-switch.png#lightbox)
 
    The page will update as shown below:
 
-   [![Screenshot that shows virtual networks on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png#Lightbox)
+   [![Screenshot that shows virtual networks on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png#lightbox)
 
 ## Enable VM cloud management
 
@@ -202,11 +202,11 @@ This step is required to allow the Azure Stack Edge portal to deploy the infrast
 
 1. Go to **Overview** and select the **Virtual machines** tile.
 
-   [![Screenshot that shows the Virtual machines tile on the Azure Stack Edge Overview page of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-virtual-machines-tile.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-virtual-machines-tile.png#Lightbox)
+   [![Screenshot that shows the Virtual machines tile on the Azure Stack Edge Overview page of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-virtual-machines-tile.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-virtual-machines-tile.png#lightbox)
 
 1. In the **Virtual machines** > **Overview** page, select **Enable** for **Virtual machines cloud management**.
 
-   [![Screenshot that shows the Azure Stack Edge Overview page with the enable virtual machines cloud management option on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-enable-virtual-machines-cloud-management.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-enable-virtual-machines-cloud-management.png#Lightbox)
+   [![Screenshot that shows the Azure Stack Edge Overview page with the enable virtual machines cloud management option on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-enable-virtual-machines-cloud-management.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-enable-virtual-machines-cloud-management.png#lightbox)
 
 ## Set up Kubernetes cluster and enable Arc
 
@@ -234,13 +234,13 @@ Follow these steps to deploy the AKS cluster.
 
 1. If you select **Change**, then you’ll need to provide a subscription, resource group, cluster name, and region.
 
-   [![Screenshot that shows the Configure Arc enabled Kubernetes options part of creating the Kubernetes service on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png#Lightbox)
+   [![Screenshot that shows the Configure Arc enabled Kubernetes options part of creating the Kubernetes service on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-aks-configure-arc-enabled-kubernetes.png#lightbox)
 
    1. The subscription name should be automatically populated.
 
    1. Specify a unique resource group name. You can also choose to use the same resource group in which you deployed your Azure Stack Edge resource. **You must have owner level access to this resource group.** To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you must be listed as an Owner.
 
-      [![Screenshot that shows My assignments in the Access control page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png#Lightbox)
+      [![Screenshot that shows My assignments in the Access control page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png#lightbox)
 
    1. Specify a name for your Arc enabled Kubernetes cluster or accept the provided default.
 
@@ -249,24 +249,24 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Create** to create the Kubernetes service.
 
-   [![Screenshot that shows the Create Kubernetes service page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-kubernetes-service.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-kubernetes-service.png#Lightbox)
+   [![Screenshot that shows the Create Kubernetes service page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-kubernetes-service.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-kubernetes-service.png#lightbox)
 
 1. You're notified when the cluster creation starts.
 
-   [![Screenshot that shows Azure Stack Edge Azure Arc Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png#Lightbox)
+   [![Screenshot that shows Azure Stack Edge Azure Arc Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png#lightbox)
 
    > [!IMPORTANT]
    > The creation of Kubernetes cluster takes about 20 minutes. During the creation, a critical alert is displayed in the Azure portal for your Azure Stack Edge resource. This alert will resolve itself in a few minutes.
 
-   [![Screenshot that shows the critical alert during Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png#Lightbox)
+   [![Screenshot that shows the critical alert during Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png#lightbox)
 
    1. Once the Kubernetes cluster is created, you’ll see that the Azure Kubernetes Service is **Running**.
 
-      [![Screenshot that shows the Azure Kubernetes Service running as expected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png#Lightbox)
+      [![Screenshot that shows the Azure Kubernetes Service running as expected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png#lightbox)
 
       The **Arc-enabled Kubernetes** will also show up as **Running**.
 
-      [![Screenshot that shows the Azure Kubernetes Service Overview page with status of the Kubernetes service.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png#Lightbox)
+      [![Screenshot that shows the Azure Kubernetes Service Overview page with status of the Kubernetes service.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png#lightbox)
 
    If you're planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
 
@@ -280,11 +280,11 @@ There are two different workflows for creating PVs depending on whether the comp
 
 On your Azure Stack Edge Pro device, statically provisioned `PersistentVolumes` are created using the device's storage capabilities. When you provision a share and the **Use the share with Edge compute** option is enabled, this action automatically creates a PV resource in the Kubernetes cluster.
 
-[![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge compute option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png#Lightbox)
+[![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge compute option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png#lightbox)
 
 To use cloud tiering, you can create an Edge cloud share with the **Use the share with Edge compute** option enabled. A PV is again created automatically for this share. If you enable this option, any application data that you write to the Edge share will be tiered to the cloud.
 
-[![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge local share option enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png#Lightbox)
+[![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge local share option enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png#lightbox)
 
 
 ### Create a persistent volume with compute not enabled inline during share creation
@@ -293,33 +293,33 @@ For the shares that were created with the **Use the share with Edge compute** op
 
 1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Cloud storage gateway** > **Shares**. You can see that the device currently has shares with the **Used for compute** status enabled.
 
-   [![Screenshot that shows the Cloud storage gateway shares with Edge compute enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-cloud-storage-gateway-shares-with-edge-compute-enabled.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-cloud-storage-gateway-shares-with-edge-compute-enabled.png#Lightbox)
+   [![Screenshot that shows the Cloud storage gateway shares with Edge compute enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-cloud-storage-gateway-shares-with-edge-compute-enabled.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-cloud-storage-gateway-shares-with-edge-compute-enabled.png#lightbox)
 
 1. Select **+ Add share**. For this share, make sure that the **Use the share with Edge compute** option is unchecked.
 
-   [![Screenshot that shows the Add share dialog for Persistent volume with compute not enabled inline during share creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-with-compute-not-enabled.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-with-compute-not-enabled.png#Lightbox)
+   [![Screenshot that shows the Add share dialog for Persistent volume with compute not enabled inline during share creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-with-compute-not-enabled.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-with-compute-not-enabled.png#lightbox)
 
 1. You can see the newly created share in the list of shares and the **Used for compute** status is **Disabled**.
 
-   [![Screenshot that shows the newly created share in the list of shares and the Used for compute status is Disabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-new-share-with-edge-compute-option-disabled.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-new-share-with-edge-compute-option-disabled.png#Lightbox)
+   [![Screenshot that shows the newly created share in the list of shares and the Used for compute status is Disabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-new-share-with-edge-compute-option-disabled.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-new-share-with-edge-compute-option-disabled.png#lightbox)
 
 1. Go back to the **Azure Stack Edge resource** > **Overview**. In the right-pane, select the **Azure Kubernetes Service** tile. 
 
-   [![Screenshot that shows the Azure Stack Edge resource Overview page with the Azure Kubernetes Service tile selected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-overview-page-showing-azure-kubernetes-service-tile-selected.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-overview-page-showing-azure-kubernetes-service-tile-selected.png#Lightbox)
+   [![Screenshot that shows the Azure Stack Edge resource Overview page with the Azure Kubernetes Service tile selected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-overview-page-showing-azure-kubernetes-service-tile-selected.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-overview-page-showing-azure-kubernetes-service-tile-selected.png#lightbox)
 
 1. In the **Azure Kubernetes Service** > **Overview** page, the **Persistent volumes** tile shows the persistent volumes that exist. These volumes were created automatically when the shares were created with the **Use the share with Edge compute** option enabled. To create a new persistent volume, select **+ Add persistent volume**.
 
 1. In the **Add Persistent volumes** dialog, select the share for which you want to create the persistent volume.
 
-   [![Screenshot that shows the Azure Stack Edge dialog for Add Persistent volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png#Lightbox)
+   [![Screenshot that shows the Azure Stack Edge dialog for Add Persistent volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png#lightbox)
 
 1. You’ll see a notification that the persistent volume is being created. This operation may take a couple of minutes to complete.
 
-   [![Screenshot that shows a Notifications dialog that the Adding Persistent Volumes operation has successfully completed.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png#Lightbox)
+   [![Screenshot that shows a Notifications dialog that the Adding Persistent Volumes operation has successfully completed.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png#lightbox)
 
 1. After the persistent volume is created, the **Overview** page updates to include the newly added persistent volume. 
 
-   [![Screenshot that shows the Azure Kubernetes Service Overview page with Persistent Volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-persistent-volumes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-persistent-volumes.png#Lightbox)
+   [![Screenshot that shows the Azure Kubernetes Service Overview page with Persistent Volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-persistent-volumes.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-persistent-volumes.png#lightbox)
 
 1. Select **View all persistent volumes** to see the newly created persistent volume.
 
@@ -331,16 +331,15 @@ Use the following steps in the Azure portal to remove AKS.
 
 1. From the top command bar, select **Remove**.
 
-   [![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-remove-option.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-remove-option.png#Lightbox)
+   [![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-remove-option.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-remove-option.png#lightbox)
 
 1. Select the configured addon that you want to remove along with AKS. Azure Arc enabled Kubernetes is an addon. Once you select **Remove**, all Kubernetes configurations and the selected addon will be removed. The operation is irreversible and can’t be undone.
 
 1.  Select **OK** to confirm the operation.
 
-   [![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove confirmation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-remove-confirmation.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-remove-confirmation.png#Lightbox)
+    [![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove confirmation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-remove-confirmation.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-remove-confirmation.png#lightbox)
 
 ## Next steps
 
-- [AKS troubleshooting documentation](../troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes.md).
 - [AKS troubleshooting documentation](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
  
