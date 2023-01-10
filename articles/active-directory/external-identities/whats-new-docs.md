@@ -54,3 +54,4 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md)
 - [Add Microsoft account (MSA) as an identity provider for External Identities](microsoft-account.md)
 - [How users in your organization can invite guest users to an app](add-users-information-worker.md)
+

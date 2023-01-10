@@ -158,7 +158,7 @@ Several other community-supported Application Insights SDKs exist. However, Azur
 
 ## Troubleshooting
 
-### FAQ
+### Frequently asked questions
 
 Review [frequently asked questions](../faq.yml).
 ### Microsoft Q&A questions forum

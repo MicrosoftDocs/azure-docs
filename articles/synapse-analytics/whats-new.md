@@ -1,10 +1,10 @@
 ---
 title: What's new?
 description: Learn about the new features and documentation improvements for Azure Synapse Analytics
-author: ryanmajidi
-ms.author: rymajidi
-ms.reviewer: wiassaf, sngun
-ms.date: 12/06/2022
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: rymajidi, sngun
+ms.date: 01/06/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 This page is continuously updated with a recent review of what's new in [Azure Synapse Analytics](overview-what-is.md), and also what features are currently in preview. To follow the latest in Azure Synapse news and features, see the [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) and [companion videos on YouTube](https://www.youtube.com/channel/UCsZ4IlYjjVxqe5OZ14tyh5g).
 
-For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous monthly updates in Azure Synapse Analytics](whats-new-archive.md).
+For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous updates in Azure Synapse Analytics](whats-new-archive.md).
 
 ## Features currently in preview
 
@@ -25,12 +25,12 @@ The following table lists the features of Azure Synapse Analytics that are curre
 
 | **Feature** |  **Learn more**|
 |:-- |:-- |
-| **Azure Synapse Runtime for Apache Spark 3.3** | The [Azure Synapse Runtime for Apache Spark 3.3](spark/apache-spark-33-runtime.md) is currently in preview. Based on our testing using the 1 TB TPC-H industry benchmark, you're likely to see [up to 77% increased performance](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-update-2022/ba-p/3680019#TOCREF_2). |
+| **Azure Synapse Runtime for Apache Spark 3.3** | The [Azure Synapse Runtime for Apache Spark 3.3](spark/apache-spark-33-runtime.md) is currently in preview. For more information, see the [Apache Spark 3.3 preview blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-runtime-for-apache-spark-3-3-is-now-in-public/ba-p/3686449). Based on our testing using the 1 TB TPC-H industry benchmark, you're likely to see [up to 77% increased performance](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-update-2022/ba-p/3680019#TOCREF_2). |
 | **Apache Spark Delta Lake tables in serverless SQL pools** | The ability to for serverless SQL pools to access Delta Lake tables created in Spark databases is in preview. For more information, see [Azure Synapse Analytics shared metadata tables](metadata/table.md).|
 | **Apache Spark elastic pool storage** | Azure Synapse Analytics Spark pools now support elastic pool storage in preview. Elastic pool storage allows the Spark engine to monitor worker node temporary storage and attach more disks if needed. No action is required, and you should see fewer job failures as a result. For more information, see [Blog: Azure Synapse Analytics Spark elastic pool storage is available for public preview](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-august-update-2022/ba-p/3535126#TOCREF_8).|
 | **Apache Spark Optimized Write** | [Optimize Write is a Delta Lake on Azure Synapse](spark/optimize-write-for-apache-spark.md) feature reduces the number of files written by Apache Spark 3 (3.1 and 3.2) and aims to increase individual file size of the written data.|
 | **Apache Spark R language support** | Built-in [R support for Apache Spark](spark/apache-spark-r-language.md) is now in preview. |
-| **Azure Synapse Data Explorer** | The [Azure Synapse Data Explorer](./data-explorer/data-explorer-overview.md) provides an interactive query experience to unlock insights from log and telemetry data. Connectors for Azure Data Explorer are available for Synapse Data Explorer. |
+| **Azure Synapse Data Explorer** | The [Azure Synapse Data Explorer](./data-explorer/data-explorer-overview.md) provides an interactive query experience to unlock insights from log and telemetry data. Connectors for Azure Data Explorer are available for Synapse Data Explorer. For more news, see [Azure Synapse Data Explorer (preview)](#azure-synapse-data-explorer-preview).|
 | **Browse ADLS Gen2 folders in the Azure Synapse Analytics workspace** | You can now browse an Azure Data Lake Storage Gen2 (ADLS Gen2) container or folder in your Azure Synapse Analytics workspace by connecting to a specific container or folder in Synapse Studio. To learn more, see [Browse an ADLS Gen2 folder with ACLs in Azure Synapse Analytics](how-to-access-container-with-access-control-lists.md).|
 | **Custom partitions for Synapse link for Azure Cosmos DB** | Improve query execution times for your Spark queries, by creating custom partitions based on fields frequently used in your queries. To learn more, see [Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)](../cosmos-db/custom-partitioning-analytical-store.md). |
 | **Data flow improvements to Data Preview** | To learn more, see [Data Preview and debug improvements in Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254?wt.mc_id=azsynapseblog_mar2022_blog_azureeng). |
@@ -64,8 +64,7 @@ The following table lists the features of Azure Synapse Analytics that have tran
 | March 2022 | **Change Feed connectors** | Changed data capture (CDC) feed data flow source transformations for Azure Cosmos DB, Azure Blob Storage, ADLS Gen1, ADLS Gen2, and Common Data Model (CDM) are now generally available. By simply checking a box, you can tell ADF to manage a checkpoint automatically for you and only read the latest rows that were updated or inserted since the last pipeline run. To learn more, review the [Change Feed connectors GA preview blog post](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450) and read [Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics](../data-factory/connector-azure-data-lake-storage.md).|
 | March 2022 | **Column level encryption for dedicated SQL pools** | [Column level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true) is now generally available for use on new and existing Azure SQL logical servers with Azure Synapse dedicated SQL pools and dedicated SQL pools in Azure Synapse workspaces. SQL Server Data Tools (SSDT) support for column level encryption for the dedicated SQL pools is available starting with the 17.2 Preview 2 build of Visual Studio 2022. |
 | March 2022 | **Synapse Spark Common Data Model (CDM) connector** | The CDM format reader/writer enables a Spark program to read and write CDM entities in a CDM folder via Spark dataframes. To learn more, see [how the CDM connector supports reading, writing data, examples, & known issues](./spark/data-sources/apache-spark-cdm-connector.md). |
-| November 2021 | **PREDICT** | The T-SQL [PREDICT](/sql/t-sql/queries/predict-transact-sql) syntax is now generally available for dedicated SQL pools. Get started with the [Machine learning model scoring wizard for dedicated SQL pools](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md).|
-| October 2021 | **Synapse RBAC Roles** | [Synapse role-based access control (RBAC) roles are now generally available](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#synapse-rbac). Learn more about [Synapse RBAC roles](./security/synapse-workspace-synapse-rbac-roles.md) and [Azure Synapse role-based access control (RBAC) using PowerShell](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/retrieve-azure-synapse-role-based-access-control-rbac/ba-p/3466419#:~:text=Synapse%20RBAC%20is%20used%20to%20manage%20who%20can%3A,job%20execution%2C%20review%20job%20output%2C%20and%20execution%20logs.).|
+
 
 ## Community
 
@@ -73,6 +72,7 @@ This section summarizes new Azure Synapse Analytics community opportunities and 
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
+| December 2022 | **Azure Synapse MVP Corner** | November highlights from the Microsoft Azure Synapse MVP blog series in this month's [Azure Synapse MVP Corner](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-mvp-corner-november-2022/ba-p/3696939).|
 | November 2022 | **Azure Synapse Influencer program** | The Azure Synapse Influencer program provides exclusive events and Q&A sessions like Ask the Experts with the Microsoft product team, where members can interact directly with product experts by asking any questions on various rotating topics. Get feedback from members of [Azure Synapse Analytics influencer community](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-influencer-program-passionate-about-azure-synapse/ba-p/3672906). |
 | October 2022 | **Azure Synapse MVP Corner** | October highlights from the Microsoft Azure Synapse MVP blog series in this month's [Azure Synapse MVP Corner](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-mvp-corner-october-2022/ba-p/3668048).|
 | September 2022 | **Azure Synapse MVP Corner** | September highlights from the Microsoft Azure Synapse MVP blog series in this month's [Azure Synapse MVP Corner](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-mvp-corner-september-2022/ba-p/3643960).|
@@ -85,8 +85,9 @@ This section summarizes recent new features and capabilities of [Apache Spark fo
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
-| November 2022 | **Azure Synapse Runtime for Apache Spark 3.3** | The [Azure Synapse Runtime for Apache Spark 3.3](spark/apache-spark-33-runtime.md) is currently in preview. Based on our testing using the 1 TB TPC-H industry benchmark, you're likely to see [up to 77% increased performance](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-update-2022/ba-p/3680019#TOCREF_2). |
-| September 2022 | **New informative Livy error codes** | [More precise error codes](spark/apache-spark-handle-livy-error.md) describe the cause of failure and replaces the previous generic error codes. Previously, all errors in failing Spark jobs surfaced with a generic error code displaying LIVY_JOB_STATE_DEAD. |
+| January 2023 | **Improve Spark pool utilization with Synapse Genie** | The Synapse Genie Framework improves Spark pool utilization by executing multiple Synapse notebooks on the same Spark pool instance. Read more about this [metadata-driven utility written in Python](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/improve-spark-pool-utilization-with-synapse-genie/ba-p/3690428). | 
+| November 2022 | **Azure Synapse Runtime for Apache Spark 3.3** | The [Azure Synapse Runtime for Apache Spark 3.3](spark/apache-spark-33-runtime.md) is currently in preview. For more information, see the [Apache Spark 3.3 preview blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-runtime-for-apache-spark-3-3-is-now-in-public/ba-p/3686449). Based on our testing using the 1 TB TPC-H industry benchmark, you're likely to see [up to 77% increased performance](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-update-2022/ba-p/3680019#TOCREF_2). |
+| September 2022 | **New informative Livy error codes** | [More precise error codes](spark/apache-spark-handle-livy-error.md) describe the cause of failure and replaces the previous generic error codes. Previously, all errors in failing Spark jobs surfaced with a generic error code displaying `LIVY_JOB_STATE_DEAD`. |
 | September 2022 | **New query optimization techniques in Apache Spark for Azure Synapse Analytics** | Read the [findings from Microsoft's work](https://vldb.org/pvldb/vol15/p936-rajan.pdf) to gain considerable performance benefits across the board on the reference TPC-DS workload as well as a significant reduction in query plan generation time. |
 | August 2022 | **Apache Spark elastic pool storage** | Azure Synapse Analytics Spark pools now support elastic pool storage in preview. Elastic pool storage allows the Spark engine to monitor worker nodes temporary storage and attach additional disks if needed. No action is required, and you should see fewer job failures as a result. For more information, see [Blog: Azure Synapse Analytics Spark elastic pool storage is available for public preview](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-august-update-2022/ba-p/3535126#TOCREF_8).|
 | August 2022 | **Apache Spark Optimized Write** | Optimize Write is a Delta Lake on Synapse preview feature that reduces the number of files written by Apache Spark 3 (3.1 and 3.2) and aims to increase individual file size of the written data. To learn more, see [The need for optimize write on Apache Spark](spark/optimize-write-for-apache-spark.md).|
@@ -132,7 +133,6 @@ This section summarizes recent new features and capabilities of Azure Synapse An
 | March 2022 | **sFTP connector for Synapse data flows** | A native sftp connector in Synapse data flows is supported to read and write data from sFTP using the visual low-code data flows interface in Synapse. To learn more, see [Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics](../data-factory/connector-sftp.md).|
 | March 2022 | **Data flow improvements to Data Preview** | Review features added to the [Data Preview and debug improvements in Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254?wt.mc_id=azsynapseblog_mar2022_blog_azureeng). |
 | March 2022 | **Pipeline script activity** | You can now [Transform data by using the Script activity](../data-factory/transform-data-using-script.md) to invoke SQL commands to perform both DDL and DML. |
-| December 2021 | **Custom partitions for Synapse link for Azure Cosmos DB** | Improve query execution times for your Spark queries, by creating custom partitions based on fields frequently used in your queries. To learn more, see [Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)](../cosmos-db/custom-partitioning-analytical-store.md). |
 
 ## Database Templates & Database Designer
 
@@ -153,6 +153,7 @@ This section summarizes recent new quality of life and feature improvements for 
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
+| December 2022 | **MSSparkUtils is the Swiss Army knife inside Synapse Spark** | MSSparkUtils is a built-in package to help you easily perform common tasks called Microsoft Spark utilities, including the ability to [share results between notebooks](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/mssparkutils-is-the-swiss-army-knife-inside-synapse-spark/ba-p/3673355). |
 | September 2022 | **Synapse CICD for publishing workspace artifacts** | Integrating Synapse Studio with a Source Control System such as [Azure DevOps Git](https://dev.azure.com/) or [GitHub](https://github.com/) has been shown as one of Synapse Studio's preferred features to collaborate and provide [source control for Azure Synapse](cicd/source-control.md). The Visual Studio marketplace has a [Synapse workspace deployment task](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) to automate publishing.|
 | July 2022 | **Synapse Notebooks compatibility with IPython** | The official kernel for Jupyter notebooks is IPython and it's now supported in Synapse Notebooks. For more information, see [Synapse Notebooks is now fully compatible with IPython](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-july-update-2022/ba-p/3535089#TOCREF_14).|
 | July 2022 | **Mssparkutils now has spark.stop() method** | A new API `mssparkutils.session.stop()` has been added to the mssparkutils package. This feature becomes handy when there are multiple sessions running against the same Spark pool. The new API is available for Scala and Python. To learn more, see [Stop an interactive session](spark/microsoft-spark-utilities.md#stop-an-interactive-session).|
@@ -167,7 +168,7 @@ This section summarizes recent new quality of life and feature improvements for 
 
 ## Machine Learning
 
-This section summarizes recent new features and improvements to using machine learning models in Azure Synapse Analytics.
+This section summarizes recent new features and improvements to machine learning models in Azure Synapse Analytics.
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
@@ -178,7 +179,6 @@ This section summarizes recent new features and improvements to using machine le
 | August 2022 | **MLflow platform support** | SynapseML models now integrate with [MLflow](https://microsoft.github.io/SynapseML/docs/mlflow/introduction/) with full support for saving, loading, deployment, and [autologging](https://microsoft.github.io/SynapseML/docs/mlflow/autologging/).|
 | August 2022 | **SynapseML in Binder** | We know that Spark can be intimidating for first users but fear not because with the technology Binder, you can [explore and experiment with SynapseML in Binder](https://mybinder.org/v2/gh/microsoft/SynapseML/93d7ccf?labpath=notebooks%2Ffeatures) with zero setup, install, infrastructure, or Azure account required.|
 | June 2022 | **Distributed Deep Neural Network Training (preview)** | The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod, which are commonly used for distributed training. This feature is currently available in preview. The Azure Synapse Analytics runtime for Apache Spark 3.1 and 3.2 also now includes support for the most common deep learning libraries like TensorFlow and PyTorch. To learn more about how to leverage these libraries within your Azure Synapse Analytics GPU-accelerated pools, read the [Deep learning tutorials](./machine-learning/concept-deep-learning.md). |
-| November 2021 | **PREDICT** | The T-SQL [PREDICT](/sql/t-sql/queries/predict-transact-sql) syntax is now generally available for dedicated SQL pools. Get started with the [Machine learning model scoring wizard for dedicated SQL pools](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md).|
 
 ## Samples and guidance
 
@@ -186,6 +186,8 @@ This section summarizes new guidance and sample project resources for Azure Syna
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
+| January 2023 | **Create DNS alias for dedicated SQL pool in Synapse workspace for disaster recovery** | A [custom DNS for dedicated SQL pools (formerly SQL DW)](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/create-dns-alias-for-dedicated-sql-pool-in-synapse-workspace-for/ba-p/3675676) can provide redirect to client programs during a disaster. | 
+| December 2022 | **Azure Synapse - Data Lake vs. Delta Lake vs. Data Lakehouse** | Read a new Success Engineering blog post demystifying the terms [Data Lake, Delta Lake, and Data Lakehouse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/synapse-data-lake-vs-delta-lake-vs-data-lakehouse/ba-p/3673653). |
 | November 2022 | **How Data Exfiltration Protection (DEP) impacts Azure Synapse Analytics Pipelines** | [Data Exfiltration Protection (DEP)](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-data-exfiltration-protection-dep-impacts-azure-synapse/ba-p/3676146) is a feature that enables additional restrictions on the ability of Azure Synapse Analytics to connect to other services. |
 | November 2022 | **Getting started with REST APIs for Azure Synapse Analytics - Apache Spark Pool** | We provide [instructions on how to setup and use Synapse REST endpoints and describe the Apache Spark Pool operations supported by REST APIs](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/getting-started-with-rest-apis-for-azure-synapse-analytics/ba-p/3668474). |
 | November 2022 | **Demystifying Azure Synapse Data Explorer** | A two-part explainer  [demystify Data Explorer in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/demystifying-data-explorer/ba-p/3636191) and [data ingestion with Azure Synapse Data Explorer](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/demystifying-data-ingestion-in-azure-synapse-data-explorer/ba-p/3661133). |
@@ -211,9 +213,7 @@ This section summarizes recent new security features and settings in Azure Synap
 | April 2022 | **Synapse Monitoring Operator RBAC role** | The Synapse Monitoring Operator role-based access control (RBAC) role allows a user persona to monitor the execution of Synapse Pipelines and Spark applications without having the ability to run or cancel the execution of these applications. For more information, review the [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md).|
 | March 2022 | **Enforce minimal TLS version** | You can now raise or lower the minimum TLS version for dedicated SQL pools in Synapse workspaces. To learn more, see [Azure SQL connectivity settings](/azure/azure-sql/database/connectivity-settings#minimal-tls-version). The [workspace managed SQL API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) can be used to modify the minimum TLS settings.|
 | March 2022 | **Azure Synapse Analytics now supports Azure Active Directory (Azure AD) only authentication** | You can now use Azure Active Directory authentication to centrally manage access to all Azure Synapse resources, including SQL pools. You can [disable local authentication](sql/active-directory-authentication.md#disable-local-authentication) upon creation or after a workspace is created through the Azure portal.|
-| December 2021 | **User-Assigned managed identities** | Now you can use user-assigned managed identities in linked services for authentication in Synapse Pipelines and Dataflows. To learn more, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory).|
-| December 2021 | **Browse ADLS Gen2 folders in the Azure Synapse Analytics workspace** | You can now [browse and secure an Azure Data Lake Storage Gen2 (ADLS Gen2) container or folder](how-to-access-container-with-access-control-lists.md) in your Azure Synapse Analytics workspace by connecting to a specific container or folder in Synapse Studio.|
-| December 2021 | **TLS 2.1 enforced for new Synapse Workspaces** | Starting in December 2021, [a requirement for TLS 1.2](security/connectivity-settings.md#minimal-tls-version) has been implemented for new Synapse Workspaces only. |
+
 
 ## Azure Synapse Data Explorer (preview)
 
@@ -221,6 +221,7 @@ Azure Data Explorer (ADX) is a fast and highly scalable data exploration service
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
+| December 2022 | **Demystifying data consumption using Azure Synapse Data Explorer** | A guide to the various ways of [retrieving, consuming and visualizing data from Azure Synapse Data Explorer](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/demystifying-data-consumption-using-azure-synapse-data-explorer/ba-p/3684265). |
 | November 2022 | **Table Level Sharing support via Azure Data Share** | We have now [added Table level sharing support](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-update-2022/ba-p/3680019#TOCREF_10) via the [Azure Data Share interface](https://azure.microsoft.com/products/data-share/#overview) where you can share specific tables in the database. This allows you to easily and securely share your data with people in your company or external partners. |
 | November 2022 | **Ingest data from Azure Stream Analytics into Synapse Data Explorer** | The ability to use a Streaming Analytics job to collect data from an event hub and send it to your Azure Data Explorer cluster is now generally available. For more information, see [Ingest data from Azure Stream Analytics into Azure Data Explorer](/azure/data-explorer/stream-analytics-connector) and [ADX output from Azure Stream Analytics](/azure/stream-analytics/azure-database-explorer-output).|
 | November 2022 | **Parse-kv operator** | The new [parse-kv operator](/azure/data-explorer/kusto/query/parse-kv-operator) extracts structured information from a string expression and represents the information in a key/value form. You can use a [specified delimeter](/azure/data-explorer/kusto/query/parse-kv-operator#specified-delimeter), a [non-specified delimeter](/azure/data-explorer/kusto/query/parse-kv-operator#non-specified-delimiter), or [Regex](/azure/data-explorer/kusto/query/parse-kv-operator#regex) via a [RE2 regular expression](/azure/data-explorer/kusto/query/re2). |
@@ -283,6 +284,8 @@ This section summarizes recent improvements and features in SQL pools in Azure S
 | March 2022 | **Parallel execution for CETAS** | Better performance for [CREATE TABLE AS SELECT](sql/develop-tables-cetas.md) (CETAS) and subsequent SELECT statements now made possible by use of parallel execution plans. For examples, see [Better performance for CETAS and subsequent SELECTs](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_7).|
 
 ## Learn more
+
+For older updates, review past [Azure Synapse Analytics Blog](https://aka.ms/SynapseMonthlyUpdate) posts or [previous updates in Azure Synapse Analytics](whats-new-archive.md).
 
 - [Get started with Azure Synapse Analytics](get-started.md)
 - [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics/)

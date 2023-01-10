@@ -8,16 +8,14 @@ author: eric-urban
 ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: reference
-ms.date: 01/04/2023
+ms.topic: conceptual
+ms.date: 01/09/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
 # What's new in Azure Cognitive Service for Speech?
 
 Azure Cognitive Service for Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
-
-See below for information about new features and other changes to the Speech service.
 
 ## Recent highlights
 

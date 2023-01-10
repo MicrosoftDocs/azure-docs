@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/04/2023
 ---
 
-# .NET (C#) code samples for Azure Cognitive Search
+# C# samples for Azure Cognitive Search
 
 Learn about the C# code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/dotnet/api/overview/azure/search) for the [**Azure SDK for .NET**](/dotnet/azure/), which you can explore through the following links.
 
