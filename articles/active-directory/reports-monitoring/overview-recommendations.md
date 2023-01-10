@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/05/2023
+ms.date: 01/10/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler  
 ms.collection: M365-identity-device-management
@@ -68,7 +68,7 @@ The recommendation's **Value** is an explanation of why completing the recommend
 
 The **Action plan** provides step-by-step instructions to implement a recommendation. May include links to relevant documentation or direct you to other pages in the Azure AD portal.
 
-## What you should know
+## Roles and licenses
 
 The following roles provide *read-only* access to recommendations:
 
@@ -86,9 +86,7 @@ The following roles provide *update and read-only* access to recommendations:
 
 Azure AD recommendations is automatically enabled. If you'd like to disable this feature, go to **Azure AD** > **Preview features**. Locate the **Recommendations** feature, and change the **State**.
 
-Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Some recommendations are available in all tenants, regardless of the license type. Some recommendations are only available with the [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md). 
-
-Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address. The only action recorded in the audit log is completing recommendations. Actions taken on a recommendation are collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
+Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Some recommendations are available in all tenants, regardless of the license type, but others require the [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md). 
 
 The recommendations listed in the following table are available to all Azure AD tenants. The table provides the impacted resources and links to available documentation.
 
@@ -127,6 +125,7 @@ The recommendations listed in the following table are available to Azure AD tena
     - Mark a recommendation as **Completed** if all impacted resources have been addressed.
         - Active resources may still appear in the list of resources for manually completed recommendations. If the resource is completed, the service will update the status the next time the service runs. 
         - If the service identifies an active resource for a manually completed recommendation the next time the service runs, the recommendation will automatically change back to **Active**.
+        - Completing a recommendation is the only action collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
     - Mark a recommendation as **Dismissed** if you think the recommendation is irrelevant or the data is wrong.
         - Azure AD will ask for a reason why you dismissed the recommendation so we can improve the service.
     - Mark a recommendation as **Postponed** if you want to address the recommendation at a later time.
