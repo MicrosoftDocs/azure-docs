@@ -45,7 +45,7 @@ New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -Display
 ```
 
 ## 2. Allow the Project Synergy application
-Project Synergy is required to assign users and groups to app-roles for your application. 
+Project Synergy allows Operator Connect to access your Azure Active Directory. It's required to allow configuration of Operator Connect or Teams Phone Mobile and to assign users and groups to app-roles for your application. 
 1. In your Azure portal, navigate to **Enterprise applications** using the left-hand side menu. Alternatively, you can search for it in the search bar, it will appear under the **Services** subheading. 
 1. Set the **Application type** filter to **All applications** using the drop-down menu. 
 1. Select **Apply**.
