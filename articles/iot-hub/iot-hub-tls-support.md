@@ -126,7 +126,7 @@ IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hu
 
 After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
 
-## Mtual TLS authentication support
+## Mutual TLS authentication support
 
 Mutual TLS authentication ensures the client _authenticates_ the server certificate AND the server _authenticates_ the [X.509 client certificate or X.509 Thumbprint](tutorial-x509-introduction). _Authorization_ is performed by IoT Hub after _authentication_ is complete. 
 
