@@ -16,7 +16,7 @@ Azure Functions version 4.x is highly backwards compatible to version 3.x. Most 
 > 
 > After the deadline, function apps can be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps are not eligible for new features, security patches, and performance optimizations. You'll get related service support once you upgraded them to version 4.x.
 > 
->End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all Azure Functions runtime languages (e.g .NET, Python, node.js, PowerShell etc). 
+>End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all [languages supported by Azure Functions](supported-languages.md). 
 >
 >We highly recommend you migrating your function apps to version 4.x of the Functions runtime by following this article.
 >    
