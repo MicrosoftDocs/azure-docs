@@ -6,9 +6,12 @@ ms.date: 09/12/2022
 ms.reviewer: aul
 ---
 
-# Container Insights - Cost Optimization DCR Settings
+# Cost Optimization DCR Settings
 
-This private preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview).
+>[!NOTE]
+>Support for this feature is currently in preview. We recommend only using preview features in safe testing environments.
+
+This preview supports the data collection settings such as data collection interval and namespaces to exclude for the data collection through [Azure Monitor Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md).
 
 This feature reduces the volume of data being ingested and in turn helps to reduce the total cost.
 
@@ -49,13 +52,32 @@ The below table outlines the list of the container insights Log Analytics tables
 ## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
-    - If the AKS Cluster is using Service Principal, it MUST be upgraded to use Managed Identity [https://docs.microsoft.com/en-us/azure/aks/use-managed-identity#update-an-aks-cluster-to-use-a-managed-identity](https://docs.microsoft.com/en-us/azure/aks/use-managed-identity#update-an-aks-cluster-to-use-a-managed-identity)
+    - If the AKS Cluster is using Service Principal, it MUST be upgraded to use [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
 
-- AKS Cluster or AKS Cluster subscription MUST be allow-listed to use this feature
-    - The current recommendation is to allow-list at a per cluster level, unless using a test subscription for allow-listing
-- Install latest version of the Azure CLI as per the instructions in [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+- Install latest version of the [Azure CLI](/cli/azure/install-azure-cli)
+
+## Cost presets and advanced collection settings
+Cost presets are available for selection in the Azure Portal to allow easy configuration. By default, container insights ships with the Standard preset, however, you may choose one of the following to modify your collection settings.
+
+| Cost preset | Collection frequency | Namespace filters |Syslog collection |
+| --- | --- | --- | --- |
+| Standard | 1m | None | Not enabled |
+| Cost-optimized | 5m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
+| Advanced | Custom | Custom | Enabled by default (but can be turned off) |
 
 ## Onboarding to an existing AKS Cluster
+
+## [Azure portal](#tab/create-portal)
+1. In the Azure portal, select the AKS cluster that you wish to monitor
+2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
+3a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button
+3b. Select the "Use managed identity (preview)" checkbox
+3c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+4. Click the blue "Configure" button to finish
+
+
+## [ARM](#tab/create-arm)
+
 
 1. Download the Azure Resource Manager Template and Parameter files
 
@@ -85,8 +107,21 @@ az account set --subscription"Cluster Subscription Name"
 
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
 ```
+---
 
-### Onboarding to an existing Azure Arc K8s Clusters
+## Onboarding to an existing Azure Arc K8s Clusters
+
+
+## [Azure portal](#tab/create-portal)
+1. In the Azure portal, select the Arc cluster that you wish to monitor
+2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
+3a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button
+3b. Select the "Use managed identity (preview)" checkbox
+3c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+4. Click the blue "Configure" button to finish
+
+
+## [ARM](#tab/create-arm)
 
 1. Download the Azure Resource Manager Template and Parameter files
 
@@ -117,8 +152,9 @@ az account set --subscription "Cluster's Subscription Name"
 
 az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
 ```
+---
 
-## **Data Collection Settings Updates**
+## Data Collection Settings Updates
 
 To update your data collection Settings, modify the values in parameter files, and re-deploy the Azure Resource Manager Templates to your corresponding AKS or Azure Arc Kubernetes cluster.
 
@@ -130,8 +166,3 @@ To update your data collection Settings, modify the values in parameter files, a
 
 - Recommended alerts will not work as expected if the Data collection interval is configured more than 1 minute interval. Plan is to migrate to Metrics addon for the metrics once it becomes available.
 - There will be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
-- Configuring the Data Collection Settings through Azure Portal and Azure CLI not available in private preview and this will be available in public preview & GA release of this feature
-
-## **For Help**
-
-Please reach out to [coinsupport@microsoft.com](mailto:coinsupport@microsoft.com) if you are facing any issues.
