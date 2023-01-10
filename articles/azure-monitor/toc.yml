@@ -1253,6 +1253,8 @@ items:
         href: containers/container-insights-update-metrics.md
       - name: Enable ContainerLogv2 (preview)
         href: containers/container-insights-logging-v2.md
+      - name: Cost optimization data collection rules (DCRs)
+        href: containers/container-insights-cost-config.md
     - name: Monitor
       items:
       - name: Monitor performance
