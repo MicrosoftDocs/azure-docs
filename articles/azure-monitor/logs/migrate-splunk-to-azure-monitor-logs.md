@@ -68,7 +68,7 @@ To migrate most Splunk artifacts, you need to translate Splunk Processing Langua
 T
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png" alt-text="Diagram that shows Azure Monitor capabilities related to insights, visualization, analysis, and responsive actions." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png":::
 
-This table lists Splunk artifacts and provides links to guidance on how to set up the equivalent artifacts in Azure Monitor Logs:
+This table lists Splunk artifacts and provides links to guidance on how to set up the equivalent artifacts in Azure Monitor:
 
 |Splunk artifact| Azure Monitor artifact|
 |---|---|
@@ -83,6 +83,7 @@ This table lists Splunk artifacts and provides links to guidance on how to set u
 |Reports|Azure Monitor offers a range of options for analyzing, visualizing, and sharing data, including:<br>- [Insights](../insights/insights-overview.md)<br>- [Workbooks](../visualize/workbooks-overview.md)<br>- [Dashboards](../visualize/tutorial-logs-dashboards.md) <br>- [Integration with Power BI](../logs/log-powerbi.md)<br>- [Integration with Excel](../logs/log-excel.md)<br>- [Integration with Grafana](../visualize/grafana-plugin.md) |
 |Universal forwarder| Azure Monitor provides a number of [data collection tools](#4-collect-data) designed for specific resources.| 
 
+For information on migrating Splunk SIEM artifacts, including detection rules and SOAR automation for, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
 ## 3. Ingest historical data
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
