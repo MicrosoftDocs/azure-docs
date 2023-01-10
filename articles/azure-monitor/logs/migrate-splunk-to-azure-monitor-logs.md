@@ -56,10 +56,8 @@ To set up a Log Analytics workspace for data collection:
 
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
     1. Define a table's log data plan.
-    1. Set a data retention and archiving for specific tables that's different the workspace-level data retention and archiving policy. 
-    1. Modify the table schema.
-
-1. [Configure your workspace](../logs/log-analytics-workspace-overview.md) based on needs such as access control, billing, data transformation, and data retention and archiving.
+    1. Set a data retention and archiving policy for specific tables, if you need them to be different form the default workspace-level data retention and archiving policy. 
+    1. Modify the table schema based on your data model.
 
 ## 2. Migrate Splunk artifacts
 
