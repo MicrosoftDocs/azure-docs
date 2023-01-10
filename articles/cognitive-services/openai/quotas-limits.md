@@ -23,7 +23,8 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region | 2 | 
-| Requests per second per deployment | 15 |
+| Requests per second per deployment | 20 requests per second for: text-davinci-002, text-davinci-fine-tune-002, 	code-cushman-002, code-davinci-002, code-davinci-fine-tune-002 <br ><br> 50 requests per second for all other text models.
+ |
 | Max fine-tuned model deployments | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |

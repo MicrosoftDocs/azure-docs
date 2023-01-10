@@ -21,7 +21,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.2 | Preview |
 | [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
-| [File Activity](file-event-normalization-schema.md) | 0.2 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
 | [Network Session](normalization-schema.md) | 0.2.5 | Preview |
 | [Process Event](process-events-normalization-schema.md) | 0.1.4 | Preview |
 | [Registry Event](registry-event-normalization-schema.md) | 0.1.2 | Preview |

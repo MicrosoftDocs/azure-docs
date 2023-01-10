@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Protect your route server with Azure DDoS protection'
+title: 'Tutorial: Protect your Route Server with Azure DDoS protection'
 description: Learn how to set up a route server and protect it with Azure DDoS protection
 author: asudbring
 ms.author: allensu
@@ -9,7 +9,7 @@ ms.date: 12/21/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Protect your route server with Azure DDoS protection
+# Tutorial: Protect your Route Server with Azure DDoS protection
 
 This article helps you create an Azure Route Server with a DDoS protected virtual network. Azure DDoS protection protects your publicly accessible route server from Distributed Denial of Service attacks.
 
@@ -137,18 +137,6 @@ You'll need the Azure Route Server's peer IPs and ASN to complete the configurat
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
-## Configure route exchange
-
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** in the search results.
-
-2. Select **myRouteServer**.
-
-3. In **Settings**, select **Configuration**.
-
-4. Select **Enabled** in **Branch-to-branch**.
-
-5. Select **Save**.
-
 ## Clean up resources
 
 If you're not going to continue to use this application, delete the virtual network, DDoS protection plan, and Route Server with the following steps:
@@ -167,5 +155,5 @@ If you're not going to continue to use this application, delete the virtual netw
 
 Advance to the next article to learn how to:
 > [!div class="nextstepaction"]
-> [Configure peering between Azure Route Server and Quagga network virtual appliance](tutorial-configure-route-server-with-quagga.md)
+> [Configure peering between Azure Route Server and network virtual appliance](tutorial-configure-route-server-with-quagga.md)
 
