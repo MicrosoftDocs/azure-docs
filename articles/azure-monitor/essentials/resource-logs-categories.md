@@ -2,8 +2,9 @@
 title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
-ms.date: 10/13/2022
+ms.date: 12/26/2022
 ms.reviewer: lualderm
+ms.author: edbaynash
 
 ---
 
@@ -33,7 +34,7 @@ Some categories might be supported only for specific types of resources. See the
 If you think something is missing, you can open a GitHub comment at the bottom of this article.
 
 
-## Microsoft.AAD/domainServices
+## Microsoft.AAD/DomainServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -48,14 +49,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SystemSecurity|SystemSecurity|No|
 
 
-## microsoft.aadiam/tenants
+## microsoft.aadiam/tenants   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Signin|Signin|Yes|
 
 
-## Microsoft.AgFoodPlatform/farmBeats
+## Microsoft.AgFoodPlatform/farmBeats   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -71,7 +72,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |WeatherLogs|Weather Logs|Yes|
 
 
-## Microsoft.AnalysisServices/servers
+## Microsoft.AnalysisServices/servers   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -79,14 +80,23 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Service|Service|No|
 
 
-## Microsoft.ApiManagement/service
+## Microsoft.ApiManagement/service   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |GatewayLogs|Logs related to ApiManagement Gateway|No|
+|WebSocketConnectionLogs|Logs related to Websocket Connections|Yes|
 
 
-## Microsoft.AppConfiguration/configurationStores
+## Microsoft.App/managedEnvironments   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ContainerAppConsoleLogs|Container App console logs|Yes|
+|ContainerAppSystemLogs|Container App system logs|Yes|
+
+
+## Microsoft.AppConfiguration/configurationStores   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -94,7 +104,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |HttpRequest|HTTP Requests|Yes|
 
 
-## Microsoft.AppPlatform/Spring
+## Microsoft.AppPlatform/Spring   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -105,35 +115,26 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SystemLogs|System Logs|No|
 
 
-## Microsoft.Attestation/attestationProviders
+## Microsoft.Attestation/attestationProviders   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditEvent|AuditEvent message log category.|No|
-|ERR|Error message log category.|No|
-|INF|Informational message log category.|No|
-|WRN|Warning message log category.|No|
+|NotProcessed|Requests which could not be processed.|Yes|
+|Operational|Operational message log category.|Yes|
 
 
-## Microsoft.Automation/automationAccounts
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DscNodeStatus|Dsc Node Status|No|
-|JobLogs|Job Logs|No|
-|JobStreams|Job Streams|No|
-
-
-## Microsoft.AutonomousDevelopmentPlatform/accounts
+## Microsoft.Automation/automationAccounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
-|Operational|Operational|Yes|
-|Request|Request|Yes|
+|AuditEvent|AuditEvent|Yes|
+|DscNodeStatus|DscNodeStatus|No|
+|JobLogs|JobLogs|No|
+|JobStreams|JobStreams|No|
 
 
-## Microsoft.AutonomousDevelopmentPlatform/datapools
+## Microsoft.AutonomousDevelopmentPlatform/accounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -142,7 +143,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Request|Request|Yes|
 
 
-## Microsoft.AutonomousDevelopmentPlatform/workspaces
+## Microsoft.AutonomousDevelopmentPlatform/workspaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -151,66 +152,51 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Request|Request|Yes|
 
 
-## microsoft.avs/privateClouds
+## microsoft.avs/privateClouds   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|vmwaresyslog|VMware VCenter Syslog|Yes|
+|vmwaresyslog|VMware Syslog|Yes|
 
 
-## Microsoft.Batch/batchAccounts
+## Microsoft.Batch/batchaccounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|AuditLog|Audit Logs|Yes|
 |ServiceLog|Service Logs|No|
+|ServiceLogs|Service Logs|Yes|
 
 
-## Microsoft.BatchAI/workspaces
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|BaiClusterEvent|BaiClusterEvent|No|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
-|BaiJobEvent|BaiJobEvent|No|
-
-
-## Microsoft.Blockchain/blockchainMembers
+## microsoft.botservice/botservices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BlockchainApplication|Blockchain Application|No|
-|FabricOrderer|Fabric Orderer|No|
-|FabricPeer|Fabric Peer|No|
-|Proxy|Proxy|No|
+|BotRequest|Requests from the channels to the bot|Yes|
 
 
-## Microsoft.Blockchain/cordaMembers
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|BlockchainApplication|Blockchain Application|No|
-
-
-## Microsoft.BotService/botServices
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|logSpecification.Name.Empty|logSpecification.DisplayName.empty|Yes|
-
-
-## Microsoft.Cache/redis
+## Microsoft.Cache/redis   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ConnectedClientList|Connected client list|Yes|
 
 
-## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
+## Microsoft.Cache/redisEnterprise/databases   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ConnectionEvents|Connection events (New Connection/Authentication/Disconnection)|Yes|
+
+
+## Microsoft.Cdn/cdnwebapplicationfirewallpolicies   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |WebApplicationFirewallLogs|Web Appliation Firewall Logs|No|
 
 
-## Microsoft.Cdn/profiles
+## Microsoft.Cdn/profiles   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -220,21 +206,21 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |FrontDoorWebApplicationFirewallLog|FrontDoor WebApplicationFirewall Log|Yes|
 
 
-## Microsoft.Cdn/profiles/endpoints
+## Microsoft.Cdn/profiles/endpoints   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|No|
 
 
-## Microsoft.ClassicNetwork/networksecuritygroups
+## Microsoft.ClassicNetwork/networksecuritygroups   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|No|
 
 
-## Microsoft.CognitiveServices/accounts
+## Microsoft.CognitiveServices/accounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -243,12 +229,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Trace|Trace Logs|No|
 
 
-## Microsoft.Communication/CommunicationServices
+## Microsoft.Communication/CommunicationServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuthOperational|Operational Authentication Logs|Yes|
+|CallAutomationOperational|Operational Call Automation Logs|Yes|
 |CallDiagnostics|Call Diagnostics Logs|Yes|
+|CallRecordingSummary|Call Recording Summary Logs|Yes|
 |CallSummary|Call Summary Logs|Yes|
 |ChatOperational|Operational Chat Logs|No|
 |EmailSendMailOperational|Email Service Send Mail Logs|Yes|
@@ -256,18 +244,48 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |EmailUserEngagementOperational|Email Service User Engagement Logs|Yes|
 |NetworkTraversalDiagnostics|Network Traversal Relay Diagnostic Logs|Yes|
 |NetworkTraversalOperational|Operational Network Traversal Logs|Yes|
+|RoomsOperational|Operational Rooms Logs|Yes|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
 
 
-## Microsoft.ConnectedCache/CacheNodes
+## Microsoft.Compute/virtualMachines   <!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|SoftwareUpdateProfile|SoftwareUpdateProfile|Yes|
+|SoftwareUpdates|SoftwareUpdates|Yes|
+
+
+## Microsoft.ConfidentialLedger/ManagedCCF   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|applicationlogs|CCF Application Logs|Yes|
+
+
+## Microsoft.ConfidentialLedger/ManagedCCFs   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|applicationlogs|CCF Application Logs|Yes|
+
+
+## Microsoft.ConnectedCache/CacheNodes   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Events|Events|Yes|
 
 
-## Microsoft.ConnectedVehicle/platformAccounts
+## Microsoft.ConnectedCache/ispCustomers   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Events|Events|Yes|
+
+
+## Microsoft.ConnectedVehicle/platformAccounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -275,7 +293,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Logs|MCVP Logs|Yes|
 
 
-## Microsoft.ContainerRegistry/registries
+## Microsoft.ContainerRegistry/registries   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -283,19 +301,16 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ContainerRegistryRepositoryEvents|RepositoryEvent logs|No|
 
 
-## Microsoft.ContainerService/managedClusters
+## Microsoft.ContainerService/managedClusters   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|admissionsenforcer|AKS Guardrails/Admissions Enforcer|Yes|
 |cloud-controller-manager|Kubernetes Cloud Controller Manager|Yes|
 |cluster-autoscaler|Kubernetes Cluster Autoscaler|No|
-|csi-azuredisk-controller|Kubernetes CSI Azuredisk Controller|Yes|
-|csi-azuredisk-controller-v2|Kubernetes CSI Azuredisk V2 Controller|Yes|
-|csi-azurefile-controller|Kubernetes CSI Azurefile Controller|Yes|
-|csi-blob-controller|Kubernetes CSI Blob Controller|Yes|
-|csi-snapshot-controller|Kubernetes CSI Snapshot Controller|Yes|
-|guard|Kubernetes Guard|No|
+|csi-azuredisk-controller|csi-azuredisk-controller|Yes|
+|csi-azurefile-controller|csi-azurefile-controller|Yes|
+|csi-snapshot-controller|csi-snapshot-controller|Yes|
+|guard|guard|No|
 |kube-apiserver|Kubernetes API Server|No|
 |kube-audit|Kubernetes Audit|No|
 |kube-audit-admin|Kubernetes Audit Admin Logs|No|
@@ -303,14 +318,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |kube-scheduler|Kubernetes Scheduler|No|
 
 
-## Microsoft.CustomProviders/resourceproviders
+## Microsoft.CustomProviders/resourceproviders   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditLogs|Audit logs for MiniRP calls|No|
 
 
-## Microsoft.D365CustomerInsights/instances
+## Microsoft.D365CustomerInsights/instances   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -318,18 +333,22 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Operational|Operational events|No|
 
 
-## Microsoft.Dashboard/grafana
+## Microsoft.Dashboard/grafana   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |GrafanaLoginEvents|Grafana Login Events|Yes|
 
 
-## Microsoft.Databricks/workspaces
+## Microsoft.Databricks/workspaces   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |accounts|Databricks Accounts|No|
+|accountsAccessControl|Databricks Accounts Access Control|Yes|
+|capsule8ContainerSecurityScanningReports|Databricks Capsule8 Container Security Scanning Reports|Yes|
+|clamAntiVirusReports|Databricks Clam AntiVirus Reports|Yes|
+|clusterLibraries|Databricks Cluster Libraries|Yes|
 |clusters|Databricks Clusters|No|
 |databrickssql|Databricks DatabricksSQL|Yes|
 |dbfs|Databricks File System|No|
@@ -345,9 +364,11 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |mlflowExperiment|Databricks MLFlow Experiment|Yes|
 |modelRegistry|Databricks Model Registry|Yes|
 |notebook|Databricks Notebook|No|
+|partnerConnect|Databricks Partner Connect|Yes|
 |RemoteHistoryService|Databricks Remote History Service|Yes|
 |repos|Databricks Repos|Yes|
 |secrets|Databricks Secrets|No|
+|serverlessRealTimeInference|Databricks Serverless Real-Time Inference|Yes|
 |sqlanalytics|Databricks SQL Analytics|Yes|
 |sqlPermissions|Databricks SQLPermissions|No|
 |ssh|Databricks SSH|No|
@@ -356,7 +377,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |workspace|Databricks Workspace|No|
 
 
-## Microsoft.DataCollaboration/workspaces
+## Microsoft.DataCollaboration/workspaces   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -364,11 +385,12 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Computations|Computations|Yes|
 |DataAssets|Data Assets|No|
 |Pipelines|Pipelines|No|
+|Pipelines|Pipelines|No|
 |Proposals|Proposals|No|
 |Scripts|Scripts|No|
 
 
-## Microsoft.DataFactory/factories
+## Microsoft.DataFactory/factories   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -385,7 +407,18 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |TriggerRuns|Trigger runs log|No|
 
 
-## Microsoft.DataLakeAnalytics/accounts
+## Microsoft.DataLakeAnalytics/accounts   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit Logs|No|
+|ConfigurationChange|Configuration Change Event Logs|Yes|
+|JobEvent|Job Event Logs|Yes|
+|JobInfo|Job Info Logs|Yes|
+|Requests|Request Logs|No|
+
+
+## Microsoft.DataLakeStore/accounts   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -393,15 +426,17 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Requests|Request Logs|No|
 
 
-## Microsoft.DataLakeStore/accounts
+## Microsoft.DataProtection/BackupVaults   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
-|Requests|Request Logs|No|
+|AddonAzureBackupJobs|Addon Azure Backup Job Data|Yes|
+|AddonAzureBackupPolicy|Addon Azure Backup Policy Data|Yes|
+|AddonAzureBackupProtectedInstance|Addon Azure Backup Protected Instance Data|Yes|
+|CoreAzureBackup|Core Azure Backup Data|Yes|
 
 
-## Microsoft.DataShare/accounts
+## Microsoft.DataShare/accounts   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -411,7 +446,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ShareSubscriptions|Share Subscriptions|No|
 
 
-## Microsoft.DBforMariaDB/servers
+## Microsoft.DBforMariaDB/servers   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -419,7 +454,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |MySqlSlowLogs|MariaDB Server Logs|No|
 
 
-## Microsoft.DBforMySQL/flexibleServers
+## Microsoft.DBforMySQL/flexibleServers   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -427,7 +462,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |MySqlSlowLogs|MySQL Slow Logs|No|
 
 
-## Microsoft.DBforMySQL/servers
+## Microsoft.DBforMySQL/servers   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -435,21 +470,23 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |MySqlSlowLogs|MySQL Server Logs|No|
 
 
-## Microsoft.DBforPostgreSQL/flexibleServers
+## Microsoft.DBforPostgreSQL/flexibleServers   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|FSPGPGBouncer|PostgreSQL Flexible Servers PGBouncer Logs|Yes|
+|PiiOBpgbouncerlog|PostgreSQL Flexible Servers PGBouncer Logs|Yes|
 |PostgreSQLLogs|PostgreSQL Server Logs|No|
 
 
-## Microsoft.DBForPostgreSQL/serverGroupsv2
+## Microsoft.DBForPostgreSQL/serverGroupsv2   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|Yes|
 
 
-## Microsoft.DBforPostgreSQL/servers
+## Microsoft.DBforPostgreSQL/servers   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -458,14 +495,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |QueryStoreWaitStatistics|PostgreSQL Query Store Wait Statistics|No|
 
 
-## Microsoft.DBforPostgreSQL/serversv2
+## Microsoft.DBforPostgreSQL/serversv2   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |PostgreSQLLogs|PostgreSQL Server Logs|No|
 
 
-## Microsoft.DesktopVirtualization/applicationgroups
+## Microsoft.DesktopVirtualization/applicationgroups   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -474,26 +511,30 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Management|Management|No|
 
 
-## Microsoft.DesktopVirtualization/hostpools
+## Microsoft.DesktopVirtualization/hostpools   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AgentHealthStatus|AgentHealthStatus|No|
+|AutoscaleEvaluationPooled|Do not use - internal testing|Yes|
 |Checkpoint|Checkpoint|No|
 |Connection|Connection|No|
+|ConnectionGraphicsData|Connection Graphics Data Logs Preview|Yes|
 |Error|Error|No|
 |HostRegistration|HostRegistration|No|
 |Management|Management|No|
+|NetworkData|Network Data Logs|Yes|
+|SessionHostManagement|Session Host Management Activity Logs|Yes|
 
 
-## Microsoft.DesktopVirtualization/scalingplans
+## Microsoft.DesktopVirtualization/scalingplans   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Autoscale|Autoscale logs|Yes|
 
 
-## Microsoft.DesktopVirtualization/workspaces
+## Microsoft.DesktopVirtualization/workspaces   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -503,7 +544,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Management|Management|No|
 
 
-## Microsoft.Devices/ElasticPools/IotHubTenants
+## Microsoft.DevCenter/devcenters   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DataplaneAuditEvent|Dataplane audit logs|Yes|
+
+
+## Microsoft.Devices/IotHubs   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -523,27 +571,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |TwinQueries|Twin Queries|No|
 
 
-## Microsoft.Devices/IotHubs
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|C2DCommands|C2D Commands|No|
-|C2DTwinOperations|C2D Twin Operations|No|
-|Configurations|Configurations|No|
-|Connections|Connections|No|
-|D2CTwinOperations|D2CTwinOperations|No|
-|DeviceIdentityOperations|Device Identity Operations|No|
-|DeviceStreams|Device Streams (Preview)|No|
-|DeviceTelemetry|Device Telemetry|No|
-|DirectMethods|Direct Methods|No|
-|DistributedTracing|Distributed Tracing (Preview)|No|
-|FileUploadOperations|File Upload Operations|No|
-|JobsOperations|Jobs Operations|No|
-|Routes|Routes|No|
-|TwinQueries|Twin Queries|No|
-
-
-## Microsoft.Devices/provisioningServices
+## Microsoft.Devices/provisioningServices   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -551,19 +579,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ServiceOperations|Service Operations|No|
 
 
-## Microsoft.DigitalTwins/digitalTwinsInstances
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DataHistoryOperation|DataHistoryOperation|Yes|
-|DigitalTwinsOperation|DigitalTwinsOperation|No|
-|EventRoutesOperation|EventRoutesOperation|No|
-|ModelsOperation|ModelsOperation|No|
-|QueryOperation|QueryOperation|No|
-|ResourceProviderOperation|ResourceProviderOperation|Yes|
-
-
-## Microsoft.DocumentDB/cassandraClusters
+## Microsoft.DocumentDB/cassandraClusters   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -571,7 +587,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |CassandraLogs|CassandraLogs|Yes|
 
 
-## Microsoft.DocumentDB/databaseAccounts
+## Microsoft.DocumentDB/DatabaseAccounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -586,45 +602,47 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |TableApiRequests|TableApiRequests|Yes|
 
 
-## Microsoft.EventGrid/domains
+## Microsoft.EventGrid/domains   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|DataPlaneRequests|Data plane operations logs|Yes|
 |DeliveryFailures|Delivery Failure Logs|No|
 |PublishFailures|Publish Failure Logs|No|
 
 
-## Microsoft.EventGrid/partnerNamespaces
+## Microsoft.EventGrid/partnerNamespaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|DataPlaneRequests|Data plane operations logs|Yes|
+|PublishFailures|Publish Failure Logs|No|
+
+
+## Microsoft.EventGrid/partnerTopics   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
+
+
+## Microsoft.EventGrid/systemTopics   <!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
+
+
+## Microsoft.EventGrid/topics   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DataPlaneRequests|Data plane operations logs|Yes|
 |DeliveryFailures|Delivery Failure Logs|No|
 |PublishFailures|Publish Failure Logs|No|
 
 
-## Microsoft.EventGrid/partnerTopics
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DeliveryFailures|Delivery Failure Logs|No|
-
-
-## Microsoft.EventGrid/systemTopics
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DeliveryFailures|Delivery Failure Logs|No|
-
-
-## Microsoft.EventGrid/topics
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|DeliveryFailures|Delivery Failure Logs|No|
-|PublishFailures|Publish Failure Logs|No|
-
-
-## Microsoft.EventHub/namespaces
+## Microsoft.EventHub/Namespaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -639,14 +657,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |RuntimeAuditLogs|Runtime Audit Logs|Yes|
 
 
-## microsoft.experimentation/experimentWorkspaces
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|ExPCompute|ExPComput
-
-
-## Microsoft.HealthcareApis/services
+## Microsoft.HealthcareApis/services   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -654,28 +665,35 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |DiagnosticLogs|Diagnostic logs|Yes|
 
 
-## Microsoft.HealthcareApis/workspaces/dicomservices
+## Microsoft.HealthcareApis/workspaces/analyticsconnectors   <!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DiagnosticLogs|Diagnostic logs for Analytics Connector|Yes|
+
+
+## Microsoft.HealthcareApis/workspaces/dicomservices   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditLogs|Audit logs|Yes|
 
 
-## Microsoft.HealthcareApis/workspaces/fhirservices
+## Microsoft.HealthcareApis/workspaces/fhirservices   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditLogs|FHIR Audit logs|Yes|
 
 
-## Microsoft.HealthcareApis/workspaces/iotconnectors
+## Microsoft.HealthcareApis/workspaces/iotconnectors   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |DiagnosticLogs|Diagnostic logs|Yes|
 
 
-## Microsoft.Insights/AutoscaleSettings
+## microsoft.insights/autoscalesettings   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -683,7 +701,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AutoscaleScaleActions|Autoscale Scale Actions|No|
 
 
-## Microsoft.Insights/Components
+## microsoft.insights/components   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -700,14 +718,21 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AppTraces|Traces|No|
 
 
-## Microsoft.KeyVault/managedHSMs
+## Microsoft.Insights/datacollectionrules   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditEvent|Audit Logs|No|
+|DCRErrorLogs|DCR Error Logs|Yes|
 
 
-## Microsoft.KeyVault/vaults
+## microsoft.keyvault/managedhsms   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditEvent|Audit Event|No|
+
+
+## Microsoft.KeyVault/vaults   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -715,59 +740,120 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AzurePolicyEvaluationDetails|Azure Policy Evaluation Details|Yes|
 
 
-## Microsoft.Kusto/Clusters
+## microsoft.kubernetesconfiguration/extensions   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|KubernetesAudit|Kubernetes Audit Logs|Yes|
+
+
+## Microsoft.Kusto/clusters   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Command|Command|No|
-|FailedIngestion|Failed ingest operations|No|
+|FailedIngestion|Failed ingestion|No|
 |IngestionBatching|Ingestion batching|No|
 |Journal|Journal|Yes|
 |Query|Query|No|
-|SucceededIngestion|Successful ingest operations|No|
+|SucceededIngestion|Succeeded ingestion|No|
 |TableDetails|Table details|No|
 |TableUsageStatistics|Table usage statistics|No|
 
 
-## microsoft.loadtestservice/loadtests
+## microsoft.loadtestservice/loadtests   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |OperationLogs|Azure Load Testing Operations|Yes|
 
 
-## Microsoft.Logic/integrationAccounts
+## Microsoft.Logic/IntegrationAccounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |IntegrationAccountTrackingEvents|Integration Account track events|No|
 
 
-## Microsoft.Logic/workflows
+## Microsoft.Logic/Workflows   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |WorkflowRuntime|Workflow runtime diagnostic events|No|
 
 
-## Microsoft.MachineLearningServices/workspaces
+## Microsoft.MachineLearningServices/workspaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|No|
+|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|Yes|
 |AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
 |AmlComputeJobEvent|AmlComputeJobEvent|No|
 |AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|No|
+|ComputeInstanceEvent|ComputeInstanceEvent|Yes|
+|DataLabelChangeEvent|DataLabelChangeEvent|Yes|
+|DataLabelReadEvent|DataLabelReadEvent|Yes|
+|DataSetChangeEvent|DataSetChangeEvent|Yes|
+|DataSetReadEvent|DataSetReadEvent|Yes|
+|DataStoreChangeEvent|DataStoreChangeEvent|Yes|
+|DataStoreReadEvent|DataStoreReadEvent|Yes|
+|DeploymentEventACI|DeploymentEventACI|Yes|
+|DeploymentEventAKS|DeploymentEventAKS|Yes|
+|DeploymentReadEvent|DeploymentReadEvent|Yes|
+|EnvironmentChangeEvent|EnvironmentChangeEvent|Yes|
+|EnvironmentReadEvent|EnvironmentReadEvent|Yes|
+|InferencingOperationACI|InferencingOperationACI|Yes|
+|InferencingOperationAKS|InferencingOperationAKS|Yes|
+|ModelsActionEvent|ModelsActionEvent|Yes|
+|ModelsChangeEvent|ModelsChangeEvent|Yes|
+|ModelsReadEvent|ModelsReadEvent|Yes|
+|PipelineChangeEvent|PipelineChangeEvent|Yes|
+|PipelineReadEvent|PipelineReadEvent|Yes|
+|RunEvent|RunEvent|Yes|
+|RunReadEvent|RunReadEvent|Yes|
 
 
-## Microsoft.Media/mediaservices
+## Microsoft.MachineLearningServices/workspaces/onlineEndpoints   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AmlOnlineEndpointConsoleLog|AmlOnlineEndpointConsoleLog|Yes|
+|AmlOnlineEndpointEventLog|AmlOnlineEndpointEventLog (preview)|Yes|
+|AmlOnlineEndpointTrafficLog|AmlOnlineEndpointTrafficLog (preview)|Yes|
+
+
+## Microsoft.ManagedNetworkFabric/networkDevices   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppAvailabilityResults|Availability results|Yes|
+|AppBrowserTimings|Browser timings|Yes|
+
+
+## Microsoft.Media/mediaservices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |KeyDeliveryRequests|Key Delivery Requests|No|
+|MediaAccount|Media Account Health Status|Yes|
 
 
-## Microsoft.Media/videoanalyzers
+## Microsoft.Media/mediaservices/liveEvents   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|LiveEventState|Live Event Operations|Yes|
+
+
+## Microsoft.Media/mediaservices/streamingEndpoints   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StreamingEndpointRequests|Streaming Endpoint Requests|Yes|
+
+
+## Microsoft.Media/videoanalyzers   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -776,7 +862,21 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Operational|Operational Logs|Yes|
 
 
-## Microsoft.Network/applicationGateways
+## Microsoft.NetApp/netAppAccounts/capacityPools   <!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Autoscale|Capacity Pool Autoscaled|Yes|
+
+
+## Microsoft.NetApp/netAppAccounts/capacityPools/volumes   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ANFFileAccess|ANF File Access|Yes|
+
+
+## Microsoft.Network/applicationgateways   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -785,30 +885,42 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ApplicationGatewayPerformanceLog|Application Gateway Performance Log|No|
 
 
-## Microsoft.Network/azurefirewalls
+## Microsoft.Network/azureFirewalls   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AzureFirewallApplicationRule|Azure Firewall Application Rule|No|
-|AzureFirewallDnsProxy|Azure Firewall DNS Proxy|No|
-|AzureFirewallNetworkRule|Azure Firewall Network Rule|No|
+|AZFWApplicationRule|Azure Firewall Application Rule|Yes|
+|AZFWApplicationRuleAggregation|Azure Firewall Network Rule Aggregation (Policy Analytics)|Yes|
+|AZFWDnsQuery|Azure Firewall DNS query|Yes|
+|AZFWFatFlow|Azure Firewall Fat Flow Log|Yes|
+|AZFWFlowTrace|Azure Firewall Flow Trace Log|Yes|
+|AZFWFqdnResolveFailure|Azure Firewall FQDN Resolution Failure|Yes|
+|AZFWIdpsSignature|Azure Firewall IDPS Signature|Yes|
+|AZFWNatRule|Azure Firewall Nat Rule|Yes|
+|AZFWNatRuleAggregation|Azure Firewall Nat Rule Aggregation (Policy Analytics)|Yes|
+|AZFWNetworkRule|Azure Firewall Network Rule|Yes|
+|AZFWNetworkRuleAggregation|Azure Firewall Application Rule Aggregation (Policy Analytics)|Yes|
+|AZFWThreatIntel|Azure Firewall Threat Intelligence|Yes|
+|AzureFirewallApplicationRule|Azure Firewall Application Rule (Legacy Azure Diagnostics)|No|
+|AzureFirewallDnsProxy|Azure Firewall DNS Proxy (Legacy Azure Diagnostics)|No|
+|AzureFirewallNetworkRule|Azure Firewall Network Rule (Legacy Azure Diagnostics)|No|
 
 
-## Microsoft.Network/bastionHosts
+## microsoft.network/bastionHosts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BastionAuditLogs|Bastion Audit Logs|No|
 
 
-## Microsoft.Network/expressRouteCircuits
+## Microsoft.Network/expressRouteCircuits   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |PeeringRouteLog|Peering Route Table Logs|No|
 
 
-## Microsoft.Network/frontdoors
+## Microsoft.Network/frontdoors   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -816,7 +928,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
 
 
-## Microsoft.Network/loadBalancers
+## Microsoft.Network/loadBalancers   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -824,7 +936,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
 
 
-## Microsoft.Network/networksecuritygroups
+## Microsoft.Network/networksecuritygroups   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -833,7 +945,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|No|
 
 
-## Microsoft.Network/networkSecurityPerimeters
+## Microsoft.Network/networkSecurityPerimeters   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -850,7 +962,17 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |NspPublicOutboundResourceRulesDenied|Public outbound access denied by PaaS resource rules|Yes|
 
 
-## Microsoft.Network/p2sVpnGateways
+## Microsoft.Network/networkSecurityPerimeters/profiles   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|NSPInboundAccessAllowed|NSP Inbound Access Allowed.|Yes|
+|NSPInboundAccessDenied|NSP Inbound Access Denied.|Yes|
+|NSPOutboundAccessAllowed|NSP Outbound Access Allowed.|Yes|
+|NSPOutboundAccessDenied|NSP Outbound Access Denied.|Yes|
+
+
+## microsoft.network/p2svpngateways   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -859,7 +981,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |P2SDiagnosticLog|P2S Diagnostic Logs|No|
 
 
-## Microsoft.Network/publicIPAddresses
+## Microsoft.Network/publicIPAddresses   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -868,14 +990,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |DDoSProtectionNotifications|DDoS protection notifications|No|
 
 
-## Microsoft.Network/trafficManagerProfiles
+## Microsoft.Network/trafficManagerProfiles   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|No|
 
 
-## Microsoft.Network/virtualNetworkGateways
+## microsoft.network/virtualnetworkgateways   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -886,14 +1008,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
 
 
-## Microsoft.Network/virtualNetworks
+## Microsoft.Network/virtualNetworks   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |VMProtectionAlerts|VM protection alerts|No|
 
 
-## Microsoft.Network/vpnGateways
+## microsoft.network/vpngateways   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -903,21 +1025,21 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
 
 
-## Microsoft.NetworkFunction/azureTrafficCollectors
+## Microsoft.NetworkFunction/azureTrafficCollectors   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ExpressRouteCircuitIpfix|Express Route Circuit IPFIX Flow Records|Yes|
 
 
-## Microsoft.NotificationHubs/namespaces
+## Microsoft.NotificationHubs/namespaces   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |OperationalLogs|Operational Logs|No|
 
 
-## MICROSOFT.OPENENERGYPLATFORM/ENERGYSERVICES
+## MICROSOFT.OPENENERGYPLATFORM/ENERGYSERVICES   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -926,7 +1048,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |ElasticsearchLogs|Elasticsearch Logs|Yes|
 
 
-## Microsoft.OpenLogisticsPlatform/Workspaces
+## Microsoft.OpenLogisticsPlatform/Workspaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -934,43 +1056,51 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SupplyChainEventLogs|Supply Chain Event logs|Yes|
 
 
-## Microsoft.OperationalInsights/workspaces
+## Microsoft.OperationalInsights/workspaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
+|Audit|Audit|No|
 
 
-## Microsoft.PowerBI/tenants
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Engine|Engine|No|
-
-
-## Microsoft.PowerBI/tenants/workspaces
+## Microsoft.PlayFab/titles   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Engine|Engine|No|
+|AuditLogs|AuditLogs|Yes|
 
 
-## Microsoft.PowerBIDedicated/capacities
+## Microsoft.PowerBI/tenants   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Engine|Engine|No|
 
 
-## Microsoft.Purview/accounts
+## Microsoft.PowerBI/tenants/workspaces   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|CollectionCrudLogEvent|CollectionCrud|Yes|
+|Engine|Engine|No|
+
+
+## Microsoft.PowerBIDedicated/capacities   <!-- Data source : arm-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine|Engine|No|
+
+
+## microsoft.purview/accounts   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
+|Security|PurviewAccountAuditEvents|Yes|
 
 
-## Microsoft.RecoveryServices/Vaults
+## Microsoft.RecoveryServices/Vaults   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -990,64 +1120,70 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |CoreAzureBackup|Core Azure Backup Data|No|
 
 
-## Microsoft.Relay/namespaces
+## Microsoft.Relay/namespaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |HybridConnectionsEvent|HybridConnections Events|No|
+|HybridConnectionsLogs|HybridConnectionsLogs|Yes|
 
 
-## Microsoft.Search/searchServices
+## Microsoft.Search/searchServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |OperationLogs|Operation Logs|No|
 
 
-## Microsoft.Security/antiMalwareSettings
+## Microsoft.Security/antiMalwareSettings   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |ScanResults|AntimalwareScanResults|Yes|
 
 
-## microsoft.securityinsights/settings
+## microsoft.securityinsights/settings   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Automation|Automation|Yes|
 |DataConnectors|Data Collection - Connectors|Yes|
 
 
-## Microsoft.ServiceBus/namespaces
+## Microsoft.ServiceBus/Namespaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|ApplicationMetricsLogs|Application Metrics Logs|Yes|
 |OperationalLogs|Operational Logs|No|
+|RuntimeAuditLogs|Runtime Audit Logs|Yes|
 |VNetAndIPFilteringLogs|VNet/IP Filtering Connection Logs|No|
 
 
-## Microsoft.SignalRService/SignalR
+## Microsoft.SignalRService/SignalR   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AllLogs|Azure SignalR Service Logs.|No|
 
 
-## Microsoft.SignalRService/WebPubSub
+## Microsoft.SignalRService/WebPubSub   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AllLogs|Azure Web PubSub Service Logs.|Yes|
+|ConnectivityLogs|Connectivity logs for Azure Web PubSub Service.|Yes|
+|HttpRequestLogs|Http Request logs for Azure Web PubSub Service.|Yes|
+|MessagingLogs|Messaging logs for Azure Web PubSub Service.|Yes|
 
 
-## microsoft.singularity/accounts
+## microsoft.singularity/accounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Execution|Execution Logs|Yes|
 
 
-## Microsoft.Sql/managedInstances
+## Microsoft.Sql/managedInstances   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1056,7 +1192,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
 
-## Microsoft.Sql/managedInstances/databases
+## Microsoft.Sql/managedInstances/databases   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1066,7 +1202,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |SQLInsights|SQL Insights|No|
 
 
-## Microsoft.Sql/servers/databases
+## Microsoft.Sql/servers/databases   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1088,7 +1224,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Waits|Waits|No|
 
 
-## Microsoft.Storage/storageAccounts/blobServices
+## Microsoft.Storage/storageAccounts/blobServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1097,7 +1233,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |StorageWrite|StorageWrite|Yes|
 
 
-## Microsoft.Storage/storageAccounts/fileServices
+## Microsoft.Storage/storageAccounts/fileServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1106,7 +1242,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |StorageWrite|StorageWrite|Yes|
 
 
-## Microsoft.Storage/storageAccounts/queueServices
+## Microsoft.Storage/storageAccounts/queueServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1115,7 +1251,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |StorageWrite|StorageWrite|Yes|
 
 
-## Microsoft.Storage/storageAccounts/tableServices
+## Microsoft.Storage/storageAccounts/tableServices   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1124,7 +1260,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |StorageWrite|StorageWrite|Yes|
 
 
-## Microsoft.StorageCache/caches
+## Microsoft.StorageCache/caches   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1133,7 +1269,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |AscWarningEvent|HPC Cache warning|Yes|
 
 
-## Microsoft.StreamAnalytics/streamingjobs
+## Microsoft.StreamAnalytics/streamingjobs   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1141,7 +1277,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Execution|Execution|No|
 
 
-## Microsoft.Synapse/workspaces
+## Microsoft.Synapse/workspaces   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1151,30 +1287,49 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |IntegrationPipelineRuns|Integration Pipeline Runs|Yes|
 |IntegrationTriggerRuns|Integration Trigger Runs|Yes|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|SynapseLinkEvent|Synapse Link Event|Yes|
 |SynapseRbacOperations|Synapse RBAC Operations|No|
 
 
-## Microsoft.Synapse/workspaces/bigDataPools
+## Microsoft.Synapse/workspaces/bigDataPools   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|BigDataPoolAppEvents|Big Data Pool Applications Execution Metrics|Yes|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
+|BigDataPoolBlockManagerEvents|Big Data Pool Block Manager Events|Yes|
+|BigDataPoolDriverLogs|Big Data Pool Driver Logs|Yes|
+|BigDataPoolEnvironmentEvents|Big Data Pool Environment Events|Yes|
+|BigDataPoolExecutorEvents|Big Data Pool Executor Events|Yes|
+|BigDataPoolExecutorLogs|Big Data Pool Executor Logs|Yes|
+|BigDataPoolJobEvents|Big Data Pool Job Events|Yes|
+|BigDataPoolSqlExecutionEvents|Big Data Pool Sql Execution Events|Yes|
+|BigDataPoolStageEvents|Big Data Pool Stage Events|Yes|
+|BigDataPoolTaskEvents|Big Data Pool Task Events|Yes|
 
 
-## Microsoft.Synapse/workspaces/kustoPools
+## Microsoft.Synapse/workspaces/kustoPools   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Command|Command|Yes|
-|FailedIngestion|Failed ingest operations|Yes|
-|IngestionBatching|Ingestion batching|Yes|
-|Query|Query|Yes|
-|SucceededIngestion|Successful ingest operations|Yes|
-|TableDetails|Table details|Yes|
-|TableUsageStatistics|Table usage statistics|Yes|
+|Command|Synapse Data Explorer Command|Yes|
+|FailedIngestion|Synapse Data Explorer Failed Ingestion|Yes|
+|Ingestion Batching|Synapse Data Explorer Ingestion Batching|Yes|
+|Query|Synapse Data Explorer Query|Yes|
+|SucceededIngestion|Synapse Data Explorer Succeeded Ingestion|Yes|
+|TableDetails|Synapse Data Explorer Table Details|Yes|
+|TableUsageStatistics|Synapse Data Explorer Table Usage Statistics|Yes|
 
 
-## Microsoft.Synapse/workspaces/sqlPools
+## Microsoft.Synapse/workspaces/scopePools   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ScopePoolScopeJobsEnded|Scope Pool Scope Jobs Ended|Yes|
+|ScopePoolScopeJobsStateChange|Scope Pool Scope Jobs State Change|Yes|
+
+
+## Microsoft.Synapse/workspaces/sqlPools   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1186,7 +1341,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Waits|Waits|No|
 
 
-## Microsoft.TimeSeriesInsights/environments
+## Microsoft.TimeSeriesInsights/environments   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1194,7 +1349,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Management|Management|No|
 
 
-## Microsoft.TimeSeriesInsights/environments/eventsources
+## Microsoft.TimeSeriesInsights/environments/eventsources   <!-- Data source : arm-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1202,21 +1357,38 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Management|Management|No|
 
 
-## microsoft.videoindexer/accounts
+## microsoft.videoindexer/accounts   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Audit|Audit|Yes|
+|IndexingLogs|Indexing Logs|Yes|
 
 
-## microsoft.web/hostingenvironments
+## Microsoft.Web/hostingEnvironments   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
 
 
-## microsoft.web/sites
+## Microsoft.Web/sites   <!-- Data source : naam-->
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppServiceAntivirusScanAuditLogs|Report Antivirus Audit Logs|No|
+|AppServiceAppLogs|App Service Application Logs|No|
+|AppServiceAuditLogs|Access Audit Logs|No|
+|AppServiceConsoleLogs|App Service Console Logs|No|
+|AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
+|AppServiceHTTPLogs|HTTP logs|No|
+|AppServiceIPSecAuditLogs|IPSecurity Audit logs|No|
+|AppServicePlatformLogs|App Service Platform logs|No|
+|FunctionAppLogs|Function Application Logs|No|
+|WorkflowRuntime|Workflow Runtime Logs|Yes|
+
+
+## Microsoft.Web/sites/slots   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1231,19 +1403,11 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |FunctionAppLogs|Function Application Logs|No|
 
 
-## microsoft.web/sites/slots
+## microsoft.workloads/sapvirtualinstances   <!-- Data source : naam-->
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppServiceAntivirusScanAuditLogs|Report Antivirus Audit Logs|No|
-|AppServiceAppLogs|App Service Application Logs|No|
-|AppServiceAuditLogs|Access Audit Logs|No|
-|AppServiceConsoleLogs|App Service Console Logs|No|
-|AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
-|AppServiceHTTPLogs|HTTP logs|No|
-|AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
-|AppServicePlatformLogs|App Service Platform logs|No|
-|FunctionAppLogs|Function Application Logs|No|
+|ChangeDetection|Change Detection|Yes|
 
 
 ## Next Steps
@@ -1252,3 +1416,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+
+
+<!--Gen Date:  Mon Dec 26 2022 12:56:14 GMT+0200 (Israel Standard Time)-->
