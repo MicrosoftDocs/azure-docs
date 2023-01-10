@@ -88,6 +88,8 @@ Azure AD recommendations is automatically enabled. If you'd like to disable this
 
 Azure AD only displays the recommendations that apply to your tenant, so you may not see all supported recommendations listed. Some recommendations are available in all tenants, regardless of the license type, but others require the [Workload Identities premium license](../identity-protection/concept-workload-identity-risk.md). 
 
+### Recommendations available for all Azure AD tenants
+
 The recommendations listed in the following table are available to all Azure AD tenants. The table provides the impacted resources and links to available documentation.
 
 | Recommendation  | Impacted resources |
@@ -96,6 +98,8 @@ The recommendations listed in the following table are available to all Azure AD 
 | [Migrate applications from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) | Users |
 | [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) | Users |
 | [Minimize MFA prompts from known devices](recommendation-migrate-apps-from-adfs-to-azure-ad.md)  | Users |
+
+### Recommendations available for Workload Identities premium licenses
 
 The recommendations listed in the following table are available to Azure AD tenants with a Workload Identities premium license. 
 

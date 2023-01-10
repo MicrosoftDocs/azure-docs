@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/05/2023
+ms.date: 01/10/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 
@@ -25,7 +25,7 @@ This article covers the recommendation to update to the latest version of Azure 
 
 Support for Azure AD Connect V1 ceased on August 31, 2022. Installations of Azure AD Connect V1 may stop working unexpectedly.
 
-For more information, see [Introduction to Azure AD Connect V2.0](../../hybrid/whatis-azure-ad-connect-v2.md). 
+For more information, see [Introduction to Azure AD Connect V2.0](../hybrid/whatis-azure-ad-connect-v2.md).
 
 ## Logic 
 
@@ -37,9 +37,9 @@ Updating to Azure AD Connect V2 brings into alignment several protocols and stan
 
 ## Action plan
 
-1.	Read about [what to do when you are using a deprecated version](../../hybrid/deprecated-azure-ad-connect.md).
-2.	Learn about the [Azure AD Connect V2.0 update](../../hybrid/whatis-azure-ad-connect-v2.md).
-3.	Upgrade to the latest version of Azure AD Connect, using the [upgrade how-to documentation](../../hybrid/how-to-upgrade-previous-version.md).
+1.	Read about [what to do when you are using a deprecated version](../hybrid/deprecated-azure-ad-connect.md).
+2.	Learn about the [Azure AD Connect V2.0 update](../hybrid/whatis-azure-ad-connect-v2.md).
+3.	Upgrade to the latest version of Azure AD Connect, using the [upgrade how-to documentation](../hybrid/how-to-upgrade-previous-version.md).
 
 ## Next steps
 
