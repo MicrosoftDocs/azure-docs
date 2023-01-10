@@ -381,7 +381,7 @@
       - name: REST API SDKs
         items:
           - name: .NET
-            href: /dotnet/api/overview/azure/apimanagement
+            href: /dotnet/api/overview/azure/api-management
           - name: JavaScript
             href: /javascript/api/overview/azure/api-management
           - name: Java

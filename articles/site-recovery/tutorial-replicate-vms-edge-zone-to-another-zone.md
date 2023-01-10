@@ -4,7 +4,7 @@ description: This article describes how to replicate, failover, and failback Azu
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/09/2022
+ms.date: 12/14/2022
 ms.author: v-pgaddala
 ---
 

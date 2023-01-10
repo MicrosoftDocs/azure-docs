@@ -3,7 +3,7 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/06/2022
+ms.date: 01/05/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ monikerRange: ">=iotedge-2020-11"
 
 # Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-202011](includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-202011](includes/iot-edge-version-1.4.md)]
 
 With Azure IoT Edge, you can configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates.
 
@@ -220,7 +220,10 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     [provisioning.attestation]
     method = "x509"
     registration_id = "myiotedgedevice"
-    identity_cert = { method = "est", common_name = "myiotedgedevice" }
+
+    [provisioning.attestation.identity_cert]
+    method = "est"
+    common_name = "myiotedgedevice"
 
     # Auto renewal settings for the identity cert
     # Available only from IoT Edge 1.3 and above

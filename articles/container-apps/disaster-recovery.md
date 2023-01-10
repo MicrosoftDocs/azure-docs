@@ -77,7 +77,7 @@ az network vnet subnet create \
   --resource-group <RESOURCE_GROUP_NAME> \
   --vnet-name <VNET_NAME> \
   --name infrastructure \
-  --address-prefixes 10.0.0.0/23
+  --address-prefixes 10.0.0.0/21
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -86,7 +86,7 @@ az network vnet subnet create \
 ```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
-    AddressPrefix = '10.0.0.0/23'
+    AddressPrefix = '10.0.0.0/21'
 }
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```

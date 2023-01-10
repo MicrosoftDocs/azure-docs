@@ -87,7 +87,8 @@ For the next 24 hours, if the user is still accessing the resource and granted t
  
 Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
 
-A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
+> [!NOTE]
+>A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
 
 GPS location doesn't work with [passwordless authentication methods](../authentication/concept-authentication-passwordless.md). 
 

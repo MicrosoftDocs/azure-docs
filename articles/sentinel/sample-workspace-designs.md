@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Microsoft Sentinel sample workspace designs
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes suggested workspace designs for organizations with the following sample requirements:
 
 - Multiple-tenants and regions, with European Data Sovereignty requirements

@@ -6,7 +6,7 @@ ms.author: zhenxilin
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 12/27/2022
 ---
 
 # Optimize query using job diagram simulator
@@ -23,10 +23,17 @@ If you want to learn more about query parallelization, see [Leverage query paral
 
 ## How to use job diagram simulator?
 
-You can find the job diagram simulator in the Azure Stream Analytics tools extension for VSCode. If you haven't installed it yet, follow [this guide](quick-create-visual-studio-code.md) to install. 
+The **Job diagram simulator** feature simulates the job running topology in Azure and provides suggestions for adjusting Streaming Units. Therefore, you must configure live inputs and outputs for your Stream Analytics job and use them in the query. 
+
+Prerequisites: 
+* ASA Tools extension for VSCode. If you haven't installed it yet, follow [this guide](quick-create-visual-studio-code.md) to install. 
+* Configure live input and live output for your Stream Analytics job. 
+* You must include live input and output in the query.
+
+> [!NOTE]
+> The Job diagram simulator can't simulate job running topology for local inputs and outputs. It doesn't send results to the output destination.
 
 In this tutorial, you learn to improve query performance based on edit suggestions and make it executed in parallel. As an example, we're using a non-parallel job that takes the input data from an event hub and sends the results to another event hub.
-
 
 1. Open the Azure Stream Analytics project in VSCode after you finish your query authoring, go to the query file **\*.asaql** and select **Simulate job** to start the job diagram simulation.
 

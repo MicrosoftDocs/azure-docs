@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 11/09/2022
+ms.date: 12/17/2022
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -30,12 +30,12 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 
 The following limitations apply when you integrate KMS etcd encryption with AKS:
 
-* Deletion of the key, Key Vault, or the associated identity.
+* Deletion of the key, Key Vault, or the associated identity isn't supported.
 * KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy is required to be set before the feature is enabled. In addition, system-assigned managed identity isn't available until cluster creation, thus there's a cycle dependency.
-* Using more than 2000 secrets in a cluster.
-* Bring your own (BYO) Azure Key Vault from another tenant.
-* Change associated Azure Key Vault model (public, private) if KMS is enabled. For [changing associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
-* If a cluster is enabled KMS with private key vault and not using `VNet integration` tunnel, then stop/start cluster is not allowed.
+* The maximum number of secrets that a cluster enabled with KMS supports is 2,000.
+* Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
+* With KMS enabled, you can't  change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
+* If a cluster is enabled KMS with private key vault and not using the `API Server VNet integration` tunnel, then stop/start cluster is not allowed.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 

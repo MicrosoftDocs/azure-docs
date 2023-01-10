@@ -24,7 +24,6 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 
 ## Prerequisites
 
--   An active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 -   A custom domain name that is owned by you or your organization. This article does not provide instructions on how to procure a custom domain name.
 -   Optionally, a valid certificate with a public and private key (.PFX). The subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS). 
@@ -49,6 +48,7 @@ There are several API Management endpoints to which you can assign a custom doma
 
 ### Considerations
 * You can update any of the endpoints supported in your service tier. Typically, customers update **Gateway** (this URL is used to call the APIs exposed through API Management) and **Developer portal** (the developer portal URL).
+* The default **Gateway** endpoint also is available after you configure a custom Gateway domain name. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
 * Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
 * The **Premium** and **Developer** tiers support setting multiple hostnames for the **Gateway** endpoint.
 * Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier.
@@ -57,7 +57,7 @@ There are several API Management endpoints to which you can assign a custom doma
 
 API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
 
-> [!WARNING]
+> [!WARNING
 > If you require certificate pinning, please use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
 
 # [Custom](#tab/custom)

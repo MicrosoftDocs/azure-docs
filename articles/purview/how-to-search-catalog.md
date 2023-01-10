@@ -27,22 +27,62 @@ Once you select the search bar, you'll be presented with your search history and
 
 Enter in keywords that help narrow down your search such as name, data type, classifications, and glossary terms. As you enter in search keywords, Microsoft Purview dynamically suggests results and searches that may fit your needs. To complete your search, select "View search results" or press "Enter".
 
-:::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
+:::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords." border="true":::
 
 Once you enter in your search, Microsoft Purview returns a list of data assets and glossary terms a user is a data reader for to that matched to the keywords entered in.
 
-The Microsoft Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a data consumer is likely more interested in a table curated by a data steward that matches on multiple keywords than an unannotated folder. Many factors determine an asset’s relevance score and the Microsoft Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
+Your keyword will be highlighted in the return results, so you can see where the term was found in the asset. In the example below, the search term was 'Sales'.
 
-If the top results don’t include the assets you're looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications, and the containing collection. If you're interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use a pill filter to narrow down your search.
+:::image type="content" source="./media/how-to-search-catalog/highlighted-results.png" alt-text="Screenshot showing a search return for Sales, with all the instances of the term highlighted in the returned results." border="true":::
 
 > [!NOTE]
 > Search will only return items in collections you're a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
 
-:::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
+The Microsoft Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a data consumer is likely more interested in a table curated by a data steward that matches on multiple keywords than an unannotated folder. Many factors determine an asset’s relevance score and the Microsoft Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
+
+## Filtering results
+
+If the top results don’t include the assets you're looking for, there are two ways you can filter results:
+
+- [Use the facets](#use-the-facets) on the left hand side to narrow results by business metadata like glossary terms or classifications.
+- [Use the filters](#use-the-filters) at the top to narrow results by source type, [managed attributes](how-to-managed-attributes.md), or activity.
+
+### Use the facets
+
+To narrow your results by your business metadata, use the facet pane on the left side of the search results. If it's not visible, you can select the arrow button to open it.
+
+Then select any facet you would like to narrow your results by.
+
+:::image type="content" source="./media/how-to-search-catalog/facet-menu.png" alt-text="Screenshot showing the search menu on the left side with Folder and Report selected." border="true":::
 
 For certain annotations, you can select the ellipses to choose between an AND condition or an OR condition. 
 
-:::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
+:::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition." border="true":::
+
+>[!NOTE]
+>The *Filter by keyword* option at the top of the facet menu is to filter facets by keyword, not the search results.
+>
+> :::image type="content" source="./media/how-to-search-catalog/filter-facets.png" alt-text="Screenshot showing the facet filter at the top of the menu, with a search parameter entered, and the facets filtered below." border="true":::
+
+### Use the filters
+
+To narrow results by asset type, [managed attributes](how-to-managed-attributes.md), or activity you'll use the filters at the top of the page of search results.
+
+To filter by source type, select the **Source type:** button, and select all the source types you want to see results from.
+
+:::image type="content" source="./media/how-to-search-catalog/select-by-source-type.png" alt-text="Screenshot showing the source type filter at the top of the search results page." border="true":::
+
+To add another filter for a different attribute, select **Add filter**.
+
+:::image type="content" source="./media/how-to-search-catalog/add-filter.png" alt-text="Screenshot showing the add filter button at the top of the search results page." border="true":::
+
+Then, select your attribute, enter your operator and value, and your search results will be filtered after you select outside the filter.
+
+To remove any filters, select the **x** in the filter button, or clear all filters by selecting **Clear all filters**.
+
+:::image type="content" source="./media/how-to-search-catalog/remove-filters.png" alt-text="Screenshot showing the remove filter buttons in the top menu." border="true":::
+
+## View assets
 
 From the search results page, you can select an asset to view details such as schema, lineage, and classifications. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
 

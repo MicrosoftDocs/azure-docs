@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/05/2023
 ms.author: banders
 ---
 
@@ -20,11 +20,7 @@ Before you enter a commitment to buy a savings plan, review the following sectio
 
 ## Who can buy a savings plan
 
-You can buy a savings plan for an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement.
-
-To determine if you're eligible to buy a plan, [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
-
-Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement (MPA).
+You can buy a savings plan for an Azure subscription that's of type Enterprise Agreement (EA) offer code MS-AZR-0017P or MS-AZR-0148P, Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA). If don't know what subscription type you have, see [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 ## Change agreement type to one supported by savings plan
 
@@ -34,21 +30,48 @@ If your current agreement type isn't supported by a savings plan, you might be a
 - [Product transfer support](../manage/subscription-transfer.md#product-transfer-support)
 - [From MOSA to the Microsoft Customer Agreement](https://www.microsoft.com/licensing/news/from-mosa-to-microsoft-customer-agreement)
 
-### Enterprise Agreement customers
+## Required permission and how to buy
+
+You can buy a savings plan using the Azure portal or with the [Savings Plan Order Alias - Create](/rest/api/billingbenefits/savings-plan-order-alias/create) REST API.
+
+### Purchase in the Azure portal
+
+Required permission and the steps to buy vary, depending on your agreement type.
+
+#### Enterprise Agreement customers
 
 -	EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No specific permission for a subscription is needed.
 -	Subscription owners for one of the subscriptions in the EA enrollment can purchase savings plans from **Home** > **Savings plan**.
 -	Enterprise Agreement (EA) customers can limit purchases to EA admins only by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings. 
 
-### Microsoft Customer Agreement (MCA) customers
+#### Microsoft Customer Agreement (MCA) customers
 
 -	Customers with billing profile contributor permissions and above can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No specific permissions on a subscription needed.
 -	Subscription owners for one of the subscriptions in the billing profile can purchase savings plans from **Home** > **Savings plan**.
 -	To disallow savings plan purchases on a billing profile, billing profile contributors can navigate to the Policies menu under the billing profile and adjust **Azure Savings Plan** option.
 
-### Microsoft Partner Agreement partners
+#### Microsoft Partner Agreement partners
 
 -	Partners can use **Home** > **Savings plan** in the Azure portal to purchase savings plans for their customers.
+
+### Purchase with the Savings Plan Order Alias - Create API
+
+Buy savings plans by using RBAC permissions or with permissions on your billing scope. When using the [Savings Plan Order Alias - Create](/rest/api/billingbenefits/savings-plan-order-alias/create) REST API, the format of the `billingScopeId` in the request body is used to control the permissions that are checked. 
+
+To purchase using RBAC permissions:
+
+- You must be an Owner of the subscription which you plan to use, specified as `billingScopeId`.
+- The `billingScopeId` property in the request body must use the `/subscriptions/10000000-0000-0000-0000-000000000000` format.
+
+To purchase using billing permissions:
+
+Permission needed to purchase varies by the type of account that you have.
+
+- For Enterprise agreement customers, you must be an EA admin with write permissions.
+- For Microsoft Customer Agreement (MCA) customers, you must be a billing profile contributor or above.
+- For Microsoft Partner Agreement partners, only RBAC permissions are currently supported
+
+The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/10000000-0000-0000-0000-000000000000` format.
 
 ## Scope savings plans
 
@@ -56,7 +79,7 @@ You can scope a savings plan to a shared scope, management group, subscription, 
 
 ### Savings plan scoping options
 
-You have four options to scope a savings plan, depending on your needs:
+You have the following options to scope a savings plan, depending on your needs:
 
 - **Shared scope** - Applies the savings plan discounts to matching resources in eligible subscriptions that are in the billing scope. If a subscription was moved to a different billing scope, the benefit no longer applies to the subscription. It does continue to apply to other subscriptions in the billing scope.
   - For Enterprise Agreement customers, the billing scope is the enrollment. The savings plan shared scope would include multiple Active Directory tenants in an enrollment.
@@ -84,10 +107,6 @@ Savings plan discounts apply to the following eligible subscriptions and offer t
 - Enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)
 - Microsoft Customer Agreement subscriptions.
 - Microsoft Partner Agreement subscriptions.
-
-## Purchase savings plans
-
-You can purchase savings plans in the Azure portal.
 
 ### Buy savings plans with monthly payments
 

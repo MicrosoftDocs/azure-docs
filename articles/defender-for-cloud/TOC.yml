@@ -646,7 +646,9 @@
     - name: Latest updates in the regulatory compliance dashboard
       href: episode-twenty-one.md
     - name: Defender EASM
-      href: episode-twenty-two.md 
+      href: episode-twenty-two.md
+    - name: Defender Threat Intelligence (Defender TI)
+      href: episode-twenty-three.md 
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

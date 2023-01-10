@@ -28,7 +28,7 @@ In this article, you learn about the steps you and your onboarding team must tak
 - You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
 - You must have access to the:
   - [Operator Connect portal](https://operatorconnect.microsoft.com/).
-  - Teams Admin Center for your test tenant.
+  - [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
 - You must be able to manage users in your test tenant.
 
 ## Methods
@@ -41,13 +41,15 @@ In some parts of this article, the steps you must take depend on whether your de
 > TODO: who sets up the Teams trunks?
 
 1. Configure your network devices to send and receive traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs).
-1. Configure your routers and peering connection to ensure all traffic to AzCoG is through the Microsoft Azure Peering Service (MAPS) for Voice.
-1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection. With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).
+1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through the Microsoft Azure Peering Service (MAPS) for Voice.
+1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
+    - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
+    - With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).
 1. Meet any other requirements in the _Network Connectivity Specification_ for Operator Connect or Teams Phone Mobile.
 
-## 2. Register your test enterprise tenant
+## 2. Ask your onboarding team to register your test enterprise tenant
 
-You and your onboarding team must carry out testing. You must register a tenant for this testing with Microsoft Teams.
+Your onboarding team must register the test enterprise tenant that you chose in [Prerequisites](#prerequisites) with Microsoft Teams.
 
 1. Provide your onboarding contact with:
     - Your company's name.
@@ -61,20 +63,20 @@ You and your onboarding team must carry out testing. You must register a tenant 
 > TODO: confirm how the customer gets the Calling Profile. Is it the onboarding team, AzCoG team, or do they have to set it up (another step)?
 
 > [!WARNING]
-> TODO: how do customers get to the swivel-chair portal?
+> TODO: how do customers get to the API Bridge Number Management Portal?
 
 1. Confirm the name of the Calling Profile that you must use for these test numbers.
 1. In your test tenant, request service from your company.
-    1. Sign in to the Teams Admin Center for your test tenant.
+    1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.
     1. Select your company in the list of operators, fill in the form and select **Add as my operator**.
 1. In your test tenant, create some test users (if you don't already have suitable users). These users must be licensed for Teams Phone System and in Teams Only mode.
 1. Configure emergency locations in your test tenant.
-1. Upload numbers in the swivel-chair portal provided by the API Bridge (if you deployed the API Bridge) or the Operator Connect Operator Portal.
+1. Upload numbers in the API Bridge Number Management Portal (if you deployed the API Bridge) or the Operator Connect Operator Portal.
 
-    # [API Bridge swivel-chair portal](#tab/api-bridge)
+    # [API Bridge Number Management Portal](#tab/api-bridge)
 
-    1. Open the swivel-chair portal from your list of Azure resources.
+    1. Open the API Bridge Number Management Portal from your list of Azure resources.
     1. Select **Go to Consents**.
     1. Select your test tenant.
     1. From the menu, select **Update Relationship Status**. Set the status to **Agreement signed**.
@@ -116,7 +118,7 @@ You must test typical call flows for your network. Consult your onboarding team 
 
 Before you can launch, Microsoft Teams requires proof that your service can connect to the Microsoft Phone System and your own networks correctly.
 
-1. Provide your onboarding team with proof that BFD is enabled. You enabled BFD in [1. Connect Azure Communications Gateway to your networks](#1-connect-azure-communications-gateway-to-your-networks).
+1. Provide your onboarding team with proof that BFD is enabled. You enabled BFD in [1. Connect Azure Communications Gateway to your networks](#1-connect-azure-communications-gateway-to-your-networks). For example, if you have a Cisco router, you can provide configuration similar to the following.
 
     ```text
     interface TenGigabitEthernet2/0/0.150
@@ -124,7 +126,7 @@ Before you can launch, Microsoft Teams requires proof that your service can conn
        encapsulation dot1Q 15 second-dot1q 150
        ip vrf forwarding 15
        ip address 192.168.15.17 255.255.255.252
-       bfd interval 300 min_rx 300 multiplier 3
+       bfd interval 150 min_rx 150 multiplier 3
 
     router bgp 65020
        address-family ipv4 vrf 15
@@ -156,7 +158,7 @@ You must test that you can raise tickets in the Azure portal to report problems 
 
 ## 8. Learn about monitoring Azure Communications Gateway
 
-Your staff can monitor Azure Communications Gateway with the dashboards included in your service. These dashboards are available to anyone with the Reader role on the subscription for Azure Communications Gateway.
+Your staff can monitor Azure Communications Gateway with a range of key metrics. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway.
 
 > [!WARNING]
 > TODO: Link to Azure Communications Gateway monitoring docs

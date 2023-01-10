@@ -106,7 +106,7 @@ Application Insights Node.JS supports the credential classes provided by [Azure 
 #### DefaultAzureCredential
 
 ```javascript
-let appInsights = require("applicationinsights");
+import appInsights from "applicationinsights";
 import { DefaultAzureCredential } from "@azure/identity"; 
  
 const credential = new DefaultAzureCredential();
@@ -118,7 +118,7 @@ appInsights.defaultClient.config.aadTokenCredential = credential;
 #### ClientSecretCredential
 
 ```javascript
-let appInsights = require("applicationinsights");
+import appInsights from "applicationinsights";
 import { ClientSecretCredential } from "@azure/identity"; 
  
 const credential = new ClientSecretCredential(

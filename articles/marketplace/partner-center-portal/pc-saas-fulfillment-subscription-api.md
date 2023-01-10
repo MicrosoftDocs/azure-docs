@@ -440,6 +440,7 @@ This API can be called only for *Active* subscriptions.  Any plan can be changed
 | `subscriptionId`     | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API. |
 
 *Request headers:*
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
@@ -509,6 +510,7 @@ The quantity of seats cannot be more than the quantity allowed in the current pl
 |  `subscriptionId`     | A unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API.  |
 
 *Request headers:*
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |
@@ -583,6 +585,7 @@ The customer will be billed if a subscription is canceled after the preceding gr
 |  `subscriptionId`     | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API.  |
 
 *Request headers:*
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`      | `application/json`  |

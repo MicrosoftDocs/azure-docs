@@ -2,7 +2,7 @@
 title: Understand the machine configuration feature of Azure Policy
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 11/16/2022
+ms.date: 01/03/2023
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -336,10 +336,8 @@ parameters.
 
 ### Assignments to Azure Management Groups
 
-Azure Policy definitions in the category 'Guest Configuration' can be assigned
-to Management Groups only when the effect is 'AuditIfNotExists'. Policy
-definitions with effect 'DeployIfNotExists' aren't supported as assignments to
-Management Groups.
+Azure Policy definitions in the category `Guest Configuration` can be assigned
+to management groups when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
 
 ### Client log files
 

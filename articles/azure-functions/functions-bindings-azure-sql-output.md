@@ -792,8 +792,8 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: fu
         pass
 
     requestLog.set(func.SqlRow({
-        RequestTimeStamp: datetime.now(),
-        ItemCount: 1
+        "RequestTimeStamp": datetime.now(),
+        "ItemCount": 1
     }))
 
     if req_body:

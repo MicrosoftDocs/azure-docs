@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 12/27/2022
 ms.author: jasteppe
 ---
 
@@ -36,19 +36,19 @@ Metric category|Metric name|Metric description|
 
 1. Within your Azure Health Data Services workspace, select **MedTech service** under **Services**.
 
-   :::image type="content" source="media\iot-metrics-display\workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\iot-metrics-display\workspace-displayed-with-connectors-button.png":::
+   :::image type="content" source="media\how-to-configure-metrics\workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\how-to-configure-metrics\workspace-displayed-with-connectors-button.png":::
 
 2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
 
-   :::image type="content" source="media\iot-metrics-display\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\iot-metrics-display\select-medtech-service.png":::
+   :::image type="content" source="media\how-to-configure-metrics\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\how-to-configure-metrics\select-medtech-service.png":::
 
 3. Select **Metrics** within the MedTech service page.
 
-   :::image type="content" source="media\iot-metrics-display\select-metrics-under-monitoring.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\iot-metrics-display\select-metrics-under-monitoring.png":::
+   :::image type="content" source="media\how-to-configure-metrics\select-metrics-under-monitoring.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\how-to-configure-metrics\select-metrics-under-monitoring.png":::
 
 4. The MedTech service metrics page will open allowing you to use the drop-down menus to view and select the metrics that are available for the MedTech service.
 
-   :::image type="content" source="media\iot-metrics-display\select-metrics-to-display.png" alt-text="Screenshot the MedTech service metrics page with drop-down menus." lightbox="media\iot-metrics-display\select-metrics-to-display.png":::
+   :::image type="content" source="media\how-to-configure-metrics\select-metrics-to-display.png" alt-text="Screenshot the MedTech service metrics page with drop-down menus." lightbox="media\how-to-configure-metrics\select-metrics-to-display.png":::
 
 5. Select the metrics combinations that you want to display for your MedTech service. For this example, we'll be choosing the following selections:
 
@@ -59,15 +59,15 @@ Metric category|Metric name|Metric description|
 
 6. You can now see your MedTech service metrics for **Number of Incoming Messages** displayed on the MedTech service metrics page.
 
-   :::image type="content" source="media\iot-metrics-display\select-metrics-being-displayed.png" alt-text="Screenshot of select metrics to display." lightbox="media\iot-metrics-display\select-metrics-being-displayed.png":::
+   :::image type="content" source="media\how-to-configure-metrics\select-metrics-being-displayed.png" alt-text="Screenshot of select metrics to display." lightbox="media\how-to-configure-metrics\select-metrics-being-displayed.png":::
 
 7. You can add more metrics for your MedTech service by selecting **Add metric**.
 
-   :::image type="content" source="media\iot-metrics-display\select-add-metric.png" alt-text="Screenshot of select Add metric to add more MedTech service metrics." lightbox="media\iot-metrics-display\select-add-metric.png":::
+   :::image type="content" source="media\how-to-configure-metrics\select-add-metric.png" alt-text="Screenshot of select Add metric to add more MedTech service metrics." lightbox="media\how-to-configure-metrics\select-add-metric.png":::
 
 8. Then select the metrics that you would like to add to your MedTech service.
 
-   :::image type="content" source="media\iot-metrics-display\select-more-metrics.png" alt-text="Screenshot of select more metrics to add to your MedTech service." lightbox="media\iot-metrics-display\select-more-metrics.png":::
+   :::image type="content" source="media\how-to-configure-metrics\select-more-metrics.png" alt-text="Screenshot of select more metrics to add to your MedTech service." lightbox="media\how-to-configure-metrics\select-more-metrics.png":::
 
    > [!IMPORTANT]
    > If you leave the MedTech service metrics page, the metrics settings for your MedTech service are lost and will have to be recreated. If you would like to save your MedTech service metrics for future viewing, you can pin them to an Azure portal dashboard as a tile. 

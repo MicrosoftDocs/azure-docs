@@ -76,5 +76,5 @@ To join the Horizon community, email us at: [horizon-community@microsoft.com](ma
 
 For more information:
 
-- [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
-- [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)
+- [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor)
+- [Forward OT alert information](how-to-forward-alert-information-to-partners.md)

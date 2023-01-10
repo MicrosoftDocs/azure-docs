@@ -187,6 +187,7 @@ To create your test endpoint for the data export destination:
 
 1. Navigate to [RequestBin](https://requestbin.com/).
 1. Select **Create a RequestBin**.
+1. Sign in with one of the available methods.
 1. Copy the URL of your RequestBin endpoint.
 1. In Postman, open the **IoT Central REST tutorial** collection and navigate to the collection variables.
 1. Paste the URL of your RequestBin endpoint into the **Current value** column for **webHookURL** in the collection variables.
