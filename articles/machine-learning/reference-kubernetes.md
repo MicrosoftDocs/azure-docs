@@ -242,6 +242,185 @@ According to your scheduling requirements of the Azureml-dedicated nodes, you ca
   - `amlarc workspace (has this <compute X>)` taint
   - `amlarc <compute X>` taint
 
+  
+## Integrate other load balancers with AzureML extension over HTTP or HTTPS
+
+In addition to the default AzureML inference load balancer [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md), you can also integrate other load balancers with AzureML extension over HTTP or HTTPS. 
+
+This tutorial helps illustrate how to integrate the [Nginx Ingress Controller](https://github.com/kubernetes/ingress-nginx) or the [Azure Application Gateway](../application-gateway/overview.md).
+
+### Prerequisites
+
+- [Deploy the AzureML extension](../machine-learning/how-to-deploy-kubernetes-extension.md) with `inferenceRouterServiceType=ClusterIP` and `allowInsecureConnections=True`, so that the Nginx Ingress Conroller can handle TLS termination by itself instead of handing it over to [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) when service is exposed over HTTPS.
+- For integrating with **Nginx Ingress Controller**, you will need a Kubernetes cluster setup with Nginx Ingress Controller.
+  - [**Create a basic controller**](../aks/ingress-basic.md): If you are starting from scratch, refer to these instructions.
+- For integrating with **Azure Application Gateway**, you will need a Kubernetes cluster setup with Azure Application Gateway Ingress Controller.
+  - [**Greenfield Deployment**](../application-gateway/tutorial-ingress-controller-add-on-new.md): If you are starting from scratch, refer to these instructions.
+  - [**Brownfield Deployment**](../application-gateway/tutorial-ingress-controller-add-on-existing.md): If you have an existing AKS cluster and Application Gateway, refer to these instructions.
+- If you want to use HTTPS on this application, you will need a x509 certificate and its private key.
+
+### Expose services over HTTP
+
+In order to expose the azureml-fe we will using the following ingress resource:
+
+```yaml
+# Nginx Ingress Controller example
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: azureml-fe
+  namespace: azureml
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: azureml-fe
+            port:
+              number: 80
+        pathType: Prefix
+```
+This ingress will expose the `azureml-fe` service and the selected deployment as a default backend of the Nginx Ingress Controller.
+
+
+
+```yaml
+# Azure Application Gateway example
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: azureml-fe
+  namespace: azureml
+spec:
+  ingressClassName: azure-application-gateway
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: azureml-fe
+            port:
+              number: 80
+        pathType: Prefix
+```
+This ingress will expose the `azureml-fe` service and the selected deployment as a default backend of the Application Gateway.
+
+Save the above ingress resource as `ing-azureml-fe.yaml`.
+
+1. Deploy `ing-azureml-fe.yaml` by running:
+
+    ```bash
+    kubectl apply -f ing-azureml-fe.yaml
+    ```
+
+2. Check the log of the ingress controller for deployment status.
+
+3. Now the `azureml-fe` application should be available. You can check this by visiting:
+    - **Nginx Ingress Controller**: the public LoadBalancer address of Nginx Ingress Controller 
+    - **Azure Application Gateway**: the public address of the Application Gateway.
+4. [Create an inference job and invoke](https://github.com/Azure/AML-Kubernetes/blob/master/docs/simple-flow.md).
+
+    >[!NOTE]
+    >
+    > Replace the ip in scoring_uri with public LoadBalancer address of the Nginx Ingress Controller before invoking.
+
+### Expose services over HTTPS
+
+1. Before deploying ingress, you need to create a kubernetes secret to host the certificate and private key. You can create a kubernetes secret by running
+
+    ```bash
+    kubectl create secret tls <ingress-secret-name> -n azureml --key <path-to-key> --cert <path-to-cert>
+    ```
+
+2. Define the following ingress. In the ingress, specify the name of the secret in the `secretName` section.
+
+    ```yaml
+    # Nginx Ingress Controller example
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: azureml-fe
+      namespace: azureml
+    spec:
+      ingressClassName: nginx
+      tls:
+      - hosts:
+        - <domain>
+        secretName: <ingress-secret-name>
+      rules:
+      - host: <domain>
+        http:
+          paths:
+          - path: /
+            backend:
+              service:
+                name: azureml-fe
+                port:
+                  number: 80
+            pathType: Prefix
+    ```
+
+    ```yaml
+    # Azure Application Gateway example
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: azureml-fe
+      namespace: azureml
+    spec:
+      ingressClassName: azure-application-gateway
+      tls:
+      - hosts:
+        - <domain>
+        secretName: <ingress-secret-name>
+      rules:
+      - host: <domain>
+        http:
+          paths:
+          - path: /
+            backend:
+              service:
+                name: azureml-fe
+                port:
+                  number: 80
+            pathType: Prefix
+    ```
+
+    >[!NOTE] 
+    >
+    > Replace `<domain>` and `<ingress-secret-name>` in the above Ingress Resource with the domain pointing to LoadBalancer of the **Nginx ingress controller/Application Gateway** and name of your secret. Store the above Ingress Resource in a file name `ing-azureml-fe-tls.yaml`.
+
+1. Deploy ing-azureml-fe-tls.yaml by running
+
+    ```bash
+    kubectl apply -f ing-azureml-fe-tls.yaml
+    ```
+
+2. Check the log of the ingress controller for deployment status.
+
+3. Now the `azureml-fe` application will be available on HTTPS. You can check this by visiting the public LoadBalancer address of the Nginx Ingress Controller.
+
+4. [Create an inference job and invoke](../machine-learning/how-to-deploy-online-endpoints.md).
+
+    >[!NOTE]
+    >
+    > Replace the protocol and IP in scoring_uri with https and domain pointing to LoadBalancer of the Nginx Ingress Controller  or the Application Gateway before invoking.
+
+## Use ARM Template to Deploy Extension
+Extension on managed cluster can be deployed with ARM template. A sample template can be found from [deployextension.json](https://github.com/Azure/AML-Kubernetes/blob/master/files/deployextension.json), with a demo parameter file [deployextension.parameters.json](https://github.com/Azure/AML-Kubernetes/blob/master/files/deployextension.parameters.json) 
+
+To leverage the sample deployment template, edit the parameter file with correct value, then run the following command:
+
+```azurecli
+az deployment group create --name <ARM deployment name> --resource-group <resource group name> --template-file deployextension.json --parameters deployextension.parameters.json
+```
+More information about how to use ARM template can be found from [ARM template doc](../azure-resource-manager/templates/overview.md)
+
+
 ## Azureml extension release note
 > [!NOTE]
  >
