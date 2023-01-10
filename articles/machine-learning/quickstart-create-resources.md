@@ -105,8 +105,16 @@ If you're not going to use it now, stop the compute instance:
 
 You now have an Azure Machine Learning workspace, which contains a compute instance to use for your development environment.
 
-Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
+Continue on to learn how to use the compute instance to run notebooks and scripts in the Azure Machine Learning cloud.  
 
 > [!div class="nextstepaction"]
-> [Quickstart: Run Jupyter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
->
+> [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-run-notebooks.md)
+
+Use your compute instance with the following tutorials to train and deploy and deploy a model.
+
+|Tutorial  |Description  |
+|---------|---------|
+| [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)     |  Basic end-to-end train and deploy a model      |
+| [Access and explore your data]()     |  Store large data in the cloud and retrieve it from notebooks and scripts |
+| [Train a model]()   |    Dive in to the details of training a model     |
+| [Deploy a model]()  |   Dive in to the details of deploying a model      |

@@ -21,9 +21,9 @@ You'll use a *compute instance*.  A compute instance is a pre-configured cloud-c
 
 In this quickstart, you'll:
 
-* Upload files
-* Run a Jupyter notebook
-* Run a Python script
+* Upload files to the cloud
+* Run a Jupyter notebook on the compute instance
+* Run a Python script on the compute instance
 
 Finally, you'll see how to use included sample notebooks to learn more about Azure Machine Learning.
 
@@ -211,7 +211,7 @@ Still in the **Notebooks** section, select **Samples** at the top.
 
 ## Clean up resources
 
-If you plan to continue now to the next tutorial, skip to [Next steps](#next-steps).
+If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
 ### Stop compute instance
 

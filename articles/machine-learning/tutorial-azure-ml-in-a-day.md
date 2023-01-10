@@ -29,17 +29,22 @@ The *training script* handles the data preparation, then trains and registers a 
 * Complete the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) if you need help to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
+
 * Complete the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md) if you need help to:
     *  Create a new notebook, if you want to copy/paste code into cells.
     * Or, open the notebook version of this tutorial by opening **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
 ## Run your notebook
 
-1. On the top bar, select the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
+1. On the top bar, you'll see the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](quickstart-create-resources.md)  to use for running the notebook.
+
+1. If the compute instance is stopped, select **Start compute** and wait until it is running.
+
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it is stopped.":::
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
-:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
+    :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel.":::
 
 
 > [!Important]
