@@ -201,6 +201,8 @@
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
+        - name: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+          href: trusted-access-feature.md
         - name: Create virtual nodes
           items:
             - name: Use virtual nodes
