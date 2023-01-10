@@ -24,10 +24,10 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### December 2022
 
-* General availability: Azure Cosmos DB for PostgreSQL is now available in Sweden Central and Switzerland West regsions. 
+* General availability: Azure Cosmos DB for PostgreSQL is now available in the Sweden Central and Switzerland West regions.
 	* See [full list of supported Azure regions](resources-regions.md).
-* PostgreSQL 15 is now the default Postgres version for Azure Cosmos DB for PostgreSQL in Azure portal. 
-	* See [all supported PostgreSQL versions](reference-versions.md). 
+* PostgreSQL 15 is now the default Postgres version for Azure Cosmos DB for PostgreSQL in Azure portal.
+	* See [all supported PostgreSQL versions](reference-versions.md).
 	* See [this guidance](howto-upgrade.md) for the steps to upgrade your Azure Cosmos DB for PostgreSQL cluster to PostgreSQL 15.
 
 
