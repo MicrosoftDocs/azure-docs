@@ -12,9 +12,9 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | C5600  |
-|**Performance** | Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
+|**Performance** | Max bandwidth: 3Gbps <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported, Available preconfigured|
+|**Status** | Supported, Available pre-configured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
 
@@ -167,17 +167,17 @@ Continue the iLO installation with the steps below.
 
 **To install sensor software with iLO**:
 
-1. When signed into the iLO console, right-click the servers' screen on the bottom left.
+1. When signed into the iLO console, select the servers' screen on the bottom left.
 
 1. Select **HTML5 Console**.
 
-1. In the console, select the CD icon, and choose the CD/DVD option.
+1. In the console, select the **Virtual media** icon, and choose the CD/DVD option.
 
 1. Select **Local ISO file**.
 
 1. In the dialog box, choose the D4IoT sensor installation ISO file.
 
-1. Go to the left icon, select **Power**, and the select **Reset**.
+1. Go to the left menu icon, select **Power**, and then select **Reset**.
 
 1. The appliance will restart, and run the sensor installation process.
 

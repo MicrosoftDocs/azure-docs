@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Use triggers and actions in Microsoft Sentinel playbooks
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This document explains the types of triggers and actions in the [Logic Apps Microsoft Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Microsoft Sentinel and the information in your workspace's tables. It further shows you how to get to specific types of Microsoft Sentinel information that you are likely to need.
 
 This document, along with our guide to [Authenticating playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md), is a companion to our other playbook documentation - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md). These three documents will refer to each other back and forth.
