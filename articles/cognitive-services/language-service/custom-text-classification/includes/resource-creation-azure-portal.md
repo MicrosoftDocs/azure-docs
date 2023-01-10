@@ -39,4 +39,4 @@ ms.custom: language-service-custom-classification, event-tier1-build-2022
     | Storage account name | Any name |
     | Storage account type | Standard LRS |
 
-1. Make sure the **Responsible AI Notice** is checked. Select **Review + create** at the bottom of the page, then select.
+1. Make sure the **Responsible AI Notice** is checked. Select **Review + create** at the bottom of the page.
