@@ -1,35 +1,35 @@
 ---
-title: Reference - Azure Web PubSub supported JSON WebSocket subprotocol `json.reliable.webpubsub.azure.v1`
+title: Reference - Azure Web PubSub JSON WebSocket subprotocol `json.reliable.webpubsub.azure.v1`
 description: The reference describes Azure Web PubSub supported WebSocket subprotocol `json.reliable.webpubsub.azure.v1`
 author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 01/04/2023
+ms.date: 01/09/2023
 ---
 
-# Azure Web PubSub supported Reliable JSON WebSocket subprotocol
+# Azure Web PubSub Reliable JSON WebSocket subprotocol
 
-The JSON WebSocket subprotocol, `json.reliable.webpubsub.azure.v1`, enables the highly reliable exchange of publish/subscribe messages directly between clients even under network issues.
+The JSON WebSocket subprotocol, `json.reliable.webpubsub.azure.v1`, enables the highly reliable exchange of publish/subscribe messages directly between clients even during network issues.
 
 This document describes the subprotocol json.reliable.webpubsub.azure.v1.
 
 > [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in future.
+> Reliable protocols are still in preview. Some changes are expected in the future.
 
-## Overview
+When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pubsub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
 
-When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pubsub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  A *Reliable PubSub WebSocket client* can reconnect a dropped connection.
+To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  A *Reliable PubSub WebSocket client* can reconnect a dropped connection.
 
-For example, in JavaScript, you can create a *Reliable PubSub WebSocket client* with the following code:
+For example, you can create a *Reliable PubSub WebSocket client* with the following JavaScript code:
 
 ```js
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
 ```
 
-When using `json.reliable.webpubsub.azure.v1` subprotocol, see [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection, publisher and subscriber for clients.
+See [How to create reliable clients](./howto-develop-reliable-clients.md) to implement reconnection and message reliability for publisher and subscriber clients.
 
-When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be **JSON** payloads.
+When the client is using this subprotocol, both outgoing and incoming data frames are expected to contain JSON payloads.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
@@ -48,7 +48,7 @@ Format:
 }
 ```
 
-Reliable PubSub WebSocket client must send a sequence ack message once it receives a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
+Reliable PubSub WebSocket client must send a sequence ack message once it receives a message from the service. For more information, see [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
  
 * `sequenceId` is a incremental uint64 number from the message received.
 
@@ -58,7 +58,7 @@ Messages received by the client can be several types: `ack`, `message`, and `sys
 
 ### Ack response
 
-If the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response for an `async` `await` operation, and having a timeout check when the ack response is not received during a certain period.
+When the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response using an `async` `await` operation, and have a timeout handler when the ack response is not received during a certain period.
 
 Format:
 ```json
@@ -106,8 +106,10 @@ Clients can receive messages published from one group the client joined, or from
     ```
 
 #### Case 1: Sending data `Hello World` to the connection through REST API with `Content-Type`=`text/plain` 
-* What a simple WebSocket client receives is a text WebSocket frame with data: `Hello World`;
-* What a PubSub WebSocket client receives is as follows:
+
+* A simple WebSocket client receives a text WebSocket frame with data: `Hello World`;
+* A PubSub WebSocket client receives the message in JSON:
+
     ```json
     {
         "sequenceId": 1,
@@ -119,8 +121,10 @@ Clients can receive messages published from one group the client joined, or from
     ```
 
 #### Case 2: Sending data `{ "Hello" : "World"}` to the connection through REST API with `Content-Type`=`application/json`
-* What a simple WebSocket client receives is a text WebSocket frame with stringified data: `{ "Hello" : "World"}`;
-* What a PubSub WebSocket client receives is as follows:
+
+* A simple WebSocket client receives a text WebSocket frame with stringified data: `{ "Hello" : "World"}`;
+* A PubSub WebSocket client receives the message in JSON:
+
     ```json
     {
         "sequenceId": 1,
@@ -136,8 +140,10 @@ Clients can receive messages published from one group the client joined, or from
 If the REST API is sending a string `Hello World` using `application/json` content type, what the simple WebSocket client receives is a JSON string, which is `"Hello World"` that wraps the string with `"`.
 
 #### Case 3: Sending binary data to the connection through REST API with `Content-Type`=`application/octet-stream`
-* What a simple WebSocket client receives is a binary WebSocket frame with the binary data.
-* What a PubSub WebSocket client receives is as follows:
+
+* A simple WebSocket client receives a binary WebSocket frame with the binary data.
+* A PubSub WebSocket client receives the message in JSON:
+
     ```json
     {
         "sequenceId": 1,
