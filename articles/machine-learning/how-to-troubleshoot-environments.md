@@ -924,7 +924,7 @@ This issue can happen when an attempt to access a blob in a storage account is r
 
 **Troubleshooting steps**
 
-Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations.md)
+Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations-portal.md)
 
 Read the following to understand [how to authorize access to data in Azure storage](../storage/common/authorize-data-access.md)
 
