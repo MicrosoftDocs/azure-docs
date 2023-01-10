@@ -37,7 +37,7 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Resource type(s) that support [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+* Resource types that support [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 * Pre-defined roles with appropriate [AKS permissions](concepts-identity.md).
   * To learn about what roles to use in various scenarios, check out TBD.
 * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
@@ -64,11 +64,11 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ## Create an AKS cluster
 
-[Create an AKS cluster](tutorial-kubernetes-deploy-cluster.md) in the same subscription as the Azure resource you want to allow to access the cluster.
+[Create an AKS cluster](tutorial-kubernetes-deploy-cluster.md) in the same subscription as the Azure resource you want to access the cluster.
 
 ## Select the required Trusted Access Roles
 
-The roles you select depend on the different Azure services. Built upon the Trusted Access feature, AzureML now supports access to AKS clusters. To preview this feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
+The roles you select depend on the different Azure services. AzureML now supports access to AKS clusters with the Trusted Access feature. To preview this feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
 
 ## Create a Trusted Access RoleBinding
 
