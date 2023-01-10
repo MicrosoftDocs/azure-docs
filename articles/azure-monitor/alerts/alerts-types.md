@@ -81,7 +81,7 @@ The platform metrics for these services in the following Azure clouds are suppor
 
 | Service                      | Global Azure | Government | China   |
 |:-----------------------------|:-------------|:-----------|:--------|
-| Virtual machines*            | Yes      |Yes     | Yes |
+| Virtual machines             | Yes      |Yes     | Yes |
 | SQL Server databases         | Yes      | Yes    | Yes |
 | SQL Server elastic pools     | Yes      | Yes    | Yes |
 | NetApp files capacity pools  | Yes      | Yes    | Yes |
