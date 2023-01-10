@@ -7,7 +7,7 @@ ms.suite: integration
 author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: conceptual#authentication-types-for-triggers-and-actions-that-support-authentication
 ms.date: 12/15/2022
 # As a BizTalk Server customer, I want to better understand why I should migrate to Azure Integration Services in the cloud from on-premises BizTalk Server.
 ---
@@ -298,7 +298,7 @@ The connectivity model in Azure Integration Services differs from BizTalk Server
 
 In [Azure Logic Apps](./logic-apps-overview.md), [REST](/azure/architecture/best-practices/api-design) is the default approach for connecting systems. As Microsoft and other software vendors expose RESTful services on top of their systems and data, Azure Logic Apps can expose and consume this type of information. The OpenAPI specification makes this capability possible for both humans and computers to understand the interaction between a client and server through metadata. As part of this understanding, both request and response payloads are derived, which means you can use dynamic content to populate a workflow action's inputs and use the outputs from the response in downstream actions.
 
-Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](./logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication) vary by connector. Generally, these schemes include the following types:
+Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](./logic-apps-securing-a-logic-app.md) vary by connector. Generally, these schemes include the following types:
 
 - [Basic](./logic-apps-securing-a-logic-app.md#basic-authentication)
 - [Client Certificate](./logic-apps-securing-a-logic-app.md#client-certificate-authentication)
