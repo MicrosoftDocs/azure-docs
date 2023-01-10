@@ -24,7 +24,7 @@ CommunicationIdentifier has the following advantages:
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
 
-On top of these advantages, the ability to instantiate a *CommunicationIdentifier* from Raw ID and being able to retrieve an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) makes the following scenarios easier to implement:
+On top of this, the *CommunicationIdentifier* and the derived types (`MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) can be converted to its string representation (Raw ID), making the following scenarios easier to implement:
 - Extract identifier details from Raw IDs and use them to call other APIs (such as the Microsoft Graph API) to provide a rich experience for communication participants.
 - Store identifiers in a database and use them as keys.
 - Use identifiers as keys in dictionaries.
@@ -51,7 +51,7 @@ CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRa
 You can find more platform-specific examples in the following article: [Understand identifier types](./identifiers.md)
 
 ## Storing CommunicationIdentifier in a database
-Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is stable, globally unique, and deterministic. The guaranteed uniqueness allows choosing it as a key in the storage. You can map ACS users' IDs to the users coming from the Contoso identity provider. 
+One of the typical jobs that may be required from you is mapping ACS users to users coming from Contoso user database or identity provider. This is usually achieved by adding an extra column or field in Contoso user DB or Identity Provider. However, given the characteristics of the Raw ID (stable, globally unique, and deterministic), you may as well choose it as a primary key for the user storage.
 
 Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Communication Identity, Calling or Chat APIs or from a custom Contoso API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
 
@@ -93,53 +93,61 @@ public void GetFromDatabase()
 It will return `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `MicrosoftTeamsUserIdentifier` or `UnknownIdentifier` based on the identifier type.
   
 ## Storing CommunicationIdentifier in collections
-If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). A collection is useful, for example, for maintaining a list of call or chat participants. As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The following examples demonstrate adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for identifiers that are converted to an *UnknownIdentifier* type. This type is reserved for any new types of identifiers that might be introduced in the future, to maintain the compatibility in older SDK versions.
+If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). A collection is useful, for example, for maintaining a list of call or chat participants. As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The following examples demonstrate adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. 
+
+The following example shows how Raw ID can be used as a key in a dictionary to store user's messages:
 
 ```csharp
 public void StoreMessagesForContosoUsers()
+{
+    var communicationUser = new CommunicationUserIdentifier("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130");
+    var teamsUserUser = new CommunicationUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130");
+    
+    // A dictionary with a CommunicationIdentifier as key might be used to store messages of a user.
+    var userMessages = new Dictionary<string, List<Message>>
     {
-        // A dictionary with a CommunicationIdentifier as key might be used to store messages of a user.
-        var userMessages = new Dictionary<CommunicationIdentifier, List<Message>>
-        {
-            { new CommunicationUserIdentifier("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130"), new List<Message>() },
-            { new MicrosoftTeamsUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130"), new List<Message>() },
-        };
+        { communicationUser.RawId, new List<Message>() },
+        { teamsUserUser.RawId, new List<Message>() },
+    };
 
-        // Retrieve messages for a user based on their Raw ID.
-        var messages = userMessages[CommunicationIdentifier.FromRawId("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130")];
-    }
+    // Retrieve messages for a user based on their Raw ID.
+    var messages = userMessages[communicationUser.RawId];
+}
 ```
 
+As the hashing logic relies on the value of a Raw ID, you can use `CommunicationIdentifier` itself as a key in a dictionary directly:
+
+```csharp
+public void StoreMessagesForContosoUsers()
+{
+    // A dictionary with a CommunicationIdentifier as key might be used to store messages of a user.
+    var userMessages = new Dictionary<CommunicationIdentifier, List<Message>>
+    {
+        { new CommunicationUserIdentifier("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130"), new List<Message>() },
+        { new MicrosoftTeamsUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130"), new List<Message>() },
+    };
+
+    // Retrieve messages for a user based on their Raw ID.
+    var messages = userMessages[CommunicationIdentifier.FromRawId("8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130")];
+}
+```
+
+Hashing logic that relies on the value of a Raw ID, also allows you to add `CommunicationIdentifier` objects to hash sets:
 ```csharp
 public void StoreUniqueContosoUsers()
+{
+    // A hash set of unique users of a Contoso application.
+    var users = new HashSet<CommunicationIdentifier>
     {
-        // A hash set of unique users of a Contoso application.
-        var users = new HashSet<CommunicationIdentifier>
-        {
-            new PhoneNumberIdentifier("+14255550123"),
-            new UnknownIdentifier("28:45ab2481-1c1c-4005-be24-0ffb879b1130")
-        };
+        new PhoneNumberIdentifier("+14255550123"),
+        new UnknownIdentifier("28:45ab2481-1c1c-4005-be24-0ffb879b1130")
+    };
 
-        // Implement custom flow for a new communication user.
-         if (users.Contains(CommunicationIdentifier.FromRawId("4:+14255550123"))){
-            //...
-         }
-    }
-```
-
-```csharp
-public void StoreContosoUsersInOrderTheyJoin()
-    {
-        // A list set of users that can be used in aggregate functions or statistics calculation.
-        var participants = new List<CommunicationIdentifier>
-        {
-            new MicrosoftTeamsUserIdentifier("45ab2481-1c1c-4005-be24-0ffb879b1130"),
-            new UnknownIdentifier("28:45ab2481-1c1c-4005-be24-0ffb879b1130")
-        };
-
-        // Add a new participant when having a Raw ID.
-        participants.Add(CommunicationIdentifier.FromRawId("8:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130"));
-    }
+    // Implement custom flow for a new communication user.
+     if (users.Contains(CommunicationIdentifier.FromRawId("4:+14255550123"))){
+        //...
+     }
+}
 ```
 
 Another use case is using Raw IDs in mobile applications to identify participants. You can inject the participant view data for remote participant if you want to handle this information locally in the UI library without sending it to Azure Communication Services.
@@ -165,14 +173,14 @@ callComposite.events.onRemoteParticipantJoined = { identifiers in
 ```
 
 ## Using Raw ID as key in REST API paths
-When designing a REST API, you can have endpoints that have a unique identifier for your application user in a form of a Raw ID string. If the identifier consists of several parts (like ObjectID, cloud name, etc. if you're using `MicrosoftTeamsUserIdentifier`), using Raw ID allows you to address the entity in the URL path instead of passing the whole composite object as a JSON in the body. So that you can have a more intuitive REST CRUD API.
+When designing a REST API, you can have endpoints that either accept a `CommunicationIdentifier` or a Raw ID string. If the identifier consists of several parts (like ObjectID, cloud name, etc. if you're using `MicrosoftTeamsUserIdentifier`), you might need to pass it in the request body. However, using Raw ID allows you to address the entity in the URL path instead of passing the whole composite object as a JSON in the body. So that you can have a more intuitive REST CRUD API.
 
 ```csharp
 public async Task UseIdentifierInPath()
 {
-    ContosoUser user = GetFromDb("john@doe.com");
+    CommunicationIdentifier user = GetFromDb("john@doe.com");
     
-    using HttpResponseMessage response = await client.GetAsync($"https://contoso.com/v1.0/users/{user.CommunicationId}/profile");
+    using HttpResponseMessage response = await client.GetAsync($"https://contoso.com/v1.0/users/{user.RawId}/profile");
     response.EnsureSuccessStatusCode();
 }
 ```
@@ -180,11 +188,11 @@ public async Task UseIdentifierInPath()
 ## Extracting identifier details from Raw IDs.
 Consistent underlying Raw ID allows:
 - Deserializing to the right identifier type (based on which you can adjust the flow of your app).
-- Extracting details of identifiers (such as an oid for `msteamsuser`).
+- Extracting details of identifiers (such as an oid for `MicrosoftTeamsUserIdentifier`).
 
 The example shows both benefits:
 - The type allows you to decide where to take the avatar from.
-- The decomposed details allow you to query the api in the right way.
+- The decomposed details allow you to query the API in the right way.
 
 ```csharp
 public void ExtractIdentifierDetails()
@@ -210,9 +218,9 @@ public void ExtractIdentifierDetails()
 You can access properties or methods for a specific *CommunicationIdentifier* type that is stored in a Contoso database in a form of a string (Raw ID).
 
 ## Using Raw IDs as key in UI frameworks
-It's possible to use Raw ID of an identifier as a key in UI components to track a certain user and avoid unnecessary re-rendering and API calls.
+It's possible to use Raw ID of an identifier as a key in UI components to track a certain user and avoid unnecessary re-rendering and API calls. In the example, we're changing the order of how users are rendered in a list. In real world, we might want to show new users first or re-order users based on some condition (for example, hand raised). For the sake of simplicity, the following example just reverses the order in which the users are rendered.
 
-```react
+```javascript
 import { getIdentifierRawId } from '@azure/communication-common';
 
 function CommunicationParticipants() {
@@ -223,7 +231,6 @@ function CommunicationParticipants() {
       // Each list item should have a unique key. Raw ID can be used as such key.
         <ListUser item={user} key={user.id} />
       ))}
-      // We might want to show new users first or re-oder users based on some condition (for example, hand raised).
       <button onClick={() => setUsers(users.slice().reverse())}>Reverse</button>
     </div>
   );
