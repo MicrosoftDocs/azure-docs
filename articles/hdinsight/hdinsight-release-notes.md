@@ -69,7 +69,7 @@ For workload specific versions, see [here.](./hdinsight-40-component-versioning.
 
 HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
 
-For more information, see [How to enable Transport Layer Security (TLS)](https://learn.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
+For more information, see [How to enable Transport Layer Security (TLS)](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
 
 
 ![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
