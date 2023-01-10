@@ -69,9 +69,6 @@ model_local_path = os.path.abspath("./regressor")
 mlflow.register_model(f"file://{model_local_path}", "local-model-test")
 ```
 
-> [!NOTE]
-> Notice how the model URI schema `file:/` requires absolute paths.
-
 ## Querying model registries
 
 ### Querying all the models in the registry
