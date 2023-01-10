@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Identity verification and proofing partners
 
-With Azure Active Directory B2C (Azure AD B2C) software-vendor partners, customers can enable end-user identity verification and proofing for account registration. Identity verification and proofing can check document, knowledge-based information, and liveness.
+With Azure Active Directory B2C (Azure AD B2C) and solutions from software-vendor partners, customers can enable end-user identity verification and proofing for account registration. Identity verification and proofing can check documents, knowledge-based information, and liveness.
 
 ## Architecture diagram
 
@@ -32,7 +32,7 @@ The following architecture diagram illustrates the verification and proofing flo
 6. User access is assigned.
 7. User receives access-approved message.
 
-## Independent software vendor list and integration documentation
+## Software vendors and integration documentation
 
 Microsoft partners with independent software vendors (ISVs). Use the following table to locate an ISV and related integration documentation. 
 
