@@ -323,7 +323,7 @@ Update Management can be used to assess and schedule update deployments to machi
 |Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
 
 >[!NOTE]
->When you use Update management, ensure that the execution policy for scripts is *Remote Signed*.
+>When you use Update management, ensure that the execution policy for scripts is *RemoteSigned*.
 
 ## Configure Azure RBAC for your Automation account
 
