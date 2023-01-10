@@ -2,7 +2,7 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 01/09/2023
 ---
 
 # Add module settings in the Bicep config file
@@ -122,7 +122,49 @@ You can override the public module registry alias definition in the bicepconfig.
 
 ## Credentials for publishing/restoring modules
 
-To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, see [Add credential precedence to Bicep config](bicep-config.md#credential-precedence).
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the profile and the credential precedence for authenticating to the registry. By default, Bicep uses the `AzureCloud` profile and the credentials from the user authenticated in Azure CLI or Azure PowerShell. You can customize `currentProfile` and `credentialPrecedence` in the config file.
+
+```json
+{
+  "cloud": {
+    "currentProfile": "AzureCloud",
+    "profiles": {
+      "AzureCloud": {
+        "resourceManagerEndpoint": "https://management.azure.com",
+        "activeDirectoryAuthority": "https://login.microsoftonline.com"
+      },
+      "AzureChinaCloud": {
+        "resourceManagerEndpoint": "https://management.chinacloudapi.cn",
+        "activeDirectoryAuthority": "https://login.chinacloudapi.cn"
+      },
+      "AzureUSGovernment": {
+        "resourceManagerEndpoint": "https://management.usgovcloudapi.net",
+        "activeDirectoryAuthority": "https://login.microsoftonline.us"
+      }
+    },
+    "credentialPrecedence": [
+      "AzureCLI",
+      "AzurePowerShell"
+    ]
+  }
+}
+```
+
+The available national profiles are:
+
+- AzureChinaCloud
+- AzureUSGovernment
+
+The available credential types are:
+
+- AzureCLI
+- AzurePowerShell
+- Environment
+- ManagedIdentity
+- VisualStudio
+- VisualStudioCode
+
+[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 ## Next steps
 
