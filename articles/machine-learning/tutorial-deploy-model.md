@@ -236,7 +236,7 @@ print(
 )
 ```
 
-## Understanding online deployments
+## Understand online deployments
 
 To deploy a model, you must have:
 
