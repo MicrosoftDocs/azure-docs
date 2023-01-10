@@ -477,5 +477,5 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 
 * Learn more about [How to deploy an AutoML model to an online endpoint](how-to-deploy-automl-endpoint.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md).
-* Learn about [how AutoML builds forecasting models](./how-to-automl-forecasting-methods.md). 
+* Learn about [how AutoML builds forecasting models](./concept-automl-forecasting-methods.md). 
 

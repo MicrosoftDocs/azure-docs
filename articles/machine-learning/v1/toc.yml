@@ -263,13 +263,13 @@
         displayName: nlp, auto ML, automl, SDK
         href: how-to-auto-train-nlp-models-v1.md
       - name: Time series forecasting
-          items:
-          - name: Auto-train a forecast model
-            displayName: time series
-            href: ../how-to-auto-train-forecast.md
-          - name: Frequently asked questions
-            displayName: auto ML, time series, forecasting, FAQ
-            href: ../how-to-automl-forecasting-faq.md
+        items:
+        - name: Auto-train a forecast model
+          displayName: time series
+          href: ../how-to-auto-train-forecast.md
+        - name: Frequently asked questions
+          displayName: auto ML, time series, forecasting, FAQ
+          href: ../how-to-automl-forecasting-faq.md
       - name: Set up AutoML to train computer vision models with Python
         displayName: auto ML, automl, SDK
         href: how-to-auto-train-image-models-v1.md

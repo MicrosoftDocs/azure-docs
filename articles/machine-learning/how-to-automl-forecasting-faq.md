@@ -8,7 +8,7 @@ ms.author: sagoswami
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.topic: how-to
+ms.topic: faq
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 12/15/2022
 ---

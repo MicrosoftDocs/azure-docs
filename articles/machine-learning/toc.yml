@@ -144,7 +144,7 @@
                 href: concept-automl-forecasting-sweeping.md
               - name: Calendar features
                 displayName: auto ML, time series, calendar features, holiday features
-                href: concept-forecasting-calendar-features.md
+                href: concept-automl-forecasting-calendar-features.md
               - name: Lag features
                 displayName: auto ML, time series, lags
                 href: concept-automl-forecasting-lags.md
