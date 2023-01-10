@@ -5,7 +5,7 @@ author: AtiqKhan-Docs
 ms.author: khanatiq
 ms.service: communications-gateway
 ms.topic: how-to 
-ms.date: 15/12/2022
+ms.date: 01/10/2022
 ---
 
 # Prepare to deploy Azure Communications Gateway
@@ -26,10 +26,10 @@ We strongly recommend that all operators have a support plan that includes techn
 
 ## 1. Configure Azure Active Directory in Operator Azure tenancy
 
->[NOTE!]
->This step is required to setup you as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already onboarded to TPM or OC.
+> [!NOTE]
+>This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already onboarded to TPM or OC.
 
-Operator Connect and Teams Phone Mobile inherit permissions and identities from the Azure Active Directory within the Azure tenant where the Project Synergy app is configured. As such, performing this step within an existing Azure tenant uses your existing identities for fully integrated authentication and is recommended. However, should you need to manage identities for Operator Connect separately from the rest of your organization the following steps should be completed in a new dedicated tenant.
+Operator Connect and Teams Phone Mobile inherit permissions and identities from the Azure Active Directory within the Azure tenant where the Project Synergy app is configured. As such, performing this step within an existing Azure tenant uses your existing identities for fully integrated authentication and is recommended. However, if you need to manage identities for Operator Connect separately from the rest of your organization, complete the following steps in a new dedicated tenant.
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
@@ -37,14 +37,17 @@ Operator Connect and Teams Phone Mobile inherit permissions and identities from 
 1. Scroll down to the Tenant ID field. Your tenant ID will be in the box. Make a note of your tenant ID.
 1. Open PowerShell.
 1. (If you don't have the Azure Active Directory module installed), run the cmdlet:
-```azurepowershell-interactive
-Install-Module Azure AD
-```
+
+  ```azurepowershell
+  Install-Module Azure AD
+  ```
+
 1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
-```azurepowershell-interactive
-Connect-AzureAD -TenantId "<AADTenantID>"
-New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
-```
+
+  ```azurepowershell-interactive
+  Connect-AzureAD -TenantId "<AADTenantID>"
+  New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
+  ```
 
 ## 2. Allow the Project Synergy application
 
@@ -203,4 +206,4 @@ If you believe tagging would be useful for your organization, design your naming
 
 ## Next steps
 
-1. [Create an Azure Communications Gateway resource](deploy.md)
+- [Create an Azure Communications Gateway resource](deploy.md)
