@@ -204,7 +204,7 @@ You'll see a confirmation that the model is registered.
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Set the default workspace.  If you're doing this from a compute instance, you can use this command as is.  If you're on your own computer, substitute your resource group and workspace name instead.  (You can find these values in the Azure portal or in [Azure Machine Learning studio](tutorial-azure-ml-in-a-day#connect-to-the-workspace)).
+1. Set the default workspace.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in the Azure portal or in [Azure Machine Learning studio](tutorial-azure-ml-in-a-day#connect-to-the-workspace)).
 
     ```azurecli
     az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE
