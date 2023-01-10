@@ -4,7 +4,7 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 12/28/2022
+ms.date: 01/10/2023
 ms.author: schaffererin
 ---
 
@@ -68,9 +68,7 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ## Select the required Trusted Access Roles
 
-The roles you select depend on the different Azure services.
-
-* Links to partner docs - add later
+The roles you select depend on the different Azure services. Built upon the Trusted Access feature, AzureML now supports access to AKS clusters. To preview this feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
 
 ## Create a Trusted Access RoleBinding
 
@@ -98,10 +96,8 @@ az aks trustedaccess rolebinding create \
 
 Use the Azure CLI to check the Trusted Access RoleBindings for a cluster.
 
-### Azure CLI
-
 ```azurecli
-az aks trustedaccess rolebinding list --resource-group --cluster-name
+az aks trustedaccess rolebinding list --resource-group <clusterResourceGroup> --cluster-name <clusterName>
 ```
 
 ---
@@ -110,12 +106,14 @@ az aks trustedaccess rolebinding list --resource-group --cluster-name
 
 Use the Azure CLI to list your specific Trusted Access RoleBinding.
 
-### Azure CLI
-
 ```azurecli
 az aks trustedaccess rolebinding show --name <bindingName> --resource-group <clusterResourceGroup> --cluster-name <clusterName>
 ```
 
 ## Next steps
 
-For more information on TBD.
+For more information on AKS and AzureML, see:
+
+* [Introduction to Kubernetes compute target in AzureML](../machine-learning/how-to-attach-kubernetes-anywhere.md)
+* [Deploy and manage cluster extensions for AKS](/cluster-extensions.md)
+* [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
