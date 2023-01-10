@@ -17,10 +17,10 @@ ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022
 
 # Quickstart: Create workspace resources you need to get started with Azure Machine Learning
 
-In this quickstart, you'll create and work with:
+In this quickstart, you'll create:
 
-* A *workspace*.  The workspace is the central place to view and manage all the artifacts and resources you create while using Azure Machine Learning.
-* A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models.
+* A *workspace*.  To use Azure Machine Learning, you'll first need a workspace.  The workspace is the central place to view and manage all the artifacts and resources you create. 
+* A *compute instance*.  A compute instance is a pre-configured cloud-computing resource that you can use to train, automate, manage, and track machine learning models. A compute instance is the quickest way to start using the Azure Machine Learning SDKs and CLIs. You'll use it to run Jupyter notebooks and Python scripts in the rest of the tutorials.
 
 ## Prerequisites
 
@@ -33,6 +33,7 @@ The workspace is the top-level resource for your machine learning activities, pr
 If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-a-compute-instance).
 
 If you don't yet have a workspace, create one now: 
+
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Select **Create workspace**
 1. Provide the following information to configure your new workspace:
@@ -55,11 +56,14 @@ You'll use the *compute instance* to run Jupyter notebooks and Python scripts in
 Create a compute instance now.  
 
 1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page.  (You'll only see this if you don't yet have a compute instance in your workspace.)
-1. Supply a name, Keep all the defaults on the first page.
+1. Select **Create compute** in the middle of the page.  (You'll only see this option if you don't yet have a compute instance in your workspace.)
+1. Supply a name. Keep all the defaults on the first page.
+1. Select **Next** to see **Advanced Settings**.
+1. Select **Enable idle shutdown** so that the machine will shut down after a period of inactivity.  
+1. Keep the default values for the rest of the page.
 1. Select **Create**.
 
-In about two minutes, you'll see the State of the compute instance change from Creating to Running. It's now ready to go.
+In about two minutes, you'll see the **State** of the compute instance change from **Creating** to **Running**. It's now ready to go.
 
 ## Quick tour of the studio
 
@@ -77,15 +81,12 @@ Review the parts of the studio on the left-hand navigation bar:
 
 * The **Manage** section of the studio lets you create and manage compute and external services you link to your workspace. It's also where you can create and manage a **Data labeling** project.
 
-:::image type="content" source="media/quickstart-create-resources/overview.png" alt-text="Screenshot of Azure ML studio.":::
+:::image type="content" source="media/quickstart-create-resources/overview.png" alt-text="Screenshot of Azure ML studio." lightbox="media/quickstart-create-resources/overview.png":::
 
-### Workspace diagnostics
-
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## Clean up resources
 
-If you plan to continue now to the next tutorial, skip to [Next steps](#next-steps).
+If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
 ### Stop compute instance
 
@@ -102,7 +103,7 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-You now have an Azure Machine Learning workspace which contains a compute instance to use for your development environment.
+You now have an Azure Machine Learning workspace, which contains a compute instance to use for your development environment.
 
 Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
 
