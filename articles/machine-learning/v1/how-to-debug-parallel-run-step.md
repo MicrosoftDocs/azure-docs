@@ -8,8 +8,8 @@ ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting, sdkv1, event-tier1-build-2022
 ms.reviewer: lagayhar
-author: alainli0928
-ms.author: alainli
+ms.author: scottpolly
+author: scottpolly
 ms.date: 11/16/2022
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
 ---

@@ -4,7 +4,7 @@ description: This article describes the instructions to install the agent on Win
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 10/18/2022
+ms.date: 1/9/2023
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -329,11 +329,15 @@ In order to update the version, install the new version you wish to update to.
 3. The 'ServiceLogs' folder contains log from AMA Windows Service, which launches and manages AMA processes
 4. 'AzureMonitorAgent.MonitoringDataStore' contains data/logs from AMA processes.
 
-### Common issues
+### Common installation issues
 
 #### Missing DLL
 - Error message: "There's a problem with this Windows Installer package. A DLL required for this installer to complete could not be run. …"
 - Ensure you have installed [C++ Redistributable (>2015)](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) before installing AMA:
+
+#### Not AAD joined
+Error message: "Tenant and device ids retrieval failed"
+1. Run the command `dsregcmd /status`. This should produce the output as `AzureAdJoined : YES` in the 'Device State' section. If not, join the device with an AAD tenant and try installation again. 
 
 #### Silent install from command prompt fails
 Make sure to start the installer on administrator command prompt. Silent install can only be initiated from the administrator command prompt.
@@ -342,7 +346,6 @@ Make sure to start the installer on administrator command prompt. Silent install
 - If There's an option to try again, do try it again
 - If retry from uninstaller doesn't work, cancel the uninstall and stop Azure Monitor Agent service from Services (Desktop Application)
 - Retry uninstall
-
 #### Force uninstall manually when uninstaller doesn't work
 - Stop Azure Monitor Agent service. Then try uninstalling again. If it fails, then proceed with the following steps
 - Delete AMA service with "sc delete AzureMonitorAgent" from admin cmd
@@ -351,6 +354,8 @@ Make sure to start the installer on administrator command prompt. Silent install
 - Delete AMA data/logs. They're stored in `C:\Resources\Azure Monitor Agent` by default
 - Open Registry. Check `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Monitor Agent`. If it exists, delete the key.
 
+### Post installation/Operational issues
+Once the agent is installed successfully (i.e. you see the agent service running but don't see data as expected), you can follow standard troubleshooting steps listed here for [Windows VM](./azure-monitor-agent-troubleshoot-windows-vm.md) and [Windows Arc-enabled server](azure-monitor-agent-troubleshoot-windows-arc.md) respectively.
 
 ## Questions and feedback
 Take this [quick survey](https://forms.microsoft.com/r/CBhWuT1rmM) or share your feedback/questions regarding the client installer.

@@ -78,7 +78,7 @@ To disconnect the Azure Information Protection connector:
 1. Below the connector description, select **Open connector page**.
 1. Under **Configuration**, select **Disconnect**.
 
-## Known Issues And Limitations
+## Known issues and limitations
 
 - The Office Management API doesn't obtain a Downgrade Label with the names of the labels before and after the downgrade. To retrieve this information, extract the `labelId` of each label and enrich the results. 
 
