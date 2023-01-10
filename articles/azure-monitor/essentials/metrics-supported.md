@@ -59,7 +59,8 @@ The Azure Monitor agent replaces the Azure Diagnostics extension and Log Analyti
 This latest update adds a new column and reorders the metrics to be alphabetical. The additional information means that the tables might have a horizontal scroll bar at the bottom, depending on the width of your browser window. If you seem to be missing information, use the scroll bar to see the entirety of the table.
 
 
-## Microsoft.AAD/DomainServices   <!-- Data source : naam-->
+## Microsoft.AAD/DomainServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -75,7 +76,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |\Security System-Wide Statistics\NTLM Authentications|Yes|NTLM Authentications|CountPerSecond|Average|This metric indicates the number of NTLM authentications processed per second for the Active Directory on this domain contrller or for local accounts on this member server. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|DataCenter, Tenant, Role, RoleInstance, ScaleUnit|
 
 
-## microsoft.aadiam/azureADMetrics   <!-- Data source : naam-->
+## microsoft.aadiam/azureADMetrics   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -88,7 +90,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SamlSuccessCount|Yes|SamlSuccessCount|Count|Count|Saml token scuccess count for relying party scenario|No Dimensions|
 
 
-## Microsoft.AnalysisServices/servers   <!-- Data source : arm-->
+## Microsoft.AnalysisServices/servers   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -141,7 +144,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |virtual_bytes_metric|Yes|Virtual Bytes|Bytes|Average|Virtual bytes.|ServerResourceType|
 
 
-## Microsoft.ApiManagement/service   <!-- Data source : naam-->
+## Microsoft.ApiManagement/service   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -167,7 +171,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WebSocketMessages|Yes|WebSocket Messages (Preview)|Count|Total|Count of WebSocket messages based on selected source and destination|Location, Source, Destination|
 
 
-## Microsoft.App/containerapps   <!-- Data source : naam-->
+## Microsoft.App/containerapps   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -182,7 +187,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WorkingSetBytes|Yes|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
 
 
-## Microsoft.App/managedEnvironments   <!-- Data source : naam-->
+## Microsoft.App/managedEnvironments   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -190,7 +196,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |EnvCoresQuotaUtilization|Yes|Percentage Cores Used Out Of Limit|Percent|Average|The cores quota utilization of managed environment|No Dimensions|
 
 
-## Microsoft.AppConfiguration/configurationStores   <!-- Data source : naam-->
+## Microsoft.AppConfiguration/configurationStores   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -200,7 +207,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ThrottledHttpRequestCount|Yes|ThrottledHttpRequestCount|Count|Total|Throttled http requests.|Endpoint|
 
 
-## Microsoft.AppPlatform/Spring   <!-- Data source : arm-->
+## Microsoft.AppPlatform/Spring   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -283,7 +291,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |working-set|Yes|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
 
 
-## Microsoft.Automation/automationAccounts   <!-- Data source : naam-->
+## Microsoft.Automation/automationAccounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -293,7 +302,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalUpdateDeploymentRuns|Yes|Total Update Deployment Runs|Count|Total|Total software update deployment runs|Status, SoftwareUpdateConfigurationName|
 
 
-## microsoft.avs/privateClouds   <!-- Data source : naam-->
+## microsoft.avs/privateClouds   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -307,7 +317,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UsedLatest|Yes|Datastore Disk Used|Bytes|Average|The total amount of disk used in the datastore|dsname|
 
 
-## Microsoft.Batch/batchaccounts   <!-- Data source : naam-->
+## Microsoft.Batch/batchaccounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -344,7 +355,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WaitingForStartTaskNodeCount|No|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|No Dimensions|
 
 
-## microsoft.bing/accounts   <!-- Data source : naam-->
+## microsoft.bing/accounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -359,7 +371,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalErrors|Yes|Total Errors|Count|Total|Number of calls with any error (HTTP status code 4xx or 5xx)|ApiName, ServingRegion, StatusCode|
 
 
-## microsoft.botservice/botservices   <!-- Data source : naam-->
+## microsoft.botservice/botservices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -367,7 +380,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Percent|Count|Number of Requests Made|Operation, Authentication, Protocol, StatusCode, StatusCodeClass, DataCenter|
 
 
-## Microsoft.BotService/botServices/channels   <!-- Data source : arm-->
+## Microsoft.BotService/botServices/channels   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -375,7 +389,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Count|Average|Number of requests within a given period of time|Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText|
 
 
-## Microsoft.BotService/botServices/connections   <!-- Data source : arm-->
+## Microsoft.BotService/botServices/connections   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -383,7 +398,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Count|Average|Number of requests within a given period of time|Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText|
 
 
-## Microsoft.BotService/checknameavailability   <!-- Data source : arm-->
+## Microsoft.BotService/checknameavailability   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -391,7 +407,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Count|Average|Number of requests within a given period of time|Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText|
 
 
-## Microsoft.BotService/hostsettings   <!-- Data source : arm-->
+## Microsoft.BotService/hostsettings   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -399,7 +416,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Count|Average|Number of requests within a given period of time|Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText|
 
 
-## Microsoft.BotService/listauthserviceproviders   <!-- Data source : arm-->
+## Microsoft.BotService/listauthserviceproviders   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -407,7 +425,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Count|Average|Number of requests within a given period of time|Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText|
 
 
-## Microsoft.BotService/listqnamakerendpointkeys   <!-- Data source : arm-->
+## Microsoft.BotService/listqnamakerendpointkeys   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -415,7 +434,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsTraffic|Yes|Requests Traffic|Count|Average|Number of requests within a given period of time|Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText|
 
 
-## Microsoft.Cache/redis   <!-- Data source : naam-->
+## Microsoft.Cache/redis   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -625,7 +645,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
 
 
-## Microsoft.Cache/redisEnterprise   <!-- Data source : arm-->
+## Microsoft.Cache/redisEnterprise   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -650,14 +671,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum|The percentage of cache memory used for key/value pairs. For more details, see https://aka.ms/redis/enterprise/metrics.|InstanceId|
 
 
-## Microsoft.Cdn/cdnwebapplicationfirewallpolicies   <!-- Data source : naam-->
+## Microsoft.Cdn/cdnwebapplicationfirewallpolicies   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |WebApplicationFirewallRequestCount|Yes|Web Application Firewall Request Count|Count|Total|The number of client requests processed by the Web Application Firewall|PolicyName, RuleName, Action|
 
 
-## Microsoft.Cdn/profiles   <!-- Data source : naam-->
+## Microsoft.Cdn/profiles   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -674,7 +697,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WebApplicationFirewallRequestCount|Yes|Web Application Firewall Request Count|Count|Total|The number of client requests processed by the Web Application Firewall|PolicyName, RuleName, Action|
 
 
-## Microsoft.ClassicCompute/domainNames/slots/roles   <!-- Data source : arm-->
+## Microsoft.ClassicCompute/domainNames/slots/roles   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -687,7 +711,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Percentage CPU|Yes|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s).|RoleInstanceId|
 
 
-## Microsoft.ClassicCompute/virtualMachines   <!-- Data source : arm-->
+## Microsoft.ClassicCompute/virtualMachines   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -700,7 +725,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Percentage CPU|Yes|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s).|No Dimensions|
 
 
-## Microsoft.ClassicStorage/storageAccounts   <!-- Data source : arm-->
+## Microsoft.ClassicStorage/storageAccounts   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -713,7 +739,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UsedCapacity|Yes|Used capacity|Bytes|Average|Account used capacity|No Dimensions|
 
 
-## Microsoft.ClassicStorage/storageAccounts/blobServices   <!-- Data source : arm-->
+## Microsoft.ClassicStorage/storageAccounts/blobServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -729,7 +756,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
-## Microsoft.ClassicStorage/storageAccounts/fileServices   <!-- Data source : arm-->
+## Microsoft.ClassicStorage/storageAccounts/fileServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -747,7 +775,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, FileShare|
 
 
-## Microsoft.ClassicStorage/storageAccounts/queueServices   <!-- Data source : arm-->
+## Microsoft.ClassicStorage/storageAccounts/queueServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -762,7 +791,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
-## Microsoft.ClassicStorage/storageAccounts/tableServices   <!-- Data source : arm-->
+## Microsoft.ClassicStorage/storageAccounts/tableServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -777,7 +807,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
 
 
-## Microsoft.Cloudtest/hostedpools   <!-- Data source : naam-->
+## Microsoft.Cloudtest/hostedpools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -793,7 +824,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Total|Yes|Total|Count|Average|Total Number of Resources|PoolId, SKU, Images, ProviderName|
 
 
-## Microsoft.Cloudtest/pools   <!-- Data source : naam-->
+## Microsoft.Cloudtest/pools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -809,7 +841,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Total|Yes|Total|Count|Average|Total Number of Resources|PoolId, SKU, Images, ProviderName|
 
 
-## Microsoft.ClusterStor/nodes   <!-- Data source : naam-->
+## Microsoft.ClusterStor/nodes   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -819,7 +852,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalWrite|No|TotalWrite|BytesPerSecond|Average|The total lustre file system write per second|filesystem_name, category, system|
 
 
-## Microsoft.CodeSigning/codesigningaccounts   <!-- Data source : naam-->
+## Microsoft.CodeSigning/codesigningaccounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -827,7 +861,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SignFailed|Yes|SignFailed|Count|Count|Failed Sign Request|CertType, Region, TenantId|
 
 
-## Microsoft.CognitiveServices/accounts   <!-- Data source : naam-->
+## Microsoft.CognitiveServices/accounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -930,7 +965,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VoiceModelTrainingMinutes|Yes|Voice Model Training Minutes|Count|Total|Number of Minutes.|ApiName, FeatureName, UsageChannel, Region|
 
 
-## Microsoft.Communication/CommunicationServices   <!-- Data source : naam-->
+## Microsoft.Communication/CommunicationServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -946,7 +982,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UserEngagement|Yes|Email Service User Engagement|Count|Count|Email Communication Services user engagement metrics.|EngagementType|
 
 
-## Microsoft.Compute/cloudservices   <!-- Data source : naam-->
+## Microsoft.Compute/cloudservices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -960,7 +997,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Percentage CPU|Yes|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s)|RoleInstanceId, RoleId|
 
 
-## Microsoft.Compute/cloudServices/roles   <!-- Data source : arm-->
+## Microsoft.Compute/cloudServices/roles   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -974,7 +1012,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Percentage CPU|Yes|Percentage CPU|Percent|Average|The percentage of allocated compute units that are currently in use by the Virtual Machine(s)|RoleInstanceId, RoleId|
 
 
-## microsoft.compute/disks   <!-- Data source : naam-->
+## microsoft.compute/disks   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -985,7 +1024,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |DiskPaidBurstIOPS|No|Disk On-demand Burst Operations(Preview)|Count|Average|The accumulated operations of burst transactions used for disks with on-demand burst enabled. Emitted on an hour interval|No Dimensions|
 
 
-## Microsoft.Compute/virtualMachines   <!-- Data source : naam-->
+## Microsoft.Compute/virtualMachines   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1046,7 +1086,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VmAvailabilityMetric|Yes|VM Availability Metric (Preview)|Count|Average|Measure of Availability of Virtual machines over time.|No Dimensions|
 
 
-## Microsoft.Compute/virtualmachineScaleSets   <!-- Data source : naam-->
+## Microsoft.Compute/virtualmachineScaleSets   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1107,7 +1148,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VmAvailabilityMetric|Yes|VM Availability Metric (Preview)|Count|Average|Measure of Availability of Virtual machines over time.|VMName|
 
 
-## Microsoft.Compute/virtualMachineScaleSets/virtualMachines   <!-- Data source : arm-->
+## Microsoft.Compute/virtualMachineScaleSets/virtualMachines   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1163,7 +1205,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VM Uncached IOPS Consumed Percentage|Yes|VM Uncached IOPS Consumed Percentage|Percent|Average|Percentage of uncached disk IOPS consumed by the VM|No Dimensions|
 
 
-## Microsoft.ConnectedCache/CacheNodes   <!-- Data source : naam-->
+## Microsoft.ConnectedCache/CacheNodes   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1175,7 +1218,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |missesbps|Yes|Miss Mbps|BitsPerSecond|Average|Miss Throughput|cachenodeid|
 
 
-## Microsoft.ConnectedCache/ispCustomers   <!-- Data source : naam-->
+## Microsoft.ConnectedCache/ispCustomers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1189,7 +1233,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |outboundbps|Yes|Outbound|BitsPerSecond|Average|Outbound Throughput|cachenodeid|
 
 
-## Microsoft.ConnectedVehicle/platformAccounts   <!-- Data source : naam-->
+## Microsoft.ConnectedVehicle/platformAccounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1210,7 +1255,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StateStoreWriteRequests|Yes|State store write requests|Count|Total|Number of write requests to state store|ExtensionName, IsSuccessful, FailureCategory|
 
 
-## Microsoft.ContainerInstance/containerGroups   <!-- Data source : arm-->
+## Microsoft.ContainerInstance/containerGroups   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1220,7 +1266,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NetworkBytesTransmittedPerSecond|Yes|Network Bytes Transmitted Per Second|Bytes|Average|The network bytes transmitted per second.|No Dimensions|
 
 
-## Microsoft.ContainerRegistry/registries   <!-- Data source : naam-->
+## Microsoft.ContainerRegistry/registries   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1233,7 +1280,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalPushCount|Yes|Total Push Count|Count|Total|Number of image pushes in total|No Dimensions|
 
 
-## Microsoft.ContainerService/managedClusters   <!-- Data source : naam-->
+## Microsoft.ContainerService/managedClusters   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1259,7 +1307,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |node_network_out_bytes|Yes|Network Out Bytes|Bytes|Average|Network transmitted bytes|node, nodepool|
 
 
-## Microsoft.CustomProviders/resourceproviders   <!-- Data source : arm-->
+## Microsoft.CustomProviders/resourceproviders   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1267,14 +1316,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessfullRequests|Yes|Successful Requests|Count|Total|Successful requests made by the custom provider|HttpMethod, CallPath, StatusCode|
 
 
-## Microsoft.Dashboard/grafana   <!-- Data source : naam-->
+## Microsoft.Dashboard/grafana   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |HttpRequestCount|No|HttpRequestCount|Count|Count|Number of HTTP requests to Azure Managed Grafana server|No Dimensions|
 
 
-## Microsoft.DataBoxEdge/dataBoxEdgeDevices   <!-- Data source : arm-->
+## Microsoft.DataBoxEdge/dataBoxEdgeDevices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1292,7 +1343,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalCapacity|Yes|Total Capacity|Bytes|Average|The total capacity of the device in bytes during the reporting period.|No Dimensions|
 
 
-## Microsoft.DataCollaboration/workspaces   <!-- Data source : arm-->
+## Microsoft.DataCollaboration/workspaces   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1304,7 +1356,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScriptCount|Yes|Created Scripts|Count|Maximum|Number of created scripts|ScriptName|
 
 
-## Microsoft.DataFactory/datafactories   <!-- Data source : arm-->
+## Microsoft.DataFactory/datafactories   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1312,7 +1365,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessfulRuns|Yes|Successful Runs|Count|Total|Successful Runs|pipelineName, activityName|
 
 
-## Microsoft.DataFactory/factories   <!-- Data source : arm-->
+## Microsoft.DataFactory/factories   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1345,7 +1399,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TriggerSucceededRuns|Yes|Succeeded trigger runs metrics|Count|Total|Succeeded trigger runs metrics|Name, FailureType|
 
 
-## Microsoft.DataLakeAnalytics/accounts   <!-- Data source : naam-->
+## Microsoft.DataLakeAnalytics/accounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1358,7 +1413,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |JobStage|Yes|Jobs in Stage|Count|Total|Number of jobs in each stage.|No Dimensions|
 
 
-## Microsoft.DataLakeStore/accounts   <!-- Data source : arm-->
+## Microsoft.DataLakeStore/accounts   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1369,7 +1425,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WriteRequests|Yes|Write Requests|Count|Total|Count of data write requests to the account.|No Dimensions|
 
 
-## Microsoft.DataProtection/BackupVaults   <!-- Data source : naam-->
+## Microsoft.DataProtection/BackupVaults   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1377,7 +1434,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RestoreHealthEvent|Yes|Restore Health Events (preview)|Count|Count|The count of health events pertaining to restore job health|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
 
 
-## Microsoft.DataShare/accounts   <!-- Data source : arm-->
+## Microsoft.DataShare/accounts   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1389,7 +1447,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SucceededShareSynchronizations|Yes|Sent Share Succeeded Snapshots|Count|Count|Number of sent share succeeded snapshots in the account|No Dimensions|
 
 
-## Microsoft.DBforMariaDB/servers   <!-- Data source : arm-->
+## Microsoft.DBforMariaDB/servers   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1410,7 +1469,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
 
-## Microsoft.DBforMySQL/flexibleServers   <!-- Data source : naam-->
+## Microsoft.DBforMySQL/flexibleServers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1456,7 +1516,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |total_connections|Yes|Total Connections|Count|Total|Total Connections|No Dimensions|
 
 
-## Microsoft.DBforMySQL/servers   <!-- Data source : arm-->
+## Microsoft.DBforMySQL/servers   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1477,7 +1538,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
 
-## Microsoft.DBforPostgreSQL/flexibleServers   <!-- Data source : naam-->
+## Microsoft.DBforPostgreSQL/flexibleServers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1531,7 +1593,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |xact_total|Yes|Total Transactions (Preview)|Count|Total|Number of total transactions executed in this database|DatabaseName|
 
 
-## Microsoft.DBForPostgreSQL/serverGroupsv2   <!-- Data source : naam-->
+## Microsoft.DBForPostgreSQL/serverGroupsv2   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1553,7 +1616,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |vm_uncached_iops_percent|Yes|VM Uncached IOPS Consumed Percentage|Percent|Average|Percentage of uncached disk IOPS consumed by the VM|ServerName|
 
 
-## Microsoft.DBforPostgreSQL/servers   <!-- Data source : arm-->
+## Microsoft.DBforPostgreSQL/servers   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1575,7 +1639,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
 
-## Microsoft.DBforPostgreSQL/serversv2   <!-- Data source : arm-->
+## Microsoft.DBforPostgreSQL/serversv2   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1589,7 +1654,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
 
-## Microsoft.Devices/IotHubs   <!-- Data source : naam-->
+## Microsoft.Devices/IotHubs   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1663,7 +1729,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |twinQueries.success|Yes|Successful twin queries|Count|Total|The count of all successful twin queries.|No Dimensions|
 
 
-## Microsoft.Devices/provisioningServices   <!-- Data source : arm-->
+## Microsoft.Devices/provisioningServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1672,7 +1739,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RegistrationAttempts|Yes|Registration attempts|Count|Total|Number of device registrations attempted|ProvisioningServiceName, IotHubName, Status|
 
 
-## Microsoft.DocumentDB/cassandraClusters   <!-- Data source : naam-->
+## Microsoft.DocumentDB/cassandraClusters   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1794,7 +1862,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |percent_mem|Yes|memory utilization|Percent|Average|Memory utilization rate|ClusterResourceName, DataCenterResourceName, Address|
 
 
-## Microsoft.DocumentDB/DatabaseAccounts   <!-- Data source : naam-->
+## Microsoft.DocumentDB/DatabaseAccounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1891,7 +1960,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UpdateDiagnosticsSettings|No|Account Diagnostic Settings Updated|Count|Count|Account Diagnostic Settings Updated|DiagnosticSettingsName, ResourceGroupName|
 
 
-## microsoft.edgezones/edgezones   <!-- Data source : naam-->
+## microsoft.edgezones/edgezones   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1903,7 +1973,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VcoresUsage|Yes|Vcore Usage Percentage|Percent|Average|The utilization of the General-Purpose Compute vcores in Edge Zone Enterprise site |No Dimensions|
 
 
-## Microsoft.EventGrid/domains   <!-- Data source : naam-->
+## Microsoft.EventGrid/domains   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1919,7 +1990,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishSuccessLatencyInMs|Yes|Publish Success Latency|MilliSeconds|Total|Publish success latency in milliseconds|No Dimensions|
 
 
-## Microsoft.EventGrid/eventSubscriptions   <!-- Data source : arm-->
+## Microsoft.EventGrid/eventSubscriptions   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1931,7 +2003,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MatchedEventCount|Yes|Matched Events|Count|Total|Total events matched to this event subscription|No Dimensions|
 
 
-## Microsoft.EventGrid/extensionTopics   <!-- Data source : arm-->
+## Microsoft.EventGrid/extensionTopics   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1941,7 +2014,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
 
-## Microsoft.EventGrid/partnerNamespaces   <!-- Data source : naam-->
+## Microsoft.EventGrid/partnerNamespaces   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1951,7 +2025,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the partner topics|No Dimensions|
 
 
-## Microsoft.EventGrid/partnerTopics   <!-- Data source : naam-->
+## Microsoft.EventGrid/partnerTopics   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1966,7 +2041,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this partner topic|No Dimensions|
 
 
-## Microsoft.EventGrid/systemTopics   <!-- Data source : arm-->
+## Microsoft.EventGrid/systemTopics   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1983,7 +2059,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
 
-## Microsoft.EventGrid/topics   <!-- Data source : naam-->
+## Microsoft.EventGrid/topics   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2000,7 +2077,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
 
-## Microsoft.EventHub/clusters   <!-- Data source : naam-->
+## Microsoft.EventHub/clusters   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2025,7 +2103,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UserErrors|No|User Errors.|Count|Total|User Errors for Microsoft.EventHub.|OperationResult|
 
 
-## Microsoft.EventHub/Namespaces   <!-- Data source : naam-->
+## Microsoft.EventHub/Namespaces   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2067,7 +2146,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UserErrors|No|User Errors.|Count|Total|User Errors for Microsoft.EventHub.|EntityName, OperationResult|
 
 
-## Microsoft.HDInsight/clusters   <!-- Data source : arm-->
+## Microsoft.HDInsight/clusters   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2089,7 +2169,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PendingMemory|Yes|Pending Memory|Count|Maximum|Pending Memory Requests in YARN|No Dimensions|
 
 
-## Microsoft.HealthcareApis/services   <!-- Data source : arm-->
+## Microsoft.HealthcareApis/services   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2111,14 +2192,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalRequests|Yes|Total Requests|Count|Sum|The total number of requests received by the service.|Protocol|
 
 
-## Microsoft.HealthcareApis/workspaces/analyticsconnectors   <!-- Data source : arm-->
+## Microsoft.HealthcareApis/workspaces/analyticsconnectors   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |AnalyticsConnectorHealthStatus|Yes|Analytics Connector Health Status |Count|Sum|The health status of analytics connector|Operation, ResourceName, HealthCheckName|
 
 
-## Microsoft.HealthcareApis/workspaces/fhirservices   <!-- Data source : arm-->
+## Microsoft.HealthcareApis/workspaces/fhirservices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2129,7 +2212,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalRequests|Yes|Total Requests|Count|Sum|The total number of requests received by the service.|Protocol|
 
 
-## Microsoft.HealthcareApis/workspaces/iotconnectors   <!-- Data source : arm-->
+## Microsoft.HealthcareApis/workspaces/iotconnectors   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2145,28 +2229,32 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalErrors|Yes|Total Error Count|Count|Sum|The total number of errors logged by the MedTech service|Name, Operation, ErrorType, ErrorSeverity, ResourceName|
 
 
-## Microsoft.HybridContainerService/provisionedClusters   <!-- Data source : naam-->
+## Microsoft.HybridContainerService/provisionedClusters   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |capacity_cpu_cores|Yes|Total number of cpu cores in a provisioned cluster|Count|Average|Total number of cpu cores in a provisioned cluster|No Dimensions|
 
 
-## microsoft.hybridnetwork/networkfunctions   <!-- Data source : naam-->
+## microsoft.hybridnetwork/networkfunctions   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |HyperVVirtualProcessorUtilization|Yes|Average CPU Utilization|Percent|Average|Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU.|InstanceName|
 
 
-## microsoft.hybridnetwork/virtualnetworkfunctions   <!-- Data source : naam-->
+## microsoft.hybridnetwork/virtualnetworkfunctions   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |HyperVVirtualProcessorUtilization|Yes|Average CPU Utilization|Percent|Average|Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU.|InstanceName|
 
 
-## microsoft.insights/autoscalesettings   <!-- Data source : naam-->
+## microsoft.insights/autoscalesettings   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2176,7 +2264,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScaleActionsInitiated|Yes|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
 
-## microsoft.insights/components   <!-- Data source : naam-->
+## microsoft.insights/components   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2212,14 +2301,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |traces/count|Yes|Traces|Count|Count|Trace document count|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
 
-## Microsoft.Insights/datacollectionrules   <!-- Data source : naam-->
+## Microsoft.Insights/datacollectionrules   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |TransformationErrors|Yes|Transformation Errors|Count|Count|The number of rows, where the execution of KQL transformation led to an error, KQL transformation service limit exceeds.|InputStreamId, ErrorType|
 
 
-## Microsoft.IoTCentral/IoTApps   <!-- Data source : arm-->
+## Microsoft.IoTCentral/IoTApps   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2247,7 +2338,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |provisionedDeviceCount|No|Total Provisioned Devices|Count|Average|Number of devices provisioned in IoT Central application|No Dimensions|
 
 
-## microsoft.keyvault/managedhsms   <!-- Data source : naam-->
+## microsoft.keyvault/managedhsms   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2256,7 +2348,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServiceApiLatency|No|Overall Service Api Latency|Milliseconds|Average|Overall latency of service api requests|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 
 
-## Microsoft.KeyVault/vaults   <!-- Data source : naam-->
+## Microsoft.KeyVault/vaults   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2267,14 +2360,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServiceApiResult|Yes|Total Service Api Results|Count|Count|Number of total service api results|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 
 
-## microsoft.kubernetes/connectedClusters   <!-- Data source : naam-->
+## microsoft.kubernetes/connectedClusters   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |capacity_cpu_cores|Yes|Total number of cpu cores in a connected cluster|Count|Total|Total number of cpu cores in a connected cluster|No Dimensions|
 
 
-## Microsoft.Kusto/clusters   <!-- Data source : naam-->
+## Microsoft.Kusto/clusters   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2328,7 +2423,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WeakConsistencyLatency|Yes|Weak consistency latency|Seconds|Average|The max latency between the previous metadata sync and the next one (in DB/node scope)|Database, RoleInstance|
 
 
-## Microsoft.Logic/IntegrationServiceEnvironments   <!-- Data source : naam-->
+## Microsoft.Logic/IntegrationServiceEnvironments   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2361,7 +2457,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TriggerSuccessLatency|Yes|Trigger Success Latency |Seconds|Average|Latency of succeeded workflow triggers.|No Dimensions|
 
 
-## Microsoft.Logic/Workflows   <!-- Data source : naam-->
+## Microsoft.Logic/Workflows   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2401,7 +2498,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TriggerThrottledEvents|Yes|Trigger Throttled Events|Count|Total|Number of workflow trigger throttled events.|No Dimensions|
 
 
-## Microsoft.MachineLearningServices/workspaces   <!-- Data source : arm-->
+## Microsoft.MachineLearningServices/workspaces   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2465,7 +2563,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Warnings|Yes|Warnings|Count|Total|Number of run warnings in this workspace. Count is updated whenever a run encounters a warning.|Scenario|
 
 
-## Microsoft.MachineLearningServices/workspaces/onlineEndpoints   <!-- Data source : naam-->
+## Microsoft.MachineLearningServices/workspaces/onlineEndpoints   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2482,7 +2581,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestsPerMinute|No|Requests Per Minute|Count|Average|The number of requests sent to online endpoint within a minute|deployment, statusCode, statusCodeClass|
 
 
-## Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments   <!-- Data source : naam-->
+## Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2497,7 +2597,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |GpuUtilizationPercentage|Yes|GPU Utilization Percentage|Percent|Average|Percentage of GPU utilization on an instance. Utilization is reported at one minute intervals.|instanceId|
 
 
-## Microsoft.ManagedNetworkFabric/networkDevices   <!-- Data source : naam-->
+## Microsoft.ManagedNetworkFabric/networkDevices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2535,7 +2636,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MemoryUtilized|Yes|Memory Utilized|Bytes|Average|The memory currently in use by processes running on the component, not considering reserved memory that is not available for use.|FabricId, RegionName, ComponentName|
 
 
-## Microsoft.Maps/accounts   <!-- Data source : arm-->
+## Microsoft.Maps/accounts   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2544,7 +2646,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Usage|No|Usage|Count|Count|Count of API calls|ApiCategory, ApiName, ResultType, ResponseCode|
 
 
-## Microsoft.Media/mediaservices   <!-- Data source : naam-->
+## Microsoft.Media/mediaservices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2567,7 +2670,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TransformQuota|Yes|Transform quota|Count|Average|The Transform quota for the current media service account.|No Dimensions|
 
 
-## Microsoft.Media/mediaservices/liveEvents   <!-- Data source : naam-->
+## Microsoft.Media/mediaservices/liveEvents   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2577,7 +2681,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |LiveOutputLastTimestamp|Yes|Last output timestamp|Milliseconds|Maximum|Timestamp of the last fragment uploaded to storage for a live event output.|TrackName|
 
 
-## Microsoft.Media/mediaservices/streamingEndpoints   <!-- Data source : naam-->
+## Microsoft.Media/mediaservices/streamingEndpoints   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2588,7 +2693,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency|Yes|Success end to end Latency|MilliSeconds|Average|The average latency for successful requests in milliseconds.|OutputFormat|
 
 
-## Microsoft.Media/videoanalyzers   <!-- Data source : naam-->
+## Microsoft.Media/videoanalyzers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2596,7 +2702,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Pipelines|Yes|Pipelines|Count|Total|The number of pipelines of each kind and state|PipelineKind, PipelineTopology, PipelineState|
 
 
-## Microsoft.MixedReality/remoteRenderingAccounts   <!-- Data source : arm-->
+## Microsoft.MixedReality/remoteRenderingAccounts   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2604,7 +2711,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AssetsConverted|Yes|Assets Converted|Count|Total|Total number of assets converted|SDKVersion|
 
 
-## Microsoft.MixedReality/spatialAnchorsAccounts   <!-- Data source : arm-->
+## Microsoft.MixedReality/spatialAnchorsAccounts   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2616,7 +2724,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalDailyAnchors|Yes|Total Daily Anchors|Count|Average|Total number of Anchors - Daily|DeviceFamily, SDKVersion|
 
 
-## Microsoft.Monitor/accounts   <!-- Data source : naam-->
+## Microsoft.Monitor/accounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2628,7 +2737,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |EventsPerMinuteIngestedPercentUtilization|No|Events Per Minute Ingested % Utilization|Percent|Average|The percentage of the current metric ingestion rate limit being utilized|StampColor|
 
 
-## Microsoft.NetApp/netAppAccounts/capacityPools   <!-- Data source : arm-->
+## Microsoft.NetApp/netAppAccounts/capacityPools   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2640,7 +2750,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VolumePoolTotalSnapshotSize|Yes|Total Snapshot size for the pool|Bytes|Average|Sum of snapshot size of all volumes in this pool|No Dimensions|
 
 
-## Microsoft.NetApp/netAppAccounts/capacityPools/volumes   <!-- Data source : arm-->
+## Microsoft.NetApp/netAppAccounts/capacityPools/volumes   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2675,7 +2786,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |XregionReplicationTotalTransferBytes|Yes|Volume replication total transfer|Bytes|Average|Cumulative bytes transferred for the relationship.|No Dimensions|
 
 
-## Microsoft.Network/applicationgateways   <!-- Data source : naam-->
+## Microsoft.Network/applicationgateways   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2715,7 +2827,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnhealthyHostCount|Yes|Unhealthy Host Count|Count|Average|Number of unhealthy backend hosts|BackendSettingsPool|
 
 
-## Microsoft.Network/azureFirewalls   <!-- Data source : naam-->
+## Microsoft.Network/azureFirewalls   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2727,7 +2840,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Throughput|No|Throughput|BitsPerSecond|Average|Throughput processed by this firewall|No Dimensions|
 
 
-## microsoft.network/bastionHosts   <!-- Data source : naam-->
+## microsoft.network/bastionHosts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2738,7 +2852,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |used|Yes|Memory Usage|Count|Average|Memory Usage stats.|host|
 
 
-## Microsoft.Network/connections   <!-- Data source : naam-->
+## Microsoft.Network/connections   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2746,7 +2861,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BitsOutPerSecond|Yes|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|No Dimensions|
 
 
-## Microsoft.Network/dnsForwardingRulesets   <!-- Data source : naam-->
+## Microsoft.Network/dnsForwardingRulesets   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2754,7 +2870,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VirtualNetworkLinkCount|Yes|Virtual Network Link Count|Count|Maximum|This metric indicates the number of associated virtual network links to a DNS forwarding ruleset.|No Dimensions|
 
 
-## Microsoft.Network/dnsResolvers   <!-- Data source : naam-->
+## Microsoft.Network/dnsResolvers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2763,7 +2880,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QPS|No|Queries Per Second|Count|Average|This metric indicates the queries per second for a DNS Resolver. (Can be aggregated per EndpointId)|EndpointId|
 
 
-## Microsoft.Network/dnszones   <!-- Data source : arm-->
+## Microsoft.Network/dnszones   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2772,7 +2890,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RecordSetCount|No|Record Set Count|Count|Maximum|Number of Record Sets in a DNS zone|No Dimensions|
 
 
-## Microsoft.Network/expressRouteCircuits   <!-- Data source : naam-->
+## Microsoft.Network/expressRouteCircuits   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2787,7 +2906,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QosDropBitsOutPerSecond|Yes|DroppedOutBitsPerSecond|BitsPerSecond|Average|Egress bits of data dropped per second|No Dimensions|
 
 
-## Microsoft.Network/expressRouteCircuits/peerings   <!-- Data source : arm-->
+## Microsoft.Network/expressRouteCircuits/peerings   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2795,7 +2915,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BitsOutPerSecond|Yes|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|No Dimensions|
 
 
-## microsoft.network/expressroutegateways   <!-- Data source : naam-->
+## microsoft.network/expressroutegateways   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2810,7 +2931,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ExpressRouteGatewayPacketsPerSecond|No|Packets received per second|CountPerSecond|Average|Total Packets received on ExpressRoute Gateway per second|roleInstance|
 
 
-## Microsoft.Network/expressRoutePorts   <!-- Data source : naam-->
+## Microsoft.Network/expressRoutePorts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2823,7 +2945,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TxLightLevel|Yes|TxLightLevel|Count|Average|Tx light level in dBm|Link, Lane|
 
 
-## Microsoft.Network/frontdoors   <!-- Data source : naam-->
+## Microsoft.Network/frontdoors   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2838,7 +2961,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WebApplicationFirewallRequestCount|Yes|Web Application Firewall Request Count|Count|Total|The number of client requests processed by the Web Application Firewall|PolicyName, RuleName, Action|
 
 
-## Microsoft.Network/loadBalancers   <!-- Data source : naam-->
+## Microsoft.Network/loadBalancers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2853,7 +2977,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VipAvailability|Yes|Data Path Availability|Count|Average|Average Load Balancer data path availability per time duration|FrontendIPAddress, FrontendPort|
 
 
-## Microsoft.Network/natGateways   <!-- Data source : arm-->
+## Microsoft.Network/natGateways   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2865,7 +2990,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalConnectionCount|No|Total SNAT Connection Count|Count|Total|Total number of active SNAT connections|Protocol|
 
 
-## Microsoft.Network/networkInterfaces   <!-- Data source : arm-->
+## Microsoft.Network/networkInterfaces   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2875,7 +3001,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PacketsSentRate|Yes|Packets Sent|Count|Total|Number of packets the Network Interface sent|No Dimensions|
 
 
-## Microsoft.Network/networkWatchers/connectionMonitors   <!-- Data source : arm-->
+## Microsoft.Network/networkWatchers/connectionMonitors   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2886,7 +3013,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TestResult|Yes|Test Result|Count|Average|Connection monitor test result|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName, TestResultCriterion, SourceIP, DestinationIP, SourceSubnet, DestinationSubnet|
 
 
-## microsoft.network/p2svpngateways   <!-- Data source : naam-->
+## microsoft.network/p2svpngateways   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2895,7 +3023,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UserVpnRouteCount|No|User Vpn Route Count|Count|Total|Count of P2S User Vpn routes learned by gateway|RouteType, Instance|
 
 
-## Microsoft.Network/privateDnsZones   <!-- Data source : arm-->
+## Microsoft.Network/privateDnsZones   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2908,7 +3037,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VirtualNetworkWithRegistrationLinkCount|No|Virtual Network Registration Link Count|Count|Maximum|Number of Virtual Networks linked to a Private DNS zone with auto-registration enabled|No Dimensions|
 
 
-## Microsoft.Network/privateEndpoints   <!-- Data source : arm-->
+## Microsoft.Network/privateEndpoints   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2916,7 +3046,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PEBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|No Dimensions|
 
 
-## Microsoft.Network/privateLinkServices   <!-- Data source : arm-->
+## Microsoft.Network/privateLinkServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2925,7 +3056,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PLSNatPortsUsage|Yes|Nat Ports Usage|Percent|Average|Nat Ports Usage|PrivateLinkServiceId, PrivateLinkServiceIPAddress|
 
 
-## Microsoft.Network/publicIPAddresses   <!-- Data source : naam-->
+## Microsoft.Network/publicIPAddresses   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2957,7 +3089,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VipAvailability|Yes|Data Path Availability|Count|Average|Average IP Address availability per time duration|Port|
 
 
-## Microsoft.Network/trafficManagerProfiles   <!-- Data source : arm-->
+## Microsoft.Network/trafficManagerProfiles   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2965,7 +3098,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QpsByEndpoint|Yes|Queries by Endpoint Returned|Count|Total|Number of times a Traffic Manager endpoint was returned in the given time frame|EndpointName|
 
 
-## Microsoft.Network/virtualHubs   <!-- Data source : naam-->
+## Microsoft.Network/virtualHubs   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2975,7 +3109,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VirtualHubDataProcessed|No|Data Processed by the Virtual Hub Router|Bytes|Total|Data Processed by the Virtual Hub Router|No Dimensions|
 
 
-## microsoft.network/virtualnetworkgateways   <!-- Data source : naam-->
+## microsoft.network/virtualnetworkgateways   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3016,7 +3151,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VnetAddressPrefixCount|Yes|VNet Address Prefix Count|Count|Total|Count of Vnet address prefixes behind gateway|Instance|
 
 
-## Microsoft.Network/virtualNetworks   <!-- Data source : arm-->
+## Microsoft.Network/virtualNetworks   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3046,14 +3182,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UDPPacketsInDDoS|Yes|Inbound UDP packets DDoS|CountPerSecond|Maximum|Inbound UDP packets DDoS|ProtectedIPAddress|
 
 
-## Microsoft.Network/virtualRouters   <!-- Data source : arm-->
+## Microsoft.Network/virtualRouters   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |PeeringAvailability|Yes|Bgp Availability|Percent|Average|BGP Availability between VirtualRouter and remote peers|Peer|
 
 
-## microsoft.network/vpngateways   <!-- Data source : naam-->
+## microsoft.network/vpngateways   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3084,7 +3222,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VnetAddressPrefixCount|Yes|VNet Address Prefix Count|Count|Total|Count of Vnet address prefixes behind gateway|Instance|
 
 
-## Microsoft.NetworkFunction/azureTrafficCollectors   <!-- Data source : naam-->
+## Microsoft.NetworkFunction/azureTrafficCollectors   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3093,7 +3232,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |used_percent|Yes|Memory Usage|Percent|Average|Memory Usage Percentage.|Hostname|
 
 
-## Microsoft.NotificationHubs/Namespaces/NotificationHubs   <!-- Data source : arm-->
+## Microsoft.NotificationHubs/Namespaces/NotificationHubs   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3161,7 +3301,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |scheduled.pending|Yes|Pending Scheduled Notifications|Count|Total|Pending Scheduled Notifications|No Dimensions|
 
 
-## Microsoft.OperationalInsights/workspaces   <!-- Data source : naam-->
+## Microsoft.OperationalInsights/workspaces   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3230,7 +3371,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Update|Yes|Update|Count|Average|Update. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, Product, Classification, UpdateState, Optional, Approved|
 
 
-## Microsoft.Orbital/contactProfiles   <!-- Data source : naam-->
+## Microsoft.Orbital/contactProfiles   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3238,7 +3380,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ContactSuccess|Yes|Contact Success Count|Count|Count|Denotes the number of successful Contacts for a specific Contact Profile|No Dimensions|
 
 
-## Microsoft.Orbital/l2Connections   <!-- Data source : naam-->
+## Microsoft.Orbital/l2Connections   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3263,7 +3406,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OutUCastPktsPerVLAN|Yes|Out Unicast Packet Count Per Vlan|Count|Average|Egress Subinterface Unicast Packet Count for the L2 connection|VLANID|
 
 
-## Microsoft.Orbital/spacecrafts   <!-- Data source : naam-->
+## Microsoft.Orbital/spacecrafts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3271,7 +3415,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ContactSuccess|Yes|Contact Success Count|Count|Count|Denotes the number of successful Contacts for a specific Spacecraft|No Dimensions|
 
 
-## Microsoft.Peering/peerings   <!-- Data source : arm-->
+## Microsoft.Peering/peerings   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3282,21 +3427,24 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SessionAvailability|Yes|Session Availability|Count|Average|Availability of the peering session|ConnectionId, SessionIp|
 
 
-## Microsoft.Peering/peeringServices   <!-- Data source : arm-->
+## Microsoft.Peering/peeringServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |RoundTripTime|Yes|Round Trip Time|Milliseconds|Average|Average round trip time|ConnectionMonitorTestName|
 
 
-## Microsoft.PlayFab/titles   <!-- Data source : naam-->
+## Microsoft.PlayFab/titles   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |PlayerLoggedInCount|Yes|PlayerLoggedInCount|Count|Count|Number of logins by any player in a given title|TitleId|
 
 
-## Microsoft.PowerBIDedicated/capacities   <!-- Data source : arm-->
+## Microsoft.PowerBIDedicated/capacities   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3304,7 +3452,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |overload_metric|Yes|Overload (Gen2)|Count|Average|Resource Overload, 1 if resource is overloaded, otherwise 0. Supported only for Power BI Embedded Generation 2 resources.|No Dimensions|
 
 
-## microsoft.purview/accounts   <!-- Data source : naam-->
+## microsoft.purview/accounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3316,7 +3465,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScanTimeTaken|Yes|Scan time taken|Seconds|Total|Indicates the total scan time in seconds.|No Dimensions|
 
 
-## Microsoft.RecoveryServices/Vaults   <!-- Data source : naam-->
+## Microsoft.RecoveryServices/Vaults   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3324,7 +3474,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RestoreHealthEvent|Yes|Restore Health Events (preview)|Count|Count|The count of health events pertaining to restore job health|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
 
 
-## Microsoft.Relay/namespaces   <!-- Data source : naam-->
+## Microsoft.Relay/namespaces   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3343,7 +3494,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SenderDisconnects|No|SenderDisconnects|Count|Total|Total SenderDisconnects for Microsoft.Relay.|EntityName|
 
 
-## microsoft.resources/subscriptions   <!-- Data source : naam-->
+## microsoft.resources/subscriptions   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3351,7 +3503,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Traffic|No|Traffic|Count|Count|Traffic data for all requests to Azure Resource Manager|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId|
 
 
-## Microsoft.Search/searchServices   <!-- Data source : naam-->
+## Microsoft.Search/searchServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3362,7 +3515,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ThrottledSearchQueriesPercentage|Yes|Throttled search queries percentage|Percent|Average|Percentage of search queries that were throttled for the search service|No Dimensions|
 
 
-## microsoft.securitydetonation/chambers   <!-- Data source : naam-->
+## microsoft.securitydetonation/chambers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3377,14 +3531,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SubmissionsSucceeded|No|Successful Submissions / Hr|Count|Maximum|The number of successful submissions / Hr.|Region|
 
 
-## Microsoft.SecurityDetonation/SecurityDetonationChambers   <!-- Data source : arm-->
+## Microsoft.SecurityDetonation/SecurityDetonationChambers   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |% Processor Time|Yes|% CPU|Percent|Average|Percent CPU utilization|No Dimensions|
 
 
-## Microsoft.ServiceBus/Namespaces   <!-- Data source : naam-->
+## Microsoft.ServiceBus/Namespaces   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3413,7 +3569,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WSXNS|No|Memory Usage (Deprecated)|Percent|Maximum|Service bus premium namespace memory usage metric. This metric is deprecated. Please use the  Memory Usage (NamespaceMemoryUsage) metric instead.|Replica|
 
 
-## Microsoft.SignalRService/SignalR   <!-- Data source : naam-->
+## Microsoft.SignalRService/SignalR   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3429,7 +3586,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UserErrors|Yes|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
 
 
-## Microsoft.SignalRService/WebPubSub   <!-- Data source : naam-->
+## Microsoft.SignalRService/WebPubSub   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3442,14 +3600,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalConnectionCount|Yes|Connection Count|Count|Maximum|The number of user connections established to the service. It is aggregated by adding all the online connections.|No Dimensions|
 
 
-## microsoft.singularity/accounts   <!-- Data source : naam-->
+## microsoft.singularity/accounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |GpuUtilizationPercentage|Yes|GpuUtilizationPercentage|Percent|Average|GPU utilization percentage|accountname, ClusterName, Environment, instance, jobContainerId, jobInstanceId, jobname, Region|
 
 
-## Microsoft.Sql/managedInstances   <!-- Data source : naam-->
+## Microsoft.Sql/managedInstances   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3462,7 +3622,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |virtual_core_count|Yes|Virtual core count|Count|Average|Virtual core count|No Dimensions|
 
 
-## Microsoft.Sql/servers/databases   <!-- Data source : naam-->
+## Microsoft.Sql/servers/databases   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3520,7 +3681,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |xtp_storage_percent|Yes|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent. Not applicable to data warehouses.|No Dimensions|
 
 
-## Microsoft.Sql/servers/elasticpools   <!-- Data source : naam-->
+## Microsoft.Sql/servers/elasticpools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3559,7 +3721,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |xtp_storage_percent|Yes|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
 
 
-## Microsoft.Storage/storageAccounts   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3572,7 +3735,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UsedCapacity|Yes|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
 
 
-## Microsoft.Storage/storageAccounts/blobServices   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts/blobServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3589,7 +3753,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, TransactionType|
 
 
-## Microsoft.Storage/storageAccounts/fileServices   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts/fileServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3608,7 +3773,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, FileShare, TransactionType|
 
 
-## Microsoft.Storage/storageAccounts/objectReplicationPolicies   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts/objectReplicationPolicies   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3616,7 +3782,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PendingOperationsForReplication|No|Pending Operations for Replication (PREVIEW)|Count|Average|The count of pending operations for replication, please note, this metric is in preview and is subject to change before becoming generally available|TimeBucket|
 
 
-## Microsoft.Storage/storageAccounts/queueServices   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts/queueServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3631,7 +3798,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, TransactionType|
 
 
-## Microsoft.Storage/storageAccounts/storageTasks   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts/storageTasks   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3640,7 +3808,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ObjectsTargetedCount|Yes|Objects targed count|Count|Total|The number of objects targeted in storage task|AccountName, TaskAssignmentId|
 
 
-## Microsoft.Storage/storageAccounts/tableServices   <!-- Data source : naam-->
+## Microsoft.Storage/storageAccounts/tableServices   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3655,7 +3824,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, TransactionType|
 
 
-## Microsoft.Storage/storageTasks   <!-- Data source : naam-->
+## Microsoft.Storage/storageTasks   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3664,7 +3834,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ObjectsTargetedCount|Yes|Objects targed count|Count|Total|The number of objects targeted in storage task|AccountName, TaskAssignmentId|
 
 
-## Microsoft.StorageCache/amlFilesystems   <!-- Data source : naam-->
+## Microsoft.StorageCache/amlFilesystems   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3692,7 +3863,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OSTFilesUsed|No|OST Files Used|Count|Average|Number of total supported files minus the number of free files on the OST.|ostnum|
 
 
-## Microsoft.StorageCache/caches   <!-- Data source : naam-->
+## Microsoft.StorageCache/caches   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3741,7 +3913,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Uptime|Yes|Uptime|Count|Average|Boolean results of connectivity test between the Cache and monitoring system.|No Dimensions|
 
 
-## Microsoft.StorageMover/storageMovers   <!-- Data source : naam-->
+## Microsoft.StorageMover/storageMovers   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3750,7 +3923,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |JobRunTransferThroughputItems|Yes|Job Run Transfer Throughput Items|CountPerSecond|Average|Job Run transfer throughput in items/sec|JobRunName|
 
 
-## Microsoft.StorageSync/storageSyncServices   <!-- Data source : arm-->
+## Microsoft.StorageSync/storageSyncServices   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3767,7 +3941,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StorageSyncTieringCacheSizeBytes|Yes|Server cache size|Bytes|Average|Size of data cached on the server|SyncGroupName, ServerName, ServerEndpointName|
 
 
-## Microsoft.StreamAnalytics/streamingjobs   <!-- Data source : arm-->
+## Microsoft.StreamAnalytics/streamingjobs   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3790,7 +3965,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ResourceUtilization|Yes|SU (Memory) % Utilization|Percent|Maximum|SU (Memory) % Utilization|LogicalName, PartitionId, ProcessorInstance, NodeName|
 
 
-## Microsoft.Synapse/workspaces   <!-- Data source : naam-->
+## Microsoft.Synapse/workspaces   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3821,7 +3997,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SQLStreamingRuntimeErrors|No|Runtime errors (preview)|Count|Total|This is a preview metric available in East US, West Europe. Total number of errors related to query processing (excluding errors found while ingesting events or outputting results).|SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance|
 
 
-## Microsoft.Synapse/workspaces/bigDataPools   <!-- Data source : naam-->
+## Microsoft.Synapse/workspaces/bigDataPools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3831,7 +4008,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BigDataPoolApplicationsEnded|No|Ended Apache Spark applications|Count|Total|Count of Apache Spark pool applications ended|JobType, JobResult|
 
 
-## Microsoft.Synapse/workspaces/scopePools   <!-- Data source : naam-->
+## Microsoft.Synapse/workspaces/scopePools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3840,7 +4018,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScopePoolJobRunningDurationMetric|Yes|Running duration of SCOPE job|Milliseconds|Average|Running duration (Milliseconds) used by each SCOPE job|JobType, JobResult|
 
 
-## Microsoft.Synapse/workspaces/sqlPools   <!-- Data source : naam-->
+## Microsoft.Synapse/workspaces/sqlPools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3865,7 +4044,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WLGQueuedQueries|No|Workload group queued queries|Count|Total|Cumulative count of requests queued after the max concurrency limit was reached|IsUserDefined, WorkloadGroup|
 
 
-## Microsoft.TimeSeriesInsights/environments   <!-- Data source : arm-->
+## Microsoft.TimeSeriesInsights/environments   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3880,7 +4060,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WarmStorageUsedProperties|Yes|Warm Storage Used Properties |Count|Maximum|Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU|No Dimensions|
 
 
-## Microsoft.TimeSeriesInsights/environments/eventsources   <!-- Data source : arm-->
+## Microsoft.TimeSeriesInsights/environments/eventsources   
+<!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3895,14 +4076,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WarmStorageUsedProperties|Yes|Warm Storage Used Properties |Count|Maximum|Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU|No Dimensions|
 
 
-## Microsoft.Web/connections   <!-- Data source : naam-->
+## Microsoft.Web/connections   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |Requests|No|Requests|Count|Total|API Connection Requests|HttpStatusCode, ClientIPAddress|
 
 
-## Microsoft.Web/containerapps   <!-- Data source : naam-->
+## Microsoft.Web/containerapps   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3915,7 +4098,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WorkingSetBytes|Yes|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
 
 
-## Microsoft.Web/hostingEnvironments   <!-- Data source : naam-->
+## Microsoft.Web/hostingEnvironments   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3944,7 +4128,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalFrontEnds|Yes|Total Front Ends|Count|Average|Number of front end instances|No Dimensions|
 
 
-## Microsoft.Web/hostingenvironments/multirolepools   <!-- Data source : naam-->
+## Microsoft.Web/hostingenvironments/multirolepools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3973,7 +4158,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalFrontEnds|Yes|Total Front Ends|Count|Average|Total Front Ends|No Dimensions|
 
 
-## Microsoft.Web/hostingenvironments/workerpools   <!-- Data source : naam-->
+## Microsoft.Web/hostingenvironments/workerpools   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3984,7 +4170,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WorkersUsed|Yes|Used Workers|Count|Average|Used Workers|No Dimensions|
 
 
-## Microsoft.Web/serverfarms   <!-- Data source : naam-->
+## Microsoft.Web/serverfarms   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -4010,7 +4197,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TcpTimeWait|Yes|TCP Time Wait|Count|Average|The average number of sockets in TIME_WAIT state across all the instances of the plan.|Instance|
 
 
-## Microsoft.Web/sites   <!-- Data source : naam-->
+## Microsoft.Web/sites   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -4054,7 +4242,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application. For WebApps and FunctionApps.|Instance|
 
 
-## Microsoft.Web/sites/slots   <!-- Data source : naam-->
+## Microsoft.Web/sites/slots   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -4098,7 +4287,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|The total number of AppDomains unloaded since the start of the application.|Instance|
 
 
-## Wandisco.Fusion/migrators   <!-- Data source : naam-->
+## Wandisco.Fusion/migrators   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -4115,7 +4305,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalTransactions|Yes|Total Transactions|Count|Total|This provides a running total of the Data Transactions for which the user could be billed.|No Dimensions|
 
 
-## Wandisco.Fusion/migrators/liveDataMigrations   <!-- Data source : naam-->
+## Wandisco.Fusion/migrators/liveDataMigrations   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -4130,7 +4321,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalBytesTransferred|Yes|Total Bytes Transferred|Bytes|Total|This metric covers how many bytes have been transferred (does not reflect how many have successfully migrated, only how much has been transferred).|No Dimensions|
 
 
-## Wandisco.Fusion/migrators/metadataMigrations   <!-- Data source : naam-->
+## Wandisco.Fusion/migrators/metadataMigrations   
+<!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -4146,6 +4338,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Read about metrics in Azure Monitor](../data-platform.md)
 - [Create alerts on metrics](../alerts/alerts-overview.md)
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
+
 
 
 <!--Gen Date:  Tue Jan 10 2023 10:06:09 GMT+0200 (Israel Standard Time)-->
