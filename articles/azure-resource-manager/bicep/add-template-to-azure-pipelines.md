@@ -115,7 +115,7 @@ steps:
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
 ```
 
-For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli). When using the [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2) on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
+For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2). When using the task on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
 
 Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
 
