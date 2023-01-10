@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/10/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -34,8 +34,8 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 ### Download AzFilesHybrid module
 
 - If you don't have [.NET Framework 4.7.2 or higher](https://dotnet.microsoft.com/download/dotnet-framework/) installed, install it now. It's required for the module to import successfully.
-- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
-- Install and execute the module on a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD (such as domain admin).
+- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above, and is the default encryption method beginning in v0.2.5. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+- Install and execute the module on a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a computer account or service logon account in the target AD (such as domain admin).
 
 ### Run Join-AzStorageAccount
 
@@ -55,7 +55,7 @@ The AD DS account created by the cmdlet represents the storage account. If the A
 > [!NOTE]
 > If the account used to join the storage account in AD DS is an **Owner** or **Contributor** in the Azure subscription where the target resources are located, then that account is already enabled to perform the join and no further assignments are required.
 
-The AD DS credential must also have permissions to create a service logon account or computer account in the target AD. Replace the placeholder values with your own before executing the script.
+The AD DS credential must also have permissions to create a computer account or service logon account in the target AD. Replace the placeholder values with your own before executing the script.
 
 ```PowerShell
 # Change the execution policy to unblock importing AzFilesHybrid.psm1 module
