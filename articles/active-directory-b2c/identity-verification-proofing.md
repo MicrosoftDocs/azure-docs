@@ -20,15 +20,15 @@ With Azure Active Directory B2C (Azure AD B2C) partners, customers can enable en
 
 The following architecture diagram illustrates the verfication and proofing flow.
 
-![Diagram shows the identity proofing flow](./media/partner-gallery/third-party-identity-proofing.png)
+   ![Diagram of of the identity proofing flow, from registration to access approval.](./media/partner-gallery/third-party-identity-proofing.png)
 
-1. User registration with a device
-2. User information input
-3. Digital risk score assessment, then third-party identity proofing and identity validation
-4. Identify validation
-5. User account created in Azure Active Directory B2C
-6. Access assigned
-7. User receives access-approved message
+1. User begins registration with a device.
+2. User enters information.
+3. Digital risk score assessed, then third-party identity proofing and identity validation occurs.
+4. Identity is validated.
+5. User account is created in Azure Active Directory B2C.
+6. User access is assigned.
+7. User receives access-approved message.
 
 Microsoft partners with independent software vendors (ISVs). Use the following table to locate an ISV and related integration documentation. 
 
