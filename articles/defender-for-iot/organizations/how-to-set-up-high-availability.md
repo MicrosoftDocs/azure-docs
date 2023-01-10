@@ -81,7 +81,7 @@ Verify if your organizational security policy allows you to have access to the f
 
 Before starting this procedure, verify that:
 
-- Both the primary and secondary on-premises management console appliances are powered on
+- Both the primary and secondary on-premises management console appliances are powered on.
 - At least two sensors are connected to the primary management console.
 
 ### On the primary management console
@@ -90,7 +90,7 @@ Before starting this procedure, verify that:
 
 1. Select **System Settings** from the side menu.
 
-1. Select the eye icon of the Connection String to view the string, and copy the part of the string that is to the right of the **:**, after the IP address.
+1. Under the Connection String, select the *eye icon* button to view the full connection string, and copy only the part of the string that is to the right of the **:**, after the IP address.
 
     For example:
 
@@ -113,7 +113,7 @@ Before starting this procedure, verify that:
 1. Run the following command on the primary to verify that the certificate is installed properly:
 
     ```bash
-    sudo cyberx-management-trusted-hosts-list
+    cyberx-management-trusted-hosts-list
 
 1. Run the following command on the primary. **Do not run with sudo.**
 
@@ -133,12 +133,12 @@ Before starting this procedure, verify that:
     cyberx-management-deploy-ssh-key <Primary IP>
     ```
 
-    Enter the IP address of the primary in the ```<Primary IP>``` field and press enter. This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
+    Enter the IP address of the primary appliance in the ```<Primary IP>``` field and press enter. This allows the connection between the primary and secondary appliances for backup and restore purposes between them.
 
 1. Run the following command to validate that the changes have been applied:
 
     ```bash
-    sudo cyberx-management-trusted-hosts-list
+    cyberx-management-trusted-hosts-list
     ```
 
 ### Track high availability activity
