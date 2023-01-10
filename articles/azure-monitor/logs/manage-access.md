@@ -163,6 +163,8 @@ Each workspace can have multiple accounts associated with it. Each account can h
 | Read the workspace keys to allow sending logs to this workspace. | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` |
 | Add and remove monitoring solutions. | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write`<br><br>These permissions need to be granted at resource group or subscription level. |
 | View data in the **Backup** and **Site Recovery** solution tiles. | Administrator/Co-administrator<br><br>Accesses resources deployed by using the classic deployment model. |
+| Run a search job. | `Microsoft.OperationalInsights/workspaces/tables/write` <br> `Microsoft.OperationalInsights/workspaces/searchJobs/write`|
+| Restore data from archived table. | `Microsoft.OperationalInsights/workspaces/tables/write` <br> `Microsoft.OperationalInsights/workspaces/restoreLogs/write`|
 
 ### Built-in roles
 
@@ -275,6 +277,13 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
   - `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`: Required to be able to use Update Management solutions
   - `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: Required to be able to use Update Management solutions
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`
+
+**Example 5: Restrict a user from restoring archived logs.
+
+- Configure the workspace access control mode to *use workspace or resource permissions*.
+- Assign the user to [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role.
+- Exclude the following permission: `Microsoft.OperationalInsights/workspaces/restoreLogs/write`
+
 
 ## Set table-level read access
 
