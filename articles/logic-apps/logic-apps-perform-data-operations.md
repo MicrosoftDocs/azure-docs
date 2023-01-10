@@ -351,21 +351,20 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
    ![Screenshot showing the "Create CSV table" action in a Standard workflow and the "item()" function.](./media/logic-apps-perform-data-operations/finished-csv-expression-standard.png)
 
-1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
-
-   The **Create CSV table** action now appears similar to the following example:
-
-   ![Screenshot showing the "Create CSV table" action in a Standard workflow and resolved expressions without headers.](./media/logic-apps-perform-data-operations/resolved-csv-expression-standard.png)
-
 ---
 
 #### Work in code view
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
-1. On the designer toolbar, select **Code view**.
+1. From the designer, switch to code view.
 
-1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of array values that you want:
+   **Consumption**: On the designer toolbar, select **Code view**.
+   **Standard**: On the workflow navigation menu, under **Developer**, select **Code**.
+
+1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
+
+   Syntax:
 
    ```json
    {
@@ -374,7 +373,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    }
    ```
 
-   For example:
+   Example:
 
    ```json
    "Create_CSV_table": {
@@ -395,30 +394,23 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    }
    ```
 
-1. Switch back to designer view, and reopen the collapsed action.
-
-   The **Create CSV table** action now appears like this example, and the expressions have resolved to more descriptive versions:
-
-   !["Create CSV table" - resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
-
-### [Standard](#tab/standard)
-
----
+1. Switch back to designer view to view the results.
 
 ### Test your logic app
 
 To confirm whether the **Create CSV table** action creates the expected results, send yourself a notification that includes output from the **Create CSV table** action.
 
-1. In your logic app, add an action that can send you the results from the **Create CSV table** action.
+1. In your workflow, add an action that can send you the results from the **Create CSV table** action.
 
-1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Create CSV table** action, select **Output**. 
+   This example continues by using the Office 365 Outlook action named **Send an email** action.
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Outputs**.
 
    !["Output" fields for the "Create CSV table" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
    > [!NOTE]
-    > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
+   >
+   > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
 
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
