@@ -117,7 +117,6 @@ The following example shows the part of the workflow that sets up the environmen
 
 # [PowerShell](#tab/powershell)
 
-PowerShell uses the `actions/setup-python` action.  
 This step can be skipped for PowerShell as the GitHub runner already includes PowerShell.
 
 ---
