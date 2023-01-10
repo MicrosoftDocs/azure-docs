@@ -35,17 +35,15 @@ Visually, there's no distinction between an admin key or query key. Both keys ar
 
 ## Use API keys on connections
 
-API keys are specified on client requests to a search service. Passing a valid API key on the request is considered proof that the request is from an authorized client.
-
-If you're creating, modifying, or deleting objects, you'll need an admin API key. Otherwise, query keys are typically distributed to client applications that issue queries.
+API keys are specified on client requests to a search service. Passing a valid API key on the request is considered proof that the request is from an authorized client. If you're creating, modifying, or deleting objects, you'll need an admin API key. Otherwise, query keys are typically distributed to client applications that issue queries.
 
 You can specify API keys in a request header for REST API calls, or in code that calls the azure.search.documents client libraries in the Azure SDKs. If you're using the Azure portal to perform tasks, your role assignment determines the level of access.
 
-Because API keys are hard-coded in source files, it's recommended that you take appropriate precautions when using them:
+Best practices for using hard-coded in source files include:
 
-+ During early development and proof-of-concept testing, build and query indexes with sample data or non-sensitive data. 
++ During early development and proof-of-concept testing when security is looser, use sample or public data.
 
-+ During advanced development or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys in your source code. Or, if you want to continue using API keys, be sure to always monitor who has access to your API keys and regenerate API keys on a regular cadence.
++ After advancing into deeper development or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor who has access to your API keys and regenerate API keys on a regular cadence.
 
 ### [**REST**](#tab/rest-use)
 
@@ -55,7 +53,7 @@ Because API keys are hard-coded in source files, it's recommended that you take 
 
   Alternatively, you can pass a query key  as a parameter on a URL if you're using GET: `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`
 
-### [**Azure PowerShell**](#tab/azure-ps-use
+### [**Azure PowerShell**](#tab/azure-ps-use)
 
 A script example showing API key usage can be found at [Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs](search-get-started-powershell.md).
 
@@ -82,7 +80,7 @@ You can view and manage API keys in the [Azure portal](https://portal.azure.com)
 
 ### [**REST**](#tab/rest-find)
 
-Use the List Keys REST API in the Management REST API to view and manage keys.
+Use [ListAdminKeys](/rest/api/searchmanagement/2020-08-01/admin-keys) or [ListQueryKeys](/rest/api/searchmanagement/2020-08-01/query-keys/list-by-search-service) in the Management REST API to return API keys.
 
 You must have a [valid role assignment](#permissions-to-view-or-manage-api-keys) to return or update API keys. See [Manage your Azure Cognitive Search service with REST APIs](search-manage-rest.md) for guidance on meeting role requirements using the REST APIs.
 
