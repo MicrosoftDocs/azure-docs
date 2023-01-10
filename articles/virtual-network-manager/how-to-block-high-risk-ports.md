@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 06/28/2022
+ms.date: 01/10/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
@@ -82,9 +82,9 @@ It’s time to construct our security admin rules within a configuration in orde
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of add a security admin configuration.":::
 
-1. Select **Security admin configuration** from the drop-down menu.
+1. Select **Security configuration** from the drop-down menu.
 
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/security-admin-drop-down.png" alt-text="Screenshot of add a configuration drop-down.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/security-admin-dropdown.png" alt-text="Screenshot of add a configuration drop-down.":::
 
 1. On the **Basics** tab, enter a *Name* to identify this security configuration and select **Next: Rule collections**.
 
