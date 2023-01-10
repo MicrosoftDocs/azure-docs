@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/06/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -50,13 +50,13 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
    az login
    az ad sp show --id 'bc313c14-387c-4e7d-a58e-70417303ee3b' --query id -o tsv
    ```
-
+  
    Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
 
    ```azurepowershell
-    [1d9nhq2.microsoftdatabox.com]: PS>Enable-HcsAzureKubernetesService -f
-    [1d9nhq2.microsoftdatabox.com]: P> Set-HcsKubeClusterArcInfo –CustomLocationsObjectId 51dfe1e8-70c6-4de5-a08e-e18aff23d815
-    [1d9nhq2.microsoftdatabox.com]: PS>
+   PS /home/user> az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+   51dfe1e8-70c6-4de5-a08e-e18aff23d815
+   PS /home/user>
    ```
 
   For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
@@ -93,16 +93,6 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
 There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optional, as noted below.
  
-## Set custom locations (optional)
-
-1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
-
-1.	Run the following command **as an option** to set custom locations. Input the custom location object ID that you fetched when completing your prerequisites.
-
-    ```azurepowershell
-    Set-HcsKubeClusterArcInfo –CustomLocationsObjectId <custom_location_object_id>
-    ```
-
 ## Enable the Azure Kubernetes service
 
 1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
@@ -119,7 +109,24 @@ There are multiple steps to deploy AKS on Azure Stack Edge. Some steps are optio
 
     ![Screenshot showing the Azure Kubernetes Service tile in the Overview pane of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png)
 
-## Specify static IP pools for Kubernetes pods (optional)
+## Set custom locations (optional)
+
+1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
+
+1.	Run the following command **as an option** to set custom locations. Input the custom location object ID that you fetched when completing your prerequisites.
+
+    ```azurepowershell
+    Set-HcsKubeClusterArcInfo –CustomLocationsObjectId <custom_location_object_id>
+    ```
+  
+    Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
+
+   ```azurepowershell
+    [1d9nhq2.microsoftdatabox.com]: PS> Set-HcsKubeClusterArcInfo –CustomLocationsObjectId 51dfe1e8-70c6-4de5-a08e-e18aff23d815
+    [1d9nhq2.microsoftdatabox.com]: PS>
+   ```
+
+## Specify static IP pools (optional)
 
 This is an **optional** step where you can assign IP pools for the virtual network that will be used by Kubernetes pods. 
 
@@ -187,7 +194,7 @@ Use this step to configure the virtual switch for Kubernetes compute traffic.
 
    ![Screenshot that shows virtual networks on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png)
 
-## Enable a cloud management VM role through Azure portal
+## Enable VM cloud management
 
 This step is required to allow the Azure Stack Edge portal to deploy the infrastructure VMs on Azure Stack Edge device for AKS; for example, for the target cluster worker node.
 
@@ -334,5 +341,5 @@ Use the following steps in the Azure portal to remove AKS.
 
 ## Next steps
 
-To install Fusion Core, follow the instructions in the article for Fusion Core along with this article.
+- [AKS troubleshooting documentation](../azure/azure-kubernetes/azure-kubernetes-services-troubleshooting-documentation.md)
  
