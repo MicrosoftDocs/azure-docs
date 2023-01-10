@@ -61,11 +61,13 @@ To set up a Log Analytics workspace for data collection:
 
 ## 2. Migrate Splunk artifacts
 
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png" alt-text="Diagram that shows Azure Monitor capabilities related to insights, visualization, analysis, and responsive actions." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png":::
+
 |Splunk artifact| Azure Monitor artifact|
 |---|---|
 |Alerts|[Alert rules](../alerts/alerts-create-new-alert-rule.md)|
 |Alert actions|[Action groups](../alerts/action-groups.md)|
-|Apps|[Azure Monitor Insights](../insights/insights-overview.md) are a set of ready-to-use, curated monitoring experiences with preconfigured data inputs, searches, alerts, and visualizations to get you started analyzing data quickly and effectively. |
+|Apps|[Azure Monitor Insights](../insights/insights-overview.md) are a set of ready-to-use, curated monitoring experiences with pre-configured data inputs, searches, alerts, and visualizations to get you started analyzing data quickly and effectively. |
 |Dashboards|[Workbooks](../visualize/workbooks-overview.md)|
 |Searches|[Queries](../logs/get-started-queries.md)|
 |Source types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
