@@ -106,6 +106,9 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 > 
 > In the future, both of these features will be integrated with the Authentication methods policy.
 
+## Known issues
+Some customers may see the control to enable Voice call grayed out due to a licensing requirement, despite having a premium license. This is a known issue that we are actively working to fix.
+
 ## Next steps
 
 - [How to migrate MFA and SSPR policy settings to the Authentication methods policy](how-to-authentication-methods-manage.md)
