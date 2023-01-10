@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 01/09/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -39,7 +39,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 
 ### Run Join-AzStorageAccount
 
-The `Join-AzStorageAccount` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. By default, the script uses the cmdlet to create a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) in your AD domain. If for whatever reason you can't use a computer account, you can alter the script to create a [service logon account](/windows/win32/ad/about-service-logon-accounts) instead. Note that service logon accounts don't currently support AES-256 encryption.
+The `Join-AzStorageAccount` cmdlet performs the equivalent of an offline domain join on behalf of the specified storage account. The script below uses this cmdlet to create a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) in your AD domain. If for whatever reason you can't use a computer account, you can alter the script to create a [service logon account](/windows/win32/ad/about-service-logon-accounts) instead. Using AES-256 encryption with service logon accounts is supported beginning with AzFilesHybrid version 0.2.5.
 
 The AD DS account created by the cmdlet represents the storage account. If the AD DS account is created under an organizational unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the account password before that date results in authentication failures when accessing Azure file shares. To learn how to update the password, see [Update AD DS account password](storage-files-identity-ad-ds-update-password.md).
 
@@ -88,7 +88,6 @@ $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as
 # storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
 # Specify the encryption algorithm used for Kerberos authentication. Using AES256 is recommended.
-# Note that ServiceLogonAccount does not support AES256 encryption.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
@@ -102,8 +101,7 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify 
 # the target OU. You can choose to create the identity that represents the storage account as either a 
 # Service Logon Account or Computer Account (default parameter value), depending on your AD permissions 
-# and preference. Run Get-Help Join-AzStorageAccountForAuth for more details on this cmdlet. Note that 
-# Service Logon Accounts do not support AES256 encryption.
+# and preference. Run Get-Help Join-AzStorageAccountForAuth for more details on this cmdlet.
 
 Join-AzStorageAccount `
         -ResourceGroupName $ResourceGroupName `
@@ -112,11 +110,6 @@ Join-AzStorageAccount `
         -DomainAccountType $DomainAccountType `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
         -EncryptionType $EncryptionType
-
-# Run the command below to enable AES256 encryption. If you plan to use RC4, you can skip this step.
-# Note that if you set $DomainAccountType to ServiceLogonAccount, running this command will change 
-# the account type to ComputerAccount because ServiceLogonAccount doesn't support AES256.
-Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 
 # You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration 
 # with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on 
@@ -195,7 +188,7 @@ Set-AzStorageAccount `
 To enable AES-256 encryption, follow the steps in this section. If you plan to use RC4 encryption, skip this section.
 
 > [!IMPORTANT]
-> In order to enable AES-256 encryption, the domain object that represents your storage account must be a computer account in the on-premises AD domain. Service logon accounts don't currently support AES-256 encryption. If your domain object doesn't meet this requirement, delete it and create a new domain object that does.
+> In order to enable AES-256 encryption, the domain object that represents your storage account must be a computer account or service logon account in the on-premises AD domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does.
 
 Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support. You must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges.
 
