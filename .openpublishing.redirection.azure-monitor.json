@@ -5591,6 +5591,41 @@
             "source_path_from_root": "/articles/azure-monitor/logs/collect-sccm.md",
             "redirect_url": "/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-overview.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-migrate.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-enable.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-alerts.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-configure.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-configure-dcr.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
         }
     ]
 }

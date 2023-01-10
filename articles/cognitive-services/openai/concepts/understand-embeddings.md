@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI embeddings tutorial
+title: Azure OpenAI embeddings
 titleSuffix: Azure OpenAI - embeddings and cosine similarity
 description: Learn more about Azure OpenAI embeddings API for document search and cosine similarity
 services: cognitive-services

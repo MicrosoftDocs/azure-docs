@@ -26,7 +26,7 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 | Features and optimization | Standard | Premium | Classic |
 |--|--|--|--|
 | Static file delivery | Yes | Yes | Yes |
-| Dynamic site deliver | Yes | Yes | Yes |
+| Dynamic site delivery | Yes | Yes | Yes |
 | Custom domains | Yes - DNS TXT record based domain validation | Yes - DNS TXT record based domain validation | Yes - CNAME based validation |
 | Cache manage (purge, rules, and compression) | Yes | Yes | Yes |
 | Origin load balancing | Yes | Yes | Yes |

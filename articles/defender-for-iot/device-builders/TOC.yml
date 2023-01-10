@@ -70,12 +70,16 @@
   - name: Configure Microsoft Defender for IoT agent-based solution
     displayName: data, collection, geolocation, log analytics, raw events
     href: how-to-configure-agent-based-solution.md
+  - name: How to configure the DMI Decoder
+    href: how-to-configure-dmi-decoder.md
   - name: Investigate CIS benchmark recommendation
     href: how-to-investigate-cis-benchmark.md
   - name: Configure a micro agent twin
     href: how-to-configure-micro-agent-twin.md
   - name: Configure PAM to audit sign-in events
     href: configure-pam-to-audit-sign-in-events.md
+  - name: Provision micro agent using DPS 
+    href: how-to-provision-micro-agent.md
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md

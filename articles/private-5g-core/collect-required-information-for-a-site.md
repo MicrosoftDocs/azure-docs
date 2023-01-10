@@ -68,6 +68,32 @@ For each data network that you want to configure, collect all the values in the 
    | The Domain Name System (DNS) server addresses to be provided to the UEs connected to this data network. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br>This value may be an empty list if you don't want to configure a DNS server for the data network. In this case, UEs in this data network will be unable to resolve domain names. | **DNS Addresses** |
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.</br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.  |**NAPT**|
 
+## Collect local monitoring values
+
+You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a globally known and trusted certificate authority (CA), as this provides additional security to your deployment and allows your browser to recognize the certificate signer.
+
+If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything. You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+
+If you want to provide a custom HTTPS certificate at site creation, follow the steps below. You'll need a certificate signed by a globally known and trusted CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
+
+   1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your certificate. Ensure the Azure Key Vault is configured with **Azure Virtual Machines for deployment** resource access.
+   1. [Add the certificate to your Key Vault](/azure/key-vault/certificates/quick-create-portal). If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates) for information on enabling auto-rotation.
+      > [!NOTE]
+      > Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
+      >
+      > If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
+   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
+
+      - [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+
+   1. Collect the values in the following table.
+
+       |Value  |Field name in Azure portal  |
+       |---------|---------|
+       |The name of the Azure Key Vault containing the custom HTTPS certificate.|**Key vault**|
+       |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
+
 ## Next steps
 
 You can now use the information you've collected to create the site.

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 12/15/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -62,7 +62,7 @@ To learn more about the MedTech service open-source projects, see [Open-source p
 
 In this article, you learned about the MedTech service frequently asked questions (FAQs)
 
-To learn about the different deployment methods for the MedTech service, see
+To learn about methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

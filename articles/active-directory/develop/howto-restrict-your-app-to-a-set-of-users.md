@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 12/19/2022
 ms.author: kkrishna
 ms.reviewer: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, engagement-fy23
 #Customer intent: As a tenant administrator, I want to restrict an application that I have registered in Azuren-e AD to a select set of users available in my Azure AD tenant
 ---
 
@@ -38,14 +38,14 @@ The option to restrict an app to a specific set of users or security groups in a
 
 To update an application to require user assignment, you must be owner of the application under Enterprise apps, or be assigned one of **Global administrator**, **Application administrator**, or **Cloud application administrator** directory roles.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Sign in to the [Azure portal](https://portal.azure.com/)
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **Enterprise Applications** > **All applications**.
 1. Select the application you want to configure to require assignment. Use the filters at the top of the window to search for a specific application.
 1. On the application's **Overview** page, under **Manage**, select **Properties**.
-1. Locate the setting **User assignment required?** and set it to **Yes**. When this option is set to **Yes**, users and services attempting to access the application or services must first be assigned for this application, or they won't be able to sign-in or obtain an access token.
-1. Select **Save**.
+1. Locate the setting **Assignment required?** and set it to **Yes**. When this option is set to **Yes**, users and services attempting to access the application or services must first be assigned for this application, or they won't be able to sign-in or obtain an access token.
+1. Select **Save** on the top bar.
 
 When an application requires assignment, user consent for that application isn't allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment.
 
