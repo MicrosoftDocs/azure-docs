@@ -29,7 +29,7 @@ OCI 1.1 Artifact Manifest support is an ACR preview feature and subject to [limi
 * **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
 * **Docker (Optional)** - To complete the walkthrough, a container image is referenced.
 You can use [Docker installed locally][docker-install] to build and push a container image, or use [`acr build`][az-acr-build] to build remotely in Azure.  
-While Docker Desktop is not required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.  
+While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.  
 
 ## Preview limitations
 
@@ -316,7 +316,7 @@ The output of `tree`:
 
 ## View the repository and tag listing
 
-The OCI Artifact Manifest enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. Artifact manifests enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
+The OCI Artifact Manifest enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. Artifact manifests enable a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
 
 ### View a list of tags
 
@@ -381,7 +381,7 @@ Output:
 ```
 ## Summary
 
-In this article, a graph of supply chain artifacts were created, discovered, promoted and pulled providing lifecycle management of the artifacts you build and/or depend upon.
+In this article, a graph of supply chain artifacts are created, discovered, promoted and pulled providing lifecycle management of the artifacts you build and depend upon.
 
 ## Next steps
 
