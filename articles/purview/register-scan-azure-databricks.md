@@ -20,7 +20,7 @@ This article outlines how to register Azure Databricks, and how to authenticate 
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes | No |
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](#lineage) | No |
 
 When scanning Azure Databricks source, Microsoft Purview supports:
 
@@ -62,7 +62,7 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
 ## Register
 
-This section describes how to register a Azure Databricks workspace in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register an Azure Databricks workspace in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 1. Go to your Microsoft Purview account.
 
@@ -141,7 +141,7 @@ Use the following steps to scan Azure Databricks to automatically identify asset
 
     1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
 
-    :::image type="content" source="media/register-scan-azure-databricks/scan.png" alt-text="Screenshot that shows boxes for scan details." border="true":::
+    :::image type="content" source="media/register-scan-azure-databricks/scan.png" alt-text="Screenshot of setting up Azure Databricks scan." border="true":::
 
 1. Select **Continue**.
 
@@ -159,11 +159,11 @@ After scanning your Azure Databricks, you can [browse data catalog](how-to-brows
 
 From the Databricks workspace asset, you can find the associated Hive Metastore and the tables/views, reversed applies too.
 
-:::image type="content" source="media/register-scan-azure-databricks/browse-by-source-type.png" alt-text="Browse Azure Databricks by source type." border="true":::
+:::image type="content" source="media/register-scan-azure-databricks/browse-by-source-type.png" alt-text="Screenshot of browsing assets by source type." border="true":::
 
-:::image type="content" source="media/register-scan-azure-databricks/switch-to-source-asset.png" alt-text="Navigate to Azure Databricks source asset." border="true":::
+:::image type="content" source="media/register-scan-azure-databricks/switch-to-source-asset.png" alt-text="Screenshot of navigating to Azure Databricks source asset details." border="true":::
 
-:::image type="content" source="media/register-scan-azure-databricks/associated-hive-metastore.png" alt-text="Associated Hive Metastore with Azure Databricks source." border="true":::
+:::image type="content" source="media/register-scan-azure-databricks/associated-hive-metastore.png" alt-text="Screenshot of finding the associated Hive Metastore with Azure Databricks source." border="true":::
 
 ## Lineage
 
