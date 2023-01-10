@@ -20,42 +20,7 @@ The entity linking feature can be used to identify and disambiguate the identity
 
 ## Development options
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to use entity linking:
-
-:::row:::
-    :::column span="":::
-        **Development option**
-    :::column-end:::
-    :::column span="":::
-        **Description**
-    :::column-end:::
-    :::column span="":::
-      **Links**
-   :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="":::
-        Language Studio
-    :::column-end:::
-    :::column span="":::
-        Language Studio is a web-based platform that lets you use entity linking both with text examples before signing up for an Azure account, and your own data when you sign up.
-    :::column-end:::
-    :::column span="":::
-        * [Language Studio website](https://language.cognitive.azure.com/tryout/linkedEntities)
-        * [Quickstart: Use Language Studio](../../language-studio.md)
-   :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="":::
-        REST API or Client library (Azure SDK) 
-    :::column-end:::
-    :::column span="":::
-        Integrate entity linking into your applications using the REST API, or the client library available in a variety of languages.
-    :::column-end:::
-    :::column span="":::
-        * [Quickstart: Use entity linking](../quickstart.md)
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [development-options](includes/development-options.md)]
 
 ## Determine how to process the data (optional)
 
