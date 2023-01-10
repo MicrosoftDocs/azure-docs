@@ -11009,7 +11009,7 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/microsoft-graph-intro.md",
       "redirect_url": "/graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
