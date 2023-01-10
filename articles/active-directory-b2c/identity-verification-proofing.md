@@ -46,7 +46,7 @@ Microsoft partners with independent software vendors (ISVs). Use the following t
 | ![Screenshot of a LexisNexis logo.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis Risk Solutions Group](https://risk.lexisnexis.com/products/threatmetrix): Profiling and identity validation provider that verifies user identification and provides risk assessment based on user devices. See, ThreatMetrix. |[Tutorial for configuring LexisNexis with Azure AD B2C](/articles/active-directory-b2c/partner-lexisnexis.md)|
 | ![Screenshot of a Onfido logo](./media/partner-gallery/onfido-logo.png) | [Onfido](https://onfido.com/): Document ID and facial biometrics verification solutions to meet Know Your Customer (KYC) and identity requirements.  |[Tutorial for configuring Onfido with Azure AD B2C](/articles/active-directory-b2c/partner-onfido.md)|
 
-## Additional information
+## Resources
 
 - [Azure AD B2C custom policy overview](/articles/active-directory-b2c/custom-policy-overview.md)
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](/articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
