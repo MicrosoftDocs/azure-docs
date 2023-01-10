@@ -70,10 +70,16 @@ Cost presets are available for selection in the Azure Portal to allow easy confi
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button
-3b. Select the "Use managed identity (preview)" checkbox
-3c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
-4. Click the blue "Configure" button to finish
+3.
+    a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button.
+       For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
+       
+    b. Select the "Use managed identity (preview)" checkbox
+    
+    c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+
+5.  Click the blue "Configure" button to finish
+
 
 
 ## [ARM](#tab/create-arm)
@@ -115,10 +121,15 @@ az deployment group create --resource-group <ClusterResourceGroupName> --templat
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the Arc cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button
-3b. Select the "Use managed identity (preview)" checkbox
-3c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
-4. Click the blue "Configure" button to finish
+3.
+    a. If you have not previously configured Insights, select the 'Configure Azure Monitor' button.
+       For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
+       
+    b. Select the "Use managed identity (preview)" checkbox
+    
+    c. Using the dropdown, choose one of the "Cost presets", for additional configuration, you may select the "Edit advanced collection settings"
+
+5.  Click the blue "Configure" button to finish
 
 
 ## [ARM](#tab/create-arm)
