@@ -8,14 +8,14 @@ ms.author: vlbejan
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.topic: how-to
+ms.topic: concept
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 12/15/2022
 show_latex: true
 ---
 
 # Lagged features for time series forecasting in AutoML
-This article focuses on direct forecaster methods for creating backward-looking features in time series data. AutoML's forecasting regression models implement these methods to create lag features and rolling window aggregation features. See the [methods overview article](./how-to-automl-forecasting-methods.md) for general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
+This article focuses on direct forecaster methods for creating backward-looking features in time series data. AutoML's forecasting regression models implement these methods to create lag features and rolling window aggregation features. See the [methods overview article](./concept-automl-forecasting-methods.md) for general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
 ## Lag feature example
 AutoML generates lags with respect to the forecast horizon. The example in this section illustrates this concept. Here, we use a forecast horizon of three and target lag order of one. Consider the following monthly time series:

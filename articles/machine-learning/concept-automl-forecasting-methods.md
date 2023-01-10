@@ -8,7 +8,7 @@ ms.author: erwright
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.topic: how-to
+ms.topic: concept
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 12/15/2022
 show_latex: true
@@ -17,7 +17,7 @@ show_latex: true
 # Overview of forecasting methods in AutoML
 This article focuses on the methods that AutoML uses to prepare time series data and build forecasting models. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-AutoML uses several quantitative methods to forecast time series values. These methods can be roughly assigned to two categories:
+AutoML uses several methods to forecast time series values. These methods can be roughly assigned to two categories:
 
 1. Time series models that use historical values of the target quantity to make predictions into the future.
 2. Regression, or explanatory, models that use predictor variables to forecast values of the target.
@@ -39,7 +39,7 @@ Again, $g$ generally has a set of parameters, including those governing regulari
 
 AutoML's forecasting regression models can also be augmented to use historical values of the target and predictors. The result is a hybrid model with characteristics of a time series model and a pure regression model. Historical quantities are additional predictor variables in the regression and we refer to them as **lagged quantities**. The _order_ of the lag refers to how far back the value is known. For example, the current value of an order two lag of the target for our orange juice demand example is the observed juice demand from two days ago.
 
-Another notable difference between the time series models and the regression models is in the way they generate forecasts. Time series models are generally defined by recursion relations and produce forecasts one-at-a-time. To forecast many periods into the future, they iterate up-to the forecast horizon, feeding previous forecasts back into the model to generate the next one-period-ahead forecast as needed. In contrast, the regression models are so-called **direct forecasters** that generate _all_ forecasts up to the horizon in one go. Direct forecasters can be preferable to recursive ones because recursive models compound prediction error when they feed previous forecasts back into the model. When lag features are included, AutoML makes some important modifications to the training data so that the regression models can function as direct forecasters. See the [lag features article](./how-to-automl-forecasting-lags.md) for more details. 
+Another notable difference between the time series models and the regression models is in the way they generate forecasts. Time series models are generally defined by recursion relations and produce forecasts one-at-a-time. To forecast many periods into the future, they iterate up-to the forecast horizon, feeding previous forecasts back into the model to generate the next one-period-ahead forecast as needed. In contrast, the regression models are so-called **direct forecasters** that generate _all_ forecasts up to the horizon in one go. Direct forecasters can be preferable to recursive ones because recursive models compound prediction error when they feed previous forecasts back into the model. When lag features are included, AutoML makes some important modifications to the training data so that the regression models can function as direct forecasters. See the [lag features article](./concept-automl-forecasting-lags.md) for more details. 
 
 ## Forecasting Models in AutoML
 The following table lists the forecasting models implemented in AutoML and what category they belong to:
@@ -142,7 +142,7 @@ More general model groupings are possible via AutoML's Many-Models solution; see
 
 ## Next Steps
 
-* Learn more about [model sweeping and selection](./how-to-automl-forecasting-sweeping.md) for forecasting in AutoML.
-* Learn about how AutoML creates [features from the calendar](./how-to-automl-forecasting-calendar-features.md).
-* Learn about how AutoML creates [lag features](./how-to-automl-forecasting-lags.md).
+* Learn more about [model sweeping and selection](./concept-automl-forecasting-sweeping.md) for forecasting in AutoML.
+* Learn about how AutoML creates [features from the calendar](./concept-automl-forecasting-calendar-features.md).
+* Learn about how AutoML creates [lag features](./concept-automl-forecasting-lags.md).
 * Read answers to [frequently asked questions](./how-to-automl-forecasting-faq.md) about forecasting in AutoML.

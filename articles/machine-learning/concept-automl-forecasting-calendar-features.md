@@ -8,16 +8,16 @@ ms.author: nivmishra
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.topic: how-to
+ms.topic: concept
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 12/15/2022
 ---
 
 # Calendar features for time series forecasting in AutoML
 
-This article focuses on the calendar-based features that AutoML creates to increase the accuracy of forecasting regression models. See the [methods overview article](./how-to-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
+This article focuses on the calendar-based features that AutoML creates to increase the accuracy of forecasting regression models. See the [methods overview article](./concept-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-As a part of feature engineering, AutoML transforms datetime type columns provided in the training data into new columns of calendar-based features. These features can help regression models learn seasonal patterns at several cadences. AutoML can always create calendar features from the time index of the time series since this is a required column in the training data. Calendar features are also made from other columns with datetime type, if any are present. See the [how AutoML uses your data](./how-to-automl-forecasting-methods.md#how-automl-uses-your-data) guide for more information on data requirements.
+As a part of feature engineering, AutoML transforms datetime type columns provided in the training data into new columns of calendar-based features. These features can help regression models learn seasonal patterns at several cadences. AutoML can always create calendar features from the time index of the time series since this is a required column in the training data. Calendar features are also made from other columns with datetime type, if any are present. See the [how AutoML uses your data](./concept-automl-forecasting-methods.md#how-automl-uses-your-data) guide for more information on data requirements.
 
 AutoML considers two categories of calendar features: standard features that are based entirely on date and time values and holiday features which are specific to a country or region of the world. We'll go over these features in the remainder of the article. 
 
@@ -71,7 +71,7 @@ AutoML uses Azure Open Datasets as a source for holiday information. For more in
 
 To better understand the holiday feature generation, consider the following example data: 
 
-<img src='./media/how-to-automl-forecasting-calendar-features/load_forecasting_sample_data_daily.png' alt='sample_data' width=50%></img>
+<img src='./media/concept-automl-forecasting-calendar-features/load_forecasting_sample_data_daily.png' alt='sample_data' width=50%></img>
 
 To make American holiday features for this data, we set the `country_or_region_for_holiday` to 'US' in the [forecast settings](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) as shown in the following code sample:
 ```python
@@ -96,6 +96,6 @@ forecasting_job.set_forecast_settings(
 ```
 The generated holiday features look like the following:
 
-<a name='output'><img src='./media/how-to-automl-forecasting-calendar-features/sample_dataset_holiday_feature_generated.png' alt='sample_data_output' width=75%></img></a>
+<a name='output'><img src='./media/concept-automl-forecasting-calendar-features/sample_dataset_holiday_feature_generated.png' alt='sample_data_output' width=75%></img></a>
 
 Note that generated features have the prefix `_automl_` prepended to their column names. AutoML generally uses this prefix to distinguish input features from engineered features.
