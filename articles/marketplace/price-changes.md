@@ -82,7 +82,7 @@ For a price decrease to a Software as a service offer to take effect on the firs
 
 For a price increase to a Software as a service offer to take effect on the first of a future month, 90 days out, publish the price change at least four days before the end of the current month.
 > [!Note]
-> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies).
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies#how-we-convert-currency).
 ## Changing the flat fee of a SaaS or Azure app offer
 
 To update the monthly or yearly price of a SaaS or Azure app offer:
@@ -227,59 +227,9 @@ Customers are billed the new price for consumption of the resource that happens 
 
 ## Canceling or modifying a price change
 
-If the price change was configured within the last 2 days, it can be cancelled using the cancel button next to the price change expected on date and then publishing the changes. For a price change configured more than 2 days ago that has not yet taken affect, [submit a support request](https://partner.microsoft.com/support/?stage=1), that includes the Plan ID, price, and the market (if the change was market specific) in the request. 
+If the price change was configured within the last 2 days, it can be canceled using the cancel button next to the price change expected on date and then publishing the changes. For a price change configured more than 2 days ago that has not yet taken effect, [submit a support request](https://partner.microsoft.com/support/?stage=1) that includes the Plan ID, price, and the market (if the change was market specific) in the request. 
 If the price change was an increase and the cancelation was after the 2-day period, we will email the customers a second time to inform them of the cancelation.
 After the price change is canceled, follow the steps in the appropriate part of this article to schedule a new price change with the needed modifications. 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
