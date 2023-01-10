@@ -85,7 +85,7 @@ In production environments, you can use existing users and groups within an Azur
     ```
 
 > [!TIP]
-> If you receive an error such as `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, wait a few seconds for the Azure AD group object ID to propagate through the directory then try the `az role assignment create` command again.
+> If you receive an error such as `Principal 35bfec9328bd4d8d9b54dea6dac57b82 doesn't exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, wait a few seconds for the Azure AD group object ID to propagate through the directory then try the `az role assignment create` command again.
 
 4. Create a second example group for SREs named *opssre*.
 
@@ -110,7 +110,7 @@ Now that we have two example groups created in Azure AD for our application deve
 
 Set the user principal name (UPN) and password for the application developers. The UPN must include the verified domain name of your tenant, for example `aksdev@contoso.com`.
 
-The following command prompts you for the UPN and sets it to *AAD_DEV_UPN* so it can be used in a later command (remember that the commands in this article are entered into a BASH shell):
+The following command prompts you for the UPN and sets it to *AAD_DEV_UPN* so it can be used in a later command:
 
 ```azurecli-interactive
 echo "Please enter the UPN for application developers: " && read AAD_DEV_UPN
@@ -140,7 +140,7 @@ AKSDEV_ID=$(az ad user create \
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-3. Set the UPN and password for SREs. The UPN must include the verified domain name of your tenant, for example `akssre@contoso.com`. The following command prompts you for the UPN and sets it to *AAD_SRE_UPN* for use in a later command (remember that the commands in this article are entered into a BASH shell):
+3. Set the UPN and password for SREs. The UPN must include the verified domain name of your tenant, for example `akssre@contoso.com`. The following command prompts you for the UPN and sets it to *AAD_SRE_UPN* for use in a later command:
 
 ```azurecli-interactive
 echo "Please enter the UPN for SREs: " && read AAD_SRE_UPN
@@ -324,7 +324,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 ```
 
-3. Enter the credentials for your own `appdev@contoso.com` account created at the start of the article as the sign-in prompt. Once you are successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
+3. Enter the credentials for your own `appdev@contoso.com` account created at the start of the article as the sign-in prompt. Once you're successfully signed in, the account token is cached for future `kubectl` commands. The NGINX is successfully schedule, as shown in the following example output:
 
 ```console
 $ kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
@@ -357,7 +357,7 @@ Try to view pods outside of the *dev* namespace. Use the [`kubectl get pods`][ku
 kubectl get pods --all-namespaces
 ```
 
-The user's group membership does not have a Kubernetes Role that allows this action, as shown in the following example output:
+The user's group membership doesn't have a Kubernetes Role that allows this action, as shown in the following example output:
 
 ```console
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot list resource "pods" in API group "" at the cluster scope
