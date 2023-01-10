@@ -951,7 +951,7 @@ Many issues could cause a horovod failure, and there's a comprehensive list of t
 * It's possible that the problem you're encountering is detailed in the troubleshooting guide, along with the solution
 
 **Resources**
-*[horovod installation](https://aka.ms/azureml/environment/install-horovod)
+* [horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
 - Failed to create or update the conda environment because the conda command is missing 
