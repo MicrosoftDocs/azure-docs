@@ -872,7 +872,7 @@ Ensure that you're using a compatible python version
 
 ### Interactive auth was attempted
 <!--issueDescription-->
-This can happen when pip attempts interactive authentication during package installation.
+This issue can happen when pip attempts interactive authentication during package installation.
 
 **Potential causes:**
 * You've listed a package that requires authentication, but you haven't provided credentials
@@ -910,8 +910,25 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 * [Azure CLI workspace connections](https://learn.microsoft.com/cli/azure/ml/connection?view=azure-cli-latest)
 
 ### Forbidden blob
-- Failed to create or update the conda environment because a blob contained in the associated storage account was inaccessible
-- Either open up permissions on the blob or add/replace the SAS token in the URL
+<!--issueDescription-->
+This issue can happen when an attempt to access a blob in a storage account is rejected.
+
+**Potential causes:**
+* The authorization method you're using to access the storage account is invalid
+* You're attempting to authorize via shared access signature (SAS), but the SAS token is expired or invalid
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations.md)
+
+Read the following to understand [how to authorize access to data in Azure storage](../storage/common/authorize-data-access.md)
+
+Read the following if you're interested in [using SAS to access Azure storage resources](../storage/common/storage-sas-overview.md)
 
 ### Horovod build
 - Failed to create or update the conda environment because horovod failed to build
