@@ -55,7 +55,7 @@ ssh azureuser@10.123.123.25
 
 ### Find the disk
 
-Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
+Once you connect to your VM, find the disk. In this example, we're using `lsblk` to list the disks. 
 
 ```bash
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
@@ -73,19 +73,19 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Here, `sdc` is the disk that we want, because it is 50G. If you add multiple disks, and aren't sure which disk it is based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN.
+Here, `sdc` is the disk that we want, because it's 50G. If you add multiple disks, and aren't sure which disk it's based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN.
 
 
 ### Format the disk
 
-Format the disk with `parted`, if the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. 
+Format the disk with `parted`, if the disk size is two tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. 
 
 > [!NOTE]
 > It is recommended that you use the latest version `parted` that is available for your distro.
 > If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
 
 
-The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We are also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We're also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
@@ -112,7 +112,7 @@ sudo mount /dev/sdc1 /datadrive
 
 ### Persist the mount
 
-To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
+To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It's also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
 sudo blkid
@@ -137,7 +137,7 @@ Next, open the **/etc/fstab** file in a text editor. Add a line to the end of th
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
-When you are done editing the file, save and close the editor.
+When you're done editing the file, save and close the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
@@ -167,7 +167,7 @@ sudo apt-get install util-linux
 sudo fstrim /datadrive
 ```
 
-# [Red Hat](#tab/rhel)
+# [RHEL](#tab/rhel)
 
 ```bash
 sudo yum install util-linux
@@ -188,4 +188,4 @@ sudo fstrim /datadrive
 ## Next steps
 
 * To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](/previous-versions/azure/virtual-machines/linux/optimization) recommendations.
-* Expand your storage capacity by adding additional disks and [configure RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) for additional performance.
+* Expand your storage capacity by adding more disks and [configure RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) for extra performance.

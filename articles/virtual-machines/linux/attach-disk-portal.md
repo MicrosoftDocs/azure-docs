@@ -38,14 +38,14 @@ Before you attach disks to your VM, review these tips:
    :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
 
 
-1. When you are done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
+1. When you're done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
 
 
 ## Attach an existing disk
 1. On the **Disks** pane, under **Data disks**, select  **Attach existing disks**.
-1. Click the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
+1. Select the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
 
-1. Click **Save** to attach the existing managed disk and update the VM configuration:
+1. Select **Save** to attach the existing managed disk and update the VM configuration:
    
 
 ## Connect to the Linux VM to mount the new disk
@@ -57,7 +57,7 @@ ssh azureuser@10.123.123.25
 
 ## Find the disk
 
-Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
+Once connected to your VM, you need to find the disk. In this example, we're using `lsblk` to list the disks. 
 
 ```bash
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
@@ -75,15 +75,15 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0       4G
 ```
 
-In this example, the disk that added was `sdc`. It is a LUN 0 and is 4GB.
+In this example, the disk that was added was `sdc`. It's a LUN 0 and is 4GB.
 
-For a more complex example, here is what multiple data disks look like in the portal:
+For a more complex example, here's what multiple data disks look like in the portal:
 
 :::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Screenshot of multiple disks shown in the portal.":::
 
 In the image, you can see that there are 3 data disks: 4 GB on LUN 0, 16GB at LUN 1, and 32G at LUN 2.
 
-Here is what that might look like using `lsblk`:
+Here's what that might look like using `lsblk`:
 
 ```bash
 sda     0:0:0:0      30G
@@ -105,14 +105,14 @@ From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 
 > If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
 > The following instructions will delete data on the disk.
 
-If you are attaching a new disk, you need to partition the disk.
+If you're attaching a new disk, you need to partition the disk.
 
 The `parted` utility can be used to partition and to format a data disk.
 - Use the latest version `parted` that is available for your distro.
 - If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
 
 
-The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We are also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We're also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
@@ -136,7 +136,7 @@ Use `mount` to then mount the filesystem. The following example mounts the */dev
 sudo mount /dev/sdc1 /datadrive
 ```
 
-To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
+To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It's also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
 sudo blkid
@@ -161,7 +161,7 @@ Next, open the **/etc/fstab** file in a text editor. Add a line to the end of th
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
-When you are done editing the file, save and close the editor.
+When you're done editing the file, save and close the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
@@ -212,7 +212,7 @@ sudo apt-get install util-linux
 sudo fstrim /datadrive
 ```
 
-# [Red Hat](#tab/rhel)
+# [RHEL](#tab/rhel)
 
 ```bash
 sudo yum install util-linux
