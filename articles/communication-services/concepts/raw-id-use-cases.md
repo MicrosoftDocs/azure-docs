@@ -24,7 +24,7 @@ CommunicationIdentifier has the following advantages:
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
 
-On top of this, the *CommunicationIdentifier* and the derived types (`MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) can be converted to its string representation (Raw ID), making the following scenarios easier to implement:
+On top of this, the *CommunicationIdentifier* and the derived types (`MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) can be converted to its string representation (Raw ID) and restored from the string, making the following scenarios easier to implement:
 - Extract identifier details from Raw IDs and use them to call other APIs (such as the Microsoft Graph API) to provide a rich experience for communication participants.
 - Store identifiers in a database and use them as keys.
 - Use identifiers as keys in dictionaries.
@@ -228,7 +228,8 @@ function CommunicationParticipants() {
   return (
     <div>
       {users.map((user) => (
-      // Each list item should have a unique key. Raw ID can be used as such key.
+      // React uses keys as hints while rendering elements. Each list item should have a key that's unique among its siblings. 
+      // Raw ID can be utilized as a such key.
         <ListUser item={user} key={user.id} />
       ))}
       <button onClick={() => setUsers(users.slice().reverse())}>Reverse</button>
