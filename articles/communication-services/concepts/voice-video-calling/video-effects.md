@@ -6,7 +6,7 @@ description: In this document you'll learn how to create video effects on a Azur
 author: sloanster
 services: azure-communication-services
 
-ms.date: 12/9/2022
+ms.date: 1/9/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -40,7 +40,7 @@ For details on using the CLI see [Use Azure CLI to Create and Manage Access Toke
 
 
 >[!IMPORTANT]
-> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
+> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version or newer when trying the instructions below.
 
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
@@ -61,7 +61,7 @@ Class model:
 
 Browser Support: 
 
-Currently we only support creating video effects on Chrome Browser and Mac Safari.
+Currently creating video effects on Chrome Desktop Browser and Mac Safari Desktop. Other browser support will come in the future.
 
 To use video effects with the Azure Communication Calling client library, once you have created a LocalVideoStream, you need to get the VideoEffects feature API of from the LocalVideoStream. 
 
