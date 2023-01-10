@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Use customer-managed keys for encrypting images
+# Create an encrypted image version with customer-managed keys
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
