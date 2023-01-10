@@ -86,6 +86,7 @@
         displayName: monitoring
       - name: Compute platform
         href: compute-infrastructure.md
+        displayName: stv1, stv2
       - name: DevOps and CI/CD
         href: devops-api-development-templates.md  
       - name: APIs

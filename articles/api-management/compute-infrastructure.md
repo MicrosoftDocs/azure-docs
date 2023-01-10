@@ -48,6 +48,9 @@ To find the `platformVersion` property in the portal:
 
 ## How do I migrate to the `stv2` platform? 
 
+> [!IMPORTANT]
+> Support for API Management instances hosted on the `stv1` platform will be [retired by 31 August 2024](breaking-changes/stv1-platform-retirement-august-2024.md). To ensure proper operation of your API Management instance, you should migrate any instance hosted on the `stv1` platform to `stv2` before that date.
+
 To migrate an instance from the `stv1` platform to `stv2`, you can use the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2) REST API. For more information, see the [migration guidance](migrate-stv1-to-stv2.md).
 
 Depending on the service tier of your API Management instance, you can also trigger migration to the `stv2` platform by enabling or updating certain features with the latest service API versions:
@@ -58,7 +61,5 @@ Depending on the service tier of your API Management instance, you can also trig
 
 ## Next steps
 
-* Learn about [stv1 platform retirement](breaking-changes/stv1-platform-retirement-august-2024.md).
 * Learn more about using a [virtual network](virtual-network-concepts.md) with API Management.
 * Learn more about enabling [availability zones](../reliability/migrate-api-mgt.md).
-* Learn more about [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) of an API Management instance.

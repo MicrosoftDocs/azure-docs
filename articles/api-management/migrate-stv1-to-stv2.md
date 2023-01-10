@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure API Management instance to stv2 platform  | Microsoft Docs
-description: Follow the steps in this article to migrate your Azure API Management instance from the stv1 compute platform to the stv2 compute platform.
+description: Follow the steps in this article to migrate your Azure API Management instance automatically from the stv1 compute platform to the stv2 compute platform.
 
 author: dlepow
 ms.service: api-management
@@ -21,6 +21,8 @@ An API Management instance hosted on the `stv1` platform can be automatically mi
 > [!IMPORTANT]
 > * Migration to `stv2` is not reversible.
 > * Migration is a log-running operation and could take several minutes to complete.
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 
@@ -47,8 +49,8 @@ Run the following Azure CLI commands. Where indicated, set variables with the na
 
 ```azurecli
 # Update these variables with the name and resource group of your API Management instance
-APIM_NAME={your APIM instance name}
-RG_NAME={your resource group name}
+APIM_NAME="myAPIM"
+RG_NAME="myResourceGroup"
 
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
