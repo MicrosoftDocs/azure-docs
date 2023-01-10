@@ -22,6 +22,16 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
+### December 2022
+
+* General availability: Azure Cosmos DB for PostgreSQL is now available in Sweden Central and Switzerland West regsions. 
+	* See [full list of supported Azure regions](resources-regions.md).
+* PostgreSQL 15 is now the default Postgres version for Azure Cosmos DB for PostgreSQL in Azure portal. 
+	* See [all supported PostgreSQL versions](reference-versions.md). 
+	* See [this guidance](howto-upgrade.md) for the steps to upgrade your Azure Cosmos DB for PostgreSQL cluster to PostgreSQL 15.
+
+
+
 ### November 2022
 
 * General availability: [Cross-region cluster read replicas](concepts-read-replicas.md) for improved read scalability and cross-region disaster recovery (DR).
