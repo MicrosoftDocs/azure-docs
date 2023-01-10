@@ -7,7 +7,7 @@ ms.suite: integration
 author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
-ms.topic: conceptual#authentication-types-for-triggers-and-actions-that-support-authentication
+ms.topic: conceptual
 ms.date: 12/15/2022
 # As a BizTalk Server customer, I want to better understand why I should migrate to Azure Integration Services in the cloud from on-premises BizTalk Server.
 ---
