@@ -447,9 +447,9 @@ az ad group delete --group opssre
 
 ## Next steps
 
-For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS][rbac-authorization].
+* For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS][rbac-authorization].
 
-For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
+* For best practices on identity and resource control, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
