@@ -7,13 +7,13 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/10/2023
 ms.author: pauljewell
 ms.devlang: python
-ms.custom: devx-track-python, devguide-python
+ms.custom: devx-track-python, devguide-pythons
 ---
 
-# Manage container properties and metadata using the Python client library
+# Manage container properties and metadata with Python
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 

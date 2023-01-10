@@ -7,14 +7,14 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/10/2023
 ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# Create a container in Azure Storage using the Python client library
+# Create a blob container with Python
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create containers with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 

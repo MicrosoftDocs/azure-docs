@@ -8,13 +8,13 @@ ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/10/2023
 ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
-# Create and manage container leases with Python
+# Create and manage blob container leases with Python
 
 This article shows how to create and manage container leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
