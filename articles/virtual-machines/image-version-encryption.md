@@ -1,5 +1,5 @@
 ---
-title: Create an encrypted image version with customer-managed keys  
+title: Create an encrypted image version with customer-managed keys
 description: Create an image version in an Azure Compute Gallery, by using customer-managed encryption keys.
 author: mattmcinnes
 ms.service: virtual-machines
@@ -44,7 +44,7 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 
 - After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
 
-- VM image version source does not currently support customer-managed key encryption.
+- VM image version source doesn't currently support customer-managed key encryption.
 
 ## PowerShell
 
