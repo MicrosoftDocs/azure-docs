@@ -89,18 +89,13 @@ This procedure describes how to send a software version update to one or more OT
 >
 > For example, you might want to first send the update to your sensor and then an administrator to run the installation during a planned maintenance window.
 
-**Prerequisites**:
-
-- You must be updating a sensor from version [22.2.3](release-notes.md#2223-5) or higher.
-
-- Verify that your firewall rules are configured as needed to support remote updates. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal). <!--need to check this with Yair.-->
-
+**Prerequisites**: A cloud-connected sensor on [22.2.3](release-notes.md#2223-5) or higher that's not yet on the latest version available.
 
 **To send the software update to your OT sensor**:
 
 1. In the Azure portal, go to **Defender for IoT** > **Sites and sensors** and identify the sensors that have legacy versions installed.
 
-    If you know your site and sensor name, you can browse or search for it directly. Alternately, filter the sensors listed by *Sensor version*, to show sensors with versions earlier than the most recent version available, and *Remote updates supported*. For example:
+    If you know your site and sensor name, you can browse or search for it directly. Alternately, filter the sensors listed to show only cloud-connected, OT sensors that have *Remote updates supported*, and have legacy software version installed. For example:
 
     :::image type="content" source="media/update-ot-software/filter-remote-update.png" alt-text="Screenshot of how to filter for OT sensors that are ready for remote update.":::
 
