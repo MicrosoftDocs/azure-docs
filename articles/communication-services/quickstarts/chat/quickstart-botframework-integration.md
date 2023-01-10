@@ -237,7 +237,7 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: thr
 
 ### Send a message to a chat thread
 
-Use `SendMessage` to send a message to a thread.
+Use `SendMessage` to send a message to a thread:
 
 ```csharp
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
@@ -253,7 +253,7 @@ string messageId = sendChatMessageResult.Id;
 
 ### Receive chat messages from a chat thread
 
-You can retrieve chat messages by polling the `GetMessages` method on the chat thread client at specified intervals:
+You can get chat messages by polling the `GetMessages` method on the chat thread client at specified intervals:
 
 ```csharp
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
@@ -263,22 +263,23 @@ await foreach (ChatMessage message in allMessages)
 }
 ```
 
-You should see bot's echo reply to "Hello World" in the list of messages.
-When creating the chat applications, you can also receive real-time notifications by subscribing to listen for new incoming messages using our JavaScript or mobile SDKs. An example using JavaScript SDK would be:
+Check the list of messages for the bot's echo reply to "Hello World".
+
+You can use JavaScript or the Azure mobile SDKs to subscribe to incoming message notifications:
 
 ```javascript
-// open notifications channel
+// Open notifications channel
 await chatClient.startRealtimeNotifications();
-// subscribe to new notification
+// Subscribe to new notifications
 chatClient.on("chatMessageReceived", (e) => {
   console.log("Notification chatMessageReceived!");
-  // your code here
+  // Your code here
 });
 ```
 
 ### Clean up the chat thread
 
-Delete the thread when finished.
+When you're finished using the chat thread, delete the thread:
 
 ```csharp
 chatClient.DeleteChatThread(threadId);
@@ -289,13 +290,14 @@ chatClient.DeleteChatThread(threadId);
 To deploy the chat application:
 
 1. In Visual Studio, open the chat project.
+
 1. Right-click the **ChatQuickstart** project and select **Publish**:
 
-   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Screenshot of deploying the chat application to Azure from Visual Studio.":::
+   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Screenshot that shows deploying the chat application to Azure from Visual Studio.":::
 
 ## More things you can do with a bot
 
-In addition to sending a plain text message, a bot is also able to receive many other activities from the user through Azure Communications Services Chat channel including
+In addition to sending a plain-text message, a bot also can receive many other activities from the user through Azure Communications Services Chat channel including
 
 - Conversation update
 - Message update
@@ -443,7 +445,7 @@ Event payload comprises all JSON fields in the message content except `Name`,  w
 }
 ```
 
-The metadata field `"microsoft.azure.communication.chat.bot.contenttype"` is only needed in user to bot direction. It is not needed in bot to user direction.
+The metadata field `"microsoft.azure.communication.chat.bot.contenttype"` is needed only in the user-to-bot direction. It's not needed in the bot-to-user direction.
 
 ## Supported bot activity fields
 
@@ -494,6 +496,7 @@ The metadata field `"microsoft.azure.communication.chat.bot.contenttype"` is onl
 
   - `Name`
   - `Value`
+
 - Typing activity
 
 #### Other common fields
@@ -520,13 +523,15 @@ There may be certain use cases where two bots need to be added to the same chat 
 
 ## Troubleshoot
 
+The following sections describe ways to troubleshoot common scenarios.
+
 ### Chat channel can't be added
 
 In the Azure Bot Framework portal, go to **Configuration** > **Bot Messaging** to verify that the endpoint has been set correctly.
 
 ### Bot gets a forbidden exception while replying to a message
 
-Verify that bot's Microsoft App ID and secret are saved correctly in the bot configuration file uploaded to the webapp.
+Verify that bot's Microsoft App ID and password are saved correctly in the bot configuration file uploaded to the web app.
 
 ### Bot can't be added as a participant
 
