@@ -38,9 +38,9 @@ The [Activity log](../essentials/activity-log.md) is collected automatically and
 You can [view the Activity log](../essentials/activity-log.md#view-the-activity-log) for an individual machine or for all resources in a subscription. You should create a diagnostic setting to send this data into the same Log Analytics workspace used by your Azure Monitor agent to analyze it with the other monitoring data collected for the virtual machine. There's no cost for ingestion or retention of Activity log data. See [Create diagnostic settings](../essentials/diagnostic-settings.md).
 
 ### VM insights
-By default, VM insights will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. [Enable this collection](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) if you want to use this feature.
+By default, [VM insights](../vm/vminsights-overview.md) will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. [Enable this collection](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) if you want to use this feature.
 
-When you enable VM insights, then it will create a data collection rule that collects the following:
+When you enable VM insights, then it will create a data collection rule, with the **_MSVMI-_** prefix that collects the following:
 
 - Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace.
 - If you specified processes and dependencies to be collected, then the following tables are populated:
@@ -50,7 +50,7 @@ When you enable VM insights, then it will create a data collection rule that col
   - [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) - Traffic for inbound and outbound connections to and from the machine
   - [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) - Processes running on the machine
 
-
+A previously created data collection rule, can be targeted when enabling additional virtual machines, without being forced to create a new one for each VM.
 
 ## Controlling costs
 Since your Azure Monitor cost is dependent on how much data you collect, you should ensure that you're not collecting any more than you need to meet your monitoring requirements. Your configuration will be a balance between your budget and how much insight you want into the operation of your virtual machines.
