@@ -55,13 +55,20 @@ To set up a Log Analytics workspace for data collection:
     1. [Access control](../logs/manage-access.md).
 
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
-    1. Define a table's log data plan.
+    1. Define each table's log data plan. 
+    
+        The default log data plan is Analytics, which lets you take advantage of Azure Monitor's rich monitoring and analytics capabilities. If youYou can 
+    
     1. Set a data retention and archiving policy for specific tables, if you need them to be different form the default workspace-level data retention and archiving policy. 
     1. Modify the table schema based on your data model.
 
-## 2. Migrate Splunk artifacts
+## 2. Migrate Splunk artifacts to Azure Monitor
 
+To migrate most Splunk artifacts, you need to translate Splunk Processing Language (SPL) to Kusto Query Language (KQL). For more information, see the [SPL to KQL cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet) and [Get started with log queries in Azure Monitor](../logs/get-started-queries.md).
+T
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png" alt-text="Diagram that shows Azure Monitor capabilities related to insights, visualization, analysis, and responsive actions." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png":::
+
+This table lists Splunk artifacts and provides links to guidance on how to set up the equivalent artifacts in Azure Monitor Logs:
 
 |Splunk artifact| Azure Monitor artifact|
 |---|---|
