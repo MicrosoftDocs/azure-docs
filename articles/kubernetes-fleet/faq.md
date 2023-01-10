@@ -48,7 +48,7 @@ Azure Kubernetes Fleet Manager resource is a regional resource. Support for regi
 ## What happens when the user changes the cluster identity of a joined cluster?
 The member agent will automatically be aware of the identity and will communicate with the hub using the new token.  \
 However, the fleet hub is unaware of the new identity, and needs to be reconfigured to authorize the member. \
-To do so, you can perform a PutMember operation to mitigate this issue.
+You can join the member cluster to the fleet again by performing a PutMember operation to notify the fleet hub to pick up the new identity.
 
 ## Roadmap
 
