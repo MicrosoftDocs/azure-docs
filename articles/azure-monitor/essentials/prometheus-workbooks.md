@@ -49,7 +49,7 @@ Azure Workbooks uses [data sources](../visualize/workbooks-data-sources.md#prome
 8.	(optional) Make additional adjustments and customizations using the various options for time range, visualization type, size, and other settings
 9.	Once all changes are finalized, select the “Done Editing” at the bottom of the section and save your work
 
-![Screenshot that shows sample PromQL query](./media/prometheus-workbooks/prometheus-qiery.png)
+![Screenshot that shows sample PromQL query](./media/prometheus-workbooks/prometheus-query.png)
 
 ## Troubleshooting
 
