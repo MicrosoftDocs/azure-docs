@@ -90,7 +90,7 @@ Run history is organized by the seed assets scanned during the discovery run. To
 
 ### Viewing seeds and exclusions
 
-The Discovery page defaults to a list view of Discovery Groups, but users can also view lists of all seeds and excluded entities from this page. Simply click the either tab to view a list of all the seeds or exclusions that power your discovery groups.
+The Discovery page defaults to a list view of Discovery Groups, but users can also view lists of all seeds and excluded entities from this page. Simply click either tab to view a list of all the seeds or exclusions that power your discovery groups.
 
 ### Seeds
 
