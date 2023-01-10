@@ -13,8 +13,8 @@ ms.date: 01/06/2023
 
 This article provides a comprehensive list of language support by service features in Azure Video Indexer. For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
-Some languages are supported only through the API (see [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages)) and not through the Video Indexer website or widgets. To make sure a language is supported for search, transcription, or translation by the Azure Video Indexer website and widgets, see the [frontend language 
-support table](#language-support-in-frontend-experiences) further below.
+Some languages are supported only through the API (see [Get Supported Languages](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Supported-Languages)) and not through the Video Indexer website or widgets. To make sure a language is supported for search, transcription, or translation by the Azure Video Indexer website and widgets, see the [front end language 
+support table](#language-support-in-front-end-experiences) further below.
 
 ## API language support
 
@@ -140,9 +140,9 @@ When [uploading a video](https://api-portal.videoindexer.ai/api-details#api=Oper
 > Language identification (LID) and Multi-language identification (MLID) compares speech at the language level, such as English and German. 
 > Do not include multiple locales of the same language in the custom languages list.
 
-## Language support in frontend experiences
+## Language support in front end experiences
 
-The following table describes language support in the Azure Video Indexer frontend experiences.
+The following table describes language support in the Azure Video Indexer front end experiences.
 
 * website - the website column lists supported languages for the [Azure Video Indexer website](https://aka.ms/vi-portal-link). For for more information, see [Get started](video-indexer-get-started.md).
 * widgets - the [widgets](video-indexer-embed-widgets.md) column lists supported languages for translating the index file. For for more information, see [Get started](video-indexer-embed-widgets.md).
