@@ -53,10 +53,10 @@ The user flow of the App will be as follows:
 ![flow diagram showing user flow through the call readiness sample](../media/call-readiness/call-readiness-flow-diagram.png)
 <!--
 This is the mermaid definition for the above graph. Use this to edit and regenerate the graph.
-Arrows have been split with a / to prevent this comment block from breaking.
+Note: Arrows have been split with a / to prevent this comment block from breaking.
 ```mermaid
 flowchart TD
-    Start -/-> BrowserCheck{Is Environment supported}
+    Start -.-> BrowserCheck{Is Environment supported}
     subgraph S1[Part 1: Check Browser Support]
         BrowserCheck -/-> |supported| C1[Continue]
         BrowserCheck -/-> |operating system unsupported|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
@@ -64,7 +64,7 @@ flowchart TD
         BrowserCheck -/-> |browser version unsupported|BrowserUnsupportedPrompt[Show 'Browser Unsupported' Prompt]
     end
     subgraph S2[Part 2: Get Device Permissions]
-        C1 -/-> DeviceCheckStart{Check Device Permission State}
+        C1 -.-> DeviceCheckStart{Check Device Permission State}
         DeviceCheckStart -/-> |Device Permissions Unknown|DeviceCheckerGeneric[Show 'Checking for device permissions' Prompt]
         DeviceCheckerGeneric -/->|Permissions updated| DeviceCheckStart
         DeviceCheckStart -/-> |User needs prompted|DeviceCheckerPrompt[Show 'Please Accept Permissions' Prompt]
@@ -73,10 +73,10 @@ flowchart TD
         DeviceCheckStart --/-> |Permissions Accepted|C2[Continue]
     end
     subgraph Part 3: Device Setup
-        C2 -/-> DeviceSetup[Camera and Microphone Setup]
+        C2 -.-> DeviceSetup[Camera and Microphone Setup]
         DeviceSetup -/-> |User updates Audio and Video| DeviceSetup
     end
-    DeviceSetup -/-> TestComplete[Test Complete]
+    DeviceSetup -.-> TestComplete[Call Readiness complete. User is ready to join their Call]
 ```
 -->
 
