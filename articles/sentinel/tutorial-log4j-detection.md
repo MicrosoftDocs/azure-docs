@@ -144,7 +144,7 @@ In the **Automated response** tab:
 
     Select the image below for a display of the full text of the review.
 
-    :::image type="content" source="media/tutorial-log4j-detection/review-and-create-tab.png" alt-text="Screenshot of the Review and Create tab of the Analytics rule wizard." lightbox="media/tutorial-log4j-detection/full-review-and-create-tab.png":::
+    :::image type="content" source="media/tutorial-log4j-detection/review-and-create-tab.png" alt-text="Screenshot of the Review and Create tab of the Analytics rule wizard." lightbox="media/tutorial-log4j-detection/full-review-and-create.png":::
 
 ## Verify the success of the rule
   
