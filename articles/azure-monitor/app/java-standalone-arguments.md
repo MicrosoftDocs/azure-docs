@@ -2,7 +2,7 @@
 title: Add the JVM arg - Application Insights for Java
 description: Learn how to add the JVM arg that enables Application Insights for Java.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 01/09/2023
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
