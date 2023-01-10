@@ -4,7 +4,7 @@ description: This topic provides the remediation steps for LargeObject errors ca
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -31,7 +31,6 @@ To obtain the list of objects in your tenant with LargeObject errors, use one of
 
  * If your tenant is enabled for Azure AD Connect Health for sync, you can refer to the [Synchronization Error Report](./how-to-connect-health-sync.md) provided.
  
- * The notification email for directory synchronization errors that is sent at the end of each sync cycle has the list of objects with LargeObject errors. 
  * The [Synchronization Service Manager Operations tab](./how-to-connect-sync-service-manager-ui-operations.md) displays the list of objects with LargeObject errors if you click the latest Export to Azure AD operation.
  
 ## Mitigation options
@@ -41,7 +40,7 @@ Until the LargeObject error is resolved, other attribute changes to the same obj
 
  * Implement an **outbound sync rule** in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Azure AD for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
- * Reduce the number of certificate values on the on-premises AD object (15 or less) by removing values that are no longer in use by your organization. This is suitable if the attribute bloat is caused by expired or unused certificates. You can use the [PowerShell script available here](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) to help find, backup, and delete expired certificates in your on-premises AD. Before deleting the certificates, it is recommended that you verify with the Public-Key-Infrastructure administrators in your organization.
+ * Reduce the number of certificate values on the on-premises AD object (15 or less) by removing values that are no longer in use by your organization. This is suitable if the attribute bloat is caused by expired or unused certificates. You can use the cmdlet [Remove-ADSyncToolsExpiredCertificates](reference-connect-adsynctools.md#remove-adsynctoolsexpiredcertificates) to help find, backup, and delete expired certificates in your on-premises AD. Before deleting the certificates, it is recommended that you verify with the Public-Key-Infrastructure administrators in your organization.
 
  * Configure Azure AD Connect to exclude the userCertificate attribute from being exported to Azure AD. In general, we do not recommend this option since the attribute may be used by Microsoft Online Services to enable specific scenarios. In particular:
     * The userCertificate attribute on the User object is used by Exchange Online and Outlook clients for message signing and encryption. To learn more about this feature, refer to article [S/MIME for message signing and encryption](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption).

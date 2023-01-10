@@ -456,6 +456,8 @@
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Use managed identity with an application
       href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
+    - name: Deploy custom image
+      href: how-to-deploy-custom-image.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -532,6 +534,8 @@
           href: service-fabric-managed-disk.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
+        - name: Set up Azure Active Directory authentication in Azure portal
+          href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md
         - name: Create using Resource Manager
@@ -548,6 +552,8 @@
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
           href: service-fabric-scale-up-primary-node-type.md
+        - name: Scale up non-primary node type
+          href: service-fabric-scale-up-non-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
         - name: Remove a node type

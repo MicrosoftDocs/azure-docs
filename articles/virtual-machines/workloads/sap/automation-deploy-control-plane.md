@@ -1,6 +1,6 @@
 ---
-title: About Control Plane deployment for the SAP Deployment automation framework
-description: Overview of the Control Plan deployment process within the SAP deployment automation framework on Azure.
+title: About Control Plane deployment for the SAP on Azure Deployment Automation Framework
+description: Overview of the Control Plan deployment process within the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Deploy the control plane
 
-The control plane deployment for the [SAP deployment automation framework on Azure](automation-deployment-framework.md) consists of the following components:
+The control plane deployment for the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) consists of the following components:
  - Deployer
  - SAP library
 
@@ -317,6 +317,7 @@ az ad app update `
 # [Azure DevOps](#tab/devops)
 
 It is currently not possible to perform this action from Azure DevOps.
+
 ---
 
 > [!TIP]

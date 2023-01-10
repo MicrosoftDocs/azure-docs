@@ -4,7 +4,7 @@ description: Get started with multi-container apps on Azure App Service by deplo
 keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, wordpress, azure db for mysql, production database with containers
 author: msangapu-msft
 ms.topic: quickstart
-ms.date: 08/23/2019
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 ---
@@ -26,7 +26,7 @@ This article requires version 2.0.32 or later of the Azure CLI. If using Azure C
 
 ## Download the sample
 
-For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
+For this quickstart, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 

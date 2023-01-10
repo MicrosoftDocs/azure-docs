@@ -3,7 +3,7 @@ title: Group management permissions for Azure AD custom roles - Azure Active Dir
 description: Group management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

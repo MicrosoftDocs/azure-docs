@@ -143,9 +143,6 @@ Clients in VNets with existing private endpoints face constraints when accessing
 
 This constraint is a result of the DNS changes made when account A2 creates a private endpoint.
 
-### Network Security Group rules for subnets with private endpoints
-
-Currently, you can't configure [Network Security Group](../../virtual-network/network-security-groups-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are not applied to the private endpoint. They are applied only to other endpoints (For example: network interface controllers). A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
 
 ### Copying blobs between storage accounts
 

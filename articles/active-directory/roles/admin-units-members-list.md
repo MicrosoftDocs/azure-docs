@@ -4,7 +4,7 @@ description: List users, groups, or devices in an administrative unit in Azure A
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

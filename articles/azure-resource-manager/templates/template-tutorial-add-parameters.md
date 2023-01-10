@@ -10,13 +10,13 @@ ms.custom: devx-track-azurepowershell
 
 # Tutorial: Add parameters to your ARM template
 
-In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add an [Azure storage account](../../storage/common/storage-account-create.md) to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
+In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add an [Azure storage account](../../storage/common/storage-account-create.md) to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This instruction takes **14 minutes** to complete.
 
 ## Prerequisites
 
 We recommend that you complete the [tutorial about resources](template-tutorial-add-resource.md), but it's not required.
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/) installed and working with the Azure Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/) installed and working with the Azure Resource Manager Tools extension, and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
@@ -74,7 +74,7 @@ This way of handling updates means your template can include all of the resource
 
 ## Customize by environment
 
-Parameters let you customize the deployment by providing values that tailored for a particular environment. You can pass different values, for example, based on whether you're deploying to a development, testing, or production environment.
+Parameters let you customize the deployment by providing values that are tailored for a particular environment. You can pass different values, for example, based on whether you're deploying to a development, testing, or production environment.
 
 The previous template always deploys a standard locally redundant storage (LRS) **Standard_LRS** account. You might want the flexibility to deploy different stock keeping units (SKUs) depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste it over your template.
 

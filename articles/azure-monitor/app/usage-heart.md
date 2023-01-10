@@ -35,7 +35,7 @@ These dimensions are measured independently, but they interact with each other a
 ## Get started
 ### Prerequisites
  - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
- - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+ - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
  - Instrument the below attributes to calculate HEART metrics:
 
   | Source          | Attribute            | Description                                |
@@ -182,7 +182,7 @@ Set up a custom task using the below parameters.
 
 
 
-## FAQs
+## Frequently asked questions
 
 ### How do I view the data at different grains? (Daily, monthly, weekly)?
 You can click on the 'Date Grain' filter to change the grain (As shown below)

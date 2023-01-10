@@ -9,8 +9,6 @@ ms.author: yelevin
 
 # Relate alerts to incidents in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article shows you how to relate alerts to your incidents in Microsoft Sentinel. This feature allows you to manually or automatically add alerts to, or remove them from, existing incidents as part of your investigation processes, refining the incident scope as the investigation unfolds. 
 
 > [!IMPORTANT]
@@ -23,7 +21,7 @@ One thing that this feature allows you to do is to include alerts from one data 
 
 This feature is built into the latest version of the Microsoft Sentinel API, which means that it's available to the Logic Apps connector for Microsoft Sentinel. So you can use playbooks to automatically add an alert to an incident if certain conditions are met.
 
-You can also use this automation to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
+You can also use this automation to add alerts to [manually-created incidents](create-incident-manually.md), to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
 
 ## Add alerts using the investigation graph
 
@@ -65,7 +63,7 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
 - The alert you want to add already belongs to another incident.
 
-    In this case you'll see a message that the alert is part of another incident or incidents, and asked if you want to proceed. Select **OK** to add the alert or **Cancel** to leave things as they were.
+    In this case you'll see a message telling you that the alert is part of another incident or incidents, and asking if you want to proceed. Select **OK** to add the alert or **Cancel** to leave things as they were.
 
     Adding the alert to this incident *will not remove it* from any other incidents. Alerts can be related to more than one incident. If you want, you can remove the alert manually from the other incident(s) by following the link(s) in the message prompt above.
 
@@ -114,7 +112,7 @@ You're not limited to the portal to use this feature. It's also accessible throu
 You add an alert to an incident by creating a relationship between them. Use the following endpoint to add an alert to an existing incident. After this request is made, the alert joins the incident and will be visible in the list of alerts in the incident in the portal.
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2021-10-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2022-07-01-preview
 ```
 
 The request body looks like this:
@@ -132,7 +130,7 @@ The request body looks like this:
 You remove an alert from an incident by deleting the relationship between them. Use the following endpoint to remove an alert from an existing incident. After this request is made, the alert will no longer be connected to or appear in the incident.
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2021-10-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}?api-version=2022-07-01-preview
 ```
 
 ### List alert relationships
@@ -140,7 +138,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 You can also list all the alerts that are related to a particular incident, with this endpoint and request:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations?api-version=2021-10-01-preview
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations?api-version=2022-07-01-preview
 ```
 
 ### Specific error codes
@@ -162,4 +160,5 @@ The [general API documentation](/rest/api/securityinsights/preview/incident-rela
 In this article, you learned how to add alerts to incidents and remove them using the Microsoft Sentinel portal and API. For more information, see:
 
 - [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
+- [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md)
 - [Incident relations group in the Microsoft Sentinel REST API](/rest/api/securityinsights/preview/incident-relations)

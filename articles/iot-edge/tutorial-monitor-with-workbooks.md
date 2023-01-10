@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Monitor IoT Edge devices
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use Azure Monitor workbooks to monitor the health and performance of your Azure IoT Edge deployments.
 
@@ -73,7 +73,7 @@ Follow these steps to deploy and configure the collector module:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
+1. From the menu on the left, select **Devices** under the **Device management** menu.
 
 1. Select the device ID of the target device from the list of IoT Edge devices to open the device details page.
 

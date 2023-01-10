@@ -28,7 +28,7 @@ landingContent:
           - text: What is Event Hubs?
             url: event-hubs-about.md
           - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md
+            url: azure-event-hubs-kafka-overview.md
           - text: What is Event Hubs Capture?
             url: event-hubs-capture-overview.md            
           - text: What is Event Hubs Premium?            
@@ -56,11 +56,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Explore Azure Event Hubs
-            url: /learn/modules/azure-event-hubs/
+            url: /training/modules/azure-event-hubs/
           - text: Enable reliable messaging for Big Data applications using Azure Event Hubs
-            url: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
+            url: /training/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
 
   # Card
   - title: Create a dedicated cluster
@@ -80,7 +80,7 @@ landingContent:
       - linkListType: overview      
         links:
           - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md    
+            url: azure-event-hubs-kafka-overview.md    
       - linkListType: quickstart
         links:
           - text: Stream into Event Hubs for Apache Kafka

@@ -4,7 +4,7 @@ description: Explains how to troubleshoot connectivity issues with Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -76,7 +76,7 @@ If you use a **Microsoft account** rather than a **school or organization** acco
 ![A Microsoft Account is used](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### The MFA endpoint cannot be reached
-This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your global admin has MFA enabled.
+This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your Hybrid Identity Administrator has MFA enabled.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * If you see this error, verify that the endpoint **secure.aadcdn.microsoftonline-p.com** has been added to the proxy.
@@ -205,7 +205,7 @@ User was authenticated successfully. However user is not assigned global admin r
 </div>
 
 ### Privileged Identity Management Enabled
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+Authentication was successful. Privileged identity management has been enabled and you are currently not a Hybrid Identity Administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 <div id="get-msolcompanyinformation-failed">
 <!--

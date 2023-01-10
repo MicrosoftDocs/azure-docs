@@ -19,6 +19,8 @@ The Azure Synapse Analytics workspace enables you to create two types of databas
 - **Lake databases** where you can define tables on top of lake data using Apache Spark notebooks, database templates, or Microsoft Dataverse (previously Common Data Service). These tables will be available for querying using T-SQL (Transact-SQL) language using the serverless SQL pool. 
 - **SQL databases** where you can define your own databases and tables directly using the serverless SQL pools. You can use T-SQL CREATE DATABASE, CREATE EXTERNAL TABLE to define the objects and add additional SQL views, procedures, and inline-table-value functions on top of the tables. 
 
+![Diagram that shows Lake and SQL databases that are created on top of Data Lake files.](../media/metadata/shared-databases.png)
+
 This article focuses on [lake databases](../database-designer/concepts-lake-database.md) in a serverless SQL pool in Azure Synapse Analytics.
 
 Azure Synapse Analytics allows you to create lake databases and tables using Spark or database designer, and then analyze data in the lake databases using the serverless SQL pool. The lake databases and the tables (parquet or CSV-backed) that are created on the Apache Spark pools, [database templates](../database-designer/concepts-database-templates.md), or Dataverse are automatically available for querying with the serverless SQL pool engine. The lake databases and tables that are modified will be available in serverless SQL pool after some time. There will be a delay until the changes made in Spark or Database designed appear in serverless.
@@ -27,7 +29,7 @@ Azure Synapse Analytics allows you to create lake databases and tables using Spa
 
 To manage Spark created lake databases, you can use Apache Spark pools or [Database designer](../database-designer/create-empty-lake-database.md). For example, create or delete a lake database through a Spark pool job. You can't create a lake database or the objects in the lake databases using the serverless SQL pool.
 
-The Spark default database is available in the serverless SQL pool context as a lake database called `default`.
+The Spark `default` database is available in the serverless SQL pool context as a lake database called `default`.
 
 >[!NOTE]
 > You cannot create a lake and a SQL database in the serverless SQL pool with the same name. 

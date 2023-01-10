@@ -117,7 +117,7 @@ To add a CSV file to your load test by using the Azure portal:
 
 ::: zone pivot="experience-pipelines,experience-ghactions"
 
-If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
+If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-identify-performance-regression-with-cicd.md).
 
 To add a CSV file to your load test:
 
@@ -192,6 +192,6 @@ To configure your load test to split input CSV files:
 
 ## Next steps
 
-- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
-
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [Set up a high-scale load test](./how-to-high-scale-load.md).
+- Learn how to [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [use JMeter plugins](./how-to-use-jmeter-plugins.md).

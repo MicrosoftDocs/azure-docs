@@ -55,13 +55,13 @@ Currently, you can add custom security attributes for the following Azure AD obj
 - Azure AD enterprise applications (service principals)
 - Managed identities for Azure resources
 
-## How do custom security attributes compare with directory schema extensions?
+## How do custom security attributes compare with directory extensions?
 
-Here are some ways that custom security attributes compare with [directory schema extensions](../develop/active-directory-schema-extensions.md):
+Here are some ways that custom security attributes compare with [directory extensions](../develop/active-directory-schema-extensions.md):
 
-- Directory schema extensions cannot be used for authorization scenarios and attributes because the access control for the extension attributes is tied to the Azure AD object. Custom security attributes can be used for authorization and attributes needing access control because the custom security attributes can be managed and protected through separate permissions.
-- Directory schema extensions are tied to an application and share the lifecycle of an application. Custom security attributes are tenant wide and not tied to an application.
-- Directory schema extensions support assigning a single value to an attribute. Custom security attributes support assigning multiple values to an attribute.
+- Directory extensions cannot be used for authorization scenarios and attributes because the access control for the extension attributes is tied to the Azure AD object. Custom security attributes can be used for authorization and attributes needing access control because the custom security attributes can be managed and protected through separate permissions.
+- Directory extensions are tied to an application and share the lifecycle of an application. Custom security attributes are tenant wide and not tied to an application.
+- Directory extensions support assigning a single value to an attribute. Custom security attributes support assigning multiple values to an attribute.
 
 ## Steps to use custom security attributes
 
@@ -168,9 +168,11 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
-## Graph Explorer
+## Microsoft Graph APIs
+    
+You can manage custom security attributes programmatically using Microsoft Graph APIs. For more information, see [Overview of custom security attributes using the Microsoft Graph API](/graph/api/resources/custom-security-attributes-overview).
 
-If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) to more easily try the Microsoft Graph APIs for custom security attributes. For more information, see [Overview of custom security attributes using the Microsoft Graph API](/graph/api/resources/custom-security-attributes-overview).
+You can use an API client such as [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) or Postman to more easily try the Microsoft Graph APIs for custom security attributes. 
 
 ![Screenshot that shows a Microsoft Graph API call for custom security attributes.](./media/custom-security-attributes-overview/graph-explorer-success.png)
 

@@ -16,34 +16,15 @@ ms.collection: M365-identity-device-management
 
 # Clean up unmanaged Azure Active Directory accounts
 
-Azure Active Directory (Azure AD) supports self-service sign-up for
-email-verified users. Users can create Azure AD accounts if they can
-verify email ownership. To learn more, see, [What is self-service
-sign-up for Azure Active
-Directory?](./directory-self-service-signup.md)
+Prior to August 2022, Azure AD B2B supported Self-service sign-up for email-verified users which allowed users to create Azure AD accounts if they can verify ownership of the email. These accounts were created in unmanaged (aka “viral”) tenants. This meant that the user created an account with an organization’s domain that is not under the lifecycle management of the organization’s IT and access can persist after the user leaves the organization. To learn more, see, [What is self-service sign-up for Azure Active Directory?](./directory-self-service-signup.md)
 
-However, if a user creates an account, and the domain isn't verified in
-an Azure AD tenant, the user is created in an unmanaged, or viral
-tenant. The user can create an account with an organization's domain,
-not under the lifecycle management of the organization's IT. Access can
-persist after the user leaves the organization.
+The creation of unmanaged Azure AD accounts via Azure AD B2B is now deprecated and new B2B invitations cannot be redeemed with these accounts as of August 2022. However, invitations sent prior to August 2022 could have been redeemed with unmanaged Azure AD accounts. 
 
 ## Remove unmanaged Azure AD accounts
 
-You can remove unmanaged Azure AD accounts from your Azure AD tenants
-and prevent these types of accounts from redeeming future invitations.
+Admins can use either this sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests) or PowerShell cmdlets in [AzureAD/MSIdentityTools](https://github.com/AzureAD/MSIdentityTools/wiki/) to remove existing unmanaged Azure AD accounts from your Azure AD tenants. These tools allow you to identify viral users in your Azure AD tenant and reset the redemption status of these users.  
 
-1. Enable [email one-time
-    passcode](../external-identities/one-time-passcode.md#enable-email-one-time-passcode)
-    (OTP).
-
-2. Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests) or
-    go to
-    [AzureAD/MSIdentityTools](https://github.com/AzureAD/MSIdentityTools/wiki/)
-    PowerShell module to identify viral users in an Azure AD tenant and
-    reset user redemption status.
-
-Once the above steps are complete, when users with unmanaged Azure AD accounts try to access your tenant, they'll re-redeem their invitations. However, because Email OTP is enabled, Azure AD will prevent users from redeeming with an existing unmanaged Azure AD account and they’ll redeem with another account type. Google Federation and SAML/WS-Fed aren't enabled by default. So by default, these users will redeem with either an MSA or Email OTP, with MSA taking precedence. For a full explanation on the B2B redemption precedence, refer to the [redemption precedence flow chart](../external-identities/redemption-experience.md#invitation-redemption-flow).
+Once you have run one of the available tools, when users with unmanaged Azure AD accounts try to access your tenant, they will re-redeem their invitations. However, Azure AD will prevent users from redeeming with an existing unmanaged Azure AD account and they’ll redeem with another account type. Google Federation and SAML/WS-Fed are not enabled by default. So by default, these users will redeem with either an MSA or Email OTP, with MSA taking precedence. For a full explanation on the B2B redemption precedence, refer to the [redemption precedence flow chart](../external-identities/redemption-experience.md#invitation-redemption-flow).
 
 ## Overtaken tenants and domains
 
@@ -59,11 +40,7 @@ In some cases, overtaken domains might not be updated, for example, missing a DN
 
 ## Reset redemption using a sample application
 
-Before you begin, to identify and reset unmanaged Azure AD account redemption:
-
-1. Ensure email OTP is enabled.
-
-2. Use the sample application on
+Use the sample application on
     [Azure-Samples/Remove-Unmanaged-Guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests).
 
 ## Reset redemption using MSIdentityTools PowerShell Module

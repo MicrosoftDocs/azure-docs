@@ -1,10 +1,10 @@
 ---
 title: Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters (preview)
 description: In this how-to article, learn how to configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters (preview).
-author: rahulm23
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.author: rahulmehta
+ms.author: johnmarc
 ms.date: 06/13/2022
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal, ovn, ovn-kubernetes, CNI, Container Network Interface

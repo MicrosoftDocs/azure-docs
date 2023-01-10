@@ -40,7 +40,10 @@ See [MLflow and Azure Machine Learning](../concept-mlflow.md) for all supported 
 * [Create an Azure Machine Learning Workspace](../quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](../how-to-assign-roles.md#mlflow-operations).
 
-* Install and [set up Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) and make sure you install the ml extension.
+* Install and [set up Azure Machine Learning CLI (v1)](reference-azure-machine-learning-cli.md) and make sure you install the ml extension.
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 * Install and set up [Azure Machine Learning SDK for Python](introduction.md#sdk-v1).
 
 ## Track runs from your local machine or remote compute
@@ -164,7 +167,7 @@ For details about how to log metrics, parameters and artifacts in a run using ML
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [Use compute targets for model training](../how-to-set-up-training-targets.md) to learn about different compute options.
+Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [Use compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
 When submitting runs, Azure Machine Learning automatically configures MLflow to work with the workspace the run is running in. This means that there is no need to configure the MLflow tracking URI. On top of that, experiments are automatically named based on the details of the experiment submission.
 
@@ -321,7 +324,7 @@ To register and view a model from a run, use the following steps:
     mlflow.register_model(model_uri,"registered_model_name")
     ```
 
-1. View the registered model in your workspace with [Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md).
+1. View the registered model in your workspace with [Azure Machine Learning studio](https://ml.azure.com).
 
     In the following example the registered model, `my-model` has MLflow tracking metadata tagged. 
 

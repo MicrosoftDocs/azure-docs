@@ -123,6 +123,8 @@
     href: antimalware-code-samples.md
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
+  - name: Automatic VM guest patching
+    href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ffundamentals%2ftoc.json
   - name: Best practices - IaaS workloads
     href: iaas.md
   - name: Azure Marketplace images
@@ -166,6 +168,8 @@
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
     href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
+  - name: Trusted Hardware Identity Management
+    href: trusted-hardware-identity-management.md
 
 - name: Application
   items:

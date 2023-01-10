@@ -72,6 +72,9 @@ To set custom prices in an individual market, export, modify, and then import th
 1. In the dialog box that appears, click **Yes**.
 1. Select the exportedPrice.xlsx file you updated, and then click **Open**.
 
+> [!NOTE]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies).
+
 ## Choose who can see your plan
 
 You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private audience using Azure subscription IDs with the option to include a description of each subscription ID you assign. You can add a maximum of 10 subscription IDs manually or up to 10,000 subscription IDs using a .CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
@@ -119,7 +122,7 @@ In the **Version** box provide the current version of the technical configuratio
 
 ### Upload a package file
 
-Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit#validate-templates-for-azure-marketplace) before uploading the package file.
+Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before uploading the package file.
 
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 

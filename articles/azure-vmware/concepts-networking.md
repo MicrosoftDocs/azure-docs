@@ -3,7 +3,8 @@ title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 06/28/2021
+ms.date: 10/25/2022
+ms.custom: engagement-fy23
 ---
 
 # Azure VMware Solution networking and interconnectivity concepts
@@ -50,7 +51,7 @@ In the fully interconnected scenario, you can access the Azure VMware Solution f
 The diagram below shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 
 - Hot/Cold vSphere vMotion between on-premises and Azure VMware Solution.
-- On-Premises to Azure VMware Solution private cloud management access.
+- On-premises to Azure VMware Solution private cloud management access.
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagram showing the virtual network and on-premises to private cloud interconnectivity." border="false":::
 

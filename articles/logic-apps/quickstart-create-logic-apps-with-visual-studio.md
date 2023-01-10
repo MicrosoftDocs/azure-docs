@@ -30,7 +30,7 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017. Currently, Visual Studio 2022 doesn't include support for the Azure Logic Apps extension.
+  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio), which is free. The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
     > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload. 

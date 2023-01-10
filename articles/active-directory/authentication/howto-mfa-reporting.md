@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 10/04/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
@@ -24,7 +24,7 @@ This article shows you how to view the Azure AD sign-ins report in the Azure por
 
 ## View the Azure AD sign-ins report
 
-The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It lets you answer questions like the following:
+The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It answers questions like:
 
 - Was the sign-in challenged with MFA?
 - How did the user complete MFA?
@@ -59,7 +59,7 @@ This information allows admins to troubleshoot each step in a user’s sign-in, 
 - Volume of sign-ins protected by multi-factor authentication 
 - Usage and success rates for each authentication method 
 - Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
-- How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
+- How frequently authentication requirements are satisfied by token claims (where users aren't interactively prompted to enter a password, enter an SMS OTP, and so on)
 
 While viewing the sign-ins report, select the **Authentication Details** tab: 
 
@@ -71,7 +71,7 @@ While viewing the sign-ins report, select the **Authentication Details** tab:
 >[!IMPORTANT]
 >The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
 >- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
->- The **Primary authentication** row is not initially logged. 
+>- The **Primary authentication** row isn't initially logged. 
 
 The following details are shown on the **Authentication Details** window for a sign-in event that show if the MFA request was satisfied or denied:
 
@@ -103,8 +103,8 @@ The following details are shown on the **Authentication Details** window for a s
    * unable to send the mobile app notification to the device
    * unable to send the mobile app notification
    * user declined the authentication
-   * user did not respond to mobile app notification
-   * user does not have any verification methods registered
+   * user didn't respond to mobile app notification
+   * user doesn't have any verification methods registered
    * user entered incorrect code
    * user entered incorrect PIN
    * user hung up the phone call without succeeding the authentication
@@ -117,13 +117,13 @@ The following details are shown on the **Authentication Details** window for a s
 
 First, ensure that you have the [MSOnline V1 PowerShell module](/powershell/azure/active-directory/overview) installed.
 
-Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
+Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts can't authenticate against Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Identify users who have not registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
+Identify users who aren't registered for MFA by running the following PowerShell commands. This set of commands excludes disabled users since these accounts can't authenticate against Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
@@ -143,10 +143,23 @@ The following additional information and reports are available for MFA events, i
 | Report | Location | Description |
 |:--- |:--- |:--- |
 | Blocked User History | Azure AD > Security > MFA > Block/unblock users | Shows the history of requests to block or unblock users. |
-| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA Server through the NPS extension, ADFS, and MFA Server. |
+| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA Server through the NPS extension, AD FS, and MFA Server. |
 | Bypassed User History | Azure AD > Security > MFA > One-time bypass | Provides a history of MFA Server requests to bypass MFA for a user. |
 | Server status | Azure AD > Security > MFA > Server status | Displays the status of MFA Servers associated with your account. |
 
+Cloud MFA sign-in events from an on-premises AD FS adapter or NPS extension won't have all fields in the sign-in logs populated due to limited data returned by the on-premises component. You can identify these events by the resourceID _adfs_ or _radius_ in the event properties. They include:
+- resultSignature
+- appID
+- deviceDetail
+- conditionalAccessStatus
+- authenticationContext
+- isInteractive
+- tokenIssuerName
+- riskDetail, riskLevelAggregated,riskLevelDuringSignIn, riskState,riskEventTypes, riskEventTypes_v2
+- authenticationProtocol
+- incomingTokenType
+
+Organizations that run the latest version of NPS extension or use Azure AD Connect Health will have location IP address in events.
 
 ## Next steps
 

@@ -86,7 +86,7 @@ Copy the following code snippet and paste into source file: **Program.cs**
 using Azure.Storage.Queues;
 using Azure.Messaging.EventGrid;
 
-// For more detailed tutorials on storage queues, see: https://docs.microsoft.com/azure/storage/queues/storage-tutorial-queues
+// For more detailed tutorials on storage queues, see: https://learn.microsoft.com/azure/storage/queues/storage-tutorial-queues
 
 var queueClient = new QueueClient("<Storage Account Connection String>", "router-events");
 

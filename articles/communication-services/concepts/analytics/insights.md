@@ -15,7 +15,7 @@ ms.subservice: data
 # Communications Services Insights Preview
 
 ## Overview
-Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights is made possible via [Azure Monitor Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-overview.md) destination. 
 
 :::image type="content" source="media\workbooks\insights-overview-2.png" alt-text="Communication Services Insights":::
 
@@ -80,7 +80,7 @@ The **Quality** tab under **Voice and video** allows users to inspect the qualit
 
 - The proportion of **Impacted calls**, where an impacted call is defined as a call that has at least one poor quality stream
 
-- **Participant end reasons**, which keep track of the reason why a participant left a call. End reasons are [SIP codes](https://en.wikipedia.org/wiki/List_of_SIP_response_codes), which are numeric codes that describe the specific status of a signaling request. SIP codes can be grouped into six categories: *Success*, *Client Failure*, *Server Failure*, *Global Failure*, *Redirection*, and *Provisional*. The distribution of SIP code categories are shown in the pie chart on the left hand side, while a list of the specific SIP codes for participant end reasons is provided on the right hand side
+- **Participant end reasons**, which keep track of the reason why a participant left a call. End reasons are [SIP codes](https://en.wikipedia.org/wiki/List_of_SIP_response_codes), which are numeric codes that describe the specific status of a signaling request. SIP codes can be grouped into six categories: *Success*, *Client Failure*, *Server Failure*, *Global Failure*, *Redirection*, and *Provisional*. The distribution of SIP code categories is shown in the pie chart on the left hand side, while a list of the specific SIP codes for participant end reasons is provided on the right hand side
 
 :::image type="content" source="media\workbooks\voice-and-video-quality.png" alt-text="Voice and video quality":::
 
@@ -115,6 +115,16 @@ The **Chat** tab displays the data for all chat-related operations and their res
 The **SMS** tab displays the operations and results for SMS usage through an Azure Communication Services resource (we currently don’t have any data for this modality):
 
 :::image type="content" source="media\workbooks\sms.png" alt-text="SMS tab":::
+
+The **Email** tab displays delivery status, email size, and email count:
+:::image type="content" source="media\workbooks\azure-communication-services-insights-email.png" alt-text="Screenshot displays email count, size and email delivery status level that illustrate email insights":::
+
+The **Recording** tab displays data relevant to total recordings, recording format, recording channel types and number of recording per call:
+:::image type="content" source="media\workbooks\azure-communication-services-recording-insights.png" alt-text="Screenshot displays recording count, duration, recording usage by format and type as well as number of recordings per call.":::
+
+
+The **Call Automation** tab displays data about calls placed or answered using Call Automation SDK, like active call count, operations executed and errors encountered by your resource over time. You can also examine a particular call by looking at the sequence of operations taken on that call using the SDK:
+:::image type="content" source="media\workbooks\azure-communication-services-call-automation-insights.png" alt-text="Screenshot displays total call count, duration, and operation results details.":::
 
 ## Editing dashboards
 

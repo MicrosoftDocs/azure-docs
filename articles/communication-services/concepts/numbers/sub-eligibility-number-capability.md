@@ -26,11 +26,11 @@ Additional details on eligible subscription types are as follows:
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
-| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only**                                       |
+| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement**                                       |
 
 \* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
 
-\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases. Please reach out to acstns@microsoft.com for assistance with your application.
 
 ## Number capabilities
 
@@ -44,9 +44,9 @@ The tables below summarize current availability:
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
-| USA               | Short-Codes | Public Preview       | Public Preview\*     | -        | -          |
+| USA               | Short-Codes | General Availability | General Availability | -        | -          |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with UK Azure billing addresses
 
@@ -59,7 +59,7 @@ The tables below summarize current availability:
 | Canada             | Toll-Free      | Public Preview       | Public Preview       | Public Preview   | Public Preview\* |
 | Canada             | Local          | -        | -        | Public Preview   | Public Preview\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Ireland Azure billing addresses
 
@@ -75,7 +75,7 @@ The tables below summarize current availability:
 | UK                | Local     | -        | -        | Public Preview       | Public Preview\* |
 
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Denmark Azure billing addresses
 
@@ -90,7 +90,7 @@ The tables below summarize current availability:
 | UK                | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | UK                | Local     | -        | -        | Public Preview | Public Preview\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Canada Azure billing addresses
 
@@ -104,7 +104,7 @@ The tables below summarize current availability:
 | UK                | Local     | -        | -        | Public Preview | Public Preview\* |
 
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Customers with Italy Azure billing addresses
 
@@ -113,7 +113,7 @@ The tables below summarize current availability:
 | Italy   | Toll-Free** | - | - | Public Preview | Public Preview\* |
 | Italy   | Local**     | - | - | Public Preview | Public Preview\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 \** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
 
@@ -128,7 +128,7 @@ The tables below summarize current availability:
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
 | USA & Puerto Rico | Local     | -        | -        | Public Preview | Public Preview\* |
 
-\* Available through Azure Bot Framework and Dynamics only
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 ## Next steps
 

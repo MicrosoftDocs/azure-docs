@@ -80,13 +80,13 @@ Identity Protection requires users be a Security Reader, Security Operator, Secu
 
 | Role | Can do | Can't do |
 | --- | --- | --- |
-| Global administrator | Full access to Identity Protection |   |
-| Security administrator | Full access to Identity Protection | Reset password for a user |
-| Security operator | View all Identity Protection reports and Overview <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
-| Security reader | View all Identity Protection reports and Overview | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
-| Global reader | Read-only access to Identity Protection |   |
+| Global Administrator | Full access to Identity Protection |   |
+| Security Administrator | Full access to Identity Protection | Reset password for a user |
+| Security Operator | View all Identity Protection reports and Overview <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
+| Security Reader | View all Identity Protection reports and Overview | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
+| Global Reader | Read-only access to Identity Protection |   |
 
-Currently, the security operator role can't access the Risky sign-ins report.
+Currently, the Security Operator role can't access the Risky sign-ins report.
 
 Conditional Access administrators can create policies that factor in user or sign-in risk as a condition. Find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
@@ -96,8 +96,7 @@ Conditional Access administrators can create policies that factor in user or sig
 
 | Capability | Details | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1 | Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk policies | User risk policy (via Identity Protection) | No | No | Yes | 
-| Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | No | No | Yes |
+| Risk policies | Sign-in and user risk policies (via Identity Protection or Conditional Access) | No | No | Yes |
 | Security reports | Overview | No | No | Yes |
 | Security reports | Risky users | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Full access|
 | Security reports | Risky sign-ins | Limited Information. No risk detail or risk level is shown. | Limited Information. No risk detail or risk level is shown. | Full access |

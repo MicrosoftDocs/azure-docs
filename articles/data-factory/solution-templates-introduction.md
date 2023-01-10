@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 09/09/2021
+ms.date: 10/18/2022
 ---
 
 # Templates
@@ -84,3 +84,16 @@ After checking the **My templates** box in the **Template gallery** page, you ca
 
 > [!NOTE]
 > To use the My Templates feature, you have to enable GIT integration. Both Azure DevOps GIT and GitHub are supported.
+
+### Community Templates
+
+Community members are now welcome to contribute to the Template Gallery. You will be able to see these templates when you filter by **Contributor**. 
+
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-6.png" alt-text="Screenshot of template gallery showing a Community contributor option under the Contributor filter.":::
+
+To learn how you can contribute to the template gallery, please read our [introduction](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-azure-data-factory-community-templates/ba-p/3650989) and [instructions](https://github.com/Azure/Azure-DataFactory/tree/main/community%20templates). 
+
+> [!NOTE]
+> Community template submissions will be reviewed by the Azure Data Factory team. If your submission, does not meet our guidelines or quality checks, we will not merge your template into the gallery.
+
+

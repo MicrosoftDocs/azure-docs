@@ -3,15 +3,15 @@ title: Update backup storage redundancy for Azure Cosmos DB periodic backup acco
 description: Learn how to update the backup storage redundancy using Azure CLI, and PowerShell. You can also configure an Azure policy on your accounts to enforce the required storage redundancy.
 author: kanshiG
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/03/2021
 ms.author: govindk
 ms.reviewer: mjbrown
-
 ---
 
 # Update backup storage redundancy for Azure Cosmos DB periodic backup accounts
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../availability-zones/cross-region-replication-azure.md). You can override the default backup storage redundancy. This article explains how to update the backup storage redundancy using Azure CLI and PowerShell. It also shows how to configure an Azure policy on your accounts to enforce the required storage redundancy.
 
@@ -129,6 +129,6 @@ Azure Policy helps you to enforce organizational standards and to assess complia
 
 ## Next steps
 
-* Provision an Azure Cosmos DB account with [periodic backup mode'(configure-periodic-backup-restore.md).
+* Provision an Azure Cosmos DB account with [periodic backup mode](configure-periodic-backup-restore.md).
 * Provision an account with continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 * Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).

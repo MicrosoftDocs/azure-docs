@@ -28,7 +28,7 @@ Get started with facial recognition using the Face client library for Python. Fo
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Identify faces
+## Identify and verify faces
 
 1. Install the client library
 
@@ -41,6 +41,9 @@ Get started with facial recognition using the Face client library for Python. Fo
 1. Create a new Python application
 
     Create a new Python script&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE and paste in the following code.
+
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart-single.py?name=snippet_single)]
 

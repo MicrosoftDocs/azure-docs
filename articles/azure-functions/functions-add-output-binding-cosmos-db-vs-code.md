@@ -1,13 +1,11 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-author: ThomasWeiss
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp, javascript
-ms.custom: mode-ui, vscode-azure-extension-update-completed
+ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -38,7 +36,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
     |Prompt| Selection|
     |--|--|
-    |**Select an Azure Database Server**| Choose `Core (SQL)` to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB SQL API](../cosmos-db/introduction.md). |
+    |**Select an Azure Database Server**| Choose **Azure Cosmos DB for NoSQL** to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB for NoSQL](../cosmos-db/introduction.md). |
     |**Account name**| Enter a unique name to identify your Azure Cosmos DB account. The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
     |**Select a capacity model**| Select **Serverless** to create an account in [serverless](../cosmos-db/serverless.md) mode. 
     |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
@@ -160,9 +158,9 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 | **Select binding direction** | `out` | The binding is an output binding. |
 | **Select binding with direction "out"** | `Azure Cosmos DB` | The binding is an Azure Cosmos DB binding. |
 | **The name used to identify this binding in your code** | `outputDocument` | Name that identifies the binding parameter referenced in your code. |
-| **The Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
+| **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
 | **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
-| **If true, creates the Cosmos DB database and collection** | `false` | The target database and container already exist. |
+| **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
 | **Select setting from "local.setting.json"** | `CosmosDbConnectionString` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |

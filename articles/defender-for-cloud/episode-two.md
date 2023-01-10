@@ -5,23 +5,23 @@ ms.topic: reference
 ms.date: 05/29/2022
 ---
 
-# Integrate Azure Purview with Microsoft Defender for Cloud 
+# Integrate Microsoft Purview with Microsoft Defender for Cloud 
 
-**Episode description**: In this episode of Defender for Cloud in the field, David Trigano joins Yuri Diogenes to share the new integration of Microsoft Defender for Cloud with Azure Purview, which was released at Ignite 2021.  
+**Episode description**: In this episode of Defender for Cloud in the field, David Trigano joins Yuri Diogenes to share the new integration of Microsoft Defender for Cloud with Microsoft Purview, which was released at Ignite 2021.  
 
-David explains the use case scenarios for this integration and how the data classification is done by Azure Purview can help prioritize recommendations and alerts in Defender for Cloud. David also demonstrates the overall experience of data enrichment based on the information that flows from Azure Purview to Defender for Cloud. 
+David explains the use case scenarios for this integration and how the data classification is done by Microsoft Purview can help prioritize recommendations and alerts in Defender for Cloud. David also demonstrates the overall experience of data enrichment based on the information that flows from Microsoft Purview to Defender for Cloud. 
 
 <br>
 <br>
 <iframe src="https://aka.ms/docs/player?id=9b911e9c-e933-4b7b-908a-5fd614f822c7" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [1:36](/shows/mdc-in-the-field/integrate-with-purview) - Overview of Azure Purview
+- [1:36](/shows/mdc-in-the-field/integrate-with-purview) - Overview of Microsoft Purview
 
 - [2:40](/shows/mdc-in-the-field/integrate-with-purview) - Integration with Microsoft Defender for Cloud
 
-- [3:48](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Azure Purview helps to prioritize Recommendations in Microsoft Defender for Cloud
+- [3:48](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Microsoft Purview helps to prioritize Recommendations in Microsoft Defender for Cloud
 
-- [5:26](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Azure Purview helps to prioritize Alerts in Microsoft Defender for Cloud
+- [5:26](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Microsoft Purview helps to prioritize Alerts in Microsoft Defender for Cloud
 
 - [8:54](/shows/mdc-in-the-field/integrate-with-purview) - Demonstration
 
@@ -29,7 +29,7 @@ David explains the use case scenarios for this integration and how the data clas
 
 ## Recommended resources
   
-Learn more about the [integration with Azure Purview](information-protection.md).
+Learn more about the [integration with Microsoft Purview](information-protection.md).
 
 -  Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
 

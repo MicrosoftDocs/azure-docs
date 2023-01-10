@@ -4,7 +4,7 @@ description: 'This tutorial provides step-by-step instructions for transforming 
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 01/28/2022
+ms.date: 09/26/2022
 author: nabhishek
 ms.author: abnarain
 ---

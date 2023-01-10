@@ -39,7 +39,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 - [Update a user](/graph/api/user-update)
 - [Delete a user](/graph/api/user-delete)
 
-## User phone number management (beta)
+## User phone number management
 
 A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multifactor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
@@ -54,19 +54,19 @@ Note, the [list](/graph/api/authentication-list-phonemethods) operation returns 
 ![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
 > [!NOTE]
-> In the current beta version, this API works only if the phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
+> A correctly represented phone number is stored with a space between the country code and the phone number. The Azure AD B2C service doesn't currently add this space by default.
 
-## Self-service password reset email address (beta)
+## Self-service password reset email address
 
 An email address that can be used by a [username sign-in account](sign-in-options.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
-- [Add](/graph/api/emailauthenticationmethod-post)
-- [List](/graph/api/emailauthenticationmethod-list)
+- [Add](/graph/api/authentication-post-emailmethods)
+- [List](/graph/api/authentication-list-emailmethods)
 - [Get](/graph/api/emailauthenticationmethod-get)
 - [Update](/graph/api/emailauthenticationmethod-update)
 - [Delete](/graph/api/emailauthenticationmethod-delete)
 
-## Software OATH token authentication method (beta)
+## Software OATH token authentication method
 
  A software OATH token is a software-based number generator that uses the OATH time-based one-time password (TOTP) standard for multifactor authentication via an authenticator app. Use the Microsoft Graph API to manage a software OATH token registered to a user:
 
@@ -78,13 +78,14 @@ An email address that can be used by a [username sign-in account](sign-in-option
 
 Manage the [identity providers](add-identity-provider.md) available to your user flows in your Azure AD B2C tenant.
 
-- [List identity providers registered in the Azure AD B2C tenant](/graph/api/identityprovider-list)
-- [Create an identity provider](/graph/api/identityprovider-post-identityproviders)
-- [Get an identity provider](/graph/api/identityprovider-get)
-- [Update identity provider](/graph/api/identityprovider-update)
-- [Delete an identity provider](/graph/api/identityprovider-delete)
+- [List identity providers available in the Azure AD B2C tenant](/graph/api/identityproviderbase-availableprovidertypes)
+- [List identity providers configured in the Azure AD B2C tenant](/graph/api/iidentitycontainer-list-identityproviders)
+- [Create an identity provider](/graph/api/identitycontainer-post-identityproviders)
+- [Get an identity provider](/graph/api/identityproviderbase-get)
+- [Update identity provider](/graph/api/identityproviderbase-update)
+- [Delete an identity provider](/graph/api/identityproviderbase-delete)
 
-## User flow
+## User flow (beta)
 
 Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 
@@ -100,7 +101,7 @@ Choose a mechanism for letting users register via local accounts. Local accounts
 - [Get](/graph/api/b2cauthenticationmethodspolicy-get)
 - [Update](/graph/api/b2cauthenticationmethodspolicy-update)
 
-## Custom policies
+## Custom policies (beta)
 
 The following operations allow you to manage your Azure AD B2C Trust Framework policies, known as [custom policies](custom-policy-overview.md).
 
@@ -110,7 +111,7 @@ The following operations allow you to manage your Azure AD B2C Trust Framework p
 - [Update or create trust framework policy.](/graph/api/trustframework-put-trustframeworkpolicy)
 - [Delete an existing trust framework policy](/graph/api/trustframeworkpolicy-delete)
 
-## Policy keys
+## Policy keys (beta)
 
 The Identity Experience Framework stores the secrets referenced in a custom policy to establish trust between components. These secrets can be symmetric or asymmetric keys/values. In the Azure portal, these entities are shown as **Policy keys**.
 
@@ -169,7 +170,8 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 
 ## Conditional Access
 
-- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies?tabs=http)
+- [List the built-in templates for Conditional Access policy scenarios](/graph/api/conditionalaccessroot-list-templates)
+- [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies)
 - [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
 - [Create a new Conditional Access policy](/graph/api/resources/application)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
@@ -177,7 +179,7 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 
 ## Retrieve or restore deleted users and applications
 
-Deleted items can only be restored if they were deleted within the last 30 days.
+Deleted users and apps can only be restored if they were deleted within the last 30 days.
 
 - [List deleted items](/graph/api/directory-deleteditems-list)
 - [Get a deleted item](/graph/api/directory-deleteditems-get)

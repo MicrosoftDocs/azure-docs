@@ -38,12 +38,16 @@ items:
     href: nat-metrics.md
   - name: Resource Health
     href: resource-health.md
+  - name: Availability zones
+    href: nat-availability-zones.md
   - name: Security
     items:
     - name: Virtual network NAT security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:
+  - name: Manage NAT gateway
+    href: manage-nat-gateway.md
   - name: Move across regions
     items:
     - name: Create and configure NAT gateway after region move
@@ -52,6 +56,10 @@ items:
     items:
     - name: Troubleshoot NAT gateway
       href: troubleshoot-nat.md
+    - name: Troubleshoot NAT gateway connectivity
+      href: troubleshoot-nat-connectivity.md
+    - name: Troubleshoot NAT gateway and Azure services
+      href: troubleshoot-nat-and-azure-services.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -77,8 +85,8 @@ items:
     href: ../policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/modules/intro-to-azure-virtual-network-nat/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/modules/intro-to-azure-virtual-network-nat/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

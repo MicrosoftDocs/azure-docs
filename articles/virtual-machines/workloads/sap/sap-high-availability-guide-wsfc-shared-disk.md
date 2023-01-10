@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2022
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -120,9 +120,9 @@ _SAP ASCS/SCS HA architecture with shared disk_
 There are two options for shared disk in a windows failover cluster in Azure:
 
 - [Azure shared disks](../../disks-shared.md) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
-- Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) to create a mirrored storage that simulates cluster shared storage. 
+- Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage. 
 
-When selecting the technology for for shared disk, keep in mind the following considerations:
+When selecting the technology for shared disk, keep in mind the following considerations:
 
 **Azure shared disk for SAP workloads**
 
@@ -192,7 +192,7 @@ To create a shared disk resource for a cluster:
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.
 3. Configure SIOS DataKeeper Cluster Edition so that it mirrors the content of the additional disk attached volume from the source virtual machine to the additional disk attached volume of the target virtual machine. SIOS DataKeeper abstracts the source and target local volumes, and then presents them to Windows Server failover clustering as one shared disk.
 
-Get more information about [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
+Get more information about [SIOS DataKeeper](https://us.sios.com/products/sios-datakeeper/).
 
 ![Figure 5: Windows Server failover clustering configuration in Azure with SIOS DataKeeper][sap-ha-guide-figure-1002]
 
@@ -259,7 +259,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 [dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
-[ha-guide]:sap-high-availability-guide.md
+
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
@@ -272,7 +272,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[sap-ha-guide]:sap-high-availability-guide.md
+
 [sap-ha-guide-2]:#42b8f600-7ba3-4606-b8a5-53c4f026da08
 [sap-ha-guide-4]:#8ecf3ba0-67c0-4495-9c14-feec1a2255b7
 [sap-ha-guide-8]:#78092dbe-165b-454c-92f5-4972bdbef9bf
@@ -289,7 +289,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png

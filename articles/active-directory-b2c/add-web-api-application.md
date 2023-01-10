@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 This article shows you how to register web API resources in your Azure Active Directory B2C (Azure AD B2C) tenant so that they can accept and respond to requests by client applications that present an access token.
 
-To register an application in your Azure AD B2C tenant, you can use Azure portal's new unified **App registrations** experience the legacy **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
+To register an application in your Azure AD B2C tenant, you can use the Azure portal's new unified **App registrations** experience or the legacy **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
 #### [App registrations](#tab/app-reg-ga/)
 

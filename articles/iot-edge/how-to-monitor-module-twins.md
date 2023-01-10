@@ -12,7 +12,7 @@ services: iot-edge
 ---
 # Monitor module twins
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules each maintain their module twins, `$edgeAgent` and `$edgeHub`, respectively:
 
@@ -183,8 +183,8 @@ You can review the JSON for module twins in the Azure IoT Hub, in Visual Studio 
 To view the JSON for the module twin:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. Select **IoT Edge** from the left pane menu.
-1. On the **IoT Edge devices** tab, select the **Device ID** of the device with the modules you want to monitor.
+1. Select **Devices** under the **Device management** menu.
+1. Select the **Device ID** of the IoT Edge device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
   ![Select a module twin to view in the Azure portal](./media/how-to-monitor-module-twins/select-module-twin.png)

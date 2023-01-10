@@ -2,15 +2,14 @@
 title: Support and help options for Microsoft identity platform developers
 description: Learn where to get help and find answers to your questions as you build identity and access management (IAM) solutions that integrate with Azure Active Directory (Azure AD) and other components of the Microsoft identity platform.
 services: active-directory
-author: mmacy
+author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/09/2022
-ms.author: marsma
+ms.date: 12/29/2022
+ms.author: davidmu
 ms.custom: has-adal-ref
 ---
 
@@ -87,7 +86,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 
 ## Share your product ideas
 
-Have an idea for improving the for the Microsoft identity platform? Browse and vote for ideas submitted by others or submit your own:
+Have an idea for improving the Microsoft identity platform? Browse and vote for ideas submitted by others or submit your own:
 
 https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
 

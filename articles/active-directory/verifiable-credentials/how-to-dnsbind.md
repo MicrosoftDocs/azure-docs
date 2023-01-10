@@ -17,6 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 ## Prerequisites
 
 To link your DID to your domain, you need to have completed the following.
@@ -151,6 +152,13 @@ If the trust system is ION, once the domain changes are published to ION, the do
 >By default, 'Warn about unsafe apps' is turned on.
 
 Congratulations, you now have bootstrapped the web of trust with your DID!
+
+## How can I verify that the verification is working?
+
+The portal verifies that the `did-configuration.json` is reachable and correct when you click the **Refresh verification status** button. You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did-configuration.json` file cannot be requested anonymously in a browser or via tools such as `curl`, without warnings or errors, the portal will not be able to complete the **Refresh verification status** step either.
+
+>[!NOTE]
+> If you are experiencing problems refreshing your verification status, you can troubleshoot it via running `curl -Iv https://yourdomain.com/.well-known/did-configuration.json` on an machine with Ubuntu OS. Windows Subsystem for Linux with Ubuntu will work too. If curl fails, refreshing the verification status will not work.
 
 ## Linked Domain domain made easy for developers
 

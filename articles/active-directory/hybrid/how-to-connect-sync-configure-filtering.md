@@ -4,7 +4,7 @@ description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
@@ -88,6 +88,8 @@ To change domain-based filtering, run the installation wizard: [domain and OU fi
 ## Organizational unit–based filtering
 To change OU-based filtering, run the installation wizard: [domain and OU filtering](how-to-connect-install-custom.md#domain-and-ou-filtering). The installation wizard automates all the tasks that are documented in this topic.
 
+> [!IMPORTANT]
+> If you explicitly select an OU for synchronization, Azure AD Connect will add the DistinguishedName of that OU in the inclusion list for the domain's sync scope. However, if you later rename that OU in Active Directory, the DistinguishedName of the OU is changed, and consequently, Azure AD Connect will no longer consider that OU in sync scope. This will not cause an immediate issue, but upon a full import step, Azure AD Connect will reevaluate the sync scope and delete (i.e. obsolete) any objects out of sync scope, which can potentially cause an unexpected mass deletion of objects in Azure AD. To prevent this issue, after renaming a OU, run Azure AD Connect Wizard and re-select the OU to be again included in sync scope.
 
 ## Attribute-based filtering
 Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md)) or later build for these steps to work.

@@ -5,8 +5,9 @@ description: Run machine learning workflows with machine learning pipelines and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: larryfr
-author: blackmist
+author: xiaoharper
+ms.author: zhanxia
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
@@ -24,7 +25,7 @@ Machine learning pipelines are reusable workflows for machine learning tasks. On
 
 * Create an [Azure Machine Learning workspace](../quickstart-create-resources.md) to hold all your pipeline resources
 
-* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed
+* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed
 
 * Create and run a machine learning pipeline, such as by following [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). For other options, see [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
 
@@ -339,7 +340,7 @@ You can also run a published pipeline from the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](../how-to-manage-workspace.md#view).
+1. [View your workspace](../how-to-manage-workspace.md#find-a-workspace).
 
 1. On the left, select **Endpoints**.
 

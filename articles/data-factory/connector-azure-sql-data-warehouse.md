@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 09/15/2022
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -98,7 +98,10 @@ For different authentication types, refer to the following sections on specific 
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!TIP]
->When creating linked service for Azure Synapse **serverless** SQL pool from UI, choose "enter manually" instead of browsing from subscription.
+>When creating linked service for a **serverless** SQL pool in Azure Synapse from the Azure portal:
+> 1. For **Account Selection Method**, choose **Enter manually**.
+> 1. Paste the **fully qualified domain name** of the serverless endpoint. You can find this in the Azure portal Overview page for your Synapse workspace, in the properties under **Serverless SQL endpoint**. For example, `myserver-ondemand.sql-azuresynapse.net`.
+> 1. For **Database name**, provide the database name in the serverless SQL pool.
 
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
@@ -1012,7 +1015,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Diagram that shows the error row handling in mapping data flow sink transformation.":::
 
 ## Lookup activity properties
 

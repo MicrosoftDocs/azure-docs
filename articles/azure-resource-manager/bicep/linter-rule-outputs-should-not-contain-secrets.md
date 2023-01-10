@@ -2,7 +2,7 @@
 title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 12/09/2022
 ---
 
 # Linter rule - outputs should not contain secrets
@@ -58,7 +58,7 @@ The following example shows a secure pattern for retrieving a storageAccount key
 output storageId string = stg.id
 ```
 
-Which can be used in a subsequent deployment as sown in the following example
+Which can be used in a subsequent deployment as shown in the following example
 
 ```bicep
 someProperty: listKeys(myStorageModule.outputs.storageId.value, '2021-09-01').keys[0].value

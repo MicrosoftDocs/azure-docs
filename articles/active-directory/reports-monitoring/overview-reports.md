@@ -3,19 +3,14 @@
 title: What are Azure Active Directory reports? | Microsoft Docs
 description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/30/2020
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: sarbar  
 
 # Customer intent: As an Azure AD administrator, I want to understand what Azure AD reports are available and how I can use them to gain insights into my environment. 
@@ -55,7 +50,7 @@ The [audit logs report](concept-audit-logs.md) provides you with records of syst
 
 #### What Azure AD license do you need to access the audit logs report?  
 
-The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. A detailed feature comparison as per [different types of licenses](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) can be seen on the [Azure Active Directory pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). For more details, see [Azure Active Directory features and capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
+The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. A detailed feature comparison as per [different types of licenses](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) can be seen on the [Azure Active Directory pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). For more information, see [Azure Active Directory features and capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### Sign-ins report
 
@@ -71,7 +66,7 @@ To access the sign-ins activity report, your tenant must have an Azure AD Premiu
 
 ## Programmatic access
 
-In addition to the user interface, Azure AD also provides you with [programmatic access](concept-reporting-api.md) to the reports data, through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. 
+In addition to the user interface, Azure AD also provides you with [programmatic access](concept-reporting-api.md) to the reports data, through a set of REST-based APIs. You can call these APIs from various programming languages and tools. 
 
 ## Next steps
 

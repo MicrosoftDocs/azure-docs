@@ -3,19 +3,22 @@ title: "Migrate your face data across subscriptions - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide shows you how to migrate your stored face data from one Face subscription to another.
 services: cognitive-services
-author: nitinme
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: nitinme
+ms.author: pafarley
 ms.devlang: csharp
 ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 ---
 
 # Migrate your face data to a different Face subscription
+
+> [!CAUTION]
+> The Snapshot API will be retired for all users June 30 2023.
 
 This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object with a free subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
 

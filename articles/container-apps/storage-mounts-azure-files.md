@@ -102,7 +102,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     ---
 
-1. Register the `Microsoft.OperationalInsights` provider for the [Azure Monitor Log Analytics Workspace](./observability.md?tabs=bash#azure-monitor-log-analytics) if you haven't used it before.
+1. Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you haven't used it before.
 
     # [Bash](#tab/bash)
 

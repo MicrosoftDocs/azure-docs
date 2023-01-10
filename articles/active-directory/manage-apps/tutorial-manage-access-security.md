@@ -60,7 +60,7 @@ It's easier for an administrator to manage access to the application by assignin
 1. In the left menu of the tenant overview, select **Security**.
 1. Select **Conditional Access**, select **+ New policy**, and then select **Create new policy**.
 1. Enter a name for the policy, such as *MFA Pilot*.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users or workload identities**.
 1. On the **Include** tab, choose **Select users and groups**, and then select **Users and groups**.
 1. Browse for and select the *MFA-Test-Group* that you previously created, and then choose **Select**.
 1. Don't select **Create** yet, you add MFA to the policy in the next section.

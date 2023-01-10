@@ -76,4 +76,4 @@ A Grafana dashboard is a collection of [panels](#panels) arranged in rows and co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to share an Azure Managed Grafana Preview instance](./how-to-share-grafana-workspace.md)
+> [How to share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)

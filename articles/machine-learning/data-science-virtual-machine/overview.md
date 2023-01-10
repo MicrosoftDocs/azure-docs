@@ -17,11 +17,17 @@ ms.date: 06/23/2022
 
 The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and pre-configured to jump-start building intelligent applications for advanced analytics.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 The DSVM is available on:
 
 + Windows Server 2019
-+ Ubuntu 18.04 LTS
 + Ubuntu 20.04 LTS
+
+Additionally, we are excited to offer Azure DSVM for PyTorch (preview), which is an Ubuntu 20.04 image from Azure Marketplace that is optimized for large, distributed deep learning workloads. It comes preinstalled and validated with the latest PyTorch version to reduce setup costs and accelerate time to value. It comes packaged with various optimization functionalities (ONNX Runtime​, DeepSpeed​, MSCCL​, ORTMoE​, Fairscale​, Nvidia Apex​), as well as an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA.
 
 ## Comparison with Azure Machine Learning
 

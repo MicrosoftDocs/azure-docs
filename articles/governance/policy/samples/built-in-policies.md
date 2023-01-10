@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 08/16/2022
+ms.date: 01/05/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -67,6 +67,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
 
+## Azure Load Testing
+
+[!INCLUDE [azure-policy-reference-policies-azure-load-testing](../../../../includes/policy/reference/bycat/policies-azure-load-testing.md)]
+
 ## Azure Purview
 
 [!INCLUDE [azure-policy-reference-policies-azure-purview](../../../../includes/policy/reference/bycat/policies-azure-purview.md)]
@@ -94,6 +98,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## CDN
 
 [!INCLUDE [azure-policy-reference-policies-cdn](../../../../includes/policy/reference/bycat/policies-cdn.md)]
+
+## ChangeTrackingAndInventory
+
+[!INCLUDE [azure-policy-reference-policies-changetrackingandinventory](../../../../includes/policy/reference/bycat/policies-changetrackingandinventory.md)]
 
 ## Cognitive Services
 
@@ -162,6 +170,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Health Bot
 
 [!INCLUDE [azure-policy-reference-policies-health-bot](../../../../includes/policy/reference/bycat/policies-health-bot.md)]
+
+## Health Data Services workspace
+
+[!INCLUDE [azure-policy-reference-policies-health-data-services-workspace](../../../../includes/policy/reference/bycat/policies-health-data-services-workspace.md)]
 
 ## Healthcare APIs
 

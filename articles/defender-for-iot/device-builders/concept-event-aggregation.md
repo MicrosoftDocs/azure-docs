@@ -1,11 +1,11 @@
 ---
-title: Micro agent event collection (Preview)
+title: Micro agent event collection
 description: Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing, and analytics.
 ms.date: 04/26/2022
 ms.topic: conceptual
 ---
 
-# Micro agent event collection (Preview)
+# Micro agent event collection
 
 Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing.
 
@@ -17,8 +17,12 @@ To reduce the number of messages and costs while maintaining your device's secur
 
 - Process events (Linux only)
 
-- Network Activity events
+- Network activity events
 
+- File system events
+
+- Statistics events
+ 
 For more information, see [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors).
 
 Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
@@ -69,7 +73,7 @@ The data collected for each event is:
 | **Transport_protocol** | Can be TCP, UDP, or ICMP. |
 | **Application protocol** | The application protocol associated with the connection. |
 | **Extended properties** | The Additional details of the connection. For example, `host name`. |
-| **DNS hit count** | Total hit count of DNS requests |
+| **Hit count** | The count of packets observed |
 
 ## Login collector (event-based collector)
 
@@ -90,7 +94,6 @@ The following data is collected:
 | **user_name** | The Linux user. |
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
-| **Login_UsePAM** | Boolean: <br>- **True**: Only the PAM Login collector is used <br>- **False**: The UTMP Login collector is used, with SYSLOG if SYSLOG is enabled |
 
 ## System Information (trigger-based collector)
 
@@ -104,6 +107,8 @@ The data collected for each event is:
 | **os_version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
 | **os_platform** | The OS of the device. |
 | **os_arch** | The architecture of the OS. For example, `x86_64`. |
+| **agent_type** | The type of the agent (Edge/Standalone). |
+| **agent_version** | The version of the agent. |
 | **nics** | The network interface controller. The full list of properties is listed below. |
 
 The **nics** properties are composed of the following;
@@ -142,8 +147,64 @@ The data collected on each package includes:
 |**Version**     |  The package version.       |
 |**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages.     |
 
-> [!NOTE]
-> The SBoM collector currently only collects the first 500 packages ingested.
+## Peripheral events (event-based collector)
+
+The Peripheral events collector collect connections and disconnections of USB and Ethernet events.
+
+Collected fields depend on the type of event:
+
+**USB events**
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **ActionType** | Whether the event was a connection or disconnection event. |
+| **bus_number** | Specific controller identifier, each USB device can have several. |
+| **kernel_device_number** | Representation in the kernel of the device, not unique and can each time the device is connected. |
+| **device_class** | Identifier specifying the class of device.  |
+| **device_subclass** | Identifier specifying the type of device. |
+| **device_protocol** | Identifier specifying the device protocol. |
+| **interface_class** | In case device class is 0, indicate the type of device. |
+| **interface_subclass** | In case device class is 0, indicate the type of device. |
+| **interface_protocol** | In case device class is 0, indicate the type of device. |
+
+**Ethernet events**
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **ActionType** | Whether the event was a connection or disconnection event. |
+| **bus_number** | Specific controller identifier, each USB device can have several. |
+| **Interface name** | The interface name. |
+
+## File system events (event-based collector)
+
+The file system events collector collects events whenever there are changes under watch directories for: creation, deletion, move, and modification of directories and files.
+To define which directories and files you would like to monitor, see [System information collector specific settings](concept-micro-agent-configuration.md).
+
+The following data is collected:
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **Mask** | Linux inotify mask related to the file system event, the mask identifies the type of the action and can be one of the following: Access/Modified/Metadata changed/Closed/Opened/Moved/Created/Deleted. |
+| **Path** | Directory/file path the event was generated to. |
+| **Hitcount** | Number of times this event was aggregated. |
+
+## Statistics data (trigger-based collector)
+
+The Statistics collector generates various statistics on the different micro agent collectors. These statistics provide information about the performance of the collectors in the previous collection cycle.
+Examples of possible statistics include the number of events that were successfully sent, and the number of events that were dropped, along with the reasons for the failures.
+
+Collected fields:
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **Name** | Name of the collector. |
+| **Events** | An array of pairs formatted as JSON with description and hit count. |
+| **Description** | Whether the message was sent/dropped and the reason for dropping. |
+| **Hitcount** | Number of respective messages. |
 
 ## Event aggregation for Process and Network collectors
 
@@ -160,5 +221,5 @@ When the agent collects similar events to the ones that are already stored in me
 
 For more information, see:
 
-- [Micro agent configurations (Preview)](concept-micro-agent-configuration.md)
+- [Micro agent configurations](concept-micro-agent-configuration.md)
 - Check your [Defender for IoT security alerts](concept-security-alerts.md).

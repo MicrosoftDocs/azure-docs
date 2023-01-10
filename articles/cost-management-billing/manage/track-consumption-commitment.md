@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 09/19/2022
 ms.author: banders
 ---
 
@@ -18,6 +18,11 @@ The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment th
 MACC functionality in the Azure portal is only available for direct MCA and direct EA customers. A direct agreement is between Microsoft and a customer. An indirect agreement is one where a customer signs an agreement with a Microsoft partner.
 
 In the scenario that a MACC commitment has been transacted prior to the expiration or completion of a prior MACC (on the same enrollment/billing account), actual decrement of a commitment will begin upon completion or expiration of the prior commitment. In other words, if you have a new MACC following the expiration or completion of an older MACC on the same enrollment or billing account, use of the new commitment starts when the old commitment expires or is completed.
+
+## Prerequisites
+
+- For an EA, the user needs to be an Enterprise administrator to view the MACC balance.
+- For an MCA, the user must be have the owner, contributor, or reader role on the billing account to view the MACC balance.
 
 ## Track your MACC Commitment
 

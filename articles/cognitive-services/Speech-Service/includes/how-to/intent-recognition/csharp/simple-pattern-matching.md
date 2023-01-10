@@ -18,26 +18,26 @@ Create a new C# console application project in Visual Studio 2019 and [install t
 Let's open `Program.cs` and add some code that works as a skeleton for our project.
 
 ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.CognitiveServices.Speech;
-    using Microsoft.CognitiveServices.Speech.Intent;
-    
-    namespace helloworld
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Intent;
+
+namespace helloworld
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                IntentPatternMatchingWithMicrophoneAsync().Wait();
-            }
-    
-            private static async Task IntentPatternMatchingWithMicrophoneAsync()
-            {
-                var config = SpeechConfig.FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
-            }
+            IntentPatternMatchingWithMicrophoneAsync().Wait();
+        }
+
+        private static async Task IntentPatternMatchingWithMicrophoneAsync()
+        {
+            var config = SpeechConfig.FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
         }
     }
+}
 ```
 
 ## Create a Speech configuration
@@ -67,9 +67,9 @@ We will add 2 intents with the same ID for changing floors, and another intent w
 Insert this code inside the `using` block:
 
 ```C#
-    intentRecognizer.AddIntent("Take me to floor {floorName}.", "ChangeFloors");
-    intentRecognizer.AddIntent("Go to floor {floorName}.", "ChangeFloors");
-    intentRecognizer.AddIntent("{action} the door.", "OpenCloseDoor");
+intentRecognizer.AddIntent("Take me to floor {floorName}.", "ChangeFloors");
+intentRecognizer.AddIntent("Go to floor {floorName}.", "ChangeFloors");
+intentRecognizer.AddIntent("{action} the door.", "OpenCloseDoor");
 ```
 
 > [!NOTE]
@@ -82,9 +82,9 @@ From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync
 Insert this code below your intents:
 
 ```C#
-    Console.WriteLine("Say something...");
+Console.WriteLine("Say something...");
 
-    var result = await recognizer.RecognizeOnceAsync();
+var result = await intentRecognizer.RecognizeOnceAsync();
 ```
 
 ## Display the recognition results (or errors)
@@ -94,62 +94,64 @@ When the recognition result is returned by the Speech service, we will print the
 Insert this code below `var result = await recognizer.RecognizeOnceAsync();`:
 
 ```C#
+string floorName;
 switch (result.Reason)
 {
-case ResultReason.RecognizedSpeech:
+    case ResultReason.RecognizedSpeech:
         Console.WriteLine($"RECOGNIZED: Text= {result.Text}");
         Console.WriteLine($"    Intent not recognized.");
         break;
-case ResultReason.RecognizedIntent:
-    Console.WriteLine($"RECOGNIZED: Text= {result.Text}");
-    Console.WriteLine($"       Intent Id= {result.IntentId}.");
-    var entities = result.Entities;
-    if (entities.TryGetValue("floorName", out string floorName))
-    {
-        Console.WriteLine($"       FloorName= {floorName}");
-    }
-
-    if (entities.TryGetValue("action", out string floorName))
-    {
-        Console.WriteLine($"       Action= {floorName}");
-    }
-
-    break;
-case ResultReason.NoMatch:
-{
-    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
-    var noMatch = NoMatchDetails.FromResult(result);
-    switch (noMatch->Reason)
-    {
-    case NoMatchReason.NotRecognized:
-        Console.WriteLine($"NOMATCH: Speech was detected, but not recognized.");
+    case ResultReason.RecognizedIntent:
+        Console.WriteLine($"RECOGNIZED: Text= {result.Text}");
+        Console.WriteLine($"       Intent Id= {result.IntentId}.");
+        var entities = result.Entities;
+        if (entities.TryGetValue("floorName", out floorName))
+        {
+            Console.WriteLine($"       FloorName= {floorName}");
+        }
+    
+        if (entities.TryGetValue("action", out floorName))
+        {
+            Console.WriteLine($"       Action= {floorName}");
+        }
+    
         break;
-    case NoMatchReason.InitialSilenceTimeout:
-        Console.WriteLine($"NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech.");
-        break;
-    case NoMatchReason.InitialBabbleTimeout:
-        Console.WriteLine($"NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech.");
-        break;
-    case NoMatchReason.KeywordNotRecognized:
-        Console.WriteLine($"NOMATCH: Keyword not recognized");
-        break;
-    }
-    break;
-}
-case ResultReason.Canceled:
-{
-    var cancellation = CancellationDetails.FromResult(result);
-    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
-
-    if (cancellation.Reason == CancellationReason.Error)
+    case ResultReason.NoMatch:
     {
-        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
-        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+        Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+        var noMatch = NoMatchDetails.FromResult(result);
+        switch (noMatch.Reason)
+        {
+            case NoMatchReason.NotRecognized:
+                Console.WriteLine($"NOMATCH: Speech was detected, but not recognized.");
+                break;
+            case NoMatchReason.InitialSilenceTimeout:
+                Console.WriteLine($"NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech.");
+                break;
+            case NoMatchReason.InitialBabbleTimeout:
+                Console.WriteLine($"NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech.");
+                break;
+            case NoMatchReason.KeywordNotRecognized:
+                Console.WriteLine($"NOMATCH: Keyword not recognized");
+                break;
+        }
+        break;
     }
-}
-default:
-    break;
+    case ResultReason.Canceled:
+    {
+        var cancellation = CancellationDetails.FromResult(result);
+        Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+    
+        if (cancellation.Reason == CancellationReason.Error)
+        {
+            Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+            Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
+        }
+        break;
+    }
+    default:
+        break;
 }
 ```
 
@@ -158,49 +160,50 @@ default:
 At this point, your code should look like this:
 
 ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.CognitiveServices.Speech;
-    using Microsoft.CognitiveServices.Speech.Intent;
-    
-    namespace helloworld
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                IntentPatternMatchingWithMicrophoneAsync().Wait();
-            }
-    
-            private static async Task IntentPatternMatchingWithMicrophoneAsync()
-            {
-                var config = SpeechConfig.FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
-                using (var intentRecognizer = new IntentRecognizer(config))
-                {
-                    intentRecognizer.AddIntent("Take me to floor {floorName}.", "ChangeFloors");
-                    intentRecognizer.AddIntent("Go to floor {floorName}.", "ChangeFloors");
-                    intentRecognizer.AddIntent("{action} the door.", "OpenCloseDoor");
-                    
-                    Console.WriteLine("Say something...");
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Intent;
 
-                    var result = await recognizer.RecognizeOnceAsync();
-                    
-                    switch (result.Reason)
-                    {
+namespace helloworld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IntentPatternMatchingWithMicrophoneAsync().Wait();
+        }
+
+        private static async Task IntentPatternMatchingWithMicrophoneAsync()
+        {
+            var config = SpeechConfig.FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
+            using (var intentRecognizer = new IntentRecognizer(config))
+            {
+                intentRecognizer.AddIntent("Take me to floor {floorName}.", "ChangeFloors");
+                intentRecognizer.AddIntent("Go to floor {floorName}.", "ChangeFloors");
+                intentRecognizer.AddIntent("{action} the door.", "OpenCloseDoor");
+
+                Console.WriteLine("Say something...");
+
+                var result = await intentRecognizer.RecognizeOnceAsync();
+
+                string floorName;
+                switch (result.Reason)
+                {
                     case ResultReason.RecognizedSpeech:
-                            Console.WriteLine($"RECOGNIZED: Text= {result.Text}");
-                            Console.WriteLine($"    Intent not recognized.");
-                            break;
+                        Console.WriteLine($"RECOGNIZED: Text= {result.Text}");
+                        Console.WriteLine($"    Intent not recognized.");
+                        break;
                     case ResultReason.RecognizedIntent:
                         Console.WriteLine($"RECOGNIZED: Text= {result.Text}");
                         Console.WriteLine($"       Intent Id= {result.IntentId}.");
                         var entities = result.Entities;
-                        if (entities.TryGetValue("floorName", out string floorName))
+                        if (entities.TryGetValue("floorName", out floorName))
                         {
                             Console.WriteLine($"       FloorName= {floorName}");
                         }
 
-                        if (entities.TryGetValue("action", out string floorName))
+                        if (entities.TryGetValue("action", out floorName))
                         {
                             Console.WriteLine($"       Action= {floorName}");
                         }
@@ -210,20 +213,20 @@ At this point, your code should look like this:
                     {
                         Console.WriteLine($"NOMATCH: Speech could not be recognized.");
                         var noMatch = NoMatchDetails.FromResult(result);
-                        switch (noMatch->Reason)
+                        switch (noMatch.Reason)
                         {
-                        case NoMatchReason.NotRecognized:
-                            Console.WriteLine($"NOMATCH: Speech was detected, but not recognized.");
-                            break;
-                        case NoMatchReason.InitialSilenceTimeout:
-                            Console.WriteLine($"NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech.");
-                            break;
-                        case NoMatchReason.InitialBabbleTimeout:
-                            Console.WriteLine($"NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech.");
-                            break;
-                        case NoMatchReason.KeywordNotRecognized:
-                            Console.WriteLine($"NOMATCH: Keyword not recognized");
-                            break;
+                            case NoMatchReason.NotRecognized:
+                                Console.WriteLine($"NOMATCH: Speech was detected, but not recognized.");
+                                break;
+                            case NoMatchReason.InitialSilenceTimeout:
+                                Console.WriteLine($"NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech.");
+                                break;
+                            case NoMatchReason.InitialBabbleTimeout:
+                                Console.WriteLine($"NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech.");
+                                break;
+                            case NoMatchReason.KeywordNotRecognized:
+                                Console.WriteLine($"NOMATCH: Keyword not recognized");
+                                break;
                         }
                         break;
                     }
@@ -238,14 +241,15 @@ At this point, your code should look like this:
                             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
                             Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                         }
+                        break;
                     }
                     default:
                         break;
-                    }
                 }
             }
         }
     }
+}
 ```
 ## Build and run your app
 

@@ -55,9 +55,6 @@ Each Azure Fluid Relay server resource provides a tenant for you to use in your 
     2. Select the resource group you created in the previous step.
     3. Enter a name for the Fluid Relay resource.
     4. Select a location for the namespace.
-    
-    > [!NOTE]
-    > Currently, the only regions supported are: West US 2, West Europe, and SoutheastAsia.
 
 5. Click the **Review + Create** button at the bottom of the page.
 

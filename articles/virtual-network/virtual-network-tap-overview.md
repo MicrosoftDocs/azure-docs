@@ -3,7 +3,7 @@ title: Azure virtual network TAP overview | Microsoft Docs
 description: Learn about virtual network TAP. Virtual network TAP provides you a deep copy of virtual machine network traffic that can be streamed to a packet collector.
 services: virtual-network
 documentationcenter: na
-author: karthikananth
+author: asudbring
 manager: ganesr
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
-ms.author: kaanan
+ms.author: allensu
 ---
 
 
@@ -52,7 +52,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 ### Security analytics, network/application performance management
 
-- [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Awake Security](https://www.arista.com/partner/technology-partners)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)

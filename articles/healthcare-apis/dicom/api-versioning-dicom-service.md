@@ -2,12 +2,12 @@
 title: API versioning for DICOM service - Azure Health Data Services
 description: This guide gives an overview of the API version policies for the DICOM service. 
 services: healthcare-apis
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/11/2022
-ms.author: v-smcevoy
+ms.date: 10/13/2022
+ms.author: mmitrik
 ---
 
 # API versioning for DICOM service
@@ -32,7 +32,7 @@ Currently the supported versions are:
 * v1.0-prerelease
 * v1
 
-The OpenApi Doc for the supported versions can be found at the following url:
+The OpenAPI Doc for the supported versions can be found at the following url:
 
 `<service_url>/v<version>/api.yaml`
 

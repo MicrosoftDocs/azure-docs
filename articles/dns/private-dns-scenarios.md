@@ -2,11 +2,11 @@
 title: Scenarios for Private Zones - Azure DNS
 description: In this article, learn about common scenarios for using Azure DNS Private Zones.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/27/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Azure DNS private zones scenarios

@@ -11,13 +11,25 @@ ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
 
-# Visualizations for Change Analysis in Azure Monitor (preview)
+# Visualizations for Change Analysis in Azure Monitor
 
 Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. You can view the Change Analysis data through several channels: 
 
-## The Change Analysis standalone UI
+## Change Analysis overview portal
 
-You can access Change Analysis in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+You can access the Change Analysis overview portal under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+
+### Monitor home page
+
+From the Azure portal home page, select **Monitor** from the menu.
+
+:::image type="content" source="./media/change-analysis/monitor-menu-2.png" alt-text="Screenshot of finding the Monitor home page from the main portal menu.":::
+
+In the Monitor overview page, select the **Change Analysis** card.
+
+:::image type="content" source="./media/change-analysis/change-analysis-monitor-overview.png" alt-text="Screenshot of selecting the Change Analysis card on the Monitor overview page.":::
+
+### Search
 
 In the Azure portal, search for Change Analysis to launch the experience.
 
@@ -27,13 +39,13 @@ Select one or more subscriptions to view:
 - All of its resources' changes from the past 24 hours. 
 - Old and new values to provide insights at one glance.
   
-:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
+:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis pane in Azure portal":::
   
 Click into a change to view full Resource Manager snippet and other properties.
   
 :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
   
-Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
+Send feedback from the Change Analysis pane:
 
 :::image type="content" source="./media/change-analysis/change-analysis-feedback.png" alt-text="Screenshot of feedback button in Change Analysis tab":::
 
@@ -57,9 +69,7 @@ You can view change data via the **Web App Down** and **Application Crashes** de
 - The change types over time.
 - Details on those changes. 
 
-By default, the graph displays changes from within the past 24 hours help with immediate problems.
-
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view.":::   
+By default, the graph displays changes from within the past 24 hours help with immediate problems.   
 
 ### Diagnose and solve problems tool for Virtual Machines
 
@@ -92,8 +102,8 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 
 1. From within your resource, select **Activity Log** from the side menu.
 1. Select a change from the list.
-1. Select the **Change history (Preview)** tab. 
-1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history (Preview)** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
+1. Select the **Change history** tab. 
+1. For the Azure Monitor Change Analysis service to scan for changes in users' subscriptions, a resource provider needs to be registered. Upon selecting the **Change history** tab, the tool will automatically register **Microsoft.ChangeAnalysis** resource provider.
 1. Once registered, you can view changes from **Azure Resource Graph** immediately from the past 14 days.
    - Changes from other sources will be available after ~4 hours after subscription is onboard.
 

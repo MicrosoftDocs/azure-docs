@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-+ [Node.js](https://nodejs.org/) version 14 or 16 (preview). 
++ [Node.js](https://nodejs.org/) version 16 or 18 (preview). 
 
 ### Prerequisite check
 

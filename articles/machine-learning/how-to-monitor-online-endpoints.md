@@ -4,10 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.author: larryfr
-author: blackmist
+ms.reviewer: mopeakande 
+author: Bozhong68
+ms.author: bozhlin
 ms.subservice: mlops
-ms.date: 06/27/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -30,11 +31,24 @@ In this article you learn how to:
 
 ## Metrics
 
-Use the following steps to view metrics for an online endpoint or deployment:
+You can view metrics pages for online endpoints or deployments in the Azure portal. An easy way to access these metrics pages is through links available in the Azure Machine Learning studio user interface—specifically in the **Details** tab of an endpoint's page. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment. Alternatively, you can also go into the Azure portal to search for the metrics page for the endpoint or deployment.
+
+To access the metrics pages through links available in the studio:
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by clicking its name.
+1. Select **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal.
+1. Select **View metrics** in the section for each available deployment to open up the deployment's metrics page in the Azure portal.
+
+    :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI." lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
+
+To access metrics directly from the Azure portal:
+
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 
-    online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
+    Online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
 
@@ -97,12 +111,12 @@ You can also create custom alerts to notify you of important status updates to y
 1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
 
 1. Choose **Create alert rule** to finish creating your alert.
-1. 
+
 ## Logs
 
 There are three logs that can be enabled for online endpoints:
 
-* **AMLOnlineEndpointTrafficLog**: You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
+* **AMLOnlineEndpointTrafficLog** (preview): You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
 
     * If the response isn't 200, check the value of the column “ResponseCodeReason” to see what happened. Also check the reason in the "HTTPS status codes" section of the [Troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md#http-status-codes) article.
 
@@ -122,7 +136,7 @@ There are three logs that can be enabled for online endpoints:
 
     * You may also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
+* **AMLOnlineEndpointEventLog** (preview): Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
@@ -174,7 +188,7 @@ You can find example queries on the __Queries__ tab while viewing logs. Search f
 
 The following tables provide details on the data stored in each log:
 
-**AMLOnlineEndpointTrafficLog**
+**AMLOnlineEndpointTrafficLog** (preview)
 
 | Field name | Description |
 | ---- | ---- |
@@ -211,7 +225,7 @@ The following tables provide details on the data stored in each log:
 | ContainerName | The name of the container where the log was generated. 
 | Message | The content of the log. 
 
-**AMLOnlineEndpointEventLog**
+**AMLOnlineEndpointEventLog** (preview)
 
 
 | Field Name | Description |

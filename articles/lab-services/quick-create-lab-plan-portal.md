@@ -57,9 +57,17 @@ When no longer needed, you can delete the resource group, lab plan, and all rela
 1. At the top of the page for the resource group, select **Delete resource group**.
 1. A page will open warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
-In this quickstart, you created a resource group and a lab plan.  To learn more about advanced options for lab plans, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+In this quickstart, you created a resource group and a lab plan.  
+
+To learn more about advanced options for lab plans, see:
+- [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- [Request a capacity increase](how-to-request-capacity-increase.md)
 
 Advance to the next article to learn how to create a lab.
 > [!div class="nextstepaction"]

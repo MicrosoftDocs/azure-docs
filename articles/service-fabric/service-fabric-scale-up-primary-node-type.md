@@ -2,11 +2,11 @@
 title: Scale up an Azure Service Fabric primary node type 
 description: Vertically scale your Service Fabric cluster by adding a new node type and removing the previous one.
 ms.topic: how-to
-ms.author: tomcassidy
-author: tomvcassidy
+ms.author: chrpap
+author: chrpap
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 09/20/2022
 ---
 
 # Scale up a Service Fabric cluster primary node type
@@ -22,14 +22,14 @@ This article describes how to scale up a Service Fabric cluster primary node typ
 The following will walk you through the process for updating the VM size and operating system of primary node type VMs of a sample cluster with [Silver durability](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), backed by a single scale set with five nodes. We'll be upgrading the primary node type:
 
 - From VM size *Standard_D2_V2* to *Standard D4_V2*, and
-- From VM operating system *Windows Server 2016 Datacenter with Containers* to *Windows Server 2019 Datacenter with Containers*.
+- From VM operating system *Windows Server 2019 Datacenter* to *Windows Server 2022 Datacenter*.
 
 > [!WARNING]
 > Before attempting this procedure on a production cluster, we recommend that you study the sample templates and verify the process against a test cluster. The cluster may also be unavailable for a short period of time.
 >
 > Do not attempt a primary node type scale up procedure if the cluster status is unhealthy, as this will only destabilize the cluster further.
 
-Here are the step-by-step Azure deployment templates that we'll use to complete this sample upgrade scenario: https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade
+The step-by-step Azure deployment templates that we'll use to complete this sample upgrade scenario are [available on GitHub](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade).
 
 ## Set up the test cluster
 
@@ -153,7 +153,7 @@ With that, we're ready to begin the upgrade procedure.
 
 ## Deploy a new primary node type with upgraded scale set
 
-In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type backed by a new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set (unless you're doing a non-primary node type upgrade). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original primary node type resources will be deleted.
+In order to upgrade (vertically scale) a node type, we'll first need to deploy a new node type backed by a new scale set and supporting resources. The new scale set will be marked as primary (`isPrimary: true`), just like the original scale set. If you want to scale up a non-primary node type, see [Scale up a Service Fabric cluster non-primary node type](service-fabric-scale-up-non-primary-node-type.md). The resources created in the following section will ultimately become the new primary node type in your cluster, and the original primary node type resources will be deleted.
 
 ### Update the cluster template with the upgraded scale set
 
@@ -184,14 +184,14 @@ The required changes for this step have already been made for you in the [*Step1
     "name": "[concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))]",
     "location": "[variables('computeLocation')]",
     "properties": {
-    "dnsSettings": {
-        "domainNameLabel": "[concat(variables('dnsName'),'-','nt1')]"
-    },
-    "publicIPAllocationMethod": "Dynamic"
+        "dnsSettings": {
+            "domainNameLabel": "[concat(variables('dnsName'),'-','nt1')]"
+        },
+        "publicIPAllocationMethod": "Dynamic"
     },
     "tags": {
-    "resourceType": "Service Fabric",
-    "clusterName": "[parameters('clusterName')]"
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
     }
 }
 ```
@@ -538,7 +538,7 @@ Remove all other resources related to the original node type from the ARM templa
       "value": "WindowsServer"
     },
     "vmImageSku": {
-      "value": "2016-Datacenter-with-Containers"
+      "value": "2019-Datacenter"
     },
     "vmImageVersion": {
       "value": "latest"

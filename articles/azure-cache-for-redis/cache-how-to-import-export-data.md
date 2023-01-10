@@ -4,7 +4,7 @@ description: Learn how to import and export data to and from blob storage with y
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 09/01/2022
 ms.author: franlanglois
 
 ---

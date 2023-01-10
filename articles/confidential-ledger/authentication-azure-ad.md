@@ -24,7 +24,7 @@ To do so, the client performs a two-steps process:
 Azure confidential ledger then executes the request on behalf of the security principal for which Azure AD issued the access token. All authorization checks are performed using this identity.
 
 In most cases, the recommendation is to use one of Azure confidential ledger SDKs to access the service programmatically, as they remove much of the hassle of implementing the
-flow above (and much more). See, for example, the [Python client library](https://pypi.org/project/azure-confidentialledger/) and [.NET client library](/dotnet/api/overview/azure/storage.confidentialledger-readme-pre).
+flow above (and much more). See, for example, the [Python client library](https://pypi.org/project/azure-confidentialledger/) and [.NET client library](/dotnet/api/azure.security.confidentialledger).
 
 The main authenticating scenarios are:
 
@@ -84,7 +84,7 @@ For detailed steps on registering an Azure confidential ledger application with 
 
 At the end of registration, the application owner gets the following values:
 
-- An **Application ID** (also known as the AAD Client ID or appID)
+- An **Application ID** (also known as the Azure Active Directory Client ID or appID)
 - An **authentication key** (also known as the shared secret).
 
 The application must present both these values to Azure Active Directory to get a token.
