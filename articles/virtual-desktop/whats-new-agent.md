@@ -145,6 +145,7 @@ This update was released September 2021 and it fixes an issue with package dereg
 This update was released September 2021 and has the following changes:
 
 - General agent improvements.
+- Fixes issues with restarting the agent on Windows 7 VMs.
 - Fixes an issue with fields in the WVDAgentHealthStatus table not showing up correctly.
 
 ## Version 1.0.3130.2900
