@@ -327,7 +327,7 @@ Optionally, uncomment the `payload` parameter to specify the path to a local JSO
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
-8. Save and close the file.
+Save and close the file.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
