@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 01/10/2022
 author: noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -17,7 +17,7 @@ ms.custom:
 
 # Tutorial: Explore Azure OpenAI embeddings and document search
 
-This tutorial will walk you through using the Azure OpenAI embeddings API to perform **document search** where you'll query a knowledge base to find the most relevant document.
+This tutorial will walk you through using the Azure OpenAI [embeddings](../concepts/understand-embeddings.md) API to perform **document search** where you'll query a knowledge base to find the most relevant document.
 
 In this tutorial, you learn how to:
 

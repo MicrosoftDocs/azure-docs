@@ -1,8 +1,8 @@
 ---
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
-ms.topic: reference
-ms.date: 01/02/2023
+ms.topic: overview
+ms.date: 01/10/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
