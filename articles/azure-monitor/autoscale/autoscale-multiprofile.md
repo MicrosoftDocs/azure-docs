@@ -61,8 +61,7 @@ Follow the rules below when using ARM templates to create autoscale settings wit
 
 See the autoscale section of the [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
 
-* There is no specification for end time. A profile will remain active until the next profile's start time.
-
+* There is no specification for end time. A profile will remain active until the next profile's start time. 
 Create a default profile for each recurring profile. If you have two recurring profiles, create two matching default profiles.
 * The default profile must contain a `recurrence` section that is the same as the recurring profile, with the `hours` and `minutes` elements set for the end time of the recurring profile. If you don't specify a recurrence with a start time for the default profile, the last recurrence rule will remain in effect.
 * The `name` element for the default profile is an object with the following format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Recurring profile name\"}"` where the recurring profile name is the value of the `name` element for the recurring profile. If the name isn't specified correctly, the default profile will appear as another recurring profile.
