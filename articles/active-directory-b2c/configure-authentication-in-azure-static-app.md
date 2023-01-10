@@ -75,7 +75,7 @@ To register your application, follow these steps:
 
 ## Step 3: Configure the Azure Static App
 
-Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.md). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.md#configure-application-settings) article.
+Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.md). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.md#set-application-settings) article.
 
 Add the following keys to the app settings:
 
