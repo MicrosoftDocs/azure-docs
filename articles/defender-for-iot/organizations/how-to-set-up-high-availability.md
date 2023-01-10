@@ -79,32 +79,41 @@ Verify if your organizational security policy allows you to have access to the f
 
 ## Create the primary and secondary pair
 
-Verify that both the primary and secondary on-premises management console appliances are powered on before starting the procedure.
+Before starting this procedure, verify that:
 
-### On the primary
+- Both the primary and secondary on-premises management console appliances are powered on
+- At least two sensors are connected to the primary management console.
 
-1. Sign in to the management console.
+### On the primary management console
+
+1. Sign in to the primary management console.
 
 1. Select **System Settings** from the side menu.
 
-1. Copy the Connection String.
+1. Select the eye icon of the Connection String to view the string, and copy the part of the string that is to the right of the **:**, after the IP address.
+
+    For example:
 
     :::image type="content" source="../media/how-to-set-up-high-availability/connection-string.png" alt-text="Copy the connection string to use in the following command.":::
 
 1. Run the following command on the primary:
 
     ```bash
-    sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <connection string>
+    sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <copied part of the connection string>
     ```
 
+    In the ```<Secondary IP>``` field, enter the IP address of the secondary appliance. In the ```<copied part of the connection string>``` field, enter the part of the connection string you copied in the previous step, and press Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
 
-1. Enter the IP address of the secondary appliance in the ```<Secondary ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
-
-1. Run the following command on the primary to verify that the certificate is installed properly:
+1. Run the following command on the primary to apply the changes:
 
     ```bash
     sudo cyberx-management-trusted-hosts-apply
     ```
+
+1. Run the following command on the primary to verify that the certificate is installed properly:
+
+    ```bash
+    sudo cyberx-management-trusted-hosts-list
 
 1. Run the following command on the primary. **Do not run with sudo.**
 
@@ -114,21 +123,23 @@ Verify that both the primary and secondary on-premises management console applia
 
    This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
 
-1. Enter the IP address of the secondary and select Enter.
-
-### On the secondary
+### On the secondary management console
 
 1. Sign in to the CLI as a Defender for IoT user.
 
 1. Run the following command on the secondary. **Do not run with sudo**:
 
     ```bash
-    cyberx-management-deploy-ssh-key <Primary ip>
+    cyberx-management-deploy-ssh-key <Primary IP>
     ```
 
-    This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
+    Enter the IP address of the primary in the ```<Primary IP>``` field and press enter. This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
 
-1. Enter the IP address of the primary and press Enter.
+1. Run the following command to validate that the changes have been applied:
+
+    ```bash
+    sudo cyberx-management-trusted-hosts-list
+    ```
 
 ### Track high availability activity
 
