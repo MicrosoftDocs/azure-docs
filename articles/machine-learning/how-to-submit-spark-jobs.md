@@ -60,7 +60,7 @@ Spark jobs can use either user identity passthrough, or a managed identity, to a
 |Managed (Automatic) Spark compute|User identity and managed identity|User identity|
 |Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning Managed (Automatic) Sparks compute uses user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
+If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning Managed (Automatic) Spark compute uses user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
 
 ### Attach user assigned managed identity using CLI v2
 1. Create a YAML file that defines the user-assigned managed identity that should be attached to the workspace:
