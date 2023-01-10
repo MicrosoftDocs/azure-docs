@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 01/10/2023
 ms.reviewer: akkumari
 
 
@@ -43,6 +43,14 @@ The example below shows an autoscale setting with a default profile and recurrin
 
 In the above example, on Monday after 6 AM, the recurring profile will be used. If the instance count is less than 3, autoscale scales to the new minimum of three. Autoscale continues to use this profile and scales based on CPU% until Monday at 6 PM. At all other times scaling will be done according to the default profile, based on the number of requests. After 6 PM on Monday, autoscale switches to the default profile. If for example, the number of instances at the time is 12, autoscale scales in to 10, which the maximum allowed for the default profile.
 
+## Multiple contiguous profiles
+Autoscale transitions between profiles based on their start times. The end time for a given profile is determined by the start time of the following profile.
+
+In the portal,the end time field becomes the next start time for the default profile. You cannot specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
+
+> [!TIP]
+> To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile.
+
 ## Multiple profiles using templates, CLI, and PowerShell
 
 When creating multiple profiles using templates, the CLI, and PowerShell, follow the guidelines below.
@@ -53,7 +61,9 @@ Follow the rules below when using ARM templates to create autoscale settings wit
 
 See the autoscale section of the [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
 
-* Create a default profile for each recurring profile. If you have two recurring profiles, create two matching default profiles.
+* There is no specification for end time. A profile will remain active until the next profile's start time.
+
+Create a default profile for each recurring profile. If you have two recurring profiles, create two matching default profiles.
 * The default profile must contain a `recurrence` section that is the same as the recurring profile, with the `hours` and `minutes` elements set for the end time of the recurring profile. If you don't specify a recurrence with a start time for the default profile, the last recurrence rule will remain in effect.
 * The `name` element for the default profile is an object with the following format: `"name": "{\"name\":\"Auto created default scale condition\",\"for\":\"Recurring profile name\"}"` where the recurring profile name is the value of the `name` element for the recurring profile. If the name isn't specified correctly, the default profile will appear as another recurring profile.
  *The rules above don't apply for non-recurring scheduled profiles.
