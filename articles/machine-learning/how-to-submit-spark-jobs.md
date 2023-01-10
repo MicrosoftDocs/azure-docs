@@ -40,7 +40,6 @@ Azure Machine Learning supports submission of standalone machine learning jobs, 
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 # [Studio UI](#tab/ui)
-
 These prerequisites cover the submission of a Spark job from Azure Machine Learning Studio UI:
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
@@ -50,6 +49,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
   :::image type="content" source="media/interactive-data-wrangling-with-apache-spark-azure-ml/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
+
 ---
 
 ## Ensuring resource access for Spark jobs
@@ -139,7 +139,6 @@ df.to_csv(args.wrangled_data, index_col="PassengerId")
 The above script takes two arguments `--titanic_data` and `--wrangled_data`, which pass the path of input data and output folder respectively.
 
 # [Azure CLI](#tab/cli)
-
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 To create a job, a standalone Spark job can be defined as a YAML specification file, which can be used in the `az ml job create` command, with the `--file` parameter. Define these properties in the YAML file as follows:
@@ -280,7 +279,6 @@ You can execute the above command from:
 - your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
 
 # [Python SDK](#tab/sdk)
-
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ### Standalone Spark job using Python SDK 
@@ -398,7 +396,6 @@ ml_client.jobs.stream(returned_spark_job.name)
 > To use an attached Synapse Spark pool, define the `compute` parameter in the `azure.ai.ml.spark` function, instead of `resources`.
 
 # [Studio UI](#tab/ui)
-
 This functionality isn't available in the Studio UI. The Studio UI doesn't support this feature.
 
 ---
@@ -491,7 +488,6 @@ To submit a standalone Spark job using the Azure Machine Learning Studio UI:
 A Spark component offers the flexibility to use the same component in multiple [Azure Machine Learning pipelines](./concept-ml-pipelines.md), as a pipeline step.
 
 # [Azure CLI](#tab/cli)
-
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 YAML syntax for a Spark component resembles the [YAML syntax for Spark job specification](#yaml-properties-in-the-spark-job-specification) in most ways. These properties are defined differently in the Spark component YAML specification:
@@ -604,7 +600,6 @@ You can execute the above command from:
 - your local computer that has [Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public) installed.
 
 # [Python SDK](#tab/sdk)
-
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 To create an Azure Machine Learning pipeline with a Spark component, you should have familiarity with creation of [Azure Machine Learning pipelines from components, using Python SDK](./tutorial-pipeline-python-sdk.md#create-the-pipeline-from-components). A Spark component is created using `azure.ai.ml.spark` function. The function parameters are defined almost the same way as for the [standalone Spark job](#standalone-spark-job-using-python-sdk). These parameters are defined differently for the Spark component:
@@ -694,7 +689,6 @@ ml_client.jobs.stream(pipeline_job.name)
 > To use an attached Synapse Spark pool, define the `compute` parameter in the `azure.ai.ml.spark` function, instead of `resources` parameter. For example, in the code sample shown above, define `spark_step.compute = "<ATTACHED_SPARK_POOL_NAME>"` instead of defining `spark_step.resources`.
 
 # [Studio UI](#tab/ui)
-
 This functionality isn't available in the Studio UI. The Studio UI doesn't support this feature.
 
 ---
