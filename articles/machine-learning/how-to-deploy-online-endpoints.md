@@ -60,6 +60,14 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
+# [Studio](#tab/azure-studio)
+
+Before following the steps in this article, make sure you have the following prerequisites:
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+
 # [ARM template](#tab/arm)
 
 > [!NOTE]
@@ -161,6 +169,12 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
         DefaultAzureCredential(), subscription_id, resource_group, workspace
     )
     ```
+
+# [Studio](#tab/azure-studio)
+
+### Clone the sample repository
+
+To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). You can use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks). This article uses the assets in the `/cli/endpoints/online` directory.
 
 # [ARM template](#tab/arm)
 
@@ -287,7 +301,7 @@ In this article, we first define names of online endpoint and deployment for deb
     The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
 
     * Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
-    * The code that's required to score the model. In this case, we have a score.py file.
+    * The code that's required to score the model. In this case, we have a *score.py* file.
     * An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
     * Settings to specify the instance type and scaling capacity.
 
@@ -322,6 +336,30 @@ In this article, we first define names of online endpoint and deployment for deb
     )
     ```
 
+# [Studio](#tab/azure-studio)
+
+Local deployment does not apply to the AzureML studio.
+
+To deploy a model, you must have:
+
+- Model files (or the name and version of a model that's already registered in your workspace).
+- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned earlier.
+- An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
+- Settings to specify the instance type and scaling capacity.
+
+**Key aspects of a deployment**
+
+* `name` - Name of the deployment.
+* `endpoint_name` - Name of the endpoint that will contain the deployment.
+* `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
+* `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. For more information on creating an environment, see 
+[Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
+* `code_configuration` - the configuration for the source code and scoring script.
+    * `path`- Path to the source code directory for scoring the model.
+    * `scoring_script` - Relative path to the scoring file in the source code directory.
+* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* `instance_count` - The number of instances to use for the deployment.
+
 # [ARM template](#tab/arm)
 
 The Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json) are used by the steps in this article.
@@ -344,6 +382,27 @@ For more information on registering your model as an asset, see [Register your m
 
 For more information on creating an environment, see 
 [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment)
+
+# [Studio](#tab/azure-studio)
+
+### Register the model
+
+A model registration is a logical entity in the workspace that may contain a single model file or a directory containing multiple files. The steps in this article assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+
+To register the example model using AzureML studio, use the following steps:
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Models** page.
+1. Select **Register**, and then **From local files**.
+1. Select __Unspecified type__ for the __Model type__, then select __Browse__, and __Browse folder__.
+
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/register-model-folder.png" alt-text="A screenshot of the browse folder option.":::
+
+1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you downloaded earlier. When prompted, select __Upload__. Once the upload completes, select __Next__.
+1. Enter a friendly __Name__ for the model. The steps in this article assume it's named `model-1`.
+1. Select __Next__, and then __Register__ to complete registration.
+
+For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
 
 # [ARM template](#tab/arm)
 
@@ -376,7 +435,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ### Use more than one model
 
-Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel).
+Currently, you can specify only one model per deployment in the YAML. If you have more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel).
 
 ## Understand the scoring script
 
@@ -384,14 +443,17 @@ Currently, you can specify only one model per deployment in the YAML. If you've 
 > The format of the scoring script for online endpoints is the same format that's used in the preceding version of the CLI and in the Python SDK.
 
 # [Azure CLI](#tab/azure-cli)
-As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. 
+As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function.
 
 # [Python](#tab/python)
-As noted earlier, the script specified in `CodeConfiguration(scoring_script="score.py")` must have an `init()` function and a `run()` function. 
+The scoring script must have an `init()` function and a `run()` function.
+
+# [Studio](#tab/azure-studio)
+The scoring script must have an `init()` function and a `run()` function.
 
 # [ARM template](#tab/arm)
 
-As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). 
+The scoring script must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). 
 
 When using a template for deployment, you must first upload the scoring file(s) to an Azure Blob store, and then register it:
 
@@ -416,6 +478,7 @@ The `init()` function is called when the container is initialized or started. In
 To save time debugging, we *highly recommend* that you test-run your endpoint locally. For more, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!NOTE]
+> * Local deployment does not apply to AzureML studio and ARM template.
 > * To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed.
 > * Docker Engine must be running. Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
@@ -441,6 +504,10 @@ First create an endpoint. Optionally, for a local endpoint, you can skip this st
 ml_client.online_endpoints.begin_create_or_update(endpoint, local=True)
 ```
 
+# [Studio](#tab/azure-studio)
+
+The studio doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
+
 # [ARM template](#tab/arm)
 
 The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
@@ -464,6 +531,10 @@ ml_client.online_deployments.begin_create_or_update(
 ```
 
 The `local=True` flag directs the SDK to deploy the endpoint in the Docker environment.
+
+# [Studio](#tab/azure-studio)
+
+The studio doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 # [ARM template](#tab/arm)
 
@@ -508,6 +579,10 @@ The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azur
 ```python
 ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Succeeded', 'scoring_uri': 'http://localhost:49158/score', 'swagger_uri': None, 'name': 'local-10061534497697', 'description': 'this is a sample local endpoint', 'tags': {}, 'properties': {}, 'id': None, 'Resource__source_path': None, 'base_path': '/path/to/your/working/directory', 'creation_context': None, 'serialize': <msrest.serialization.Serializer object at 0x7ffb781bccd0>, 'auth_mode': 'key', 'location': 'local', 'identity': None, 'traffic': {}, 'mirror_traffic': {}, 'kind': None})
 ```
+
+# [Studio](#tab/azure-studio)
+
+The studio doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 # [ARM template](#tab/arm)
 
@@ -554,6 +629,10 @@ endpoint = ml_client.online_endpoints.get(endpoint_name)
 scoring_uri = endpoint.scoring_uri
 ```
 
+# [Studio](#tab/azure-studio)
+
+The studio doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
+
 # [ARM template](#tab/arm)
 
 The template doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
@@ -579,6 +658,10 @@ ml_client.online_deployments.get_logs(
     name="blue", endpoint_name=local_endpoint_name, local=True, lines=50
 )
 ```
+
+# [Studio](#tab/azure-studio)
+
+The studio doesn't support local endpoints. See the Azure CLI or Python tabs for steps to test the endpoint locally.
 
 # [ARM template](#tab/arm)
 
@@ -684,6 +767,37 @@ This deployment might take up to 15 minutes, depending on whether the underlying
     ml_client.online_endpoints.begin_create_or_update(endpoint)
     ```
 
+# [Studio](#tab/azure-studio)
+
+### Create a managed online endpoint and deployment
+
+Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You can't create an empty managed online endpoint.
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select **+ Create**.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
+
+You can also create a managed online endpoint from the **Models** page in the studio. This is also an easy way to add a model to an existing managed online deployment.
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Models** page.
+1. Select a model by checking the circle next to the model name.
+1. Select **Deploy** > **Deploy to real-time endpoint**.
+
+    :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deploy-from-models-page.png" alt-text="A screenshot of creating a managed online endpoint from the Models UI.":::
+
+1. Enter an __Endpoint name__ and select __Managed__ as the compute type.
+1. Select __Next__, accepting defaults, until you're prompted for the environment. Here, select the following:
+
+    * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you downloaded earlier.
+    * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
+
+1. Select __Next__, accepting defaults, until you're prompted to create the deployment. Select the __Create__ button.
+
 # [ARM template](#tab/arm)
 
 1. The following example demonstrates using the template to create an online endpoint:
@@ -739,6 +853,18 @@ for endpoint in ml_client.online_endpoints.list():
     print(f"{endpoint.kind}\t{endpoint.location}\t{endpoint.name}")
 ```
 
+# [Studio](#tab/azure-studio)
+
+### View managed online endpoints
+
+You can view all your managed online endpoints in the **Endpoints** page. Go to the endpoint's **Details** page to find critical information including the endpoint URI, status, testing tools, activity monitors, deployment logs, and sample consumption code:
+
+1. In the left navigation bar, select **Endpoints**.
+1. (Optional) Create a **Filter** on **Compute type** to show only **Managed** compute types.
+1. Select an endpoint name to view the endpoint's details page.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/managed-endpoint-details-page.png" lightbox="media/how-to-create-managed-online-endpoint-studio/managed-endpoint-details-page.png" alt-text="Screenshot of managed endpoint details view.":::
+
 # [ARM template](#tab/arm)
 
 > [!TIP]
@@ -784,6 +910,10 @@ ml_client.online_deployments.get_logs(
     name="blue", endpoint_name=online_endpoint_name, lines=50, container_type="storage-initializer"
 )
 ```
+
+# [Studio](#tab/azure-studio)
+
+To view the logs, click **Deployment logs** in the endpoint's **Details** page.
 
 # [ARM template](#tab/arm)
 
@@ -842,6 +972,17 @@ ml_client.online_endpoints.invoke(
     request_file="../model-1/sample-request.json",
 )
 ```
+
+# [Studio](#tab/azure-studio)
+
+Use the **Test** tab in the endpoint's details page to test your managed online deployment. Enter sample input and view the results.
+
+1. Select the **Test** tab in the endpoint's detail page.
+1. Use the dropdown to select the deployment you want to test.
+1. Enter sample input.
+1. Select **Test**.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" lightbox="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" alt-text="A screenshot of testing a deployment by providing sample data, directly in your browser.":::
 
 # [ARM template](#tab/arm)
 
@@ -915,6 +1056,10 @@ To understand how `begin_create_or_update` works:
     ```
 
 The `begin_create_or_update` method also works with local deployments. Use the same method with the `local=True` flag.
+
+# [Studio](#tab/azure-studio)
+
+Add steps here, unless there currently is not an option to update the deployment using the studio.
 
 # [ARM template](#tab/arm)
 
