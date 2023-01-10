@@ -168,7 +168,7 @@ The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* opera
 > - [Azure Resource Manager templates (ARM templates)](manage-with-templates.md)
 > - [Azure Resource Manager .NET client library](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB/)
 
-The Azure CLI approach is used in this example. Use the [`az cosmosdb sql database create`](/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
+The Azure CLI approach is used in this example. Use the [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) and [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) commands to create a Cosmos DB NoSQL database and container.
 
 ```azurecli
 # Create a SQL API database
