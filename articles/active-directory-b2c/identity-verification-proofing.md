@@ -16,17 +16,17 @@ ms.subservice: B2C
 
 # Identity verification and proofing partners
 
-With Azure Active Directory B2C (Azure AD B2C) partners, customers can enable end-user identity verification and proofing before account registration or access can occur. Identity verification and proofing can check document, knowledge-based information, and liveness.
+With Azure Active Directory B2C (Azure AD B2C) software-vendor partners, customers can enable end-user identity verification and proofing for account registration. Identity verification and proofing can check document, knowledge-based information, and liveness.
 
 ## Architecture diagram
 
-The following architecture diagram illustrates the verfication and proofing flow.
+The following architecture diagram illustrates the verification and proofing flow.
 
    ![Diagram of of the identity proofing flow, from registration to access approval.](./media/partner-gallery/third-party-identity-proofing.png)
 
 1. User begins registration with a device.
 2. User enters information.
-3. Digital risk score assessed, then third-party identity proofing and identity validation occurs.
+3. Digital-risk score is assessed, then third-party identity proofing and identity validation occurs.
 4. Identity is validated.
 5. User account is created in Azure Active Directory B2C.
 6. User access is assigned.
