@@ -212,7 +212,7 @@ The `bicep install` and `bicep upgrade` commands don't work in an air-gapped env
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
     1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine. Rename file to **bicep.exe**.
 
-When using the [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2) on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`.
+When using the [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2) on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`. See [CI/CD with Azure Pipelines and Bicep files](./add-template-to-azure-pipelines.md) for an example.
 
 ## Install the nightly builds
 
