@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Register a web application with the Microsoft identity platform"
 description: In this tutorial, you learn how to register a web application with the Microsoft identity platform.
-author: davidmu1
-ms.author: davidmu
+author: cilwerner
+ms.author: cwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: tutorial
@@ -22,12 +22,12 @@ In this tutorial:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * This Azure account must have permissions to manage applications. Use the least privileged of the following roles that you need to register the application:
   * Application administrator
   * Application developer
   * Cloud application administrator
-* Completion of the [Set up a tenant quickstart](quickstart-create-new-tenant.md).
+* Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register the application
 
