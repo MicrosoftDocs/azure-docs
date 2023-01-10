@@ -178,7 +178,7 @@ To confirm whether the **Compose** action creates the expected results, send you
    > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
    > select **See more** next to the **Compose** label in the list.
    >
-   > ![Screenshot showing the Azure portal, designer for an example Standard workflow, and dynamic content list with "See more" selected for the "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard-see-more.png)
+   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-see-more.png)
 
    For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
@@ -408,28 +408,45 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Output**.
 
-   ![Screenshot showing the "Send an email" action with the "Output" field in the body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
+   ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
 
    > [!NOTE]
    >
    > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
    > select **See more** next to the **Create CSV table** label in the list.
    >
-   > ![Screenshot showing the designer for an example Consumption workflow and dynamic content list with "See more" selected for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-see-more.png)
+   > ![Screenshot showing a Consumption workflow and the dynamic content list with "See more" selected for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-see-more.png)
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
 
-   If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+#### [Standard](#tab/standard)
 
-   ![Email with "Create CSV table" action results](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
+1. In your workflow, add an action that can send you the results from the **Create CSV table** action.
+
+   This example continues by using the Office 365 Outlook action named **Send an email** action.
+
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Output**.
+
+   ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field in the entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-standard.png)
 
    > [!NOTE]
    >
-   > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
+   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Create CSV table** label in the list.
+   >
+   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-see-more.png)
 
-#### [Standard](#tab/standard)
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
 
 ---
+
+If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+
+![Screenshot showing an email with the "Create CSV table" action results.](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
+
+> [!NOTE]
+>
+> If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
 
 <a name="create-html-table-action"></a>
 
