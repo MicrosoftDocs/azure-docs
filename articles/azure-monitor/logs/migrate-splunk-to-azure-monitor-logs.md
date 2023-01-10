@@ -17,7 +17,7 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 > * Introduction to key concepts 
 > * Set up a Log Analytics workspace
 > * Collect data
-> * Migrate applications
+> * Migrate Splunk artifacts
 > * Ingest historical data
 > * Analyze log data
 
@@ -46,6 +46,13 @@ To set up a Log Analytics workspace for data collection:
 1. [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
     
     Azure Monitor Logs creates Azure tables in your workspace automatically based on Azure services you use and [data collection settings](#4-collect-data) you define for Azure resources.
+
+1. Configure your Log Analytics workspace, including:
+    1. [Pricing tier](../logs/change-pricing-tier.md).
+    1. [Daily cap](../logs/daily-cap.md).
+    1. [Data retention](../logs/data-retention-archive.md).
+    1. [Network isolation](../logs/private-link-security.md).
+    1. [Access control](../logs/manage-access.md).
 
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
     1. Define a table's log data plan.
