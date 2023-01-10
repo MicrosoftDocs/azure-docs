@@ -1,17 +1,17 @@
 ---
-title: Optimize costs by using access tiers
+title: Best practices for using blob access tiers
 titleSuffix: Azure Storage
 description: Description goes here
 author: normesta
 
 ms.author: normesta
-ms.date: 11/09/2022
+ms.date: 01/10/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ---
 
-# Reduce costs with access tier best practices
+# Best practices for using blob access tiers
 
 You can reduce costs by placing blob data into the most cost effective access tiers. To learn more, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md?tabs=azure-portal). For data that is new to Azure Storage, you can save costs by uploading data to the most optimal tier up-front. For data already in Azure Storage, you can analyze your data estate to find cost savings opportunities. This article provides best practice guidance that you can apply to reduce the cost of your data.
 

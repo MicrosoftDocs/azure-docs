@@ -208,12 +208,14 @@ items:
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Blob access tiers and lifecycle management
       items:
-      - name: Overview
+      - name: Blob access tiers
         href: access-tiers-overview.md
-      - name: Blob rehydration from Archive tier
-        href: archive-rehydrate-overview.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
+      - name: Best practices
+        href: access-tiers-best-practices.md
+      - name: Blob rehydration from Archive tier
+        href: archive-rehydrate-overview.md
     - name: Object replication
       href: object-replication-overview.md
     - name: Performance and scalability
@@ -240,8 +242,6 @@ items:
         href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
-      - name: Optimize costs with access tiers
-        href: optimize-costs-with-access-tiers.md
       - name: Estimate the cost to archive data
         href: archive-cost-estimation.md
     - name: Find, search, and understand blob data
