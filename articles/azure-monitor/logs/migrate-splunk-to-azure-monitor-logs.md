@@ -54,18 +54,20 @@ To set up a Log Analytics workspace for data collection:
 
 1. [Configure your workspace](../logs/log-analytics-workspace-overview.md) based on needs such as access control, billing, data transformation, and data retention and archiving.
 
-## 2. Migrate Splunk apps and artifacts
+## 2. Migrate Splunk artifacts
 
 |Splunk artifact| Azure Monitor artifact|
 |---|---|
 |Alerts|[Alert rules](../alerts/alerts-create-new-alert-rule.md)|
 |Alert actions|[Action groups](../alerts/action-groups.md)|
-|Source Types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
-|Searches|[Queries](../logs/get-started-queries.md)|
+|Apps|[Azure Monitor Insights](../insights/insights-overview.md) are a set of ready-to-use, curated monitoring experiences with preconfigured data inputs, searches, alerts, and visualizations to get you started analyzing data quickly and effectively. |
 |Dashboards|[Workbooks](../visualize/workbooks-overview.md)|
-|Reports|[Azure Monitor Insights](../insights/insights-overview.md)|
+|Searches|[Queries](../logs/get-started-queries.md)|
+|Source types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
 |Namespaces|[Log Analytics workspaces](../logs/log-analytics-workspace-overview.md) and [Azure resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md)|
 |Permissions|[Access management](../logs/manage-access.md)|
+|Reports|[Azure Monitor Insights](../insights/insights-overview.md)|
+|Universal forwarder| Azure Monitor provides a number of [data collection tools](#4-collect-data) designed for specific resources.| 
 
 ## 3. Ingest historical data
 
@@ -73,9 +75,11 @@ To set up a Log Analytics workspace for data collection:
 
 ## 4. Collect data
 
-Azure Monitor provides a variety of tools for collecting data from all data sources. The table lists the tools to use to collect data from various monitored resources.  
+Azure Monitor provides tools for collecting data from log [data sources](../data-sources.md) on Azure and non-Azure resources in your environment. 
 
-:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Deiagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
+
+This table lists the tools to use to collect data from various monitored resources.  
 
 | Monitored resource | Data collection tool | Collected data |
 | --- | --- | --- |
