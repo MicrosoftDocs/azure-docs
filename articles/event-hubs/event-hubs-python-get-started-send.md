@@ -56,14 +56,16 @@ In this section, create a Python script to send events to the event hub that you
 
     ```python
     import asyncio
-    from azure.eventhub.aio import EventHubProducerClient
+    
     from azure.eventhub import EventData
+    from azure.eventhub.aio import EventHubProducerClient
     from azure.identity import DefaultAzureCredential
     
     EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT HUBS NAMESPACE"
     EVENT_HUB_NAME = "EVENT HUB NAME"
     
     credential = DefaultAzureCredential()
+    
     
     async def run():
         # Create a producer client to send messages to the event hub.
@@ -72,22 +74,23 @@ In this section, create a Python script to send events to the event hub that you
         producer = EventHubProducerClient(
             fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
             eventhub_name=EVENT_HUB_NAME,
-            credential=credential
+            credential=credential,
         )
         async with producer:
             # Create a batch.
             event_data_batch = await producer.create_batch()
     
             # Add events to the batch.
-            event_data_batch.add(EventData('First event '))
-            event_data_batch.add(EventData('Second event'))
-            event_data_batch.add(EventData('Third event'))
+            event_data_batch.add(EventData("First event "))
+            event_data_batch.add(EventData("Second event"))
+            event_data_batch.add(EventData("Third event"))
     
             # Send the batch of events to the event hub.
             await producer.send_batch(event_data_batch)
     
             # Close credential when no longer needed.
             await credential.close()
+    
     
     asyncio.run(run())
     ```
@@ -96,27 +99,35 @@ In this section, create a Python script to send events to the event hub that you
 
     ```python
     import asyncio
-    from azure.eventhub.aio import EventHubProducerClient
+    
     from azure.eventhub import EventData
-
+    from azure.eventhub.aio import EventHubProducerClient
+    
+    EVENT_HUB_CONNECTION_STR = "EVENT HUBS NAMESPACE - CONNECTION STRING"
+    EVENT_HUB_NAME = "EVENT HUB NAME"
+    
+    
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
         # the event hub name.
-        producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
+        producer = EventHubProducerClient.from_connection_string(
+            conn_str=EVENT_HUB_CONNECTION_STR, eventhub_name=EVENT_HUB_NAME
+        )
         async with producer:
             # Create a batch.
             event_data_batch = await producer.create_batch()
-
+    
             # Add events to the batch.
-            event_data_batch.add(EventData('First event '))
-            event_data_batch.add(EventData('Second event'))
-            event_data_batch.add(EventData('Third event'))
-
+            event_data_batch.add(EventData("First event "))
+            event_data_batch.add(EventData("Second event"))
+            event_data_batch.add(EventData("Third event"))
+    
             # Send the batch of events to the event hub.
             await producer.send_batch(event_data_batch)
-
-    asyncio.run(run())
+    
+    
+    asyncio.run(run())    
     ```
     ---
     > [!NOTE]
@@ -185,48 +196,58 @@ In this section, you create a Python script to receive events from your event hu
 
     ```python
     import asyncio
+    
     from azure.eventhub.aio import EventHubConsumerClient
-    from azure.eventhub.extensions.checkpointstoreblobaio import BlobCheckpointStore
+    from azure.eventhub.extensions.checkpointstoreblobaio import (
+        BlobCheckpointStore,
+    )
     from azure.identity.aio import DefaultAzureCredential
     
-    AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=vmagelostorage;AccountKey=VvQid1kVmpZXZ7vNqkBnbfdymbTzBbm15quqHmYwupQwgkOMQB/VhCgYH3sq3Iao4wmqzV+D1o4T+AStkjQPNg==;EndpointSuffix=core.windows.net"
-    BLOB_CONTAINER_NAME = "event-hubs"
-    EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "vmagelo-event-hubs.servicebus.windows.net"
-    EVENT_HUB_NAME = "test-hub"
+    AZURE_STORAGE_CONNECTION_STRING = "AZURE STORAGE CONNECTION STRING"
+    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
+    EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT HUBS NAMESPACE"
+    EVENT_HUB_NAME = "EVENT HUB NAME"
     
     credential = DefaultAzureCredential()
     
+    
     async def on_event(partition_context, event):
         # Print the event data.
-        print("Received the event: \"{}\" from the partition with ID: \"{}\"".format(event.body_as_str(encoding='UTF-8'), partition_context.partition_id))
+        print(
+            'Received the event: "{}" from the partition with ID: "{}"'.format(
+                event.body_as_str(encoding="UTF-8"), partition_context.partition_id
+            )
+        )
     
         # Update the checkpoint so that the program doesn't read the events
         # that it has already read when you run it next time.
         await partition_context.update_checkpoint(event)
     
+    
     async def main():
         # Create an Azure blob checkpoint store to store the checkpoints.
         checkpoint_store = BlobCheckpointStore.from_connection_string(
-            AZURE_STORAGE_CONNECTION_STRING, 
-            BLOB_CONTAINER_NAME
+            AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER_NAME
         )
     
         # Create a consumer client for the event hub.
         client = EventHubConsumerClient(
             fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
             eventhub_name=EVENT_HUB_NAME,
-            consumer_group="$Default", 
+            consumer_group="$Default",
             checkpoint_store=checkpoint_store,
-            credential=credential
+            credential=credential,
         )
         async with client:
-            # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
-            await client.receive(on_event=on_event,  starting_position="-1")
+            # Call the receive method. Read from the beginning of the partition
+            # (starting_position: "-1")
+            await client.receive(on_event=on_event, starting_position="-1")
     
         # Close credential when no longer needed.
         await credential.close()
     
-    if __name__ == '__main__':
+    
+    if __name__ == "__main__":
         # Run the main method.
         asyncio.run(main())
     ```
@@ -235,31 +256,54 @@ In this section, you create a Python script to receive events from your event hu
 
     ```python
     import asyncio
+    
     from azure.eventhub.aio import EventHubConsumerClient
-    from azure.eventhub.extensions.checkpointstoreblobaio import BlobCheckpointStore
-
-
+    from azure.eventhub.extensions.checkpointstoreblobaio import (
+        BlobCheckpointStore,
+    )
+    
+    AZURE_STORAGE_CONNECTION_STRING = "AZURE STORAGE CONNECTION STRING"
+    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
+    EVENT_HUB_CONNECTION_STR = "EVENT HUBS NAMESPACE - CONNECTION STRING"
+    EVENT_HUB_NAME = "EVENT HUB NAME"
+    
+    
     async def on_event(partition_context, event):
         # Print the event data.
-        print("Received the event: \"{}\" from the partition with ID: \"{}\"".format(event.body_as_str(encoding='UTF-8'), partition_context.partition_id))
-
+        print(
+            'Received the event: "{}" from the partition with ID: "{}"'.format(
+                event.body_as_str(encoding="UTF-8"), partition_context.partition_id
+            )
+        )
+    
         # Update the checkpoint so that the program doesn't read the events
         # that it has already read when you run it next time.
         await partition_context.update_checkpoint(event)
-
+    
+    
     async def main():
         # Create an Azure blob checkpoint store to store the checkpoints.
-        checkpoint_store = BlobCheckpointStore.from_connection_string("AZURE STORAGE CONNECTION STRING", "BLOB CONTAINER NAME")
-
+        checkpoint_store = BlobCheckpointStore.from_connection_string(
+            AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER_NAME
+        )
+    
         # Create a consumer client for the event hub.
-        client = EventHubConsumerClient.from_connection_string("EVENT HUBS NAMESPACE CONNECTION STRING", consumer_group="$Default", eventhub_name="EVENT HUB NAME", checkpoint_store=checkpoint_store)
+        client = EventHubConsumerClient.from_connection_string(
+            EVENT_HUB_CONNECTION_STR,
+            consumer_group="$Default",
+            eventhub_name=EVENT_HUB_NAME,
+            checkpoint_store=checkpoint_store,
+        )
         async with client:
-            # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
-            await client.receive(on_event=on_event,  starting_position="-1")
-
-    if __name__ == '__main__':
+            # Call the receive method. Read from the beginning of the
+            # partition (starting_position: "-1")
+            await client.receive(on_event=on_event, starting_position="-1")
+    
+    
+    if __name__ == "__main__":
+        loop = asyncio.get_event_loop()
         # Run the main method.
-        asyncio.run(main())
+        loop.run_until_complete(main())
     ```
 
     ---
