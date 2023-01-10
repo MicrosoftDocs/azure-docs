@@ -173,7 +173,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 #### Restrict access to entire application
 
-It's common to require authentication for every route in an application. To enable required authentication for every route, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
+It's common to require authentication for every route in an application. To enable this, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
 
 The following example configuration blocks anonymous access and redirects all unauthenticated users to the Azure Active Directory sign-in page.
 
