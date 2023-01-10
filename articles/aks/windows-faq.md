@@ -36,7 +36,7 @@ Azure Disks and Azure Files are the supported volume types, and are accessed as 
 
 ## Do Linux and Windows support generation 2 virtual machines (VMs)?
 
-Generation 2 VMs are supported on Linux and Windows. For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+Generation 2 VMs are supported on Linux and Windows for WS2022 only. For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 ## Can I run Windows only clusters in AKS?
 
