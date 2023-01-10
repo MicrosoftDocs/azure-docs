@@ -12,7 +12,7 @@ To get to the list of recommendations:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Either:
-    - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment that you want to improve.
+    - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment you want to improve.
     - Go to **Recommendations** in the Defender for Cloud menu.
 
 You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
