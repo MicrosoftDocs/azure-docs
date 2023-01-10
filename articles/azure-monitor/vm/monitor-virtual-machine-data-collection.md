@@ -42,7 +42,7 @@ By default, [VM insights](../vm/vminsights-overview.md) will not enable collecti
 
 When you enable VM insights, then it will create a data collection rule, with the **_MSVMI-_** prefix that collects the following:
 
-- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalize to use the same common name regardless of the operating system.
+- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalize to use the same common name regardless of the operating system type.
 - If you specified processes and dependencies to be collected, then the following tables are populated:
   
   - [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) - Traffic for open server ports on the machine
@@ -50,7 +50,7 @@ When you enable VM insights, then it will create a data collection rule, with th
   - [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) - Traffic for inbound and outbound connections to and from the machine
   - [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) - Processes running on the machine
 
-A previously created data collection rule, can be targeted when enabling additional virtual machines, without being forced to create a new one for each VM.
+A previously created data collection rule, can be used when enabling additional virtual machines, without being forced to create a new one for each VM.
 
 ## Controlling costs
 Since your Azure Monitor cost is dependent on how much data you collect, you should ensure that you're not collecting any more than you need to meet your monitoring requirements. Your configuration will be a balance between your budget and how much insight you want into the operation of your virtual machines.
