@@ -45,6 +45,11 @@ The current preview of Azure Kubernetes Fleet Manager resource supports joining 
 
 Azure Kubernetes Fleet Manager resource is a regional resource. Support for region failover for disaster recovery use cases is in the [roadmap](https://aka.ms/fleet/roadmap).
 
+## What happens when the user changes the cluster identity of a joined cluster?
+The member agent will automatically be aware of the identity and will communicate with the hub using the new token.  \
+However, the fleet hub is unaware of the new identity, and needs to be reconfigured to authorize the member. \
+To do so, you can perform a PutMember operation to mitigate this issue.
+
 ## Roadmap
 
 The roadmap for Azure Kubernetes Fleet Manager resource is available [here](https://aka.ms/fleet/roadmap).
