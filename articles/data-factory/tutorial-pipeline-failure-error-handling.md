@@ -20,12 +20,14 @@ Azure Data Factory and Synapse Pipeline orchestration allows conditional logic a
 
 |  Name | Explanation |
 |  --- | --- |
-| Uppon Success | (Default Pass) Execute this pass if the current activity succceeded | 
-| Uppon Success | Execute this pass if the current activity failed | 
-| Upon Completion | Execute this pass after the current activity, regardless if it succeeded or not | 
-| Upon Skip | Execute this pass if the activity itself did not run |
+| Uppon Success | (Default Pass) Execute this path if the current activity succceeded | 
+| Uppon Failure | Execute this path if the current activity failed | 
+| Upon Completion | Execute this path after the current activity completed, regardless if it succeeded or not | 
+| Upon Skip | Execute this path if the activity itself did not run |
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/pipeline-error-1-four-branches.png" alt-text="Screenshot showing the four branches out of an activity.":::
+
+You may add multiple branches following an activity, with one exception: _Upon Completion_ path can not co-exist with either _Upon Success_ or _Upon Failure_ path. Note that in each pipeline run, at most 1 path will be activated, based on the execution outcome of the activity.
 
 ## Error Handling
 
