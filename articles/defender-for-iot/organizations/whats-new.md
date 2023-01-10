@@ -23,7 +23,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Update sensor software from the Azure portal (Public preview)
 
-For cloud-connected sensor versions [22.2.3](release-notes.md#2223-5) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
 
 :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option.":::
 
