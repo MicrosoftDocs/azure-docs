@@ -2,13 +2,36 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 11/06/2022
+ms.date: 01/06/2023
 ms.author: edbaynash
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.  
+## December 2022  
+  
+|Subservice| Article | Description |
+|---|---|---|
+General|[Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)|Updated for AMA and SCOM managed instance.|
+Application-Insights|[Create an Application Insights resource](app/create-new-resource.md)|Classic Application Insights resources are deprecated and support will end on February 29th, 2024. Migrate to workspace-based resources to take advantage of new capabilities.|
+Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)|Updated Node.js sample code for JavaScript and TypeScript.|
+Application-Insights|[System performance counters in Application Insights](app/performance-counters.md)|Updated code samples for .NET 6/7.|
+Application-Insights|[Sampling in Application Insights](app/sampling.md)|Updated code samples for .NET 6/7.|
+Application-Insights|[Availability alerts](app/availability-alerts.md)|This article has been rewritten with new guidance and screenshots.|
+Change-Analysis|[Tutorial: Track a web app outage using Change Analysis](change/tutorial-outages.md)|Change tutorial content to reflect changes to repo; remove and replace a few sections.|
+Containers|[Configure Azure CNI networking in Azure Kubernetes Service (AKS)](../../articles/aks/configure-azure-cni.md)|Added steps to enable IP subnet usage|
+Containers|[Reports in Container insights](containers/container-insights-reports.md)|Updated the documents to reflect the steps to enable IP subnet Usage|
+Essentials|[Best practices for data collection rule creation and management in Azure Monitor](essentials/data-collection-rule-best-practices.md)|New article|
+Essentials|[Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.](essentials/prometheus-self-managed-grafana-azure-active-directory.md)|New Article: Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.|
+Logs|[Azure Monitor SCOM Managed Instance (preview)](vm/scom-managed-instance-overview.md)|New article|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Updated the list of tables that support Basic logs.|
+Virtual-Machines|[Tutorial: Create availability alert rule for Azure virtual machine (preview)](vm/tutorial-monitor-vm-alert-availability.md)|New article|
+Virtual-Machines|[Tutorial: Enable recommended alert rules for Azure virtual machine](vm/tutorial-monitor-vm-alert-recommended.md)|New article|
+Virtual-Machines|[Tutorial: Enable monitoring with VM insights for Azure virtual machine](vm/tutorial-monitor-vm-enable-insights.md)|New article|
+Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|Updated for AMA and availability metric.|
+Virtual-Machines|[Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)|Updated flow for enabling VM insights with Azure Monitor Agent by using Azure Policy.|
+Visualizations|[Creating an Azure Workbook](visualize/workbooks-create-workbook.md)|added Tutorial - resource centric logs queries in workbooks|
 
 ## November 2022  
   

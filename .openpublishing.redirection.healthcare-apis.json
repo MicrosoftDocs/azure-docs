@@ -633,6 +633,10 @@
         "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontenttemplate-mappings",
         "redirect_document_id": false
     },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-button.md",
+        "redirect_url": "/azure/healthcare-apis/iot/deploy-new-arm",
+        "redirect_document_id": false
+    },
     {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
         "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
         "redirect_document_id": false
