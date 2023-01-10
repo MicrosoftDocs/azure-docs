@@ -43,7 +43,7 @@ The following table lists the steps in configuration. Each one links to the an a
 
 | Step | Description |
 |:---|:---|
-| [Deploy Azure Monitor agent](monitor-virtual-machine-agents.md) | Deploy the Azure Monitor agent to your Azure and hybrid virtual machines to collect data from the guest operating system and workloads. |
+| [Deploy Azure Monitor agent](monitor-virtual-machine-agent.md) | Deploy the Azure Monitor agent to your Azure and hybrid virtual machines to collect data from the guest operating system and workloads. |
 | [Configure data collection](monitor-virtual-machine-data-collection.md)) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
 | [Analyze collect data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
 | [Create alert rules](monitor-virtual-machine-alerts.md) | Create alerts to proactively identify critical issues in your monitoring data. |
