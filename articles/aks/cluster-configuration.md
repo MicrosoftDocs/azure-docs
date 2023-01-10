@@ -386,6 +386,38 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
+## Node resource group lockdown (Preview)
+
+Changes made directly to resources in the Node Resource Group can stop your AKS cluster from working, or can cause issues with the cluster further down the line.  To stop changes being made to the [Node Resource Group](whatis-nrg), you can apply a Deny Assignment so that mistakes do not impact your workloads.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resource installed:
+
+* The Azure CLI
+* The `aks-preview` extension version 0.5.123 or later
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Create an AKS cluster with Node Resource Group lock down
+
+To create a cluster using Node Restriction, set the nrg-lockdown-restriction-level to ReadOnly.  This will allow you to view the resources, but not modify them.
+
+```azurecli-interactive
+az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+```
+
+
 ## OIDC Issuer
 
 You can enable an OIDC Issuer URL of the provider, which allows the API server to discover public signing keys. The maximum lifetime of the token issued by the OIDC provider is 1 day.
@@ -460,3 +492,4 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
+[whatis-nrg]: ./concepts-clusters-workloads.md#node-resource-group

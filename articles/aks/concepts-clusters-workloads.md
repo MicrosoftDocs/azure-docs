@@ -171,6 +171,33 @@ spec:
 
 For more information on how to control where pods are scheduled, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
+### Node resource group
+
+When you create an AKS cluster, you specify the resource group that the cluster in which the cluster will be created. In addition to that resource group, the AKS resource provider also creates and manages a separate resource group in the same subscription called the *node resource group*. The node resource group contains all the infrastructure resources:
+
+- The VMSS and VMs for every node in the node pools
+- The virtual network for the cluster
+- The storage for the cluster
+
+The node resource group is assigned a name by default, such as  *MC_myResourceGroup_myAKSCluster_eastus*. During cluster creation, you also have the option to specify the name assigned to your node resource group. When you delete your AKS cluster, the AKS resource provider automatically deletes the node resource group.
+
+The node resource group has the following limitations:
+
+* You can't specify an existing resource group for the node resource group.
+* You can't specify a different subscription for the node resource group.
+* You can't change the node resource group name after the cluster has been created.
+* You can't specify names for the managed resources within the node resource group.
+* You can't modify or delete Azure-created tags of managed resources within the node resource group.
+
+If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the managed resource group.
+
+However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](faq.md#does-aks-offer-a-service-level-agreement)
+
+To reduce the chance of changes in the Node Resource group affecting your clusters, you can enable NRG lockdown that will apply a Deny Assignment to your AKS resources.  More information this can be found in [Cluster configuration in AKS][configure-nrg].
+
+> [!WARNING]
+> If you have don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
+
 ## Pods
 
 Kubernetes uses *pods* to run an instance of your application. A pod represents a single instance of your application. 
@@ -350,3 +377,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
+[configure-nrg]: ./cluster-configuration.md#node-resource-group-lockdown
