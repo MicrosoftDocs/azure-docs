@@ -377,4 +377,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
-[configure-nrg]: ./cluster-configuration.md#node-resource-group-lockdown
+[configure-nrg]: ./cluster-configuration.md#node-resource-group-lockdown-preview
