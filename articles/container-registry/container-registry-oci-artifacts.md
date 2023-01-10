@@ -19,7 +19,7 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or [az acr create][az-acr-create].
 * **Azure CLI** - Version `2.29.1` or later is required. See [Install Azure CLI][azure-cli-install] for installation and/or upgrade.
 * **ORAS CLI** - Version `v0.16.0` is required. See: [ORAS installation][oras-install-docs].
-* **Docker (Optional)** - While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.
+* **Docker (Optional)** - While Docker Desktop isn't required, the `oras` CLI utilizes the Docker desktop credential store for storing credentials. If Docker Desktop is installed, it must be running for `oras login`.
 
 ## Configure a registry
 

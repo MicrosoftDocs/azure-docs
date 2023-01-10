@@ -381,7 +381,7 @@ Output:
 ```
 ## Summary
 
-In this article, a graph of supply chain artifacts are created, discovered, promoted and pulled providing lifecycle management of the artifacts you build and depend upon.
+In this article, a graph of supply chain artifacts is created, discovered, promoted and pulled providing lifecycle management of the artifacts you build and depend upon.
 
 ## Next steps
 
