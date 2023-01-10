@@ -16,7 +16,7 @@ ms.topic: how-to
 
 Example Usage Scenarios:
 
-- You want to improve the security posture of your company by implementing requirements around minimum key sizes and maximum validity periods of certificates in your company's Key Vaults but you don't know which teams will be compliant and which are not.
+- You want to improve the security posture of your company by implementing requirements around minimum key sizes and maximum validity periods of certificates in your company's key vaults but you don't know which teams will be compliant and which are not.
 - You currently don't have a solution to perform an audit across your organization, or you are conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You are looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
 - You want to enforce your company security policies and stop individuals from creating self-signed certificates, but you don't have an automated way to block their creation.
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
@@ -29,7 +29,7 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
 
 - [**Audit**](../../governance/policy/concepts/effects.md#audit): when the effect of a policy is set to `Audit`, the policy will not cause any breaking changes to your environment. It will only alert you to components such as certificates that do not comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
-- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of new components such as certificates as well as block new versions of existing components that do not comply with the policy definition. Existing non-compliant resources within a Key Vault are not affected. The 'audit' capabilities will continue to operate.
+- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of new components such as certificates as well as block new versions of existing components that do not comply with the policy definition. Existing non-compliant resources within a key vault are not affected. The 'audit' capabilities will continue to operate.
 
 - [**Disabled**](../../governance/policy/concepts/effects.md#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement will not take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
  
@@ -37,22 +37,21 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
 
 - [**DeployIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `DeployIfNotExists`, a deployment template is executed when the condition is met. This can be used to configure diagnostic settings for Key Vault to log analytics workspace. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
 
-- [**AuditIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `AuditIfNotExists`, you can identify resources that lack the properties specified in the details of the policy condition. This is useful to identify Key Vaults that have no resource logs enabled. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
+- [**AuditIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `AuditIfNotExists`, you can identify resources that lack the properties specified in the details of the policy condition. This is useful to identify key vaults that have no resource logs enabled. It is necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
 
 ## Available Built-In Policy Definitions
 
-Predetermined policies, referred to as 'built-ins', facilitate governance over your Key Vaults so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the Key Vault and its objects before enforcing a deny operation to prevent outages. Current built-ins for Azure Key Vault are categorized in four major groups: Key Vault, certificates, keys, and secrets management. Within each category, policies are grouped towards driving specific security goals.
+Predetermined policies, referred to as 'built-ins', facilitate governance over your key vaults so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the key vault and its objects before enforcing a deny operation to prevent outages. Current built-ins for Azure Key Vault are categorized in four major groups: key vault, certificates, keys, and secrets management. Within each category, policies are grouped towards driving specific security goals.
 
-### [Key Vault](#tab/keyvault)
+### Key Vaults
 
 #### Network Access
 
-Reduce the risk of data leakage by restricting public network access, enabling [Azure Private Link](https://azure.microsoft.com/products/private-link/) connections,  creating private DNS zones to override DNS resolution for a private endpoint, and enabling [firewall protection](network-security.md) so that the Key Vault is not accessible by default to any public IP.
+Reduce the risk of data leakage by restricting public network access, enabling [Azure Private Link](https://azure.microsoft.com/products/private-link/) connections,  creating private DNS zones to override DNS resolution for a private endpoint, and enabling [firewall protection](network-security.md) so that the key vault is not accessible by default to any public IP.
 
 | Policy | Effects |
 |--|--|
-| [Azure Key Vault should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F405c5871-3e91-4644-8a63-58e19d68ff5b)
- | Audit _(Default)_, Deny, Disabled |
+| [Azure Key Vault should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F405c5871-3e91-4644-8a63-58e19d68ff5b) | Audit _(Default)_, Deny, Disabled |
 | [**[Preview]** Azure Key Vault Managed HSM should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F19ea9d63-adee-4431-a95e-1913c6c1c75f) | Audit _(Default)_, Deny, Disabled
 | [**[Preview]**: Configure Key Vault Managed HSMs to disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F84d327c3-164a-4685-b453-900478614456) | Modify _(Default)_, Disabled
 | [**[Preview]**: Azure Key Vaults should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) | Audit _(Default)_, Deny, Disabled
@@ -63,11 +62,9 @@ Reduce the risk of data leakage by restricting public network access, enabling [
 | [Key Vaults should have firewall enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) | Audit _(Default)_, Deny, Disabled
 | [Configure Key Vaults to enable firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac673a9a-f77d-4846-b2d8-a57f8e1c01dc) | Modify _(Default)_, Disabled
 
----
-
 #### Deletion Protection
 
-Prevent permanent data loss of your Key Vault and its objects by enabling [soft-delete and purge protection](soft-delete-overview.md). While soft-delete allows you to recover an accidentally deleted Key Vault for a configurable retention period, purge protection protects you from insider attacks by enforcing a mandatory retention period for soft-deleted Key Vaults. Purge protection can only be enabled once soft-delete is enabled. No one inside your organization or Microsoft will be able to purge your Key Vaults during the soft delete retention period.
+Prevent permanent data loss of your key vault and its objects by enabling [soft-delete and purge protection](soft-delete-overview.md). While soft-delete allows you to recover an accidentally deleted key vault for a configurable retention period, purge protection protects you from insider attacks by enforcing a mandatory retention period for soft-deleted key vaults. Purge protection can only be enabled once soft-delete is enabled. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.
 
 | Policy | Effects |
 |--|--|
@@ -75,9 +72,7 @@ Prevent permanent data loss of your Key Vault and its objects by enabling [soft-
 | [Key Vaults should have purge protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) | Audit _(Default)_, Deny, Disabled
 | [Azure Key Vault Managed HSMs should have purge protection enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) | Audit _(Default)_, Deny, Disabled
 
-
----
-#### Diagnostics 
+#### Diagnostics
 
 Drive the enabling of resource logs to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised.
 
@@ -89,8 +84,7 @@ Drive the enabling of resource logs to recreate activity trails to use for inves
 | [Resource logs in Key Vaults should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) | AuditIfNotExists _(Default)_, Disabled
 | [Resource logs in Key Vault managed HSMs should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) | AuditIfNotExists _(Default)_, Disabled
 
----
-### [Certificates](#tab/certificates)
+### Certificates
 
 #### Lifecycle of Certificates
 
@@ -105,7 +99,6 @@ Promote the use of short-lived certificates to mitigate undetected attacks, by m
 
 > [!NOTE]
 > It is recommended to apply [the certificate expiration policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) multiple times with different expiration thresholds, for example, at 180, 90, 60, and 30-day thresholds.
----
 
 #### Certificate Authority
 
@@ -118,11 +111,9 @@ Audit or enforce the selection of a specific certificate authority to issue your
 | [Certificates should be issued by the specified non-integrated certificate authority
 ](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) | Audit (_Default_), Deny, Disabled
 
----
-
 #### Certificate Attributes
 
-Restrict the type of your Key Vault's certificates to be RSA, ECC, or HSM-backed. If you use elliptic curve cryptography or ECC certificates, you can customize and select curve names such as P-256, P-256K, P-384, and P-521. If you use RSA certificates, you can choose a minimum key size for your certificates to be 2048 bits, 3072 bits, or 4096 bits.
+Restrict the type of your key vault's certificates to be RSA, ECC, or HSM-backed. If you use elliptic curve cryptography or ECC certificates, you can customize and select curve names such as P-256, P-256K, P-384, and P-521. If you use RSA certificates, you can choose a minimum key size for your certificates to be 2048 bits, 3072 bits, or 4096 bits.
 
 | Policy | Effects |
 |--|--|
@@ -133,9 +124,7 @@ Restrict the type of your Key Vault's certificates to be RSA, ECC, or HSM-backed
 | [Certificates using RSA cryptography should have the specified minimum key size
 ](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) | Audit (_Default_), Deny, Disabled
 
----
-
-### [Keys](#tab/keys)
+### Keys
 
 #### HSM-backed keys
 
@@ -144,7 +133,6 @@ An HSM is a hardware security module that stores keys. An HSM provides a physica
 | Policy | Effects |
 |--|--|
 | [Keys should be backed by a hardware security module (HSM)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F587c79fe-dd04-4a5e-9d0b-f89598c7261b) | Audit (_Default_), Deny, Disabled
-
 
 #### Lifecycle of Keys
 
@@ -174,9 +162,7 @@ Restrict the type of your Key Vault's keys to be RSA, ECC, or HSM-backed. If you
 | [Keys using RSA cryptography should have a specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82067dbb-e53b-4e06-b631-546d197452d9) | Audit (_Default_), Deny, Disabled
 | [**[Preview]**: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86810a98-8e91-4a44-8386-ec66d0de5d57) | Audit (_Default_), Deny, Disabled
 
----
-
-### [Secrets](#tab/secrets)
+### Secrets
 
 #### Lifecycle of Secrets
 
@@ -194,28 +180,26 @@ With lifecycle management built-ins you can flag or block secrets that do not ha
 
 #### Secret Attributes
 
-Any plain text or encoded file can be stored as a Key Vault secret. However, your organization may want to set different rotation policies and restrictions on passwords, connection strings, or certificates stored as keys. A content type tag can help a user see what is stored in a secret object without reading the value of the secret. You can audit secrets that don't have a content type tag set or prevent new secrets from being created if they don't have a content type tag set.
+Any plain text or encoded file can be stored as an Azure key vault secret. However, your organization may want to set different rotation policies and restrictions on passwords, connection strings, or certificates stored as keys. A content type tag can help a user see what is stored in a secret object without reading the value of the secret. You can audit secrets that don't have a content type tag set or prevent new secrets from being created if they don't have a content type tag set.
 
 | Policy | Effects |
 |--|--|
 | [Secrets should have content type set](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3) | Audit (_Default_), Deny, Disabled
 
----
-
 ## Example Scenario
 
-You manage a Key Vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the Key Vault are valid for longer than 2 years.
+You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
 
 1. You assign the **Certificates should have the specified maximum validity period** policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to "audit". 
 1. You view the [compliance report on the Azure portal](#view-compliance-results), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
-1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your Key Vault.
+1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your key vault.
 1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates are not revoked, and they continue to function. However, they cannot be renewed with a validity period that is greater than 2 years. 
 
-## Enabling and managing a Key Vault policy through the Azure portal
+## Enabling and managing a key vault policy through the Azure portal
 
 ### Select a Policy Definition
 
-1. Log in to the Azure portal. 
+1. Log in to the Azure portal.
 1. Search "Policy" in the Search Bar and Select **Policy**.
 
     ![Screenshot that shows the Search Bar.](../media/policy-img1.png)
@@ -252,18 +236,15 @@ You manage a Key Vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows the Compliance tab where you can select the policy assignment you want to view compliance results for.](../media/policy-img8.png)
 
-1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant Key Vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
-
+1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
 
     ![Screenshot that shows a list of non-compliant Key Vaults within the scope of the policy assignment.](../media/policy-img9.png)
 
 1. View the name of the components within a vault that are non-compliant
 
-
     ![Screenshot that shows where you can view the name of the components within a vault that are non-compliant.](../media/policy-img10.png)
 
-1. If you need to check whether users are being denied the ability to create resources within Key Vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests. 
-
+1. If you need to check whether users are being denied the ability to create resources within the key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests.
 
     ![Overview of how Azure Key Vault works](../media/policy-img11.png)
 
@@ -277,17 +258,11 @@ Assigning a policy with a "deny" effect may take up to 30 mins (average case) an
 The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI. 
 If the compliance results show up as "Not Started" it may be due to the following reasons:
 - The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario. 
-- There are no Key Vaults in the scope of the policy assignment.
-- There are no Key Vaults with certificates within the scope of the policy assignment.
-
-
-
+- There are no key vaults in the scope of the policy assignment.
+- There are no key vaults with certificates within the scope of the policy assignment.
 
 > [!NOTE]
-> Azure Policy
-> [Resource Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes),
-> such as those for Azure Key Vault, provide information about compliance on the
-> [Component Compliance](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
+> Azure Policy [Resource Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes), such as those for Azure Key Vault, provide information about compliance on the [Component Compliance](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
 > page.
 
 ## Next Steps
@@ -295,4 +270,4 @@ If the compliance results show up as "Not Started" it may be due to the followin
 - [Logging and frequently asked questions for Azure policy for Key Vault](troubleshoot-azure-policy-for-key-vault.md)
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
-- Learn about [Microsoft cloud securiy benchmark on Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)
+- Learn about [Microsoft cloud security benchmark on Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)
