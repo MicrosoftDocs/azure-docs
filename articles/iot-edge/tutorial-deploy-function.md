@@ -4,7 +4,7 @@ description: In this tutorial, you develop an Azure Function as an IoT Edge modu
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/29/2020
+ms.date: 05/11/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
