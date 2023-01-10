@@ -28,7 +28,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|)
+|DataON AZS-6224|1.23.8|v1.12.0_2022-10-11|16.0.537.5223|
 
 ### Dell
 
@@ -45,7 +45,10 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
 |HPE Superdome Flex 280|1.20.0|1.8.0_2022-06-14|16.0.41.7339|12.3 (Ubuntu 12.3-1)
-|HPE Apollo 4200 Gen10 Plus|1.22.6|1.11.0_2022-09-13|16.0.312.4243|12.3 (Ubuntu 12.3-1)|
+|HPE Apollo 4200 Gen10 Plus (directly connected mode) |1.7.18 <sup>*</sup>|1.11.0_2022-09-13 |16.0.312.4243|12.3 (Ubuntu 12.3-1)|
+|HPE Apollo 4200 Gen10 Plus (indirectly connected mode) |1.22.6 <sup>*</sup>|v1.10.0_2022-08-09 |16.0.312.4243|12.3 (Ubuntu 12.3-1)|
+
+<sup>*</sup>Azure Kubernetes Service (AKS) on Azure Stack HCI
 
 ### Kublr
 

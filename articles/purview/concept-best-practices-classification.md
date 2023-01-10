@@ -1,8 +1,8 @@
 ---
 title: Classification best practices for the Microsoft Purview governance portal
 description: This article provides best practices for classification in the Microsoft Purview governance portal so you can effectively identify sensitive data across your environment.
-author: amberz
-ms.author: amberz
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
