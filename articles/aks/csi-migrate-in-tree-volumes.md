@@ -3,7 +3,7 @@ title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Ser
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/05/2023
+ms.date: 01/10/2023
 author: mgoedtel
 
 ---
@@ -339,7 +339,7 @@ Before proceeding, verify the following:
 
 ## Migrate File share volumes
 
-Migration from in-tree to CSI is supported by creating a dynamic volume.
+Migration from in-tree to CSI is supported by creating a static volume.
 
 ### Migration
 
@@ -359,7 +359,7 @@ Migration from in-tree to CSI is supported by creating a dynamic volume.
     kubectl describe pv pvName
     ```
 
-4. Create a new PV using the new StorageClass, and the `shareName` and `secretName` from the in-tree PV. Create a file named *azurefile-mount-pv.yaml* and copy in the following code.
+4. Create a new PV using the new StorageClass, and the `shareName` and `secretName` from the in-tree PV. Create a file named *azurefile-mount-pv.yaml* and copy in the following code. Under `csi`, update `resourceGroup`, `volumeHandle`, and `shareName`. For mount options, the default value for *fileMode* and *dirMode* is *0777*.
 
    The default value for `fileMode` and `dirMode` is **0777**.
 
@@ -378,7 +378,7 @@ Migration from in-tree to CSI is supported by creating a dynamic volume.
       csi:
         driver: file.csi.azure.com
         readOnly: false
-        volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
+        volumeHandle: unique-volumeid  # make sure volumeid is unique for every identical share in the cluster
         volumeAttributes:
           resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, only set this when storage account is not in the same resource group as the cluster nodes
           shareName: aksshare
