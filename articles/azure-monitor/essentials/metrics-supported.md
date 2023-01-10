@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor supported metrics by resource type
 description: List of metrics available for each resource type with Azure Monitor.
-author: rboucher
+author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022

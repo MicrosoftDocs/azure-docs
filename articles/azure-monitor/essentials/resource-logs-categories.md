@@ -4,7 +4,7 @@ description: Understand the supported services and event schemas for Azure Monit
 ms.topic: reference
 ms.date: 01/10/2023
 ms.reviewer: lualderm
-ms.author: edbayansh
+ms.author: edbaynash
 
 ---
 
