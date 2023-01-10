@@ -3,20 +3,16 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Monitor?
+  - name: Azure Monitor Overview
     href: overview.md
-  - name: What is observability?
-    href: observability-data.md  
+  - name: Observability data in Azure Monitor
+    href: observability-data.md
   - name: What can you monitor?
     href: monitor-reference.md
   - name: What's new?
     href: whats-new.md
-  - name: View and estimate charges
-    href: usage-estimated-costs.md
-  - name: Cost optimization
-    href: best-practices-cost.md     
-  - name: Partner integrations
-    href: partners.md
+- name: Concepts
+  items:
   - name: Security
     items:
     - name: Security baseline
@@ -24,10 +20,24 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
+  - name: Partner integrations
+    href: partners.md
   - name: FAQ
     href: faq.yml
 - name: Tutorials
   items:
+  - name: End to end deployment
+    items:
+    - name: Overview
+      href: best-practices.md
+    - name: Planning
+      href: best-practices-plan.md
+    - name: Configure data collection
+      href: best-practices-data-collection.md
+    - name: Analysis and visualizations
+      href: best-practices-analysis.md
+    - name: Alerts and automated actions
+      href: best-practices-alerts.md
   - name: Monitor an Azure Resource - Overview
     href: essentials/monitor-azure-resource.md
   - name: Analyze metric data
@@ -42,6 +52,20 @@ items:
     href: alerts/tutorial-log-alert.md
   - name: Virtual machines
     items:
+    - name: Monitor a virtual machine
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Configure monitoring
+        href: vm/monitor-virtual-machine-configure.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Monitor security
+        href: vm/monitor-virtual-machine-security.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
+      - name: Monitor workloads
+        href: vm/monitor-virtual-machine-workloads.md
     - name: Enable recommended alerts
       href: vm/tutorial-monitor-vm-alert-recommended.md
     - name: Create availability alert
@@ -70,6 +94,12 @@ items:
     items:
       - name: Track web outages
         href: change/tutorial-outages.md
+  - name: Monitor Kubernetes
+    href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+  - name: Forward syslog data to workspace
+    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
+  - name: Self-monitoring
+    href: monitor-azure-monitor.md 
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -132,45 +162,37 @@ items:
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
     href: azure-cli-metrics-alert-sample.md
-- name: Scenarios
-  items:
-  - name: End to end deployment
-    items:
-    - name: Overview
-      href: best-practices.md
-    - name: Planning
-      href: best-practices-plan.md
-    - name: Configure data collection
-      href: best-practices-data-collection.md
-    - name: Analysis and visualizations
-      href: best-practices-analysis.md
-    - name: Alerts and automated actions
-      href: best-practices-alerts.md
-  - name: Monitor a virtual machine
-    items:
-    - name: Overview
-      href: vm/monitor-virtual-machine.md
-    - name: Configure monitoring
-      href: vm/monitor-virtual-machine-configure.md
-    - name: Analyze data
-      href: vm/monitor-virtual-machine-analyze.md
-    - name: Monitor security
-      href: vm/monitor-virtual-machine-security.md
-    - name: Create alerts
-      href: vm/monitor-virtual-machine-alerts.md
-    - name: Monitor workloads
-      href: vm/monitor-virtual-machine-workloads.md
-  - name: Monitor Kubernetes
-    href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Forward syslog data to workspace
-    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
-  - name: Self-monitoring
-    href: monitor-azure-monitor.md 
 - name: Data collection
   items: 
   - name: Overview
     displayName: data collection, data collection rules
     href: essentials/data-collection.md
+  - name: Data collection rules
+    items:
+    - name: Overview
+      displayName: data collection, data collection rules
+      href: essentials/data-collection-rule-overview.md
+    - name: Best practices
+      displayName: data collection, data collection rules
+      href: essentials/data-collection-rule-best-practices.md
+    - name: Structure
+      displayName: Data collection rules
+      href: essentials/data-collection-rule-structure.md
+    - name: Edit a data collection rule
+      displayName: data collection rules
+      href: essentials/data-collection-rule-edit.md
+    - name: Transformations
+      items:
+      - name: Overview
+        displayName: Transformations
+        href: essentials/data-collection-transformations.md
+      - name: Structure
+        displayName: Transformations
+        href: essentials/data-collection-transformations-structure.md
+      - name: Migrate retention to Azure Storage lifecycle
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
+    - name: Data collection endpoints
+      href: essentials/data-collection-endpoint-overview.md
   - name: Data sources
     items:
       - name: Overview of data sources
@@ -335,38 +357,27 @@ items:
           - name: Log Analytics Linux agent
             displayName: troubleshoot, troubleshooting
             href: agents/agent-linux-troubleshoot.md
-  - name: Data collection rules
+  - name: Logs ingestion API
     items:
     - name: Overview
-      displayName: data collection, data collection rules
-      href: essentials/data-collection-rule-overview.md
-    - name: Best practices
-      displayName: data collection, data collection rules
-      href: essentials/data-collection-rule-best-practices.md
-    - name: Edit
-      displayName: data collection rules
-      href: essentials/data-collection-rule-edit.md
-    - name: Structure
-      displayName: Data collection rules
-      href: essentials/data-collection-rule-structure.md
-    - name: Migrate retention to Azure Storage lifecycle
-      href: essentials/migrate-to-azure-storage-lifecycle-policy.md
-  - name: Transformations
-    items:
-    - name: Overview
-      displayName: Transformations
-      href: essentials/data-collection-transformations.md
-    - name: Structure
-      displayName: Transformations
-      href: essentials/data-collection-transformations-structure.md
+      displayName: data ingestion
+      href: logs/logs-ingestion-api-overview.md
+    - name: Migrate from Data Collector API
+      href: logs/custom-logs-migrate.md
     - name: Tutorials
       items:
-      - name: Workspace transformations in the Azure portal
-        href: logs/tutorial-workspace-transformations-portal.md
-      - name: Workspace transformations using ARM templates
-        href: logs/tutorial-workspace-transformations-api.md
-  - name: Data collection endpoints
-    href: essentials/data-collection-endpoint-overview.md
+      - name: Send data to Azure Monitor Logs using REST API
+        href: logs/tutorial-logs-ingestion-portal.md
+      - name: Send data to Azure Monitor Logs with ARM templates
+        href: logs/tutorial-logs-ingestion-api.md        
+    - name: Data collector API
+      items:
+      - name: Overview
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data collector API
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: logs/create-pipeline-datacollector-api.md
   - name: Private Link networking
     items:
     - name: Private Link overview
@@ -535,27 +546,6 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
-    - name: Logs ingestion API
-      items:
-      - name: Overview
-        displayName: data ingestion
-        href: logs/logs-ingestion-api-overview.md
-      - name: Migrate from Data Collector API
-        href: logs/custom-logs-migrate.md
-      - name: Tutorials
-        items:
-        - name: Send data to Azure Monitor Logs using REST API
-          href: logs/tutorial-logs-ingestion-portal.md
-        - name: Send data to Azure Monitor Logs with ARM templates
-          href: logs/tutorial-logs-ingestion-api.md        
-      - name: Data collector API
-        items:
-        - name: Overview
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data collector API
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data Collector API Pipeline example
-          href: logs/create-pipeline-datacollector-api.md
     - name: Integrate with Logic Apps
       items:
         - name: Azure Monitor Logs connector
@@ -1692,10 +1682,12 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: Legacy Application Insights pricing
-      href: app/legacy-pricing.md
+    - name: View and estimate charges
+      href: usage-estimated-costs.md
     - name: Optimize costs
       href: best-practices-cost.md
+    - name: Legacy Application Insights pricing
+      href: app/legacy-pricing.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator

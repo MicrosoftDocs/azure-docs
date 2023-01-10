@@ -76,9 +76,12 @@ client = mlflow.tracking.MlflowClient()
 The following sample prints all the model's names:
 
 ```python
-for model in client.list_registered_models():
+for model in client.search_registered_models():
     print(f"{model.name}")
 ```
+
+> [!NOTE]
+> __MLflow 2.0 advisory:__ In older versions of Mlflow (<2.0), use method `MlflowClient.list_registered_models()` instead.
 
 ### Getting specific versions of the model
 
@@ -158,7 +161,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
 
 ## Editing and deleting models
 
-Editing registered models is supported in both Mlflow and Azure ML, however, there are some differences between them that are important to notice:
+Editing registered models is supported in both Mlflow and Azure ML. However, there are some differences important to be noticed:
 
 > [!WARNING]
 > Renaming models is not supported in Azure Machine Learning as model objects are immmutable.
@@ -203,7 +206,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 | Registering models in MLflow format | **&check;** | **&check;** | **&check;** | **&check;** |
 | Registering models not in MLflow format |  |  | **&check;** | **&check;** |
 | Registering models from runs outputs/artifacts | **&check;** | **&check;**<sup>1</sup> | **&check;**<sup>2</sup> | **&check;** |
-| Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  |  |  |
+| Registering models from runs outputs/artifacts in a different tracking server/workspace | **&check;** |  | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> |
 | Listing registered models | **&check;** | **&check;** | **&check;** | **&check;** |
 | Retrieving details of registered model's versions | **&check;** | **&check;** | **&check;** | **&check;** |
 | Editing registered model's versions description | **&check;** | **&check;** | **&check;** | **&check;** |
@@ -221,6 +224,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 > - <sup>2</sup> Use URIs with format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
 > - <sup>3</sup> Registered models are immutable objects in Azure ML.
 > - <sup>4</sup> Use search box in Azure ML Studio. Partial match supported.
+> - <sup>5</sup> Use [registries](how-to-manage-registries.md).
 
 ## Next steps
 

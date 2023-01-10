@@ -55,7 +55,7 @@ kubectl apply -f internal-lb.yaml
 
 This command creates an Azure load balancer in the node resource group that's connected to the same virtual network as your AKS cluster.
 
-When you view the service details, the IP address of the internal load balancer is shown in the *EXTERNAL-IP* column. In this context, *External* refers to the external interface of the load balancer. It doesn't mean that it receives a public, external IP address.
+When you view the service details, the IP address of the internal load balancer is shown in the *EXTERNAL-IP* column. In this context, *External* refers to the external interface of the load balancer. It doesn't mean that it receives a public, external IP address. This IP address is dynamically assigned from the same subnet as the AKS cluster.
 
 It may take a minute or two for the IP address to change from *\<pending\>* to an actual internal IP address, as shown in the following example:
 
@@ -69,6 +69,9 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ## Specify an IP address
 
 If you want to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
+
+> [!NOTE]
+> If you initially deploy the service without specifying an IP address and later you update its configuration to use a dynamically assigned IP address using the *loadBalancerIP* property, the IP address still shows as dynamically assigned.
 
 For more information on subnets, see [Add a node pool with a unique subnet][unique-subnet].
 
