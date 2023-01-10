@@ -39,7 +39,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 
 <sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Standard Terms Support (STS) releases and .NET Framework are supported .NET Azure functions [isolated worker process](./dotnet-isolated-process-guide.md). 
 
-> [!Recommendation]
+> [!TIP]
 > On version 3.x of the Functions runtime, if you're on .NET 5, we recommend you upgrade to .NET 7. If you're on .NET Core 3.1, we recommend you upgrade to .NET 6 (in-process) for a quick upgrade path. 
 >
 > If you're looking for moving to a Long Term Support (LTS) .NET release, we recommend you upgrade to .NET 6 .

@@ -201,7 +201,7 @@ Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers s
 
 **Type:** New feature
 
-Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
+Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings-for-version-1).
 
 ### Support for system-assigned Managed Identities
 

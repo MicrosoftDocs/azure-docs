@@ -77,7 +77,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 |-------------------------|---------------|--------------------|
 | Canonical  | UbuntuServer | 16.04-LTS |
 | Canonical  | UbuntuServer | 18.04-LTS |
-| Canonical  | UbuntuServer | 18.04-LTS-Gen2 |
+| Canonical  | UbuntuServer | 18_04-LTS-Gen2 |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |

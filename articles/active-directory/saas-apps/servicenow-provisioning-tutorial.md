@@ -149,6 +149,8 @@ After you've configured provisioning, use the following resources to monitor you
 
 - Self-hosted ServiceNow instances aren't supported. 
 
+- When an update to the *active* attribute in ServiceNow is provisioned, the attribute *locked_out* is also updated accordingly, even if *locked_out* is not mapped in the Azure provisioning service.  
+
 ## Additional resources
 
 - [Managing user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

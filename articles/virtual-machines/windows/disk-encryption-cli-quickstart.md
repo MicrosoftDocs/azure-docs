@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 01/04/2023
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -61,9 +61,9 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 ## Create a Key Vault configured for encryption keys
 
-Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
+Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create). To enable the Key Vault to store encryption keys, use the--enabled-for-disk-encryption parameter.
 > [!Important]
-> Each Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name yours something different.
+> Each Key Vault must have a unique name. This example creates a Key Vault named *myKV*, but you must name yours something different.
 
 ```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
@@ -99,7 +99,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM.  Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
+In this quickstart, you created a virtual machine, created a Key Vault that was enabled for encryption keys, and encrypted the VM.  Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption overview](disk-encryption-overview.md)

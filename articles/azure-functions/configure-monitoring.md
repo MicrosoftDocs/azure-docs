@@ -416,7 +416,7 @@ To configure these values at App settings level (and avoid redeployment on just 
 | Host.json path | App setting |
 |----------------|-------------|
 | logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
-| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
+| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host.Aggregator |
 | logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
 | logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function.Function1 |
 | logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function.Function1.User |

@@ -188,7 +188,11 @@
             - name: Autoscale FAQ
               href: ../autoscale-faq.yml
         - name: Serverless
-          href: ../serverless.md
+          items: 
+            - name: Serverless Overview
+              href: ../serverless.md
+            - name: Serverless 1 TB container (preview)
+              href: ../serverless-1TB.md
         - name: Choose between autoscale and standard (manual) throughput
           href: ../how-to-choose-offer.md
         - name: Choose between provisioned throughput and serverless
@@ -428,6 +432,18 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-python-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-python-create-container.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes
