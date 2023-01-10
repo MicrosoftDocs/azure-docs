@@ -223,9 +223,9 @@ Some of the functions available from the REST API include:
 * **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
  
    > [!IMPORTANT]
-   > The **Put** function expects fewer parameters than the JSON returned by the Get command contains.
+   > The **Put** function expects fewer parameters than the JSON returned by the **Get** command contains.
    >
-   > Remove the following properties before using the JSON in the Put request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
+   > Remove the following properties before using the JSON in the **Put** request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
 
 ## FAQ - Adaptive application controls
