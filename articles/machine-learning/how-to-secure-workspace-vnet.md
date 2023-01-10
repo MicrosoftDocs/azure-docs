@@ -101,7 +101,7 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 
 [!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
 
-For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
+For information on using a firewall solution, see [Configure required input and output communication](how-to-access-azureml-behind-firewall.md).
 
 ## Secure the workspace with private endpoint
 

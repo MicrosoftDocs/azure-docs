@@ -5,7 +5,7 @@ author: blackmist
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 09/08/2022
+ms.date: 01/10/2023
 ms.author: larryfr
 ms.custom: include file
 ---
@@ -14,11 +14,12 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 
 | Direction | Ports | Service tag | Protocol | Purpose |
 | ----- |:-----:| ----- | ----- |
-| Inbound | 29876-29877 | BatchNodeManagement | TCP | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. It isn't required if you use No Public IP option.|
-| Inbound | 44224 | AzureMachineLearning | TCP | Create, update, and delete of Azure Machine Learning compute instance. It isn't required if you use No Public IP option.|
+| Inbound | 29876-29877 | BatchNodeManagement | TCP | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. **It isn't required if you use No Public IP option.**|
+| Inbound | 44224 | AzureMachineLearning | TCP | Create, update, and delete of Azure Machine Learning compute instance. **It isn't required if you use No Public IP option.**|
+| Outbound | 5831 | AzureMachineLearning | UDP | Create, update, and delete of Azure Machine Learning compute instance. It **is** required for both public IP and no public IP options.|
 | Outbound | 80, 443 | AzureActiveDirectory | TCP | Authentication using Azure AD. |
 | Outbound | 443, 8787, 18881 | AzureMachineLearning | TCP | Using Azure Machine Learning services. |
-| Outbound | 443 | BatchNodeManagement.region | TCP | Communication with Azure Batch back-end for computes. Replace `region` with the Azure region of your workspace. |
+| Outbound | 443 | BatchNodeManagement | ANY | Communication with Azure Batch back-end for computes. |
 | Outbound | 443 | AzureResourceManager | TCP | Creation of Azure resources with Azure Machine Learning. |
 | Outbound | 443, 445 (*)| Storage.region | TCP | Access data stored in the Azure Storage Account for compute cluster and compute instance. This outbound can be used to exfiltrate data. For more information, see [Data exfiltration protection](../articles/machine-learning/how-to-prevent-data-loss-exfiltration.md).<br>(*) 445 is only required if you have a firewall between your virtual network for Azure ML and a private endpoint for your storage accounts.|
 | Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |

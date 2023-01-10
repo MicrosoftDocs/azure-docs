@@ -210,12 +210,23 @@ The following configurations are in addition to those listed in the [Prerequisit
 
     | Service tag | Protocol | Port | Notes |
     | ----- |:-----:|:-----:| ----- |
-    | `AzureMachineLearning` | TCP<br>UDP | 443<br>5831 | Communication with the Azure Machine Learning service.|
-    | `BatchNodeManagement` | TCP | 443| Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
-    | `Storage.region` | TCP | 443 | Replace `region` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+    | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
+    | `BatchNodeManagement` | ANY | 443| Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
 
     > [!IMPORTANT]
-    > The outbound access to `Storage.region` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
+    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
+
+    | FQDN | Protocol | Port | Notes |
+    | ---- |:----:|:----:| ---- |
+    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
+    | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
+    | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
+    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
+    | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
+    | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
 
 Use the following information to create a compute instance or cluster with a public IP address in the VNet:
 
@@ -275,16 +286,28 @@ except Exception:
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to using a compute instances/clusters configured for no public IP:
 
-+ In your VNet, allow **outbound** traffic to the following service tags:
++ In your VNet, allow **outbound** traffic to the following service tags or fully qualified domain names (FQDN):
 
     | Service tag | Protocol | Port | Notes |
     | ----- |:-----:|:-----:| ----- |
-    | `AzureMachineLearning` | TCP<br>UDP | 443<br>5831 | Communication with the Azure Machine Learning service.|
-    | `BatchNodeManagement` | TCP | 443| Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
-    | `Storage.region` | TCP | 443 | Replace `region` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
+    | `AzureMachineLearning` | TCP<br>UDP | 443/8787/18881<br>5831 | Communication with the Azure Machine Learning service.|
+    | `BatchNodeManagement` | ANY | 443| Communication with Azure Batch. Compute instance and compute cluster are implemented using the Azure Batch service.|
+    | `Storage.<region>` | TCP | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. This service tag is used to communicate with the Azure Storage account used by Azure Batch. |
 
     > [!IMPORTANT]
-    > The outbound access to `Storage.region` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
+    > The outbound access to `Storage.<region>` could potentially be used to exfiltrate data from your workspace. By using a Service Endpoint Policy, you can mitigate this vulnerability. This feature is currently in preview. For more information, see the [Azure Machine Learning data exfiltration prevention](how-to-prevent-data-loss-exfiltration.md) article.
+
+    | FQDN | Protocol | Port | Notes |
+    | ---- |:----:|:----:| ---- |
+    | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. |
+    | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
+    | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
+    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine learning workspace. Communication with Azure Batch. |
+    | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
+    | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
+    | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
+
 
 + Create either a firewall and outbound rules or a NAT gateway and network service groups to allow outbound traffic. Since the compute has no public IP address, it can't communicate with resources on the public internet without this configuration. For example, it wouldn't be able to communicate with Azure Active Directory or Azure Resource Manager. Installing Python packages from public sources would also require this configuration. For more information on the outbound traffic that is used by Azure Machine Learning, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
