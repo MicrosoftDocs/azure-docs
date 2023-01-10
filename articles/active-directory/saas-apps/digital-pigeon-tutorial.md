@@ -47,7 +47,8 @@ Add Digital Pigeon from the Azure AD application gallery to configure single sig
 Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
 
    > [!NOTE]
-   > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to learn how to configure App Roles in Azure AD. The Role value must be one of 'Digital Pigeon User', 'Digital Pigeon Power User', or 'Digital Pigeon Admin'. If a role claim not supplied, the default role is configurable in the Digital Pigeon app (_Account Settings > SSO_) by a Digital Pigeon Owner.
+   > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to learn how to configure App Roles in Azure AD. The Role value must be one of 'Digital Pigeon User', 'Digital Pigeon Power User', or 'Digital Pigeon Admin'. If a role claim is not supplied, the default role is configurable in the Digital Pigeon app (_Account Settings > SSO > SAML Provisioning Settings_) by a Digital Pigeon Owner, as seen below:
+   ![Screenshot shows to configure SAML Provisioning Default Role.](media/digital-pigeon-tutorial/saml-default-role.png "SAML Default Role")
 
 Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
@@ -63,17 +64,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In another browser tab, log in to Digital Pigeon as an Account Owner, and navigate to Account Settings | SSO
 
-3. On the **Basic SAML Configuration** section, perform the following steps:
+    Note the following URLs:
+
+    ![Screenshot shows Digital Pigeon SAML Service Provider Settings.](media/digital-pigeon-tutorial/saml-service-provider-settings.png "SAML Service Provider Settings")
+
+1. Now in Azure AD, in the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** textbox, copy and paste the value from _Digital Pigeon > Account Settings > SSO > **SP Entity ID**_.
-    It should match the following pattern:
+    It should match the following pattern, and is highlighted in the screenshot above with a green underline
     
     `https://digitalpigeon.com/saml2/service-provider-metadata/<CustomerID>`
 
-    b. In the **Reply URL** textbox, copy and paste the value from _Digital Pigeon > Account Settings > SSO > **SP ACS URL**_.
-    It should match the following pattern:
+    b. In the **Reply URL** textbox, copy and paste the 2nd value from _Digital Pigeon > Account Settings > SSO > **SP ACS URL**_.
+    It should match the following pattern, and is highlighted in the screenshot above with a blue underline
     
     `https://digitalpigeon.com/login/saml2/sso/<CustomerID>`
+    
+     ![Screenshot shows Azure AD Basic SAML Configuration.](media/digital-pigeon-tutorial/basic-saml-configuration.png "Basic SAML Configuration")   
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -97,11 +104,15 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In Digital Pigeon, paste the contents of this XML file into the **IDP Metadata XML** text field at _Digital Pigeon > Account Settings > SSO_
 
+    ![Screenshot shows IDP Metadata XML.](media/digital-pigeon-tutorial/idp-metadata-xml.png "IDP Metadata XML")
+
 1. In Azure AD, on the **Set up Digital Pigeon** section, copy the Azure AD Identifier URL.
 
 	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Metadata")
 
 1. In Digital Pigeon, paste this URL into the **IDP Entity ID** text field at _Digital Pigeon > Account Settings > SSO_
+
+    ![Screenshot shows IDP Entity ID.](media/digital-pigeon-tutorial/idp-entity-id.png "IDP Entity ID")
 
 1. Activate Digital Pigeon SSO by clicking **Save** at _Digital Pigeon > Account Settings > SSO_
 
