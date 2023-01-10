@@ -114,6 +114,12 @@ The following example shows the part of the workflow that sets up the environmen
       with:
         python-version: 3.7
 ```
+
+# [PowerShell](#tab/powershell)
+
+PowerShell uses the `actions/setup-python` action.  
+This step can be skipped for PowerShell as the GitHub runner already includes PowerShell.
+
 ---
 
 ## Build the function app
@@ -181,6 +187,11 @@ The following example shows the part of the workflow that builds the function ap
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
 ```
+
+# [PowerShell](#tab/powershell)
+
+This step can be skipped for PowerShell as the GitHub runner already includes PowerShell.
+
 ---
 
 ## Deploy the function app
@@ -482,6 +493,38 @@ jobs:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+```
+
+# [PowerShell](#tab/powershell)
+
+Set up a Windows workflow that uses a publish profile.
+
+```yaml
+name: Deploy PowerShell project to function app
+
+on:
+  [push]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v2
+
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          slot-name: 'Production'
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+
 ```
 
 ---
