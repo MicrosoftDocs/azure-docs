@@ -82,7 +82,7 @@ Known issues and limitations when using automatic VM placement:
 - You won't be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
 
 
-## Virtual machine scale set support
+## Virtual Machine Scale Set support
 
 Virtual Machine Scale Sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for Virtual Machine Scale Sets.
 
