@@ -173,7 +173,7 @@ For more information on how to control where pods are scheduled, see [Best pract
 
 ### Node resource group
 
-When you create an AKS cluster, you specify the resource group that the cluster in which the cluster will be created. In addition to that resource group, the AKS resource provider also creates and manages a separate resource group in the same subscription called the *node resource group*. The node resource group contains all the infrastructure resources:
+When you create an AKS cluster, you specify the resource group that the cluster in which the cluster will be created. In addition to that resource group, the AKS resource provider also creates and manages a separate resource group in the same subscription called the *node resource group* or NRG. The node resource group contains all the infrastructure resources:
 
 - The VMSS and VMs for every node in the node pools
 - The virtual network for the cluster
@@ -193,7 +193,7 @@ If you modify or delete Azure-created tags and other resource properties in the 
 
 However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](faq.md#does-aks-offer-a-service-level-agreement)
 
-To reduce the chance of changes in the Node Resource group affecting your clusters, you can enable NRG lockdown that will apply a Deny Assignment to your AKS resources.  More information this can be found in [Cluster configuration in AKS][configure-nrg].
+To reduce the chance of changes in the Node Resource group affecting your clusters, you can enable NRG lockdown that will apply a deny assignment to your AKS resources. More information this can be found in [Cluster configuration in AKS][configure-nrg].
 
 > [!WARNING]
 > If you have don't have node resource group lockdown enabled, you can directly modify any resource in the node resource group. Directly modifying resources in the node resource group can cause your cluster to become unstable or unresponsive.
