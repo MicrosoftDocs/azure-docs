@@ -213,7 +213,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 | `dataCollectionRuleID` | The resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
 
 
-### Using PowerShell for Onboarding
+### Using PowerShell for onboarding
 ```PowerShell
 $TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
 $SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
@@ -318,7 +318,7 @@ $requestURL = "https://management.azure.com$RespondId/providers/microsoft.insigh
 
 ```
 
-### Using PowerShell for Offboarding
+### Using PowerShell for offboarding
 ```PowerShell
 #This will remove the monitor object
 $TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
