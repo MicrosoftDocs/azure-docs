@@ -95,7 +95,9 @@ You can now connect your function app to the virtual network.
 
 1. Select **OK** to add the subnet. Close the **VNet Integration** and **Network Feature Status** pages to return to your function app page.
 
-The function app can now access the virtual network. Next, you'll add an HTTP-triggered function to the function app.
+The function app can now access the virtual network. When connectivity is enable, the vnetrouteallenabled site setting is set to `1`. You must have either this site setting or the legacy [WEBSITE_VNET_ROUTE_ALL](./functions-app-settings.md#website_vnet_route_all) application setting set to `1`.
+
+Next, you'll add an HTTP-triggered function to the function app. 
 
 ## <a name="create-function"></a>Create an HTTP trigger function
 
