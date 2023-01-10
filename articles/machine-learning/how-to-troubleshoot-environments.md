@@ -906,8 +906,8 @@ az ml connection create --file connection.yml --resource-group my-resource-group
 
 **Resources**
 * [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
-* [Python SDK AzureML v2 workspace connections](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection?view=azure-python-preview)
-* [Azure CLI workspace connections](https://learn.microsoft.com/cli/azure/ml/connection?view=azure-cli-latest)
+* [Python SDK AzureML v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
 <!--issueDescription-->
