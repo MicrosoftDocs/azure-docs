@@ -58,7 +58,8 @@ To complete this tutorial, make sure you have:
 
     The **Analytics rule wizard** will open.
 
-1. In the **General** tab, leave the fields on this page as they are. We will add customization to the alert name, description, and other properties at a later stage.
+1. In the **General** tab, in the **Name** field, enter **Log4j vulnerability exploit aka Log4Shell IP IOC - Tutorial-1**.
+1. Leave the rest of the fields on this page as they are. These are the defaults, but we will add customization to the alert name at a later stage.
 
     If you don’t want the rule to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
