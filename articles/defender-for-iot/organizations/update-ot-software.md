@@ -89,7 +89,7 @@ This procedure describes how to send a software version update to one or more OT
 >
 > For example, you might want to first send the update to your sensor and then an administrator to run the installation during a planned maintenance window.
 
-**Prerequisites**: A cloud-connected sensor on [22.2.3](release-notes.md#2223) or higher that's not yet on the latest version available.
+**Prerequisites**: A cloud-connected sensor with a software version equal to or higher than [22.2.3](release-notes.md#2223), but not yet the latest version available.
 
 **To send the software update to your OT sensor**:
 
