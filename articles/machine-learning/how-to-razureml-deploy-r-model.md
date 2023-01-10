@@ -3,7 +3,7 @@ title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
 ms.service: machine-learning
-ms.date: 11/10/2022
+ms.date: 01/10/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -20,15 +20,16 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 ## Prerequisites
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
-- An [Azure Container Registry] associated with the workspace
-- One or more models
+- An Azure Container Registry associated with the workspace (it's created for you when you create a workspace) @@do we need this?
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
 - [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job.
 - An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
+- A model that you've trained and [packaged with `crate`]((how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package)
 
 ## Create a folder with this structure
 
 Create this folder structure for your project:
+
 > ```
 > 📁 r-deploy-azureml
 > ├─ docker-context
@@ -43,9 +44,9 @@ Create this folder structure for your project:
 ![NOTE]
 > The endpoint and deployment files are explained [later in the article](#deploy-model).
 
-### The `Dockerfile`
+### Dockerfile
 
-This is the file that defines the container environment. You will also define the installation of any additional R packages here.
+This is the file that defines the container environment. You'll also define the installation of any additional R packages here.
 
 A sample **Dockerfile** will look like this:
 
@@ -53,7 +54,7 @@ A sample **Dockerfile** will look like this:
 # REQUIRED: Begin with the latest R container with plumber
 FROM rstudio/plumber:latest
 
-# REQUIRED: Install carrier package to be able to use the crated model (wether from a training job
+# REQUIRED: Install carrier package to be able to use the crated model (whether from a training job
 # or uploaded)
 RUN R -e "install.packages('carrier', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 
@@ -69,15 +70,17 @@ COPY ./start_plumber.R /tmp/start_plumber.R
 CMD ["Rscript", "/tmp/start_plumber.R"]
 ```
 
-### The `plumber.R` file
+Modify the file to add the packages you need for your scoring script.
+
+### plumber.R
 
 > [!IMPORTANT]
-> This section shows how to structure the **plumber.R** script. Please read [`plumber's` documentation](https://www.rplumber.io/index.html) for detailed information about the `plumber` package.
+> This section shows how to structure the **plumber.R** script. For detailed information about the `plumber` package, see [`plumber` documentation](https://www.rplumber.io/index.html) .
 
-This is the R script where you will define the function for scoring. This scrip also performs the following tasks that are necessary to make all of this work. The script:
+The file **plumber.R** is the R script where you'll define the function for scoring. This script also performs tasks that are necessary to make your endpoint work. The script:
 
-- Gets the path where the model is mounted from the `AZUREML_MODEL_DIR` environment variable 
-- Loads a model object created with the `crate` function from the `carrier` package which is saved as **crate.bin**.
+- Gets the path where the model is mounted from the `AZUREML_MODEL_DIR` environment variable in the container.
+- Loads a model object created with the `crate` function from the `carrier` package, which was saved as **crate.bin** when it was packaged.  
 - _Unserializes_ the model object
 - Defines the scoring function
 
@@ -128,8 +131,12 @@ function() {
 # This is the function that is deployed as a web API that will score the model
 # Make sure that whatever you are producing as a score can be converted 
 # to JSON to be sent back as the API response
+# in the example here, forecast_horizon (the number of time units to forecast) is the input to scoring_function.  
+# the output is a tibble
+# we are converting some of the output types so they work in JSON
 
-#* @param forecast_horizon
+
+#* @param forecast_horizon 
 #* @post /score
 function(forecast_horizon) {
   scoring_function(as.numeric(forecast_horizon)) |> 
@@ -142,9 +149,9 @@ function(forecast_horizon) {
 
 ```
 
-### The `start_plumber.R` file
+### start_plumber.R
 
-This is the R script that gets run when the container starts, and it calls your **plumber.R** script. Use the script below as-is.
+The file **start_plumber.R** is the R script that gets run when the container starts, and it calls your **plumber.R** script. Use the following script as-is.
 
 ```r
 entry_script_path <- paste0(Sys.getenv('AML_APP_ROOT'),'/', Sys.getenv('AZUREML_ENTRY_SCRIPT'))
@@ -164,24 +171,63 @@ do.call(pr$run, args)
 
 ## Register model
 
-This article shows you how to register a model created in a training job run and packaged with crate. See the [modify R script article](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package) and the [run training job]() articles for mor information.
+This article shows you how to register a model created in a training job run and packaged with `crate`. For more information about training, see [How to train R models](how-to-razureml-train-model.md).  For more information about packaging with `crate`, see [Adapt your R script to run in production](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
 
-@@sdgilley 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Select your workspace if it isn't already loaded.
+1. On the left navigation, select **Jobs**.
+1. Select the **Experiment name** that you used to train your model.
+1. Select the job that contains your model.
+1. Select **+Register model**.
+1. Select **Next**
+1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
+1. Select **Next**.
+1. Review the information.
+1. Select **Register**.
 
-Need screen shots
+You'll see a confirmation that the model is registered. 
 
 
 ## Build container
 
-To build the image in the cloud, execute the following bash commands in your terminal. Replace <IMAGE-NAME> with the name you want to give the image.
+1. Open a terminal window and sign in to Azure.
 
-```bash
-WORKSPACE=$(az config get --query "defaults[?name == 'workspace'].value" -o tsv)
-ACR_NAME=$(az ml workspace show -n $WORKSPACE --query container_registry -o tsv | cut -d'/' -f9-)
-IMAGE_TAG=${ACR_NAME}.azurecr.io/<IMAGE-NAME>
+    ```azurecli
+    az login
+    ```
 
-az acr build ./docker-context -t $IMAGE_TAG -r $ACR_NAME
-```
+    Follow the prompt to authenticate.
+
+1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
+
+    ```azurecli
+    az account set --subscription "<SUBSCRIPTION-NAME>"
+    ```
+
+1. Set the default workspace.  If you're doing this from a compute instance, you can use this command as is.  If you're on your own computer, substitute your resource group and workspace name instead.  (You can find these values in the Azure portal or in [Azure Machine Learning studio](tutorial-azure-ml-in-a-day#connect-to-the-workspace)).
+
+    ```azurecli
+    az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE
+    ```
+
+1. Make sure you are in your project directory.
+
+    ```bash
+    cd r-deploy-azureml
+    ```
+
+1. To build the image in the cloud, execute the following bash commands in your terminal. Replace `<IMAGE-NAME>` with the name you want to give the image.
+
+    ```bash
+    WORKSPACE=$(az config get --query "defaults[?name == 'workspace'].value" -o tsv)
+    ACR_NAME=$(az ml workspace show -n $WORKSPACE --query container_registry -o tsv | cut -d'/' -f9-)
+    IMAGE_TAG=${ACR_NAME}.azurecr.io/<IMAGE-NAME>
+    
+    az acr build ./docker-context -t $IMAGE_TAG -r $ACR_NAME
+    ```
+
+    > [!TIP]
+    > Don't close this terminal, you'll use it next to create the deployment.
 
 The `az acr` command will automatically upload your docker-context folder - that contains the artifacts to build the image - to the cloud where the image will be built and hosted in an Azure Container Registry.
 
@@ -190,7 +236,7 @@ The `az acr` command will automatically upload your docker-context folder - that
 
 ## Deploy model
 
-In this section of the article, you'll define and create an [endpoint and deployment](concept-endpoints.md) to deploy the model and image built in the previous steps to a managed online endpoint. 
+In this section of the article, you'll define and create an [endpoint and deployment](concept-endpoints.md) to deploy the model and image built in the previous steps to a managed online endpoint.
 
 An *endpoint* is an HTTPS endpoint that clients - such as an application - can call to receive the scoring output of a trained model. It provides:
 
@@ -199,41 +245,36 @@ An *endpoint* is an HTTPS endpoint that clients - such as an application - can c
 > - SSL termination
 > - A stable scoring URI (endpoint-name.region.inference.ml.Azure.com)
 
-A *deployment* is a set of resources required for hosting the model that does the actual scoring. A ***single** endpoint* can contain ***multiple** deployments*. The load balancing capabilities of Azure Machine Learning managed *endpoints* allows you to give any percentage of traffic to each deployment. Traffic allocation can be used to do safe rollout blue/green deployments by balancing requests between different instances.
+A *deployment* is a set of resources required for hosting the model that does the actual scoring. A **single** *endpoint* can contain **multiple** *deployments*. The load balancing capabilities of Azure Machine Learning managed endpoints allows you to give any percentage of traffic to each deployment. Traffic allocation can be used to do safe rollout blue/green deployments by balancing requests between different instances.
 
 ### Create managed online endpoint
 
-In your project directory, add the **endpoint.yml** file with the code below. Replace <ENDPOINT-NAME> with the name you want to give your managed endpoint.
+1. In your project directory, add the **endpoint.yml** file with the following code. Replace `<ENDPOINT-NAME>` with the name you want to give your managed endpoint.
 
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
-name: <ENDPOINT-NAME>
-auth_mode: aml_token
-```
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+    name: <ENDPOINT-NAME>
+    auth_mode: aml_token
+    ```
 
-Next, in your terminal execute the following CLI command to create an endpoint:
+1. Using the same terminal where you built the image, execute the following CLI command to create an endpoint:
 
-```azurecli
-az ml online-endpoint create -f endpoint.yml
-```
+    ```azurecli
+    az ml online-endpoint create -f endpoint.yml
+    ```
 
 ### Create deployment
 
-To create your deployment, add the **deployment.yml** with the code below. 
+To create your deployment, add **deployment.yml** file with the following code. 
 
-* Replace <ENDPOINT-NAME> with the endpoint name you defined in the **environment.yml** file
-* Replace <DEPLOYMENT-NAME> with the name you want to give the deployment
-* Replace <MODEL-URL> with the registered model's URI in the form of `azureml:modelname@latest`
-* Replace <IMAGE-TAG> with the name of the created image you defined earlier
+* Replace `<ENDPOINT-NAME>` with the endpoint name you defined in the **environment.yml** file
+* Replace `<DEPLOYMENT-NAME>` with the name you want to give the deployment
+* Replace `<MODEL-URI>` with the registered model's URI in the form of `azureml:modelname@latest`
+* Replace `<IMAGE-TAG>` with the value from:
 
-> [!TIP]
-> You can find the Azure Container Registry name with:
->
-> ```bash
-> echo $IMAGE_TAG
-> ```
-
-
+     ```bash
+     echo $IMAGE_TAG
+     ```
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
@@ -280,10 +321,7 @@ Enter the following json into the **Input data to rest real-time endpoint** text
 
 ```json
 {
-    "sepal_length" : [6.7],
-    "sepal_width" : [3.3],
-    "petal_length" : [5.7],
-    "petal_width" : [2.5]
+    "forecast_horizon" : [2]
 }
 ```
 
@@ -297,21 +335,19 @@ Select **Test**. You should see the following output:
 
 In your project parent folder, create a file called **sample_request.json** and populate it with:
 
+
 ```json
 {
-    "sepal_length" : [6.7],
-    "sepal_width" : [3.3],
-    "petal_length" : [5.7],
-    "petal_width" : [2.5]
+    "forecast_horizon" : [2]
 }
 ```
 
 ### Invoke the endpoint
 
-Invoke the request using:
+Invoke the request.  This example uses the name r-endpoint-forecast:
 
 ```azurecli
-az ml online-endpoint invoke --name r-endpoint-iris --request-file sample_request.json
+az ml online-endpoint invoke --name r-endpoint-forecast --request-file sample_request.json
 ```
 
 ---
@@ -321,7 +357,7 @@ az ml online-endpoint invoke --name r-endpoint-iris --request-file sample_reques
 Now that you've successfully scored with your endpoint, you can delete it so you don't incur ongoing cost:
 
 ```azurecli
-az ml online-endpoint delete --name r-endpoint-iris
+az ml online-endpoint delete --name r-endpoint-forecast
 ```
 
 # Next steps
