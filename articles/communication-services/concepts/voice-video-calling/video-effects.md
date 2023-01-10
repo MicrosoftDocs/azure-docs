@@ -16,6 +16,9 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
+> [!NOTE]
+> This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
+
 The Azure Communication Calling SDK allows you to create video effects that other viewsers on a call will be able to see.
 
 > [!NOTE]
@@ -44,100 +47,58 @@ Use ‘npm install’ command to install the Azure Communication Calling Effects
 
 'npm install @azure/communication-calling-effects –save'
 
-### Supported video effects: 
+## Supported video effects: 
 - Background blur 
 - Background replacement with image 
 
 
 Class model: 
+| Name        | Description           |
+| ------------- |:-------------:|
+| BackgroundBlurEffect      | The background blur effect class.  |
+| BackgroundReplacementEffect      | The background replacement with image effect class.   |
 
-
-Name 
-
-Description 
-
-BackgroundBlur 
-
-The background blur effect class. 
-
-BackgroundReplacement 
-
-The background replacement with image effect class. 
-
- 
 
 Browser Support: 
 
-[Add browser support table. Currently we only support desktop safari and chromium browsers.] 
+Currently we only support creating video effects on Chrome Browser and Mac Safari.
+
+To use video effects with the Azure Communication Calling client library, once you have created a LocalVideoStream, you need to get the VideoEffects feature API of from the LocalVideoStream. 
 
  
-
-To use video effects with the Azure Communication Calling client library, once you have created a LocalVideoStream, you need to get the VideoEffects feature API of the LocalVideoStream. 
-
- 
-
+```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
-
 import { BackgroundBlur, BackgroundReplacement } from '@azure/communication-calling-effects'; 
 
- 
-
 /** Assuming you have initialized the Azure Communication Calling client library and have created a LocalVideoStream 
-
 (reference <link to main SDK npm>) 
-
 */ 
 
- 
-
 // Get the video effects feature api on the LocalVideoStream 
-
 const videoEffectsFeatureApi = localVideoStream.features(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
- 
-
 // Subscribe to useful events 
-
 videoEffectsFeatureApi.on(‘effectsStarted’, () => { 
-
     // Effects started 
-
 }); 
 
  
-
 videoEffectsFeatureApi.on(‘effectsStopped’, () => { 
-
-    // Effects stopped 
-
+    // Effects stopped
 }); 
 
- 
 
 videoEffectsFeatureApi.on(‘effectsError’, (error) => { 
-
     // Effects error 
-
 }); 
 
- 
-
- 
-
 // Create the effect instance 
-
 const backgroundBlurEffect = new BackgroundBlur(); 
 
- 
-
-// Recommended: Check support 
-
+// Recommended: Check if backgroundBlur is supported
 const backgroundBlurSupported = await backgroundBlurEffect.isSupported(); 
 
- 
-
 if (backgroundBlurSupported) { 
-
     // Use the video effects feature api we created to start/stop effects 
 
     await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
@@ -145,83 +106,48 @@ if (backgroundBlurSupported) {
 } 
 
  
-
- 
-
 /** 
-
-For background replacement with image: 
-
-You need to provide the URL of the image you want as the background to this effect. 
-
-The 'startEffects' method will fail if the URL is not of an image or is unreachable/unreadable. 
+To create a background replacement with a custom image you need to provide the URL of the image you want as the background to this effect. The 'startEffects' method will fail if the URL is not of an image or is unreachable/unreadable. 
 
 Supported image formats are – png, jpg, jpeg, tiff, bmp. 
-
 */ 
-
- 
 
 const backgroundImage = 'https://linkToImageFile'; 
 
- 
-
 // Create the effect instance 
-
 const backgroundReplacementEffect = new BackgroundReplacement({ 
 
     backgroundImageUrl: backgroundImage 
 
 }); 
 
- 
-
-// Recommended: Check support 
-
+// Recommended: Check if background replacement is supported:
 const backgroundReplacementSupported = await backgroundReplacementEffect.isSupported(); 
 
- 
-
 if (backgroundReplacementSupported) { 
-
     // Use the video effects feature api as before to start/stop effects 
-
     await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect); 
-
 } 
 
- 
+You can change the image used for this effect by passing it in the a new configure method: 
 
-You can change the image for this effect by passing it in in the configure method: 
-
-const newBackgroundImage = 'https://linkToNewImageFile'; 
-
+const newBackgroundImage = 'https://linkToNewImageFile';
 await backgroundReplacementEffect.configure({ 
 
     backgroundImageUrl: newBackgroundImage 
 
 }); 
 
- 
-
 You can switch the effects using the same method on the video effects feature api: 
 
- 
-
 // Switch to background blur 
-
 await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
 
- 
 
 // Switch to background replacement 
-
 await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect); 
 
- 
+//To stop effects: 
+await videoEffectsFeatureApi.stopEffects();
 
-To stop effects: 
-
- 
-
-await videoEffectsFeatureApi.stopEffects(); 
+```
