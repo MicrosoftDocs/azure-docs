@@ -35,18 +35,28 @@ You can view your custom initiatives organized by controls, similar to the contr
 
     :::image type="content" source="media/custom-security-policies/accessing-security-policy-page.png" alt-text="Screenshot of accessing the security policy page in Microsoft Defender for Cloud." lightbox="media/custom-security-policies/accessing-security-policy-page.png":::
 
-1. In the Add custom initiatives page, review the list of custom policies already created in your organization.
+1. Review the list of custom policies already created in your organization, and select **Add** to assign a policy to your subscription.
 
-    - If you see one you want to assign to your subscription, select **Add**. 
-    - If there isn't an initiative in the list that meets your needs, create a new custom initiative:
+If there isn't an initiative in the list that meets your needs, you can create one.
 
-        1. Select **Create new**.
-        1. Enter the definition's location and name.
-        1. Select the policies to include and select **Add**.
-        1. Enter any desired parameters.
-        1. Select **Save**.
-        1. In the Add custom initiatives page, select refresh. Your new initiative will be available.
-        1. Select **Add** and assign it to your subscription.
+**To create a new custom initiative**:
+
+1. Select **Create new**.
+
+1. Enter the definition's location and custom name.
+
+    > [!NOTE]
+    > Custom initiatives shouldn't have the same name as other initiatives (custom or built-in).
+
+1. Select the policies to include and select **Add**.
+
+1. Enter any desired parameters.
+
+1. Select **Save**.
+
+1. In the Add custom initiatives page, select refresh. Your new initiative will be available.
+
+1. Select **Add** and assign it to your subscription.
 
     ![Create or add a policy.](media/custom-security-policies/create-or-add-custom-policy.png)
 
