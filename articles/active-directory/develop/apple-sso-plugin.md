@@ -32,7 +32,7 @@ The Enterprise SSO plug-in is currently a built-in feature of the following apps
 The Microsoft Enterprise SSO plug-in for Apple devices offers the following benefits:
 
 - It provides SSO for Azure AD accounts across all applications that support the Apple Enterprise SSO feature.
-- It can be enabled by any mobile device management (MDM) solution.
+- It can be enabled by any mobile device management (MDM) solution and supported in both device and user enrollment. 
 - It extends SSO to applications that don't yet use Microsoft identity platform libraries.
 - It extends SSO to applications that use OAuth 2, OpenID Connect, and SAML.
 
@@ -157,12 +157,12 @@ If your users have problems signing in to an application even after you've enabl
 
 - **Key**: `AppCookieSSOAllowList`
 - **Type**: `String`
-- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO. Please note that this key is to be used only for iOS apps and not for macOS apps.
+- **Value**: Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. All apps that start with the listed prefixes will be allowed to participate in SSO. 
 - **Example**: `com.contoso.myapp1, com.fabrikam.myapp2`
 
 **Other requirements**: To enable SSO for applications by using `AppCookieSSOAllowList`, you must also add their bundle ID prefixes `AppPrefixAllowList`.
 
-Try this configuration only for applications that have unexpected sign-in failures. 
+Try this configuration only for applications that have unexpected sign-in failures. Please note that this key is to be used only for iOS apps and not for macOS apps.
 
 #### Summary of keys
 
@@ -212,11 +212,11 @@ Apple provides no easy way to get bundle IDs from the App Store. The easiest way
 1. In the Authenticator app, select **Help** > **Send logs** > **View logs**. 
 1. In the log file, look for following line: `[ADMIN MODE] SSO extension has captured following app bundle identifiers`. This line should capture all application bundle IDs that are visible to the SSO extension. 
 
-Use the bundle IDs to configure SSO for the apps. 
+Use the bundle IDs to configure SSO for the apps. Disable admin mode once done. 
 
 #### Allow users to sign in from unknown applications and the Safari browser
 
-By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when a user has signed in from an app that uses a Microsoft identity platform library like MSAL. The Microsoft Enterprise SSO plug-in can also acquire a shared credential when it's called by another app that uses a Microsoft identity platform library during a new token acquisition.
+By default, the Microsoft Enterprise SSO plug-in will acquire a shared credential when it's called by another app that uses a Microsoft identity platform library during a new token acquisition. Depending on the configuration, Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by apps that don't use Microsoft Identity platform libraries. 
 
 When you enable the `browser_sso_interaction_enabled` flag, apps that don't use a Microsoft identity platform library can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
 
@@ -228,21 +228,7 @@ Use these parameters to enable the flag:
 - **Type**: `Integer`
 - **Value**: 1 or 0. This value is set to 1 by default. 
 
-macOS requires this setting so it can provide a consistent experience across all apps. iOS and iPadOS don't require this setting because most apps use the Authenticator application for sign-in. But we recommend that you enable this setting because if some of your applications don't use the Authenticator app on iOS or iPadOS, this flag will improve the experience. The setting is disabled by default.
-
-#### Disable asking for MFA during initial bootstrapping
-
-By default, the Microsoft Enterprise SSO plug-in always prompts the user for MFA during the initial bootstrapping and while getting a shared credential. The user is prompted for MFA even if it's not required for the application that the user has opened. This behavior allows the shared credential to be easily used across all other applications without the need to prompt the user if MFA is required later. Because the user gets fewer prompts overall, this setup is generally a good decision.
-
-Enabling `browser_sso_disable_mfa` turns off MFA during initial bootstrapping and while getting the shared credential. In this case, the user is prompted only when MFA is required by an application or resource. 
-
-To enable the flag, use these parameters:
-
-- **Key**: `browser_sso_disable_mfa`
-- **Type**: `Integer`
-- **Value**: 1 or 0
-
-We recommend keeping this flag disabled because it reduces the number of times the user is prompted to sign in. If your organization rarely uses MFA, you might want to enable the flag. But we recommend that you use MFA more frequently instead. For this reason, the flag is disabled by default.
+Both iOS and macOS require this setting so that Microsoft Enterprise SSO plug-in can provide a consistent experience across all apps. The setting is enabled by default and it should only be disabled if end user is unable to sign-in with their credentials.
 
 #### Disable OAuth 2 application prompts
 
@@ -263,6 +249,21 @@ Disable app prompt and select an account from the list of matching SSO accounts 
 - **Type**: `Integer`
 - **Value**: 1 or 0
 
+#### Unexpected SAML application prompts
+
+If an application prompts your users to sign in even though the Microsoft Enterprise SSO plug-in works for other applications on the device, the app might be bypassing SSO at the protocol layer. If the application is using SAML protocol, the Microsoft Enteprise SSO plug-in will not be able to provide SSO to such apps. Application vendor should be notified about this behavior and make a change in their app to not bypass SSO.
+
+#### Change iOS experience for MSAL-enabled applications
+TBD
+
+#### Configure device registration
+TBD
+
+#### Conditional access policies and password changes
+TBD
+
+### Required network configuration
+TBD
 
 #### Use Intune for simplified configuration
 
