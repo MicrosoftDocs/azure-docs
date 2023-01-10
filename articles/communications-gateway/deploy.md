@@ -31,7 +31,7 @@ In this step, you'll create the Azure Communications Gateway resource.
 
 1. Use the information you collected in [Collect Azure Communications Gateway resource values](prepare-to-deploy.md#5-collect-basic-information-for-deploying-an-azure-communications-gateway) to fill out the fields in the **Basics** configuration section and then select **Next: Service Regions**.
 
-    :::image type="content" source="media/deploy/basics.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing the **Basics** section.":::
+    :::image type="content" source="media/deploy/basics.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing the Basics section.":::
 
 1. Use the information you collected in [Collect Service Regions configuration values](prepare-to-deploy.md#6-collect-service-regions-configuration-values) to fill out the fields in the **Service Regions** section and then select **Next: Tags**.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
@@ -43,13 +43,17 @@ If you've entered your configuration correctly, you'll see a **Validation Passed
 
 If you haven't filled in the configuration correctly, you'll see an error message in the configuration section(s) containing the invalid configuration. Correct the invalid configuration by selecting the flagged section(s) and use the information within the error messages to correct invalid configuration before returning to the **Review + create** section.
 
-:::image type="content" source="media/deploy/failedvalidation.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a validation that failed due to missing information in the *Contacts* section.":::
+:::image type="content" source="media/deploy/failed-validation.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a validation that failed due to missing information in the Contacts section.":::
 
 ## 3. Submit your Azure Communications Gateway configuration
 
 Check your configuration and ensure it matches your requirements. If the configuration is correct, select **Create**.
 
 You now need to wait for your resource to be provisioned. Upon completion your onboarding team will reach out to you. We also recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks as updating ACLs in the Azure and Teams environments is done on a periodic basis.
+
+Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
+
+:::image type="content" source="media/deploy/go-to-resource-group.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
 ## 4. Complete the JSON onboarding file
 
@@ -68,12 +72,6 @@ Your Azure Communications Gateway will require a custom domain name inside your 
 1. Complete the following procedure: [Add your custom domain name to Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
 1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
 1. Complete the following procedure: [Verify your custom domain name](/azure/active-directory/fundamentals/add-custom-domain).
-
-## 7. Finish deploying your Azure Communications Gateway
-
-Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
-
-:::image type="content" source="media/deploy/gotoresourcegroup.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
 ## Next steps
 
