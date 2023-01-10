@@ -206,15 +206,15 @@ items:
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Blob access tiers and lifecycle management
+    - name: Access tiers and lifecycle management
       items:
-      - name: Blob access tiers
+      - name: Access tiers overview
         href: access-tiers-overview.md
+      - name: Access tiers best practices
+        href: access-tiers-best-practices.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
-      - name: Best practices
-        href: access-tiers-best-practices.md
-      - name: Blob rehydration from Archive tier
+      - name: Blob rehydration from archive tier
         href: archive-rehydrate-overview.md
     - name: Object replication
       href: object-replication-overview.md

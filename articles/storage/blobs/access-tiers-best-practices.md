@@ -13,41 +13,55 @@ ms.topic: conceptual
 
 # Best practices for using blob access tiers
 
-You can reduce costs by placing blob data into the most cost effective access tiers. To learn more, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md?tabs=azure-portal). For data that is new to Azure Storage, you can save costs by uploading data to the most optimal tier up-front. For data already in Azure Storage, you can analyze your data estate to find cost savings opportunities. This article provides best practice guidance that you can apply to reduce the cost of your data.
+This article provides best practice guidelines that help you use access tiers to optimize performance and reduce costs. To learn more about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md?tabs=azure-portal). 
 
 > [!NOTE]
 > This article uses fictitious prices in all calculations. For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
-## Carefully select the initial access tier
+## Upload data to the most cost-efficient access tiers
 
-If you upload or migrate data to Azure Storage, try to choose the most appropriate access tier prior up front because it costs money to move data between tiers. You'll incur the cost of reading from the source tier and then writing to the destination tier. If you use a lifecycle management policy to move data, then you'll also incur the cost of listing operations. Also, lifecycle management policies require a day to take effect and a day for the tiering operation to complete.
+When you migrate data to Azure Blob Storage, try to choose the most appropriate access tier based upon your estimated read patterns. If you predict that data will be read often, choose a warmer tier. If data is rarely accessed, consider a cooler tier. Choosing the most optimal tier up front as opposed to ingesting data and then moving that data to other tiers, can reduce costs and save time. 
+
+If you change tiers, you'll pay the cost of writing to the initial tier, and then pay the cost of writing to the second tier. If you change tiers by using a lifecycle management policy, then you'll also incur the cost of listing operations and policies require a day to take effect and a day to complete execution.
 
 To determine which tier makes the most sense, analyze the current or expected read patterns of the data that you plan to ingest into Azure. The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
 
 For example, the second pair of bars assumes that workloads read 100,000 files (10% of 1,000,000 files) and 1,024 GB (10% of 10,240 GB). Assuming the fictitious pricing, the estimated monthly cost of cool storage is $175.99 and the estimated monthly cost of archive storage is $90.62.
 
 > [!div class="mx-imgBorder"]
-> ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/optimize-costs-with-access-tiers/read-pattern-access-tiers.png)
+> ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/access-tiers-best-practices/read-pattern-access-tiers.png)
 
-For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). For offline data movement to the desired tier, see [Azure Data Box](/products/databox/)
+For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). For offline data movement to the desired tier, see [Azure Data Box](/products/databox/).
 
-## Optimize the costs of data already in Azure Storage
+## Move data into the most cost-efficient access tiers
 
-By understanding how your blobs and containers are stored, organized, and used in production, you can better optimize the tradeoffs between cost and performance. Use these articles to help you analyze your data.
+For data already uploaded to Azure Blob Storage, you should periodically analyze how your blobs and containers are stored, organized, and used in production. To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking). Analyze use patterns by using tools such as Azure Synapse or Azure Databricks, and then use lifecycle management policies to move data to tiers which optimize the cost of those blobs based on use patterns. For example, data not accessed for more than 30 days might be more cost efficient if placed into the cool tier. Consider archiving data not accessed for over 180 days. 
 
-- [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
+For examples of policy definitions, see [Manage the Azure Blob Storage lifecycle](lifecycle-management-overview.md?tabs=azure-portal).
+
+To learn about how to analyze your data, see [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md).
+
+To learn about ways to analyze individual containers in your storage account. See these articles:
 
 - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
 
-You can use lifecycle management policies to move data between tiers and save money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. To learn more, see [Manage the Azure Blob Storage lifecycle](lifecycle-management-overview.md?tabs=azure-portal)
+- [How to calculate Container Level Statistics in Azure Blob Storage with Azure Databricks](https://techcommunity.microsoft.com/t5/azure-paas-blog/how-to-calculate-container-level-statistics-in-azure-blob/ba-p/3614650)
 
-If your analysis shows a lot of page and append blobs, you can use lifecycle management to tier those objects as well. You'll have to first convert them to block blobs. See [topic link goes here](archive-cost-estimation.md)
+Your analysis might reveal append or page blobs not in active use. For example, you might have log files (append blobs) that are no longer being written to, but you'd like to store them for compliance reasons. Similarly, you might want to back up disks or disk snapshots (page blobs). You can move append and page blobs into cooler tiers as well.  However, you must first convert them to block blobs. For guidance, see [topic link goes here](archive-cost-estimation.md).
 
-## Optimize for archive storage
+## Pack small files before moving data to cooler tiers
 
-If you decide to archive data, see this article to help you estimate the cost of archiving and which pattern of archiving makes most sense to you: [Estimate the cost of archiving data](archive-cost-estimation.md)  
+To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Each read or write operation incurs a cost so reducing the number of operations required to transfer data will reduce costs. Use the [this worksheet](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx) to analyze the impact of packing files and determine whether the overhead involved in packing and unpacking files is worth the savings.
 
-To save costs even further, consider combining objects into a larger files and read costs will be decreased. Put more details here.
+The following chart shows the relative impact of packing files for the cool tier. The read cost assumes a monthly read percentage of 30%.
+
+> [!div class="mx-imgBorder"]
+> ![Chart that shows the impact on costs when you pack small files before uploading to the cool access tier](./media/access-tiers-best-practices/packing-impact-cool.png)
+
+Writing to the archive tier is less expensive than writing to the cool tier. However, the cost of reading from the archive tier is higher. The following chart shows the relative impact of packing files for the archive tier. The read cost assumes a monthly read percentage of 30%.
+
+> [!div class="mx-imgBorder"]
+> ![Chart that shows the impact on costs when you pack small files before uploading to the archive access tier](./media/access-tiers-best-practices/packing-impact-archive.png)
 
 ## Next steps
 
