@@ -14,7 +14,7 @@ ms.date: 12/20/2022
 
 This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview.
 
-An enterprise development infrastructure team typically sets up a dev center, configures authentication so that the dev center can connect to external catalogs, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
+An enterprise development infrastructure team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
 
 > [!IMPORTANT]
 > Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, review the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -23,6 +23,37 @@ An enterprise development infrastructure team typically sets up a dev center, co
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+
+## Create a dev center
+To create and configure a Dev center in Azure Deployment Environments by using the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Azure Deployment Environments**, and then select the service in the results.
+1. In **Dev centers**, select **Create**.
+
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot that shows how to create a dev center in Azure Deployment Environments.":::
+
+1. In **Create a dev center**, on the **Basics** tab, select or enter the following information:
+
+    |Name      |Value      |
+    |----------|-----------|
+    |**Subscription**|Select the subscription in which you want to create the dev center.|
+    |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
+    |**Name**|Enter a name for the dev center.|
+    |**Location**|Select the location or region where you want to create the dev center.|
+
+1. Select **Review + Create**.
+1. On the **Review** tab, wait for deployment validation, and then select **Create**.
+
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot that shows the Review tab of a dev center to validate the deployment details.":::
+
+1. Confirm that the dev center was successfully created by checking your Azure portal notifications. Then, select **Go to resource**.
+
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/azure-notifications.png" alt-text="Screenshot that shows portal notifications to confirm the creation of a dev center.":::
+
+1. In **Dev centers**, verify that the dev center appears.
+
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
 ## Create a Key Vault
 You'll need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. 
@@ -36,7 +67,7 @@ If you don't have an existing key vault, use the following steps to create one:
 
     |Name      |Value      |
     |----------|-----------|
-    |**Name**|Enter a name for the dev center.|
+    |**Name**|Enter a name for the key vault.|
     |**Subscription**|Select the subscription in which you want to create the key vault.|
     |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
     |**Location**|Select the location or region where you want to create the key vault.|
@@ -86,46 +117,9 @@ Using an authentication token like a GitHub PAT enables you to share your reposi
     - Select **Create**.
 1.	Leave this tab open, you’ll need to come back to the Key Vault later.
 
-## Create a dev center
-To create and configure a Dev center in Azure Deployment Environments by using the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **Azure Deployment Environments**, and then select the service in the results.
-1. In **Dev centers**, select **Create**.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot that shows how to create a dev center in Azure Deployment Environments.":::
-
-1. In **Create a dev center**, on the **Basics** tab, select or enter the following information:
-
-    |Name      |Value      |
-    |----------|-----------|
-    |**Subscription**|Select the subscription in which you want to create the dev center.|
-    |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
-    |**Name**|Enter a name for the dev center.|
-    |**Location**|Select the location or region where you want to create the dev center.|
-
-1. (Optional) Select the **Tags** tab and enter a **Name**:**Value** pair.
-1. Select **Review + Create**.
-1. On the **Review** tab, wait for deployment validation, and then select **Create**.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot that shows the Review tab of a dev center to validate the deployment details.":::
-
-1. Confirm that the dev center was successfully created by checking your Azure portal notifications. Then, select **Go to resource**.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/azure-notifications.png" alt-text="Screenshot that shows portal notifications to confirm the creation of a dev center.":::
-
-1. In **Dev centers**, verify that the dev center appears.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
-
 ## Attach an identity to the dev center
 
-After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity) you can attach:
-
-- System-assigned managed identity
-- User-assigned managed identity
-
-You can use a system-assigned managed identity or a user-assigned managed identity. You don't have to use both. For more information, review [Configure a managed identity](how-to-configure-managed-identity.md).
+After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity or a user-assigned managed identity. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
 
 In this quickstart, you'll configure a system-assigned managed identity for your dev center. 
 
@@ -141,20 +135,6 @@ To attach a system-assigned managed identity to your dev center:
 
 1.	In the **Enable system assigned managed identity** dialog, select **Yes**.
 
-### Assign the system-assigned managed identity the owner role to the subscription
-After you create a system-assigned managed identity, assign the Owner role to give the identity access on the subscriptions that will be used to configure [project environment types](concept-environments-key-concepts.md#project-environment-types).
-
-1.	On the left menu under Settings, select **Identity**.
-1.	Under System assigned > Permissions, select **Azure role assignments**.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
-
-1. In Azure role assignments, select **Add role assignment (Preview)**, and then enter or select the following information:
-    - In **Scope**, select **Subscription**.
-    - In **Subscription**, select the subscription in which to use the managed identity.
-    - In **Role**, select **Owner**.
-    - Select **Save**.
-
 ### Assign the system-assigned managed identity access to the key vault secret
 Make sure that the identity has access to the key vault secret that contains the personal access token to access your repository.
 
@@ -168,19 +148,23 @@ Configure a key vault access policy:
 
 
 ## Add a catalog to the dev center
-To add a catalog to your dev center you'll first need to gather some information.
+Azure Deployment Environments Preview supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
+
+In this quickstart, you'll attach a GitHub repository that contains samples created and maintained by the Azure Deployment Environments team.
+
+To add a catalog to your dev center, you'll first need to gather some information.
 
 ### Gather GitHub repo information
 To add a catalog, you must specify the GitHub repo URL, the branch, and the folder that contains your catalog items. You can gather this information before you begin the process of adding the catalog to the dev center, and paste it somewhere accessible, like notepad.
 
 1. On your [GitHub](https://github.com) account page, select **<> Code**, and then select copy.
-1. Take a note of the branch that you are working in.
+1. Take a note of the branch that you're working in.
 1. Take a note of the folder that contains your catalog items. 
  
      :::image type="content" source="media/quickstart-create-and-configure-devcenter/github-info.png" alt-text="Screenshot that shows the GitHub repo with Code, branch, and folder highlighted.":::
 
 ### Gather the secret identifier
-You will also need the path to the secret you created in the key vault. 
+You'll also need the path to the secret you created in the key vault. 
 
 1. In the Azure portal, navigate to your key vault.
 1. On the key vault page, from the left menu, select **Secrets**.

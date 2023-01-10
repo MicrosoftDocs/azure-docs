@@ -90,6 +90,19 @@ To configure a project, add a [project environment type](how-to-configure-projec
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
 
+### Assign a managed identity the owner role to the subscription
+After you create a managed identity, assign the Owner role to give the identity access on the subscriptions that will be used to configure [project environment types](concept-environments-key-concepts.md#project-environment-types).
+
+1.	On the left menu under Settings, select **Identity**.
+1.	Under System assigned > Permissions, select **Azure role assignments**.
+
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
+
+1. In Azure role assignments, select **Add role assignment (Preview)**, and then enter or select the following information:
+    - In **Scope**, select **Subscription**.
+    - In **Subscription**, select the subscription in which to use the managed identity.
+    - In **Role**, select **Owner**.
+    - Select **Save**.
 ## Give project access to the development team
 
 1. In the Azure portal, go to your project.
