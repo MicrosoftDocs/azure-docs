@@ -245,7 +245,8 @@ To deploy a model, you must have:
 - An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
- **Key aspects of a deployment**
+**Key aspects of a deployment**
+
     * `name` - Name of the deployment.
     * `endpoint_name` - Name of the endpoint that will contain the deployment.
     * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
