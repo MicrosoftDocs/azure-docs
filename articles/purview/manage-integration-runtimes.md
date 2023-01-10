@@ -203,7 +203,7 @@ One required domain and port that need to be put in the allowlist of your firewa
 2. In Edit page, select **Nodes** tab.
 3. Select **View Service URLs** to get all FQDNs.
 
-   :::image type="content" source="media/create-self-hosted-integration-runtime/get-azure-relay-urls.png" alt-text="Screenshot that shows how to get Azure Relay URLs for an integration runtime.":::
+   :::image type="content" source="media/manage-integration-runtimes/get-azure-relay-urls.png" alt-text="Screenshot that shows how to get Azure Relay URLs for an integration runtime.":::
 
 4. You can add these FQDNs in the allowlist of firewall rules.
 
