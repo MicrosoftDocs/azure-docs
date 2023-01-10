@@ -1,17 +1,17 @@
 ---
-title: Deploy an R model to an online (real time) endpoint
+title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
 ms.service: machine-learning
 ms.date: 11/10/2022
 ms.topic: how-to
 author: wahalulu
-ms.author: samkemp
+ms.author: mavaisma
 ms.reviewer: sgilley
 ms.devlang: r
 ---
 
-# How to deploy an R model to an online (real time) endpoint
+# How to deploy a registered R model to an online (real time) endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
