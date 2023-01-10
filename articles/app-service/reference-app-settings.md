@@ -646,8 +646,7 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
 |-|-|
 | `WEBSITE_FUNCTIONS_ARMCACHE_ENABLED` | Set to `0` to disable the functions cache. |
 | `WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
-
-`AzureWebJobsSecretStorageType` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
+|`AzureWebJobsSecretStorageType` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `FUNCTIONS_EXTENSION_VERSION` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `FUNCTIONS_WORKER_RUNTIME` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `AzureWebJobsStorage` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
