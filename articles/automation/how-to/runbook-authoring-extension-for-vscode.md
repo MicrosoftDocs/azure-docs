@@ -1,13 +1,13 @@
 ---
 title: Azure Automation extension for Visual Studio Code
 description: Learn how to use the Azure Automation extension for Visual Studio Code to author runbooks.
-ms.date: 01/06/2023
+ms.date: 01/10/2023
 ms.topic: how-to
 ---
 
 # Use Azure Automation extension for Visual Studio Code
 
-This article explains about the Visual Studio that you can use to create and manage runbooks. You can perform all runbook management operations such as creating runbooks, editing runbook, triggering a job, tracking recent jobs outputs, linking a schedule and asset management.
+This article explains about the Visual Studio that you can use to create and manage runbooks. You can perform all runbook management operations such as creating runbooks, editing runbook, triggering a job, tracking recent jobs outputs, linking a schedule, asset management and local debugging.
 
 
 ## Prerequisites
@@ -15,7 +15,8 @@ This article explains about the Visual Studio that you can use to create and man
 The following items are required for completing the steps in this article:
 
 - An Azure subscription. If you don't have an Azure subscription, create a
-  [free account](https://azure.microsoft.com/free/) before you begin [Visual Studio Code](https://code.visualstudio.com).
+  [free account](https://azure.microsoft.com/free/) 
+- [Visual Studio Code](https://code.visualstudio.com).
 - PowerShell modules and Python packages used by runbook must be locally installed on the machine to run the runbook locally. 
 
 ## Install and configure the Azure Automation extension
@@ -31,7 +32,7 @@ following these steps:
 
 ## Using the Azure Automation extension
 
-The extension simplifies the process of editing runbooks. You can now test them locally without logging into the Azure portal. The various actions that you can perform are listed below:
+The extension simplifies the process of creating and editing runbooks. You can now test them locally without logging into the Azure portal. The various actions that you can perform are listed below:
 
 ### Create a runbook
 
