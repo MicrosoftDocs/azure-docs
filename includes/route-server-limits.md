@@ -16,4 +16,4 @@ ms.date: 01/10/2023
 <sup>2</sup> The number of VMs that Azure Route Server can support isn't a hard limit, and it depends on how the Route Server infrastructure is deployed within an Azure Region.
 
 > [!NOTE]
-> The total number of routes advertised from VNet address space and Route Server towards ExpressRoute circuit, when [Branch-to-branch](quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, must not exceed 1,000. For more information, see [Route advertisement limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits) of ExpressRoute.
+> The total number of routes advertised from VNet address space and Route Server towards ExpressRoute circuit, when [Branch-to-branch](../articles/route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, must not exceed 1,000. For more information, see [Route advertisement limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits) of ExpressRoute.
