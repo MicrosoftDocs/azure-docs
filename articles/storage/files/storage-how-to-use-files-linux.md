@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB on Linux and review
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 01/10/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -322,6 +322,8 @@ After you've created the file share snapshot, following these instructions to mo
    ```
    
 6. If you're able to browse the snapshot under the path `/mnt/<file-share-name>/snapshot1`, then the mount succeeded.
+
+If the mount fails, see [Troubleshoot Azure Files problems in Linux (SMB)](storage-troubleshoot-linux-file-connection-problems.md).
 
 ## Next steps
 See these links for more information about Azure Files:
