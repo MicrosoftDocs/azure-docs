@@ -18,7 +18,7 @@ Azure Monitor provides a bidirectional connection between Azure and ITSM tools t
 
 Azure Monitor supports connections with the following ITSM tools:
 
-- ServiceNow ITSM or ITOM
+- ServiceNow ITSM or IT Operations Management (ITOM)
 - BMC
 
 For information about legal terms and the privacy policy, see the [Microsoft privacy statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
