@@ -107,15 +107,15 @@ To support Azure AD on Azure Private 5G Core applications, you'll need two files
 
 1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the admin kubeconfig filename.
     
-    `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin_kubeconfig>`
+    `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin kubeconfig>`
 
-    `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin_kubeconfig>`
+    `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin kubeconfig>`
 
 1. Use the following commands to verify if the Secret Objects were applied correctly, specifying your deployment namespace and the admin kubeconfig filename. You should see the correct **Name**, **Namespace** and **Type** values, along with the size of the encoded values.
 
-    `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin_kubeconfig>`
+    `kubectl describe secrets -n <deployment namespace> sas-auth-secrets --kubeconfig=<admin kubeconfig>`
 
-    `kubectl describe secrets -n <deployment namespace> grafana-auth-secrets --kubeconfig=<admin_kubeconfig>`
+    `kubectl describe secrets -n <deployment namespace> grafana-auth-secrets --kubeconfig=<admin kubeconfig>`
 
 ## Next steps
 

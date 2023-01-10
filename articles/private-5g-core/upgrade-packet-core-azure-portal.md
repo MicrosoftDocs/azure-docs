@@ -99,9 +99,9 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
     
     - If you use Azure AD, in a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, reapply the Secret Object for both distributed tracing and Grafana. 
     
-       `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin_kubeconfig>`
+       `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin kubeconfig>`
     
-       `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin_kubeconfig>`
+       `kubectl apply -f  /home/centos/secret-azure-ad-grafana.yaml --kubeconfig=<admin kubeconfig>`
 
     - If you use local usernames and passwords, follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) and [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your local monitoring tools.
 
