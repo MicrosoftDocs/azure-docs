@@ -1,40 +1,37 @@
 ---
-title: Configure application settings for Azure Static Web Apps
-description: Learn to configure application settings for Azure Static Web Apps.
+title: Set application-level settings for Azure Static Web Apps
+description: Learn how to set application-level settings for Azure Static Web Apps.
 services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 01/07/2023
+ms.date: 01/10/2023
 ms.author: buhollan
 ms.custom: devx-track-js, engagement-fy23
 ---
 
-# Configure application settings for Azure Static Web Apps
+# Set application-level settings for Azure Static Web Apps
 
-Use application settings, so you can modify the configuration input to your app, without having to change application code, such as with database connection strings.
+When you set application-level settings and environment variables, you modify the configuration input to your app without the need to change application code, such as with database connection strings. You can also store secrets used in [authentication configuration](key-vault-secrets.md).
 
-You can use application settings to store secrets used in [authentication configuration](key-vault-secrets.md)
-- Are encrypted at rest
-- Are copied to [staging](review-publish-pull-requests.md) and production environments
-- May only be alphanumeric characters, `.`, and `_`
+Application-level settings are encrypted at rest, copied to [staging](review-publish-pull-requests.md) and production environments, used by backend APIs, and may only be alphanumeric characters, plus `.`  and `_`.
 
 > [!IMPORTANT]
 > The application settings described in this article only apply to the backend API of an Azure Static Web App.
 >
-> To configure environment variables that are required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
+> To set environment variables that are required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
 
 ## Prerequisites
 
 - An Azure Static Web Apps application
 - [Azure CLI](/cli/azure/install-azure-cli)-required to use the command line
 
-## Configure API application settings for local development
+## Set API application settings for local development
 
-APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file when you're running the application locally. This file defines application settings in the `Values` property of the configuration.
+APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file when you run the application locally. This file defines application settings in the `Values` property of the configuration.
 
 > [!NOTE]
-> The _local.settings.json_ file is only used for local development. Use the [Azure portal](#configure-application-settings) to configure application settings for production.
+> The _local.settings.json_ file is only used for local development. Use the [Azure portal](#set-application-settings) to set application settings for production.
 
 The following sample _local.settings.json_ shows how to add a value for the `DATABASE_CONNECTION_STRING`.
 
@@ -55,13 +52,13 @@ Settings defined in the `values` property can be referenced from code as environ
 const connectionString = process.env.DATABASE_CONNECTION_STRING;
 ```
 
-The `local.settings.json` file isn't tracked by the GitHub repository because sensitive information, like database connection strings, are often included in the file. Since the local settings remain on your machine, you need to manually configure your settings in Azure.
+The `local.settings.json` file isn't tracked by the GitHub repository because sensitive information, like database connection strings, are often included in the file. Since the local settings remain on your machine, you need to manually set your settings in Azure.
 
-Generally, configuring your settings is done infrequently, and isn't required with every build.
+Generally, your settings are infrequently set, so aren't required with every build.
 
-## Configure application settings
+## Set application settings
 
-You can configure application settings via the Azure portal or with the Azure CLI.
+You can set application settings via the [Azure portal](https://portal.azure.com) or with the [Azure CLI](#use-the-azure-cli).
 
 ### Use the Azure portal
 
@@ -112,4 +109,10 @@ In a terminal or command line, execute the following command to delete a setting
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure front-end frameworks](front-end-frameworks.md)
+> [Define configuration for Azure Static Web Apps in the _staticwebapp.config.json_ file](configuration.md)
+
+## Related articles
+
+- [Override defaults with custom registration](authentication-custom.md)
+- [Define settings that control the build process](./build-configuration.md)
+- [API overview](apis-overview.md)
