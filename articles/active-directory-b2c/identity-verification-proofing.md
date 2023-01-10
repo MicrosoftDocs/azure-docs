@@ -25,7 +25,7 @@ The following architecture diagram illustrates the verfication and proofing flow
 1. User registration with a device
 2. User information input
 3. Digital risk score assessment, then third-party identity proofing and identity validation
-4. Identify validated
+4. Identify validation
 5. User account created in Azure Active Directory B2C
 6. Access assigned
 7. User receives access-approved message
