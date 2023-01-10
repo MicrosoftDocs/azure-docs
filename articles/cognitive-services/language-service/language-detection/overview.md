@@ -27,7 +27,7 @@ This documentation contains the following types of articles:
 
 ## Get started with language detection
 
-[!INCLUDE [development options](../includes/development-options.md)]
+[!INCLUDE [development options](./includes/development-options.md)]
 
 ## Responsible AI 
 
