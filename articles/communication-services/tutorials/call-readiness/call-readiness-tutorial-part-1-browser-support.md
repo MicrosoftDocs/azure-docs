@@ -117,7 +117,7 @@ const App = (): JSX.Element => {
           </>
         )}
 
-        {/* After the device setup is complete, take the user to the call. For this sample we'll just show a test complete page. */}
+        {/* After the device setup is complete, take the user to the call. For this sample we will just show a test complete page. */}
         {testState === 'finished' && <TestComplete />}
       </CallClientProvider>
     </FluentThemeProvider>
