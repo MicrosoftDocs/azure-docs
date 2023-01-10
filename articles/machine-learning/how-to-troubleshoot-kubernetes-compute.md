@@ -142,7 +142,7 @@ For AKS clusters:
 
 
 For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
-1. Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
+* Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
 
 #### ERROR: ClusterNotReachable 
 
