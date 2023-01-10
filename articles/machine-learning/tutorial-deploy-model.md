@@ -247,16 +247,16 @@ To deploy a model, you must have:
 
 **Key aspects of a deployment**
 
-    * `name` - Name of the deployment.
-    * `endpoint_name` - Name of the endpoint that will contain the deployment.
-    * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
-    * `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. For more information on creating an environment, see 
+* `name` - Name of the deployment.
+* `endpoint_name` - Name of the endpoint that will contain the deployment.
+* `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
+* `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. For more information on creating an environment, see 
 [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
-    * `code_configuration` - the configuration for the source code and scoring script.
-        * `path`- Path to the source code directory for scoring the model.
-        * `scoring_script` - Relative path to the scoring file in the source code directory.
-    * `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-    * `instance_count` - The number of instances to use for the deployment.
+* `code_configuration` - the configuration for the source code and scoring script.
+    * `path`- Path to the source code directory for scoring the model.
+    * `scoring_script` - Relative path to the scoring file in the source code directory.
+* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* `instance_count` - The number of instances to use for the deployment.
     
 ### Deployment using an MLflow model
 
