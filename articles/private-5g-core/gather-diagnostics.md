@@ -44,4 +44,4 @@ In this how-to guide, you'll learn how to gather a remote diagnostics package fo
 To continue to monitor your 5G core:
 
 - [Enable log analytics](enable-log-analytics-for-private-5g-core.md)
-- [Monitor log analytics](monitor-5g-core-with-log-analytics.md)
+- [Monitor log analytics](monitor-private-5g-core-with-log-analytics.md)
