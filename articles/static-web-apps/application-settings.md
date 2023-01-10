@@ -1,6 +1,6 @@
 ---
-title: Set application-level settings for Azure Static Web Apps
-description: Learn how to set application-level settings for Azure Static Web Apps.
+title: Configure application settings for Azure Static Web Apps
+description: Learn how to configure application settings for Azure Static Web Apps.
 services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
@@ -10,28 +10,28 @@ ms.author: buhollan
 ms.custom: devx-track-js, engagement-fy23
 ---
 
-# Set application-level settings for Azure Static Web Apps
+# Configure application settings for Azure Static Web Apps
 
-When you set application-level settings and environment variables, you modify the configuration input to your app without the need to change application code, such as with database connection strings. You can also store secrets used in [authentication configuration](key-vault-secrets.md).
+When you configure application settings and environment variables, you modify the configuration input to your app without the need to change application code, such as with database connection strings. You can also store secrets used in [authentication configuration](key-vault-secrets.md).
 
-Application-level settings are encrypted at rest, copied to [staging](review-publish-pull-requests.md) and production environments, used by backend APIs, and may only be alphanumeric characters, plus `.`  and `_`.
+Application settings are encrypted at rest, copied to [staging](review-publish-pull-requests.md) and production environments, used by backend APIs, and may only be alphanumeric characters, plus `.`  and `_`.
 
 > [!IMPORTANT]
 > The application settings described in this article only apply to the backend API of an Azure Static Web App.
 >
-> To set environment variables that are required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
+> To configure environment variables that are required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
 
 ## Prerequisites
 
 - An Azure Static Web Apps application
 - [Azure CLI](/cli/azure/install-azure-cli)-required to use the command line
 
-## Set API application settings for local development
+## Configure API application settings for local development
 
 APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file when you run the application locally. This file defines application settings in the `Values` property of the configuration.
 
 > [!NOTE]
-> The _local.settings.json_ file is only used for local development. Use the [Azure portal](#set-application-settings) to set application settings for production.
+> The _local.settings.json_ file is only used for local development. Use the [Azure portal](#set-application-settings) to configure application settings for production.
 
 The following sample _local.settings.json_ shows how to add a value for the `DATABASE_CONNECTION_STRING`.
 
@@ -52,13 +52,13 @@ Settings defined in the `values` property can be referenced from code as environ
 const connectionString = process.env.DATABASE_CONNECTION_STRING;
 ```
 
-The `local.settings.json` file isn't tracked by the GitHub repository because sensitive information, like database connection strings, are often included in the file. Since the local settings remain on your machine, you need to manually set your settings in Azure.
+The `local.settings.json` file isn't tracked by the GitHub repository because sensitive information, like database connection strings, are often included in the file. Since the local settings remain on your machine, you need to manually configure your settings in Azure.
 
 Generally, your settings are infrequently set, so aren't required with every build.
 
-## Set application settings
+## Configure application settings
 
-You can set application settings via the [Azure portal](https://portal.azure.com) or with the [Azure CLI](#use-the-azure-cli).
+You can configure application settings via the [Azure portal](https://portal.azure.com) or with the [Azure CLI](#use-the-azure-cli).
 
 ### Use the Azure portal
 
@@ -67,7 +67,7 @@ The Azure portal provides an interface for creating, updating and deleting appli
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Open your static web app.
 1. Select **Configuration** in the sidebar.
-1. Select the environment to which you want to apply the application settings. You can set application settings per environment. When you create a pull request, staging environments are automatically created, and then promoted into production when you merge the pull request. 
+1. Select the environment to which you want to apply the application settings. You can configure application settings per environment. When you create a pull request, staging environments are automatically created, and then promoted into production when you merge the pull request. 
 1. Select **+ Add** to add a new app setting.
    :::image type="content" source="media/application-settings/configuration.png" alt-text="Screenshot of Azure Static Web Apps configuration view":::
 1. Enter a **Name** and **Value**.
