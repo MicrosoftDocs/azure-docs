@@ -216,11 +216,11 @@
     items:
     - name: Inbound connections
       items:
-      - name: Connect with API keys
+      - name: Connect using API keys
         href: search-security-api-keys.md
-      - name: Connect with Azure roles
+      - name: Connect using Azure roles
         href: search-security-rbac.md
-      - name: Configure apps with Azure AD
+      - name: Configure apps for Azure AD
         href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
