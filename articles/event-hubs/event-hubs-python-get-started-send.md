@@ -54,6 +54,11 @@ In this section, create a Python script to send events to the event hub that you
 
     ## [Passwordless (Recommended)](#tab/passwordless)
 
+    In the code, use real values to replace the following placeholders:
+
+    * `EVENT_HUB_FULLY_QUALIFIED_NAMESPACE`
+    * `EVENT_HUB_NAME`
+
     ```python
     import asyncio
     
@@ -96,6 +101,11 @@ In this section, create a Python script to send events to the event hub that you
     ```
 
     ## [Connection String](#tab/connection-string)
+
+    In the code, use real values to replace the following placeholders:
+
+    * `EVENT_HUB_CONNECTION_STR`
+    * `EVENT_HUB_NAME`
 
     ```python
     import asyncio
@@ -194,6 +204,13 @@ In this section, you create a Python script to receive events from your event hu
 
     ## [Passwordless (Recommended)](#tab/passwordless)
 
+    In the code, use real values to replace the following placeholders:
+
+    * `AZURE_STORAGE_CONNECTION_STRING`
+    * `BLOB_CONTAINER_NAME`
+    * `EVENT_HUB_FULLY_QUALIFIED_NAMESPACE`
+    * `EVENT_HUB_NAME`
+
     ```python
     import asyncio
     
@@ -253,6 +270,13 @@ In this section, you create a Python script to receive events from your event hu
     ```
 
     ## [Connection String](#tab/connection-string)
+
+    In the code, use real values to replace the following placeholders:
+
+    * `AZURE_STORAGE_CONNECTION_STRING`
+    * `BLOB_CONTAINER_NAME`
+    * `EVENT_HUB_CONNECTION_STR`
+    * `EVENT_HUB_NAME`
 
     ```python
     import asyncio
