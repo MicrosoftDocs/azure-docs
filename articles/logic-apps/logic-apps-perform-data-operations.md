@@ -16,7 +16,7 @@ ms.date: 01/06/2023
 This how-to guide shows how you can work with data in your logic app workflow in the following ways:
 
 * Create a string or JavaScript Object Notation (JSON) object from multiple inputs that have different data types. You can then use this string as a single input, rather than repeatedly entering the same inputs.
-* Create user-friendly tokens from JavaScript Object Notation (JSON) object properties so you can easily use those properties in your workflow.
+* Create user-friendly tokens from JavaScript Object Notation (JSON) object properties so that you can easily use those properties in your workflow.
 * Create an HTML or CSV table from an array.
 * Create an array from another array based on a specified filter or condition.
 * Create an array based on the specified properties for all the items in another array.
@@ -43,7 +43,7 @@ The following actions help you work with data in JavaScript Object Notation (JSO
 | Action | Description |
 |--------|-------------|
 | [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. |
-| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so you can more easily use the properties in your logic apps. |
+| [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so that you can more easily use the properties in your logic apps. |
 
 To create more complex JSON transformations, see [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
@@ -99,13 +99,13 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
    For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Compose" action, and selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-consumption.png)
+   ![Screenshot showing the designer for a Consumption workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-consumption.png)
 
    The following screenshot shows the finished example **Compose** action: 
 
    ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Compose" action.](./media/logic-apps-perform-data-operations/finished-compose-action-consumption.png)
 
-1. Save your logic app workflow. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
@@ -137,13 +137,13 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
    For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
 
-   ![Screenshot showing the designer for a Standard workflow, the "Compose" action, and selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-standard.png)
+   ![Screenshot showing the designer for a Standard workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-standard.png)
 
    The following screenshot shows the finished example **Compose** action: 
 
    ![Screenshot showing the designer for a Standard workflow and the finished example for the "Compose" action.](./media/logic-apps-perform-data-operations/finished-compose-action-standard.png)
 
-1. Save your logic app workflow. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -198,7 +198,7 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the action named **Create CSV table**. You can then use the resulting table in actions that follow the **Create CSV table** action.
 
-To try the  **Create CSV table** action action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](logic-apps-data-operations-code-samples.md#create-csv-table-action-example). For more information about the **Create CSV table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
+To try the  **Create CSV table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](logic-apps-data-operations-code-samples.md#create-csv-table-action-example). For more information about the **Create CSV table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
 ### [Consumption](#tab/consumption)
 
@@ -224,19 +224,19 @@ To try the  **Create CSV table** action action, follow these steps by using the 
 
    For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
+   ![Screenshot showing the designer for a Consumption workflow, the "Create CSV table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png)
+
    > [!NOTE]
    >
-   > To create user-friendly tokens for the properties in JSON objects so you can select 
+   > To create user-friendly tokens for the properties in JSON objects so that you can select 
    > those properties as inputs, use the action named [Parse JSON](#parse-json-action) 
    > before you use the **Create CSV table** action.
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Create CSV table" action, and selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png)
 
    The following screenshot shows the finished example **Create CSV table** action:
 
    ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/finished-create-csv-table-action-consumption.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
@@ -262,19 +262,19 @@ To try the  **Create CSV table** action action, follow these steps by using the 
 
    For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
+   ![Screenshot showing the designer for a Standard workflow, the "Create CSV table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-standard.png)
+
    > [!NOTE]
    >
-   > To create user-friendly tokens for the properties in JSON objects so you can select 
+   > To create user-friendly tokens for the properties in JSON objects so that you can select 
    > those properties as inputs, use the action named [Parse JSON](#parse-json-action) 
    > before you use the **Create CSV table** action.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Create CSV table" action, and selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-standard.png)
 
    The following screenshot shows the finished example **Create CSV table** action:
 
    ![Screenshot showing the designer for a Standard workflow and the finished example for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/finished-create-csv-table-action-standard.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -454,40 +454,54 @@ If you used the Office 365 Outlook action, you get a result similar to the follo
 
 To create an HTML table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create HTML table** action. You can then use the resulting table in actions that follow the **Create HTML table** action.
 
-If you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples. md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
+### [Consumption](#tab/consumption)
 
-   This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some properties and values in JSON format. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
 
-   ![Starting sample logic app for "Create HTML table"](./media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png)
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
-1. In your logic app where you want to create an HTML table, follow one of these steps:
+   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png)
+
+1. In your workflow where you want to create an HTML table, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter `create html table` as your filter. From the actions list, select the **Create HTML table** action.
+1. 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create html table**.
 
-   ![Select "Create HTML table" action](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
+1. From the actions list, select the action named **Create HTML table**.
 
-1. In the **From** box, provide the array or expression you want for creating the table.
+   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "create html table" entered, and the "Create HTML table" action selected.](./media/logic-apps-perform-data-operations/select-create-html-table-action-consumption.png)
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so you can select the previously created variable:
+1. In the **From** box, enter the array or expression to use for creating the table.
 
-   ![Select array output for creating HTML table](./media/logic-apps-perform-data-operations/configure-create-html-table-action.png)
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
-   > [!TIP]
-   > To create user-friendly tokens for the properties in JSON objects so you can select 
-   > those properties as inputs, use the [Parse JSON](#parse-json-action) before calling 
-   > the **Create HTML table** action.
+   ![Screenshot showing the designer for a Consumption workflow, the "Create HTML table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-html-table-action-consumption.png)
 
-   Here is the finished example **Create HTML table** action:
+   > [!NOTE]
+   >
+   > To create user-friendly tokens for the properties in JSON objects so that you can select 
+   > those properties as inputs, use the action named [Parse JSON](#parse-json-action) 
+   > before you use the **Create HTML table** action.
 
-   ![Finished example for "Create HTML table"](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+   The following screenshot shows the finished example **Create HTML table** action:
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
+
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
+
+
+---
 
 ### Customize table format
 
@@ -499,7 +513,7 @@ By default, the **Columns** property is set to automatically create the table co
 
 1. In the **Value** property, specify the custom value to use instead.
 
-To return values from the array, you can use the [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item) with the **Create HTML table** action. In a `For_each` loop, you can use the [`items()` function](../logic-apps/workflow-definition-language-functions-reference.md#items).
+To return values from the array, you can use the [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item) with the **Create HTML table** action. In a `For_each` loop, you can use the [`items()` function](workflow-definition-language-functions-reference.md#items).
 
 For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view. Here is the result that this example returns:
 
@@ -645,7 +659,7 @@ If you prefer working in the code view editor, you can copy the example **Filter
 
 1. In the **From** box, provide the array or expression you want to filter.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so you can select the previously created variable:
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
    ![Select array output for creating filtered array](./media/logic-apps-perform-data-operations/configure-filter-array-action.png)
 
@@ -655,7 +669,7 @@ If you prefer working in the code view editor, you can copy the example **Filter
 
    ![Finished example for "Filter array" action](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 For more information about this action in your underlying workflow definition, see [Query action](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
 
@@ -705,7 +719,7 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
 1. In the **From** box, provide the array that has the items you want to join as a string.
 
-   For this example, when you click inside the **From** box, the dynamic content list that appears so you can select the previously created variable:  
+   For this example, when you click inside the **From** box, the dynamic content list that appears so that you can select the previously created variable:  
 
    ![Select array output for creating the string](./media/logic-apps-perform-data-operations/configure-join-action.png)
 
@@ -715,7 +729,7 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    ![Provide the separator character](./media/logic-apps-perform-data-operations/finished-join-action.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 For more information about this action in your underlying workflow definition, see the [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
 
@@ -763,7 +777,7 @@ If you prefer working in the code view editor, you can copy the example **Parse 
 
 1. In the **Content** box, provide the JSON content you want to parse.
 
-   For this example, when you click inside the **Content** box, the dynamic content list appears so you can select the previously created variable:
+   For this example, when you click inside the **Content** box, the dynamic content list appears so that you can select the previously created variable:
 
    ![Select JSON object for parse JSON action](./media/logic-apps-perform-data-operations/configure-parse-json-action.png)
 
@@ -781,7 +795,7 @@ If you prefer working in the code view editor, you can copy the example **Parse 
 
       ![Enter the JSON content for generating the schema](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 For more information about this action in your underlying workflow definition, see [Parse JSON action](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
@@ -837,7 +851,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
 1. In the **From** box, specify the source array you want.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so you can select the previously created variable:
+   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
 
    ![Select source array for Select action](./media/logic-apps-perform-data-operations/configure-select-action.png)
 
@@ -851,7 +865,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    ![Finished example for "Select" action](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 For more information about this action in your underlying workflow definition, see [Select action](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
