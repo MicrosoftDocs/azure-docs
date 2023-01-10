@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/05/2023
+ms.date: 01/10/2023
 
 ---
 
@@ -25,7 +25,7 @@ This article shows you how to:
 * Make sure that Azure CLI version 2.0.61 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * If using Terraform, install [Terraform][terraform-on-azure] version 2.99.0 or later.
 
-To verify if Kubernetes RBAC is enabled, you can check from the Azure portal or Azure CLI.
+Use the Azure portal or Azure CLI to verify if Kubernetes RBAC is enabled.
 
 #### [Azure portal](#tab/portal)
 
