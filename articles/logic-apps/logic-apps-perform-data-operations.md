@@ -394,7 +394,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    }
    ```
 
-1. Switch back to designer view to view the results.
+1. Switch back to designer view to review the results.
 
 ### Test your logic app
 
@@ -470,7 +470,7 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. 1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create html table**.
+1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create html table**.
 
 1. From the actions list, select the action named **Create HTML table**.
 
@@ -490,7 +490,7 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
    The following screenshot shows the finished example **Create HTML table** action:
 
-   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/finished-create-html-table-action-consumption.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -588,15 +588,39 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 ##### [Standard](#tab/standard)
 
+1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
+
+1. In the dynamic content list, select **Expression**.
+
+1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
+
+   Syntax: `item()?['<array-property-name>']`
+
+   Examples:
+
+   * `item()?['Product_ID']`
+   * `item()?['Description']`
+
+   ![Screenshot showing the "Create HTML table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-standard.png)
+
+1. Repeat the preceding steps for each array property. When you're done, your action looks similar to the following example:
+
+   ![Screenshot showing the "Create HTML table" action in a Standard workflow and the "item()" function.](./media/logic-apps-perform-data-operations/finished-html-expression-standard.png)
+
 ---
 
 #### Work in code view
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
-1. On the designer toolbar, select **Code view**.
+1. From the designer, switch to code view.
 
-1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of array values that you want:
+   * **Consumption**: On the designer toolbar, select **Code view**.
+   * **Standard**: On the workflow navigation menu, under **Developer**, select **Code**.
+
+1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
+
+   Syntax:
 
    ```json
    {
@@ -605,10 +629,10 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    }
    ```
 
-   For example:
+   Example:
 
    ```json
-   "Create_HTML_table": {
+   "Create_CSV_table": {
       "inputs": {
          "columns": [
             { 
@@ -620,19 +644,13 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
                "value": "@item()?['Product_ID']"
             }
          ],
-         "format": "HTML",
+         "format": "CSV",
          "from": "@variables('myJSONArray')"
       }
    }
    ```
 
-1. Switch back to designer view, and reopen the collapsed action.
-
-   The **Create HTML table** action now appears like this example, and the expressions have resolved to more descriptive versions:
-
-   !["Create HTML table" - resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
-
-For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
+1. Switch back to designer view to review the results.
 
 ### Test your logic app
 
