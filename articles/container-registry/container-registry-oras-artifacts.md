@@ -84,7 +84,7 @@ az acr build -r $ACR_NAME -t $IMAGE https://github.com/wabbit-networks/net-monit
 ## Create a sample signature to the container image
 
 ```bash
-echo '{"artifact": "'${IMAGE}'", "signature": "pat hancock"}' > signature.json
+echo '{"artifact": "'${IMAGE}'", "signature": "jayden hancock"}' > signature.json
 ```
 
 ### Attach a signature to the registry, as a reference to the container image
@@ -115,11 +115,22 @@ echo 'More detailed Content' > details/readme-more-details.md
 
 Attach the multi-file artifact as a reference to `$IMAGE`:
 
+**Linux, WSL2 or macOS**
+
 ```bash
 oras attach $IMAGE \
-    --artifact-type readme/example\
+    --artifact-type readme/example \
     ./readme.md:application/markdown \
     ./details
+```
+
+**Windows**
+
+```cmd
+.\oras.exe attach $IMAGE ^
+    --artifact-type readme/example ^
+    .\readme.md:application/markdown ^
+    .\details
 ```
 
 ## Discovering artifact references
@@ -149,31 +160,41 @@ The OCI v1.1 Specification enables deep graphs, enabling signed software bill of
 ### Create a sample SBOM
 
 ```bash
-echo '{"version": "0.0.0.0", "artifact": "'${IMAGE}'", "contents": "good"}' > SBOM.json
+echo '{"version": "0.0.0.0", "artifact": "'${IMAGE}'", "contents": "good"}' > sbom.json
 ```
 
 ### Attach a sample SBOM to the image in the registry
 
+**Linux, WSL2 or macOS**
+
 ```bash
 oras attach $IMAGE \
-  ./SBOM.json:application/json \
-  --artifact-type SBOM/example
+  --artifact-type sbom/example \
+  ./sbom.json:application/json
+```
+
+**Windows**
+
+```cmd
+.\oras.exe attach $IMAGE ^
+    --artifact-type sbom/example ^
+    ./sbom.json:application/json
 ```
 
 ### Sign the SBOM
 
-Artifacts that are pushed as references, typically don't have tags as they're considered part of the subject artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
+Artifacts that are pushed as references, typically don't have tags as they're considered part of the `subject` artifact. To push a signature to an artifact that is a child of another artifact, use the `oras discover` with `--artifact-type` filtering to find the digest.
 
 ```bash
 SBOM_DIGEST=$(oras discover -o json \
-                --artifact-type SBOM/example \
+                --artifact-type sbom/example \
                 $IMAGE | jq -r ".manifests[0].digest")
 ```
 
 Create a signature of an SBOM
 
 ```bash
-echo '{"artifact": "'$IMAGE@$SBOM_DIGEST'", "signature": "pat hancock"}' > SBOM-signature.json
+echo '{"artifact": "'$IMAGE@$SBOM_DIGEST'", "signature": "jayden hancock"}' > sbom-signature.json
 ```
 
 ### Attach the SBOM signature
@@ -181,7 +202,7 @@ echo '{"artifact": "'$IMAGE@$SBOM_DIGEST'", "signature": "pat hancock"}' > SBOM-
 ```bash
 oras attach $IMAGE@$SBOM_DIGEST \
   --artifact-type 'signature/example' \
-  ./SBOM-signature.json:application/json
+  ./sbom-signature.json:application/json
 ```
 
 ### View the graph
@@ -194,44 +215,75 @@ Generates the following output:
 
 ```output
 myregistry.azurecr.io/net-monitor:v1
-├── signature/example
-│   └── sha256:555ea91f39e7fb30c06f3b7aa483663f067f2950dcb...
+├── sbom/example
+│   └── sha256:4f1843833c029ecf0524bc214a0df9a5787409fd27bed2160d83f8cc39fedef5
+│       └── signature/example
+│           └── sha256:3c43b8cb0c941ec165c9f33f197d7f75980a292400d340f1a51c6b325764aa93
 ├── readme/example
-│   └── sha256:1a118663d1085e229ff1b2d4d89b5f6d67911f22e55...
-└── SBOM/example
-    └── sha256:4280eef9adb632b42cf200e7cd5a822a456a558e4f3142da6b...
-        └── signature/example
-            └── sha256:a31ab875d37eee1cca68dbb14b2009979d05594d44a075bdd7...
+│   └── sha256:5fafd40589e2c980e2864a78818bff51ee641119cf96ebb0d5be83f42aa215af
+└── signature/example
+    └── sha256:00da2c1c3ceea087b16e70c3f4e80dbce6f5b7625d6c8308ad095f7d3f6107b5
 ```
 
 ## Promote the graph
 
-Workflows promote artifacts from `dev` through staging, to production environment, or consume public content to privately secured environments.
-In either case you'll want to promote the signatures, SBOMs, scan results and other related artifact with the root artifact.
+A typical DevOps workflow will promote artifacts from dev through staging, to the production environment
+Secure supply chain workflows promote public content to privately secured environments.
+In either case you'll want to promote the signatures, SBOMs, scan results and other related artifact with the root artifact to have a complete graph of dependencies.
 
-Using the `oras copy` command, users can promote the graph or filtered artifacts across registries or across repos within the same registry.
+Using the [`oras copy`][oras-cli] command, you can promote a filtered graph of artifacts across registries.
 
-Copy the `sample/net-monitor:v1` image, and it's related artifacts to `sample-staging/net-monitor:v1`:
+Copy the `net-monitor:v1` image, and it's related artifacts to `sample-staging/net-monitor:v1`:
 
 ```bash
 TARGET_REPO=$REGISTRY/sample-staging/$REPO
 oras copy -r $IMAGE $TARGET_REPO:$TAG
 ```
 
+The output of `oras copy`:
+
+```console
+Copying 6bdea3cdc730 sbom-signature.json
+Copying 78e159e81c6b sbom.json
+Copied  6bdea3cdc730 sbom-signature.json
+Copied  78e159e81c6b sbom.json
+Copying 7cf1385c7f4d signature.json
+Copied  7cf1385c7f4d signature.json
+Copying 3e797ecd0697 details
+Copying 2fdeac43552b readme.md
+Copied  3e797ecd0697 details
+Copied  2fdeac43552b readme.md
+Copied demo42.myregistry.io/net-monitor:v1 => myregistry.azurecr.io/sample-staging/net-monitor:v1
+Digest: sha256:ff858b2ea3cdf4373cba65d2ca6bcede4da1d620503a547cab5916614080c763
+```
 ## Discover the promoted artifact graph
 
 ```bash
 oras discover -o tree $TARGET_REPO:$TAG
 ```
 
+Output of `oras discover`:
+
+```console
+myregistry.azurecr.io/sample-staging/net-monitor:v1
+├── sbom/example
+│   └── sha256:4f1843833c029ecf0524bc214a0df9a5787409fd27bed2160d83f8cc39fedef5
+│       └── signature/example
+│           └── sha256:3c43b8cb0c941ec165c9f33f197d7f75980a292400d340f1a51c6b325764aa93
+├── readme/example
+│   └── sha256:5fafd40589e2c980e2864a78818bff51ee641119cf96ebb0d5be83f42aa215af
+└── signature/example
+    └── sha256:00da2c1c3ceea087b16e70c3f4e80dbce6f5b7625d6c8308ad095f7d3f6107b5
+```
+
 ## Pull a referenced artifact
 
-To pull a referenced type, the digest of reference is discovered with the `oras discover` command
+To pull a specific referenced artifact, the digest of reference is discovered with the `oras discover` command:
 
 ```bash
 DOC_DIGEST=$(oras discover -o json \
               --artifact-type 'readme/example' \
-              $TARGET | jq -r ".manifests[0].digest")
+              $TARGET_REPO:$TAG | jq -r ".manifests[0].digest")
 ```
 
 ### Create a clean directory for downloading
@@ -252,22 +304,29 @@ oras pull -o ./download $TARGET_REPO@$DOC_DIGEST
 tree ./download
 ```
 
+The output of `tree`:
+
+```output
+./download
+├── details
+│   ├── readme-details.md
+│   └── readme-more-details.md
+└── readme.md
+```
+
 ## View the repository and tag listing
 
 The OCI Artifact Manifest enables artifact graphs to be pushed, discovered, pulled and copied without having to assign tags. Artifact manifests enables a tag listing to focus on the artifacts users think about, as opposed to the signatures and SBOMs that are associated with the container images, helm charts and other artifacts.
 
 ### View a list of tags
 
-```azurecli
-az acr repository show-tags \
-  -n $ACR_NAME \
-  --repository $REPO \
-  -o jsonc
+```bash
+oras repo tags $REGISTRY/$REPO
 ```
 
 ### View a list of manifests
 
-A repository can have a list of manifests that are both tagged and untagged
+A repository can have a list of manifests that are both tagged and untagged. Using the [`az acr manifest`][az-acr-manifest-metadata] CLI, view the full list of manifests:
 
 ```azurecli
 az acr manifest list-metadata \
@@ -276,31 +335,9 @@ az acr manifest list-metadata \
   --output jsonc
 ```
 
-Note the container image manifests have `"tags":`
+Note the container image manifests have `"tags"`, while the reference types (`"mediaType": "application/vnd.oci.artifact.manifest.v1+json"`) don't.
 
-```json
-{
-  "architecture": "amd64",
-  "changeableAttributes": {
-    "deleteEnabled": true,
-    "listEnabled": true,
-    "readEnabled": true,
-    "writeEnabled": true
-  },
-  "configMediaType": "application/vnd.docker.container.image.v1+json",
-  "createdTime": "2021-11-12T00:18:54.5123449Z",
-  "digest": "sha256:a0fc570a245b09ed752c42d600ee3bb5b4f77bbd70d8898780b7ab4...",
-  "imageSize": 2814446,
-  "lastUpdateTime": "2021-11-12T00:18:54.5123449Z",
-  "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
-  "os": "linux",
-  "tags": [
-    "v1"
-  ]
-}
-```
-
-The signature is untagged, but tracked as a `oras.artifact.manifest` reference to the container image
+In the output, the signature is untagged, but tracked as a `oci.artifact.manifest` reference to the container image:
 
 ```json
 {
@@ -310,35 +347,41 @@ The signature is untagged, but tracked as a `oras.artifact.manifest` reference t
     "readEnabled": true,
     "writeEnabled": true
   },
-  "createdTime": "2021-11-12T00:19:10.987156Z",
-  "digest": "sha256:555ea91f39e7fb30c06f3b7aa483663f067f2950dcbcc0b0d...",
-  "imageSize": 85,
-  "lastUpdateTime": "2021-11-12T00:19:10.987156Z",
-  "mediaType": "application/vnd.cncf.oras.artifact.manifest.v1+json"
+  "createdTime": "2023-01-10T17:58:28.4403142Z",
+  "digest": "sha256:00da2c1c3ceea087b16e70c3f4e80dbce6f5b7625d6c8308ad095f7d3f6107b5",
+  "imageSize": 80,
+  "lastUpdateTime": "2023-01-10T17:58:28.4403142Z",
+  "mediaType": "application/vnd.oci.artifact.manifest.v1+json"
 }
 ```
 
 ## Delete all artifacts in the graph
 
-Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the root artifact. Use the [az acr repository delete][az-acr-repository-delete] command to delete the signature, SBOM and the signature of the SBOM.
+Support for the OCI v1.1 Specification enables deleting the graph of artifacts associated with the root artifact. Use the [`oras delete`][oras-cli] command to delete the graph of artifacts (signature, SBOM and the signature of the SBOM).
 
 ```azurecli
-az acr repository delete \
-  -n $ACR_NAME \
-  -t ${REPO}:$TAG -y
+oras manifest delete -f $REGISTRY/$REPO:$TAG
 
-az acr repository delete \
-  -n $ACR_NAME \
-  -t sample-staging/${REPO}:$TAG -y
+oras manifest delete -f $REGISTRY/sample-staging/$REPO:$TAG
 ```
 
 ### View the remaining manifests
+
+By deleting the root artifact, all related artifacts are also deleted leaving a clean environment:
 
 ```azurecli
 az acr manifest list-metadata \
   --name $REPO \
   --registry $ACR_NAME -o jsonc
 ```
+
+Output: 
+```output
+2023-01-10 18:38:45.366387 Error: repository "net-monitor" is not found.
+```
+## Summary
+
+In this article, a graph of supply chain artifacts were created, discovered, promoted and pulled providing lifecycle management of the artifacts you build and/or depend upon.
 
 ## Next steps
 
@@ -354,10 +397,12 @@ az acr manifest list-metadata \
 [oras-docs]:                https://oras.land/
 [oras-install-docs]:        https://oras.land/cli/
 [oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
+[oras-cli]:                 https://oras.land/cli_reference/
 
 <!-- LINKS - internal -->
 [acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
 [az-acr-create]:            /container-registry/container-registry-get-started-azure-cli
 [az-acr-build]:             /cli/azure/acr#az_acr_build
+[az-acr-manifest-metadata]: /cli/azure/acr/manifest/metadata
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
 [azure-cli-install]:        /cli/azure/install-azure-cli

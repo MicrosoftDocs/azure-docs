@@ -12,7 +12,7 @@ ms.author: stevelas
 
 You can use an [Azure container registry][acr-landing] to store and manage [Open Container Initiative (OCI) artifacts](container-registry-image-formats.md#oci-artifacts) as well as Docker and OCI container images.
 
-To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) CLI to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage various OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
+To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)][oras-cli] CLI to push a sample artifact -  a text file - to an Azure container registry. Then, pull the artifact from the registry. You can manage various OCI artifacts in an Azure container registry using different command-line tools appropriate to each artifact.
 
 ## Prerequisites
 
@@ -70,9 +70,7 @@ echo 'Readme Content' > readme.md
 The following step pushes the `readme.md` file to `<myregistry>.azurecr.io/samples/artifact:readme`.
 - The registry is identified with the fully qualified registry name `<myregistry>.azurecr.io` (all lowercase), followed by the namespace and repo: `/samples/artifact`.
 - The artifact is tagged `:readme`, to identify it uniquely from other artifacts listed in the repo (`:latest, :v1, :v1.0.1`).
-- The root artifact, an artifact that doesn't reference another, sets the type through the `-config` parameter.  
-  - `/dev/null` represents an empty config object, where the value `:readme/example` identifies the artifact type.  
-  - `:readme/example` differentiates it from a container image, which uses `application/vnd.oci.image.config.v1+json`.
+- Setting `--artifact-type readme/example` differentiates the artifact from a container image, which uses `application/vnd.oci.image.config.v1+json`.
 - The `./readme.md` identifies the file uploaded, and the `:application/markdown` represents the [IANA `mediaType`][iana-mediatypes] of the file.  
   For more information, see [OCI Artifact Authors Guidance](https://github.com/opencontainers/artifacts/blob/main/artifact-authors.md).
 
@@ -82,7 +80,7 @@ Use the `oras push` command to push the file to your registry.
 
 ```bash
 oras push $REGISTRY/samples/artifact:readme \
-    --config /dev/null:readme/example\
+    --artifact-type readme/example \
     ./readme.md:application/markdown
 ```
 
@@ -90,7 +88,7 @@ oras push $REGISTRY/samples/artifact:readme \
 
 ```cmd
 .\oras.exe push $REGISTRY/samples/artifact:readme ^
-    --config NUL:readme/example ^
+    --artifact-type readme/example ^
     .\readme.md:application/markdown
 ```
 
@@ -117,13 +115,13 @@ echo 'Detailed Content' > details/readme-details.md
 echo 'More detailed Content' > details/readme-more-details.md
 ```
 
-Attach the multi-file artifact as a reference.
+Push the multi-file artifact:
 
 **Linux, WSL2 or macOS**
 
 ```bash
 oras push $REGISTRY/samples/artifact:readme \
-    --config /dev/null:readme/example\
+    --artifact-type readme/example\
     ./readme.md:application/markdown\
     ./details
 ```
@@ -132,7 +130,7 @@ oras push $REGISTRY/samples/artifact:readme \
 
 ```cmd
 .\oras.exe push $REGISTRY/samples/artifact:readme ^
-    --config NUL:readme/example ^
+    --artifact-type readme/example ^
     .\readme.md:application/markdown ^
     .\details
 ```
@@ -149,14 +147,9 @@ The output will be similar to:
 
 ```json
 {
-  "schemaVersion": 2,
-  "mediaType": "application/vnd.oci.image.manifest.v1+json",
-  "config": {
-    "mediaType": "readme/example",
-    "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "size": 0
-  },
-  "layers": [
+  "mediaType": "application/vnd.oci.artifact.manifest.v1+json",
+  "artifactType": "readme/example",
+  "blobs": [
     {
       "mediaType": "application/markdown",
       "digest": "sha256:2fdeac43552b71eb9db534137714c7bad86b53a93c56ca96d4850c9b41b777fc",
@@ -167,17 +160,17 @@ The output will be similar to:
     },
     {
       "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-      "digest": "sha256:089111d738bd4b883c88ab9bdd7b8d5eba18e9a448d6d8f428b94de140f4f492",
-      "size": 191,
+      "digest": "sha256:0d6c7434a34f6854f971487621426332e6c0fda08040b9e6cc8a93f354cee0b1",
+      "size": 189,
       "annotations": {
-        "io.deis.oras.content.digest": "sha256:1dd2737c1078e36bbd8128712dbf2b0d41ef1abefb954bb5219c5e1096ac8b6a",
+        "io.deis.oras.content.digest": "sha256:11eceb2e7ac3183ec9109003a7389468ec73ad5ceaec0c4edad0c1b664c5593a",
         "io.deis.oras.content.unpack": "true",
         "org.opencontainers.image.title": "details"
       }
     }
   ],
   "annotations": {
-    "org.opencontainers.image.created": "2023-01-06T20:07:15Z"
+    "org.opencontainers.artifact.created": "2023-01-10T14:44:06Z"
   }
 }
 ```
@@ -219,7 +212,9 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 <!-- LINKS - external -->
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 [oras-install-docs]:        https://oras.land/cli/
+[oras-cli]:                 https://oras.land/cli_reference/
 [oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
+
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
 [acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
