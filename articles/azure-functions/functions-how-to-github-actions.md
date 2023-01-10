@@ -189,7 +189,7 @@ The following example shows the part of the workflow that builds the function ap
 
 # [PowerShell](#tab/powershell)
 
-This step can be skipped for PowerShell as the GitHub runner already includes PowerShell.
+This step can be skipped for PowerShell as there is no need to build.
 
 ---
 
