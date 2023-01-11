@@ -48,7 +48,7 @@ In addition, you can use the [VS Code extension](how-to-manage-resources-vscode.
 
 ## Kubernetes clusters
 
-For information on configuring and attaching a Kubrnetes clusters to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
+For information on configuring and attaching a Kubernetes cluster to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
 
 ## Other compute targets
 
