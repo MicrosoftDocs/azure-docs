@@ -40,10 +40,13 @@
       items:
       - name: Overview
         href: manage-users-overview.md
+        displayName: users, user
       - name: Azure roles for OT and Enterprise IoT monitoring
         href: roles-azure.md
+        displayName: users, user
       - name: On-premises roles for OT monitoring
         href: roles-on-premises.md
+        displayName: users, user
     - name: OT system architecture
       href: architecture.md
     - name: OT sensor cloud connection methods
@@ -95,14 +98,19 @@
     items:
     - name: Azure portal
       href: how-to-manage-cloud-alerts.md
+      displayName: alert, alerts
     - name: Sensor console
       href: how-to-view-alerts.md
+      displayName: alert, alerts
     - name: On-premises management console
+      displayName: alert, alerts
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Accelerate on-premises alert workflows
+      displayName: alerts
       href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       href: how-to-forward-alert-information-to-partners.md
+      displayName: alerts
   - name: Visualize and monitor data
     items:
     - name: Visualize data with workbooks
@@ -218,10 +226,13 @@
     items:
     - name: Azure portal
       href: manage-users-portal.md
+      displayName: users, user
     - name: OT sensor console
       href: manage-users-sensor.md
+      displayName: users, user
     - name: On-premises management console
       href: manage-users-on-premises-management-console.md
+      displayName: users, user
     - name: Audit user activity
       href: track-user-activity.md
   - name: OT system maintenance
@@ -319,6 +330,7 @@
         href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
+    displayName: alerts
   - name: API reference
     items:
     - name: Working with Defender for IoT APIs
@@ -331,6 +343,7 @@
         href: api/sensor-inventory-apis.md
       - name: Alert management
         href: api/sensor-alert-apis.md
+        displayName: alerts
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
     - name: General management API reference
@@ -341,6 +354,7 @@
         href: api/management-appliances-apis.md
       - name: Alert management
         href: api/management-alert-apis.md
+        displayName: alerts
       - name: Inventory management
         href: api/management-inventory-apis.md
       - name: Partner integration

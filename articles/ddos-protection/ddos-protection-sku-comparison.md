@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 11/14/2022
+ms.date: 01/09/2023
 ms.custom: template-concept, ignite-2022
 ---
 
@@ -58,10 +58,12 @@ The following table shows features and corresponding SKUs.
 | Mitigation policies tuned to customers application | Yes| Yes |
 | Integration with Firewall Manager | Yes | Yes |
 | Azure Sentinel data connector and workbook | Yes | Yes |
+| Protection of resources across subscriptions in a tenant   | Yes | Yes |
+| Public IP Standard SKU protection | Yes | Yes |
+| Public IP Basic SKU protection | No | Yes |
 | DDoS rapid response support | Not available | Yes |
 | Cost protection | Not available  | Yes |
 | WAF discount | Not available | Yes |
-| Protection of resources across subscriptions in a tenant   | Yes | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 >[!Note]
