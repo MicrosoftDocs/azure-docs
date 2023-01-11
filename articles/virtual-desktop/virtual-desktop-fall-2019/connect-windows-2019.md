@@ -9,12 +9,12 @@ manager: femila
 ---
 # Connect with the Windows Desktop (classic) client
 
-> Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
+> Applies to: Windows 10 and Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-windows.md).
 
-You can access Azure Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Windows 8 or Windows 8.1.
+You can access Azure Virtual Desktop resources on devices with Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Windows 8 or Windows 8.1.
 
 >[!NOTE]
 >The Windows client automatically defaults to Azure Virtual Desktop (classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
@@ -23,8 +23,6 @@ You can access Azure Virtual Desktop resources on devices with Windows 7, Window
 > - Azure Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 >
 > - Azure Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store.
->
-> - Extended support for using Windows 7 to connect to Azure Virtual Desktop ends on January 10, 2023.
 
 ## Install the Windows Desktop client
 

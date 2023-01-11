@@ -18,10 +18,13 @@ To complete this procedure, you need:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text file.    
-    - The log file must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
-    - Each entry in the log file must be delineated with an end of line. 
-    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
+- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text file.
+    
+    Text file requirements:    
+    - Store on the local drive of the machine on which Azure Monitor Agent is running. 
+    - Delineate with an end of line. 
+    - Use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
+    - Do not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
 
 ## Create a custom table
 
