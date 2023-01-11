@@ -52,7 +52,7 @@ Learn more:
 * [How to configure SSO to an Application Proxy application](/articles/active-directory/app-proxy/application-proxy-config-sso-how-to.md)
 * [Using Azure AD Application Proxy to publish on-premises apps for remote users](/articles/active-directory/app-proxy/what-is-application-proxy.md)
 
-### Publish applications and improve access management
+### Application publishing and access management
 
 Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Help improve your cloud access management without requiring modification to your on-premises applications.
 
