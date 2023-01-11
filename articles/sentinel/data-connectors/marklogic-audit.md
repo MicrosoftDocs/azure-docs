@@ -3,7 +3,7 @@ title: "MarkLogic Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector MarkLogic Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 01/10/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -20,7 +20,7 @@ MarkLogic data connector provides the capability to ingest [MarkLogicAudit](http
 | **Kusto function url** | https://aka.ms/sentinel-marklogicaudit-parser |
 | **Log Analytics table(s)** | MarkLogicAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
+| **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
 

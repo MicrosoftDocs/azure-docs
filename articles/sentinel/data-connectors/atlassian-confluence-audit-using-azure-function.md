@@ -3,7 +3,7 @@ title: "Atlassian Confluence Audit (using Azure Function) connector for Microsof
 description: "Learn how to install the connector Atlassian Confluence Audit (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 01/10/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,8 +18,6 @@ The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audit 
 | --- | --- |
 | **Application settings** | ConfluenceUsername<br/>ConfluenceAccessToken<br/>ConfluenceHomeSiteName<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-confluenceauditapi-functionapp |
-| **Kusto function alias** | ConfluenceAudit |
-| **Kusto function url** | https://aka.ms/sentinel-confluenceauditapi-parser |
 | **Log Analytics table(s)** | Confluence_Audit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -51,10 +49,6 @@ To integrate with Atlassian Confluence Audit (using Azure Function) make sure yo
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
-
-
-> [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-confluenceauditapi-parser) to create the Kusto functions alias, **ConfluenceAudit**
 
 
 **STEP 1 - Configuration steps for the Confluence API**

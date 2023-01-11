@@ -3,8 +3,9 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 12/13/2022
+ms.date: 01/04/2022
 ms.author: cwatson
+ms.custom: ignite-fall-2021
 ---
 
 # Find your Microsoft Sentinel data connector
@@ -116,8 +117,12 @@ Data connectors are available as part of the following offerings:
 ## Cisco
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
+- [Cisco ASA](data-connectors/cisco-asa.md)
+- [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
+- [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
+- [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
 - [Cisco Umbrella (using Azure Function)](data-connectors/cisco-umbrella-using-azure-function.md)
 - [Cisco Web Security Appliance](data-connectors/cisco-web-security-appliance.md)
@@ -131,6 +136,10 @@ Data connectors are available as part of the following offerings:
 - [Citrix ADC (former NetScaler)](data-connectors/citrix-adc-former-netscaler.md)
 - [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
 - [Citrix WAF (Web App Firewall)](data-connectors/citrix-waf-web-app-firewall.md)
+
+## Claroty
+
+- [Claroty](data-connectors/claroty.md)
 
 ## Cloudflare
 
@@ -178,6 +187,10 @@ Data connectors are available as part of the following offerings:
 
 - [Derdack SIGNL4](data-connectors/derdack-signl4.md)
 
+## Digital Guardian
+
+- [Digital Guardian Data Loss Prevention](data-connectors/digital-guardian-data-loss-prevention.md)
+
 ## Digital Shadows
 
 - [Digital Shadows Searchlight (using Azure Function)](data-connectors/digital-shadows-searchlight-using-azure-function.md)
@@ -203,6 +216,10 @@ Data connectors are available as part of the following offerings:
 
 - [Workplace from Facebook (using Azure Function)](data-connectors/workplace-from-facebook-using-azure-function.md)
 
+## Fireeye
+
+- [FireEye Network Security (NX)](data-connectors/fireeye-network-security-nx.md)
+
 ## Flare Systems
 
 - [Flare](data-connectors/flare.md)
@@ -218,6 +235,7 @@ Data connectors are available as part of the following offerings:
 
 ## Google
 
+- [Google ApigeeX (using Azure Function)](data-connectors/google-apigeex-using-azure-function.md)
 - [Google Cloud Platform Cloud Monitoring (using Azure Function)](data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md)
 - [Google Cloud Platform DNS (using Azure Function)](data-connectors/google-cloud-platform-dns-using-azure-function.md)
 - [Google Cloud Platform IAM (using Azure Function)](data-connectors/google-cloud-platform-iam-using-azure-function.md)
@@ -251,6 +269,10 @@ Data connectors are available as part of the following offerings:
 
 - [Rapid7 Insight Platform Vulnerability Management Reports (using Azure Function)](data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-function.md)
 
+## ISC
+
+- [ISC Bind](data-connectors/isc-bind.md)
+
 ## Ivanti
 
 - [Ivanti Unified Endpoint Management](data-connectors/ivanti-unified-endpoint-management.md)
@@ -259,6 +281,10 @@ Data connectors are available as part of the following offerings:
 
 - [Juniper IDP](data-connectors/juniper-idp.md)
 - [Juniper SRX](data-connectors/juniper-srx.md)
+
+## Kaspersky
+
+- [Kaspersky Security Center](data-connectors/kaspersky-security-center.md)
 
 ## Linux
 
@@ -283,7 +309,9 @@ Data connectors are available as part of the following offerings:
 - [Azure Active Directory](data-connectors/azure-active-directory.md)
 - [Azure Active Directory Identity Protection](data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Activity](data-connectors/azure-activity.md)
+- [Azure Batch Account](data-connectors/azure-batch-account.md)
 - [Azure Cognitive Search](data-connectors/azure-cognitive-search.md)
+- [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
 - [Azure Information Protection](data-connectors/azure-information-protection.md)
@@ -298,13 +326,17 @@ Data connectors are available as part of the following offerings:
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
 - [DNS](data-connectors/dns.md)
 - [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
+- [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
 - [Microsoft Defender for Cloud Apps](data-connectors/microsoft-defender-for-cloud-apps.md)
 - [Microsoft Defender for Endpoint](data-connectors/microsoft-defender-for-endpoint.md)
 - [Microsoft Defender for Identity](data-connectors/microsoft-defender-for-identity.md)
+- [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Microsoft Defender for Office 365](data-connectors/microsoft-defender-for-office-365.md)
 - [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
+- [Microsoft Purview](data-connectors/microsoft-purview.md)
+- [Microsoft Purview Information Protection](data-connectors/microsoft-purview-information-protection.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)
 - [Office 365](data-connectors/office-365.md)
 - [Security Events via Legacy Agent](data-connectors/security-events-via-legacy-agent.md)
@@ -387,6 +419,7 @@ Data connectors are available as part of the following offerings:
 
 ## Palo Alto Networks
 
+- [Palo Alto Networks (Firewall)](data-connectors/palo-alto-networks-firewall.md)
 - [Palo Alto Networks Cortex Data Lake (CDL)](data-connectors/palo-alto-networks-cortex-data-lake-cdl.md)
 - [Palo Alto Prisma Cloud CSPM (using Azure Function)](data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md)
 
@@ -415,6 +448,10 @@ Data connectors are available as part of the following offerings:
 ## RedHat
 
 - [JBoss Enterprise Application Platform](data-connectors/jboss-enterprise-application-platform.md)
+
+## RSA
+
+- [RSA® SecurID (Authentication Manager)](data-connectors/rsa-securid-authentication-manager.md)
 
 ## Rubrik, Inc.
 

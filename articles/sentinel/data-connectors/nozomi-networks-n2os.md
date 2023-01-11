@@ -3,7 +3,7 @@ title: "Nozomi Networks N2OS connector for Microsoft Sentinel"
 description: "Learn how to install the connector Nozomi Networks N2OS to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 01/10/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,7 +18,7 @@ The [Nozomi Networks](https://www.nozominetworks.com/) data connector provides t
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (NozomiNetworks)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
+| **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
 
