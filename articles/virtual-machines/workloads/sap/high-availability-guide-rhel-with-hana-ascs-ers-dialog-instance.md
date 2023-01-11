@@ -16,8 +16,7 @@ ms.author: ampatel
 
 # Deploy SAP ASCS/ERS with SAP HANA high availability VMs on Red Hat Enterprise Linux
 
-This article describes how to install and configure SAP HANA along with ASCS and ERS instances on the same high availability cluster running on Red Hat Enterprise Linux (RHEL).
-
+This article describes how to install and configure SAP HANA along with ASCS and ERS instances on the same high availability cluster, running on Red Hat Enterprise Linux (RHEL).
 
 ## References
 
@@ -75,8 +74,8 @@ The example shown in this article to describe deployment uses following system i
 
 * SAP Dialog Instances (PAS and AAS) (like **sapa02** and **sapa04**), can be installed on separate VMs. Install SAP ASCS and ERS with virtual hostnames. To learn more on how to assign virtual hostname to a VM, refer to the blog [Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593).
 * With HANA DB, ASCS/SCS and ERS deployment in the same cluster setup, the instance number of HANA DB, ASCS and ERS must be different.
-* Consider sizing your VM SKUs appropriately based on the sizing guidelines. You have to factor in the cluster behavior where multiple SAP instances (HANA DB, ASCS and ERS) may run on a single VM when other VM in the cluster is unavailable.
-* You can use different storage (e.g. Azure NetApp Files or NFS on Azure Files) to install the SAP ASCS and ERS instances.
+* Consider sizing your VM SKUs appropriately based on the sizing guidelines. You have to factor in the cluster behavior where multiple SAP instances (HANA DB, ASCS and ERS) may run on a single VM, when other VM in the cluster is unavailable.
+* You can use different storage (for example, Azure NetApp Files or NFS on Azure Files) to install the SAP ASCS and ERS instances.
   > [!NOTE]
   >
   > For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
@@ -87,9 +86,9 @@ The example shown in this article to describe deployment uses following system i
 
 The configuration described in this article is an addition to your already configured SAP HANA cluster setup. In this configuration, SAP ASCS and ERS will be installed on a virtual hostname and its instance directory is managed by the cluster.
 
-Install HANA database, setup HSR and Pacemaker cluster by following the documentation [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](sap-hana-high-availability-rhel.md) or [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](sap-hana-high-availability-netapp-files-red-hat.md) depending on what storage option you are using.
+Install HANA database, set up HSR and Pacemaker cluster by following the documentation [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](sap-hana-high-availability-rhel.md) or [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](sap-hana-high-availability-netapp-files-red-hat.md) depending on what storage option you're using.
 
-Once you have Installed, configured and setup the the **HANA Cluster**, follow the steps below to install ASCS and ERS instances.
+Once you've Installed, configured and set-up the **HANA Cluster**, follow the steps below to install ASCS and ERS instances.
 
 ## Configure Azure Load Balancer for ASCS and ERS
 
@@ -102,7 +101,7 @@ Once you have Installed, configured and setup the the **HANA Cluster**, follow t
       4. Set the **assignment** to **Static** and enter the IP address (for example, **10.66.0.20**).
       5. Click Ok.
    2. IP address for ERS is **10.66.0.30**
-      1. Repeat the steps above under "2.a" to create a frontend IP address for ERS (for example **10.66.0.30** and **ers-frontend**)
+      1. Repeat the steps under "2.a" to create a frontend IP address for ERS (for example **10.66.0.30** and **ers-frontend**)
 3. Backend Pool remains same, as we're deploying ASCS and ERS on the same backend pool (**hana-backend**).
 4. Create health probe for ASCS and ERS instance
    1. Port for ASCS is **62000**
@@ -121,9 +120,9 @@ Once you have Installed, configured and setup the the **HANA Cluster**, follow t
       5. Make sure to **enable Floating IP**
       6. Leave the rest as default and Click OK
    2. Load balancing rule for ERS
-      1. Repeat the steps above under “5.1” to create load balancing rule for ERS (for example, **ers-lb**).
+      1. Repeat the steps under “5.1” to create load balancing rule for ERS (for example, **ers-lb**).
 
-Based on your storage, follow the steps described in below guides to configure `SAPInstance` resource for SAP ASCS and SAP ERS instance in the cluster.
+Based on your storage, follow the steps described in below guides to configure `SAPInstance` resource for SAP ASCS and SAP ERS instance in the cluster. 
 
 * NFS on Azure Files - [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md)
 * Azure NetApp Files - [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](high-availability-guide-rhel-netapp-files.md)
@@ -140,7 +139,7 @@ Based on your storage, follow the steps described in below guides to configure `
 >
 > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
-Follow the steps in [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md) or [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](high-availability-guide-rhel-netapp-files.md) to install, configure and setup SAP ASCS and ERS instance.  Please use the above steps for the Load Balancer setup for SAP ASCS and ERS.
+Follow the steps in [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md) or [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](high-availability-guide-rhel-netapp-files.md) to install, configure and set-up SAP ASCS and ERS instance.  Use the above steps for the Load Balancer set-up for SAP ASCS and ERS.
 
 ## Test the cluster setup
 
