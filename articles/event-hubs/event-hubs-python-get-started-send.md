@@ -259,7 +259,6 @@ In this section, you create a Python script to receive events from your event hu
         # Close credential when no longer needed.
         await credential.close()
     
-    
     if __name__ == "__main__":
         # Run the main method.
         asyncio.run(main())
