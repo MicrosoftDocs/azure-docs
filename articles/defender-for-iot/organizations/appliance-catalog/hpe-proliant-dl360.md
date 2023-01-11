@@ -163,7 +163,7 @@ Before installing the sensor software with iLO, we recommend changing the iLO id
 
 1. On the **Idle connection timeout** row, select the triangle icon to open the timeout options, and then select **Infinite**.
 
-Continue the iLO installation with the steps below.
+Continue the iLO installation with the following steps.
 
 **To install sensor software with iLO**:
 
