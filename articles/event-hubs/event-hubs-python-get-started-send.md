@@ -96,7 +96,6 @@ In this section, create a Python script to send events to the event hub that you
             # Close credential when no longer needed.
             await credential.close()
     
-    
     asyncio.run(run())
     ```
 
