@@ -2,7 +2,7 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/11/2023
 ---
 
 # Add module settings in the Bicep config file
@@ -155,6 +155,8 @@ The available profiles are:
 - AzureCloud
 - AzureChinaCloud
 - AzureUSGovernment
+
+You can customize these profiles, or add new profiles for your on-premise environments.
 
 The available credential types are:
 
