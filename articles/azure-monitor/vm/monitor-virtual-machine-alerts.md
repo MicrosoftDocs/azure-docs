@@ -62,7 +62,7 @@ The query will return a record for any error messages on any machine. Use the **
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
 
-Depending on the info you would like to include in the alert, you might need to split using different dimensions. In this case, make sure the necessary dimensions are projected in the query using the [project operator](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/projectoperator). Set the **Resource ID column** field to **Don't split** and include all the meaningful dimension in the list. Make sure the **Include all future values** is selected, so any value returned from the query will be included.
+Depending on the information you would like to include in the alert, you might need to split using different dimensions. In this case, make sure the necessary dimensions are projected in the query using the [project operator](/azure/data-explorer/kusto/query/projectoperator). Set the **Resource ID column** field to **Don't split** and include all the meaningful dimension in the list. Make sure the **Include all future values** is selected, so any value returned from the query will be included.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-multiple-dimensions.png" alt-text="Screenshot of new log alert rule with split by multiple dimensions.":::
 
