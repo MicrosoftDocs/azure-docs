@@ -29,6 +29,7 @@ To install the Python packages for Event Hubs, open a command prompt that has Py
 ```shell
 pip install azure-eventhub
 pip install azure-identity
+pip install aiohttp
 ```
 
 ## [Connection String](#tab/connection-string)
