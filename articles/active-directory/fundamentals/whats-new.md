@@ -223,31 +223,33 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ### ADAL End of Support Announcement
 
-
-
 **Type:** N/A      
 **Service category:** Other               
 **Product capability:** Developer Experience         
 
-As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we will end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 1, 2023**. 
+As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we will end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 30, 2023**. 
 
-### Why are we doing this? 
+### Why are we doing this?
+
 As we consolidate and evolve the Microsoft Identity platform, we are also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset ADAL so that we can focus on developer experience investments with MSAL. 
 
-### What happens? 
-We recognize that changing libraries is not an easy task, and cannot be accomplished quickly. We are committed to helping customers plan their migrations to MSAL as well as execute them with minimal disruption. 
+### What happens?
+
+We recognize that changing libraries is not an easy task, and cannot be accomplished quickly. We are committed to helping customers plan their migrations to MSAL as well as execute them with minimal disruption.
+
 - In June 2020 we [announced the 2-year end of support timeline for ADAL](https://devblogs.microsoft.com/microsoft365dev/end-of-support-timelines-for-azure-ad-authentication-library-adal-and-azure-ad-graph/). 
 - In December 2022 we’ve decided to extend the ADAL end of support to June 2023. 
 - Through the next six months (January 2023 – June 2023) we will continue informing customers about the upcoming end of support along with providing guidance on migration. 
 - On June 2023 we will officially sunset ADAL, removing library documentation and archiving all GitHub repositories related to the project. 
 
-### How to find out which applications in my tenant are using ADAL? 
+### How to find out which applications in my tenant are using ADAL?
 
 Refer to our post on [Microsoft Q&A](/answers/questions/360928/information-how-to-find-apps-using-adal-in-your-te.html) for details on identifying ADAL apps with the help of [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview). 
-### If I’m using ADAL, what can I expect after the deadline? 
+### If I’m using ADAL, what can I expect after the deadline?
+
 - There will be no new releases (security or otherwise) to the library after June 2023. 
-- We will not be accepting any incident reports or support requests for ADAL. ADAL to MSAL Migration support would continue.   
-- The underpinning services will continue working and applications that depend on ADAL should continue working; however, applications will be at increased security and reliability risk due to not having the latest updates, service configuration, and enhancements made available through the Microsoft Identity platform. 
+- We will not be accepting any incident reports or support requests for ADAL. ADAL to MSAL migration support would continue.   
+- The underpinning services will continue working and applications that depend on ADAL should continue working; however, applications and the resources they access will be at increased security and reliability risk due to not having the latest updates, service configuration, and enhancements made available through the Microsoft Identity platform. 
 
 ### What features can I only access with MSAL?
  
