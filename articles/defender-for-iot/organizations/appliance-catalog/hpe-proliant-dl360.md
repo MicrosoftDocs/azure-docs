@@ -12,7 +12,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | C5600  |
-|**Performance** | Max bandwidth: 3Gbps <br> Max devices: 12,000 |
+|**Performance** | Max bandwidth: 3 Gbps <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
 |**Status** | Supported, Available pre-configured|
 
@@ -72,9 +72,9 @@ Optional modules for port expansion include:
 | **PCI Slot 1 (Low profile)**| Quad Port Ethernet NIC| 811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI (FW 1.52)|
 | **PCI Slot 1 (Low profile)**  | DP F/O NIC|727054-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter (FW 10.57.3)|
 |**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|811546-B21 - HPE 1 GbE 4p BASE-T I350 Adapter SI (FW 1.52)|
-|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|647594-B21 - HPE 1 GbE 4p BASE-T BCM5719 Adapter (FW 5719-v1.45 NCSI v1.3.12.0 )|
+|**PCI Slot 2 (High profile)**| Quad Port Ethernet NIC|647594-B21 - HPE 1 GbE 4p BASE-T BCM5719 Adapter (FW 5719-v1.45 NCSI v1.3.12.0)|
 | **PCI Slot 2 (High profile)**|DP F/O NIC| 727055-B21 - HPE 10 GbE 2p FLR-SFP+ X710 Adapter (FW 10.57.3)|
-| **PCI Slot 2 (High profile)**|DP F/O NIC| P08421-B21 - HPE Ethernet 10Gb 2-port SFP+ BCM57414 Adapter (FW 214.4.9.6/pkg 214.0.286012)|
+| **PCI Slot 2 (High profile)**|DP F/O NIC| P08421-B21 - HPE Ethernet 10 Gb 2-port SFP+ BCM57414 Adapter (FW 214.4.9.6/pkg 214.0.286012)|
 | **PCI Slot 2 (High profile)**|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI (FW 10.57.3)|
 | **SFPs for Fiber Optic NICs**|MultiMode, Short Range| 455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 |**SFPs for Fiber Optic NICs**|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
