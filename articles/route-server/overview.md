@@ -5,8 +5,9 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 01/09/2023
 ms.author: halkazwini
+ms.custom: template-overview, engagement-fy23
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---
 
@@ -48,7 +49,7 @@ For pricing details, see [Azure Route Server pricing](https://azure.microsoft.co
 
 ## Service Level Agreement (SLA)
 
-For SLA, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
+For service level agreement details, see [SLA for Azure Route Server](https://azure.microsoft.com/support/legal/sla/route-server/v1_0/).
 
 ## FAQs
 

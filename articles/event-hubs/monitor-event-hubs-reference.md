@@ -132,7 +132,7 @@ Here's an example of a runtime audit log entry:
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
 
 > [!NOTE] 
-> Application metrics logs are available only in **premium** and **dedicated** tiers.  
+> Application metrics logs are available only in **premium** and **dedicated** tiers. Application Metric logs for following metrics- **IncomingBytes**. **IncomingMessages** ,**OutgoingBytes** ,**OutgoingMessages** are only generated if you have already created [Application Groups](resource-governance-overview.md#application-groups),in your environment. Application Groups should have the same security context - AAD ID or SAS key, which is being used to send/receive data to Azure Event Hubs.
 
 Name | Description
 ------- | -------
@@ -140,6 +140,10 @@ Name | Description
 `NamespaceActiveConnections` | Details of active connections established from a client to the event hub. 
 `GetRuntimeInfo` | Obtain run time information from Event Hubs. 
 `GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub. 
+`IncomingMessages` | Details of number of messages published to Event Hubs. 
+`IncomingBytes` | Details of Publisher throughput sent to Event Hubs
+`OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
+`OutgoingBytes` | Details of Consumer throughput from Event Hubs.
 
 
 ## Azure Monitor Logs tables

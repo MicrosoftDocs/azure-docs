@@ -41,8 +41,11 @@ The following table lists the currently available versions of the default *Micro
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 | 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/4f5934a18989353e36d771d0a964f14e6cd17ac3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle<sup>1</sup> |
+| 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v4.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle<sup>1</sup> |
 
-<sup>1</sup> Version 3.x of the extension bundle currently doesn't include the [Table Storage bindings](./functions-bindings-storage-table.md). If your app requires Table Storage, you'll need to continue using the 2.x version for now.
+<sup>1</sup> Version 4.x of the extension bundle currently doesn't include the [Web PubSub bindings](https://learn.microsoft.com/azure/azure-web-pubsub/reference-functions-bindings?tabs=csharp#add-to-your-functions-app ). If your app requires Web PubSub, you'll need to continue using the 3.x version for now.
+
+
 
 > [!NOTE]
 > Even though host.json supports custom ranges for `version`, you should use a version value from this table.

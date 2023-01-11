@@ -269,7 +269,18 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 
 Next step is to create `MLTable` from your data in jsonl format as shown below. MLtable package your data into a consumable object for training.
 
-<!-- :::code language="yaml" source="~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable"::: -->
+```yaml
+paths:
+  - file: ./train_annotations.jsonl
+transformations:
+  - read_json_lines:
+        encoding: utf8
+        invalid_lines: error
+        include_path_column: false
+  - convert_column_types:
+      - columns: image_url
+        column_type: stream_info
+```
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]

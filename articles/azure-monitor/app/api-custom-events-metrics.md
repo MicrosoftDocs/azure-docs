@@ -1155,7 +1155,7 @@ None. You don't need to wrap them in try-catch clauses. If the SDK encounters pr
 
 ### Is there a REST API to get data from the portal?
 
-Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
+Yes, the [data access API](/rest/api/application-insights/). Other ways to extract data include [Power BI](..\logs\log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md) or [continuous export](./export-telemetry.md) if you're still on a classic resource.
 
 ### Why are my calls to custom events and metrics APIs ignored?
 

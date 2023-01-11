@@ -47,7 +47,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
 **To onboard a Defender for IoT plan for OT networks**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. Select **Add plan**.
 
@@ -72,7 +72,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-subscriptions/onboard-pricing-temp.png" alt-text="Screenshot of the plan settings pane to add or edit a plan for OT networks." lightbox="media/how-to-manage-subscriptions/onboard-pricing-temp.png":::
+    :::image type="content" source="media/how-to-manage-subscriptions/onboard-ot-plans-pricing.png" alt-text="Screenshot of the plan settings pane to add or edit a plan for OT networks." lightbox="media/how-to-manage-subscriptions/onboard-ot-plans-pricing.png":::
 
 1. Select **Next**.
 
@@ -88,7 +88,7 @@ For example, you may have more devices that require monitoring if you're increas
 
 **To edit a plan:**
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
 
@@ -120,7 +120,7 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
 **To cancel a Defender for IoT plan for OT networks**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Pricing**.
+1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right and select **Cancel plan**.
 

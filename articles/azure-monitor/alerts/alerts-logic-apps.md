@@ -18,7 +18,9 @@ This article shows you how to create a Logic App and integrate it with an Azure 
 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) allows you to build and customize workflows for integration. Use Logic Apps to customize your alert notifications.
  
 + Customize the alerts email, using your own email subject and body format. 
-+ Customize the alert metadata by looking up tags for affected resources or fetching a log query search result. 
++ Customize the alert metadata by looking up tags for affected resources or fetching a log query search result. For information on how to access the search result rows containing alerts data, see: 
+  + [Azure Monitor Log Analytics API response format](../logs/api/response-format.md)
+  + [Query/management HTTP response](/azure/data-explorer/kusto/api/rest/response)
 + Integrate with external services using existing connectors like Outlook, Microsoft Teams, Slack and PagerDuty, or by configuring the Logic App for your own services.
 
 In this example, we'll use the following steps to create a Logic App that uses the [common alerts schema](./alerts-common-schema.md) to send details from the alert. The example uses the following steps:

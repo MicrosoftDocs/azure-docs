@@ -200,7 +200,7 @@ Below the Web components section, users can view a list of all CVEs applicable t
 
 ### Resources
 
-The Resources tab provides insight on any JavaScript resources running on any page or host assets. When applicable to a host, these resources are aggregated to represent the Javascript running on all pages on that host. This section provides an inventory of the JavaScript detected on each asset so that your organization has full visibility into these resources and can detect any changes. Defender EASM provides the resource URL and host, MD5 value, and first and last seen dates to help organizations effectively monitor the use of Javascript resources across their inventory.
+The Resources tab provides insight on any JavaScript resources running on any page or host assets. When applicable to a host, these resources are aggregated to represent the JavaScript running on all pages on that host. This section provides an inventory of the JavaScript detected on each asset so that your organization has full visibility into these resources and can detect any changes. Defender EASM provides the resource URL and host, MD5 value, and first and last seen dates to help organizations effectively monitor the use of JavaScript resources across their inventory.
 
 ![Screenshot of resources tab](media/Inventory_12.png)
 

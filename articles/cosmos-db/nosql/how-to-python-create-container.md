@@ -53,7 +53,7 @@ The following example creates a container with the [``DatabaseProxy.create_conta
 
 ### Create a container asynchronously
 
-You can also create a database asynchronously using similar object and methods in the [azure.cosmos.aio](/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, use the [`DatabaseProxy.create_database`](/python/api/azure-cosmos/azure.cosmos.aio.databaseproxy#azure-cosmos-aio-databaseproxy-create-container) method or the ['CosmoClient.create_database_if_not_exists](/python/api/azure-cosmos/azure.cosmos.aio.databaseproxy#azure-cosmos-aio-databaseproxy-create-container-if-not-exists) method.
+You can also create a database asynchronously using similar object and methods in the [azure.cosmos.aio](/python/api/azure-cosmos/azure.cosmos.aio) namespace. For example, use the [DatabaseProxy.create_database](/python/api/azure-cosmos/azure.cosmos.aio.databaseproxy#azure-cosmos-aio-databaseproxy-create-container) method or the [CosmoClient.create_database_if_not_exists](/python/api/azure-cosmos/azure.cosmos.aio.databaseproxy#azure-cosmos-aio-databaseproxy-create-container-if-not-exists) method.
 
 Working asynchronously is useful when you want to perform multiple operations in parallel. For more information, see [Using the asynchronous client](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos#using-the-asynchronous-client).
 

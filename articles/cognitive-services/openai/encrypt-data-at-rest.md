@@ -28,6 +28,8 @@ Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer grea
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Cognitive Services resource and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
+To request the ability to use customer-managed keys, fill out and submit the [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request.
+
 To enable customer-managed keys, you must also enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
 Only RSA keys of size 2048 are supported with Cognitive Services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
@@ -124,7 +126,7 @@ az keyvault key delete  \
 ```
 
 > [!IMPORTANT]
-> Revoking access to an active customer-managed key while CMK is still enabled at the resource level will prevent fine-tuning new models, as well as deploying previously undeployed fine-tuned models. However, previously deployed fine-tuned models will continue to operate and serve traffic unless those deployments are deleted.
+> Revoking access to an active customer-managed key while CMK is still enabled will prevent downloading of training data and results files, fine-tuning new models, and deploying fine-tuned models. However, previously deployed fine-tuned models will continue to operate and serve traffic until those deployments are deleted.
 
 ### Delete training, validation, and training results data
 
