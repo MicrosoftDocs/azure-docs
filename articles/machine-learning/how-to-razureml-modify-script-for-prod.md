@@ -3,7 +3,7 @@ title: Adapt your R script to run in production
 titleSuffix: Azure Machine Learning
 description: 'Learn how to modify your existing R scripts to run in production on Azure Machine Learning'
 ms.service: machine-learning
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -73,8 +73,6 @@ args <- parse_args(parser)
 
 `args` is a named list. You can use any of these parameters later in your script.
 
-[test](#source-the-azureml_utilsr-helper-script)
-
 ## Source the `azureml_utils.R` helper script
 
 You must source a helper script called `azureml_utils.R` script in the same working directory of the R script that will be run. The helper script is required for the running R script to be able to communicate with the MLflow server. The helper script provides a method to continuously retrieve the authentication token, since the token changes quickly in a running job.  The helper script also allows you to use the logging functions provided in the [R MLflow API](https://MLflow.org/docs/latest/R-api.html) to log models, parameters, tags and general artifacts.
@@ -88,7 +86,6 @@ You must source a helper script called `azureml_utils.R` script in the same work
 ```r
 source("azureml_utils.R")
 ```
-
 
 ## Read data files as local files
 
@@ -249,7 +246,7 @@ mlflow_end_run()
 ## END OF R SCRIPT
 ```
 
-For complete example of an R script that has all of the steps described in this document, see[timeseries-train-single.R](https://github.com/Azure/azureml-examples/blob/mavaisma-r-azureml/tutorials/using-r-with-azureml/03-train-model-job/src/timeseries-train-single.R)
+For complete example of an R script that has all of the steps described in this document, see [timeseries-train-single.R](https://github.com/Azure/azureml-examples/blob/mavaisma-r-azureml/tutorials/using-r-with-azureml/03-train-model-job/src/timeseries-train-single.R)
 
 ## Create an environment
 

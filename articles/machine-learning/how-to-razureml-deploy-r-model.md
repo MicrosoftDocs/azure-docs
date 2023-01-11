@@ -3,7 +3,7 @@ title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
 ms.service: machine-learning
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -30,16 +30,16 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 
 Create this folder structure for your project:
 
-> ```
-> 📁 r-deploy-azureml
-> ├─ docker-context
-> │  ├─ Dockerfile
-> │  ├─ start_plumber.R
-> ├─ src
-> │  ├─ plumber.R
-> ├─ deployment.yml
-> ├─ endpoint.yml
-> ```
+```text
+📁 r-deploy-azureml
+ ├─ docker-context
+ │  ├─ Dockerfile
+ │  ├─ start_plumber.R
+ ├─ src
+ │  ├─ plumber.R
+ ├─ deployment.yml
+ ├─ endpoint.yml
+```
 
 ![NOTE]
 > The endpoint and deployment files are explained [later in the article](#deploy-model).
@@ -178,7 +178,7 @@ This article shows you how to register a model created in a training job run and
 1. On the left navigation, select **Jobs**.
 1. Select the **Experiment name** that you used to train your model.
 1. Select the job that contains your model.
-1. Select **+Register model**.
+1. Select **+ Register model**.
 1. Select **Next**
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
 1. Select **Next**.
@@ -204,7 +204,7 @@ You'll see a confirmation that the model is registered.
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Set the default workspace.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in the Azure portal or in [Azure Machine Learning studio](tutorial-azure-ml-in-a-day#connect-to-the-workspace)).
+1. Set the default workspace.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in the Azure portal or in [Azure Machine Learning studio](tutorial-azure-ml-in-a-day.md#connect-to-the-workspace)).
 
     ```azurecli
     az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE
@@ -360,6 +360,6 @@ Now that you've successfully scored with your endpoint, you can delete it so you
 az ml online-endpoint delete --name r-endpoint-forecast
 ```
 
-# Next steps
+## Next steps
 
 For more information about using R with Azure Machine Learning, see [Overview of R capabilities in Azure Machine Learning](how-to-razureml-overview-r-capabilities.md)

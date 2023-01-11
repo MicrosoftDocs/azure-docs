@@ -3,7 +3,7 @@ title: Use R interactively on Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to use Azure Machine Learning for interactive R work'
 ms.service: machine-learning
-ms.date: 12/21/2022
+ms.date: 01/11/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -150,7 +150,6 @@ Other than the above issues, use R as you would in any other environment, such a
 
 ## Known limitations
 
-@@Verify this: 
 - Reading a file with `reticulate` only works with tabular data.
 - From an interactive R session, you can only write to the workspace file system.
 - From an interactive R session, you can't interact with MLflow (such as, log model or query registry).

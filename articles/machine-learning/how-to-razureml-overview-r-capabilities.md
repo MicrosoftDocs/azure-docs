@@ -3,7 +3,7 @@ title: Overview of R capabilities in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn about the R capabilities in Azure Machine Learning'
 ms.service: machine-learning
-ms.date: 12/21/2022
+ms.date: 01/11/2023
 ms.topic: conceptual
 author: wahalulu
 ms.author: mavaisma
@@ -23,7 +23,7 @@ This article outlines the key scenarios for R that are supported in Azure Machin
 
 A typical workflow for using R with Azure Machine Learning:
 
-- [Develop R scripts interactively](how-to-razureml-interactive-development.md) using Jupyter Notebooks on a compute instance
+- [Develop R scripts interactively](how-to-razureml-interactive-development.md) using Jupyter Notebooks on a compute instance.  (While you can also add Posit or RStudio to a compute instance, you can't currently access data assets in the workspace from these applications on the compute instance. So for now, interactive work is best done in a Jupyter notebook.)
     - Read tabular data from a registered data asset or datastore
     - Install additional R libraries
     - Save artifacts to the workspace file storage
