@@ -62,7 +62,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     a. In the **Identifier** textbox, type a value using the following pattern:
     `<environment-name>`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern::
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<environment-name>.mint-online.com/`
 
     > [!Note]
