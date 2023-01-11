@@ -6,7 +6,8 @@ documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

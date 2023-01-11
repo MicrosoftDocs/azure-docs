@@ -4,7 +4,8 @@ description: Establish high availability for SAP NW on Azure virtual machines (V
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/06/2022

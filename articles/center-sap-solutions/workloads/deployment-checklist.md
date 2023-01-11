@@ -4,7 +4,8 @@ description: Checklist for planning SAP workload deployments to Azure and deploy
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 11/21/2022

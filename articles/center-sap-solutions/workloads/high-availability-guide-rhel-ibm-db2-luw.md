@@ -5,7 +5,8 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: 'SAP'
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

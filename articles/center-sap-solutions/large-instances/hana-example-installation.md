@@ -6,7 +6,8 @@ documentationcenter:
 author: hermanndms
 manager: juergent
 editor:
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

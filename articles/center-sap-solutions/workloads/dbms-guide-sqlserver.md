@@ -5,7 +5,8 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 11/14/2022

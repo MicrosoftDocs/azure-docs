@@ -4,7 +4,8 @@ description: Azure Virtual Machines high availability for SAP NetWeaver on Red H
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/06/2022

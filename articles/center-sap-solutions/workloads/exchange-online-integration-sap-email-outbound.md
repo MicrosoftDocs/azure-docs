@@ -3,7 +3,8 @@ title: Exchange Online Integration for Email-Outbound from SAP NetWeaver | Micro
 description: Learn about Exchange Online integration for email outbound from SAP NetWeaver.
 author: MartinPankraz
 
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/11/2022

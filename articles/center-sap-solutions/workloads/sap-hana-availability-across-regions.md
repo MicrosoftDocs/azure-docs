@@ -4,7 +4,8 @@ description: An overview of availability considerations when running SAP HANA on
 author: msjuergent
 manager: patfilot
 tags: azure-resource-manager
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 09/12/2018
