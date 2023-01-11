@@ -19,7 +19,6 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 > * Collect data
 > * Migrate Splunk artifacts
 > * Ingest historical data
-> * Analyze log data
 
 ## Introduction to key concepts
 
@@ -93,7 +92,6 @@ For information on migrating Splunk SIEM artifacts, including detection rules an
 1. Export your historical data from Splunk, using one of the [Splunk export methods](https://docs.splunk.com/Documentation/Splunk/8.2.5/Search/Exportsearchresults). The output format should be CSV.
 1. Ingest the data you export from Splunk using Azure Monitor's [Log ingestion API](../logs/logs-ingestion-api-overview.md).
 
-  
 
 ## 4. Collect data
 
@@ -116,11 +114,6 @@ To collect data from a resource:
 1. Set up the relevant data collection tool based on the above.
 1. Decide which data you need to collect from the resource.
 1. Use [transformations](../essentials/data-collection-transformations.md) to remove sensitive data, enrich data or perform calculatations, and filter out data you don't need to reduce costs.   
-## 5. Analyze log data
-
-[Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
-
-[Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
 
 ## Next steps
 - [Use Azure policies](/azure/governance/policy/overview) to define rules to enforce organizational standards and to assess compliance at-scale.
