@@ -298,8 +298,12 @@
         href: data-connectors/azure-active-directory-identity-protection.md
       - name: Azure Activity
         href: data-connectors/azure-activity.md
+      - name: Azure Batch Account
+        href: data-connectors/azure-batch-account.md
       - name: Azure Cognitive Search
         href: data-connectors/azure-cognitive-search.md
+      - name: Azure Data Lake Storage Gen1
+        href: data-connectors/azure-data-lake-storage-gen1.md
       - name: Azure DDoS Protection
         href: data-connectors/azure-ddos-protection.md
       - name: Azure Event Hub
@@ -334,12 +338,20 @@
         href: data-connectors/braodcom-symantec-dlp.md
       - name: Cisco Application Centric Infrastructure
         href: data-connectors/cisco-application-centric-infrastructure.md
+      - name: Cisco ASA
+        href: data-connectors/cisco-asa.md
+      - name: Cisco Duo Security (using Azure Function)
+        href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
         href: data-connectors/cisco-firepower-estreamer.md
+      - name: Cisco Meraki
+        href: data-connectors/cisco-meraki.md
       - name: Cisco Secure Email Gateway
         href: data-connectors/cisco-secure-email-gateway.md
       - name: Cisco Secure Endpoint (AMP) (using Azure Function)
         href: data-connectors/cisco-secure-endpoint-amp-using-azure-function.md
+      - name: Cisco Stealthwatch
+        href: data-connectors/cisco-stealthwatch.md
       - name: Cisco UCS
         href: data-connectors/cisco-ucs.md
       - name: Cisco Umbrella (using Azure Function)
@@ -352,6 +364,8 @@
         href: data-connectors/citrix-security-analytics.md
       - name: Citrix WAF (Web App Firewall)
         href: data-connectors/citrix-waf-web-app-firewall.md
+      - name: Claroty
+        href: data-connectors/claroty.md
       - name: Cloudflare (Preview) (using Azure Function)
         href: data-connectors/cloudflare-preview-using-azure-function.md
       - name: Cognni
@@ -378,6 +392,8 @@
         href: data-connectors/delinea-secret-server.md
       - name: Derdack SIGNL4
         href: data-connectors/derdack-signl4.md
+      - name: Digital Guardian Data Loss Prevention
+        href: data-connectors/digital-guardian-data-loss-prevention.md
       - name: Digital Shadows Searchlight (using Azure Function)
         href: data-connectors/digital-shadows-searchlight-using-azure-function.md
       - name: DNS
@@ -394,6 +410,8 @@
         href: data-connectors/f5-big-ip.md
       - name: F5 Networks
         href: data-connectors/f5-networks.md
+      - name: FireEye Network Security (NX)
+        href: data-connectors/fireeye-network-security-nx.md
       - name: Flare
         href: data-connectors/flare.md
       - name: Forcepoint CASB
@@ -414,6 +432,8 @@
         href: data-connectors/github-enterprise-audit-log.md
       - name: GitLab
         href: data-connectors/gitlab.md
+      - name: Google ApigeeX (using Azure Function)
+        href: data-connectors/google-apigeex-using-azure-function.md
       - name: Google Cloud Platform Cloud Monitoring (using Azure Function)
         href: data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md
       - name: Google Cloud Platform DNS (using Azure Function)
@@ -434,6 +454,8 @@
         href: data-connectors/infoblox-cloud-data-connector.md
       - name: InfoSecGlobal Data Connector
         href: data-connectors/infosecglobal-data-connector.md
+      - name: ISC Bind
+        href: data-connectors/isc-bind.md
       - name: Ivanti Unified Endpoint Management
         href: data-connectors/ivanti-unified-endpoint-management.md
       - name: JBoss Enterprise Application Platform
@@ -442,6 +464,8 @@
         href: data-connectors/juniper-idp.md
       - name: Juniper SRX
         href: data-connectors/juniper-srx.md
+      - name: Kaspersky Security Center
+        href: data-connectors/kaspersky-security-center.md
       - name: LastPass Enterprise - Reporting (Polling CCP)
         href: data-connectors/lastpass-enterprise-reporting-polling-ccp.md
       - name: Lookout (using Azure Function)
@@ -454,6 +478,8 @@
         href: data-connectors/mcafee-network-security-platform.md
       - name: Microsoft 365 Defender
         href: data-connectors/microsoft-365-defender.md
+      - name: Microsoft 365 Insider Risk Management
+        href: data-connectors/microsoft-365-insider-risk-management.md
       - name: Microsoft Defender for Cloud
         href: data-connectors/microsoft-defender-for-cloud.md
       - name: Microsoft Defender for Cloud Apps
@@ -462,12 +488,18 @@
         href: data-connectors/microsoft-defender-for-endpoint.md
       - name: Microsoft Defender for Identity
         href: data-connectors/microsoft-defender-for-identity.md
+      - name: Microsoft Defender for IoT
+        href: data-connectors/microsoft-defender-for-iot.md
       - name: Microsoft Defender for Office 365
         href: data-connectors/microsoft-defender-for-office-365.md
       - name: Microsoft PowerBI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
         href: data-connectors/microsoft-project.md
+      - name: Microsoft Purview
+        href: data-connectors/microsoft-purview.md
+      - name: Microsoft Purview Information Protection
+        href: data-connectors/microsoft-purview-information-protection.md
       - name: Microsoft Sysmon For Linux
         href: data-connectors/microsoft-sysmon-for-linux.md
       - name: MongoDB Audit
@@ -508,6 +540,8 @@
         href: data-connectors/oracle-weblogic-server.md
       - name: OSSEC
         href: data-connectors/ossec.md
+      - name: Palo Alto Networks (Firewall)
+        href: data-connectors/palo-alto-networks-firewall.md
       - name: Palo Alto Networks Cortex Data Lake (CDL)
         href: data-connectors/palo-alto-networks-cortex-data-lake-cdl.md
       - name: Palo Alto Prisma Cloud CSPM (using Azure Function)
@@ -528,6 +562,8 @@
         href: data-connectors/qualys-vulnerability-management-using-azure-function.md
       - name: Rapid7 Insight Platform Vulnerability Management Reports (using Azure Function)
         href: data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-function.md
+      - name: RSA® SecurID (Authentication Manager)
+        href: data-connectors/rsa-securid-authentication-manager.md
       - name: Rubrik Security Cloud data connector (using Azure Function)
         href: data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md
       - name: SailPoint IdentityNow (using Azure Function)
