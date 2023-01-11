@@ -80,7 +80,7 @@ Format:
 }
 ```
 
-* The raw clients in `<group_name>` receive the string `text data`.
+* The simple WebSocket clients in `<group_name>` receive the string `text data`.
 
 #### Case 2: publish JSON data:
 
@@ -109,7 +109,7 @@ Format:
 }
 ```
 
-* The raw clients in `<group_name>` receive the serialized string `{"hello": "world"}`.
+* The simple WebSocket clients in `<group_name>` receive the serialized string `{"hello": "world"}`.
 
 #### Case 3: publish binary data:
 
@@ -135,7 +135,7 @@ Format:
 }
 ```
 
-* The raw clients in `<group_name>` receive the **binary** data in the binary frame.
+* The simple WebSocket clients in `<group_name>` receive the **binary** data in the binary frame.
 
 ### Send custom events
 

@@ -5,29 +5,32 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: reference 
-ms.date: 01/06/2023
+ms.date: 01/09/2023
 ---
 
 # Azure Web PubSub supported JSON WebSocket subprotocol
 
-The JSON WebSocket subprotocol, `json.webpubsub.azure.v1`, enables the exchange of publish/subscribe messages directly between clients.  A WebSocket connection using the `json.webpubsub.azure.v1` subprotocol is called a PubSub WebSocket client.
+The JSON WebSocket subprotocol, `json.webpubsub.azure.v1`, enables the exchange of publish/subscribe messages directly between clients.  A WebSocket connection using the `json.webpubsub.azure.v1` subprotocol is called a *PubSub WebSocket client*.
 
-This document describes the subprotocol `json.webpubsub.azure.v1`.
 
 ## Overview
 
-In a simple native WebSocket client, a *server* role is required to handle events from clients. A simple WebSocket connection triggers a `message` event when it sends messages, and relies on the server-side to process messages and do other operations. 
+In a simple WebSocket client, a *server* role is required to handle events from clients. A simple WebSocket connection triggers a `message` event when it sends messages and relies on the server-side to process messages and do other operations. 
 
-When you use the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-groups) and publish messages directly to a group using [publish requests](#publish-messages). The client can also route messages directly to upstream event handlers using [event requests](#send-custom-events).
+With the `json.webpubsub.azure.v1` subprotocol, you can create *PubSub WebSocket clients* that can:
 
-In JavaScript, a PubSub WebSocket client can be created using:
+* join a group using [join requests](#join-groups).
+* publish messages directly to a group using [publish requests](#publish-messages).
+* route messages directly to upstream event handlers using [event requests](#send-custom-events).
+
+For example, you can create a *PubSub WebSocket client* with the following JavaScript code:
 
 ```javascript
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
 ```
 
- The following information describes the subprotocol requests and responses.  Both incoming and outgoing data frames must contain JSON payloads.
+This document describes the subprotocol `json.webpubsub.azure.v1` requests and responses.  Both incoming and outgoing data frames must contain JSON payloads.
 
 [!INCLUDE [reference-permission](includes/reference-permission.md)]
 
@@ -37,7 +40,7 @@ var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'j
 
 ## Responses
 
-Messages received by the client can be `ack`, `message`, and `system`:
+Message types received by the client can be:
 
 * ack - The response to a request containing an `ackId`.
 * message - Messages from the group or server.
@@ -93,7 +96,6 @@ Clients can receive messages published from a group the client has joined or fro
 
 #### Case 1: Sending data `Hello World` to the connection through REST API with `Content-Type`=`text/plain` 
 
-
 * A simple WebSocket client receives a text WebSocket frame with data: `Hello World`;
 * A PubSub WebSocket client receives:
 
@@ -144,7 +146,7 @@ The Web PubSub service sends system related responses to client requests.
 
 #### Connected
 
-The responses when the client connects to service.
+The response to the client connect request:
 
 ```json
 {

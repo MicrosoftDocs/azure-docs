@@ -17,7 +17,7 @@ This document describes the subprotocol json.reliable.webpubsub.azure.v1.
 > [!NOTE]
 > Reliable protocols are still in preview. Some changes are expected in the future.
 
-When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
+When WebSocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
 
 To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  
 
@@ -85,9 +85,9 @@ The client implementation SHOULD always check if the `success` is `true` or `fal
 
 ### Message response
 
-Clients can receive messages published from one group the client joined, or from the server management role that the server sends messages to the specific client or the specific user.
+Clients can receive messages published from a group the client has joined, or from the server that sends messages to a specific client or user.
 
-1. When the message is from a group
+1. The response message from a group:
 
     ```json
     {
@@ -101,7 +101,7 @@ Clients can receive messages published from one group the client joined, or from
     }
     ```
 
-1. When The message is from the server.
+1.  The response message from the server:
 
     ```json
     {
@@ -145,7 +145,7 @@ Clients can receive messages published from one group the client joined, or from
     }
     ```
 
-If the REST API is sending a string `Hello World` using `application/json` content type, what the simple WebSocket client receives is a JSON string, which is `"Hello World"` that wraps the string with `"`.
+If the REST API is sending a string `Hello World` using `application/json` content type, the simple WebSocket client receives the JSON string `"Hello World"` wrapped in `"`.
 
 #### Case 3: Sending binary data to the connection through REST API with `Content-Type`=`application/octet-stream`
 
@@ -164,11 +164,11 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 ### System response
 
-The Web PubSub service can also send system-related responses to the client. 
+The Web PubSub service can return system-related responses to the client. 
 
 #### Connected
 
-When the connection connects to service.
+The response to the client connect request:
 
 ```json
 {
@@ -190,7 +190,7 @@ Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnec
 
 #### Disconnected
 
-The response when the server closes the connection or when the service declines the client connection.
+The response when the server closes the connection or when the service declines the client connection:
 
 ```json
 {
