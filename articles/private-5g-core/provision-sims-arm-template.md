@@ -39,7 +39,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network.  | `deviceType` |
-| The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | **SIM policy** | `simPolicyId` |
+| The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | `simPolicyId` |
 
 ### Collect the required information for assigning static IP addresses
 
@@ -47,11 +47,11 @@ You only need to complete this step if you've configured static IP address alloc
 
 Collect the values in the following table for each SIM you want to provision. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to this SIM, collect the values for each IP address.
 
-| Value | Field name in Azure portal | JSON file parameter name |
+| Value | Parameter name |
 |--|--|--|
-| The data network that the SIM will use. | Not applicable. | `staticIpConfiguration.attachedDataNetworkId` |
-| The network slice that the SIM will use. | Not applicable. | `staticIpConfiguration.sliceId` |
-| The static IP address to assign to the SIM.  | Not applicable. | `staticIpConfiguration.staticIpAddress` |
+| The data network that the SIM will use. | `staticIpConfiguration.attachedDataNetworkId` |
+| The network slice that the SIM will use. | `staticIpConfiguration.sliceId` |
+| The static IP address to assign to the SIM.  | `staticIpConfiguration.staticIpAddress` |
 
 ## Prepare an array for your SIMs
 
