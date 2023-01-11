@@ -92,7 +92,7 @@ You can add up to 50000 question answer pairs to a single project. If your data 
 
 ## Create a separate project for each domain
 
-You can also create a separate project for each domain and maintain the projects separately. All APIs require for the user to pass on the project ID to make any update to the project or fetch an answer to the user's question.  
+You can also create a separate project for each domain and maintain the projects separately. All APIs require for the user to pass on the project name to make any update to the project or fetch an answer to the user's question.  
 
 When the user question is received by the service, you would need to pass on the `projectName` in the REST API endpoint shown to fetch a response from the relevant project. You can locate the URL in the **Deploy project** page under **Get prediction URL**:
 

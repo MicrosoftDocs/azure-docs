@@ -33,12 +33,12 @@ After deploying your project, you can create a bot from the **Deploy project** p
 
 * When you make changes to the project and redeploy, you don't need to take further action with the bot. It's already configured to work with the project, and works with all future changes to the project. Every time you publish a project, all the bots connected to it are automatically updated.
 
-1. In Language Studio, on the question answering **Deploy project** page, select **Create bot**.
+1. In Language Studio, on the question answering **Deploy project** page, select the **Create a bot** button.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of UI with option to create a bot in Azure.](../media/bot-service/create-bot-in-azure.png)
 
-1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service.
+1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service and hit the **Create** button.
 
     |Setting |Value|
     |----------|---------|

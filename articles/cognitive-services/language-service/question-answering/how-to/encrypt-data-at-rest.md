@@ -18,7 +18,7 @@ Question answering automatically encrypts your data when it is persisted to the 
 
 ## About encryption key management
 
-By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
+By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your resource with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
 
 Question answering uses CMK support from Azure search, and associates the provided CMK to encrypt the data stored in Azure search index. Please follow the steps listed in [this article](../../../../search/search-security-manage-encryption-keys.md) to configure Key Vault access for the Azure search service.
 
