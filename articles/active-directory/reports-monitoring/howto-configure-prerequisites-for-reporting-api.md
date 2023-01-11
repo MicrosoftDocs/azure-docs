@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The Azure Active Directory (Azure AD) [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs. Authentication must  be enabled with the reporting API using one of two methods: app-only access and delegated access.
+The Azure Active Directory (Azure AD) [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
 
-This article describes how to enable MS Graph to access the Azure AD reporting APIs using both authentication methods. For more information on the authentication methods, see [Introduction to permissions and consent](../develop/permissions-consent-overview.md).
+This article describes how to enable MS Graph to access the Azure AD reporting APIs in the Azure portal and through PowerShell
 
 ## Roles and license requirements
 
@@ -64,11 +64,8 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
 
     ![Screenshot of the API permissions menu option and Add permissions button.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-new-permission.png)
 
-1. Select **Microsoft Graph**.
-1. Select **Application permissions**.
-1. Search for and select **Directory**, then select **Directory.ReadAll**.
-1. Search for and select **AuditLog**, then select **AuditLog.Read.All**.
-1. Select the **Add permissions** button.
+1. Select **Microsoft Graph** > **Application permissions**.
+1. Add **Directory.ReadAll** and **AuditLog.Read.All**, then select the **Add permissions** button.
     - If you need more permissions to run the queries you need, you can add them now or modify the permissions as needed in Microsoft Graph.
     - For more information, see [Work with Graph Explorer](/graph/graph-explorer/graph-explorer-features).
 
@@ -77,49 +74,6 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
 1. On the **Reporting API Application - API Permissions** page, select **Grant admin consent for Default Directory**.
 
     ![Screenshot shows the Reporting API Application API permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-grant-consent.png)
-
-## Delegated access
-
-To enable delegated access to the Azure AD reporting API, you'll need to gather a few configuration settings. 
-
-### Gather configuration settings 
-
-This section shows you how to gather the following settings from your directory:
-
-- Domain name
-- Client ID
-- Client secret or certificate
-
-You need these values when configuring calls to the reporting API. We recommend using a certificate because it's more secure.
-
-### Get your domain name
-
-1. Go to **Azure Active Directory** > **Custom domain names**.
-1. Copy your domain name from the list of domains.
-
-### Get your application's client ID
-
-1. Go to **Azure Active Directory** > **App Registrations**.
-1. Copy the **Application (client) ID**.
-
-### Get your application's client secret
-
-1. Go to **Azure Active Directory** and select your application from the **App Registrations** page.
-1. Select **Certificates and Secrets** from the side menu.
-1. Select **+ New Client Secret**. 
-1. On the **Add a client secret** page:
-    1. Give the secret a **Description** such as `Reporting API`.
-    1. Set the secret's expiration. Microsoft recommends that you set an expiration value of less than 12 months.
-    1. Select **Add**.
-    1. Copy the secret value.
-
-### Upload the certificate of your application
-
-If you don't have a certificate to upload, follow the steps outlined in the [Create a self-signed certificate to authenticate your application](../develop/howto-create-self-signed-certificate.md) article. 
-
-1. Go **Azure Active Directory** > **App Registration** > Select your application > **Certificates & secrets** > **Certificates** > **Upload certificate**.
-1. Select the file icon and select your certificate.
-1. Enter a **Description** and select **Add**.
 
 ## Access the reporting API through Microsoft Graph
 
@@ -133,7 +87,38 @@ Once you have the app registration configured, you can run activity log queries 
 
     ![Screenshot of an activity log GET query in Microsoft Graph.](./media/howto-configure-prerequisites-for-reporting-api/graph-sample-get-query.png)
 
-### API Endpoints 
+## Access the reporting API through PowerShell
+
+To use PowerShell to access the Azure AD reporting API, you'll need to gather a few configuration settings:
+
+- Tenant ID
+- Client app ID
+- Client secret or certificate
+
+You need these values when configuring calls to the reporting API. We recommend using a certificate because it's more secure.
+
+1. Go to **Azure Active Directory** > **App Registrations**.
+1. Copy the **Directory (tenant) ID**.
+1. Copy the **Application (client) ID**.
+1. Go to **App Registration** > Select your application > **Certificates & secrets** > **Certificates** > **Upload certificate** and upload your certificate's public key file.
+    - If you don't have a certificate to upload, follow the steps outlined in the [Create a self-signed certificate to authenticate your application](../develop/howto-create-self-signed-certificate.md) article. 
+
+Next you'll authenticate with the configuration settings you just gathered. Open PowerShell and run the following command, replacing the placeholders with your information.
+
+```powershell
+Connect-MgGraph -ClientID YOUR_APP_ID -TenantId YOUR_TENANT_ID -CertificateName YOUR_CERT_SUBJECT ## Or -CertificateThumbprint instead of -CertificateName
+```
+
+### API endpoints and Microsoft Graph PowerShell cmdlets
+
+To get started, use the following endpoints and cmdlets.
+
+Microsoft Graph PowerShell cmdlets:
+
+- **Audit logs:** `Get-MgAuditLogDirectoryAudit`
+- **Sign-in logs:** `Get-MgAuditLogSignIn`
+- **Provisioning logs:** `Get-MgAuditLogProvisioning`
+- Explore the full list of [reporting related Microsoft Graph PowerShell cmdlets](powershell/module/microsoft.graph.reports/?view=graph-powershell-1.0).
 
 Microsoft Graph API endpoints:
 - **Audit logs:** `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
