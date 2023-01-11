@@ -223,6 +223,7 @@ To view the alerts, open **Defender for Cloud** in the Azure portal and select *
 1. Under *General* in the side tab, select **Security alerts**. 
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-security-alerts.png" alt-text="Screenshot of Security alert in Microsoft Defender for Cloud.":::
+    
 1. To filter the alerts list, select any of the relevant filters. You can optionally add further filters with the **Add filter** option.
 
 The alerts include general information about the public IP address that’s under attack, geo and threat intelligence information, and remediation steps.
@@ -232,11 +233,11 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-rule.png" alt-text="Screenshot of Security alert in Microsoft Defender for Cloud.":::
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page.":::
 
 1. Select **Alert rules**. 
 
-     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Security alert in Microsoft Defender for Cloud.":::
+     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page.":::
 
 1. In the Alert rules page, select your subscription.
 1. Select the alerts created in this tutorial, then select **Delete**. 
