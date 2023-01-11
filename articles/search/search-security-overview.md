@@ -166,10 +166,7 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Non-personal data received from an organization, or generated from the use of the product, such as component names, will be stored and processed outside your selected region or location. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Component names include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
-
->[!IMPORTANT]
->Customers shouldn't place any personal data in those fields or create applications designed to store personal data in these fields.
+Object names will be stored and processed outside of your selected region or location. Customers shouldn't place any sensitive data in name fields or create applications designed to store sensitive data in these fields. This data will appear in the telemetry logs used by Microsoft to provide support for the service. Object names include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
 
 Telemetry logs are retained for one and a half years. During that period, Microsoft might access and reference object names under the following conditions:
 
