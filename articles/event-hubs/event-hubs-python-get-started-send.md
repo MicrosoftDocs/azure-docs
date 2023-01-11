@@ -16,7 +16,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- Python 2.7 or 3.6 or later, with PIP installed and updated.
+- Python 3.7 or later, with PIP installed and updated.
 - Visual Studio Code (recommended) or any other integrated development environment (IDE). 
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 
@@ -175,12 +175,11 @@ Be sure to record the connection string and container name for later use in the 
 
 ### Install the packages to receive events
 
-For the receiving side, you need to install a few more packages. In this quickstart, you use Azure Blob storage to persist checkpoints so that the program doesn't read the events that it has already read. It performs metadata checkpoints on received messages at regular intervals in a blob. This approach makes it easy to continue receiving messages later from where you left off.
+For the receiving side, you need to install one or more packages. In this quickstart, you use Azure Blob storage to persist checkpoints so that the program doesn't read the events that it has already read. It performs metadata checkpoints on received messages at regular intervals in a blob. This approach makes it easy to continue receiving messages later from where you left off.
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
 ```shell
-pip install azure-storage-blob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-identity
 ```
@@ -188,7 +187,6 @@ pip install azure-identity
 ## [Connection String](#tab/connection-string)
 
 ```shell
-pip install azure-storage-blob
 pip install azure-eventhub-checkpointstoreblob-aio
 ```
 
