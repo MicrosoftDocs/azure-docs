@@ -45,6 +45,7 @@ docker pull docker.io/batchkit/speech-batch-kit:latest
 The batch client takes a yaml configuration file that specifies the on-prem container endpoints. The following example can be written to `/mnt/my_nfs/config.yaml`, which is used in the examples below. 
 
 
+
 ```yaml
 MyContainer1:
   concurrency: 5
@@ -68,6 +69,8 @@ The batch client can dynamically detect if an endpoint becomes unavailable (for 
 
 
 
+
+
 ## Run the batch processing container
   
 > [!NOTE] 
@@ -78,11 +81,14 @@ The batch client can dynamically detect if an endpoint becomes unavailable (for 
 Use the Docker `run` command to start the container. This will start an interactive shell inside the container.
 
 
+
+
 ```Docker
 docker run --rm -ti -v /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest
 ```
 
 To run the batch client:  
+
 
 
 ```Docker
@@ -92,8 +98,10 @@ run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -
 To run the batch client and container in a single command:
 
 
+
+
 ```Docker
-docker run --rm -ti -v /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization None -language en-US -strict_config 
+docker run --network host --rm -ti -v /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization None -language en-US -strict_config
 ```
 
 
@@ -163,4 +171,5 @@ The output directory specified by `-output_folder` will contain a *run_summary.j
 ## Next steps
 
 * [How to install and run containers](speech-container-howto.md)
+
 
