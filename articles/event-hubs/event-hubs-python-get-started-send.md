@@ -319,7 +319,6 @@ In this section, you create a Python script to receive events from your event hu
             # partition (starting_position: "-1")
             await client.receive(on_event=on_event, starting_position="-1")
     
-    
     if __name__ == "__main__":
         loop = asyncio.get_event_loop()
         # Run the main method.
