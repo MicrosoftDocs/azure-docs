@@ -78,12 +78,11 @@ This table lists Splunk artifacts and provides links to guidance on how to set u
 |Apps|[Azure Monitor Insights](../insights/insights-overview.md) are a set of ready-to-use, curated monitoring experiences with pre-configured data inputs, searches, alerts, and visualizations to get you started analyzing data quickly and effectively. |
 |Dashboards|[Workbooks](../visualize/workbooks-overview.md)|
 |Lookups|Azure Monitor provides a variety of ways to enrich data, including:<br>- [Data collection rules](../essentials/data-collection-rule-overview.md), which let you send data from multiple sources to a table, and perform calculations and transformations before ingesting the data.<br>- KQL operators, such as the [join operator](/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), which combines data from different tables, and the [externaldata operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor), which returns data from external storage.<br>- Integration with services, such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about), to leverage advanced machine learning and stream in additional data.|
-|Searches|[Saved queries](../logs/save-query.md)|
-|Source types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
 |Namespaces|You can grant or limit permission to artifacts in Azure Monitor based on [access control](../logs/manage-access.md) you define on your [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) or [Azure resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md).|
 |Permissions|[Access management](../logs/manage-access.md)|
 |Reports|Azure Monitor offers a range of options for analyzing, visualizing, and sharing data, including:<br>- [Insights](../insights/insights-overview.md)<br>- [Workbooks](../visualize/workbooks-overview.md)<br>- [Dashboards](../visualize/tutorial-logs-dashboards.md) <br>- [Integration with Power BI](../logs/log-powerbi.md)<br>- [Integration with Excel](../logs/log-excel.md)<br>- [Integration with Grafana](../visualize/grafana-plugin.md) |
-|Source types||
+|Searches|[Saved queries](../logs/save-query.md)|
+|Source types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
 |Universal forwarder| Azure Monitor provides a number of [data collection tools](#4-collect-data) designed for specific resources.| 
 
 For information on migrating Splunk SIEM artifacts, including detection rules and SOAR automation for, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
