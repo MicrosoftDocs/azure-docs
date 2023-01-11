@@ -69,18 +69,6 @@ from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 ```
 
-However, in this If you want to use a browser to login and authenticate, you can use the following code instead. In this example, you'll use the `DefaultAzureCredential`.
-
-
-```python
-# Handle to the workspace
-# from azure.ai.ml import MLClient
-
-# Authentication package
-# from azure.identity import InteractiveBrowserCredential
-# credential = InteractiveBrowserCredential()
-```
-
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
