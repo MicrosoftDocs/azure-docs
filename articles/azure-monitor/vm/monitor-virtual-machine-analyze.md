@@ -202,7 +202,6 @@ These annotations can be broadly classified into the following:
 - **Informational Annotations**: Emitted during control plane activities with no impact to VM availability. Examples include VM allocation, stop, delete, start. Usually, no additional customer action is required in response.
 - **Degraded Annotations**: Emitted when VM availability is detected to be at risk. Examples include when failure prediction models predict a degraded hardware component that can cause the VM to reboot at any given time. You should redeploy by the deadline specified in the annotation message to avoid any unanticipated loss of data or downtime.
 
-
 | Field | Description |
 |:---|:---|
 | targetResourceType | Type of resource for which health data is flowing |
@@ -211,7 +210,7 @@ These annotations can be broadly classified into the following:
 | annotationName | Name of the Annotation emitted |
 | reason | Brief overview of the availability impact observed by the customer |
 | category | Denotes whether the platform activity triggering the annotation was either planned maintenance or unplanned repair. This field is not applicable to customer/VM-initiated events.<br><br>Possible values: Planned \| Unplanned \| Not Applicable \| Null |
-| context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), or due to the Azure platform (platform initiated) or even activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \| VM-initiated | Not Applicable | Null |
+| context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), or due to the Azure platform (platform initiated) or even activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \|VM-initiated \| Not Applicable \| Null |
 | summary | Statement detailing the cause for annotation emission, along with remediation steps that can be taken by users |
 
 See [Azure Resource Graph sample queries by table](../../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for sample queries using this data.
