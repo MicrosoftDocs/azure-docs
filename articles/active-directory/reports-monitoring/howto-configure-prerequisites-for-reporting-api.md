@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The Azure Active Directory (Azure AD) [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
+The Azure Active Directory (Azure AD) [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
 
 This article describes how to enable Microsoft Graph to access the Azure AD reporting APIs in the Azure portal and through PowerShell
 
@@ -116,7 +116,7 @@ Microsoft Graph PowerShell cmdlets:
 - **Audit logs:** `Get-MgAuditLogDirectoryAudit`
 - **Sign-in logs:** `Get-MgAuditLogSignIn`
 - **Provisioning logs:** `Get-MgAuditLogProvisioning`
-- Explore the full list of [reporting related Microsoft Graph PowerShell cmdlets](powershell/module/microsoft.graph.reports).
+- Explore the full list of [reporting-related Microsoft Graph PowerShell cmdlets](/powershell/module/microsoft.graph.reports).
 
 Microsoft Graph API endpoints:
 - **Audit logs:** `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
