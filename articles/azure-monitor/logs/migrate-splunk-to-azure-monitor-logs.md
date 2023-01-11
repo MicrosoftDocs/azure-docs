@@ -108,7 +108,7 @@ To collect data from a resource:
 
 This table lists the tools to use to collect data from various resource types.  
 
-| Monitored resource | Data collection tool | Collected data |
+| Resource type | Data collection tool | Collected data |
 | --- | --- | --- |
 | **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
 | **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring data. |
