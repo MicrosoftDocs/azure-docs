@@ -4,9 +4,9 @@ description: In this article, learn about selective disk backup and restore usin
 ms.topic: conceptual
 ms.date: 11/10/2021
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell3
-author: v-amallick
+author: jyothisuri
 ms.service: backup
-ms.author: v-amallick
+ms.author: jsuri
 ---
  
 # Selective disk backup and restore for Azure virtual machines

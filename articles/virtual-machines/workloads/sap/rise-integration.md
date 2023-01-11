@@ -38,7 +38,7 @@ SAP managed workload is preferably deployed in the same [Azure region](https://a
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Cross-tenant virtual network peering connects SAP RISE vnet to customer's hub vnet.
 :::image-end:::
 
-Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, the virtual network peering needs to be set up between [different tenants](../../../virtual-network/create-peering-different-subscriptions.md). This can be accomplished by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite AAD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a VNet peering - different subscriptions](../../../virtual-network/create-peering-different-subscriptions.md#cli). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
+Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, the virtual network peering needs to be set up between [different tenants](../../../virtual-network/create-peering-different-subscriptions.md). This can be accomplished by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite AAD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a VNet peering - different subscriptions](../../../virtual-network/create-peering-different-subscriptions.md). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
 
 ### Connectivity during migration to ECS/RISE
 
@@ -177,9 +177,9 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 ## Single Sign-On for SAP 
 
 Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, identical setup steps can be followed for SSO against Azure Active Directory (AAD). The integration steps with AAD based SSO are available for typical ECS/RISE managed workloads:
-- [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial)
-- [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial)
-- [Tutorial: Azure Active Directory integration with SAP HANA](/azure/active-directory/saas-apps/saphana-tutorial)
+- [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](../../../active-directory/saas-apps/sap-netweaver-tutorial.md)
+- [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](../../../active-directory/saas-apps/sap-fiori-tutorial.md)
+- [Tutorial: Azure Active Directory integration with SAP HANA](../../../active-directory/saas-apps/saphana-tutorial.md)
 
 | SSO method | Identity Provider | Typical use case                 | Implementation           |
 | :--------- | :---------------: | :------------------------------- | :----------------------- |
