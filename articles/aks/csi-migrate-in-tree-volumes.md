@@ -78,7 +78,7 @@ The following are important considerations to evaluate:
     done
     ```
 
-    Execute the script and specify the cluster namespace `./PatchReclaimPolicy.sh <namespace>`.
+    Execute the script with the `namespace` parameter to specify the cluster namespace `./PatchReclaimPolicy.sh <namespace>`.
 
 2. Get a list of all of the PVCs in namespace sorted by **creationTimestamp** by running the following command. Set the namespace using the `--namespace` argument along with the actual cluster namespace.
 
@@ -397,7 +397,7 @@ Migration from in-tree to CSI is supported by creating a static volume.
     done
     ```
 
-    Execute the script and specify the cluster namespace `./PatchReclaimPolicy.sh <namespace>`.
+    Execute the script with the `namespace` parameter to specify the cluster namespace `./PatchReclaimPolicy.sh <namespace>`.
 
 2. Create a new Storage Class with the provisioner set to `file.csi.azure.com`, or you can use one of the default StorageClasses with the CSI file provisioner.
 
