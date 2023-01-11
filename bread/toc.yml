@@ -354,7 +354,7 @@
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
-  - name: Center for SAP solutions
+  - name: SAP on Azure
     tocHref: /azure/center-sap-solutions/
     topicHref: /azure/center-sap-solutions/index
   - name: Cloud Services
