@@ -31,7 +31,7 @@ To leverage this functionality, please ensure the following:
 
 Authenticating with Azure AD credentials has additional requirements:
  - `aadsshlogin` and `aadsshlogin-selinux` (as appropriate) must be installed on the Arc-enabled server. These packages are installed with the AADSSHLoginForLinux VM extension. 
- - configure role assignments for the VM.  Two Azure roles are used to authorize VM login:
+ - Configure role assignments for the VM.  Two Azure roles are used to authorize VM login:
    - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
    - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
  
