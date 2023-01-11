@@ -22,7 +22,7 @@ In the future, Azure Communication Services will expose a new property to inform
 
 Data Loss Prevention policies only apply to messages sent by Teams users and aren't meant to protect Azure Communications users from sending out sensitive information.
 
-For more information on enabling Microsoft Teams Data Loss Prevention, you can refer to [Data loss prevention and Microsoft Teams](https://learn.microsoft.com/en-us/microsoft-365/compliance/dlp-microsoft-teams?view=o365-worldwide).
+For more information on enabling Microsoft Teams Data Loss Prevention, you can refer to [Data loss prevention and Microsoft Teams](/microsoft-365/compliance/dlp-microsoft-teams?view=o365-worldwide).
 
 ```javascript
 let endpointUrl = '<replace with your resource endpoint>'; 
