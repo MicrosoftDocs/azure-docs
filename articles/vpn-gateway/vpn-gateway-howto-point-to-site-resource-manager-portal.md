@@ -5,7 +5,7 @@ description: Learn how to configure VPN Gateway server settings for P2S configur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 ms.author: cherylmc
 
 ---
@@ -101,7 +101,7 @@ The **Point-to-site configuration** page contains the configuration information 
 
 The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Screenshot of Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
@@ -142,13 +142,13 @@ As you can tell, planning the tunnel type and authentication type is important w
 
 On the **Point-to-site configuration** page, select the **Tunnel type**. For this exercise, from the dropdown, select **IKEv2 and OpenVPN(SSL)**.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-tunnel-type.png" alt-text="Point-to-site configuration page - tunnel type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-tunnel-type.png":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-tunnel-type.png" alt-text="Screenshot of Point-to-site configuration page - tunnel type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-tunnel-type.png":::
 
 ### <a name="authenticationtype"></a>Authentication type
 
 For this exercise, select **Azure certificate** for the authentication type. If you're interested in other authentication types, see the articles for [Azure AD](openvpn-azure-ad-tenant.md) and [RADIUS](point-to-site-how-to-radius-ps.md).
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png" alt-text="Point-to-site configuration page - authentication type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png":::
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png" alt-text="Screenshot of Point-to-site configuration page - authentication type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png":::
 
 ## <a name="uploadfile"></a>Upload root certificate public key information
 
