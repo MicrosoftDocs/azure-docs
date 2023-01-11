@@ -1,3 +1,17 @@
+---
+title: include file
+description: include file
+services: azure-communication-services
+author: ddematheu2
+manager: chpalm
+ms.service: azure-communication-services
+ms.subservice: identity
+ms.date: 07/20/2022
+ms.topic: include
+ms.custom: mode-other
+ms.author: dademath
+---
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
