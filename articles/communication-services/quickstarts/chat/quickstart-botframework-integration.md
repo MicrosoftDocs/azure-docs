@@ -2,7 +2,7 @@
 title: Add a bot to your chat app
 titleSuffix: An Azure Communication Services quickstart 
 description: Learn how to build a chat experience with a bot by using the Azure Communication Services Chat SDK and Azure Bot Service. 
-author: tariqzafar
+author: tariqzafa700
 manager: potsang
 services: azure-communication-services
 ms.author: tariqzafar
@@ -471,8 +471,8 @@ The following bot activity fields are supported for bot-to-user flows.
 
 #### Activities
 
-- Message activity
-- Typing activity
+- Message
+- Typing
 
 #### Message activity fields
 
@@ -489,35 +489,35 @@ These bot activity fields are supported for user-to-bot flows.
 
 #### Activities and fields
 
-- Message activity
+- Message
 
   - `Id` (Communication Services Chat message ID)
   - `TimeStamp`
   - `Text`
   - `Attachments`
 
-- Conversation update activity
+- Conversation update
 
   - `MembersAdded`
   - `MembersRemoved`
   - `TopicName`
 
-- Message update activity
+- Message update
 
   - `Id` (Updated Communication Services Chat message ID)
   - `Text`
   - `Attachments`
 
-- Message delete activity
+- Message delete
 
   - `Id` (Deleted Communication Services Chat message ID)
 
-- Event activity
+- Event
 
   - `Name`
   - `Value`
 
-- Typing activity
+- Typing
 
 #### Other common fields
 
