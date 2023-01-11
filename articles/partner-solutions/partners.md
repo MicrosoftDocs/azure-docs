@@ -3,7 +3,7 @@ title: Partner services
 description: Learn about services offered by partners on Azure. 
 
 ms.topic: conceptual
-ms.date: 12/31/2022
+ms.date: 01/16/2023
 
 ---
 
@@ -19,20 +19,20 @@ Azure Native ISV Services is available through Azure Marketplace.
 
 |Partner  |Description  |
 |---|---------|
-|[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large-scale applications |
-|[Elastic](elastic/overview.md) | Software as a service (SaaS) application for building modern search experiences and for maximizing visibility into the health, performance, and security of your infrastructure, applications, and data  |
-|[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics |
-|[Dynatrace](dynatrace/dynatrace-overview.md)   | Monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security  |
-|[New Relic Preview](new-relic/new-relic-overview.md)       |   Enables full stack observability for application performance management, infrastructure monitoring, log management, error tracking, and real-user monitoring.   |
+|[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large-scale applications. |
+|[Elastic](elastic/overview.md) | Software as a service (SaaS) application for building modern search experiences and for maximizing visibility into the health, performance, and security of your infrastructure, applications, and data.  |
+|[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
+|[Dynatrace](dynatrace/dynatrace-overview.md)   | Monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
+|[New Relic Preview](new-relic/new-relic-overview.md)    |   A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
 
 ## Data and storage
 
 |Partner  |Description  |
 |---|---------|
-| [Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md)    | Fully managed event-streaming platform powered by Apache Kafka |
+| [Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md)    | Fully managed event-streaming platform powered by Apache Kafka. |
 
 ## Networking and security
 
 |Partner  |Description  |
 |---|---------|
-|[NGINX](nginx/nginx-overview.md)   | SaaS offering that functions as a reverse proxy within your Azure environment |
+|[NGINX](nginx/nginx-overview.md)   | SaaS offering that functions as a reverse proxy within your Azure environment. |

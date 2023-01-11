@@ -3,7 +3,7 @@ title: Manage Azure Native New Relic Service Preview
 description: Learn how to manage your Azure Native New Relic Service settings.
 ms.topic: how-to
 
-ms.date: 12/31/2022
+ms.date: 01/16/2023
 
 ---
 

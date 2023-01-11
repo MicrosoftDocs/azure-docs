@@ -3,7 +3,7 @@ title: Azure Native New Relic Service Preview overview
 description: Learn about using New Relic in Azure Marketplace.
 
 ms.topic: overview
-ms.date: 12/31/2022
+ms.date: 01/16/2023
 ---
 
 # What is Azure Native New Relic Service Preview?
@@ -32,7 +32,7 @@ Azure Native New Relic Service provides the following capabilities:
 
 ## New Relic links
 
-For more help with using Azure Native New Relic Service, see the [New Relic documentation](https://docs.newrelic.com/).
+For more help with using Azure Native New Relic Service, see the [New Relic documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native).
 
 ## Next steps
 
