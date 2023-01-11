@@ -14,7 +14,7 @@ Using the power of [Azure Workbooks](../visualize/workbooks-overview.md), you ca
 
 -	You must either have an Azure Monitor workspace or create a new one.
 -	Your Azure Monitor workspace must be [collecting Prometheus metrics](./prometheus-metrics-enable.md) from an AKS cluster.
--	You must have the Monitoring Data Reader on the Azure Monitor workspace.
+-	You must have the Monitoring Data Reader role on the Azure Monitor workspace.
 
 > [!NOTE]
 > Querying data from an Azure Monitor workspace is a data plane operation, so even if you are an owner or have elevated control plane access, you must assign the Monitoring Data Reader role. Read more about [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
