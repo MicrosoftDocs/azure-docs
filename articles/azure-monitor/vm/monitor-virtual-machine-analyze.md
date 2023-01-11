@@ -150,10 +150,10 @@ For instructions on how to create your own custom workbooks, see [Create interac
 
 - Query the latest snapshot of VM availability together across all your Azure subscriptions. 
 - Assess the impact to business SLAs and trigger decisive mitigation actions, in response to disruptions and type of failure signature.
-- Set up custom dashboards to supervise the comprehensive health of applications by [joining](../../governance/resource-graph/concepts/work-with-data.md) VM availability information with additional [resource metadata](../../governance/resource-graph/samples/samples-by-table?tabs=azure-cli) in Resource Graph.
-- Track relevant changes in VM availability across a rolling 14 days window,  by using the [change tracking](../../governance/resource-graph/how-to/get-resource-changes?tabs=azure-cli.md) mechanism for conducting detailed investigations.
+- Set up custom dashboards to supervise the comprehensive health of applications by [joining](../../governance/resource-graph/concepts/work-with-data.md) VM availability information with additional [resource metadata](../../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli) in Resource Graph.
+- Track relevant changes in VM availability across a rolling 14 days window,  by using the [change tracking](../../governance/resource-graph/how-to/get-resource-changes.md) mechanism for conducting detailed investigations.
 
-To get started with Resource Graph, open **Resource Graph Explorer** in the Azure portal. Select the **Table** tab and have a look at the [microsoft.resourcehealth/availabilitystatuses](#microsoftresourcehealthavailabilitystatuses) and [microsoft.resourcehealth/resourceannotations](#microsoft.resourcehealth/resourceannotations) tables which are described below. Click on **healthresources** to create a simple query and then click **Run** to return the records.
+To get started with Resource Graph, open **Resource Graph Explorer** in the Azure portal. Select the **Table** tab and have a look at the [microsoft.resourcehealth/availabilitystatuses](#microsoftresourcehealthavailabilitystatuses) and [microsoft.resourcehealth/resourceannotations](#microsoftresourcehealthresourceannotations) tables which are described below. Click on **healthresources** to create a simple query and then click **Run** to return the records.
 
 :::image type="content" source="media/monitor-virtual-machines/resource-graph-explorer-healthresources.png" alt-text="Screenshot of Azure Resource Graph with simple healthresources query." lightbox="media/monitor-virtual-machines/resource-graph-explorer-healthresources.png" :::
 
@@ -205,11 +205,11 @@ These annotations can be broadly classified into the following:
 
 | Field | Description |
 |:---|:---|
-| targetResourceType | Type of resource for which health data is flowing
-| targetResourceId | Resource Id
-| occurredTime | Timestamp when the latest availability state is emitted by the platform
-| annotationName | Name of the Annotation emitted
-| reason | Brief overview of the availability impact observed by the customer
+| targetResourceType | Type of resource for which health data is flowing |
+| targetResourceId | Resource Id |
+| occurredTime | Timestamp when the latest availability state is emitted by the platform |
+| annotationName | Name of the Annotation emitted |
+| reason | Brief overview of the availability impact observed by the customer |
 | category | Denotes whether the platform activity triggering the annotation was either planned maintenance or unplanned repair. This field is not applicable to customer/VM-initiated events.<br><br>Possible values: Planned \| Unplanned \| Not Applicable \| Null |
 | context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), or due to the Azure platform (platform initiated) or even activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \| VM-initiated | Not Applicable | Null |
 | summary | Statement detailing the cause for annotation emission, along with remediation steps that can be taken by users |
