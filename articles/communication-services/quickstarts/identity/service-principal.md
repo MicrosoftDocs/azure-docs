@@ -28,7 +28,7 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 - A setup Service Principal for a development environment, see [Authorize access with service principal](./service-principal-from-cli.md)
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [.NET](./includes/active-directory/service-principal-cli.md)]
+[!INCLUDE [AzCLI](./includes/active-directory/service-principal-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
