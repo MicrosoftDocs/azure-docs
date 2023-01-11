@@ -79,7 +79,7 @@ All security scenarios covered by the deprecated alerts are fully covered Defend
 
 If you already have the Defender for Endpoint integration enabled, no action is required on your part. In April 2023 you may experience a decrease in your alerts volume.
 
-If you currently don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no extra cost.  
+If you don't already have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no extra cost.  
 
 Learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
