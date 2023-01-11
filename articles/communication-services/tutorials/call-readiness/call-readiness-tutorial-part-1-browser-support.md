@@ -44,6 +44,7 @@ Create a new file called `PreparingYourSession.tsx` where we'll create a spinner
 import { useTheme } from '@azure/communication-react';
 import { ISpinnerStyles, IStackStyles, ITextStyles, ITheme, Spinner, Stack, Text } from '@fluentui/react';
 
+/** This page displays a spinner to the user. This is used to show the user that background checks are being performed. */
 export const PreparingYourSession = (): JSX.Element => {
   const theme = useTheme();
   return (
@@ -52,14 +53,8 @@ export const PreparingYourSession = (): JSX.Element => {
         <Spinner styles={spinnerStyles} />
       </Stack>
       <Stack horizontalAlign="center">
-        <Stack.Item>
-          <Text styles={headingStyles} variant="large">
-            Preparing your session
-          </Text>
-        </Stack.Item>
-        <Stack.Item>
-          <Text variant="medium">Please be patient</Text>
-        </Stack.Item>
+        <Text styles={headingStyles} variant="large">Preparing your session</Text>
+        <Text variant="medium">Please be patient</Text>
       </Stack>
     </Stack>
   );
@@ -135,9 +130,12 @@ First create a utility file call `environmentSupportUtils.ts`. Inside this call,
 import { Features, EnvrionmentInfo } from "@azure/communication-calling";
 import { StatefulCallClient } from "@azure/communication-react";
 
-/** Use the callClient's getEnvironmentInfo() method to retrieve the devices environment information. */
-export const checkEnvironmentSupport = async (callClient: StatefulCallClient): Promise<EnvironmentInfo> =>
-  await callClient.feature(Features.DebugInfo).getEnvironmentInfo();
+/** Use the CallClient's getEnvironmentInfo() method to check if the browser is supported. */
+export const checkBrowserSupport = async (callClient: StatefulCallClient): Promise<EnvironmentInfo> => {
+  const environmentInfo = await callClient.feature(Features.DebugInfo).getEnvironmentInfo();
+  console.info(environmentInfo); // view console logs in the browser to see what environment info is returned
+  return environmentInfo;
+}
 ```
 
 The data that returns from this call is the following:
@@ -164,22 +162,11 @@ Create a new file called `UnsupportedEnvironmentPrompts.tsx` where we'll create 
 import { UnsupportedOperatingSystem, UnsupportedBrowser, UnsupportedBrowserVersion } from '@azure/communication-react';
 import { Modal } from '@fluentui/react';
 
-export const BrowserUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Element => (
-  <Modal isOpen={props.isOpen}>
-    <UnsupportedBrowser
-      onTroubleshootingClick={() => alert('This callback should be used to take the user to further troubleshooting')}
-    />
-  </Modal>
-);
-
-export const OperatingSystemUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Element => (
-  <Modal isOpen={props.isOpen}>
-    <UnsupportedOperatingSystem
-      onTroubleshootingClick={() => alert('This callback should be used to take the user to further troubleshooting')}
-    />
-  </Modal>
-);
-
+/**
+ * Modal dialog that shows a Browser Version Unsupported Prompt
+ * Use the `onTroubleShootingClick` argument to redirect the user to further troublshooting.
+ * Use the `onContinueAnywayClick` argument to allow the user to continue to the next step even though they are on an unsupported browser version.
+ */
 export const BrowserVersionUnsupportedPrompt = (props: { isOpen: boolean, onContinueAnyway:() => void }): JSX.    Element => (
   <Modal isOpen={props.isOpen}>
     <UnsupportedBrowserVersion
@@ -189,6 +176,29 @@ export const BrowserVersionUnsupportedPrompt = (props: { isOpen: boolean, onCont
   </Modal>
 );
 
+/**
+ * Modal dialog that shows a Browser Unsupported Prompt
+ * Use the `onTroubleShootingClick` argument to redirect the user to further troublshooting.
+ */
+export const BrowserUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Element => (
+  <Modal isOpen={props.isOpen}>
+    <UnsupportedBrowser
+      onTroubleshootingClick={() => alert('This callback should be used to take the user to further troubleshooting')}
+    />
+  </Modal>
+);
+
+/**
+ * Modal dialog that shows an Operating System Unsupported Prompt
+ * Use the `onTroubleShootingClick` argument to redirect the user to further troublshooting.
+ */
+export const OperatingSystemUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Element => (
+  <Modal isOpen={props.isOpen}>
+    <UnsupportedOperatingSystem
+      onTroubleshootingClick={() => alert('This callback should be used to take the user to further troubleshooting')}
+    />
+  </Modal>
+);
 ```
 
 We can then show these prompts in a Environment Check Component.

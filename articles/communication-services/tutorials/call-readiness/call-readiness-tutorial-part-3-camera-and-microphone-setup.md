@@ -233,6 +233,7 @@ To house these new components, we'll create a file called `DeviceSelectionCompon
 import { Dropdown } from '@fluentui/react';
 import { useCameras, useMicrophones, useSpeakers } from './deviceSetupHooks';
 
+/** Dropdown that allows the user to choose their desired camera */
 export const CameraSelectionDropdown = (): JSX.Element => {
   const { cameras, selectedCamera, setSelectedCamera } = useCameras();
   return (
@@ -251,6 +252,7 @@ export const CameraSelectionDropdown = (): JSX.Element => {
   );
 };
 
+/** Dropdown that allows the user to choose their desired microphone */
 export const MicrophoneSelectionDropdown = (): JSX.Element => {
   const { microphones, selectedMicrophone, setSelectedMicrophone } = useMicrophones();
   return (
@@ -269,6 +271,7 @@ export const MicrophoneSelectionDropdown = (): JSX.Element => {
   );
 };
 
+/** Dropdown that allows the user to choose their desired speaker */
 export const SpeakerSelectionDropdown = (): JSX.Element => {
   const { speakers, selectedSpeaker, setSelectedSpeaker } = useSpeakers();
   return (
@@ -416,6 +419,7 @@ import { VideoOff20Filled } from '@fluentui/react-icons';
 import { useEffect } from 'react';
 import { useCameras, useLocalPreview } from './deviceSetupHooks';
 
+/** LocalPreview component has a camera and microphone toggle buttons, along with a video preview of the local camera. */
 export const LocalPreview = (props: {
   cameraOn: boolean,
   microphoneOn: boolean,
@@ -464,6 +468,7 @@ export const LocalPreview = (props: {
   );
 };
 
+/** Placeholder shown in the local preview window when the camera is off */
 const CameraOffPlaceholder = (): JSX.Element => {
   const theme = useTheme();
   return (
@@ -478,6 +483,7 @@ const CameraOffPlaceholder = (): JSX.Element => {
   );
 };
 
+/** Default styles for the local preview container */
 const localPreviewContainerMergedStyles = (theme: ITheme): string =>
   mergeStyles({
     minWidth: '25rem',

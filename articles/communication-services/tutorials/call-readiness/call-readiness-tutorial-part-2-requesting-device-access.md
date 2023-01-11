@@ -41,18 +41,22 @@ from the UI Library. Like the Unsupported Browser prompt, we'll also host these 
 import { CameraAndMicrophoneSitePermissions } from '@azure/communication-react';
 import { Modal } from '@fluentui/react';
 
+/** Modal dialog that prompt the user to accept the Browser's device permission request. */
 export const AcceptDevicePermissionRequestPrompt = (props: { isOpen: boolean }): JSX.Element => (
   <PermissionsModal isOpen={props.isOpen} type="request" />
 );
 
+/** Modal dialog that informs the user we are checking for device access. */
 export const CheckingDeviceAccessPrompt = (props: { isOpen: boolean }): JSX.Element => (
   <PermissionsModal isOpen={props.isOpen} type="check" />
 )
 
+/** Modal dialog that informs the user they denied permission to the camera or microphone with corrective steps. */
 export const PermissionsDeniedPrompt = (props: { isOpen: boolean }): JSX.Element => (
   <PermissionsModal isOpen={props.isOpen} type="denied" />
 );
 
+/** Base component utilitzed by the above prompts for better code separation. */
 const PermissionsModal = (props: { isOpen: boolean, type: "denied" | "request" | "check" }): JSX.Element => (
   <Modal isOpen={props.isOpen}>
     <CameraAndMicrophoneSitePermissions
@@ -88,16 +92,20 @@ export const checkDevicePermissionsState = async (): Promise<{camera: Permission
       navigator.permissions.query({ name: "microphone" as PermissionName }),
       navigator.permissions.query({ name: "camera" as PermissionName })
     ]);
+    console.info('PermissionAPI results', [micPermissions, cameraPermissions]); // view console logs in the browser to see what the PermissionsAPI info is returned
     return { camera: cameraPermissions.state, microphone: micPermissions.state };
   } catch (e) {
-    console.info("Permissions API unsupported", e);
+    console.warn("Permissions API unsupported", e);
     return 'unknown';
   }
 }
 
 /** Use the DeviceManager to request for permissions to access the camera and microphone. */
-export const requestCameraAndMicrophonePermissions = async (callClient: StatefulCallClient): Promise<DeviceAccess> =>
-  await (await callClient.getDeviceManager()).askDevicePermission({ audio: true, video: true });
+export const requestCameraAndMicrophonePermissions = async (callClient: StatefulCallClient): Promise<DeviceAccess> => {
+  const response = await (await callClient.getDeviceManager()).askDevicePermission({ audio: true, video: true });
+  console.info('AskDevicePermission response', response); // view console logs in the browser to see what device access info is returned
+  return response
+}
 ```
 
 ### Prompting the user to grant access to the camera and microphone
