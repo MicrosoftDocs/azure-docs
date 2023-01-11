@@ -20,7 +20,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
-- A [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) user role for the Azure subscription that you'll be using for the integration
+- A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you'll be using for the integration
 
 ## Calculate committed devices for OT monitoring
 
@@ -55,7 +55,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     - **Subscription**. Select the subscription where you would like to add a plan.
 
-        You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+        You'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
         > [!TIP]
         > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.

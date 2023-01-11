@@ -79,6 +79,9 @@ On this part of the screen you see:
 
 - **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.
 
+    > [!NOTE]
+    > Currently, this information is available only for GitHub repositories.
+
 ## Learn more
 
 - You can learn more about DevOps from our [DevOps resource center](/devops/).
