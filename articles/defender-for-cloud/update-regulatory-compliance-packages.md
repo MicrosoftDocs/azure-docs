@@ -53,7 +53,7 @@ Available regulatory standards:
 
 **AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
-Users that have one Defender bundle enabled can enable additional standards. 
+Users that have one Defender bundle enabled can enable other standards. 
 
 Available AWS regulatory standards:
 
@@ -76,7 +76,7 @@ More standards will be added to the dashboard and included in the information on
 
 **GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned. 
 
-Users that have one Defender bundle enabled can enable additional standards. 
+Users that have one Defender bundle enabled can enable other standards. 
 
 Available GCP regulatory standards:
 
