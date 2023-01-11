@@ -36,7 +36,7 @@ For more information, see [Validate your content](ci-cd-custom-content.md#valida
 
 ## Customize the workflow or pipeline
 
-The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder.
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may need other customizations such as to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -158,11 +158,11 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, you can [use a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). You can then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+Rather than passing parameters as inline values in your content files, consider [using a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
  
 :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-1. Is there a mapping in the sentinel-deployment.config? [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration) to learn more.
+1. Is there a mapping in the *sentinel-deployment.config*? [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration) to learn more.
 1. Is there a workspace-mapped parameter file? This would be a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
 1. Is there a default parameter file? This would be any parameter file in the same directory as the content files that ends with *.parameters.json*
      
