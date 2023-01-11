@@ -96,7 +96,7 @@ In order to import an SSL certificate, you'll first need to download a security 
 
 1. In the hosts file, add in a line at the end of document with the sensor's IP address and the SSL certificate's common name that you copied in the previous steps. When you're done, save the changes. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png":::
 
 ## Test certificates you create
 
