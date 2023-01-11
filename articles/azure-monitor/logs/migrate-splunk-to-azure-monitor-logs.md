@@ -120,6 +120,6 @@ This table lists the tools to use to collect data from various resource types.
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 - [Use Azure policies](/azure/governance/policy/overview) to define rules to enforce organizational standards and to assess compliance at-scale.
-- Take the [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/) training.
+- Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 
