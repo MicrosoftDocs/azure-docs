@@ -77,7 +77,7 @@ To activate Grafana Enterprise plugins when creating an Azure Managed Grafana Wo
 To enable Grafana Enterprise on an existing Azure Managed Grafana instance, follow the steps below:
 
   1. In the Azure portal, open your Grafana instance and under **Settings**, select **Grafana Enterprise**.
-       :::image type="content" source="media/grafana-enterprise/enable-grafana-enterprise.png" alt-text="Screenshot of the Grafana dashboard showing how to enable Grafana enterprise on an existing workspace.":::
+       :::image type="content" source="media/grafana-enterprise/enable-grafana-enterprise.png" alt-text="Screenshot of the Grafana dashboard showing how to enable Grafana enterprise on an existing workspace." lightbox="media/grafana-enterprise/enable-grafana-enterprise.png":::
   1. Select **Free Trial - Azure Managed Grafana Enterprise Upgrade** to test Grafana Enterprise for free or select the monthly plan. Review the associated costs to make sure that you selected a plan that suits you. Recurring billing is disabled by default.
         > [!CAUTION]
         > Each Azure subscription can benefit from one free Grafana Enterprise trial. The free trial lets you try the Grafana Enterprise plan for one month. If you select a free trial and enable recurring billing, you will start getting charged after the end of your first month. Disable recurring billing if you just want to test Grafana Enterprise.
