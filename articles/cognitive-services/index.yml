@@ -148,7 +148,7 @@ conceptualContent:
       links:
         - url: ./speech-service/captioning-concepts.md
           itemType: get-started
-          text: Captionining
+          text: Captioning
         - url: ./speech-service/call-center-overview.md
           itemType: get-started
           text: Call Center Transcription

@@ -39,7 +39,7 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 * blob.core.windows.net
 * core.windows.net
 * vaultcore.windows.net
-* vault.azure.com
+* vault.azure.net
 * azure.com
 
 You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).

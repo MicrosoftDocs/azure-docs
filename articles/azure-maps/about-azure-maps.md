@@ -178,7 +178,7 @@ Maps Creator provides the following services:
 
 * [Feature State service][FeatureState]. Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
 
-* [WFS service][WFS]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
+* [WFS service][WFS]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](https://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
 
 * [Wayfinding service][wayfinding-preview] (preview). Use the [wayfinding API][wayfind] to generate a path between two points within a facility. Use the [routeset API][routeset] to create the data that the wayfinding service needs to generate paths.
 

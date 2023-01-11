@@ -3,8 +3,7 @@ title: Resources for creating Microsoft Sentinel custom connectors | Microsoft D
 description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
 author: limwainstein
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/21/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
 ---
 
