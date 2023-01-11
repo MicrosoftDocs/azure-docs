@@ -156,7 +156,7 @@ The available profiles are:
 - AzureChinaCloud
 - AzureUSGovernment
 
-You can customize these profiles, or add new profiles for your on-premise environments.
+You can customize these profiles, or add new profiles for your on-premises environments.
 
 The available credential types are:
 
