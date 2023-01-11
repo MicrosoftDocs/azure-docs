@@ -55,15 +55,15 @@ The Microsoft Sentinel solution for **Zero Trust (TIC 3.0)** is useful for any o
 
 Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the following prerequisites:
 
-- **Onboard Microsoft services**: Make sure that you have both [Microsoft Sentinel](quickstart-onboard.md) and [Microsoft Defender for Cloud](/azure/defender-for-cloud/get-started) enabled in your Azure subscription.
+- **Onboard Microsoft services**: Make sure that you have both [Microsoft Sentinel](quickstart-onboard.md) and [Microsoft Defender for Cloud](../defender-for-cloud/get-started.md) enabled in your Azure subscription.
 
 - **Microsoft Defender for Cloud requirements**: In Microsoft Defender for Cloud:
 
     - Add required regulatory standards to your dashboard. Make sure to add both the *Azure Security Benchmark* and *NIST SP 800-53 R5 Assessments* to your Microsoft Defender for Cloud dashboard. For more information, see [add a regulatory standard to your dashboard](/azure/security-center/update-regulatory-compliance-packages?WT.mc_id=Portal-fx#add-a-regulatory-standard-to-your-dashboard) in the Microsoft Defender for Cloud documentation.
 
-    - Continuously export Microsoft Defender for Cloud data to your Log Analytics workspace. For more information, see [Continuously export Microsoft Defender for Cloud data](/azure/defender-for-cloud/continuous-export?tabs=azure-portal).
+    - Continuously export Microsoft Defender for Cloud data to your Log Analytics workspace. For more information, see [Continuously export Microsoft Defender for Cloud data](../defender-for-cloud/continuous-export.md?tabs=azure-portal).
 
-- **Required user permissions**. To install the **Zero Trust (TIC 3.0)** solution, you must have access to your Microsoft Sentinel workspace with [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader) permissions.
+- **Required user permissions**. To install the **Zero Trust (TIC 3.0)** solution, you must have access to your Microsoft Sentinel workspace with [Security Reader](../active-directory/roles/permissions-reference.md#security-reader) permissions.
 
 ## Install the Zero Trust (TIC 3.0) solution
 
@@ -163,13 +163,13 @@ For more information, see [Use Azure Monitor workbooks to visualize and monitor 
 
 ### Is this available in government regions?
 
-Yes. The **Zero Trust (TIC 3.0)** solution is in Public Preview and deployable to Commercial/Government regions. For more information, see [Cloud feature availability for commercial and US Government customers](/azure/security/fundamentals/feature-availability).
+Yes. The **Zero Trust (TIC 3.0)** solution is in Public Preview and deployable to Commercial/Government regions. For more information, see [Cloud feature availability for commercial and US Government customers](../security/fundamentals/feature-availability.md).
 
 ### Which permissions are required to use this content?
 
-- [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) users can create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
+- [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) users can create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
 
-- [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader) users can view data, incidents, workbooks, and other Microsoft Sentinel resources.
+- [Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) users can view data, incidents, workbooks, and other Microsoft Sentinel resources.
 
 For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
