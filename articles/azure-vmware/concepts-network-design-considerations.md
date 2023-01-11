@@ -3,7 +3,7 @@ title: Concepts - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 12/22/2022
+ms.date: 1/10/2023
 ---
 
 # Azure VMware Solution network design considerations
@@ -12,7 +12,7 @@ Azure VMware Solution offers a VMware private cloud environment accessible for u
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises. If you're running two or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are not met, you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses equal cost multi-pathing (ECMP) to send traffic towards your environment over both ExpressRoute circuits. That action causes issues with stateful firewall inspection.
+Azure VMware Solution is compatible with AS-Path Prepend for redundant ExpressRoute configurations with the caveat of not honoring the outbound path selection from Azure towards on-premises. If you're running two or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are not met, you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses equal cost multi-pathing (ECMP) to send traffic towards your environment over both ExpressRoute circuits. That action causes issues with stateful firewall inspection.
 
 ### Prerequisites
 
