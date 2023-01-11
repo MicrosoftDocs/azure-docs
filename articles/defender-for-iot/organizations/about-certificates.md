@@ -40,11 +40,11 @@ Validation is evaluated against:
 Validation is carried out twice:
 
 1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate can't be uploaded.
-1. When initiating encrypted communication between:
+1. When initiating encrypted communication between Defender for IoT system components.
 
-    - Defender for IoT system components, for example, a sensor and on-premises management console.
+    For example, when initiating encrypted communication between a sensor and on-premises management console, or between Defender for IoT and certain third party servers defined in alert forwarding rules.
 
-    - Defender for IoT and certain third party servers defined in alert forwarding rules. For more information, see [Forward OT alert information](how-to-forward-alert-information-to-partners.md).
+    For more information, see [Forward OT alert information](how-to-forward-alert-information-to-partners.md).
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
@@ -58,11 +58,7 @@ If the certificate isn't created properly by the certificate lead or there are c
 
 The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continue, even if a certificate is invalid.
 
-## Supported SSL certificates
-
-something else.
-
-### CRL server access for certificate validation
+## CRL server access for certificate validation
 
 If you are working with certificate validation, verify access to port 80 is available.
 
@@ -78,7 +74,7 @@ Some organizational security policies may block access to this port. If your org
 
 1. Use a proxy server that will access the CRL on port 80.
 
-### Supported certificate file types
+## Supported certificate file types
 
 Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require a .pem file. Defender for IoT doesn't require this file type.
 
@@ -96,44 +92,40 @@ PEM is a text file that contains Base64 encoding of the certificate text, a plai
 
 You may need to convert existing files types to supported types. See [Convert existing files to supported files](how-to-deploy-certificates.md#convert-existing-files-to-supported-files) for details.
 
-### Certificate file parameter requirements
+## Certificate file parameter requirements
 
 Verify that you've met the following parameter requirements before creating a certificate:
 
-- [CRT file requirements](#crt-file-requirements)
-- [Key file requirements](#key-file-requirements)
-- [Using a certificate chain (optional)](#using-a-certificate-chain-optional)
+1. CRT file requirements:
 
-### CRT file requirements
+    | Field | Requirement |
+    |---------|---------|
+    | **Signature Algorithm** | SHA256RSA |
+    | **Signature Hash Algorithm** | SHA256 |
+    | **Valid from** | Valid past date |
+    | **Valid To** | Valid future date |
+    | **Public Key** | RSA 2048 bits (Minimum) or 4096 bits |
+    | **CRL Distribution Point** | URL to .crl file |
+    | **Subject CN (Common Name)** | domain name of the appliance; for example, Sensor.contoso.com, or *.contoso.com |
+    | **Subject (C)ountry** | defined, for example, US |
+    | **Subject (OU) Org Unit** | defined, for example, Contoso Labs |
+    | **Subject (O)rganization** | defined, for example, Contoso Inc. |
 
-This section covers .crt field requirements.
+    > [!IMPORTANT]
+    > Certificates with other parameters might work, but Microsoft doesn't support them.
+    > Wildcard SSL certificates (public key certificates that can be used on multiple subdomains such as *.contoso.com) are not supported and insecure. Each appliance should use a unique CN.
 
-- Signature Algorithm = SHA256RSA
-- Signature Hash Algorithm = SHA256
-- Valid from = Valid past date
-- Valid To = Valid future date
-- Public Key = RSA 2048 bits (Minimum) or 4096 bits
-- CRL Distribution Point = URL to .crl file
-- Subject CN (Common Name) = domain name of the appliance; for example, Sensor.contoso.com, or *.contoso.com.  
-- Subject (C)ountry = defined, for example, US
-- Subject (OU) Org Unit = defined, for example, Contoso Labs
-- Subject (O)rganization = defined, for example, Contoso Inc.
+1. Key file requirements:
 
-> [!IMPORTANT]
-> Certificates with other parameters might work, but Microsoft doesn't support them.
-> Wildcard SSL certificates (public key certificates that can be used on multiple subdomains such as *.contoso.com) are not supported and insecure. Each appliance should use a unique CN.
+    Use either RSA 2048 bits or 4096 bits.
 
-### Key file requirements
+    When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. In addition, there's an increase in CPU usage during handshakes.
 
-Use either RSA 2048 bits or 4096 bits.
+1. Using a certificate chain (optional)
 
-When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. In addition, there's an increase in CPU usage during handshakes.
+    A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate.
 
-### Using a certificate chain (optional)
-
-A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate.
-
-Bag attributes are supported in the certificate chain file.
+    Bag attributes are supported in the certificate chain file.
 
 ## Next steps
 

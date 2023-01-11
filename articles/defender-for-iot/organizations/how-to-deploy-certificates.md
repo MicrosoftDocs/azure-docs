@@ -1,5 +1,5 @@
 ---
-title: Setting SSL/TLS appliance certificates
+title: Deploying SSL/TLS appliance certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
 ms.date: 01/05/2023
 ms.topic: how-to
@@ -22,7 +22,7 @@ To deploy certificates, verify that:
 
 ## Create SSL certificates
 
-Use a certificate management platform to create [a certificate](about-certificates.md#supported-ssl-certificates); for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
+Use a certificate management platform to create [a certificate](about-certificates.md#supported-certificate-file-types); for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
 
 If you aren't carrying out [certificate validation](about-certificates.md#crl-server-access-for-certificate-validation), remove the CRL URL reference in the certificate. See [CRT file requirements](about-certificates.md#crt-file-requirements) for information about this parameter.
 
