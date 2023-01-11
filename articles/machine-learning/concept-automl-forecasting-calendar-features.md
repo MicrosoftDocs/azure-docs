@@ -15,7 +15,7 @@ ms.date: 12/15/2022
 
 # Calendar features for time series forecasting in AutoML
 
-This article focuses on the calendar-based features that AutoML creates to increase the accuracy of forecasting regression models. See the [methods overview article](./concept-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
+This article focuses on the calendar-based features that AutoML creates to increase the accuracy of forecasting regression models. Since holidays can have a strong influence on how the modeled system behaves, the time before, during, and after a holiday can bias the series’ patterns. Each holiday generates a window over your existing dataset that the learner can assign an effect to. This can be especially useful in scenarios such as holidays that generate high demands for specific products. See the [methods overview article](./concept-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
 As a part of feature engineering, AutoML transforms datetime type columns provided in the training data into new columns of calendar-based features. These features can help regression models learn seasonal patterns at several cadences. AutoML can always create calendar features from the time index of the time series since this is a required column in the training data. Calendar features are also made from other columns with datetime type, if any are present. See the [how AutoML uses your data](./concept-automl-forecasting-methods.md#how-automl-uses-your-data) guide for more information on data requirements.
 
@@ -99,3 +99,9 @@ The generated holiday features look like the following:
 <a name='output'><img src='./media/concept-automl-forecasting-calendar-features/sample_dataset_holiday_feature_generated.png' alt='sample_data_output' width=75%></img></a>
 
 Note that generated features have the prefix `_automl_` prepended to their column names. AutoML generally uses this prefix to distinguish input features from engineered features.
+
+## Next steps
+* Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
+* Browse [AutoML Forecasting Frequently Asked Questions](./how-to-automl-forecasting-faq.md).
+* Learn about [AutoML Forecasting Lagged Features](./concept-automl-forecasting-lags.md).
+* Learn about [how AutoML uses machine learning to build forecasting models](./concept-automl-forecasting-methods.md).

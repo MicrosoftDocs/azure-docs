@@ -30,7 +30,7 @@ We're always working to make it faster and more scalable! To work as a general f
 
 One common source of slow runtime is training AutoML with default settings on data containing numerous time series. The cost of many forecasting methods scales with the number of series. For example, methods like Exponential Smoothing and Prophet [train a model for each time series](./concept-automl-forecasting-methods.md#model-grouping) in the training data. **The Many Models feature of AutoML scales to these scenarios** by distributing training jobs across a compute cluster and has been successfully applied to data with millions of time series. For more information, see the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) article. You can also read about [the success of Many Models](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition data set.
 
-#### How can I made AutoML faster?
+#### How can I make AutoML faster?
 See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer to understand why it may be slow in your case.
 Consider the following configuration changes that may speed up your job:
 - Block time series models like ARIMA and Prophet
@@ -167,3 +167,9 @@ If your AutoML forecasting job fails, you will see an error message in the studi
 ### What is a workspace / environment / experiment/ compute instance / compute target? 
 
 If you aren't familiar with Azure Machine Learning concepts, start with the ["What is AzureML"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.
+
+## Next steps
+* Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).
+* Learn about [calendar features for time series forecasting in AutoML](./concept-automl-forecasting-calendar-features.md).
+* Learn about [how AutoML uses machine learning to build forecasting models](./concept-automl-forecasting-methods.md).
+* Learn about [AutoML Forecasting Lagged Features](./concept-automl-forecasting-lags.md).
