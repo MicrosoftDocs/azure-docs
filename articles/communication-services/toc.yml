@@ -101,8 +101,10 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
   - name: UI Library
     items:
-    - name: Get started with UI Library
+    - name: Get started with Calling
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Get started with Chat
+      href: quickstarts/ui-library/get-started-chat-ui-library.md
     - name: Design with UI Library Design Kit
       href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Teams interoperability
@@ -401,6 +403,8 @@ items:
         href: how-tos/calling-sdk/browser-support.md
       - name: Verify if an application is active in multiple tabs of a browser
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
+      - name: Integrate with CallKit in iOS
+        href: how-tos/calling-sdk/callkit-integration.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization
