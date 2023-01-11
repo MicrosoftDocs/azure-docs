@@ -218,8 +218,8 @@ In this section, you create a Python script to receive events from your event hu
     )
     from azure.identity.aio import DefaultAzureCredential
     
-    AZURE_STORAGE_CONNECTION_STRING = "AZURE_STORAGE_CONNECTION_STRING"
-    BLOB_CONTAINER_NAME = "BLOB_CONTAINER_NAME"
+    BLOB_STORAGE_ACCOUNT_URL = "BLOB_STORAGE_ACCOUNT_URL"
+    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
     EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT_HUBS_NAMESPACE"
     EVENT_HUB_NAME = "EVENT_HUB_NAME"
     
@@ -240,9 +240,12 @@ In this section, you create a Python script to receive events from your event hu
     
     async def main():
         # Create an Azure blob checkpoint store to store the checkpoints.
-        checkpoint_store = BlobCheckpointStore.from_connection_string(
-            AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER_NAME
+        checkpoint_store = BlobCheckpointStore(
+            blob_account_url=BLOB_STORAGE_ACCOUNT_URL,
+            container_name=BLOB_CONTAINER_NAME,
+            credential=credential,
         )
+    
     
         # Create a consumer client for the event hub.
         client = EventHubConsumerClient(
@@ -270,7 +273,7 @@ In this section, you create a Python script to receive events from your event hu
 
     In the code, use real values to replace the following placeholders:
 
-    * `AZURE_STORAGE_CONNECTION_STRING`
+    * `BLOB_STORAGE_CONNECTION_STRING`
     * `BLOB_CONTAINER_NAME`
     * `EVENT_HUB_CONNECTION_STR`
     * `EVENT_HUB_NAME`
@@ -283,7 +286,7 @@ In this section, you create a Python script to receive events from your event hu
         BlobCheckpointStore,
     )
     
-    AZURE_STORAGE_CONNECTION_STRING = "AZURE_STORAGE_CONNECTION_STRING"
+    BLOB_STORAGE_CONNECTION_STRING = "BLOB_STORAGE_CONNECTION_STRING"
     BLOB_CONTAINER_NAME = "BLOB_CONTAINER_NAME"
     EVENT_HUB_CONNECTION_STR = "EVENT_HUB_CONNECTION_STR"
     EVENT_HUB_NAME = "EVENT_HUB_NAME"
@@ -305,7 +308,7 @@ In this section, you create a Python script to receive events from your event hu
     async def main():
         # Create an Azure blob checkpoint store to store the checkpoints.
         checkpoint_store = BlobCheckpointStore.from_connection_string(
-            AZURE_STORAGE_CONNECTION_STRING, BLOB_CONTAINER_NAME
+            BLOB_STORAGE_CONNECTION_STRING, BLOB_CONTAINER_NAME
         )
     
         # Create a consumer client for the event hub.
