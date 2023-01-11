@@ -14,7 +14,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 |**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3 Gbps <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported, Available pre-configured|
+|**Status** | Supported, available pre-configured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
 
@@ -90,7 +90,7 @@ This section describes how to install OT sensor software on the HPE ProLiant DL3
 During this procedure, you'll configure the iLO port. We recommend that you also change the default password provided for the administrative user.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Enable remote access and update the password

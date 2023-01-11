@@ -15,7 +15,7 @@ The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises managemen
 |---------|---------|
 |**Hardware profile** | E1800 |
 |**Performance** | 	Max bandwidth: 1 Gbps <br>Max devices: 10,000<br> Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
-|**Physical specifications** | Mounting: 1U <br> Minimum dimensions (H x W x D) 1.70 x 17.11 x 15.05 in<br>Minimum dimensions (H x W x D)4.32 x 43.46 x 38.22 cm|
+|**Physical specifications** | Mounting: 1U <br> Minimum dimensions (H x W x D) 1.70 x 17.11 x 15.05 in<br>Minimum dimensions (H x W x D) 4.32 x 43.46 x 38.22 cm|
 |**Status** | Supported, available pre-configured |
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
@@ -76,7 +76,7 @@ Optional modules for port expansion include:
 | PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25Gb 2-port SFP28 Adapter for HPE |
 | PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
 | PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1 Gb 4-port BASE-T Adapter for HPE |
-| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25 Gb 2-port SFP28 Adapter for HPE |
 | PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
@@ -93,7 +93,7 @@ Installation includes:
 - Installing Defender for IoT software
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Enable remote access and update the password
