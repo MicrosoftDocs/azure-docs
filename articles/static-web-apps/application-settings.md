@@ -24,7 +24,7 @@ Application settings are encrypted at rest, copied to [staging](review-publish-p
 ## Prerequisites
 
 - An Azure Static Web Apps application
-- [Azure CLI](/cli/azure/install-azure-cli)-required to use the command line
+- [Azure CLI](/cli/azure/install-azure-cli)-required if you are using the command line
 
 ## Configure API application settings for local development
 
