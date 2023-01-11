@@ -83,7 +83,7 @@ In this release, we've made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
    - MMR now works on remote app browser and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](./multimedia-redirection-intro.md).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md).
+   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md).
 
 ## Updates for version 1.2.3497
 
@@ -187,7 +187,7 @@ In this release, we've made the following changes:
 - Updated the error message that appears when users are unable to subscribe to their feed.
 - Updated the disconnect dialog boxes that appear when the user locks their remote session or puts their local computer in sleep mode to be only informational.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- [Multimedia redirection for Azure Virtual Desktop (preview)](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
+- [Multimedia redirection for Azure Virtual Desktop](./multimedia-redirection.md) now has an update that gives it more site and media control compatibility.
 - Improved connection reliability for Teams on Azure Virtual Desktop.
 
 ## Updates for version 1.2.2927
