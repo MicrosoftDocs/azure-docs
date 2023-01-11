@@ -28,7 +28,7 @@ In addition to the data they contain, blobs support system properties and user-d
 > [!NOTE]
 > Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
 >
-> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index (preview)](storage-manage-find-blobs.md).
+> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index](storage-manage-find-blobs.md).
 
 ## Set and retrieve properties
 
