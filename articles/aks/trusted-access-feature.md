@@ -68,7 +68,7 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 
 ## Select the required Trusted Access Roles
 
-The roles you select depend on the different Azure services. AzureML now supports access to AKS clusters with the Trusted Access feature. To preview this feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
+The roles you select depend on the different Azure services. Azure Machine Learning (AzureML) now supports access to AKS clusters with the Trusted Access feature. To preview this feature in AzureML, see [AzureML access to AKS clusters with special configurations](../machine-learning/azureml-aks-ta-support.md).
 
 ## Create a Trusted Access RoleBinding
 
