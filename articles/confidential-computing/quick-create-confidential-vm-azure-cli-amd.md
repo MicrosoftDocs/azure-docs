@@ -44,7 +44,7 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location(*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
 For `size`, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
 
-Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. Enabling secure boot is optional, but recommended. For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
+Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. Enabling secure boot is optional, but recommended. For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
 
 ```azurecli-interactive
 az vm create \
@@ -108,7 +108,7 @@ az keyvault set-policy -n keyVaultName -g myResourceGroup --object-id $desIdenti
   ```azurecli-interactive
 $diskEncryptionSetID=(az disk-encryption-set show -n diskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
   ```
-6. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key. Enabling secure boot is optional, but recommended.  For more information, see [secure boot and vTPM](/azure/virtual-machines/trusted-launch). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
+6. Create a VM with the [az vm create](/cli/azure/vm) command. Choose `DiskWithVMGuestState` for OS disk confidential encryption with a customer-managed key. Enabling secure boot is optional, but recommended.  For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
 
   ```azurecli-interactive
 az vm create \

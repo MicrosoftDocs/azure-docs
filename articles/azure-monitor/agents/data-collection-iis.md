@@ -31,7 +31,10 @@ The [data collection rule](../essentials/data-collection-rule-overview.md) defin
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
 
-Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
+You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
+
+> [!NOTE]
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 To create the data collection rule in the Azure portal:
 
@@ -151,4 +154,4 @@ Learn more about:
 
 - [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - [Data collection rules](../essentials/data-collection-rule-overview.md).
-- [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md).

@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/03/2023
+ms.date: 01/06/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,17 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version |
 |---------|----------------|
-| Public  | 10.7.10        |
-| Beta    | 10.8.0         |
+| Public  | 10.8.0         |
+| Beta    | N/A            |
+
+## Updates for Version 10.8.0
+
+*Date published: December 14, 2022*
+
+In this release, we've made the following changes:
+
+- Fixed a few bugs, cleaned up some underlying code, and made changes to prepare for future updates.
+- Added a button to the General Preferences dialog that allows you to clear stored PC thumbnails.
 
 ## Updates for Version 10.7.10
 
@@ -60,7 +69,7 @@ In this release we added the following new features:
 
 We've also:
 
-- Added support for audio and video stream optimizations when connecting to Azure Virtual Desktop session hosts that support Teams redirection. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](/azure/virtual-desktop/teams-on-avd).
+- Added support for audio and video stream optimizations when connecting to Azure Virtual Desktop session hosts that support Teams redirection. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).
 - Made updates to improve connectivity, performance and diagnostic metrics when connecting to Azure Virtual Desktop deployments.
 
 With respect to bugs and smaller features, the following list summarizes some highlights:
@@ -135,7 +144,7 @@ In this release, we've made the following changes:
 - Added support for moving the local window while using RemoteApps.
   - By default, local window movement in RemoteApp scenarios is disabled. To enable local window movement, set the **EnableRemoteAppLocalMove** policy to **True**.
 - Updated the Connection Information prompt that appears when you go to **Connections** > **Show Connection Information**.
-- Added [screen capture protection for Azure Virtual Desktop scenarios](/azure/virtual-desktop/screen-capture-protection).
+- Added [screen capture protection for Azure Virtual Desktop scenarios](../screen-capture-protection.md).
 - Addressed an issue that allowed folders to be redirected multiple times.
 - Added a link to the new support forum at **Help** > **Submit feedback**.
 - Updates improving security, connectivity and performance while connecting to Azure Virtual Desktop.
