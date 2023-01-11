@@ -1,0 +1,24 @@
+items:
+- name: 'Azure Communications Gateway documentation'
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Communications Gateway?
+    href: overview.md
+- name: Deployment
+  items:
+  - name: Prepare to deploy
+    href: prepare-to-deploy.md
+  - name: Deploy
+    href: deploy.md
+  - name: Prepare for live traffic
+    href: prepare-for-live-traffic.md
+- name: Concepts
+  items:
+  - name: Interoperability with Microsoft Operator Connect and Teams Phone Mobile
+    href: interoperability.md
+- name: How-to guides
+  items:
+  - name: Plan and manage costs
+    href: plan-and-manage-costs.md
