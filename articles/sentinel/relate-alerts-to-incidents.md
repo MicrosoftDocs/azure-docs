@@ -23,6 +23,34 @@ This feature is built into the latest version of the Microsoft Sentinel API, whi
 
 You can also use this automation to add alerts to [manually-created incidents](create-incident-manually.md), to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
 
+## Add alerts using the entity timeline (Preview)
+
+The entity timeline, as featured in the new [incident experience](incident-investigation.md) (now in Preview), presents all the entities in a particular incident investigation. When an entity in the list is selected, a miniature entity page is displayed in a side panel.
+
+1. From the Microsoft Sentinel navigation menu, select **Incidents**.
+
+    :::image type="content" source="media/investigate-incidents/incident-grid.png" alt-text="Screenshot of new incidents queue displayed in a grid." lightbox="media/investigate-incidents/incident-grid.png":::
+
+1. Select an incident to investigate. In the incident details panel, select **View full details**.
+
+1. In the incident page, select the **Entities** tab.
+
+    :::image type="content" source="media/investigate-incidents/entities-tab.png" alt-text="Screenshot of entities tab in incident page." lightbox="media/investigate-incidents/entities-tab.png":::
+
+1. Select an entity from the list.
+
+1. In the entity page panel that opens up, select the **Timeline** card.
+
+    :::image type="content" source="media/relate-alerts-to-incidents/entity-timeline.png" alt-text="Screenshot of entity timeline card in entities tab of incident page.":::
+
+1. Select an alert external to the open incident. These are indicated by a grayed-out shield icon and a dotted-line color band representing the severity. Select the plus-sign icon on the right end of that alert.
+
+    :::image type="content" source="media/relate-alerts-to-incidents/external-alert.png" alt-text="Screenshot of appearance of external alert in entity timeline.":::
+
+1. Confirm adding the alert to the incident by selecting **OK**. You'll receive a notification confirming the adding of the alert to the incident, or explaining why it was not added.
+    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-to-incident.png" alt-text="Screenshot of adding an alert to an incident in the entity timeline.":::
+
+
 ## Add alerts using the investigation graph
 
 The [investigation graph](investigate-cases.md) is a visual, intuitive tool that presents connections and patterns and enables your analysts to ask the right questions and follow leads. You can use it to add alerts to and remove them from your incidents, broadening or narrowing the scope of your investigation.
@@ -45,7 +73,7 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 
 1. Hover over one of the related alerts until a menu pops out to its side. Select **Add alert to incident (Preview)**.
 
-    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-to-incident.png" alt-text="Screenshot of adding an alert to an incident in the investigation graph.":::
+    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-using-graph.png" alt-text="Screenshot of adding an alert to an incident in the investigation graph.":::
 
 1. The alert is added to the incident, and for all purposes is part of the incident, along with all its entities and details. You'll see two visual representations of this:
 
