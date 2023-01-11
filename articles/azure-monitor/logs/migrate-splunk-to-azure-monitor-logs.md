@@ -90,11 +90,12 @@ This table lists Splunk artifacts and provides links to guidance on how to set u
 For information on migrating Splunk SIEM artifacts, including detection rules and SOAR automation for, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
 ## 3. Ingest historical data
 
-:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
+To ingest data from your Splunk deployment:
 
 1. Export your historical data from Splunk, using one of the [Splunk export methods](https://docs.splunk.com/Documentation/Splunk/8.2.5/Search/Exportsearchresults). The output format should be CSV.
 1. Ingest the data you export from Splunk using Azure Monitor's [Log ingestion API](../logs/logs-ingestion-api-overview.md).
 
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 
 ## 4. Collect data
 
