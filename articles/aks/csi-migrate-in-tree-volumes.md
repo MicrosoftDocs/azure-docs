@@ -1,9 +1,8 @@
 ---
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 author: mgoedtel
 
 ---
@@ -18,6 +17,10 @@ To make this process as simple as possible, and to ensure no data loss, this art
 
 * The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For an Azure Active Directory (Azure AD) RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
+
+## Upgrading multiple PVs
+
+As part of the process to migrate disk or file-based PVs to use the equivalent CSI driver, 
 
 ## Migrate Disk volumes
 
@@ -52,7 +55,30 @@ The following are important considerations to evaluate:
    kubectl patch pv pvName -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
    ```
 
-    Replace **pvName** with the name of your selected PersistentVolume.
+    Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
+
+    ```bash
+    # Patch the Persistent Volume in case ReclaimPolicy is Delete
+    #!/bin/sh
+    namespace=$1
+    i=1
+    for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+      # Ignore first record as it contains header
+      if [ $i -eq 1 ]; then
+        i=$((i + 1))
+      else
+        pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
+        reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+        echo "Reclaim Policy for Persistent Volume $pv is $reclaimPolicy"
+        if [[ $reclaimPolicy == "Delete" ]]; then
+          echo "Updating ReclaimPolicy for $pv to Retain"
+          kubectl patch pv $pv -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+        fi
+      fi
+    done
+    ```
+
+    Execute the script and specify the cluster namespace `./PatchReclaimPolicy.sh <namespace>`.
 
 2. Get a list of all of the PVCs in namespace sorted by **creationTimestamp** by running the following command. Set the namespace using the `--namespace` argument along with the actual cluster namespace.
 
@@ -73,41 +99,40 @@ The following are important considerations to evaluate:
     #!/bin/sh
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
-        namespace=$1
-        fileName=$(date +%Y%m%d%H%M)-$namespace
-        existingStorageClass=$2
-        storageClassNew=$3
+    namespace=$1
+    fileName=$(date +%Y%m%d%H%M)-$namespace
+    existingStorageClass=$2
+    storageClassNew=$3
     starttimestamp=$4
     endtimestamp=$5
-        i=1
-        for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}')
-        do
-        # Ignore first record as it contains header
-        if [ $i -eq 1 ]; then
-          i=$((i+1))
-        else
-    pvcCreationTime=$(kubectl get pvc $pvc -o jsonpath='{.metadata.creationTimestamp}')
-    if [[ $pvcCreationTime > $starttimestamp ]]; then
-    if [[ $endtimestamp > $pvcCreationTime ]]; then
-        pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
-        reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-        storageClass="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.storageClassName}')"
-        echo $pvc
-        reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-        if [[ $reclaimPolicy == "Retain" ]]; then
-        if [[ $storageClass == $existingStorageClass ]]; then
-        storageSize="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.capacity.storage}')"
-        skuName="$(kubectl get storageClass $storageClass -o jsonpath='{.reclaimPolicy}')"
-        diskURI="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.azureDisk.diskURI}')"
-        persistentVolumeReclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+    i=1
+    for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+      # Ignore first record as it contains header
+      if [ $i -eq 1 ]; then
+        i=$((i + 1))
+      else
+        pvcCreationTime=$(kubectl get pvc  $pvc -n $namespace -o jsonpath='{.metadata.creationTimestamp}')
+        if [[ $pvcCreationTime > $starttimestamp ]]; then
+          if [[ $endtimestamp > $pvcCreationTime ]]; then
+            pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
+            reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+            storageClass="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.storageClassName}')"
+            echo $pvc
+            reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+            if [[ $reclaimPolicy == "Retain" ]]; then
+              if [[ $storageClass == $existingStorageClass ]]; then
+                storageSize="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.capacity.storage}')"
+                skuName="$(kubectl get storageClass $storageClass -o jsonpath='{.reclaimPolicy}')"
+                diskURI="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.azureDisk.diskURI}')"
+                persistentVolumeReclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
     
-        cat > $pvc-csi.yaml <<EOF
+                cat >$pvc-csi.yaml <<EOF
         apiVersion: v1
         kind: PersistentVolume
         metadata:
           annotations:
             pv.kubernetes.io/provisioned-by: disk.csi.azure.com
-          name: $pv-csi      
+          name: $pv-csi
         spec:
           accessModes:
           - ReadWriteOnce
@@ -142,17 +167,17 @@ The following are important considerations to evaluate:
       resources:
         requests:
           storage: $storageSize
-      volumeName: $pv-csi           
+      volumeName: $pv-csi
     EOF
-          kubectl apply -f $pvc-csi.yaml
-          line="PVC:$pvc,PV:$pv,StorageClassTarget:$storageClassNew"
-          printf '%s\n' "$line" >> $fileName
-          fi
-          fi
+                kubectl apply -f $pvc-csi.yaml
+                line="PVC:$pvc,PV:$pv,StorageClassTarget:$storageClassNew"
+                printf '%s\n' "$line" >>$fileName
+              fi
+            fi
           fi
         fi
-        fi
-          done
+      fi
+    done
     ```
 
 4. To create a new PersistentVolume for all PersistentVolumes in the namespace, execute the script **CreatePV.sh** with the following parameters:
@@ -230,43 +255,42 @@ Before proceeding, verify the following:
     #!/bin/sh
     #kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     # TimeFormat 2022-04-20T13:19:56Z
-        namespace=$1
-        fileName=$namespace-$(date +%Y%m%d%H%M)
-        existingStorageClass=$2
-        storageClassNew=$3
+    namespace=$1
+    fileName=$namespace-$(date +%Y%m%d%H%M)
+    existingStorageClass=$2
+    storageClassNew=$3
     volumestorageClass=$4
     starttimestamp=$5
     endtimestamp=$6
-        i=1
-        for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}')
-        do
-        # Ignore first record as it contains header
-        if [ $i -eq 1 ]; then
-          i=$((i+1))
-        else
-    pvcCreationTime=$(kubectl get pvc -n $namespace $pvc -o jsonpath='{.metadata.creationTimestamp}')
-    if [[ $pvcCreationTime > $starttimestamp ]]; then
-    if [[ $endtimestamp > $pvcCreationTime ]]; then
-        pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
-        reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-        storageClass="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.storageClassName}')"
-        echo $pvc
-        reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-        if [[ $storageClass == $existingStorageClass ]]; then
-        storageSize="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.capacity.storage}')"
-        skuName="$(kubectl get storageClass $storageClass -o jsonpath='{.reclaimPolicy}')"
-        diskURI="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.azureDisk.diskURI}')"
-        targetResourceGroup="$(cut -d'/' -f5 <<<"$diskURI")"
-        echo $diskURI
-        echo $targetResourceGroup
-        persistentVolumeReclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-        az snapshot create --resource-group $targetResourceGroup --name $pvc-$fileName --source "$diskURI"
-        snapshotPath=$(az snapshot list --resource-group $targetResourceGroup --query "[?name == '$pvc-$fileName'].id | [0]")
-        snapshotHandle=$(echo "$snapshotPath" | tr -d '"')
-        echo $snapshotHandle
-        sleep 10
-        # Create Restore File
-        cat << EOF > $pvc-csi.yml
+    i=1
+    for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+      # Ignore first record as it contains header
+      if [ $i -eq 1 ]; then
+        i=$((i + 1))
+      else
+        pvcCreationTime=$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.metadata.creationTimestamp}')
+        if [[ $pvcCreationTime > $starttimestamp ]]; then
+          if [[ $endtimestamp > $pvcCreationTime ]]; then
+            pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
+            reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+            storageClass="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.storageClassName}')"
+            echo $pvc
+            reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+            if [[ $storageClass == $existingStorageClass ]]; then
+              storageSize="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.capacity.storage}')"
+              skuName="$(kubectl get storageClass $storageClass -o jsonpath='{.reclaimPolicy}')"
+              diskURI="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.azureDisk.diskURI}')"
+              targetResourceGroup="$(cut -d'/' -f5 <<<"$diskURI")"
+              echo $diskURI
+              echo $targetResourceGroup
+              persistentVolumeReclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+              az snapshot create --resource-group $targetResourceGroup --name $pvc-$fileName --source "$diskURI"
+              snapshotPath=$(az snapshot list --resource-group $targetResourceGroup --query "[?name == '$pvc-$fileName'].id | [0]")
+              snapshotHandle=$(echo "$snapshotPath" | tr -d '"')
+              echo $snapshotHandle
+              sleep 10
+              # Create Restore File
+              cat <<EOF >$pvc-csi.yml
         apiVersion: snapshot.storage.k8s.io/v1
         kind: VolumeSnapshotContent
         metadata:
@@ -282,42 +306,43 @@ Before proceeding, verify the following:
             kind: VolumeSnapshot
             name: $pvc-$fileName
             namespace: $1
-      --- 
-            apiVersion: snapshot.storage.k8s.io/v1
+    ---
+        apiVersion: snapshot.storage.k8s.io/v1
+        kind: VolumeSnapshot
+        metadata:
+          name: $pvc-$fileName
+          namespace: $1
+        spec:
+          volumeSnapshotClassName: $volumestorageClass
+          source:
+            volumeSnapshotContentName: $pvc-$fileName
+    ---
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: csi-$pvc
+          namespace: $1
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          storageClassName: $storageClassNew
+          resources:
+            requests:
+              storage: $storageSize
+          dataSource:
+            name: $pvc-$fileName
             kind: VolumeSnapshot
-            metadata:
-              name: $pvc-$fileName
-              namespace: $1
-            spec:
-              volumeSnapshotClassName: $volumestorageClass
-              source:
-                volumeSnapshotContentName: $pvc-$fileName
-      ---
-            apiVersion: v1
-            kind: PersistentVolumeClaim
-            metadata:
-              name: csi-$pvc
-              namespace: $1
-            spec:
-              accessModes:
-              - ReadWriteOnce
-              storageClassName: $storageClassNew
-              resources:
-                requests:
-                  storage: $storageSize
-              dataSource:
-                name: $pvc-$fileName
-                kind: VolumeSnapshot
-                apiGroup: snapshot.storage.k8s.io
+            apiGroup: snapshot.storage.k8s.io
+    
     EOF
-          kubectl create -f $pvc-csi.yml
-          line="OLDPVC:$pvc,OLDPV:$pv,VolumeSnapshotContent:volumeSnapshotContent-$fileName,VolumeSnapshot:volumesnapshot$fileName,OLDdisk:$diskURI"
-          printf '%s\n' "$line" >> $fileName
+              kubectl create -f $pvc-csi.yml
+              line="OLDPVC:$pvc,OLDPV:$pv,VolumeSnapshotContent:volumeSnapshotContent-$fileName,VolumeSnapshot:volumesnapshot$fileName,OLDdisk:$diskURI"
+              printf '%s\n' "$line" >>$fileName
+            fi
           fi
-          fi
+        fi
       fi
-      fi
-        done
+    done
     ```
 
 3. To migrate the disk volumes, execute the script **MigrateToCSI.sh** with the following parameters:
@@ -349,7 +374,30 @@ Migration from in-tree to CSI is supported by creating a static volume.
    kubectl patch pv pvName -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
    ```
 
-    Replace **pvName** with the name of your selected Persistent Volume.
+    Replace **pvName** with the name of your selected PersistentVolume. Alternatively, if you want to update the reclaimPolicy for multiple PVs, create a file named **patchReclaimPVs.sh** and copy in the following code.
+
+    ```bash
+    # Patch the Persistent Volume in case ReclaimPolicy is Delete
+    #!/bin/sh
+    namespace=$1
+    i=1
+    for pvc in $(kubectl get pvc -n $namespace | awk '{ print $1}'); do
+      # Ignore first record as it contains header
+      if [ $i -eq 1 ]; then
+        i=$((i + 1))
+      else
+        pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
+        reclaimPolicy="$(kubectl get pv $pv -n $namespace -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
+        echo "Reclaim Policy for Persistent Volume $pv is $reclaimPolicy"
+        if [[ $reclaimPolicy == "Delete" ]]; then
+          echo "Updating ReclaimPolicy for $pv to Retain"
+          kubectl patch pv $pv -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+        fi
+      fi
+    done
+    ```
+
+    Execute the script and specify the cluster namespace `./PatchReclaimPolicy.sh <namespace>`.
 
 2. Create a new Storage Class with the provisioner set to `file.csi.azure.com`, or you can use one of the default StorageClasses with the CSI file provisioner.
 
