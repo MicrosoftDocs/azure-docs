@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-author: sdgilley
-ms.author: sgilley
+author: lebaro-msft
+ms.author: lebaro
 ms.reviewer: sgilley
 ms.date: 01/04/2023
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
@@ -22,9 +22,9 @@ In this quickstart, you'll create and work with:
 
 Once you've created the workspace and compute, you'll use them to:
 
-* Upload files
-* Run a Jupyter notebook
-* Run a Python script
+* Upload files to the cloud
+* Run a Jupyter notebook on the compute instance
+* Run a Python script on the compute instance
 
 Finally, you'll see how to use included sample notebooks to learn more about Azure Machine Learning.
 
@@ -39,6 +39,7 @@ The workspace is the top-level resource for your machine learning activities, pr
 If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-a-compute-instance).
 
 If you don't yet have a workspace, create one now: 
+
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Select **Create workspace**
 1. Provide the following information to configure your new workspace:
@@ -62,11 +63,11 @@ If you already have a compute instance, skip this section and continue to [Uploa
 
 Create a compute instance now.  
 
-1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page.  (You'll only see this if you don't yet have a compute instance in your workspace.)
-
-1. Select **+New** to create a new compute instance.
-1. Supply a name, Keep all the defaults on the first page.
+1. Select **Create compute** in the middle of the page.  (You'll only see this option if you don't yet have a compute instance in your workspace.)
+1. Supply a name. Keep all the defaults on the first page.
+1. Select **Next** to see **Advanced Settings**.
+1. Select **Enable idle shutdown** so that the machine will shut down after a period of inactivity.  
+1. Keep the default values for the rest of the page.
 1. Select **Create**.
 
 In about two minutes, you'll see the State of the compute instance change from Creating to Running. It's now ready to go.
