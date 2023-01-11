@@ -26,7 +26,7 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
   * [What is Conditional Access?](/articles/active-directory/conditional-access/overview.md)
   * Azure AD integration documentation
 
-In addition to Azure AD Application Proxy, you can strengthen your security posture with Identity Protection. 
+In addition to Application Proxy, you can strengthen your security posture with Identity Protection. 
 
 Learn more:
 
@@ -42,16 +42,17 @@ Learn more:
 * [What is SSO in Azure Active Directory?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
 * [How it works: Azure AD Multi-Factor Authentication](/articles/active-directory/authentication/concept-mfa-howitworks.md)
 
-## Secure hybrid access with Azure AD Application Proxy
+## Secure hybrid access with Application Proxy
 
 Use Application Proxy for secure remote access to on-premises web applications. Users don’t need to use a virtual private network (VPN); they connect to applications from devices with SSO. 
 
 Learn more:
 
 * [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](/articles/active-directory/app-proxy/application-proxy-add-on-premises-application.md)
-* [How to configure single sign-on to an Application Proxy application](/articles/active-directory/app-proxy/application-proxy-config-sso-how-to.md)
+* [How to configure SSO to an Application Proxy application](/articles/active-directory/app-proxy/application-proxy-config-sso-how-to.md)
+* [Using Azure AD Application Proxy to publish on-premises apps for remote users](/articles/active-directory/app-proxy/what-is-application-proxy.md)
 
-## Publish applications and improve access management
+### Publish applications and improve access management
 
 Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Help improve your cloud access management without requiring modification to your on-premises applications.
 
@@ -66,9 +67,9 @@ Microsoft partners with various companies that deliver access solutions for on-p
 
    ![Diagram of secure hybrid access integrations and Application Proxy providing user access.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-## Secure hybrid access through Azure AD partner integrations
+### Secure hybrid access through Azure AD partner integrations
 
-The following partners offer pre-built solutions to support Conditional Access policies per application. Use the following table to learn about the partners and Azure AD integration documentation.
+The following partners offer pre-built solutions to support Conditional Access policies per application. Use the tables in the following two sections to learn about the partners and Azure AD integration documentation.
 
 |Partner company site|Integration documentation|
 |---|---|
@@ -81,7 +82,7 @@ The following partners offer pre-built solutions to support Conditional Access p
 |[Silverfort](https://www.silverfort.com/)|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](/articles/active-directory/manage-apps/silverfort-azure-ad-integration.md)|
 |[Strata Identity, Inc.](https://www.strata.io/)|[Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](/articles/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)|
 
-### Partners with pre-built solutions and integration guidance guidance
+### Partners with pre-built solutions and integration documentation
 
 |Partner company site|Integration documentation|
 |---|---|
