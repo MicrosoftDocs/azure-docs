@@ -23,9 +23,9 @@ CommunicationIdentifier has the following advantages:
 - Provides good auto-complete in IDEs.
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
+- Allow access to identifier details and use them to call other APIs (such as the Microsoft Graph API) to provide a rich experience for communication participants.
 
 On top of this, the *CommunicationIdentifier* and the derived types (`MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) can be converted to its string representation (Raw ID) and restored from the string, making the following scenarios easier to implement:
-- Extract identifier details from Raw IDs and use them to call other APIs (such as the Microsoft Graph API) to provide a rich experience for communication participants.
 - Store identifiers in a database and use them as keys.
 - Use identifiers as keys in dictionaries.
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
@@ -37,15 +37,22 @@ On top of this, the *CommunicationIdentifier* and the derived types (`MicrosoftT
 Get Raw ID from CommunicationUserIdentifier:
 
 ```csharp
-CommunicationIdentifier communicationIdentifier;
-String rawId = communicationIdentifier.RawId
+public async Task GetRawId()
+{
+    ChatMessage message = await ChatThreadClient.GetMessageAsync("678f26ef0c");
+    CommunicationIdentifier communicationIdentifier = message.Sender;
+    String rawId = communicationIdentifier.RawId;
+}
 ```
 
 Instantiate CommunicationUserIdentifier from a Raw ID:
 
 ```csharp
-String rawId = "8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130";
-CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRawId(rawId);
+public void CommunicationIdentifierFromGetRawId()
+{
+    String rawId = "8:acs:bbbcbc1e-9f06-482a-b5d8-20e3f26ef0cd_45ab2481-1c1c-4005-be24-0ffb879b1130";
+    CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRawId(rawId);
+}
 ```
 
 You can find more platform-specific examples in the following article: [Understand identifier types](./identifiers.md)
