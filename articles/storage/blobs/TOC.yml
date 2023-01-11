@@ -348,6 +348,8 @@ items:
           href: blob-inventory-how-to.md
         - name: Calculate blob count and total size
           href: calculate-blob-count-size.md
+        - name: Convert append and page blobs to block blobs
+          href: convert-append-and-page-blobs-to-block-blobs.md
       - name: Authorize access to blob data
         items:
         - name: Authorization options for users

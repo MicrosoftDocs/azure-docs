@@ -15,9 +15,6 @@ ms.topic: conceptual
 
 This article provides best practice guidelines that help you use access tiers to optimize performance and reduce costs. To learn more about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md?tabs=azure-portal). 
 
-> [!NOTE]
-> This article uses fictitious prices in all calculations. For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
-
 ## Upload data to the most cost-efficient access tiers
 
 When you migrate data to Azure Blob Storage, try to choose the most appropriate access tier based upon your estimated read patterns. If you predict that data will be read often, choose a warmer tier. If data is rarely accessed, consider a cooler tier. Choosing the most optimal tier up front can reduce costs and save time. 
@@ -45,7 +42,7 @@ To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enab
 
 Your analysis might reveal append or page blobs that are not in being actively used. For example, you might have log files (append blobs) that are no longer being written to, but you'd like to store them for compliance reasons. Similarly, you might want to back up disks or disk snapshots (page blobs). You can move these blobs into cooler tiers as well.  However, you must first convert them to block blobs. 
 
-For information about how to convert append and page blobs to block blobs, see [topic link goes here](archive-cost-estimation.md).
+For information about how to convert append and page blobs to block blobs, see [Convert append blobs and page blobs to block blobs](convert-append-and-page-blobs-to-block-blobs.md).
 
 ## Pack small files before moving data to cooler tiers
 
