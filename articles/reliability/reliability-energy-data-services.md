@@ -60,7 +60,7 @@ The "X" part should identify the product or service.
 Required: Provide an introduction. Use the following placeholder as a suggestion, but elaborate.
 -->
 
-This article describes reliability support in Microsoft Energy Data Services, and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+This article describes reliability support in Microsoft Energy Data Services, and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](../reliability/overview.md).
 
 ## Availability zone support
 <!-- IF (AZ SUPPORTED) -->
