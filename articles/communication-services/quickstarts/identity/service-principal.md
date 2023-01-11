@@ -27,6 +27,10 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 - To send an SMS you will need a [Phone Number](../telephony/get-phone-number.md).
 - A setup Service Principal for a development environment, see [Authorize access with service principal](./service-principal-from-cli.md)
 
+::: zone pivot="programming-language-cli"
+[!INCLUDE [.NET](./includes/active-directory/service-principal-cli.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/active-directory/service-principal-net.md)]
 ::: zone-end
