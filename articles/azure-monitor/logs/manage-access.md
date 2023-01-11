@@ -291,7 +291,7 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 **Example 6: Restrict a user from restoring archived logs.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
-- Assign the user to [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role.
+- Assign the user to the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role.
 - Add the following NonAction to block users from restoring archived logs: `Microsoft.OperationalInsights/workspaces/restoreLogs/write`
 
 
