@@ -43,17 +43,17 @@ Best practices for using hard-coded keys in source files include:
 
 + During early development and proof-of-concept testing when security is looser, use sample or public data.
 
-+ For mature solutions or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-key-access) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
++ For mature solutions or production scenarios, switch to [Azure Active Directory and role-based access](search-security-rbac.md) to eliminate the need for having hard-coded keys. Or, if you want to continue using API keys, be sure to always monitor [who has access to your API keys](#secure-api-keys) and [regenerate API keys](#regenerate-admin-keys) on a regular cadence.
 
 ### [**Portal**](#tab/portal-use)
 
 In Cognitive Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
 
-No action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
+Authentication is built-in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
 
 ### [**PowerShell**](#tab/azure-ps-use)
 
-A script example showing API key usage can be found at [Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs](search-get-started-powershell.md).
+A script example showing API key usage for various operations can be found at [Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs](search-get-started-powershell.md).
 
 ### [**REST API**](#tab/rest-use)
 
@@ -159,7 +159,7 @@ Restricting access and operations in client apps is essential to safeguarding th
 
 ### [**PowerShell**](#tab/azure-ps-query)
 
-A script example showing API key usage can be found at [Create or delete query keys]](search-manage-powershell.md#create-or-delete-query-keys).
+A script example showing API key usage can be found at [Create or delete query keys](search-manage-powershell.md#create-or-delete-query-keys).
 
 ### [**Azure CLI**](#tab/azure-cli-query)
 
@@ -197,7 +197,7 @@ You can still access the service through the portal or programmatically. Managem
 
 After you create new keys via portal or management layer, access is restored to your content (indexes, indexers, data sources, synonym maps) once you provide those keys on requests.
 
-## Secure API key access
+## Secure API keys
 
 Use role assignments to restrict access to API keys.
 
@@ -209,7 +209,7 @@ Note that it's not possible to use [customer-managed key encryption](search-secu
 
 1. In the **Role** filter, select the roles that have permission to view or manage keys (Owner, Contributor, Search Service Contributor). The resulting security principals assigned to those roles have key permissions on your search service.
 
-1. As a precaution, also check the **Classic administrators** tab for administrators and co-administrators.
+1. As a precaution, also check the **Classic administrators** tab to determine whether administrators and co-administrators have access.
 
 ## See also
 
