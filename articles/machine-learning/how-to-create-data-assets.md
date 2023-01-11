@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: data4ml, ignite-2022
 ms.author: xunwan
 author: xunwan
-ms.reviewer: nibaccam
+ms.reviewer: franksolomon
 ms.date: 09/22/2022
 ---
 
@@ -248,7 +248,7 @@ paths:
   - pattern: ./*.txt
 transformations:
   - read_delimited:
-      delimiter: ,
+      delimiter: ','
       encoding: ascii
       header: all_files_same_headers
 ```
