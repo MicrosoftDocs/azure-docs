@@ -33,7 +33,7 @@ For security reasons, Azure Private 5G Core will never return the SIM credential
 
 ### Disable custom location
 
-Before moving your resources, you'll need to uninstall all your packet core instances.
+Before moving your resources, you'll need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**.
 
 1. For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the following changes:
 
