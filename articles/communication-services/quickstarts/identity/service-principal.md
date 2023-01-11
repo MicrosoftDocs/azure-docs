@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: peiliu
 ms.reviewer: mikben
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python
 ms.custom: mode-other
 ---
 
@@ -27,7 +27,7 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 - To send an SMS you will need a [Phone Number](../telephony/get-phone-number.md).
 - A setup Service Principal for a development environment, see [Authorize access with service principal](./service-principal-from-cli.md)
 
-::: zone pivot="programming-language-cli"
+::: zone pivot="platform-azcli"
 [!INCLUDE [.NET](./includes/active-directory/service-principal-cli.md)]
 ::: zone-end
 
