@@ -242,7 +242,7 @@ Follow these steps to deploy the AKS cluster.
 
       [![Screenshot that shows My assignments in the Access control page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png#lightbox)
 
-   1. Specify a name for your Arc enabled Kubernetes cluster or accept the provided default.
+   1. Specify a name for your Arc enabled Kubernetes cluster or accept the default.
 
    1. Select a region where the resource for your Arc enabled Kubernetes cluster will be created. A filtered list of supported regions is displayed in the dropdown list. For more information, see [supported regions for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).  
    1. Select **Configure**. You can also reset the Arc settings by selecting the **Reset to default** option.
