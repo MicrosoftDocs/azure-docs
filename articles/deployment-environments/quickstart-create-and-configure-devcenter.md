@@ -80,7 +80,7 @@ If you don't have an existing key vault, use the following steps to create one:
 Using an authentication token like a GitHub personal access token (PAT) enables you to share your repository securely.  
 
 > [!TIP] 
-> If you are attaching an Azure DevOps repository, use these steps [Create a personal access token in Azure DevOps](how-to-configure-catalog.md#create-a-personal-access-token-in-azure-devops).
+> If you are attaching an Azure DevOps repository, use these steps: [Create a personal access token in Azure DevOps](how-to-configure-catalog.md#create-a-personal-access-token-in-azure-devops).
 
 1.	In a new browser tab, sign into your [GitHub](https://github.com) account.
 1.	On your profile menu, select **Settings**.
@@ -161,7 +161,7 @@ To add a catalog to your dev center, you'll first need to gather some informatio
 To add a catalog, you must specify the GitHub repo URL, the branch, and the folder that contains your catalog items. You can gather this information before you begin the process of adding the catalog to the dev center, and paste it somewhere accessible, like notepad.
 
 > [!TIP] 
->  If you are attaching an Azure DevOps repository, use these steps [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
+>  If you are attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
 
 1. On your [GitHub](https://github.com) account page, select **<> Code**, and then select copy.
 1. Take a note of the branch that you're working in.
