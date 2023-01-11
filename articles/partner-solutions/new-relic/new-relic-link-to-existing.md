@@ -4,7 +4,7 @@ description: Learn how to link to an existing New Relic account.
 
 ms.topic: quickstart
 ms.custom: template-quickstart
-ms.date: 12/31/2022
+ms.date: 01/16/2023
 ---
 
 

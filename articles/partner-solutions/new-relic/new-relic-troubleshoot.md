@@ -3,7 +3,7 @@ title: Troubleshoot Azure Native New Relic Service Preview
 description: Learn about troubleshooting Azure Native New Relic Service.
 ms.topic: conceptual
 
-ms.date: 12/31/2022
+ms.date: 01/16/2023
 
 ---
 
