@@ -627,6 +627,30 @@ The following fields describe the cause of an alert.
 }
 ```
 
+#### `monitoringService` = `Prometheus`
+
+**Sample values**
+
+```json
+{
+  "alertContext": {
+    "interval": "PT1M",
+    "expression": "sql_up > 0",
+    "expressionValue": "0",
+    "for": "PT2M",
+    "labels": {
+      "Environment": "Prod",
+      "cluster": "myCluster1"
+    },
+    "annotations": {
+      "summary": "alert on SQL availability"
+    },
+    "ruleGroup": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.AlertsManagement/prometheusRuleGroups/myRuleGroup"
+  }
+}
+```
+
+
 ## Next steps
 
 - Learn more about the [common alert schema](./alerts-common-schema.md).

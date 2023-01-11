@@ -678,6 +678,9 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 }
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Next steps
 
 - Try out [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md)

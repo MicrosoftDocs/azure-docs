@@ -32,19 +32,6 @@ New-AzResourceGroup -Name 'CreatePrivLinkService-rg' -Location 'eastus2'
 
 ```
 
-### Create a DDoS Protection plan
-
-Create a DDoS Protection plan with [New-AzDdosProtectionPlan](/powershell/module/az.network/new-azddosprotectionplan) to associate with the virtual network. This example creates a DDoS Protection plan named **myDDoSPlan** in the **EastUS** location:
-
-```azurepowershell-interactive
-$ddosplan = @{
-    Name = 'myDDoSPlan'
-    ResourceGroupName = 'CreatePrivateEndpointQS-rg'
-    Location = 'eastus2'
-}
-New-AzDdosProtectionPlan @ddosplan
-```
-
 ## Create an internal load balancer
 
 In this section, you'll create a virtual network and an internal Azure Load Balancer.
@@ -56,14 +43,10 @@ In this section, you create a virtual network and subnet to host the load balanc
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
 ```azurepowershell-interactive
-## Place DDoS plan created previously into a variable. ##
-$ddosplan = Get-AzDdosProtectionPlan -ResourceGroupName CreatePrivateEndpointQS-rg -Name myDDosPlan
-
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
-    PrivateLinkServiceNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -74,7 +57,6 @@ $net = @{
     Location = 'eastus2'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig
-    DDoSProtectionPlan = $ddosplan.Id
 }
 $vnet = New-AzVirtualNetwork @net
 
@@ -198,14 +180,10 @@ In this section, you'll map the private link service to a private endpoint. A vi
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
 ```azurepowershell-interactive
-## Place DDoS plan created previously into a variable. ##
-$ddosplan = Get-AzDdosProtectionPlan -ResourceGroupName CreatePrivateEndpointQS-rg -Name myDDosPlan
-
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'mySubnetPE'
     AddressPrefix = '11.1.0.0/24'
-    PrivateEndpointNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -216,7 +194,6 @@ $net = @{
     Location = 'eastus2'
     AddressPrefix = '11.1.0.0/16'
     Subnet = $subnetConfig
-    DDoSProtectionPlan = $ddosplan.Id
 }
 $vnetpe = New-AzVirtualNetwork @net
 

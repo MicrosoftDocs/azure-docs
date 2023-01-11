@@ -4226,7 +4226,7 @@ And returns this array: `[0,1,2,3]`
 This example sorts an array of objects by key:
 
 ```
-sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }'), "last")
+sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }')), 'last')
 ```
 
 And returns this array: `[{ "first": "Elise", "last": "Renee" }, {"first": "Amalie", "last": "Rose" }')]`

@@ -1,9 +1,8 @@
 ---
 title: Discover, assess, and migrate Google Cloud Platform (GCP) VM instances to Azure
 description: This article describes how to migrate GCP VMs to Azure with Azure Migrate.
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.topic: tutorial
 ms.date: 12/12/2022
 ms.custom: MVC, engagement-fy23
@@ -12,6 +11,7 @@ ms.custom: MVC, engagement-fy23
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure
 
 This tutorial shows you how to discover, assess, and migrate Google Cloud Platform (GCP) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Migration and modernization tools.
+
 
 In this tutorial, you will learn how to:
 > [!div class="checklist"]

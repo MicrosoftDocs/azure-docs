@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 
 # Azure Private 5G Core 2210 release notes
 
-The following release notes identify the new features, critical open issues, and resolved issues for the 2210 release for the Azure Private 5G Core (AP5GC). The release notes are continuously updated, and critical issues requiring a workaround are added here as they're discovered. Before deploying this new version, carefully review the information contained in these release notes.
+The following release notes identify the new features, critical open issues, and resolved issues for the 2210 release for the Azure Private 5G Core (AP5GC) packet core. The release notes are continuously updated, and critical issues requiring a workaround are added here as they're discovered. Before deploying this new version, carefully review the information contained in these release notes.
 
 This article applies to the AP5GC 2210 release (PMN-4-18-0). This release is compatible with the ASE Pro GPU running the ASE 2209 release and is supported by the 2022-04-01-preview [Microsoft.MobileNetwork API version](/rest/api/mobilenetwork).
 
