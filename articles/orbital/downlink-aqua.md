@@ -107,7 +107,11 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
 - Operation System: Linux (Ubuntu 18.04 or higher)
 - Size: at least 32 GiB of RAM
-- Ensure that the VM has at least one standard public IP
+- Ensure that the VM has internet access for downloading tools by having one standard public IP address
+
+> [!TIP]
+> The Public IP Address here is only for internet connectivity not Contact Data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
+
 3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
 sudo mkdir /media/aqua
