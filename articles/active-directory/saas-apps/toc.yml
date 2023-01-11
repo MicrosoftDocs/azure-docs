@@ -1797,6 +1797,8 @@
         href: picturepark-tutorial.md
       - name: Pingboard
         href: pingboard-tutorial.md
+      - name: Pinpoint (SAML)
+        href: pinpoint-tutorial.md
       - name: Pipedrive
         href: pipedrive-tutorial.md
       - name: PKSHA Chatbot
