@@ -46,7 +46,7 @@ The following sample _local.settings.json_ shows how to add a value for the `DAT
 }
 ```
 
-Settings defined in the `values` property can be referenced from code as environment variables. In Node.js functions, for example, they're available in the `process.env` object.
+Settings defined in the `Values` property can be referenced from code as environment variables. In Node.js functions, for example, they're available in the `process.env` object.
 
 ```js
 const connectionString = process.env.DATABASE_CONNECTION_STRING;
