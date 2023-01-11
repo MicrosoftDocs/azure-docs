@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -96,10 +96,10 @@ Below is an example table of twin property updates stored to Azure Data Explorer
 
 | `TimeStamp` | `SourceTimeStamp` | `ServiceId` | `Id` | `ModelId` | `Key` | `Value` | `RelationshipTarget` | `RelationshipID` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2021-06-30T20:23:29.8697482Z | 2021-06-30T20:22:14.3854859Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
-| 2021-06-30T20:23:39.3235925Z| 2021-06-30T20:22:26.5837559Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 140 |  |  |
-| 2021-06-30T20:23:47.078367Z | 2021-06-30T20:22:34.9375957Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
-| 2021-06-30T20:23:57.3794198Z | 2021-06-30T20:22:50.1028562Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 123 |  |  |
+| 2022-12-15 20:23:29.8697482 | 2022-12-15 20:22:14.3854859 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A01 | `dtmi:assetGen:PasteurizationMachine;1` | Output | 130 |  |  |
+| 2022-12-15 20:23:39.3235925 | 2022-12-15 20:22:26.5837559 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A01 | `dtmi:assetGen:PasteurizationMachine;1` | Output | 140 |  |  |
+| 2022-12-15 20:23:47.078367 | 2022-12-15 20:22:34.9375957 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A01 | `dtmi:assetGen:PasteurizationMachine;1` | Output | 130 |  |  |
+| 2022-12-15 20:23:57.3794198 | 2022-12-15 20:22:50.1028562 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A01 | `dtmi:assetGen:PasteurizationMachine;1` | Output | 123 |  |  |
 
 #### Representing properties with multiple fields 
 
@@ -116,10 +116,19 @@ The time series data for twin lifecycle events is stored with the following sche
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `TwinId` | String | The twin ID |
+| `Action` | String | The type of twin lifecycle event (create or delete) |
 | `TimeStamp` | DateTime | The date/time the twin lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
 | `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
-| `Action` | String | The type of twin lifecycle event (create or delete) |
 | `ModelId` | String | The DTDL model ID (DTMI) |
+
+Below is an example table of twin lifecycle updates stored to Azure Data Explorer.
+
+| `TwinId` | `Action` | `TimeStamp` | `ServiceId` | `ModelId` |
+| --- | --- | --- | --- | --- |
+| PasteurizationMachine_A01 | Create | 2022-12-15 07:14:12.4160 | dairyadtinstance.api.wcus.digitaltwins.azure.net | `dtmi:assetGen:PasteurizationMachine;1` |
+| PasteurizationMachine_A02 | Create | 2022-12-15 07:14:12.4210 | dairyadtinstance.api.wcus.digitaltwins.azure.net | `dtmi:assetGen:PasteurizationMachine;1` |
+| SaltMachine_C0 | Create | 2022-12-15 07:14:12.5480 | dairyadtinstance.api.wcus.digitaltwins.azure.net | `dtmi:assetGen:SaltMachine;1` |
+| PasteurizationMachine_A02 | Delete | 2022-12-15 07:15:49.6050 | dairyadtinstance.api.wcus.digitaltwins.azure.net | `dtmi:assetGen:PasteurizationMachine;1` |  
 
 ### Relationship lifecycle events
 
@@ -130,12 +139,21 @@ The time series data for relationship lifecycle events is stored with the follow
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `RelationshipId` | String | The relationship ID. This field is set by the system and isn't writable by users. |
-| `Name` | String | The name of the realtionship |
+| `Name` | String | The name of the relationship |
+| `Action` | The type of relationship lifecycle event (create or delete) |
 | `TimeStamp` | DateTime | The date/time the relationship lifecycle event was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
 | `ServiceId` | The service instance ID of the Azure IoT service logging the record |
-| `Action` | The type of relationship lifecycle event (create or delete) |
 | `Source` | The source twin ID. This is the ID of the twin where the relationship originates. |
 | `Target` | The target twin ID. This is the ID of the twin where the relationship arrives. |
+
+Below is an example table of relationship lifecycle updates stored to Azure Data Explorer.
+
+| `RelationshipId` | `Name` | `Action` | `TimeStamp` | `ServiceId` | `Source` | `Target` |
+| --- | --- | --- | --- | --- | --- | --- |
+| PasteurizationMachine_A01_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7120 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A01 | SaltMachine_C0 |
+| PasteurizationMachine_A02_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7160 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A02 | SaltMachine_C0 |
+| PasteurizationMachine_A03_feeds_Relationship0 | feeds | Create | 2022-12-15 07:16:12.7250 | dairyadtinstance.api.wcus.digitaltwins.azure.net | PasteurizationMachine_A03 | SaltMachine_C1 |
+| OsloFactory_contains_Relationship0 | contains | Delete | 2022-12-15 07:16:13.1780 | dairyadtinstance.api.wcus.digitaltwins.azure.net | OsloFactory | SaltMachine_C0 |  
 
 ## Pricing
 
