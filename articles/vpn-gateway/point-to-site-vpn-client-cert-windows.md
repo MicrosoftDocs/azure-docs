@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 01/10/2023
 ms.author: cherylmc
 ---
 
@@ -24,7 +24,7 @@ Before beginning, verify that you are on the correct article. The following tabl
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 
-## Generate VPN client configuration files
+## 1. Generate VPN client configuration files
 
 All of the necessary configuration settings for the VPN clients are contained in a VPN client profile configuration zip file. You can generate client profile configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
 
@@ -38,7 +38,7 @@ The VPN client profile configuration files that you generate are specific to the
 
 [!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
 
-## Generate client certificates
+## 2. Generate client certificates
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
@@ -46,6 +46,8 @@ In many cases, you can install the client certificate directly on the client com
 
 * For information about working with certificates, see [Point-to site: Generate certificates](vpn-gateway-certificates-point-to-site.md).
 * To view an installed client certificate, open **Manage User Certificates**. The client certificate is installed in **Current User\Personal\Certificates**.
+
+## 3. Configure the VPN client
 
 Next, configure the VPN client. Select from the following instructions:
 
