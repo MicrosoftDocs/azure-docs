@@ -65,6 +65,17 @@ Enable change feed on your storage account by using Azure portal:
 
     :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot showing how to enable change feed in Azure portal":::
 
+### [Azure CLI](#tab/azure-cli)
+
+Enable change feed on a storage account by calling the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command with the `--enable-change-feed` parameter:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource-group> \
+    --account-name <source-storage-account> \
+    --enable-change-feed
+```
+
 ### [PowerShell](#tab/azure-powershell)
 
 Enable change feed by using PowerShell:

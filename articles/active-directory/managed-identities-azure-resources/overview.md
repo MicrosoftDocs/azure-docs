@@ -27,7 +27,7 @@ While developers can securely store the secrets in [Azure Key Vault](../../key-v
 
 The following video shows how you can use managed identities:</br>
 
-> [!VIDEO https://learn.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=on-net&ep=using-azure-managed-identities]
 
 Here are some of the benefits of using managed identities:
 
@@ -46,6 +46,7 @@ There are two types of managed identities:
     - A service principal of a special type is created in Azure AD for the identity. The service principal is tied to the lifecycle of that Azure resource. When the Azure resource is deleted, Azure automatically deletes the service principal for you. 
     - By design, only that Azure resource can use this identity to request tokens from Azure AD.
     - You authorize the managed identity to have access to one or more services.
+    - The name of the system-assigned service principal is always the same as the name of the Azure resource it is created for. For a deployment slot, the name of its system-assigned identity is <app-name>/slots/<slot-name>.
 
 - **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:      
     - A service principal of a special type is created in Azure AD for the identity. The service principal is managed separately from the resources that use it. 

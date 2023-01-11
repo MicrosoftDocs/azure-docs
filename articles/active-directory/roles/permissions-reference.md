@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/04/2022
+ms.date: 12/29/2022
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -110,6 +110,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Communications Support Engineer](#teams-communications-support-engineer) | Can troubleshoot communications issues within Teams using advanced tools. | f70938a0-fc10-4177-9e90-2178f8765737 |
 > | [Teams Communications Support Specialist](#teams-communications-support-specialist) | Can troubleshoot communications issues within Teams using basic tools. | fcf91098-03e3-41a9-b5ba-6f0ec8188a12 |
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
+> | [Tenant Creator](#tenant-creator) | Create new Azure AD or Azure AD B2C tenants. | 112ca1a2-15ad-4102-995e-45b0bc479a6a |
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
@@ -566,7 +567,7 @@ Users in this role can enable, disable, and delete devices in Azure AD and read 
 
 ## Compliance Administrator
 
-Users with this role have permissions to manage compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure, and Office 365 Security & Compliance Center. Assignees can also manage all features within the Exchange admin center and Teams & Skype for Business admin centers and create support tickets for Azure and Microsoft 365. More information is available at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have permissions to manage compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure, and Office 365 Security & Compliance Center. Assignees can also manage all features within the Exchange admin center and create support tickets for Azure and Microsoft 365. More information is available at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 In | Can do
 ----- | ----------
@@ -631,6 +632,7 @@ Users with this role have the ability to manage Azure Active Directory Condition
 > | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
+> | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 
 ## Customer LockBox Access Approver
 
@@ -1004,6 +1006,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
+> | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
 > | microsoft.directory/roleDefinitions/allProperties/allTasks | Create and delete role definitions, and read and update all properties |
 > | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties |
@@ -1042,9 +1045,13 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/allProperties/allTasks | Manage all aspects of Office 365 billing |
+> | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365 |
 > | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
 > | microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Power Automate |
+> | microsoft.hardware.support/shippingAddress/allProperties/allTasks | Create, read, update, and delete shipping addresses for Microsoft hardware warranty claims, including shipping addresses created by others |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/allTasks | Create and manage all aspects of Microsoft hardware warranty claims |
 > | microsoft.insights/allEntities/allProperties/allTasks | Manage all aspects of Insights app |
 > | microsoft.intune/allEntities/allTasks | Manage all aspects of Microsoft Intune |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
@@ -1158,7 +1165,11 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/lifecycleWorkflows/workflows/allProperties/read | Read all properties of lifecycle workflows and tasks in Azure AD |
 > | microsoft.cloudPC/allEntities/allProperties/read | Read all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/allProperties/read | Read all resources of Office 365 billing |
+> | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
+> | microsoft.hardware.support/shippingAddress/allProperties/read | Read shipping addresses for Microsoft hardware warranty claims, including existing shipping addresses created by others |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/read | Read Microsoft hardware warranty claims |
 > | microsoft.insights/allEntities/allProperties/read | Read all aspects of Viva Insights |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
@@ -1547,6 +1558,9 @@ A warranty claim is a request to have the hardware repaired or replaced in accor
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.hardware.support/shippingAddress/allProperties/allTasks | Create, read, update, and delete shipping addresses for Microsoft hardware warranty claims, including shipping addresses created by others |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/allTasks | Create and manage all aspects of Microsoft hardware warranty claims |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
@@ -1566,8 +1580,12 @@ A warranty claim is a request to have the hardware repaired or replaced in accor
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.hardware.support/shippingAddress/allProperties/read | Read shipping addresses for Microsoft hardware warranty claims, including existing shipping addresses created by others |
+> | microsoft.hardware.support/warrantyClaims/createAsOwner | Create Microsoft hardware warranty claims where creator is the owner |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/read | Read Microsoft hardware warranty claims |
 
 ## Modern Commerce User
 
@@ -1627,7 +1645,7 @@ Assign the Organizational Messages Writer role to users who need to do the follo
 - Write, publish, and delete organizational messages using Microsoft 365 admin center or Microsoft Endpoint Manager
 - Manage organizational message delivery options using Microsoft 365 admin center or Microsoft Endpoint Manager
 - Read organizational message delivery results using Microsoft 365 admin center or Microsoft Endpoint Manager
-- View usage reports and most settings in the Microsoft 365 admin center, but can't make changes 
+- View usage reports and most settings in the Microsoft 365 admin center, but can't make changes
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2007,6 +2025,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
+> | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 > | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -2246,6 +2265,18 @@ Users with this role can manage [Teams-certified devices](https://www.microsoft.
 > | --- | --- |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.teams/devices/standard/read | Manage all aspects of Teams-certified devices including configuration policies |
+
+## Tenant Creator
+
+Assign the Tenant Creator role to users who need to do the following tasks:
+-	Create both Azure Active Directory and Azure Active Directory B2C tenants even if the tenant creation toggle is turned off in the user settings
+> [!NOTE]
+>The tenant creators will be assigned the Global administrator role on the new tenants they create.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Azure Active Directory |
 
 ## Usage Summary Reports Reader
 

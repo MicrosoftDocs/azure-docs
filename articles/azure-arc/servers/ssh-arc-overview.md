@@ -56,6 +56,8 @@ This functionality is currently packaged in an Azure CLI extension and an Azure 
 
 ```Install-Module -Name AzPreview -Scope CurrentUser -Repository PSGallery -Force```
 
+---
+
 ### Enable functionality on your Arc-enabled server
 In order to use the SSH connect feature, you must enable connections on the hybrid agent.
 

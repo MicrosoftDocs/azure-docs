@@ -6,7 +6,7 @@ ms.author: shuji
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 12/21/2022
 ---
 
 # Memory optimized Dv2 and Dsv2-series

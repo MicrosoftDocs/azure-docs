@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/12/2022
+ms.date: 11/21/2022
 ---
 
 # Mapping data flow Debug Mode
@@ -41,6 +41,9 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 
 > [!NOTE]
 > Every debug session that a user starts from their browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions. You are charged for every hour that each debug session is executing including the TTL time.
+
+This video clip talks about tips, tricks, and good practices for data flow debug mode
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5c8Jx]
 
 ## Cluster status
 

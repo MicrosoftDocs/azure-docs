@@ -12,7 +12,7 @@ In this tutorial, you create an Azure Video Indexer account by using [Bicep](../
 
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
-> For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
+> For full documentation on Azure Video Indexer API, visit the [developer portal](https://aka.ms/avam-dev-portal) page.
 > For the latest API version for Microsoft.VideoIndexer, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
@@ -62,8 +62,8 @@ Check [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-tem
 
 If you're new to Azure Video Indexer, see:
 
-* [Azure Video Indexer Documentation](./index.yml)
-* [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/)
+* [The Azure Video Indexer documentation](./index.yml)
+* [The Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/)
 * After completing this tutorial, head to other Azure Video Indexer samples, described on [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md)
 
 If you're new to Bicep deployment, see:

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -17,7 +17,7 @@ ms.custom: language-service-health, ignite-fall-2021
 
 Text Analytics for health processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
-Text Analytics for health detects medical concepts in the following categories.
+Text Analytics for health detects medical concepts that fall under the following categories.
 
 ## Anatomy
 
@@ -58,7 +58,7 @@ Text Analytics for health detects medical concepts in the following categories.
 
 ### Entities
 
-**COURSE** - Description of a change in another entity over time, such as condition progression (e.g., improvement, worsening, resolution, remission), a course of treatment or medication (e.g., increase in medication dosage). 
+**COURSE** - Description of a change in another entity over time, such as condition progression (for example: improvement, worsening, resolution, remission), a course of treatment or medication (for example: increase in medication dosage). 
 
 :::image type="content" source="../media/entities/course-entity.png" alt-text="An example of a course entity." lightbox="../media/entities/course-entity.png":::
 
@@ -178,59 +178,7 @@ Text Analytics for health detects medical concepts in the following categories.
 :::image type="content" source="../media/entities/treatment-entities-name.png" alt-text="An example of a treatment name entity." lightbox="../media/entities/treatment-entities-name.png":::
 
 
-## Supported Assertions
-
-Assertion modifiers are divided into three categories, each one focuses on a different aspect.
-Each category contains a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
-
-### Certainty  
-
-provides information regarding the presence (present vs. absent) of the concept and how certain the text is regarding its presence (definite vs. possible).
-
-**Positive** (Default): the concept exists or happened.
-
-**Negative**: the concept does not exist now or never happened.
-
-:::image type="content" source="../media/entities/negative-entity.png" alt-text="An example of a negative entity." lightbox="../media/entities/negative-entity.png":::
-
-**Positive_Possible**: the concept likely exists but there is some uncertainty.
-
-:::image type="content" source="../media/entities/positive-possible-entity.png" alt-text="An example of a positive possible entity." lightbox="../media/entities/positive-possible-entity.png" :::
-
-**Negative_Possible**: the concept’s existence is unlikely but there is some uncertainty.
-
-:::image type="content" source="../media/entities/negative-possible-entity.png" alt-text="An example of a negative possible entity." lightbox="../media/entities/negative-possible-entity.png" :::
-
-**Neutral_Possible**: the concept may or may not exist without a tendency to either side.
-
-:::image type="content" source="../media/entities/neutral-possible-entity.png" alt-text="An example of a neutral possible entity." lightbox="../media/entities/neutral-possible-entity.png":::
-
-### Conditionality
-
-provides information regarding whether the existence of a concept depends on certain conditions. 
-
-**None** (Default): the concept is a fact and not hypothetical and does not depend on certain conditions.
-
-**Hypothetical**: the concept may develop or occur in the future.
-
-:::image type="content" source="../media/entities/hypothetical-entity.png" alt-text="An example of a hypothetical entity." lightbox="../media/entities/hypothetical-entity.png":::
-
-**Conditional**: the concept exists or occurs only under certain conditions.
-
-:::image type="content" source="../media/entities/conditional-entity.png" alt-text="An example of a conditional entity." lightbox="../media/entities/conditional-entity.png":::
-
-### Association
-
-describes whether the concept is associated with the subject of the text or someone else.
-
-**Subject** (Default): the concept is associated with the subject of the text, usually the patient.
-
-**Someone_Else**: the concept is associated with someone who is not the subject of the text.
-
-:::image type="content" source="../media/entities/association-entity.png" alt-text="An example of an association entity." lightbox="../media/entities/association-entity.png":::
-
-
 
 ## Next steps
 
-* [NER overview](../../named-entity-recognition/overview.md)
+* [How to call the Text Analytics for health](../how-to/call-api.md)

@@ -48,6 +48,8 @@ Before you begin, make sure that you have the following requirements in place:
 + The [Azurite V3 extension](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) local storage emulator. While you can also use an actual Azure storage account, this article assumes you're using the Azurite emulator.
 ::: zone-end
 
+[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in Python. Later in this article, you'll publish your function code to Azure.
@@ -97,6 +99,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Your function code should now look like the following example:
 
     ```python
+    app = func.FunctionApp()
     @app.function_name(name="HttpTrigger1")
     @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     def test_function(req: func.HttpRequest) -> func.HttpResponse:

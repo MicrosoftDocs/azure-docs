@@ -15,7 +15,7 @@ This article is a reference of the different applications and services that are 
 
 Azure Monitor data is collected and stored based on resource provider namespaces. Each resource in Azure has a unique ID. The resource provider namespace is part of all unique IDs. For example, a key vault resource ID would be similar to `/subscriptions/d03b04c7-d1d4-eeee-aaaa-87b6fcb38b38/resourceGroups/KeyVaults/providers/Microsoft.KeyVault/vaults/mysafekeys ` . *Microsoft.KeyVault* is the resource provider namespace. *Microsoft.KeyVault/vaults/* is the resource provider.
 
-For a list of Azure resource provider namespaces, see [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
+For a list of Azure resource provider namespaces, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 For a list of resource providers that support Azure Monitor
 

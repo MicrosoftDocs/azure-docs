@@ -2,7 +2,7 @@
 title: Diagnose performance issues using Application Insights | Microsoft Docs
 description: Tutorial to find and diagnose performance issues in your application by using Application Insights.
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 11/15/2022
 ms.custom: mvc
 ms.reviewer: vitalyg
 ---

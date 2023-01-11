@@ -32,10 +32,10 @@ VM restore points are incremental. The first restore point stores a full copy of
 
 ## Restore points for VMs inside Virtual Machine Scale Set and Availability Set (AvSet)
 
-Currently, restore points can only be created in one VM at a time, that is, you cannot create a single restore point across multiple VMs. Due to this limitation, we currently support creating restore points for individual VMs with a Virtual Machine Scale Set and Availability Set. If you want to back up your entire Virtual Machine Scale Set instance or your Availability Set instance, you must individually create restore points for all the VMs that are part of the instance.
+Currently, restore points can only be created in one VM at a time, that is, you cannot create a single restore point across multiple VMs. Due to this limitation, we currently support creating restore points for individual VMs with a Virtual Machine Scale Set in Flexible Orchestration mode, or Availability Set. If you want to back up instances within a Virtual Machine Scale Set instance or your Availability Set instance, you must individually create restore points for all the VMs that are part of the instance.
 
 > [!Note]
-> Virtual Machine Scale Set with Unified orchestration is not supported by restore points. You cannot create restore points of VMs inside a Virtual Machine Scale Set with Unified orchestration.
+> Virtual Machine Scale Set with Uniform orchestration is not supported by restore points. You cannot create restore points of VMs inside a Virtual Machine Scale Set with Uniform orchestration.
 
 
 ## Limitations
@@ -45,6 +45,7 @@ Currently, restore points can only be created in one VM at a time, that is, you 
 - Restore points APIs require an API of version 2021-03-01 or later. 
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
 - Concurrent creation of restore points for a VM is not supported. 
+- Restore points for Virtual Machine Scale Sets in Uniform orchestration mode are not supported. 
 - Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions is not supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions will not update the source VM reference in the restore point and will cause a mismatch of ARM IDs between the actual VM and the restore points. 
  > [!Note]
  > Public preview of cross-region creation and copying of VM restore points is available, with the following limitations: 

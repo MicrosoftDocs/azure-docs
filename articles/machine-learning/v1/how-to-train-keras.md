@@ -140,7 +140,7 @@ First, define your conda dependencies in a YAML file; in this example the file i
 channels:
 - conda-forge
 dependencies:
-- python=3.6.2
+- python=3.7
 - pip:
   - azureml-defaults
   - tensorflow-gpu==2.0.0

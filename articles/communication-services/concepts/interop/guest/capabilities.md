@@ -38,6 +38,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | File sharing                                                                                                        | ❌ |
 |                   | Reply to specific chat message                                                                                      | ❌ |
 |                   | React to chat message                                                                                               | ❌ |
+| | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                         | ✔️* |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |

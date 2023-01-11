@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/01/2021
+ms.date: 11/1/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Configure an IoT Edge device to act as a transparent gateway
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 

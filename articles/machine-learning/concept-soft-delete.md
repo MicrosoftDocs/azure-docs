@@ -72,9 +72,6 @@ Optionally, you may permanently delete a workspace going to soft delete state fi
 
 Permanently deleting a workspace allows a workspace name to be reused immediately after deletion. This behavior may be useful in dev/test scenarios where you want to create and later delete a workspace. Permanently deleting a workspace may also be required for compliance if you manage highly sensitive data. See [General Data Protection Regulation (GDPR) implications](#general-data-protection-regulation-gdpr-implications) to learn more on how deletions are handled when soft delete is enabled.
 
-> [!TIP]
-> SDK/CLI options for deleting dependent resources are only possible in combination with permanently deleting a workspace, and fails in case a workspace is not permanently deleted to allow for best changes of recovering workspace data.
-
 :::image type="content" source="./media/concept-soft-delete/soft-delete-permanently-delete.png" alt-text="Screenshot of the delete workspace form in the portal.":::
 
 ## Manage soft-deleted workspaces

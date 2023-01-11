@@ -289,12 +289,44 @@ For example, let's say you have an image of a 127 GB OS disk, that only occupies
 
 - For disaster recovery scenarios, it is a best practice is to have at least two galleries, in different regions. You can still use image versions in other regions, but if the region your gallery is in goes down, you can't create new gallery resources or update existing ones.
 
+- Set `safetyProfile.allowDeletionOfReplicatedLocations` to false on Image versions to prevent accidental deletion of replicated regions and prevent outage. You can also set this using CLI [allow-replicated-location-deletion](/cli/azure/sig/image-version#az-sig-image-version-create)
+
+```
+{ 
+  "properties": { 
+    "publishingProfile": { 
+      "targetRegions": [ 
+        { 
+          "name": "West US", 
+          "regionalReplicaCount": 1, 
+          "storageAccountType": "Standard_LRS", 
+          // encryption info         
+        }
+      ], 
+      "replicaCount": 1, 
+      "publishedDate": "2018-01-01T00:00:00Z", 
+      "storageAccountType": "Standard_LRS" 
+    }, 
+    "storageProfile": { 
+      "source": { 
+        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}" 
+      }, 
+    }, 
+   “safetyProfile”: { 
+      “allowDeletionOfReplicatedLocations” : false 
+    }, 
+  }, 
+  "location": "West US", 
+  "name": "1.0.0" 
+} 
+```
+
 
 ## SDK support
 
 The following SDKs support creating Azure Compute Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [.NET](/dotnet/api/overview/azure/virtualmachines#management-apis)
 - [Java](/java/azure/)
 - [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)

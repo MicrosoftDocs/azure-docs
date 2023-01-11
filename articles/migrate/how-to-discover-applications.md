@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 03/18/2021
+ms.date: 08/08/2022
+ms.custom: engagement-fy23
 ---
 
 # Discover installed software inventory, web apps, and SQL Server instances and databases

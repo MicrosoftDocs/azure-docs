@@ -211,6 +211,13 @@ mounted. It's your responsibility to perform these operations as part of your [s
 must be crafted to be idempotent. A re-execution of the start task after the compute node has been provisioned is possible. If the start
 task isn't idempotent, potential data loss can occur on the data disks.
 
+> [!TIP]
+> When mounting a data disk in Linux, if nesting the disk mountpoint under the Azure temporary mount points such as `/mnt` or `/mnt/resource`,
+> care should be taken such that no dependency races are introduced. For example, if these mounts are automatically performed by the OS, there
+> can be a race between the temporary disk being mounted and your data disk(s) being mounted under the parent. Steps should be taken to
+> ensure that appropriate dependencies are enforced by facilities available such as `systemd` or defer mounting of the data disk to the start
+> task as part of your idempotent data disk preparation script.
+
 #### Preparing data disks in Linux Batch pools
 
 Azure data disks in Linux are presented as block devices and assigned a typical `sd[X]` identifier. You shouldn't rely on static `sd[X]`

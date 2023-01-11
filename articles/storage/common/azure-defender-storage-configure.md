@@ -247,8 +247,8 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using PowerShell:
 
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps.md).
-1. Use the `Connect-AzAccount` cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps.md).
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. Use the `Connect-AzAccount` cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Use these commands to register your subscription to the Microsoft Defender for Cloud Resource Provider:
 
     ```powershell
@@ -265,7 +265,7 @@ To enable Microsoft Defender for Storage at the subscription level with per-tran
     ```
 
 > [!TIP]
-> You can use the [`GetAzSecurityPricing` (Az_Security)](/powershell/module/az.security/get-azsecuritypricing.md) to see all of the Defender for Cloud plans that are enabled for the subscription.
+> You can use the [`GetAzSecurityPricing` (Az_Security)](/powershell/module/az.security/get-azsecuritypricing) to see all of the Defender for Cloud plans that are enabled for the subscription.
 
 To disable the plan, set the `-PricingTier` property value to `Free`.
 
@@ -296,7 +296,7 @@ To enable Microsoft Defender for Storage at the subscription level with per-tran
 
 To disable the plan, set the `-tier` property value to `free`.
 
-Learn more about the [`az security pricing create`](/cli/azure/security/pricing.md#az-security-pricing-create) command.
+Learn more about the [`az security pricing create`](/cli/azure/security/pricing#az-security-pricing-create) command.
 
 #### REST API
 
@@ -358,9 +358,9 @@ If you want to disable Defender for Storage on the account:
 
 To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using PowerShell:
 
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps.md).
-1. Use the Connect-AzAccount cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps.md).
-1. Enable Microsoft Defender for Storage for the desired storage account with the [`Enable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection.md) cmdlet:
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. Use the Connect-AzAccount cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
+1. Enable Microsoft Defender for Storage for the desired storage account with the [`Enable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) cmdlet:
 
     ```powershell
     Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
@@ -368,7 +368,7 @@ To enable Microsoft Defender for Storage for a specific storage account with per
 
     Replace `<subscriptionId>`, `<resource-group>`, and `<storage-account>` with the values for your environment.
 
-If you want to disable per-transaction pricing for a specific storage account, use the [`Disable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection.md) cmdlet:
+If you want to disable per-transaction pricing for a specific storage account, use the [`Disable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection) cmdlet:
 
 ```powershell
 Disable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
@@ -382,7 +382,7 @@ To enable Microsoft Defender for Storage for a specific storage account with per
 
 1. If you don't have it already, [install the Azure CLI](/cli/azure/install-azure-cli).
 1. Use the `az login` command to sign in to your Azure account. Learn more about [signing in to Azure with Azure CLI](/cli/azure/authenticate-azure-cli).
-1. Enable Microsoft Defender for Storage for your subscription with the [`az security atp storage update`](/cli/azure/security/atp/storage.md) command:
+1. Enable Microsoft Defender for Storage for your subscription with the [`az security atp storage update`](/cli/azure/security/atp/storage) command:
 
     ```azurecli
     az security atp storage update \
@@ -392,9 +392,9 @@ To enable Microsoft Defender for Storage for a specific storage account with per
     ```
 
 > [!TIP]
-> You can use the [`az security atp storage show`](/cli/azure/security/atp/storage.md) command to see if Defender for Storage is enabled on an account.
+> You can use the [`az security atp storage show`](/cli/azure/security/atp/storage) command to see if Defender for Storage is enabled on an account.
 
-To disable Microsoft Defender for Storage for your subscription, use the [`az security atp storage update`](/cli/azure/security/atp/storage.md) command:
+To disable Microsoft Defender for Storage for your subscription, use the [`az security atp storage update`](/cli/azure/security/atp/storage) command:
 
 ```azurecli
 az security atp storage update \

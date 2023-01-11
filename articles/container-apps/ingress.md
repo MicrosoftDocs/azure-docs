@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 11/28/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -77,7 +77,7 @@ The following settings are available when configuring ingress:
 > [!NOTE]
 > To disable ingress for your application, omit the `ingress` configuration property entirely.
 
-## IP addresses and domain names
+## Fully qualified domain name
 
 With ingress enabled, your application is assigned a fully qualified domain name (FQDN). The domain name takes the following forms:
 
@@ -97,6 +97,61 @@ For applications with external ingress visibility, the following conditions appl
 You can get access to the environment's unique identifier by querying the environment settings.
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
+
+## <a name="ip-access-restrictions"></a>Inbound access restrictions by IP address ranges (preview)
+
+By default, ingress doesn't filter traffic. You can add restrictions to limit access based on IP addresses. There are two ways to filter traffic:
+
+* **Allowlist**:  Deny all inbound traffic, but allow access from a list of IP address ranges
+* **Denylist**: Allow all inbound traffic, but deny access from a list of IP address ranges
+
+> [!NOTE]
+> If defined, all rules must be the same type. You cannot combine allow rules and deny rules.
+>
+> IPv4 addresses are supported. Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+
+### Configure an allowlist
+
+To allow inbound traffic from a specified IP range, run the following Azure CLI command.
+
+```azurecli
+az containerapp ingress access-restriction set \
+   --name MyContainerapp \
+   --resource-group MyResourceGroup \
+   --rule-name restrictionName \
+   --ip-address 192.168.1.1/28 \
+   --description "Restriction description." \
+   --action Allow
+```
+
+Add more allow rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more allow rules, only traffic that matches at least one rule is allowed. All other traffic is denied.
+
+### Configure a denylist
+
+To deny inbound traffic from a specified IP range, run the following Azure CLI command.
+
+```azurecli
+az containerapp ingress access-restriction set \
+  --name MyContainerapp \
+  --resource-group MyResourceGroup \
+  --rule-name my-restriction \
+  --ip-address 192.168.1.1/28 \
+  --description "Restriction description."
+  --action Deny
+```
+
+Add more deny rules by repeating the command with a different IP address range in the `--ip-address` parameter. When you configure one or more deny rules, any traffic that matches at least one rule is denied. All other traffic is allowed.
+
+### Remove access restrictions
+
+To remove an access restriction, run the following Azure CLI command.
+
+```azurecli
+az containerapp ingress access-restriction remove
+  --name MyContainerapp \
+  --resource-group MyResourceGroup \
+  --rule-name my-restriction
+```
 
 ## Next steps
 

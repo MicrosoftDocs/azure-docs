@@ -339,7 +339,7 @@ curl --location --request PUT "https://management.azure.com/subscriptions/$SUBSC
 
 ## Next steps
 
-Now that you have a trained model, learn [how to deploy it using an online endpoint](how-to-deploy-managed-online-endpoints.md).
+Now that you have a trained model, learn [how to deploy it using an online endpoint](how-to-deploy-online-endpoints.md).
 
 For more examples, see the [AzureML examples](https://github.com/azure/azureml-examples) GitHub repository.
 

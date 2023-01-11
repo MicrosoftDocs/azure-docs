@@ -235,7 +235,7 @@ A breakdown of the deployment specifications in the YAML manifest file is as fol
 | ----------------- | ------------- |  
 | `.apiVersion` | Specifies the API group and API resource you want to use when creating the resource. |  
 | `.kind` | Specifies the type of resource you want to create. |  
-| `.metadata.name` | Specifies the image to run. This file will run the *nginx* image from Docker Hub. |  
+| `.metadata.name` | Specifies the name of the deployment. This file will run the *nginx* image from Docker Hub. |  
 | `.spec.replicas` | Specifies how many pods to create. This file will create three deplicated pods. |  
 | `.spec.selector` | Specifies which pods will be affected by this deployment. |
 | `.spec.selector.matchLabels` | Contains a map of *{key, value}* pairs that allows the deployment to find and manage the created pods. |  

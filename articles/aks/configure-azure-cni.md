@@ -243,6 +243,41 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
   --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet \
   --no-wait 
 ```
+## Monitor IP subnet usage 
+
+Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
+
+### Get the YAML file
+1.	Download or grep the file named container-azm-ms-agentconfig.yaml from [github][github].
+2.	Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`. 
+3.	Save the file.
+
+### Get the AKS credentials
+
+Set the variables for subscription, resource group and cluster. Consider the following as examples:
+
+```azurepowershell
+
+    $s="subscriptionId"
+
+    $rg="resourceGroup"
+
+    $c="ClusterName"
+
+    az account set -s $s
+
+    az aks get-credentials -n $c -g $rg
+
+```
+
+### Apply the config
+
+1.	Open terminal in the folder the downloaded container-azm-ms-agentconfig.yaml file is saved.
+2.	First, apply the config using the command: `kubectl apply -f container-azm-ms-agentconfig.yaml`
+3.	This will restart the pod and after 5-10 minutes, the metrics will be visible.
+4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
+
+  :::image type="content" source="media/Azure-cni/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::    
 
 ## Frequently asked questions
 
@@ -311,7 +346,7 @@ Learn more about networking in AKS in the following articles:
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: concepts-network.md#kubenet-basic-networking
-
+[github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create

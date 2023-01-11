@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, cosmos-db-video, ignite-2022
@@ -63,7 +63,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
 
 
 > [!NOTE]
@@ -229,7 +229,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 }
 ```
 
-For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the partition key.
+For sharded collections, you must provide the shard (partition) key  to create a unique index. In other words, all unique indexes on a sharded collection are compound indexes where one of the fields is the shard key. The first field in the order should be the shard key.
 
 The following commands create a sharded collection ```coll``` (the shard key is ```university```) with a unique index on the fields `student_id` and `university`:
 
@@ -269,7 +269,7 @@ but won't won't work in this case since there's an array in the path:
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```
 
-This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md). 
+This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
 
 
 ### TTL indexes

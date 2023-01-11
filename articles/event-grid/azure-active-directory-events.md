@@ -14,9 +14,9 @@ These events are triggered when a [User](/graph/api/resources/user) or [Group](/
 
  | Event name | Description |
  | ---------- | ----------- |
- | **Microsoft.Graph.UserUpdated** | Triggered when a user in Azure AD is created and updated. |
+ | **Microsoft.Graph.UserUpdated** | Triggered when a user in Azure AD is created or updated. |
  | **Microsoft.Graph.UserDeleted** | Triggered when a user in Azure AD is permanently deleted. |
- | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Azure AD is created and updated. |
+ | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Azure AD is created or updated. |
  | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Azure AD is permanently deleted.  |
 
 > [!NOTE]

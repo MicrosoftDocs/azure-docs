@@ -247,11 +247,11 @@ The error message displayed will be: "Due to a configuration change made by your
 
 When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the user risk state is determined to be ‘AtRisk’, an error, “You're unable to add a verified publisher to this application. Contact your administrator for assistance” will be returned. Please investigate the user risk and take the appropriate steps to remediate the risk (guidance below): 
 
-> [Investigate risk](/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk#risky-users)
+> [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users)
 
-> [Remediate risk/unblock users](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
+> [Remediate risk/unblock users](../identity-protection/howto-identity-protection-remediate-unblock.md)
 
-> [Self-remediation guidance](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
+> [Self-remediation guidance](../identity-protection/howto-identity-protection-remediate-unblock.md)
 
 > Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/sspr to reset the password for remediation. Please choose a strong password; Choosing a weak password may not reset the risk state.  
 

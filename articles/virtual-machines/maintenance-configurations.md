@@ -66,6 +66,9 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure PowerShell](maintenance-configurations-powershell.md)
 - [Azure portal](maintenance-configurations-portal.md)
 
+>[!IMPORTANT]
+> Pre/Post **tasks** property is currently exposed in the API but it is not supported a this time.
+
 For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
 ## Next steps

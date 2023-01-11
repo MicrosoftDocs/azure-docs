@@ -1,5 +1,6 @@
 ---
-title: How to use Azure Queue Storage from PowerShell - Azure Storage
+title: How to use Azure Queue Storage from PowerShell
+titleSuffix: Azure Storage
 description: Perform operations on Azure Queue Storage via PowerShell. With Azure Queue Storage, you can store large numbers of messages that are accessible by HTTP/HTTPS.
 author: stevenmatthew
 ms.author: shaas
