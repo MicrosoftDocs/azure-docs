@@ -1,19 +1,15 @@
 items:
-- name: Azure Center for SAP solutions documentation
+- name: SAP on Azure documentation
   href: index.yml
-
-- name: Overview
-  expanded: true
-  items:
-  - name: What is Azure Center for SAP solutions?
-    href: overview.md
-  - name: Frequently asked questions (FAQ)
-    href: faq.yml
 
 - name: Concepts
   items:
-  - name: SAP and Microsoft integration scenarios
-    href: workloads/integration-get-started.md
+  - name: Azure Center for SAP solutions
+    items:
+    - name: What is Azure Center for SAP solutions?
+      href: overview.md
+    - name: Frequently asked questions (FAQ)
+      href: faq.yml
   - name: SAP on Azure VM workloads
     items:
     - name: How do you run SAP workloads on Azure?
@@ -24,6 +20,8 @@ items:
       href: workloads/disaster-recovery-overview-guide.md
     - name: Disaster recovery for SAP workloads
       href: workloads/disaster-recovery-sap-guide.md
+    - name: SAP and Microsoft integration scenarios
+      href: workloads/integration-get-started.md
     - name: Deployment
       items:
       - name: Supported scenarios
@@ -210,30 +208,32 @@ items:
 
 - name: How-to guides
   items:    
-  - name: Deployment
-    items:
-    - name: Prepare network for deployment
-      href: prepare-network.md
-    - name: Deploy S/4HANA infrastructure
-      href: deploy-s4hana.md
-    - name: Install SAP software
-      href: install-software.md
-    - name: Register existing SAP system
-      href: register-existing-system.md
-  - name: Management
-    items:
-    - name: Manage Virtual Instance for SAP solutions
-      href: manage-virtual-instance.md
-    - name: Start and stop SAP systems
-      href: start-stop-sap-systems.md
-    - name: Get quality checks and insights
-      href: get-quality-checks-insights.md
-    - name: View cost analysis for SAP system
-      href: view-cost-analysis.md
-  - name: Monitoring
-    items:
-    - name: Monitor SAP system in Azure portal
-      href: monitor-portal.md
+  - name: Azure Center for SAP solutions
+    items: 
+    - name: Deployment
+      items:
+      - name: Prepare network for deployment
+        href: prepare-network.md
+      - name: Deploy S/4HANA infrastructure
+        href: deploy-s4hana.md
+      - name: Install SAP software
+        href: install-software.md
+      - name: Register existing SAP system
+        href: register-existing-system.md
+    - name: Management
+      items:
+      - name: Manage Virtual Instance for SAP solutions
+        href: manage-virtual-instance.md
+      - name: Start and stop SAP systems
+        href: start-stop-sap-systems.md
+      - name: Get quality checks and insights
+        href: get-quality-checks-insights.md
+      - name: View cost analysis for SAP system
+        href: view-cost-analysis.md
+    - name: Monitoring
+      items:
+      - name: Monitor SAP system in Azure portal
+        href: monitor-portal.md
   - name: SAP on Azure VM workloads
     items:
     - name: DBMS
