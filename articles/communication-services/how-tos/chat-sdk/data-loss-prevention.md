@@ -2,6 +2,7 @@
 title:  Integrate with Microsoft Teams Data Loss Prevention
 titleSuffix: An Azure Communication Services how-to guide
 description: Learn how to integrate with Microsoft Teams Data Loss Prevention policies by subscribing to Real-time Chat Notifications 
+author: angiurgiu
 ms.author: agiurg
 ms.date: 01/10/2023
 ms.topic: how-to
@@ -9,9 +10,6 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ms.custom: template-how-to
 ---
-
-
-
 # How to integrate with Microsoft Teams Data Loss Prevention policies by subscribing to Real-time Chat Notifications
 
 Microsoft Teams administrator can configure policies for data loss prevention (DLP) to prevent leakage of sensitive information from Teams users in Teams meetings. Developers can integrate chat in Teams meetings with Azure Communication Services for Communication Services users via the Communication Services UI library or custom integration. This article describes how to incorporate data loss prevention without a UI library.
