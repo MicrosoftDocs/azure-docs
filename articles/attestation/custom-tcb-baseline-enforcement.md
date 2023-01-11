@@ -13,9 +13,9 @@ ms.author: mbaldwin
 
 # Custom TCB baseline enforcement for SGX attestation
 
-Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](/azure/security/fundamentals/trusted-hardware-identity-management) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID).  The default TCB baseline from THIM lags the latest baseline offered by Intel and is expected to remain at tcbEvaluationDataNumber 10. 
+Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID).  The default TCB baseline from THIM lags the latest baseline offered by Intel and is expected to remain at tcbEvaluationDataNumber 10. 
 
-The custom TCB baseline enforcement feature in Azure Attestation will enable you to perform SGX attestation against a desired TCB baseline, as opposed to the Azure default TCB baseline which is applied across [Azure Confidential Computing](/azure/confidential-computing/) (ACC) fleet today.
+The custom TCB baseline enforcement feature in Azure Attestation will enable you to perform SGX attestation against a desired TCB baseline, as opposed to the Azure default TCB baseline which is applied across [Azure Confidential Computing](../confidential-computing/index.yml) (ACC) fleet today.
 
 ## Why use custom TCB baseline enforcement feature?
 
@@ -54,9 +54,9 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ### New users
 
-1. Create an attestation provider using Azure portal experience. [Details here](/azure/attestation/quickstart-portal#create-and-configure-the-provider-with-unsigned-policies) 
+1. Create an attestation provider using Azure portal experience. [Details here](./quickstart-portal.md#create-and-configure-the-provider-with-unsigned-policies) 
 
-2. Go to overview page and view the current default policy of the attestation provider. [Details here](/azure/attestation/quickstart-portal#view-an-attestation-policy)
+2. Go to overview page and view the current default policy of the attestation provider. [Details here](./quickstart-portal.md#view-an-attestation-policy)
 
 3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
@@ -66,9 +66,9 @@ Minimum PSW Windows version: "2.7.101.2"
 
 Shared provider users need to migrate to custom providers to be able to perform attestation against custom TCB baseline 
 
-1. Create an attestation provider using Azure portal experience. [Details here](/azure/attestation/quickstart-portal#create-and-configure-the-provider-with-unsigned-policies) 
+1. Create an attestation provider using Azure portal experience. [Details here](./quickstart-portal.md#create-and-configure-the-provider-with-unsigned-policies) 
 
-2. Go to overview page and view the current default policy of the attestation provider. [Details here](/azure/attestation/quickstart-portal#view-an-attestation-policy)
+2. Go to overview page and view the current default policy of the attestation provider. [Details here](./quickstart-portal.md#view-an-attestation-policy)
 
 3. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
@@ -78,7 +78,7 @@ Shared provider users need to migrate to custom providers to be able to perform 
 
 ### Existing custom provider users  
 
-1. Go to overview page and view the current default policy of the attestation provider. [Details here](/azure/attestation/quickstart-portal#view-an-attestation-policy)
+1. Go to overview page and view the current default policy of the attestation provider. [Details here](./quickstart-portal.md#view-an-attestation-policy)
 
 2. Click on **View current and available TCB baselines for attestation**, view **Available TCB baselines**, identify the desired TCB identifier and click Cancel  
 
@@ -114,5 +114,3 @@ c:[type=="x-ms-attestation-type"] => issue(type="tee", value=c.value);
 - If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass
 - For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline
 - For customers using an attestation policy without configurationrules section, attestation will be performed against the Azure default TCB baseline
-
-
