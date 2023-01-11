@@ -225,6 +225,18 @@ To create a custom scale trigger, first create a connection string secret to aut
 > [!NOTE]
 > In multiple revision mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage their traffic allocations.
 
+### Add Azure Queue scale trigger
+
+1. In Azure portal, there are few options to edit the scaling rules of a container:
+
+   :::image type="content" source="media/scalers/add-scale-rule-queue.png" alt-text="A screenshot showing how to add an Azure queue scale rule.":::
+
+2. Enter a **Rule name**, select **Azure Queue**. Enter your **Queue Name**, Enter your desired **Queue length**, under the **Authentication** section, add your **Secret reference** which in case is your Azure Queue connection string, and **Trigger parameter** (you can enter 'connection'). select **Add** when you're done. The queue length instruct Keda scaler, how many messages require scaling, for example if your setting is '5' and your queue length is 25, 5 instances would be created.
+
+  :::image type="content" source="media/scalers/enter-queue-information.png" alt-text="A screenshot showing how to configure a Azure queue scale rule.":::
+
+3. Select **Create** when you're done.
+
 ### KEDA scalers conversion
 
 Azure Container Apps supports KEDA ScaledObjects and all of the available [KEDA scalers](https://keda.sh/docs/scalers/). To convert KEDA templates, it's easier to start with a custom JSON template and add the parameters you need based on the scenario and the scale trigger you want to set up.
