@@ -88,7 +88,7 @@ You can find SOAR integrations and their components in the following places:
 | **Falcon endpoint protection**<br>(Available as solution) | Playbooks | Microsoft | Endpoints enrichment,<br>isolate endpoints |
 |
   
-##Elastic Search  
+## Elastic Search  
 
 | Product | Integration components | Supported by | Scenarios |
 | --- | --- | --- | --- |
