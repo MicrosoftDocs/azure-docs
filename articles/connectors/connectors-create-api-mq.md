@@ -67,7 +67,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
   * If you're using the on-premises data gateway, your logic app resource must use the same location as your gateway resource in Azure.
 
-* If you have a Standard logic app workflow and want to use the MQ built-in connector with TLS encryption, you must first add the certificate to use for validating incoming non-publicly trusted certificates. For more information, see [Add a certificate for TLS encryption](#add-TLS-certificate).
+* If you have a Standard logic app workflow and want to use the MQ built-in connector with TLS encryption, you must first add a certificate for validating incoming non-publicly trusted certificates. For more information, see [Add a certificate for TLS encryption](#add-TLS-certificate).
 
 <a name="add-trigger"></a>
 
