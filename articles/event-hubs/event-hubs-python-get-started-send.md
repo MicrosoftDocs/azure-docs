@@ -16,7 +16,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, sign up for a [free trial](https://azure.microsoft.com/free/).
-- Python 2.7 or 3.6 or later, with PIP installed and updated.
+- Python 3.7 or later, with PIP installed and updated.
 - Visual Studio Code (recommended) or any other integrated development environment (IDE). 
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace, and obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
 
@@ -282,10 +282,10 @@ In this section, you create a Python script to receive events from your event hu
         BlobCheckpointStore,
     )
     
-    AZURE_STORAGE_CONNECTION_STRING = "AZURE STORAGE CONNECTION STRING"
-    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
-    EVENT_HUB_CONNECTION_STR = "EVENT HUBS NAMESPACE - CONNECTION STRING"
-    EVENT_HUB_NAME = "EVENT HUB NAME"
+    AZURE_STORAGE_CONNECTION_STRING = "AZURE_STORAGE_CONNECTION_STRING"
+    BLOB_CONTAINER_NAME = "BLOB_CONTAINER_NAME"
+    EVENT_HUB_CONNECTION_STR = "EVENT_HUB_CONNECTION_STR"
+    EVENT_HUB_NAME = "EVENT_HUB_NAME"
     
     
     async def on_event(partition_context, event):
