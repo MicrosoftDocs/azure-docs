@@ -6,7 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: ssalgadodev
+ms.reviewer: ssalgado 
+author: tbombach
 ms.author: tbombach
 ms.date: 10/21/2021
 ms.custom: sdkv1, event-tier1-build-2022

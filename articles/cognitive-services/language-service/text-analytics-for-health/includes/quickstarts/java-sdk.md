@@ -13,8 +13,6 @@ ms.author: jboback
 
 Use this quickstart to create a Text Analytics for health application with the client library for Java. In the following example, you will create a Java application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -159,6 +157,9 @@ Relation type: FrequencyOfMedication.
 	Entity text: ibuprofen, category: MedicationName, role: Medication.
 	Entity text: twice daily, category: Frequency, role: Frequency.
 ```
+
+> [!TIP]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](../../how-to/call-api.md) on how to use FHIR structuring in your API call.
 
 ## Clean up resources
 

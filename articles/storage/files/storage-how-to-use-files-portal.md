@@ -204,10 +204,12 @@ New-AzStorageDirectory `
 
 To create a new directory named **myDirectory** at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory) command:
 
+> [!NOTE]
+> If you don't provide credentials with your commands, Azure CLI will query for your storage account key. You can also provide your storage account key with the command by using a variable such as `--account-key $storageAccountKey` or in plain text such as `--account-key "your-storage-account-key-here"`.
+
 ```azurecli-interactive
 az storage directory create \
    --account-name $storageAccountName \
-   --account-key $storageAccountKey \
    --share-name $shareName \
    --name "myDirectory" \
    --output none
@@ -273,7 +275,6 @@ date > SampleUpload.txt
 
 az storage file upload \
     --account-name $storageAccountName \
-    --account-key $storageAccountKey \
     --share-name $shareName \
     --source "SampleUpload.txt" \
     --path "myDirectory/SampleUpload.txt"
@@ -286,7 +287,6 @@ After you upload the file, you can use the [`az storage file list`](/cli/azure/s
 ```azurecli-interactive
 az storage file list \
     --account-name $storageAccountName \
-    --account-key $storageAccountKey \
     --share-name $shareName \
     --path "myDirectory" \
     --output table
@@ -335,10 +335,9 @@ rm -f SampleDownload.txt
 
 az storage file download \
     --account-name $storageAccountName \
-    --account-key $storageAccountKey \
     --share-name $shareName \
     --path "myDirectory/SampleUpload.txt" \
-    --dest "SampleDownload.txt" \
+    --dest "./SampleDownload.txt" \
     --output none
 ```
 

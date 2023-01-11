@@ -192,7 +192,7 @@ The following tag is an example of the format:
 For all the supported locales and corresponding voices of the neural text-to-speech container, see [Neural text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
 
 > [!IMPORTANT]
-> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=stt-tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 # [Speech language identification](#tab/lid)
 
@@ -216,10 +216,6 @@ After the container is on the [host computer](#host-computer-requirements-and-re
 ## Run the container with docker run
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. For more information on how to get the `{Endpoint_URI}` and `{API_Key}` values, see [Gather required parameters](#gather-required-parameters). More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
-
-## Run the container in disconnected environments
-
-You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
 > [!NOTE]
 > For general container requirements, see [Container requirements and recommendations](#container-requirements-and-recommendations).
@@ -508,6 +504,10 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [Billing](#billing).
+
+## Run the container in disconnected environments
+
+You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
 ## Query the container's prediction endpoint
 
