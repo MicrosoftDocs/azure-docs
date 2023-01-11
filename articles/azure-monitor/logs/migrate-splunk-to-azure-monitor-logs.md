@@ -65,7 +65,7 @@ To set up a Log Analytics workspace for data collection:
 ## 2. Migrate Splunk artifacts to Azure Monitor
 
 To migrate most Splunk artifacts, you need to translate Splunk Processing Language (SPL) to Kusto Query Language (KQL). For more information, see the [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet) and [Get started with log queries in Azure Monitor](../logs/get-started-queries.md).
-T
+
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png" alt-text="Diagram that shows Azure Monitor capabilities related to insights, visualization, analysis, and responsive actions." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-splunk-artifacts-to-azure-monitor.png":::
 
 This table lists Splunk artifacts and provides links to guidance on how to set up the equivalent artifacts in Azure Monitor:
@@ -76,7 +76,7 @@ This table lists Splunk artifacts and provides links to guidance on how to set u
 |Alert actions|[Action groups](../alerts/action-groups.md)|
 |Apps|[Azure Monitor Insights](../insights/insights-overview.md) are a set of ready-to-use, curated monitoring experiences with pre-configured data inputs, searches, alerts, and visualizations to get you started analyzing data quickly and effectively. |
 |Dashboards|[Workbooks](../visualize/workbooks-overview.md)|
-|Lookups|Azure Monitor provides a variety of ways to enrich data, including:<br>- Using [data collection rules](../essentials/data-collection-rule-overview.md) to send data from multiple sources to a table, and perform calculations and transformations before the ingesting the data.<br>- Using KQL operators, such as the [join operator](/data-explorer/kusto/query/joinoperator?pivots=azuremonitor) in queries to combine data from different tables, or the [externaldata operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) to return data from external storage.<br>- Integrating with other services, such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about) to leverage advanced machine learning and stream in additional data.|
+|Lookups|Azure Monitor provides a variety of ways to enrich data, including:<br>- [Data collection rules](../essentials/data-collection-rule-overview.md), which let you send data from multiple sources to a table, and perform calculations and transformations before ingesting the data.<br>- KQL operators, such as the [join operator](/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), which combines data from different tables, and the [externaldata operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor), which returns data from external storage.<br>- Integration with services, such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about), to leverage advanced machine learning and stream in additional data.|
 |Searches|[Queries](../logs/get-started-queries.md)|
 |Source types|[Define your data model in your Log Analytics workspace](../logs/manage-logs-tables.md). Use [ingestion-time transformations]() to filter, format, or modify incoming data.|
 |Namespaces|[Log Analytics workspaces](../logs/log-analytics-workspace-overview.md) and [Azure resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md)|
