@@ -66,7 +66,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+* An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -174,9 +174,27 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 # [Studio](#tab/azure-studio)
 
+Open a terminal in the AzureML studio:
+
+1. Sign into [Azure Machine Learning studio](https://ml.azure.com).
+1. Select your workspace, if it isn't already open.
+1. On the left, select **Notebooks**.
+1. Select **Open terminal**.
+    
+    :::image type="content" source="media/how-to-deploy-online-endpoints/create-new-terminal.png" alt-text="Screenshot: create a new terminal in AzureML studio.":::
+
 ### Clone the sample repository
 
-To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). This article uses the assets in the `/cli/endpoints/online` directory.
+To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and then change into the `azureml-examples/cli/endpoints/online` directory.
+
+In the terminal you just created, run the following code:
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/sdk/python/endpoints/online/managed
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
 # [ARM template](#tab/arm)
 
@@ -340,9 +358,10 @@ In this article, we first define names of online endpoint and deployment for deb
 
 # [Studio](#tab/azure-studio)
 
-The AzureML studio doesn't support local endpoints and deployments.
+> [!NOTE]
+> The AzureML studio doesn't support local endpoints and deployments.
 
-To deploy a model, you must have:
+In general, to deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace).
 - A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned earlier.
