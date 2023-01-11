@@ -21,12 +21,14 @@
           href: quickstart-dotnet-app.md
         - name: Azure Functions in .NET Core
           href: quickstart-azure-functions-csharp.md
+        - name: ContainerApps
+          href: quickstart-container-apps.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
-        - name: Python
-          href: quickstart-python-provider.md
         - name: JavaScript/Node.js
           href: quickstart-javascript.md
+        - name: Python
+          href: quickstart-python-provider.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -113,8 +115,7 @@
           href: monitor-app-configuration.md
         - name: Reference for monitoring data
           href: monitor-app-configuration-reference.md
-    - name: Connect to Container Apps
-      href: connect-container-apps.md
+
 - name: Samples
   items:
     - name: Azure CLI
