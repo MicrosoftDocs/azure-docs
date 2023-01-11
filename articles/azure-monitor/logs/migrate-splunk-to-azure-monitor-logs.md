@@ -117,5 +117,7 @@ To collect data from a resource:
 
 ## Next steps
 - [Use Azure policies](/azure/governance/policy/overview) to define rules to enforce organizational standards and to assess compliance at-scale.
-- Do the [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/) training module.
+- - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
+- Take the [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/) training.
+
 
