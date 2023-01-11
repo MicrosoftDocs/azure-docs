@@ -75,7 +75,7 @@ The data collection rule defines:
 You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
 
 > [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 ### [Portal](#tab/portal)
 
@@ -434,4 +434,4 @@ Learn more about:
 
 - [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - [Data collection rules](../essentials/data-collection-rule-overview.md).
-- [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md).
