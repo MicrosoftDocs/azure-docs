@@ -99,6 +99,26 @@ You can view and manage API keys in the [Azure portal](https://portal.azure.com)
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Screenshot of a portal page showing API keys." border="true":::
 
+### [**PowerShell**](#tab/azure-ps-find)
+
+1. Install the Az.Search module:
+
+   ```azurepowershell
+   Install-Module Az.Search
+   ```
+
+1. Return admin keys:
+
+   ```azurepowershell
+   Get-AzSearchAdminKeyPair -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+   ```
+
+1. Return query keys:
+
+   ```azurepowershell
+   Get-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+   ```
+
 ### [**Azure CLI**](#tab/azure-cli-find)
 
 Use the following commands to return admin and query API keys, respectively:
