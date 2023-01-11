@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Certificates for appliance encryption and authentication (OT appliances)
 
-This article provides information needed before creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+This article provides information needed before [creating and deploying certificates](how-to-deploy-certificates.md) for Microsoft Defender for IoT.
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components:
 
@@ -15,10 +15,6 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 - Between the sensors and an on-premises management console.
 - Between a management console and a High Availability management console.
 - To the REST API on the sensor and on-premises management console.
-
-Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
-
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign-in certificate page.":::
 
 ## About certificate generation methods
 
@@ -64,15 +60,7 @@ The option to validate the uploaded certificate and third-party certificates is 
 
 ## Supported SSL certificates
 
-This section covers requirements for successful certificate deployment, including:
-
-- [CRL server access for certificate validation](#crl-server-access-for-certificate-validation)
-
-- [Supported certificate file types](#supported-certificate-file-types)
-
-- [Key file requirements](#key-file-requirements)
-
-- [Using a certificate chain (optional)](#using-a-certificate-chain-optional)
+something else.
 
 ### CRL server access for certificate validation
 

@@ -5,41 +5,28 @@ ms.date: 01/05/2023
 ms.topic: how-to
 ---
 
-# Creating certificates for appliance encryption and authentication (OT appliances)
+# Create and deploy certificates for Microsoft Defender for IoT
 
-Change. This article provides instructions needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+Create and deploy certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
-Defender for IoT uses SSL/TLS certificates to secure communication between the following system components:
+For more information, see [Certificates for appliance encryption and authentication (OT appliances)](about-certificates.md).
 
-- Between users and the web console of the appliance.
-- Between the sensors and an on-premises management console.
-- Between a management console and a High Availability management console.
-- To the REST API on the sensor and on-premises management console.
+## Prerequisites
 
-Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
-
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign-in certificate page.":::
-
-## Certificate deployment prerequisites
-
-This section describes the steps you need to take to ensure that certificate deployment runs smoothly.
-
-**To deploy certificates, verify that:**
+To deploy certificates, verify that:
 
 - A security, PKI or certificate specialist is creating or overseeing certificate creation.
 - You create a unique certificate for each sensor, management console and HA machine.
-- You meet [Supported SSL certificates](about-certificates.md#supported-ssl-certificates).
+- You meet [certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements).
 - Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
 ## Create SSL certificates
 
-Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
+Use a certificate management platform to create [a certificate](about-certificates.md#supported-ssl-certificates); for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
 
-If you aren't carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](about-certificates.md#crt-file-requirements) for information about this parameter.
+If you aren't carrying out [certificate validation](about-certificates.md#crl-server-access-for-certificate-validation), remove the CRL URL reference in the certificate. See [CRT file requirements](about-certificates.md#crt-file-requirements) for information about this parameter.
 
 Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
-
-You can [Test certificates you create](#test-certificates-you-create).  
 
 You can also convert existing certificate files if you don't want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
 
@@ -55,11 +42,11 @@ In order to import an SSL certificate, you'll first need to download a security 
 
 ### Download a security certificate
 
-1. Sign-in to your sensor console, using the sensor's IP address, without a secure connection.
+1. Sign-in to your sensor console, using the sensor's IP address.
 
 1. Select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/warning-icon.png" border="false"::: **Not secure** alert in the address bar of your web browser, then select the **>** icon next to the warning message **"Your connection to this site isn't secure"**. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar." lightbox="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png":::
 
 1. Select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website.
 
@@ -87,7 +74,7 @@ In order to import an SSL certificate, you'll first need to download a security 
 
 1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-trusted-root.png" alt-text="Screenshot of the certificate store screen where you can browse to the trusted root folder." lightbox="media/how-to-activate-and-set-up-your-sensor/certificate-store-trusted-root.png":::
 
 1. Select **Finish** to import the certificate.
 
@@ -97,11 +84,11 @@ In order to import an SSL certificate, you'll first need to download a security 
 
     The certificate's common name will then appear next to **CN**.
 
-1. Sign-in to your sensor console without a secure connection again. In the **Your connection isn't private** warning screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message.
+1. Sign-in to your sensor console without a secure connection. In the **Your connection isn't private** warning screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message.
 
 1. Select the error message to expand it, and then copy the string next to **Subject**. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private-details.png" alt-text="Screenshot of the connection isn't private screen with the details expanded.":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private-subject.png" alt-text="Screenshot of the connection isn't private screen with the details expanded." lightbox="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private-subject.png":::
 
     The subject string should match the CN string in the security certificate's details.
 
@@ -109,7 +96,7 @@ In order to import an SSL certificate, you'll first need to download a security 
 
 1. In the hosts file, add in a line at the end of document with the sensor's IP address and the SSL certificate's common name that you copied in the previous steps. When you're done, save the changes. For example:
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" alt-text="Screenshot of the hosts file." lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png" lightbox="media/how-to-activate-and-set-up-your-sensor/hosts-file.png":::
 
 ## Test certificates you create
 
@@ -122,6 +109,12 @@ Test certificates before deploying them to your sensors and on-premises manageme
 | Check a certificate  | `openssl x509 -in certificate.crt -text -noout` |
 
 If these tests fail, review [Certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements) to verify file parameters are accurate, or consult your certificate lead.
+
+## Upload an SSL certificate
+
+Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign-in certificate page.":::
 
 ## Convert existing files to supported files
 
