@@ -16,14 +16,6 @@ This quickstart shows you how to create a project in Azure Deployment Environmen
 
 An enterprise development infrastructure team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
 
-In this quickstart, you learn how to:
-
-> [!div class="checklist"]
->
-> - Create a project
-> - Configure a project
-> - Provide project access to the development team
-
 > [!IMPORTANT]
 > Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -96,7 +88,7 @@ After you create a managed identity, assign the Owner role to give the identity 
 1.	On the left menu under Settings, select **Identity**.
 1.	Under System assigned > Permissions, select **Azure role assignments**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
+    :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
 
 1. In Azure role assignments, select **Add role assignment (Preview)**, and then enter or select the following information:
     - In **Scope**, select **Subscription**.

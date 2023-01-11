@@ -76,8 +76,11 @@ If you don't have an existing key vault, use the following steps to create one:
 
 1.	Select **Create**.
 
-## Create a GitHub PAT
-Using an authentication token like a GitHub PAT enables you to share your repository securely.  
+## Create a personal access token
+Using an authentication token like a GitHub personal access token (PAT) enables you to share your repository securely.  
+
+> [!TIP] 
+> If you are attaching an Azure DevOps repository, use these steps [Create a personal access token in Azure DevOps](how-to-configure-catalog.md#create-a-personal-access-token-in-azure-devops).
 
 1.	In a new browser tab, sign into your [GitHub](https://github.com) account.
 1.	On your profile menu, select **Settings**.
@@ -157,6 +160,9 @@ To add a catalog to your dev center, you'll first need to gather some informatio
 ### Gather GitHub repo information
 To add a catalog, you must specify the GitHub repo URL, the branch, and the folder that contains your catalog items. You can gather this information before you begin the process of adding the catalog to the dev center, and paste it somewhere accessible, like notepad.
 
+> [!TIP] 
+>  If you are attaching an Azure DevOps repository, use these steps [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
+
 1. On your [GitHub](https://github.com) account page, select **<> Code**, and then select copy.
 1. Take a note of the branch that you're working in.
 1. Take a note of the folder that contains your catalog items. 
@@ -196,13 +202,9 @@ You'll also need the path to the secret you created in the key vault.
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments|
     | **Secret identifier**| Enter the secret identifier that contains your personal access token for the repository.|
 
-   :::image type="content" source="media/how-to-configure-catalog/add-new-catalog-form.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
+   :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-catalog-form.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
 
 1. Confirm that the catalog is successfully added by checking your Azure portal notifications.
-
-1. Select the specific repository, and then select **Sync**.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/sync-catalog.png" alt-text="Screenshot that shows how to sync the catalog." :::
 
 ## Create an environment type
 
