@@ -395,6 +395,10 @@ If you created an OpenAI resource solely for completing this tutorial and want t
 - [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 - [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+## Video
+
+There is video walkthrough of this tutorial including the pre-requisite steps which can viewed on this [community YouTube post](https://www.youtube.com/watch?v=PSLO-yM6eFY).
+
 ## Next steps
 
 Learn more about Azure OpenAI's models:
