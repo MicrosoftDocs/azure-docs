@@ -143,7 +143,7 @@ In the **Automated response** tab:
 
 1. Select **Next : Review** to review all the settings for your new analytics rule. When the "Validation passed" message appears, select **Create**. Unless you set the rule to **Disabled** in the **General** tab above, the rule will run immediately.
 
-    Select the image below for a display of the full text of the review.
+    Select the image below for a display of the full review (most of the query text was clipped for viewability).
 
     :::image type="content" source="media/tutorial-log4j-detection/review-and-create-tab.png" alt-text="Screenshot of the Review and Create tab of the Analytics rule wizard." lightbox="media/tutorial-log4j-detection/full-review-and-create.png":::
 
