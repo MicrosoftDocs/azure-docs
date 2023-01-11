@@ -68,6 +68,8 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
 # [ARM template](#tab/arm)
 
 > [!NOTE]
@@ -174,7 +176,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 ### Clone the sample repository
 
-To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). You can use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks). This article uses the assets in the `/cli/endpoints/online` directory.
+To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). This article uses the assets in the `/cli/endpoints/online` directory.
 
 # [ARM template](#tab/arm)
 
@@ -281,7 +283,7 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 # [Python](#tab/python)
 
-In this article, we first define names of online endpoint and deployment for debug locally.
+In this article, we first define names of online endpoint and deployment for debugging locally.
 
 1. Define endpoint (with name for local endpoint):
       ```python
@@ -338,7 +340,7 @@ In this article, we first define names of online endpoint and deployment for deb
 
 # [Studio](#tab/azure-studio)
 
-Local deployment does not apply to the AzureML studio.
+The AzureML studio doesn't support local endpoints and deployments.
 
 To deploy a model, you must have:
 
@@ -387,7 +389,7 @@ For more information on creating an environment, see
 
 ### Register the model
 
-A model registration is a logical entity in the workspace that may contain a single model file or a directory containing multiple files. The steps in this article assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace that may contain a single model file or a directory of multiple files. The steps in this article assume that you've downloaded the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
 To register the example model using AzureML studio, use the following steps:
 
