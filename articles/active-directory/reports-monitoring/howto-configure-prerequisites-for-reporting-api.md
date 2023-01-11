@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/08/2022
+ms.date: 01/11/2023
 ms.author: sarahlipsey
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 The Azure Active Directory (Azure AD) [reporting APIs](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) provide you with programmatic access to the data through a set of REST APIs. You can call these APIs from many programming languages and tools. The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
 
-This article describes how to enable MS Graph to access the Azure AD reporting APIs in the Azure portal and through PowerShell
+This article describes how to enable Microsoft Graph to access the Azure AD reporting APIs in the Azure portal and through PowerShell
 
 ## Roles and license requirements
 
@@ -30,14 +30,12 @@ To get access to the reporting data through the API, you need to have one of the
 
 In order to access the sign-in reports for a tenant, an Azure AD tenant must have associated Azure AD Premium P1 or P2 license. Alternatively if the directory type is Azure AD B2C, the sign-in reports are accessible through the API without any additional license requirement. 
 
-Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens.
-
-To configure your directory to access the Azure AD reporting API, you must sign in to the [Azure portal](https://portal.azure.com) in one of the required roles.
+Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens. To configure your directory to access the Azure AD reporting API, you must sign in to the [Azure portal](https://portal.azure.com) in one of the required roles.
 
 > [!IMPORTANT]
 > Applications running under credentials with administrator privileges can be very powerful, so be sure to keep the application's ID and secret credentials in a secure location.
 > 
-## App-only access
+## Enable the Microsoft Graph API through the Azure portal
 
 To enable your application to access Microsoft Graph without user intervention, you'll need to register your application with Azure AD, then grant permissions to the Microsoft Graph API. This article covers the steps to follow in the Azure portal. 
 
@@ -83,13 +81,13 @@ Once you have the app registration configured, you can run activity log queries 
 1. Use one of the following queries to start using Microsoft Graph for accessing activity logs:
     - GET `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
     - GET `https://graph.microsoft.com/v1.0/auditLogs/signIns`
-    - For more information on Microsoft Graph queries for activity logs, see [Activity reports API overview](/graph/api/resources/azuread-auditlog-overview?view=graph-rest-1.0)
+    - For more information on Microsoft Graph queries for activity logs, see [Activity reports API overview](/graph/api/resources/azuread-auditlog-overview)
 
     ![Screenshot of an activity log GET query in Microsoft Graph.](./media/howto-configure-prerequisites-for-reporting-api/graph-sample-get-query.png)
 
 ## Access the reporting API through PowerShell
 
-To use PowerShell to access the Azure AD reporting API, you'll need to gather a few configuration settings:
+To use PowerShell to access the Azure AD reporting API, you'll need to gather a few configuration settings. These settings were created as a part of the [app registration process](#register-an-azure-ad-application).
 
 - Tenant ID
 - Client app ID
@@ -118,7 +116,7 @@ Microsoft Graph PowerShell cmdlets:
 - **Audit logs:** `Get-MgAuditLogDirectoryAudit`
 - **Sign-in logs:** `Get-MgAuditLogSignIn`
 - **Provisioning logs:** `Get-MgAuditLogProvisioning`
-- Explore the full list of [reporting related Microsoft Graph PowerShell cmdlets](powershell/module/microsoft.graph.reports/?view=graph-powershell-1.0).
+- Explore the full list of [reporting related Microsoft Graph PowerShell cmdlets](powershell/module/microsoft.graph.reports).
 
 Microsoft Graph API endpoints:
 - **Audit logs:** `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
