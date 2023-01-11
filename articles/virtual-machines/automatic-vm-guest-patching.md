@@ -67,6 +67,10 @@ For OS types that release patches on a fixed cadence, VMs configured to the publ
 
 As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This process ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
+**Application Health Extension**
+
+To monitor your application's health on an instance Azure recommends the installation of the [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md). Once a patch is applied, the extension can validate that the VM is in a healthy state based on the configured criteria. Azure can stop applying the patch in subsequent availability sets or regions if significant nuymber of VMs are negatively impated. 
+
 ## Supported OS images
 
 > [!IMPORTANT]
