@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 
 *Composites* are turn-key solutions that implement common communication scenarios. You can add video calling experiences to your applications. Composites are open-source higher-order components that developers can take advantage of to reduce development time and engineering complexity.
 
-## Composites Overview
+## Composites overview
 
 | Composite | Use Cases |
 | :-------- | :-------- |
