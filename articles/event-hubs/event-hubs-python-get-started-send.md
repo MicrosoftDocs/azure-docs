@@ -134,7 +134,6 @@ In this section, create a Python script to send events to the event hub that you
             # Send the batch of events to the event hub.
             await producer.send_batch(event_data_batch)
     
-    
     asyncio.run(run())    
     ```
     ---
