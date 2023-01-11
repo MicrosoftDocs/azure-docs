@@ -92,12 +92,12 @@ If you don't want to configure static IP addresses for a SIM, you can delete the
 	{
 	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn1",
 	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
-	  "staticIpAddress": "0.0.0.0"
+	  "staticIpAddress": "10.132.124.54"
 	},
     {
 	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn2",
 	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
-	  "staticIpAddress": "0.0.0.0"
+	  "staticIpAddress": "10.132.124.55"
 	}
    ]
  },
@@ -113,12 +113,12 @@ If you don't want to configure static IP addresses for a SIM, you can delete the
 	{
 	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn1",
 	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
-	  "staticIpAddress": "0.0.0.0"
+	  "staticIpAddress": "10.132.124.54"
 	},
 	{
 	  "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/site-1/packetCoreDataPlanes/site-1/attachedDataNetworks/adn2",
 	  "sliceId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/slices/slice-1",
-	  "staticIpAddress": "0.0.0.0"
+	  "staticIpAddress": "10.132.124.55"
 	}
    ]
  }
@@ -180,4 +180,4 @@ In this step, you'll provision SIMs using a JSON file.
 
 ## Next steps
 
-If you've configured static IP address allocation for your packet core instance(s), and you haven't already assigned static IP addresses to the SIMs you've provisioned, you can do so by following the steps in [Assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses).
+If you've configured static IP address allocation for your packet core instance(s) and you haven't already assigned static IP addresses to the SIMs you've provisioned, you can do so by following the steps in [Assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses).
