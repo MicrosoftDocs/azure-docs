@@ -91,21 +91,21 @@ The root certificate must be generated and extracted prior to creating your poin
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## Point-to-site configuration
+## <a name="addresspool"></a>Add the address pool
 
 The **Point-to-site configuration** page contains the configuration information that's needed for the P2S VPN. Once all the P2S settings have been configured and the gateway has been updated, the Point-to-site configuration page is used to view or change P2S VPN settings.
 
 1. Go to the gateway you created in the previous section.
 1. In the left pane, select **Point-to-site configuration**.
-1. Click **Configure now** to open the configuration page and continue with the next sections of this article.
-
-## <a name="addresspool"></a>Add the address pool
+1. Click **Configure now** to open the configuration page.
 
 The client address pool is a range of private IP addresses that you specify. The clients that connect over a point-to-site VPN dynamically receive an IP address from this range. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or the VNet that you want to connect to. If you configure multiple protocols and SSTP is one of the protocols, then the configured address pool is split between the configured protocols equally.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png" alt-text="Point-to-site configuration page - address pool." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-address-pool.png":::
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
+
+1. Next, configure tunnel and authentication type.
 
 ## <a name="type"></a>Specify tunnel and authentication type
 
@@ -167,7 +167,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
    * **Name** the certificate.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/root-certificate.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/root-certificate.png":::
-1. Additional routes are not necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md). 
+1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md). 
 1. Select **Save** at the top of the page to save all of the configuration settings.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save-configuration.png" alt-text="Screenshot of P2S configuration with Save selected." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save-configuration.png" :::
