@@ -56,7 +56,7 @@ Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condit
 
 ### Microsoft.ManagedHSM.Data
 
-Policies with mode `Microsoft.ManagedHSM.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type:
+Policies with mode `Microsoft.ManagedHSM.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type: 
 - Microsoft.ManagedHSM.Data/managedHsms/keys
 
 ### Microsoft.Network.Data
