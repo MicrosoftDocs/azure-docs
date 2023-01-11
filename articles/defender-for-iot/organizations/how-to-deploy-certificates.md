@@ -18,17 +18,23 @@ To deploy certificates, verify that:
 - A security, PKI or certificate specialist is creating or overseeing certificate creation.
 - You create a unique certificate for each sensor, management console and HA machine.
 - You meet [certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements).
-- Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
+- **Admin** users logging in to each Defender for IoT sensor and on-premises management console and HA machine have access to the certificate.
 
 ## Create SSL certificates
 
-Use a certificate management platform to create [a certificate](about-certificates.md#supported-certificate-file-types); for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
+- Use a certificate management platform to create a certificate.
+    For more information, see [Supported certificate file types](about-certificates.md#supported-certificate-file-types).
 
-If you aren't carrying out [certificate validation](about-certificates.md#crl-server-access-for-certificate-validation), remove the CRL URL reference in the certificate. See [CRT file requirements](about-certificates.md#crt-file-requirements) for information about this parameter.
+- Verify that the certificates meet certificate file requirements.
+    For more information, see [Test certificates you create](#test-certificates-you-create).  
 
-Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
+- If you aren't carrying out [certificate validation](about-certificates.md#crl-server-access-for-certificate-validation), remove the CRL URL reference in the certificate.
+    For more information, see [CRT file requirements](about-certificates.md#certificate-file-parameter-requirements).
 
-You can also convert existing certificate files if you don't want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
+- Convert existing certificate files if you don't want to create new ones.
+    For more information, see [convert existing files to supported files](#convert-existing-files-to-supported-files).
+
+- Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
 
 ### Sample Certificate
 
@@ -108,17 +114,19 @@ Test certificates before deploying them to your sensors and on-premises manageme
 | Check a private key  | `openssl rsa -in privateKey.key -check`  |
 | Check a certificate  | `openssl x509 -in certificate.crt -text -noout` |
 
-If these tests fail, review [Certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements) to verify file parameters are accurate, or consult your certificate lead.
+If these tests fail, review [certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements) to verify file parameters are accurate, or consult your certificate lead.
 
 ## Upload an SSL certificate
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
+For example:
+
 :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign-in certificate page.":::
 
 ## Convert existing files to supported files
 
-This section describes how to convert existing certificates files to supported formats.
+Convert existing certificates files to supported formats:
 
 |**Description** | **CLI command** |
 |--|--|
@@ -129,30 +137,32 @@ This section describes how to convert existing certificates files to supported f
 
 ## Troubleshooting
 
-This section covers various issues that may occur during certificate upload and validation, and steps to take to resolve the issues.
+Take the following steps to resolve the issues that may occur during certificate upload and validation:
 
 ### Troubleshoot CA-Certificate Upload  
 
-Admin users attempting to sign-in to the sensor or on-premises management console for the first time won't be able to upload the CA-signed certificate if the certificate isn't created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
+**Admin** users attempting to sign-in to the sensor or on-premises management console for the first time won't be able to upload the CA-signed certificate if the certificate isn't created properly or is invalid.
+
+If certificate upload fails, one or several of the error messages will display:
 
 | **Certificate validation error** | **Recommendation** |
 |--|--|
-| Passphrase does not match to the key | Validate that you typed the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
-| Cannot validate chain of trust. The provided Certificate and Root CA don't match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
+| Passphrase does not match to the key | Validate that you typed the correct passphrase. <br> If the problem continues, try recreating the certificate using the correct passphrase. |
+| Cannot validate chain of trust. The provided Certificate and Root CA don't match.  | Make sure the .pem file correlates to the  .crt file. <br> If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
 | This SSL certificate has expired and isn't considered valid.  | Create a new certificate with valid dates.|
 | This SSL certificate has expired and isn't considered valid.  | Create a new certificate with valid dates.|
 |This certificate has been revoked by the CRL and can't be trusted for a secure connection | Create a new unrevoked certificate. |
-|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate. You can use a proxy server if there are limitations in establishing a direct connection.  
-|Certificate validation failed  | This indicates a general error in the appliance. Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
+|The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate. <br> You can use a proxy server if there are limitations in establishing a direct connection.  
+|Certificate validation failed  | This indicates a general error in the appliance. <br> Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
 
 ### Troubleshoot file conversions  
 
-Your file conversion may not create a valid certificate. For example, the file structure may be inaccurate.
+Your file conversion may create an invalid certificate. For example, the file structure may be inaccurate.
 
 If the conversion fails:  
 
-- Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
-- Make sure the file parameters are accurate. See [Supported certificate file types](about-certificates.md#supported-certificate-file-types) and [Certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements) for details.  
+- Use the conversion commands described in [convert existing files to supported files](#convert-existing-files-to-supported-files).
+- Make sure the file parameters are accurate. See [supported certificate file types](about-certificates.md#supported-certificate-file-types) and [certificate file parameter requirements](about-certificates.md#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
 
 ## Next steps

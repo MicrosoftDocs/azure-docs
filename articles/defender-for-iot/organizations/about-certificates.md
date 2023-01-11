@@ -31,13 +31,9 @@ All certificate generation methods are supported using:
 
 In addition to securing communication between system components, users can also carry out certificate validation.  
 
-Validation is evaluated against:
+Validation is evaluated against a Certificate Revocation List (CRL), the certificate expiration date, and the certificate trust chain.
 
-- A Certificate Revocation List (CRL)
-- The certificate expiration date  
-- The certificate trust chain
-
-Validation is carried out twice:
+Validation is carried out in the following cases:
 
 1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate can't be uploaded.
 1. When initiating encrypted communication between Defender for IoT system components.
@@ -52,7 +48,7 @@ If validation fails, communication between the relevant components is halted and
 
 Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor and on-premises management console web application.
 
-When signing into the sensor and on-premises management console for the first time, Admin users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended.
+When signing into the sensor and on-premises management console for the first time, **Admin** users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended.
 
 If the certificate isn't created properly by the certificate lead or there are connection issues to it, the certificate can't be uploaded and users will be forced to work with a locally signed certificate.  
 
@@ -78,17 +74,11 @@ Some organizational security policies may block access to this port. If your org
 
 Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require a .pem file. Defender for IoT doesn't require this file type.
 
-**.crt – certificate container file**
-
-A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file isn't recognized by Windows Explorer.
-
-**.key – Private key file**
-
-A key file is in the same format as a PEM file, but it has a different extension.
-
-**.pem – certificate container file (optional)**
-
-PEM is a text file that contains Base64 encoding of the certificate text, a plain-text header & a footer that marks the beginning and end of the certificate.
+| File type  | Description  |
+|---------|---------|
+| **.crt – certificate container file** | A .pem, or .der formatted file with a different extension. <br> The file is recognized by Windows Explorer as a certificate. <br> The .pem file isn't recognized by Windows Explorer. |
+| **.key – Private key file** | A key file is in the same format as a PEM file, but has a different extension. |
+| **.pem – certificate container file (optional)** | PEM is a text file that contains Base64 encoding of the certificate text, and a plain-text header & footer that mark the beginning and end of the certificate. |
 
 You may need to convert existing files types to supported types. See [Convert existing files to supported files](how-to-deploy-certificates.md#convert-existing-files-to-supported-files) for details.
 
