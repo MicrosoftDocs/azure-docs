@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 In this article, learn to protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (Azure AD).
 
-* **Azure AD Application Proxy**:
+* **Application Proxy**:
   * Protect users, apps, and data in the cloud and on-premises 
   * Use it to publish on-premises web applications externally
   * [What is Application Proxy?](/azure/active-directory/app-proxy/application-proxy#what-is-application-proxy)
