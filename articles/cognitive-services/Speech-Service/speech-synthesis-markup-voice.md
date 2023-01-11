@@ -447,8 +447,6 @@ The `effect` element is an effect processor that is used to enhance the auditory
 
 You can configure the `effect` element's attributes within the `voice` element to optimize the auditory experience of synthesized speech. For example, if you are in a car scenario, you can use the value `eq_car` to make the synthesized speech from the car speaker clearer. 
 
-> [!NOTE]
-> This feature is disabled by default. We recommend that you use this feature in the scenarios supported by the following list to obtain a better auditory experience.
 
 Usage of the `effect` element's attributes are described in the following table.
 
