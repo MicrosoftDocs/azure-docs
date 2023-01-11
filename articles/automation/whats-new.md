@@ -23,7 +23,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## January 2023
 
-### Public Preview of Runbook Authoring using VS Code Extension
+### Public Preview of Automation extension for Visual Studio Code
 
  Azure Automation now provides an [extension from VS Code](https://marketplace.visualstudio.com/items?itemName=azure-automation.vscode-azureautomation&ssr=false#overview) that allows you to create and manage runbooks. For more information, see the [Key features and limitations](automation-runbook-authoring.md) and [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md).
 
