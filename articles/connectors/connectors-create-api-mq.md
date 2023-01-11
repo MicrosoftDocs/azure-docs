@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -243,7 +243,9 @@ All trusted signing certificate public keys for trusted CA server certificates u
 
 1. From the Kudu **Debug console** menu, select **PowerShell**.
 
-1. From the PowerShell command prompt, run the following script: `dir cert:\localmachine\root`
+1. After the PowerShell window appears, from the PowerShell command prompt, run the following script:
+
+   `dir cert:\localmachine\root`
 
    The PowerShell window lists the existing thumbprints and descriptions, for example:
 
