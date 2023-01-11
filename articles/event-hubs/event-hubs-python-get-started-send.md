@@ -7,7 +7,7 @@ ms.devlang: python
 ms.custom: mode-api, passwordless-python
 ---
 
-# Send events to or receive events from event hubs by using Python (azure-eventhub)
+# Send events to or receive events from event hubs by using Python
 This quickstart shows how to send events to and receive events from an event hub using the **azure-eventhub** Python package.
 
 ## Prerequisites
