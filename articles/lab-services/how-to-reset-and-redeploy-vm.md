@@ -57,14 +57,14 @@ Alternatively, if you have permissions across multiple labs, you can reset multi
 
 When you use lab plans, introduced in the [April 2022 Update](lab-services-whats-new.md), you can now also redeploy a lab VM. This operation is labeled  **Troubleshoot** in the Azure Lab Services website and is available in the student's view of their VMs.
 
-When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](../virtual-machines/managed-disks-overview.md#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation.
+When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation.
 
 You can only redeploy a lab VM in the Azure Lab Services website that is assigned to you.
 
 You can also redeploy a lab VM by using the [REST api](/rest/api/labservices/virtual-machines/redeploy), [PowerShell](/powershell/module/az.labservices/start-azlabservicesvmredeployment), or the [.NET SDK](/dotnet/api/azure.resourcemanager.labservices.labvirtualmachineresource.redeploy).
 
 > [!WARNING]
-> After you redeploy a VM, all the data that you saved on the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) (D: drive by default on Windows) is lost.
+> After you redeploy a VM, all the data that you saved on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (D: drive by default on Windows) is lost.
 
 To redeploy a lab VM in the Azure Lab Services website:
 
