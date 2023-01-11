@@ -112,7 +112,7 @@ Now that you've discovered the web app in-guest change and understand next steps
 
 ## Virtual network changes
 
-Knowing what changed in your application's networking resources is critical due to their affect on connectivity, availability, and performance. Change Analysis supports all network resource changes and captures those changes immediately. Networking changes include:
+Knowing what changed in your application's networking resources is critical due to their effect on connectivity, availability, and performance. Change Analysis supports all network resource changes and captures those changes immediately. Networking changes include:
 
 - Firewalls created or edited
 - Network critical changes (for example, blocking port 22 for TCP connections)
