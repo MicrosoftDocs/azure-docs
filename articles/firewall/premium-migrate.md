@@ -33,9 +33,9 @@ If you use Terraform to deploy the Azure Firewall, you can use Terraform to migr
 
 ## Performance considerations
 
-Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU, which scales to a maximum throughput of 30 Gbps comparable with the standard SKU. The 30-Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
+Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU, which scales to a higher throughput comparable with the standard SKU. For more information about Azure Firewall Performance, see [Azure Firewall Performance](firewall-performance.md)
 
-The firewall throughput might be lower than 30 Gbps when you’ve one or more signatures set to **Alert and Deny** or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full-scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
+Microsoft recommends customers perform full-scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
 
 ## Downtime
 

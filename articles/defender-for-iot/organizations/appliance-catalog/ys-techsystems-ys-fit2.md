@@ -12,7 +12,7 @@ This article describes the **YS-techsystems YS-FIT2** appliance deployment and i
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L100|
-|**Performance** | 	Max bandwidth: 10Mbp/s<br>Max devices: 100|
+|**Performance** |  Max bandwidth: 10Mbp/s<br>Max devices: 100|
 |**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
 |**Status** | Supported; Available as pre-configured |
 
@@ -89,7 +89,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 1. Press **+/-** to select **Enabled**.
 
-1. Go to **Advanced** > **Boot option filter [Legacy only]** and change the setting in the following fields to **Legacy**:
+1. Go to **Advanced** > **CSM Configuration** and change the setting in the following fields to **Legacy**:
 
     - Network
     - Storage
@@ -114,7 +114,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 ### Install OT sensor software on the YS-FIT2
 
-This procedure describes how to install OT sensor software on the YS-FIT2. 
+This procedure describes how to install OT sensor software on the YS-FIT2.
 
 The installation takes approximately 20 minutes. After the installation is complete, the system restarts several times.
 
@@ -138,12 +138,10 @@ The installation takes approximately 20 minutes. After the installation is compl
     | **Management subnet mask** | **IP address provided by the customer** |
     | **DNS** | **IP address provided by the customer** |
     | **Default gateway IP address** | **0.0.0.0** |
-    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br> To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
     | **Bridge interface** | - |
 
-    For example:
-
-    :::image type="content" source="../media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+    For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 1. Accept the settings and continue by entering `Y`.
 

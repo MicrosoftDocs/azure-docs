@@ -137,7 +137,7 @@ If you want to tweak the default resource requests and limits, you can use the a
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogsagent.resources.daemonset.limits.cpu=150m amalogsagent.resources.daemonset.limits.memory=600Mi amalogsagent.resources.deployment.limits.cpu=1 amalogsagent.resources.deployment.limits.memory=750Mi
 ```
 
-Checkout the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
+Checkout the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
 
 ### Option 4 - On Azure Stack Edge
 

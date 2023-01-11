@@ -193,10 +193,10 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
 
    | Task | Role assignment |
    |------|-----------------|
-   | Blob indexing | Add **Storage Blob Data Reader** |
-   | ADLS Gen2 indexing | Add **Storage Blob Data Reader** |
-   | Table indexing | Add **Reader and Data Access** |
-   | File indexing | Add **Reader and Data Access** |
+   | Blob indexing using an indexer | Add **Storage Blob Data Reader** |
+   | ADLS Gen2 indexing using an indexer | Add **Storage Blob Data Reader** |
+   | Table indexing using an indexer | Add **Reader and Data Access** |
+   | File indexing using an indexer | Add **Reader and Data Access** |
    | Write to a knowledge store | Add **Storage Blob DataContributor** for object and file projections, and **Reader and Data Access** for table projections. |
    | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
    | Save debug session state | Add **Storage Blob Data Contributor**  |

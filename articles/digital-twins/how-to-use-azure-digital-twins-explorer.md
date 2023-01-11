@@ -384,7 +384,7 @@ In the file selector box that appears, navigate on your machine to a folder cont
 
 #### Limitations of bulk model upload
 
-The limitations in this section apply to models that are contained within a single JSON file, therefore being uploaded at the same time.
+The limitations in this section apply to models that are contained within a single JSON file, being uploaded to Azure Digital Twins Explorer at the same time.
 
 While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, follow these tips:
 * If there are any models that inherit from other models that are defined in the same file, place them near the end of the list.

@@ -2,7 +2,6 @@
 title: Scalability and performance targets for Blob storage
 titleSuffix: Azure Storage
 description: Learn about scalability and performance targets for Blob storage.
-services: storage
 author: jimmart-dev
 
 ms.service: storage

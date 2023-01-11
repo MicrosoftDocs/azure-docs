@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 01/10/2022
 author: noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -17,7 +17,7 @@ ms.custom:
 
 # Tutorial: Explore Azure OpenAI embeddings and document search
 
-This tutorial will walk you through using the Azure OpenAI embeddings API to perform **document search** where you'll query a knowledge base to find the most relevant document.
+This tutorial will walk you through using the Azure OpenAI [embeddings](../concepts/understand-embeddings.md) API to perform **document search** where you'll query a knowledge base to find the most relevant document.
 
 In this tutorial, you learn how to:
 
@@ -206,7 +206,7 @@ print(r.text)
 
 The output of this command will vary based on the number and type of models you've deployed. In this case, we need to confirm that we have entries for both **text-search-curie-doc-001** and  **text-search-curie-query-001**. If you find that you're missing one of these models, you'll need to [deploy the models](../how-to/create-resource.md#deploy-a-model) to your resource before proceeding.
 
-Now we need read our csv file and create a pandas DataFrame. After the initial dataframe is created, we can view the contents of the table by running `df`
+Now we need read our csv file and create a pandas DataFrame. After the initial DataFrame is created, we can view the contents of the table by running `df`.
 
 ```python
 df = pd.read_csv("INSERT LOCAL PATH TO BILL_SUM_DATA.CSV") # example: df = pd.read_csv("c:\\test\\bill_sum_data.csv")df
@@ -374,7 +374,7 @@ res = search_docs(df_bills, "can i get information on cable company tax revenue"
 
 :::image type="content" source="../media/tutorials/query-result.png" alt-text="Screenshot of the formatted results of res once the search query has been run." lightbox="../media/tutorials/query-result.png":::
 
-Finally, we'll show the top result from document search based on user query against the entire knowledge base. This returns the top result of the "Taxpayer's Right to View Act of 1993", as shown in Figure 4. This document has a cosine similarity score of 0.36 between the query and the document:
+Finally, we'll show the top result from document search based on user query against the entire knowledge base. This returns the top result of the "Taxpayer's Right to View Act of 1993". This document has a cosine similarity score of 0.36 between the query and the document:
 
 ```python
 res["summary"][9]
