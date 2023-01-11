@@ -1,14 +1,14 @@
 ---
-title: Azure Native New Relic Service overview
+title: Azure Native New Relic Service Preview overview
 description: Learn about using New Relic in Azure Marketplace.
 
 ms.topic: overview
 ms.date: 12/31/2022
 ---
 
-# What is Azure Native New Relic Service?
+# What is Azure Native New Relic Service Preview?
 
-New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, real-user monitoring, and more. Use Azure Native New Relic Service to help monitor, troubleshoot, and optimize Azure services and applications.
+New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, real-user monitoring, and more. Use Azure Native New Relic Service Preview to help monitor, troubleshoot, and optimize Azure services and applications.
 
 Azure Native New Relic Service in Azure Marketplace enables you to create and manage New Relic accounts by using the Azure portal with a fully integrated experience. Integration with Azure enables you to use New Relic as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement and moving all the way to configuration and management.
 

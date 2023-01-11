@@ -1,14 +1,14 @@
 ---
-title: Configure pre-deployment on Azure Native New Relic Service 
+title: Configure pre-deployment on Azure Native New Relic Service Preview
 description: Learn how to configure New Relic in Azure Marketplace before deployment.
 ms.topic: how-to
 
 ms.date: 12/31/2022
 ---
 
-# Configure pre-deployment for Azure Native New Relic Service
+# Configure pre-deployment for Azure Native New Relic Service Preview
 
-This article describes the prerequisites that you must complete in your Azure subscription before you create your first New Relic resource in Azure.
+This article describes the prerequisites that you must complete in your Azure subscription before you create your first New Relic resource in Azure Preview.
 
 ## Access control
 

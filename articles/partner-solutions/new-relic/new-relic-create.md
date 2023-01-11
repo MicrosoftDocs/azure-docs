@@ -1,14 +1,14 @@
 ---
-title: Create an instance of Azure Native New Relic Service 
+title: Create an instance of Azure Native New Relic Service Preview
 description: Learn how to create a resource by using Azure Native New Relic Service.
 
 ms.topic: quickstart
 ms.date: 12/31/2022
 ---
 
-# Quickstart: Get started with New Relic
+# Quickstart: Get started with Azure Native New Relic Service Preview
 
-In this quickstart, you create an instance of Azure Native New Relic Service. You can either [create a New Relic account](new-relic-create.md) or [link to an existing New Relic account](new-relic-link-to-existing.md).
+In this quickstart, you create an instance of Azure Native New Relic Service Preview. You can either [create a New Relic account](new-relic-create.md) or [link to an existing New Relic account](new-relic-link-to-existing.md).
 
 When you use the integrated New Relic experience in the Azure portal by using Azure Native New Relic Service, the service creates and maps the following entities for monitoring and billing purposes.
 
