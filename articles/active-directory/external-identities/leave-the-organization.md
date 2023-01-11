@@ -22,13 +22,11 @@ adobe-target: true
 
 # Leave an organization as an external user
 
-As an Azure Active Directory (Azure AD) [B2B collaboration](what-is-b2b.md) or [B2B direct connect](b2b-direct-connect-overview.md) user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
+As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can leave an organization at any time if you no longer need to use apps from that organization, or maintain any association.
 
 ## Before you begin
 
 You can usually leave an organization on your own without having to contact an administrator. However, in some cases this option won't be available and you'll need to contact your tenant admin, who can delete your account in the external organization. This article is intended for administrators. If you're a user looking for information about how to manage and leave an organization, see the [Manage organizations article.](https://support.microsoft.com/account-billing/manage-organizations-for-a-work-or-school-account-in-the-my-account-portal-a9b65a70-fec5-4a1a-8e00-09f99ebdea17)
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## What organizations do I belong to?
 
@@ -72,7 +70,6 @@ In the **Home organization** section, there's no link to **Leave** your organiza
 
 For the external organizations listed under **Other organizations you collaborate with**, you might not be able to leave on your own, for example when:
 
-
 - the organization you want to leave doesn’t allow users to leave by themselves
 - your account has been disabled
 
@@ -80,10 +77,7 @@ In these cases, you can select **Leave**, but then you'll see a message saying y
 
 ## More information for administrators
 
-Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
-
-> [!IMPORTANT]
-> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
+Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed. The  **External user leave settings** is available only, if you've [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the Azure Active Directory service.
 
@@ -93,7 +87,6 @@ Administrators can use the **External user leave settings** to control whether e
 
    - **Yes**: Users can leave the organization themselves without approval from your admin or privacy contact.
    - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin, or privacy contact to request removal from your organization.
-
 
    :::image type="content" source="media/leave-the-organization/external-user-leave-settings.png" alt-text="Screenshot showing External user leave settings in the portal.":::
 
@@ -111,12 +104,11 @@ If desired, a tenant administrator can permanently delete the account at any tim
 
 1. Select the check box next to a deleted user, and then select **Delete permanently**.
 
-Permanent deletion can be initiated by the admin, or it happens at the end of the soft deletion period. Permanent deletion can take up to an extra 30 days for data removal ([learn more](/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
+Permanent deletion can be initiated by the admin, or it happens at the end of the soft deletion period. Permanent deletion can take up to an extra 30 days for data removal.
 
-> [!NOTE]
-> For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to 30 days to complete ([learn more](/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant)).
+For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to 30 days to complete.
+
 
 ## Next steps
 
-- Learn more about [Azure AD B2B collaboration](what-is-b2b.md) and [Azure AD B2B direct connect](b2b-direct-connect-overview.md)
-- [Use audit logs and access reviews](auditing-and-reporting.md)
+Learn more about [user deletion](/compliance/regulatory/gdpr-dsr-azure#step-5-delete) and about how to delete a user's data when there's [no account in the Azure tenant](/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant). 
