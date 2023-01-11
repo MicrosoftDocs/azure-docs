@@ -427,6 +427,8 @@
           items:
             - name: CSI storage drivers overview
               href: csi-storage-drivers.md
+            - name: Migrate from in-tree driver to CSI driver
+              href: csi-migrate-in-tree-volumes.md
             - name: Azure Disks CSI driver
               href: azure-disk-csi.md
             - name: Azure Files CSI driver
