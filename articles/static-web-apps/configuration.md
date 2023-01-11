@@ -222,7 +222,7 @@ You can control which requests return the fallback file by defining a filter. In
 }
 ```
 
-In the following example,  see the file structure and possible outcomes with this rule.
+For example, with the directory structure below, the above navigation fallback rule would result in the outcomes detailed in the table below.
 
 ```files
 ├── images
