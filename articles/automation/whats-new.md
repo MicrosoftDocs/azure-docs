@@ -43,13 +43,14 @@ Azure Automation now supports runbooks in latest Runtime versions - PowerShell 7
 
 ### Guidance for Disaster Recovery of Azure Automation account
 
-Set up disaster recovery for your Automation accounts to handle a region-wide or zone-wide failure. [Learn more](https://learn.microsoft.com/azure/automation/automation-disaster-recovery).
+Set up disaster recovery for your Automation accounts to handle a region-wide or zone-wide failure. [Learn more](automation-disaster-recovery.md).
+
 
 ## September 2022
 
 ### Availability zones support for Azure Automation
 
-Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#availability-zones) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](https://learn.microsoft.com/azure/automation/automation-availability-zones).
+Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#availability-zones) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
 
 ## July 2022
@@ -208,7 +209,7 @@ Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers s
 
 **Type:** New feature
 
-Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings-for-version-1).
+Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation).
 
 ### Support for system-assigned Managed Identities
 
