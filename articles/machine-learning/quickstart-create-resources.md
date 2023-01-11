@@ -64,6 +64,8 @@ Create a compute instance now.
 
 1. On the left navigation, select **Notebooks**.
 1. Select **Create compute** in the middle of the page.  (You'll only see this if you don't yet have a compute instance in your workspace.)
+
+1. Select **+New** to create a new compute instance.
 1. Supply a name, Keep all the defaults on the first page.
 1. Select **Create**.
 

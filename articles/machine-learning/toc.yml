@@ -66,6 +66,8 @@
       href: quickstart-create-resources.md
     - name: Overview of Azure ML
       href: tutorial-azure-ml-in-a-day.md
+    - name: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
+      href: quickstart-spark-jobs.md
 - name: Tutorials
   expanded: true
   items:
