@@ -62,7 +62,7 @@ This query contains time consuming join due to "Or" condition within query. We r
 
 ## Optimize delta table with small files compaction
 
-This query is on a delta table with many small files. To improve the performane of queries, run the OPTIMIZE command on the delta table. More details could be found within this [article](https://aka.ms/small-file-advise-delta).  
+This query is on a delta table with many small files. To improve the performance of queries, run the OPTIMIZE command on the delta table. More details could be found within this [article](https://aka.ms/small-file-advise-delta).  
 
 ## Optimize Delta table with ZOrder
 
