@@ -83,7 +83,7 @@ If you don't already have the Defender for Endpoint integration enabled in Defen
 
 Learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
-See the [full list of alerts that are going to be deprecated](alerts-reference.md#defender-for-servers-deprecated-security-alerts).
+You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are going to be deprecated.
 
 
 ## Next steps
