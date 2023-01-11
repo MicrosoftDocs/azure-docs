@@ -81,7 +81,7 @@ All security scenarios covered by the deprecated alerts are fully covered Defend
 
 If you currently don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no extra cost.  
 
-For more information regarding [MDE onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
+Learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 See the [full list of alerts that are going to be deprecated](alerts-reference.md#defender-for-servers-deprecated-security-alerts).
 
