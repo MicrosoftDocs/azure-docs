@@ -10,7 +10,7 @@ ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
-zone_pivot_groups: acs-azcli-js-csharp-java-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode
 ms.custom: mode-other
 ---
 
@@ -38,6 +38,12 @@ In this quickstart, you'll learn how to use the Azure Communication Services SDK
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
+::: zone-end
+::: zone pivot="platform-azportal"
+[!INCLUDE [AzPortal](./includes/access-tokens/access-token-azportal.md)]
+::: zone-end
+::: zone pivot="platform-nocode"
+[!INCLUDE [No Code](./includes/access-tokens/access-token-nocode.md)]
 ::: zone-end
 
 ## Use identity for monitoring and metrics
