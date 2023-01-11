@@ -34,6 +34,10 @@ Health data is collected in the *SentinelHealth* table in your Log Analytics wor
 
 [Is the data connector receiving data](./monitor-data-connector-health.md)? For example, if you've instructed Microsoft Sentinel to run a query every 5 minutes, you want to check whether that query is being performed, how it's performing, and whether there are any risks or vulnerabilities related to the query.
 
+**Are my SAP systems running correctly?**
+
+[Are the SAP systems managed by your organization running correctly](monitor-sap-system-health.md)?. Are the systems up and running, or ar they unreachable? Does Microsoft Sentinel identify these systems as production systems?
+
 **Did an automation rule run as expected?**
 
 [Did my automation rule run when it was supposed to](./monitor-automation-health.md) - that is, when its conditions were met? Did all the actions in the automation rule run successfully? 
