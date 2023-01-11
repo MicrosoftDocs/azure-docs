@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 01/11/2022
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,13 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## January 2023
+
+### Public Preview of Automation extension for Visual Studio Code
+
+ Azure Automation now provides an [extension from VS Code](https://marketplace.visualstudio.com/items?itemName=azure-automation.vscode-azureautomation&ssr=false#overview) that allows you to create and manage runbooks. For more information, see the [Key features and limitations](automation-runbook-authoring.md) and [runbook management operations](how-to/runbook-authoring-extension-for-vscode.md).
+
 
 ## November 2022
 
