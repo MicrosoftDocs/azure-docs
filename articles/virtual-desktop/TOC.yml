@@ -145,7 +145,7 @@
         href: insights-glossary.md
   - name: Data locations
     href: data-locations.md
-  - name: Multimedia redirection (preview)
+  - name: Multimedia redirection
     href: multimedia-redirection-intro.md
   - name: Security
     items:
@@ -317,7 +317,7 @@
         href: key-distribution-center-proxy.md
   - name: Deploy updates with Configuration Manager
     href: configure-automatic-updates.md
-  - name: Set up multimedia redirection (preview)
+  - name: Set up multimedia redirection
     href: multimedia-redirection.md
   - name: Install language packages
     items:
@@ -407,7 +407,7 @@
     href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
-  - name: Multimedia redirection (preview)
+  - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
   - name: Teams on Azure Virtual Desktop
     href: troubleshoot-teams.md

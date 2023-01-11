@@ -1,17 +1,13 @@
 ---
 title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
-description: An overview of multimedia redirection on Azure Virtual Desktop (preview).
+description: An overview of multimedia redirection on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 01/12/2023
 ms.author: helohr
 manager: femila
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Multimedia redirection on Azure Virtual Desktop is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Multimedia redirection (MMR) gives you smooth video playback while watching videos in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature. 
 
@@ -19,8 +15,6 @@ Multimedia redirection (MMR) gives you smooth video playback while watching vide
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
 > Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3573 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
->
-> The preview version of multimedia redirection for Azure Virtual Desktop has restricted playback to sites we've tested.
 
 ## Websites that work with multimedia redirection
 
@@ -91,13 +85,9 @@ Selecting the icon in your browser will display a pop-up menu where it lists the
 
 You can use the icon to check the status of the extension by following the directions in [Check the extension status](multimedia-redirection.md#check-the-extension-status).
 
-## Support during public preview
-
-If you run into issues while using the public preview version of multimedia redirection, we recommend contacting [Microsoft Azure support](https://azure.microsoft.com/support/plans/).
-
 ## Next steps
 
-To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md).
+To learn how to use this feature, see [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md).
 
 To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
 
