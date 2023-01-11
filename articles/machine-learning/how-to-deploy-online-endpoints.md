@@ -188,6 +188,7 @@ Open a terminal in the AzureML studio:
 To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and then change into the `azureml-examples/cli/endpoints/online` directory.
 
 In the terminal you just created, run the following code:
+
 ```bash
 git clone --depth 1 https://github.com/Azure/azureml-examples
 cd azureml-examples/sdk/python/endpoints/online/managed
