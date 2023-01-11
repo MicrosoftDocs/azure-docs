@@ -181,9 +181,9 @@ If you are having trouble deploying the extension, then review execution output 
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
-If your extension has deployed successfully, but you're unable to see telemetry it could be one of the following issues
-- [**Conflicting DLLs in an app's bin directory**](../app-insights/status-monitor-v2-troubleshoot#conflicting-dlls-in-an-apps-bin-directory)
-- [**Conflict with IIS shared configuration**](../app-insights/status-monitor-v2-troubleshoot##conflict-with-iis-shared-configuration)
+If your extension has deployed successfully but you're unable to see telemetry, it could be one of the following issues covered in [Agent Troubleshooting](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot#known-issues).
+- Conflicting DLLs in an app's bin directory
+- Conflict with IIS shared configuration
 
 [!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
