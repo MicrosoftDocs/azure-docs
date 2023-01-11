@@ -129,6 +129,8 @@ In the **Automated response** tab:
 
 1. Select **+ Add new** to create a new automation rule for this analytics rule. This will open the **Create new automation rule** wizard.
 
+    :::image type="content" source="media/tutorial-log4j-detection/add-automation-rule.png" alt-text="Screenshot of Automated response tab in Analytics rule wizard.":::
+
 1. In the **Automation rule name** field, enter **Log4J vulnerability exploit detection - Tutorial-1**.
 
 1. Leave the **Trigger** and **Conditions** sections as they are.
@@ -145,7 +147,7 @@ In the **Automated response** tab:
 
     Select the image below for a display of the full review (most of the query text was clipped for viewability).
 
-    :::image type="content" source="media/tutorial-log4j-detection/review-and-create-tab.png" alt-text="Screenshot of the Review and Create tab of the Analytics rule wizard." lightbox="media/tutorial-log4j-detection/full-review-and-create.png":::
+    :::image type="content" source="media/tutorial-log4j-detection/review-and-create-tab.png" alt-text="Screenshot of the Review and Create tab of the Analytics rule wizard.":::
 
 ## Verify the success of the rule
   
