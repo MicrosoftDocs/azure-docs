@@ -382,6 +382,8 @@
         href: data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md
       - name: CrowdStrike Falcon Endpoint Protection
         href: data-connectors/crowdstrike-falcon-endpoint-protection.md
+      - name: CyberArk Enterprise Password Vault (EPV) Events
+        href: data-connectors/cyberark-enterprise-password-vault-epv-events.md
       - name: CyberArkEPM
         href: data-connectors/cyberarkepm.md
       - name: Cyberpion Security Logs
@@ -504,6 +506,8 @@
         href: data-connectors/microsoft-sysmon-for-linux.md
       - name: MongoDB Audit
         href: data-connectors/mongodb-audit.md
+      - name: Morphisec UTPP
+        href: data-connectors/morphisec-utpp.md
       - name: MuleSoft Cloudhub (using Azure Function)
         href: data-connectors/mulesoft-cloudhub-using-azure-function.md
       - name: NC Protect
@@ -520,6 +524,8 @@
         href: data-connectors/nozomi-networks-n2os.md
       - name: NXLog AIX Audit
         href: data-connectors/nxlog-aix-audit.md
+      - name: NXLog BSM macOS
+        href: data-connectors/nxlog-bsm-macos.md
       - name: NXLog DNS Logs
         href: data-connectors/nxlog-dns-logs.md
       - name: NXLog LinuxAudit
@@ -538,6 +544,8 @@
         href: data-connectors/oracle-database-audit.md
       - name: Oracle WebLogic Server
         href: data-connectors/oracle-weblogic-server.md
+      - name: Orca Security Alerts
+        href: data-connectors/orca-security-alerts.md
       - name: OSSEC
         href: data-connectors/ossec.md
       - name: Palo Alto Networks (Firewall)
@@ -546,6 +554,8 @@
         href: data-connectors/palo-alto-networks-cortex-data-lake-cdl.md
       - name: Palo Alto Prisma Cloud CSPM (using Azure Function)
         href: data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md
+      - name: Perimeter 81 Activity Logs
+        href: data-connectors/perimeter-81-activity-logs.md
       - name: PingFederate
         href: data-connectors/pingfederate.md
       - name: PostgreSQL Events
@@ -586,6 +596,8 @@
         href: data-connectors/sonicwall-firewall.md
       - name: Sonrai Data Connector
         href: data-connectors/sonrai-data-connector.md
+      - name: Sophos Cloud Optix
+        href: data-connectors/sophos-cloud-optix.md
       - name: Sophos Endpoint Protection (using Azure Function)
         href: data-connectors/sophos-endpoint-protection-using-azure-function.md
       - name: Sophos XG Firewall

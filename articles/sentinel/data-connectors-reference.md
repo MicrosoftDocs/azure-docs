@@ -168,6 +168,7 @@ Data connectors are available as part of the following offerings:
 
 ## CyberArk
 
+- [CyberArk Enterprise Password Vault (EPV) Events](data-connectors/cyberark-enterprise-password-vault-epv-events.md)
 - [CyberArkEPM](data-connectors/cyberarkepm.md)
 
 ## CyberPion
@@ -369,6 +370,10 @@ Data connectors are available as part of the following offerings:
 
 - [MongoDB Audit](data-connectors/mongodb-audit.md)
 
+## Morphisec
+
+- [Morphisec UTPP](data-connectors/morphisec-utpp.md)
+
 ## MuleSoft
 
 - [MuleSoft Cloudhub (using Azure Function)](data-connectors/mulesoft-cloudhub-using-azure-function.md)
@@ -392,6 +397,7 @@ Data connectors are available as part of the following offerings:
 ## NXLog Ltd.
 
 - [NXLog AIX Audit](data-connectors/nxlog-aix-audit.md)
+- [NXLog BSM macOS](data-connectors/nxlog-bsm-macos.md)
 - [NXLog DNS Logs](data-connectors/nxlog-dns-logs.md)
 - [NXLog LinuxAudit](data-connectors/nxlog-linuxaudit.md)
 
@@ -413,6 +419,10 @@ Data connectors are available as part of the following offerings:
 - [Oracle Database Audit](data-connectors/oracle-database-audit.md)
 - [Oracle WebLogic Server](data-connectors/oracle-weblogic-server.md)
 
+## Orca Security, Inc.
+
+- [Orca Security Alerts](data-connectors/orca-security-alerts.md)
+
 ## OSSEC
 
 - [OSSEC](data-connectors/ossec.md)
@@ -422,6 +432,10 @@ Data connectors are available as part of the following offerings:
 - [Palo Alto Networks (Firewall)](data-connectors/palo-alto-networks-firewall.md)
 - [Palo Alto Networks Cortex Data Lake (CDL)](data-connectors/palo-alto-networks-cortex-data-lake-cdl.md)
 - [Palo Alto Prisma Cloud CSPM (using Azure Function)](data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md)
+
+## Perimeter 81
+
+- [Perimeter 81 Activity Logs](data-connectors/perimeter-81-activity-logs.md)
 
 ## Ping Identity
 
@@ -491,6 +505,7 @@ Data connectors are available as part of the following offerings:
 
 ## Sophos
 
+- [Sophos Cloud Optix](data-connectors/sophos-cloud-optix.md)
 - [Sophos Endpoint Protection (using Azure Function)](data-connectors/sophos-endpoint-protection-using-azure-function.md)
 - [Sophos XG Firewall](data-connectors/sophos-xg-firewall.md)
 

@@ -3,7 +3,7 @@ title: "Cloudflare (Preview) (using Azure Function) connector for Microsoft Sent
 description: "Learn how to install the connector Cloudflare (Preview) (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/11/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -67,7 +67,7 @@ See documentation to [setup Cloudflare Logpush to Microsoft Azure](https://devel
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Cloudflare data connector using an ARM Tempate.
+Use this method for automated deployment of the Cloudflare data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
