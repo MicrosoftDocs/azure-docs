@@ -201,8 +201,6 @@ If the runtime doesn't start, check the changes you made in the IoT Edge configu
 
 Your transparent gateway is now configured and ready to start forwarding telemetry from downstream devices.
 
----
-
 ## Provision a downstream device
 
 IoT Central relies on the Device Provisioning Service (DPS) to provision devices in IoT Central. Currently, IoT Edge can't use DPS provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device manually. To complete these steps, you need an environment with Python 3.6 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.7 pre-installed:
