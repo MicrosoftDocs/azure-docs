@@ -39,7 +39,7 @@ To learn more about deploying the MedTech service using an ARM template and the 
 
 ## ARM template using Azure PowerShell or the Azure CLI
 
-Using an ARM template with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments.
+Using an ARM template with Azure PowerShell or the Azure CLI is a more advanced deployment method. This deployment method can be useful for adding automation and repeatability so that you can scale and customize your deployments. The deployed MedTech service will still require conforming and valid device and FHIR destination mappings to be fully functional.
 
 To learn more about deploying the MedTech service using an ARM template and Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md).
 
