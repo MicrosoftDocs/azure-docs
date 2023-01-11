@@ -68,7 +68,7 @@ The client implementation SHOULD always check if the `success` is `true` or `fal
 
 ### Message response
 
-Clients can receive messages published from a group the client has joined or from the server. 
+Clients can receive messages published from a group the client has joined or from the server, which, operating in a server management role, sends messages to specific clients or users. 
 
 1. When the message is from a group
 

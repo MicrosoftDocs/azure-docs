@@ -20,7 +20,7 @@ Format:
 
 * `ackId`:  The unique identity of each request. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
-* `dataType`:  The format of the `data`, which can be `protobuf`, `text`, or `binary`, depending on the `data` in `MessageData`. The receiving clients can use `dataType` to correctly process the content.
+* `dataType`:  The data format, which can be `protobuf`, `text`, or `binary` depending on the `data` in `MessageData`. The receiving clients can use `dataType` to correctly process the content.
 
 * `protobuf`: When you set `send_to_group_message.data.protobuf_data`, the implicit `dataType` is `protobuf`. `protobuf_data` can be of the [Any](https://developers.google.com/protocol-buffers/docs/proto3#any) message type. All other clients receive a protobuf-encoded binary, which can be deserialized by the protobuf SDK. Clients that support only text-based content (for example, `json.webpubsub.azure.v1`) receive a Base64-encoded binary.
 

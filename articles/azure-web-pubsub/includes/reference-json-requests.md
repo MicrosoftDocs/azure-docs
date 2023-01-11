@@ -154,6 +154,7 @@ Format:
 * `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. For details, see [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 `dataType` can be one of `text`, `binary`, or `json`:
+
 * `json`: data can be any type json supports and will be published as what it is; The default is `json`.
 * `text`: data is in string format, and the string data will be published;
 * `binary`: data is in base64 format, and the binary data will be published;
