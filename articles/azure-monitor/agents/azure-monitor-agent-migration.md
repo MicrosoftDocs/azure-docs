@@ -47,7 +47,7 @@ Your migration plan to the Azure Monitor Agent should take into account:
   - Azure Monitor Agent **can run alongside the legacy Log Analytics agents on the same machine** so that you can continue to use existing functionality during evaluation or migration. You can begin the transition, but ensure you understand the **limitations below**:
     - Be careful when you collect duplicate data from the same machine, as this could skew query results, affect downstream features like alerts, dashboards, workbooks and generate more charges for data ingestion and retention. To avoid data duplication, ensure the agents are *collecting data from different machines* or *sending the data to different destinations*. Additionally,
       - For **Defender for Cloud**, you will only be [billed once per machine](/azure/defender-for-cloud/auto-deploy-azure-monitoring-agent#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when running both agents 
-      - For **Sentinel**, you can easily [disable the legacy connector](azure/sentinel/ama-migrate#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
+      - For **Sentinel**, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
     - Running two telemetry agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
 
 ## Prerequisites
