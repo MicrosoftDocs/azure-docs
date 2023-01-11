@@ -73,7 +73,7 @@ Before installing the Application Insights Agent, you'll need a connection strin
 Install or update the Application Insights Agent as an extension for Azure virtual machines
 
 ```powershell
-<# define variables to match your environment before running#>
+# define variables to match your environment before running
 $ResourceGroup = "<myVmResourceGroup>"
 $VMName = "<myVmName>"
 $Location = "<myVmLocation>"
