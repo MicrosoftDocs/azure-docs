@@ -19,18 +19,19 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
 * **Azure AD Application Proxy**:
   * Protect users, apps, and data in the cloud and on-premises 
   * Use it to publish on-premises web applications externally
+  * [What is Application Proxy?](/azure/active-directory/app-proxy/application-proxy#what-is-application-proxy)
 * **Secure hybrid access through Azure AD partner integrations**:
   * Pre-built solutions
   * Conditional Access policies per application
+  * [What is Conditional Access?](/articles/active-directory/conditional-access/overview.md)
   * Azure AD integration documentation
 
-In addition to Azure AD Application Proxy, you can strengthen your security posture across applications with Azure AD capabilities like Conditional Access and Identity Protection. 
+In addition to Azure AD Application Proxy, you can strengthen your security posture with Identity Protection. 
 
 Learn more:
 
-* [Using Azure AD Application Proxy to publish on-premises apps for remote users](/articles/active-directory/app-proxy/what-is-application-proxy.md)
-* [What is Conditional Access?](/articles/active-directory/conditional-access/overview.md)
 * [What is Identity Protection?](/articles/active-directory/identity-protection/overview-identity-protection.md)
+* [Using Azure AD Application Proxy to publish on-premises apps for remote users](/articles/active-directory/app-proxy/what-is-application-proxy.md)
 
 ## Single sign-on and multi-factor authentication
 
@@ -52,7 +53,7 @@ Learn more:
 
 ## Publish applications and improve access management
 
-Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Improve your cloud access management without requiring modification to your on-premises applications.
+Use Application Proxy remote access as a service to publish applications to users outside the corporate network. Help improve your cloud access management without requiring modification to your on-premises applications.
 
 Learn more:
 
@@ -67,7 +68,7 @@ Microsoft partners with various companies that deliver access solutions for on-p
 
 ## Secure hybrid access through Azure AD partner integrations
 
-The following partners offer pre-built solutions to support conditional access policies per application. Use the following table to learn about the partners and Azure AD integration documentation.
+The following partners offer pre-built solutions to support Conditional Access policies per application. Use the following table to learn about the partners and Azure AD integration documentation.
 
 |Partner company site|Integration documentation|
 |---|---|
@@ -80,23 +81,16 @@ The following partners offer pre-built solutions to support conditional access p
 |[Silverfort](https://www.silverfort.com/)|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](/articles/active-directory/manage-apps/silverfort-azure-ad-integration.md)|
 |[Strata Identity, Inc.](https://www.strata.io/)|[Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](/articles/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)|
 
+### Partners with pre-built solutions and integration guidance guidance
 
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
+|Partner company site|Integration documentation|
+|---|---|
+|[Amazon Web Service, Inc.](https://aws.amazon.com/)|[Tutorial: Azure AD SSO integration with AWS ClientVPN](/articles/active-directory/saas-apps/aws-clientvpn-tutorial.md)|
+|[Check Point Software Technologies Ltd.](https://www.checkpoint.com/)|[Tutorial: Azure AD single SSO integration with Check Point Remote Secure Access VPN](/articles/active-directory/saas-apps/check-point-remote-access-vpn-tutorial.md)|
+|[Cisco Systems, Inc.](https://www.cisco.com/)|[Tutorial: Azure AD SSO integration with Cisco AnyConnect](/articles/active-directory/saas-apps/cisco-anyconnect.md)|
+|[Cloudflare, Inc.](https://www.cloudflare.com/)|[Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](/articles/active-directory/manage-apps/cloudflare-azure-ad-integration.md)|
+|[Fortinet, Inc.](https://www.fortinet.com/)|[Tutorial: Azure AD SSO integration with FortiGate SSL VPN](/articles/active-directory/saas-apps/fortigate-ssl-vpn-tutorial.md)|
+|[Palo Alto Networks](https://www.paloaltonetworks.com/)|[Tutorial: Azure AD SSO integration with Palo Alto Networks Admin UI](/articles/active-directory/saas-apps/paloaltoadmin-tutorial.md)|
+|[Pulse Secure, Aquired by Ivanti](https://www.pulsesecure.net/)|[Tutorial: Azure AD SSO integration with Pulse Connect Secure (PCS)](/articles/active-directory/saas-apps/pulse-secure-pcs-tutorial.md)</br>[Tutorial: Azure AD SSO integration with Pulse Secure Virtual Traffic Manager](/articles/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)</br>**Note**: Pulse Secure is part of Ivanti. See, [Ivanti, Pulse Secure](https://www.ivanti.com/company/history/pulse-secure?psredirect)|
+|[Zsclaer, Inc.](https://www.zscaler.com/)|[Tutorial: Integrate Zscaler Private Access with Azure AD](/articles/active-directory/saas-apps/zscalerprivateaccess-tutorial.md)|
 
-- [AWS](../saas-apps/aws-clientvpn-tutorial.md)
-
-- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial.md)
-
-- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
-
-- [Cloudflare](../manage-apps/cloudflare-azure-ad-integration.md)
-
-- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
-
-- [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
-
-- [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
-
-- [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
-
-- [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)
