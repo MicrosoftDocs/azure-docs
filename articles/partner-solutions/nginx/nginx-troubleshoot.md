@@ -23,7 +23,7 @@ You can get support for your NGINXaaS deployment through a **New Support request
 
 1. Select **Raise a support ticket** and fill out the details.
 
-    :::image type="content" source="media/nginx-troubleshoot/nginx-support-request.png" alt-text="Screenshot of an new NGINXaaS support ticket.":::
+    :::image type="content" source="media/nginx-troubleshoot/nginx-support-request.png" alt-text="Screenshot of a new NGINXaaS support ticket.":::
 
 ## Troubleshooting
 

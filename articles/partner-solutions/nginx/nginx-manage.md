@@ -28,7 +28,7 @@ Add a new User Assigned Managed Identity.
 
 1. From the Resource menu, select your NGINXaaS deployment.
 
-1. From **Settings** on the left, select **Identity**.
+1. From **Settings** in the Resource menu, select **Identity**.
 
     :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="Screenshot showing how to add a managed identity to NGINXaaS resource.":::
 
@@ -40,7 +40,7 @@ Add a new User Assigned Managed Identity.
 
 1. From the Resource menu, select your NGINXaaS deployment.
 
-1. Select **NGINXaaS configuration** on the left.
+1. Select **NGINXaaS configuration** in the Resource menu.
 
     :::image type="content" source="media/nginx-manage/nginx-configuration.png" alt-text="Screenshot resources for NGINXaaS configuration settings.":::
 
@@ -62,11 +62,11 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 1. From the Resource menu, select your NGINXaaS deployment.
 
-1. Select **NGINXaaS certificates** in **Settings** on the left.
+1. Select **NGINXaaS certificates** in **Settings** in the Resource menu.
 
     :::image type="content" source="media/nginx-manage/nginx-certificates.png" alt-text="Screenshot of NGINXaaS certificate uploading.":::
 
-1. Select **Add certificate**. You see an **Add certificate** pane on the right. Add the appropriate information
+1. Select **Add certificate**. You see an **Add certificate** in the working pane. Add the appropriate information
 
     :::image type="content" source="media/nginx-manage/nginx-add-certificate.png" alt-text="Screenshot of the add certificate pane.":::
 
@@ -76,7 +76,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 1. From the Resource menu, select your NGINXaaS deployment.
 
-1. Select **NGINXaaS Monitoring** under the **Settings** on the left.
+1. Select **NGINXaaS Monitoring** under the **Settings** in the Resource menu.
 
     :::image type="content" source="media/nginx-manage/nginx-monitoring.png" alt-text="Screenshot of NGINXaaS monitoring in Azure metrics.":::
 
@@ -90,11 +90,11 @@ To delete a deployment of NGINXaaS:
 
 1. From the Resource menu, select your NGINXaaS deployment.
 
-1. Select **Overview** on the left.
+1. Select **Overview** in the Resource menu.
 
 1. Select **Delete**.
 
-    :::image type="content" source="media/nginx-manage/nginx-delete-deployment.png" alt-text="Screenshot showing how delete an NGINXaaS resource.":::
+    :::image type="content" source="media/nginx-manage/nginx-delete-deployment.png" alt-text="Screenshot showing how to delete an NGINXaaS resource.":::
 
 1. Confirm that you want to delete the NGINXaaS resource.
 
