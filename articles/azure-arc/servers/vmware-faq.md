@@ -40,6 +40,5 @@ Arc-enabled server and/or Arc-enabled \<hypervisor\> works with all supported ve
 
 ## Should I use Arc-enabled server, Arc-enabled\<hypervisor\>, and can I use both?
 
-Arc-enabled server and Arc-enabled\<hypervisor\> can be used in conjunction with one another.
-
+While Arc-enabled server and Arc-enabled VMware vSphere can be used in conjunction with one another, please note that this will produce dual representations of the same underlying Virtual Machine. This scenario may produce potentially duplicate guest management and is not advisable.
 
