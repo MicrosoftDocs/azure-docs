@@ -347,7 +347,7 @@ You'll need an SMTP mail server configured to enable email alerts about disconne
 
 **Prerequisites**:
 
-Make sure you can reach the SMTP server from the [sensor's management port](/azure/defender-for-iot/organizations/best-practices/understand-network-architecture). 
+Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md). 
 
 **To configure an SMTP server on your sensor**:
 
