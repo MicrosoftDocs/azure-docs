@@ -91,7 +91,9 @@ For information on migrating Splunk SIEM artifacts, including detection rules an
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 
 1. Export your historical data from Splunk, using one of the [Splunk export methods](https://docs.splunk.com/Documentation/Splunk/8.2.5/Search/Exportsearchresults). The output format should be CSV.
-1. Ingest the data you export from Splunk using Azure Monitor's [Log ingestion API](../logs/logs-ingestion-api-overview.md). 
+1. Ingest the data you export from Splunk using Azure Monitor's [Log ingestion API](../logs/logs-ingestion-api-overview.md).
+
+  
 
 ## 4. Collect data
 
@@ -99,7 +101,7 @@ Azure Monitor provides tools for collecting data from log [data sources](../data
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
 
-This table lists the tools to use to collect data from various monitored resources.  
+This table lists the tools to use to collect data from various resource types.  
 
 | Monitored resource | Data collection tool | Collected data |
 | --- | --- | --- |
@@ -108,6 +110,12 @@ This table lists the tools to use to collect data from various monitored resourc
 | **Container** |[Container insights](../containers/container-insights-overview.md)| Container performance data. |
 | **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
+
+To collect data from a resource:
+
+1. Set up the relevant data collection tool based on the above.
+1. Decide which data you need to collect from the resource.
+1. Use [transformations](../essentials/data-collection-transformations.md) to remove sensitive data, enrich data or perform calculatations, and filter out data you don't need to reduce costs.   
 ## 5. Analyze log data
 
 [Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
@@ -115,7 +123,6 @@ This table lists the tools to use to collect data from various monitored resourc
 [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/)
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+- [Use Azure policies](/azure/governance/policy/overview) to define rules to enforce organizational standards and to assess compliance at-scale.
+- Do the [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/) training module.
 
