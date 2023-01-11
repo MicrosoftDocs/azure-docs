@@ -141,7 +141,7 @@ In this example, the name of your key vault is expanded to the key vault URI, in
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
-var kvUri = "https://" + keyVaultName + ".vault.azure.net";
+var kvUri = $"https://{keyVaultName}.vault.azure.net";
 
 var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
 ```
