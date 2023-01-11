@@ -243,7 +243,6 @@ In this section, you create a Python script to receive events from your event hu
             credential=credential,
         )
     
-    
         # Create a consumer client for the event hub.
         client = EventHubConsumerClient(
             fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
