@@ -235,7 +235,21 @@ To upload your client's private key certificate for use with the MQ built-in con
 
 ### One-way TLS connection (server authentication only)
 
-All trusted signing certificate public keys for trusted CA server certificates usually already exist your client computer's Trusted Root CA store. To confirm that the required server public key certificate and any chaining certificates appear in the Trusted Root CA store, run the following PowerShell script in Azure Logic Apps Kusto.
+#### Check existing public key certificates
+
+All trusted signing certificate public keys for trusted CA server certificates usually already exist in your local client computer's Trusted Root CA store. To confirm and view the thumbprints for the required server public key certificate and any chaining certificates in your local store, follow these steps to run the [`cert` PowerShell script](/powershell/module/microsoft.powershell.security/about/about_certificate_provider) from your Standard logic app resource menu.
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. From the Kudu **Debug console** menu, select **PowerShell**.
+
+1. From the PowerShell command prompt, run the following script: `dir cert:\localmachine\root`
+
+   The PowerShell window lists the existing thumbprints and descriptions, for example:
+
+   ![Screenshot showing existing example thumbprints and descriptions.](media/connectors-create-api-mq/existing-trusted-certificate-thumbprints.png)
+
+#### Add public key certificate
 
 To upload a server public key certificate, such as a self-signed or private CA server certificate, for use with the MQ built-in connector in your Standard logic app workflow, follow these steps:
 
