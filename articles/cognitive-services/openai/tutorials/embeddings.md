@@ -388,6 +388,10 @@ res["summary"][9]
 
 Using this approach, you can use embeddings as a search mechanism across documents in a knowledge base. The user can then take the top search result and use it for their downstream task, which prompted their initial query.
 
+## Video
+
+There is video walkthrough of this tutorial including the pre-requisite steps which can viewed on this [community YouTube post](https://www.youtube.com/watch?v=PSLO-yM6eFY).
+
 ## Clean up resources
 
 If you created an OpenAI resource solely for completing this tutorial and want to clean up and remove an OpenAI resource, you'll need to delete your deployed models, and then delete the resource or associated resource group if it's dedicated to your test resource. Deleting the resource group also deletes any other resources associated with it.
