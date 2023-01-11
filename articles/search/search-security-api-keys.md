@@ -20,7 +20,7 @@ API keys are frequently used when making REST API calls to a search service. You
 > [!NOTE]
 > A quick note about "key" terminology in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A "document key" refers to a unique string in your indexed content that's used to uniquely identify documents in a search index. API keys and document keys are unrelated.
 
-## What's an API key?
+## Types of API keys
 
 There are two kinds of keys used for authenticating a request:
 
@@ -29,7 +29,7 @@ There are two kinds of keys used for authenticating a request:
 | Admin | Full access (read-write) for all content operations | 2 <sup>1</sup>| Two admin keys, referred to as *primary* and *secondary* keys in the portal, are generated when the service is created and can be individually regenerated on demand. |
 | Query | Read-only access, scoped to the documents collection of a search index | 50 | One query key is generated with the service. More can be created on demand by a search service administrator. |
 
-<sup>1</sup>  Having two allows you to roll over one key while using the second key for continued access to the service.
+<sup>1</sup> Having two allows you to roll over one key while using the second key for continued access to the service.
 
 Visually, there's no distinction between an admin key or query key. Both keys are strings composed of 52 randomly generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](#find-existing-keys).
 
@@ -37,7 +37,7 @@ Visually, there's no distinction between an admin key or query key. Both keys ar
 
 API keys are specified on client requests to a search service. Passing a valid API key on the request is considered proof that the request is from an authorized client. If you're creating, modifying, or deleting objects, you'll need an admin API key. Otherwise, query keys are typically distributed to client applications that issue queries.
 
-You can specify API keys in a request header for REST API calls, or in code that calls the azure.search.documents client libraries in the Azure SDKs. If you're using the Azure portal to perform tasks, your role assignment determines the level of access.
+You can specify API keys in a request header for REST API calls, or in code that calls the azure.search.documents client libraries in the Azure SDKs. If you're using the Azure portal to perform tasks, your role assignment determines the [level of access](#permissions-to-view-or-manage-api-keys).
 
 Best practices for using hard-coded keys in source files include:
 
@@ -49,7 +49,7 @@ Best practices for using hard-coded keys in source files include:
 
 In Cognitive Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
 
-Authentication is built-in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
+Authentication is built in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
 
 ### [**PowerShell**](#tab/azure-ps-use)
 
@@ -74,7 +74,7 @@ In search solutions, a key is often specified as a configuration setting and the
 
 ## Permissions to view or manage API keys
 
-Permissions for viewing and managing API keys is conveyed through [role assignments](search-security-rbac.md). Members of the following roles can view and regenerate keys:
+Permissions for viewing and managing API keys are conveyed through [role assignments](search-security-rbac.md). Members of the following roles can view and regenerate keys:
 
 + Owner
 + Contributor
