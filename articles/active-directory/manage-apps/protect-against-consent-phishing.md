@@ -72,4 +72,4 @@ Administrators should be in control of application use by providing the right in
 - [Application consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 - [Managing access to applications](./what-is-access-management.md)
 - [Restrict user consent operations in Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)
-- [Compromised and malicious applications investigation](https://learn.microsoft.com/en-us/security/compass/incident-response-playbook-compromised-malicious-app)
+- [Compromised and malicious applications investigation](/security/compass/incident-response-playbook-compromised-malicious-app)
