@@ -20,11 +20,10 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 ## Prerequisites
 
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
-- An Azure Container Registry associated with the workspace (it's created for you when you create a workspace) @@do we need this?
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
 - [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job.
 - An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
-- A model that you've trained and [packaged with `crate`]((how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package)
+- A model that you've trained and [packaged with `crate`]((how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
 
 ## Create a folder with this structure
 
