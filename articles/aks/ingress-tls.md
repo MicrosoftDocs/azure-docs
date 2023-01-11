@@ -370,7 +370,7 @@ For more information on cert-manager configuration, see the [cert-manager projec
 
 ## Create a CA cluster issuer
 
-Before certificates can be issued, cert-manager requires one of the following:
+Before certificates can be issued, cert-manager requires one of the following issuers:
 
 * An [Issuer][cert-manager-issuer], which works in a single namespace.
 * A [ClusterIssuer][cert-manager-cluster-issuer] resource, which works across all namespaces.
