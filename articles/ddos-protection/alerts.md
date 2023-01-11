@@ -36,31 +36,76 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In **Search resources, service, and docs (G+/)**, type **Alerts**. Select **Alerts** from the Marketplace results to open the **Alerts** page.
+1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
 1. Select the **+ Create** on the navigation bar, then select **Alert rule**.
 
-1. On the **Create an alert rule** page, you'll see the follow tabs:
+1. On the **Create an alert rule** page, Select **+ Select scope**.
 
-    - Scope
-    - Condition
-    - Actions
-    - Details
-    - Tags
-    - Review + create
-    
-    For each step, use the values described below:
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-scope.png" alt-text="Screenshot of selecting DDoS Protection attack alert scope.":::
+
+1. Enter or select the following information in the **Select a resource** tab.
 
     | Setting | Value |
     |--|--|
-    | Scope | 1) Select **+ Select Scope**. <br/> 2) From the *Filter by subscription* dropdown list, select the **Subscription** that contains the public IP address you want to log. <br/> 3) From the *Filter by resource type* dropdown list, select **Public IP Address**, then select the specific public IP address you want to log metrics for. <br/> 4) Select **Done**. <br/> 5) Select **Next: Condition**.  |
-    | Condition | 1) Select the **+ Add Condition** button <br/> 2) In the *Search by signal name* search box, select **Under DDoS attack or not**. <br/> 3) Leave *Threshold* as default. <br/> 4) From the *Aggregation type* drop-down, select **Maximum**. <br/> 5) From the *Operator* drop-down, select **Greater than or equal to**. <br/> 6) In the *Unit* box, leave as default. <br/> 7) In the *Threshold value* box, enter **1**. For the *Under DDoS attack or not metric*, **0** means you're not under attack while **1** means you are under attack. <br/> 7) Select **Done**. <br/> 8) Select **Next: Actions**.   |
-    | Actions | 1) Select the **+ Create action group** button. <br/> 2) On the **Basics** tab, select your subscription, a resource group. <br/> 3 In the   *Action group name* box, enter **myDDoSAlertsActionGroup**. <br/> 4 In the *Display name* box, enter **myDDoSAlerts**. <br/> 5) On the *Notifications* tab, under *Notification type*, select **Email/SMS message/Push/Voice**. <br/> 6) Under *Name*, enter **myUnderAttackEmailAlert**. <br/> 7) On the *Email/SMS message/Push/Voice* page, click the **Email** check box enter the required email. Click **OK**. <br/> 8) Select **Review + create** and then select **Create**. <br/> 9) Select **Next: Details** |
-    | Details | 1) Under **Severity** select **2 - Warning**. <br/> 2) Under *Alert rule name*, enter **myDDoSAlert**. <br/> 3) Select **Review + create** and then select **Create**. |
+	|Filter by subscription | Select your Azure subscription. |
+	|Filter by resource type | Select **Public IP Address**.|
+
+1. Select your Public IP address.
+1. Select **Done**, then select **Next: Condition**.
+1. On the **Condition** page, select **+ Add Condition**.
+1. In the *Search by signal name* search box, search and select **Under DDoS attack or not**.
+
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition.":::
+
+1. In the **Create an alert rule** page, enter the following information. 
+
+    | Setting | Value |
+    |--|--|
+    | Threshold | Leave as default. |
+    | aggregation type | Leave as default. |
+    | Operator | Select **Greater than or equal to**. |
+    | Unit | Leave as default. |
+    | Threshold value | Enter **1**. |
+
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal.":::
+
+1. Select **Next: Actions** then select **+ Create action group**.
+1. in the **Create action group** page, enter the following information. 
+
+    | Setting | Value |
+    |--|--|
+    | Subscription | Select your Azure subscription. |   
+    | Resource Group | Select your Resource group. |
+    | Region | Leave as default. |
+    | Action Group | Enter **myDDoSAlertsActionGroup**. |
+    | Display name | Enter **myDDoSAlerts**. |
+
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-action-group-basics.png" alt-text="Screenshot of adding DDoS Protection attack alert action group basics.":::
+
+1. Select **Next: Notifications**.
+1. On the *Notifications* tab, under *Notification type*, select **Email/SMS message/Push/Voice**. Under *Name*, enter **myUnderAttackEmailAlert**.
+1. On the *Email/SMS message/Push/Voice* page, select the **Email** check box, then enter the required email. Select **OK**.
+
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert action group basics.":::
+
+1. Select **Review + create** and then select **Create**.
+1. Select **Next: Details**. 
+
+     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-details.png" alt-text="Screenshot of adding DDoS Protection attack alert action group basics.":::
+
+1. On the *Details* tab, under *Alert rule details*, enter the following information. 
+
+    | Setting | Value |
+    |--|--|
+    | Severity | Select **2 - Warning**. |   
+    | Alert rule name | Enter **myDDoSAlert**. |
+
+1. Select **Review + create** and then select **Create** after validation passes.
 
 Within a few minutes of attack detection, you should receive an email from Azure Monitor metrics that looks similar to the following picture:
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-alert.png" alt-text="Screenshot of a DDoS Attack Alert." lightbox="./media/manage-ddos-protection/ddos-alert.png":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-alert.png" alt-text="Screenshot of a DDoS Attack Alert.":::
 
 You can also learn more about [configuring webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
@@ -75,7 +120,7 @@ This Azure Monitor alert rule template will run a query to detect when an active
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAlert%2520-%2520DDOS%2520Mitigation%2520started%2520azure%2520monitor%2520alert%2FDDoSMitigationStarted.json)
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template." lightbox="./media/manage-ddos-protection/ddos-deploy-alert.png":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template.":::
 
 ### Azure Monitor alert rule with Logic App
 
@@ -83,7 +128,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAutomation%2520-%2520DDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template." lightbox="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template.":::
 ## View alerts in Microsoft Defender for Cloud
 
 Microsoft Defender for Cloud provides a list of [security alerts](../security-center/security-center-managing-and-responding-alerts.md), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts, including DDoS attack-related alerts and the actions taken to mitigate the attack in near-time.
