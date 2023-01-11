@@ -402,7 +402,7 @@ Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
 
 ## Clean up resources
-Delete the resource group that has the Event Hubs namespace or delete just the namespace if you want to keep the resource group. 
+Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 
 
 ## Samples
 This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of events to an event hub and then receiving them. For more samples, select the following links. 
@@ -415,4 +415,4 @@ This quick start provides step-by-step instructions to implement a simple scenar
 See the following tutorial: 
 
 > [!div class="nextstepaction"]
-> [event-hubs-tutorial-visualize-anomalies](event-hubs-tutorial-visualize-anomalies.md)
+> [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
