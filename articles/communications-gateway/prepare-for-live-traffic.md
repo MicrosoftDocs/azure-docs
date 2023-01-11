@@ -37,9 +37,6 @@ In some parts of this article, the steps you must take depend on whether your de
 
 ## 1. Connect Azure Communications Gateway to your networks
 
-> [!WARNING]
-> TODO: who sets up the Teams trunks?
-
 1. Configure your network devices to send and receive traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs).
 1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through the Microsoft Azure Peering Service (MAPS) for Voice.
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
@@ -59,20 +56,14 @@ Your onboarding team must register the test enterprise tenant that you chose in 
 
 ## 3. Assign numbers to test users in your tenant
 
-> [!WARNING]
-> TODO: confirm how the customer gets the Calling Profile. Is it the onboarding team, AzCoG team, or do they have to set it up (another step)?
-
-> [!WARNING]
-> TODO: how do customers get to the API Bridge Number Management Portal?
-
-1. Confirm the name of the Calling Profile that you must use for these test numbers.
+1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name has the suffix `azcog`. This Calling Profile has been created for you during the Azure Communication Gateway deployment process.
 1. In your test tenant, request service from your company.
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.
     1. Select your company in the list of operators, fill in the form and select **Add as my operator**.
 1. In your test tenant, create some test users (if you don't already have suitable users). These users must be licensed for Teams Phone System and in Teams Only mode.
 1. Configure emergency locations in your test tenant.
-1. Upload numbers in the API Bridge Number Management Portal (if you deployed the API Bridge) or the Operator Connect Operator Portal.
+1. Upload numbers in the API Bridge Number Management Portal (if you deployed the API Bridge) or the Operator Connect Operator Portal. Use the Calling Profile that you obtained from your onboarding team.
 
     # [API Bridge Number Management Portal](#tab/api-bridge)
 
@@ -112,10 +103,6 @@ You must test typical call flows for your network. Consult your onboarding team 
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
 ## 5. Run a connectivity test and upload proof
-
-> [!WARNING]
-> TODO: who verifies the SIP trunks by monitoring OPTIONS?
-
 Before you can launch, Microsoft Teams requires proof that your service can connect to the Microsoft Phone System and your own networks correctly.
 
 1. Provide your onboarding team with proof that BFD is enabled. You enabled BFD in [1. Connect Azure Communications Gateway to your networks](#1-connect-azure-communications-gateway-to-your-networks). For example, if you have a Cisco router, you can provide configuration similar to the following.
@@ -151,17 +138,11 @@ Before you can go live, you must get your customer-facing materials approved by 
 
 ## 7. Test raising a ticket
 
-> [!WARNING]
-> TODO: Link to Azure Communications Gateway docs on making a support request
-
 You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway.
 
 ## 8. Learn about monitoring Azure Communications Gateway
 
 Your staff can monitor Azure Communications Gateway with a range of key metrics. These metrics are available to anyone with the Reader role on the subscription for Azure Communications Gateway.
-
-> [!WARNING]
-> TODO: Link to Azure Communications Gateway monitoring docs
 
 ## 9. Verify API integration
 
@@ -194,5 +175,5 @@ Your service can be launched on specific dates each month. Your onboarding team 
 
 ## Next steps
 
-> [!WARNING]
-> TODO: Add your next step link(s). Something about learning how to monitor / request support
+- Wait for your launch date.
+- Learn about [planning and managing costs for Azure Communications Gateway](plan-and-manage-costs.md).

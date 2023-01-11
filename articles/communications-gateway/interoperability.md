@@ -97,16 +97,13 @@ The Azure Communication Gateway service includes continuous monitoring for poten
 
 - Call quality
 - Call errors and unusual behavior (for example, call setup failures, short calls, or unusual disconnections)
+- All metrics required to be monitored by Operators as part of the Operator Connect program
 - Other errors in Azure Communications Gateway
 
 We'll investigate the potential fault, and determine whether the fault relates to Azure Communications Gateway or the Microsoft Phone System. We may require you to carry out some troubleshooting steps in your networks to help isolate the fault.
 
 Azure Communications Gateway provides metrics that you can use to monitor the overall health of your Azure Communications Gateway deployment. You can also view detailed metrics about calls and Quality of Service. If you notice any concerning metrics, you can raise an Azure Communications Gateway support ticket.
 
-> [!WARNING]
-> TODO: Check that this agrees with the monitoring position and the monitoring article.
-
 ## Next steps
 
-> [!WARNING]
-> TODO: Find links here e.g. raising a ticket for more information. monitoring
+- Learn about [planning and managing costs for Azure Communications Gateway](plan-and-manage-costs.md).

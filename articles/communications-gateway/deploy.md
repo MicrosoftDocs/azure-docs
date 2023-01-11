@@ -49,7 +49,7 @@ If you haven't filled in the configuration correctly, you'll see an error messag
 
 Check your configuration and ensure it matches your requirements. If the configuration is correct, select **Create**.
 
-You now need to wait for your resource to be provisioned. Upon completion your onboarding team will reach out to you. We also recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks as updating ACLs in the Azure and Teams environments is done on a periodic basis.
+You now need to wait for your resource to be provisioned and connected to the Teams environment. Upon completion your onboarding team will reach out to you and the Provisioning Status filed on the resource overview will show as "Complete". We recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks as updating ACLs in the Azure and Teams environments is done on a periodic basis.
 
 Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
 
