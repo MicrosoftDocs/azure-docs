@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Create an encrypted image version with customer-managed keys
+# Use customer-managed keys for encrypting images
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -43,6 +43,8 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 - You can't copy or share images that use customer-managed keys. 
 
 - After you've used your own keys to encrypt a disk or image, you can't go back to using platform-managed keys for encrypting those disks or images.
+
+- This feature does not currently support the Image version Source as VM image version and Storage Blob (VHDs).
 
 - VM image version source doesn't currently support customer-managed key encryption.
 
