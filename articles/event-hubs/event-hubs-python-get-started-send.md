@@ -115,7 +115,6 @@ In this section, create a Python script to send events to the event hub that you
     EVENT_HUB_CONNECTION_STR = "EVENT_HUB_CONNECTION_STR"
     EVENT_HUB_NAME = "EVENT_HUB_NAME"
     
-    
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
