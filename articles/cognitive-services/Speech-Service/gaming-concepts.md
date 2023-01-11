@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/11/2023
 ms.author: eur
-zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
 # Game development with Azure Cognitive Service for Speech
