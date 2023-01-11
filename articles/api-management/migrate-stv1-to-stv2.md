@@ -11,26 +11,24 @@ ms.author: danlep
 
 ---
 
-# Migrate an API Management hosted on the stv1 platform to stv2
+# Migrate an API Management instance hosted on the stv1 platform to stv2
 
-An API Management instance hosted on the `stv1` platform can be automatically migrated to the `stv2` platform using the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2?tabs=HTTP) REST API. For more information about the `stv1` and `stv2` platforms, see [Compute platform for API Management](compute-infrastructure.md).
-
-> [!NOTE]
-> The Migrate to `stv2` REST API requires API Management REST API version `2022-04-01-preview` or later.
+An API Management instance hosted on the `stv1` compute platform can be automatically migrated to the `stv2` platform using the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2?tabs=HTTP) REST API. For more information about the `stv1` and `stv2` platforms, see [Compute platform for API Management](compute-infrastructure.md).
 
 > [!IMPORTANT]
+> * The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
+> * Migration is a long-running operation and could take several minutes to complete. Your instance will experience downtime during the migration.
 > * Migration to `stv2` is not reversible.
-> * Migration is a log-running operation and could take several minutes to complete.
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 
-* An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
+* An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv1` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## Limitations
+<!-- ## Limitations
  
 [Are there any, such as regions or networking?]
 
@@ -42,15 +40,25 @@ An API Management instance hosted on the `stv1` platform can be automatically mi
 
 [Are there any? Any special considerations for APIM in VNet?]
 
+-->
 
 ## Migrate to stv2 using the Azure CLI
 
 Run the following Azure CLI commands. Where indicated, set variables with the name of your API Management instance and the name of the resource group in which it was created.
 
 ```azurecli
+# Verify currently selected subscription
+az account show
+
+# View other available subscriptions
+az account list --output table
+
+# Set correct subscription, if needed
+az account set --subscription {your subscription ID}
+
 # Update these variables with the name and resource group of your API Management instance
-APIM_NAME="myAPIM"
-RG_NAME="myResourceGroup"
+APIM_NAME={name of your API Management instance}
+RG_NAME={name of your resource group}
 
 # Get resource ID of API Management instance
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
