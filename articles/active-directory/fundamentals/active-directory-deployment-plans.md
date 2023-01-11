@@ -51,13 +51,13 @@ Use the following list to plan for authentication deployment.
   * See the video, [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)
   * See, [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md) 
 * **Conditional Access** - Implement automated access-control decisions for users to access cloud apps, based on conditions: 
-  * See, [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+  * See, [What is Conditional Access?](../conditional-access/overview.md)
   * See, [Plan a Conditional Access deployment](../conditional-access/plan-conditional-access.md)
 * **Azure AD self-service password reset (SSPR)** - Help users reset a password without administrator intervention:
   * See, [Passwordless authentication options for Azure AD](/articles/active-directory/authentication/concept-authentication-passwordless.md)
   * See, [Plan an Azure Active Directory self-service password reset deployment](../authentication/howto-sspr-deployment.md) 
 * **Passordless authentication** - Implement passwordless authentication using the Microsoft Authenticator app or FIDO2 Security keys:
-  * See, [Enable passwordless sign-in with Microsoft Authenticator](/azure/active-directory/authentication/howto-authentication-passwordless-phone)
+  * See, [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md)
   * See, [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md)
 
 ## Applications and devices
@@ -68,7 +68,7 @@ Use the following list to help deploy applications and devices.
   * See, [What is SSO in Azure AD?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
   * See, [Plan a SSO deployment](../manage-apps/plan-sso-deployment.md)
 * **My Apps portal** - A web-based portal to discover and access applications. Enable user productivity with self-service, for instance requesting access to groups, or managing access to resources on behalf of others. 
-  * See, [My Apps portal overview](/azure/active-directory/manage-apps/myapps-overview)
+  * See, [My Apps portal overview](../manage-apps/myapps-overview.md)
 * **Devices** - Evaluate device integration methods with Azure AD, choose the implementation plan, and more.
   * See, [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)  
 
@@ -93,7 +93,7 @@ The following list describes features and services for productivity gains in hyb
 * **Identity governance** - Create identity governance and enhance business processes that rely on identity data. With HR products, such as Workday or Successfactors, manage employee and contingent-staff identity lifecycle with rules. These rules map Joiner-Mover-Leaver processes, such as New Hire, Terminate, Transfer, to IT actions such as Create, Enable, Disable.
   * See, [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) 
 * **Azure AD B2B collaboration** - Improve external-user collaboration with secure access to applications: 
-  * See, [B2B collaboration overview](/azure/active-directory/external-identities/what-is-b2b)
+  * See, [B2B collaboration overview](../external-identities/what-is-b2b.md)
   * See, [Plan an Azure Active Directory B2B collaboration deployment](../fundamentals/secure-external-access-resources.md)
 
 ## Governance and reporting
@@ -103,7 +103,7 @@ Use the following list to learn about governance and reporting. Items in the lis
 Learn more: [Secure access for a connected world—meet Microsoft Entra](https://www.microsoft.com/en-us/security/blog/?p=114039)
 
 * **Privileged identity management (PIM)** - Manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. Use it for just-in-time access, request approval workflows, and fully integrated access reviews to help prevent malicious activities: 
-  * See, [Start using Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-getting-started)
+  * See, [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)
   * See, [Plan a Privileged Identity Management deployment](../privileged-identity-management/pim-deployment-plan.md) 
 * **Reporting and monitoring** - Your Azure AD reporting and monitoring solution design has dependencies and constraints: legal, security, operations, environment, and processes. 
   * See, [Azure Active Directory reporting and monitoring deployment dependencies](../reports-monitoring/plan-monitoring-and-reporting.md)
@@ -113,7 +113,7 @@ Learn more: [Secure access for a connected world—meet Microsoft Entra](https:/
 * **Identity governance** - Meet your compliance and risk management objectives for access to critical applications. Learn how to enforce accurate access.
   * See, [Govern access for applications in your environment](../governance/identity-governance-applications-prepare.md)
   
-Learn more: [Azure governance documentation](/azure/governance/)
+Learn more: [Azure governance documentation](../../governance/index.yml)
 
 ## Best practices for a pilot
 

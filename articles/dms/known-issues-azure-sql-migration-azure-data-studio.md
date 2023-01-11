@@ -205,7 +205,7 @@ Migrations that were completed before early December 2022 may be missing migrati
 ## Azure SQL Database Migration limitations
 
 The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (ADF) pipelines for data movement and thus abides by ADF limitations. A corresponding ADF is created when a database migration service is also created. Thus factory limits apply per service.
- The machine where the SHIR is installed acts as the compute for migration. Make sure this machine can handle the cpu and memory load of the data copy. To learn more, review [SHIR recommendations](/azure/data-factory/create-self-hosted-integration-runtime). 
+ The machine where the SHIR is installed acts as the compute for migration. Make sure this machine can handle the cpu and memory load of the data copy. To learn more, review [SHIR recommendations](../data-factory/create-self-hosted-integration-runtime.md). 
 - 100,000 table per database limit. 
 - 10,000 concurrent database migrations per service. 
 - Migration speed heavily depends on the target Azure SQL Database SKU and the self-hosted Integration Runtime host. 
