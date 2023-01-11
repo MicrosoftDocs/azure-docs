@@ -77,7 +77,7 @@ The following partners offer pre-built solutions to support Conditional Access p
 |[Citrix Systems, Inc.](https://www.citrix.com/)|[Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](/articles/active-directory/saas-apps/citrix-netscaler-tutorial.md)|
 |[Datawiza](https://www.datawiza.com/)|[Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](/articles/active-directory/manage-apps/datawiza-with-azure-ad.md)|
 |[F5, Inc.](https://www.f5.com/)|[Integrate F5 BIG-IP with Azure AD](/articles/active-directory/manage-apps/f5-aad-integration.md)</br>[Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](/articles/active-directory/manage-apps/f5-aad-password-less-vpn.md)|
-|[Progress Software Corporation, ProgressKemp](https://support.kemptechnologies.com/hc)|[Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](/articles/active-directory/saas-apps/kemp-tutorial.md)|
+|[Progress Software Corporation, Progress Kemp](https://support.kemptechnologies.com/hc)|[Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](/articles/active-directory/saas-apps/kemp-tutorial.md)|
 |[Perimeter 81 Ltd.]()|[Tutorial: Azure AD SSO integration with Perimeter 81](/articles/active-directory/saas-apps/perimeter-81-tutorial.md)|
 |[Silverfort](https://www.silverfort.com/)|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](/articles/active-directory/manage-apps/silverfort-azure-ad-integration.md)|
 |[Strata Identity, Inc.](https://www.strata.io/)|[Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](/articles/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)|
