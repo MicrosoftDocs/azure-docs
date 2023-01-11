@@ -3,7 +3,7 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 11/01/2022
 ms.author: helohr
 manager: femila
 ---
@@ -26,8 +26,8 @@ The following table lists whether the Windows Desktop client or macOS client sup
 |Communication Access Real-time Translation (CART) transcriptions|Yes|Yes|
 |Give and take control |Yes|No|
 |Multiwindow|Yes|Yes|
-|Background blur|Yes|No|
-|Background images|Yes|No|
+|Background blur|Yes|Yes|
+|Background images|Yes|Yes|
 |Screen share and video together|Yes|Yes|
 |Secondary ringer|Yes|No|
 |Dynamic e911|Yes|Yes|
@@ -53,8 +53,8 @@ The following table lists the minimum required versions for each Teams feature. 
 |CART transcriptions|1.2.2322 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Give and take control |1.2.2924 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Multiwindow|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
-|Background blur|1.2.3004 and later|Not supported|1.0.2006.11001 and later|1.5.00.11865 and later|
-|Background images|1.2.3004 and later|Not supported|1.0.2006.11001 and later|1.5.00.11865 and later|
+|Background blur|1.2.3004 and later|10.7.10 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
+|Background images|1.2.3004 and later|10.7.10 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
 |Screen share and video together|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Secondary ringer|1.2.3004 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Dynamic e911|1.2.2600 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|

@@ -3,17 +3,14 @@
 title: Conditional access gap analyzer workbook in  Azure AD | Microsoft Docs
 description: Learn how to use the conditional access gap analyzer workbook.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: sarbar 
 
 ms.collection: M365-identity-device-management
@@ -49,11 +46,11 @@ The workbook has four sections:
 
 - Users signing in using legacy authentication 
 
-- Number of sign-ins by applications that are not impacted by conditional access policies 
+- Number of sign-ins by applications that aren't impacted by conditional access policies 
 
 - High risk sign-in events bypassing conditional access policies 
 
-- Number of sign-ins by location that were not affected by conditional access policies 
+- Number of sign-ins by location that weren't affected by conditional access policies 
 
 
 ![Conditional access coverage by location](./media/workbook-conditional-access-gap-analyzer/conditianal-access-by-location.png)

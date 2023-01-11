@@ -13,7 +13,7 @@ Azure Event Hubs is a scalable event processing service that ingests and process
 This article builds on the information in the [overview article](./event-hubs-about.md), and provides technical and implementation details about Event Hubs components and features.
 
 > [!TIP]
-> [The protocol support for **Apache Kafka** clients](event-hubs-for-kafka-ecosystem-overview.md)  (versions >=1.0) provides network endpoints that enable applications built to use Apache Kafka with any client to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an Event Hub namespace instead of a Kafka cluster bootstrap server. 
+> [The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides network endpoints that enable applications built to use Apache Kafka with any client to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an Event Hub namespace instead of a Kafka cluster bootstrap server. 
 >
 >From the perspective of cost, operational effort, and reliability, Azure Event Hubs is a great alternative to deploying and operating your own Kafka and Zookeeper clusters and to Kafka-as-a-Service offerings not native to Azure. 
 >
@@ -27,13 +27,13 @@ An Event Hubs namespace is a management container for event hubs (or topics, in 
 
 ## Event publishers
 
-Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token gain publishing access.
+Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
 
 ### Publishing an event
 
 You can publish an event via AMQP 1.0, the Kafka protocol, or HTTPS. The Event Hubs service provides [REST API](/rest/api/eventhub/) and [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md), and [Go](event-hubs-go-get-started-send.md) client libraries for publishing events to an event hub. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](https://qpid.apache.org/). 
 
-The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. AMQP has higher network costs when initializing the session, however HTTPS requires additional TLS overhead for every request. AMQP has significantly higher performance for frequent publishers and can achieve much lower latencies when used with asynchronous publishing code.
+The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. AMQP has higher network costs when initializing the session, however HTTPS requires extra TLS overhead for every request. AMQP has higher performance for frequent publishers and can achieve much lower latencies when used with asynchronous publishing code.
 
 You can publish events individually or batched. A single publication has a limit of 1 MB, regardless of whether it's a single event or a batch. Publishing events larger than this threshold will be rejected. 
 
@@ -162,6 +162,14 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
+
+
+### Log compaction 
+
+Azure Event Hubs supports compacting event log to retain the latest events of a given event key. With compacted event hubs/Kafka topic, you can use key-baesd retention rather than using the coarser-grained time-based retention. 
+
+For more information on log compaction, see [Log compaction](log-compaction.md). 
+
 
 ### Common consumer tasks
 

@@ -3,9 +3,8 @@ title: Work with near-real-time (NRT) detection analytics rules in Microsoft Sen
 description: This article explains how to view and create near-real-time (NRT) detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/02/2022
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 # Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel
 
@@ -35,15 +34,15 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. Select **Create** from the button bar, then **NRT query rule** from the drop-down list.
+1. Select **Create** from the button bar, then **NRT query rule (preview)** from the drop-down list.
 
-    :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Create a new NRT rule.":::
+    :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
 
 1. Follow the instructions of the [**analytics rule wizard**](detect-threats-custom.md).
 
     The configuration of NRT rules is in most ways the same as that of scheduled analytics rules. 
 
-    - You can refer to [**watchlists**](watchlists.md) and [**threat intelligence feeds**](understand-threat-intelligence.md) in your query logic.
+    - You can refer to [**watchlists**](watchlists.md) in your query logic.
 
     - You can use all of the alert enrichment methods: [**entity mapping**](map-data-fields-to-entities.md), [**custom details**](surface-custom-details-in-alerts.md), and [**alert details**](customize-alert-details.md).
 
@@ -69,5 +68,5 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
 In this document, you learned how to create near-real-time (NRT) analytics rules in Microsoft Sentinel.
 
-- Learn more about about [near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
+- Learn more about [near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
 - Explore other [analytics rule types](detect-threats-built-in.md).

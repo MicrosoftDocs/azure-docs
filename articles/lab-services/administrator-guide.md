@@ -56,7 +56,7 @@ The following list highlights scenarios where more than one lab plan might be be
   When you create a lab plan, you set policies that apply to all newly created labs, such as:
 
   - The Azure virtual network with shared resources that the lab can access. For example, you might have a set of labs that need access to a license server within a virtual network.
-  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Azure Marketplace image.
+  - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) Azure Marketplace image.
 
   If each of your labs has unique policy requirements, it might be beneficial to create separate lab plans for managing each lab separately.
 
@@ -224,6 +224,8 @@ When you're assigning roles, it helps to follow these tips:
 - Ordinarily, only administrators should be members of a lab plan Owner or Contributor role. The lab plan might have more than one Owner or Contributor.
 - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
 - To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab.
+- 
+For more detail about the permissions assigned to each role, see [Azure built-in roles](../role-based-access-control/built-in-roles.md#lab-assistant)
 
 ## Content filtering
 

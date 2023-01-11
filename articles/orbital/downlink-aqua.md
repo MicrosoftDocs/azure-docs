@@ -1,12 +1,12 @@
 ---
 title: Schedule a contact with NASA's AQUA public satellite using Azure Orbital Ground Station service
 description: How to schedule a contact with NASA's AQUA public satellite using Azure Orbital Ground Station service
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
-ms.author: wamota
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from NASA's AQUA public satellite into Azure.
 ---
 
@@ -24,6 +24,7 @@ You can communicate with satellites directly from Azure using Azure Orbital's Gr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Must be a Contributer at the subscription level.
 
 ## Sign in to Azure
 
@@ -33,7 +34,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 > These steps must be followed as is or you won't be able to find the resources. Please use the specific link above to sign in directly to the Azure Orbital Preview page.
 
 ## Create & authorize a spacecraft for AQUA
-
+### Create a new spacecraft resource for AQUA
 1. In the Azure portal search box, enter **Spacecraft*. Select **Spacecraft** in the search results.
 2. In the **Spacecraft** page, select Create.
 3. Learn an up-to-date Two-Line Element (TLE) for AQUA by checking celestrak at https://celestrak.com/NORAD/elements/active.txt
@@ -65,16 +66,37 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 7. Select the **Review + create** tab, or select the **Review + create** button.
 8. Select **Create**
 
-9. Access the [Azure Orbital Spacecraft Authorization Form](https://forms.office.com/r/QbUef0Cmjr)
-10. Provide the following information:
+### Request authorization of the new AQUA spacecraft resource
+1. Navigate to the newly created spacecraft resource's overview page.
+2. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
+   > [!NOTE]
+   > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
-   - Spacecraft name: **AQUA**
-   - Region where spacecraft resource was created: **West US 2**
-   - Company name and email
-   - Azure Subscription ID
+3. In the **New support request** page, enter or select this information in the Basics tab:
 
-11. Submit the form
-12. Await a 'Spacecraft resource authorized' email from Azure Orbital
+| **Field** | **Value** |
+| --- | --- |
+| Summary | Request Authorization for [**AQUA**] |
+| Issue type |	Select **Technical** |
+| Subscription |	Select the subscription in which the spacecraft resource was created |
+| Service |	Select **My services** |
+| Service type |	Search for and select **Azure Orbital** |
+| Problem type |	Select **Spacecraft Management and Setup** |
+| Problem subtype |	Select **Spacecraft Registration** |
+
+4. Select the Details tab at the top of the page
+5. In the Details tab, enter this information in the Problem details section:
+
+| **Field** | **Value** |
+| --- | --- |
+| When did the problem start? |	Select the current date & time |
+| Description |	List AQUA's center frequency (**8160**) and the desired ground stations |
+| File upload |	Upload any pertinent licensing material, if applicable |
+
+6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
+7. Select the **Review + create** tab, or select the **Review + create** button.
+8. Select **Create**.
+
    > [!NOTE]
    > You can confirm that your spacecraft resource for AQUA is authorized by checking that the **Authorization status** shows **Allowed** in the spacecraft's overiew page.
 
@@ -85,7 +107,11 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 2. [Create a virtual machine (VM)](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network above. Ensure that this VM has the following specifications:
 - Operation System: Linux (Ubuntu 18.04 or higher)
 - Size: at least 32 GiB of RAM
-- Ensure that the VM has at least one standard public IP
+- Ensure that the VM has internet access for downloading tools by having one standard public IP address
+
+> [!TIP]
+> The Public IP Address here is only for internet connectivity not Contact Data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
+
 3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
 sudo mkdir /media/aqua

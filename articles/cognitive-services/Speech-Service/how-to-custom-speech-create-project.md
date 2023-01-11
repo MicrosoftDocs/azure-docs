@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/22/2022
+ms.date: 11/29/2022
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
 
 # Create a Custom Speech project
 
-Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
+Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt). For example, you might create a project for English in the United States.
 
 ## Create a project
 
@@ -46,20 +46,20 @@ To create a project, use the `spx csr project create` command. Construct the req
 Here's an example Speech CLI command that creates a project:
 
 ```azurecli-interactive
-spx csr project create --name "My Project" --description "My Project Description" --language "en-US"
+spx csr project create --api-version v3.1 --name "My Project" --description "My Project Description" --language "en-US"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
   "links": {
-    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
-    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
-    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
-    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
-    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
+    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
+    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
+    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
+    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
+    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
   },
   "properties": {
     "datasetCount": 0,
@@ -87,32 +87,32 @@ spx help csr project
 
 ::: zone pivot="rest-api"
 
-To create a project, use the [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a project, use the [Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `locale` property. This should be the locale of the contained datasets. The locale can't be changed later.
 - Set the required `displayName` property. This is the project name that will be displayed in the Speech Studio.
 
-Make an HTTP POST request using the URI as shown in the following [CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP POST request using the URI as shown in the following [Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Create) example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "displayName": "My Project",
   "description": "My Project Description",
   "locale": "en-US"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/projects"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/projects"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
   "links": {
-    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
-    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
-    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
-    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
-    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
+    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
+    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
+    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
+    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
+    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
   },
   "properties": {
     "datasetCount": 0,
@@ -128,7 +128,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the project's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProject) details about the project's evaluations, datasets, models, endpoints, and transcriptions. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateProject) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteProject) a project.
+The top-level `self` property in the response body is the project's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Get) details about the project's evaluations, datasets, models, endpoints, and transcriptions. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_Delete) a project.
 
 ::: zone-end
 

@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 10/24/2022
 ---
 
 # Distribute and modify tables
@@ -478,6 +478,8 @@ CREATE TABLE positions (object_id text primary key, position coordinates);
 
 -- data loading thus goes over a single connection:
 SELECT create_distributed_table(‘positions’, ‘object_id’);
+
+SET client_encoding TO 'UTF8';
 \COPY positions FROM ‘positions.csv’
 
 COMMIT;
@@ -500,6 +502,7 @@ BEGIN;
 CREATE TABLE items (key text, value text);
 -- parallel data loading:
 SELECT create_distributed_table(‘items’, ‘key’);
+SET client_encoding TO 'UTF8';
 \COPY items FROM ‘items.csv’
 CREATE TYPE coordinates AS (x int, y int);
 

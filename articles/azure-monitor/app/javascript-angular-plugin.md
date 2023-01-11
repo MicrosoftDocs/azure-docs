@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/14/2022
 ms.devlang: javascript
 ms.reviewer: mmcc
 ---
@@ -28,7 +28,7 @@ The Angular plugin for the Application Insights JavaScript SDK, enables:
 Install npm package:
 
 ```bash
-npm install @microsoft/applicationinsights-angularplugin-js
+npm install @microsoft/applicationinsights-angularplugin-js @microsoft/applicationinsights-web --save
 ```
 
 ## Basic usage

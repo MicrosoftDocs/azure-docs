@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
-ms.custom: MVC
+ms.date: 02/18/2022
+ms.custom: MVC, engagement-fy23
 #Customer intent: As a server admin, I want to assess my AWS instances in preparation for migration to Azure.
 ---
 
@@ -72,9 +72,11 @@ Run an assessment as follows:
     - In **Storage type**,
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.
-    - In **Reserved Instances**, specify whether you want to use reserve instances for the VM when you migrate it.
-        - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
-        - [Learn more](https://aka.ms/azurereservedinstances).
+    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
+        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
  1. In **VM Size**:
      - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
@@ -101,8 +103,6 @@ Run an assessment as follows:
     - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
 1. Click **Save** if you make changes.
-
-    ![Assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
 1. In **Assess Servers** > click **Next**.
 

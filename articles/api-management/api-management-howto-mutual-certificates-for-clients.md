@@ -37,7 +37,7 @@ For a conceptual overview of API authorization, see [Authentication and authoriz
 
 ## Policy to validate client certificates
 
-Use the [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy to validate one or more attributes of a client certificate used to access APIs hosted in your API Management instance.
+Use the [validate-client-certificate](validate-client-certificate-policy.md) policy to validate one or more attributes of a client certificate used to access APIs hosted in your API Management instance.
 
 Configure the policy to validate one or more attributes including certificate issuer, subject, thumbprint, whether the certificate is validated against online revocation list, and others.
 

@@ -67,7 +67,9 @@ The best way to start exploring completions is through our Playground. It's simp
     Tl;dr A neutron star is the collapsed core of a massive supergiant star, which had a total mass of between 10 and 25 solar masses, possibly more if the star was especially metal-rich.
     ```
 
-Keep in mind the accuracy of the response will vary depending on what model you've selected under **Deployments**. The response above was generated from a davinci based model, which is well-suited to this type of summarization whereas a Codex based model wouldn't perform as well at this particular task.
+Keep in mind the accuracy of the response will vary depending on what model you've selected under **Deployments**. The response above was generated from a Davinci based model, which is well-suited to this type of summarization whereas a Codex based model wouldn't perform as well at this particular task.
+
+The Azure OpenAI Service also performs content moderation on the prompt inputs and generated outputs. The prompts or responses may be filtered if harmful content is detected. For more information, see the [content filter](../concepts/content-filter.md) article.
 
 ## Clean up resources
 

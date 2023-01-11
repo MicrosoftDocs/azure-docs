@@ -15,7 +15,8 @@ ms.date: 10/12/2022
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
 >[!IMPORTANT]
->This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated model is the only way to run .NET 5.x and the preview of .NET Framework 4.8 using recent versions of the Functions runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
+>This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated worker process model is the only way to run non-LTS versions of .NET and .NET Framework apps in current versions of the Functions runtime. To learn more, see [.NET isolated worker process functions](dotnet-isolated-process-guide.md). 
+>For a comprehensive comparison between isolated worker process and in-process .NET Functions, see [Differences between in-process and isolate worker process .NET Azure Functions](dotnet-isolated-in-process-differences.md).
 
 As a C# developer, you may also be interested in one of the following articles:
 
@@ -99,7 +100,7 @@ The order of parameters in the function signature doesn't matter. For example, y
 
 ### Output bindings
 
-A function can have zero or one output bindings defined by using output parameters. 
+A function can have zero or multiple output bindings defined by using output parameters. 
 
 The following example modifies the preceding one by adding an output queue binding named `myQueueItemCopy`. The function writes the contents of the message that triggers the function to a new message in a different queue.
 

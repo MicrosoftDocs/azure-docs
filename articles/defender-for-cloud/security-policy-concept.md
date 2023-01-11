@@ -3,7 +3,7 @@ title: Understanding security policies, initiatives, and recommendations in Micr
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 06/06/2022
+ms.date: 11/02/2022
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -26,7 +26,7 @@ A security initiative defines the desired configuration of your workloads and he
 
 Like security policies, Defender for Cloud initiatives are also created in Azure Policy. You can use [Azure Policy](../governance/policy/overview.md) to manage your policies, build initiatives, and assign initiatives to multiple subscriptions or for entire management groups.
 
-The default initiative automatically assigned to every subscription in Microsoft Defender for Cloud is Microsoft cloud security benchmark. This benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security. Learn more about [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+The default initiative automatically assigned to every subscription in Microsoft Defender for Cloud is Microsoft cloud security benchmark. This benchmark is the Microsoft-authored set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security. Learn more about [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
 
 Defender for Cloud offers the following options for working with security initiatives and policies:
 

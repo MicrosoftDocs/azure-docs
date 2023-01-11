@@ -1,5 +1,5 @@
 ---
-title: Azure Table storage monitoring data reference | Microsoft Docs
+title: Azure Table storage monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Table storage.
 author: normesta
 services: storage

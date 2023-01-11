@@ -3,7 +3,7 @@ title: Azure virtual machine network throughput | Microsoft Docs
 description: Learn about Azure virtual machine network throughput, including how bandwidth is allocated to a virtual machine.
 services: virtual-network
 documentationcenter: na
-author: steveesp
+author: asudbring
 editor: ''
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/26/2019
-ms.author: steveesp
+ms.author: allensu
 ms.reviewer: kumud, mareat
 ---
 

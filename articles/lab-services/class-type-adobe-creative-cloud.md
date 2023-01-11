@@ -4,7 +4,7 @@ description: Learn how to set up a lab for digital arts and media classes that u
 author: nicolela
 ms.topic: how-to
 ms.date: 04/21/2021
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up a lab for Adobe Creative Cloud

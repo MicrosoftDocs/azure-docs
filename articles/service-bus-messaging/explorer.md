@@ -27,7 +27,7 @@ Operations run on an Azure Service Bus namespace are of two kinds
 
 To use the Service Bus Explorer tool, you'll need to do the following tasks: 
 
-- [Create an Azure Service Bus namespace](service-bus-create-namespace-portal.md).
+- [Create an Azure Service Bus namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal).
 - Create a queue to send and receive message from or a topic with a subscription to test out the functionality. To learn how to create queues, topics, and subscriptions, see the following articles: 
     - [Quickstart - Create queues](service-bus-quickstart-portal.md)
     - [Quickstart - Create topics](service-bus-quickstart-topics-subscriptions-portal.md)

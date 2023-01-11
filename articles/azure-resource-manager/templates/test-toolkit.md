@@ -2,7 +2,7 @@
 title: ARM template test toolkit
 description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 11/16/2022
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -250,7 +250,7 @@ To publish an offering to Azure Marketplace, use the test toolkit to validate th
 After installing the toolkit and importing the module, run the following cmdlet to test your package:
 
 ```powershell
-Test-AzMarketplaceTemplate "Path to the unzipped package folder"
+Test-AzMarketplacePackage -TemplatePath "Path to the unzipped package folder"
 ```
 
 ### Interpret the results
@@ -311,7 +311,7 @@ You can add the test toolkit to your Azure Pipeline. With a pipeline, you can ru
 
 The easiest way to add the test toolkit to your pipeline is with third-party extensions. The following two extensions are available:
 
-- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
+- [Run ARM template TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtensionXPlatform)
 - [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
 
 Or, you can implement your own tasks. The following example shows how to download the test toolkit.

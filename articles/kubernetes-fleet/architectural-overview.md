@@ -27,7 +27,7 @@ Fleet supports joining the following types of existing AKS clusters as member cl
 
 During preview, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
 
-Once a cluster is joined to a fleet resource, a MemeberCluster custom resource is created on the fleet.
+Once a cluster is joined to a fleet resource, a MemberCluster custom resource is created on the fleet.
 
 The member clusters can be viewed by running the following command:
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 12/01/2022
 ---
 
 # Index data from Azure SQL
@@ -246,9 +246,10 @@ Database requirements:
 
 + SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs
 + Azure SQL Database or SQL Managed Instance
-+ Tables only (no views).
++ Tables only (no views)
 + On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table
 + No composite primary key (a primary key containing more than one column) on the table
++ No clustered indexes on the table. As a workaround, any clustered index would have to be dropped and re-created as nonclustered index, however, performance may be affected in the source compared to having a clustered index
 
 Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 

@@ -86,5 +86,7 @@ az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-s
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> - [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
-> - [Tutorial: WebApp + PostgreSQL with Azure CLI](./tutorial-django-webapp-postgres-cli.md)
+> [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: WebApp + PostgreSQL with Azure CLI](./tutorial-django-webapp-postgres-cli.md)

@@ -137,7 +137,7 @@ To add the required permissions, follow these steps:
 
 1. Select **APIs my organization uses**.
 
-1. Search for the **Verifiable Credentials Service Request** and **Verifiable Credentials Service** service principals, and select them.
+1. Search for the **Verifiable Credentials Service Request** service principal and select it.
 
     :::image type="content" source="media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png" alt-text="Screenshot that shows how to select the service principal.":::
 
@@ -159,14 +159,15 @@ You can choose to grant issuance and presentation permissions separately if you 
 1. Navigate to the Verified ID service in the Azure portal.  
 1. Select **Registration**.
 1. Notice that there are two sections:
-    1. Website ID registration
-    1. Domain verification.
+    1. DID registration
+    1. Domain ownership verification.
 1. Select on each section and download the JSON file under each.
 1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
     - `https://contoso.com/.well-known/did.json`
     - `https://contoso.com/.well-known/did-configuration.json`
 
 Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
+If you have selected ION as the trust system, you will not see the DID registration section as it is not applicable for ION and you only have to distribute the did-configuration.json file. 
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: What is IP address 168.63.129.16? | Microsoft Docs
 description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
 services: virtual-network
 documentationcenter: na
-author: genlin
+author: asudbring
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
-ms.author: genli
+ms.author: allensu
 
 ---
 

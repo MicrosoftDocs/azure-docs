@@ -225,7 +225,7 @@ In the following example, *mysourceregistry* is in a different subscription from
 ```azurecli
 az acr import \
   --name myregistry \
-  --source samples/aci-helloworld:latest \
+  --source aci-helloworld:latest \
   --image aci-hello-world:latest \
   --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```

@@ -5,12 +5,12 @@ author: rishikeshmohanty
 ms.author: mohantyr
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/15/2022
+ms.date: 12/09/2022
 ---
 
 # Hive Warehouse Connector 2.0 APIs in Azure HDInsight
 
-This article lists all the APIs supported by Hive warehouse connector 2.0. All the examples shown below are run using spark-shell and hive warehouse connector session.
+This article lists all the APIs supported by Hive warehouse connector 2.0. All the examples shown are how to run using spark-shell and hive warehouse connector session.
 
 How to create Hive warehouse connector session:
 
@@ -157,7 +157,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 
 - Execute Hive Merge query
 
-    This API creates a Hive merge query of below format
+    This API creates a Hive merge query in the format
 
     ```
     MERGE INTO <current-db>.<target-table> AS <targetAlias> USING <source expression/table> AS <sourceAlias>
@@ -256,5 +256,4 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 * [HWC and Apache Spark operations](./apache-hive-warehouse-connector-operations.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
-* [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 * [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)

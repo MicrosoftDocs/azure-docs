@@ -56,5 +56,5 @@ Indication of successful or unsuccessful call.
 - Set up dependency tracking for [Java](./java-in-process-agent.md).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](./platforms.md) supported by Application Insights.
+- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 

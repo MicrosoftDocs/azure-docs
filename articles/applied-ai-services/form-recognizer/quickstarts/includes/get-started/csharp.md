@@ -66,7 +66,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-      :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot showing the select Form Recognizer package dropdown window.":::
+      :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot showing the select Form Recognizer package dropdown menu.":::
 
  1. Select version **3.1.1** from the dropdown menu and select **Install**.
 

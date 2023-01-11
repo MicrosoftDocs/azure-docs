@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 11/18/2022
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -108,6 +108,8 @@ Before creating an SMB volume, you need to create an Active Directory connection
         > 
         You should enable Continuous Availability only for Citrix App Layering, SQL Server, and [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md). Using SMB Continuous Availability shares for workloads other than Citrix App Layering, SQL Server, and FSLogix user profile containers is *not* supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported. If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
 
+        **Custom applications are not supported with SMB Continuous Availability.**
+
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 
         ```azurepowershell-interactive
@@ -155,3 +157,4 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

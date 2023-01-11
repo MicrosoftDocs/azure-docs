@@ -76,3 +76,11 @@ az aks command invoke \
 ```
 
 The above runs `kubectl apply -f deployment.yaml configmap.yaml -n default` on the *myAKSCluster* cluster in *myResourceGroup*. The `deployment.yaml` and `configmap.yaml` files used by that command are part of the current directory on the development computer where `az aks command invoke` was run.
+
+
+## Troubleshooting
+
+The following link describes the most common issues with `az aks command invoke` and how to fix them:
+
+https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/resolve-az-aks-command-invoke-failures
+

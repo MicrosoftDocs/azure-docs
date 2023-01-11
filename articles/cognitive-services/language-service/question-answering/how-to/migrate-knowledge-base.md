@@ -4,15 +4,16 @@ description: Moving a custom question answering project requires exporting a pro
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 1/11/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
-# Move projects and question answer sources
+# Move projects and question answer pairs
 
 > [!NOTE]
-> This article deals with the process to move projects and projects from one Language resource to another.
 
-You may want to create a copy of your project for several reasons:
+> This article deals with the process to export and move projects and sources from one Language resource to another.
+
+You may want to create copies of your projects or sources for several reasons:
 
 * To implement a backup and restore process
 * Integrate with your CI/CD pipeline
@@ -21,22 +22,23 @@ You may want to create a copy of your project for several reasons:
 ## Prerequisites
 
 * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource.
+* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and the Language resource name you selected when you created the resource.
 
 ## Export a project
 
-Exporting a project allows you to move or back up all the sources question answer sources that are contained within a single project.
+Exporting a project allows you to back up all the question answer sources that are contained within a single project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/).
-1. Select the language resource you want to move a project from.
-1. On the **Projects** page, you have the options to export in two formats, Excel or TSV. This will determine the contents of the file. The file itself will be exported as a .zip containing all of your projects.
+1. Select the Language resource you want to move a project from.
+1. Go to Custom Question Answering service. On the **Projects** page, you have the options to export in two formats, Excel or TSV. This will determine the contents of the file. The file itself will be exported as a .zip containing the contents of your project.
+2. You can export only one project at a time.
 
 ## Import a project  
 
-1. Select the language resource, which will be the destination for your previously exported project.
-1. On the **Projects** page, select **Import** and choose the format used when you selected export. Then browse to the local .zip file containing your exported project. Enter a name for your newly imported project and select **Done**.
+1. Select the Language resource, which will be the destination for your previously exported project.
+1. Go to Custom Question Answering service. On the **Projects** page, select **Import** and choose the format used when you selected export. Then browse to the local .zip file containing your exported project. Enter a name for your newly imported project and select **Done**.
 
-## Export question and answers
+## Export sources
 
 1. Select the language resource you want to move an individual question answer source from.
 1. Select the project that contains the question and answer source you wish to export.

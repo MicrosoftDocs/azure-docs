@@ -54,7 +54,7 @@ In ASP.NET Core, for Microsoft identity platform applications, the **Sign in** b
 
 # [ASP.NET](#tab/aspnet)
 
-In ASP.NET MVC, the sign-out button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when there's an authenticated account. That is, it's displayed when the user has previously signed in.
+In ASP.NET MVC, the **Sign in** button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when the user isn't authenticated. That is, it's displayed when the user hasn't yet signed in or has signed out.
 
 ```html
 @if (Request.IsAuthenticated)
@@ -125,7 +125,7 @@ This controller also handles the Azure AD B2C applications.
 
 # [ASP.NET](#tab/aspnet)
 
-In ASP.NET, signing out is triggered from the `SignOut()` method on a controller (for instance, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). This method isn't part of the ASP.NET framework (contrary to what happens in ASP.NET Core). It sends an OpenID sign-in challenge after proposing a redirect URI.
+In ASP.NET, Sign in is triggered from the `SignIn()` method on a controller (for instance, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). This method isn't part of the ASP.NET framework (contrary to what happens in ASP.NET Core). It sends an OpenID sign-in challenge after proposing a redirect URI.
 
 ```csharp
 public void SignIn()

@@ -171,7 +171,7 @@ def main(invocation) -> None:
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `SignalRTrigger` attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `SignalRTrigger` attribute to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -316,4 +316,4 @@ You can follow the sample in GitHub to deploy a chat room on Function App with S
 
 * [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
 * [SignalR Service Trigger binding sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
-* [SignalR Service Trigger binding sample in isolated process](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/DotnetIsolated-BidirectionChat)
+* [SignalR Service Trigger binding sample in isolated worker process](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/DotnetIsolated-BidirectionChat)

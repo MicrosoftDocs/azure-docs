@@ -3,13 +3,13 @@ title: Concept - Integrate an Azure VMware Solution deployment in a hub and spok
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 10/20/2022
+ms.date: 10/24/2022
+ms.custom: engagement-fy23
 ---
 
 # Integrate Azure VMware Solution in a hub and spoke architecture
 
 This article provides recommendations for integrating an Azure VMware Solution deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology) on Azure.
-
 
 The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
@@ -40,9 +40,7 @@ The architecture has the following main components:
 
 - **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only.
 
-
 - **S2S VPN considerations:** Connectivity to Azure VMware Solution private cloud using Azure S2S VPN is supported as long as it meets the [minimum network requirements](https://docs.vmware.com/en/VMware-HCX/4.4/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) for VMware HCX.
-
 
 - **Hub virtual network:** Acts as the central point of connectivity to your on-premises network and Azure VMware Solution private cloud.
 
@@ -66,11 +64,9 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
   :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Diagram showing the on-premises to Azure VMware Solution traffic flow." border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
-
 * **Azure VMware Solution to Hub VNET traffic flow**
 
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Diagram showing the Azure VMware Solution to Hub virtual network traffic flow." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
-
 
 For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./concepts-networking.md).
 
@@ -81,7 +77,6 @@ For more information on Azure VMware Solution networking and connectivity concep
 Create route tables to direct the traffic to Azure Firewall.  For the Spoke virtual networks, create a route that sets the default route to the internal interface of the Azure Firewall. This way, when a workload in the Virtual Network needs to reach the Azure VMware Solution address space, the firewall can evaluate it and apply the corresponding traffic rule to either allow or deny it.  
 
 :::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Screenshot showing the route tables to direct traffic to Azure Firewall." lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
-
 
 > [!IMPORTANT]
 > A route with address prefix 0.0.0.0/0 on the **GatewaySubnet** setting is not supported.
@@ -103,7 +98,6 @@ For more information, see the Azure VMware Solution-specific article on [Applica
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram showing the second level of traffic segmentation using the Network Security Groups." border="false":::
 
-
 ### Jump box and Azure Bastion
 
 Access Azure VMware Solution environment with a jump box, which is a Windows 10 or Windows Server VM deployed in the shared service subnet within the Hub virtual network.
@@ -116,7 +110,6 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 > [!IMPORTANT]
 > Do not give a public IP address to the jump box VM or expose 3389/TCP port to the public internet. 
 
-
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Diagram showing the Azure Bastion Hub virtual network." border="false":::
 
 
@@ -124,15 +117,15 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 
 For Azure DNS resolution, there are two options available:
 
--   Use the domain controllers deployed on the Hub (described in [Identity considerations](#identity-considerations)) as name servers.
+- Use the domain controllers deployed on the Hub (described in [Identity considerations](#identity-considerations)) as name servers.
 
--   Deploy and configure an Azure DNS private zone.
+- Deploy and configure an Azure DNS private zone.
 
 The best approach is to combine both to provide reliable name resolution for Azure VMware Solution, on-premises, and Azure.
 
 As a general design recommendation, use the existing Active Directory-integrated DNS deployed onto at least two Azure VMs in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
 
-You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS using customer Azure Private DNS infrastructure. 
+You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS using customer Azure Private DNS infrastructure.
 
 To automatically manage the DNS records' lifecycle for the VMs deployed within the Spoke virtual networks, enable autoregistration. When enabled, the maximum number of private DNS zones is only one. If disabled, then the maximum number is 1000.
 

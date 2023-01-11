@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2021
+ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -323,8 +323,6 @@ Install DBMS and SAP application Servers as described earlier.
 
 [getting-started]:get-started.md
 
-[ha-guide]:sap-high-availability-guide.md
-
 [planning-guide]:planning-guide.md
 [planning-guide-11]:planning-guide.md
 [planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
@@ -333,7 +331,6 @@ Install DBMS and SAP application Servers as described earlier.
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[sap-ha-guide]:sap-high-availability-guide.md
 [sap-ha-guide-2]:#42b8f600-7ba3-4606-b8a5-53c4f026da08
 [sap-ha-guide-4]:#8ecf3ba0-67c0-4495-9c14-feec1a2255b7
 [sap-ha-guide-8]:#78092dbe-165b-454c-92f5-4972bdbef9bf

@@ -28,7 +28,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended. This article shows how to authorize Blob storage operations using Azure AD.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
 
@@ -90,7 +90,7 @@ az storage container create \
 > [!IMPORTANT]
 > Azure role assignments may take a few minutes to propagate.
 
-You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 ## Upload a blob
 
@@ -173,4 +173,4 @@ In this quickstart, you learned how to transfer files between a local file syste
 > [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
-> [Azure CLI samples for Blob storage](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure CLI samples for Blob storage](./storage-samples-blobs-cli.md?toc=/azure/storage/blobs/toc.json)
