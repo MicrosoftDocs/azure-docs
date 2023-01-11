@@ -300,7 +300,6 @@ In this section, you create a Python script to receive events from your event hu
         # that it has already read when you run it next time.
         await partition_context.update_checkpoint(event)
     
-    
     async def main():
         # Create an Azure blob checkpoint store to store the checkpoints.
         checkpoint_store = BlobCheckpointStore.from_connection_string(
