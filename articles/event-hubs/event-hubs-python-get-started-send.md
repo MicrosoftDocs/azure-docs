@@ -204,7 +204,7 @@ In this section, you create a Python script to receive events from your event hu
 
     In the code, use real values to replace the following placeholders:
 
-    * `AZURE_STORAGE_CONNECTION_STRING`
+    * `BLOB_STORAGE_ACCOUNT_URL`
     * `BLOB_CONTAINER_NAME`
     * `EVENT_HUB_FULLY_QUALIFIED_NAMESPACE`
     * `EVENT_HUB_NAME`
@@ -219,7 +219,7 @@ In this section, you create a Python script to receive events from your event hu
     from azure.identity.aio import DefaultAzureCredential
     
     BLOB_STORAGE_ACCOUNT_URL = "BLOB_STORAGE_ACCOUNT_URL"
-    BLOB_CONTAINER_NAME = "BLOB CONTAINER NAME"
+    BLOB_CONTAINER_NAME = "BLOB_CONTAINER_NAME"
     EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "EVENT_HUBS_NAMESPACE"
     EVENT_HUB_NAME = "EVENT_HUB_NAME"
     
