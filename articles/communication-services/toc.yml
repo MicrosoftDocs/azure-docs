@@ -1,158 +1,225 @@
 items:
 - name: Azure Communication Services documentation
   href: index.yml
-- name: Overview
+- name: What is Azure Communication Services?
   expanded: true
   items:
-  - name: What is Azure Communication Services?
+  - name: Overview
     href: overview.md
-  - name: Help and support options
-    href: support.md
-- name: Quickstarts
-  expanded: true
-  items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Identity and access
-    items:
-      - name: Create and manage access tokens
-        href: quickstarts/access-tokens.md
-      - name: Authenticate with Azure AD
-        href: quickstarts/identity/service-principal.md
-      - name: Authenticate with Azure AD (Azure CLI)
-        href: quickstarts/identity/service-principal-from-cli.md
-      - name: Quick-create identities for testing
-        href: quickstarts/identity/quick-create-identity.md
-      - name: Create identities and tokens in Azure Logic Apps
-        href: quickstarts/identity/logic-app.md
-  - name: Chat
-    items:
-      - name: Add chat to your app
-        href: quickstarts/chat/get-started.md
-      - name: Using Chat SDK with React Native
-        href: quickstarts/chat/react-native.md
-      - name: Send Chat messages in Azure Logic Apps
-        href: quickstarts/chat/logic-app.md
-      - name: Add a bot to your chat app
-        href: quickstarts/chat/quickstart-botframework-integration.md
-  - name: Email
-    items:
-      - name: Create an Email Communication Services resource
-        href: quickstarts/email/create-email-communication-resource.md
-      - name: Add Azure Managed domain
-        href: quickstarts/email/add-azure-managed-domains.md
-      - name: Add Custom domain
-        href: quickstarts/email/add-custom-verified-domains.md
-      - name: Connect domain to send Email
-        href: quickstarts/email/connect-email-communication-resource.md
-      - name: Send an Email
-        href: quickstarts/email/send-email.md
-      - name: Handle Email events
-        href: quickstarts/email/handle-email-events.md
-      - name: Send an Email in Azure Logic Apps
-        href: quickstarts/email/logic-app.md            
-  - name: Telephony and phone numbers
-    items:
-      - name: Get and manage phone numbers
-        href: quickstarts/telephony/get-phone-number.md
-      - name: Port a phone number into Azure
-        href: quickstarts/telephony/port-phone-number.md
-      - name: Add phone calling to your app
-        href: quickstarts/telephony/pstn-call.md
-      - name: Add emergency calling to your app
-        href: quickstarts/telephony/emergency-calling.md
-  - name: SMS
-    items:
-      - name: Send an SMS message
-        href: quickstarts/sms/send.md
-      - name: Handle SMS events
-        href: quickstarts/sms/handle-sms-events.md
-      - name: Send an SMS in Azure Logic Apps
-        href: quickstarts/sms/logic-app.md
-      - name: Apply for a Short Code
-        href: quickstarts/sms/apply-for-short-code.md
-  - name: Voice and video calling
-    items:
-    - name: Add voice calling to your client app
-      href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Add video calling to your client app
-      href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Add video calling to your Android WebView client app
-      href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Record calls
-      href: quickstarts/voice-video-calling/get-started-call-recording.md
-    - name: Handle calling events
-      href: quickstarts/voice-video-calling/handle-calling-events.md
-    - name: Raw media access
-      href: quickstarts/voice-video-calling/get-started-raw-media-access.md
-  - name: Call Automation
-    items:
-      - name: Handle an inbound phone call
-        href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
-      - name: Build a workflow for customer interactions 
-        href: quickstarts/call-automation/callflows-for-customer-interactions.md
-      - name: Record calls
-        href: quickstarts/voice-video-calling/get-started-call-recording.md
-  - name: Rooms
-    items:
-      - name: Create and manage a room resource
-        href: quickstarts/rooms/get-started-rooms.md  
-      - name: Join a room call
-        href: quickstarts/rooms/join-rooms-call.md
-  - name: UI Library
-    items:
-    - name: Get started with Calling
-      href: quickstarts/ui-library/get-started-composites.md
-    - name: Get started with Chat
-      href: quickstarts/ui-library/get-started-chat-ui-library.md
-    - name: Design with UI Library Design Kit
-      href: quickstarts/ui-library/get-started-ui-kit.md
-  - name: Teams interoperability
-    items:
-      - name: Communication as external user
-        items:
-        - name: Manage access tokens for external users
-          href: quickstarts/identity/access-token-teams-external-users.md 
-        - name: Add Teams meeting video to your client app
-          href: quickstarts/voice-video-calling/get-started-teams-interop.md
-        - name: Add Teams meeting chat to your client app
-          href: quickstarts/chat/meeting-interop.md          
-      - name: Communication as Teams user
-        items:                
-        - name: Manage access tokens for Teams users
-          href: quickstarts/manage-teams-identity.md                
-        - name: Add video calling as Teams user to your client app
-          href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md          
-  - name: Access TURN relays
-    href: quickstarts/relay-token.md    
-- name: Tutorials
-  expanded: false
-  items:
-  - name: Virtual visit scenarios
-    href: tutorials/virtual-visits.md
-  - name: Virtual event scenarios
-    href: tutorials/events-playbook.md
-  - name: Use Postman to send SMS messages
-    href: tutorials/postman-tutorial.md
-  - name: Sign an HTTP request with HMAC
-    href: tutorials/hmac-header-tutorial.md  
-  - name: Build an authentication service using Azure Functions
-    href: tutorials/trusted-service-tutorial.md
-  - name: Prepare a Node.js web app for Calling
-    href: tutorials/building-app-start.md
-  - name: Export SDK telemetry to Application Insights
-    href: quickstarts/telemetry-application-insights.md
-  - name: Add file sharing to your application with UI Library
-    href: tutorials/file-sharing-tutorial.md
-  - name: Enable Push Notifications in your chat app
-    href: tutorials/add-chat-push-notifications.md
-- name: Concepts
-  expanded: false
-  items:
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
+  - name: Common Scenarios
+    items:
+      - name: Virtual visit scenarios
+        href: tutorials/virtual-visits.md
+      - name: Virtual event scenarios
+        href: tutorials/events-playbook.md
+  - name: Service limits
+    href: concepts/service-limits.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
+  - name: Help and support options
+    href: support.md
+- name: SMS
+  items:
+  - name: Getting started
+    items:
+    - name: Get and manage phone numbers
+      href: quickstarts/telephony/get-phone-number.md
+    - name: Send an SMS message
+      href: quickstarts/sms/send.md
+    - name: Handle SMS events
+      href: quickstarts/sms/handle-sms-events.md
+    - name: Send an SMS in Azure Logic Apps
+      href: quickstarts/sms/logic-app.md
+  - name: Tutorials
+    items:
+    - name: Authenticate with Azure AD
+      href: quickstarts/identity/service-principal.md
+    - name: Use Postman to send SMS messages
+      href: tutorials/postman-tutorial.md
+  - name: Troubleshooting
+  - name: Additional resources
+    items:
+    - name: Port a phone number into Azure
+      href: quickstarts/telephony/port-phone-number.md
+    - name: Apply for a Short Code
+      href: quickstarts/sms/apply-for-short-code.md
+- name: Voice and video calling
+  items:
+  - name: Getting started
+    items:
+    - name: Create and manage access tokens
+      href: quickstarts/access-tokens.md
+    - name: Add voice calling to your client app
+      href: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - name: Add video calling to your client app
+      href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Leverage UI Library for Calling
+      href: quickstarts/ui-library/get-started-composites.md
+  - name: Tutorials
+    items:
+    - name: Prepare a Node.js web app for Calling
+      href: tutorials/building-app-start.md
+    - name: Build an authentication service using Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+    - name: Add video calling to your Android WebView client app
+      href: quickstarts/voice-video-calling/get-started-android-webview.md
+    - name: Raw media access
+      href: quickstarts/voice-video-calling/get-started-raw-media-access.md
+    - name: Handle calling events
+      href: quickstarts/voice-video-calling/handle-calling-events.md
+  - name: Samples
+    items: 
+    - name: Calling hero sample
+      href: samples/calling-hero-sample.md
+    - name: Cross-platform (Xamarin & React Native)
+      href: samples/ui-library-cross-platform.md
+    - name: Web calling sample
+      href: samples/web-calling-sample.md
+    - name: Authentication service hero sample
+      href: samples/trusted-auth-sample.md
+  - name: Troubleshooting
+    items:
+      - name: Network Diagnostic Tool 
+        href: concepts/developer-tools/network-diagnostic.md 
+- name: Chat
+  items:
+  - name: Getting started
+    items:
+    - name: Create and manage access tokens
+      href: quickstarts/access-tokens.md
+    - name: Add chat to your app
+      href: quickstarts/chat/get-started.md 
+    - name: Send Chat messages in Azure Logic Apps
+      href: quickstarts/chat/logic-app.md
+    - name: Leverage UI Library for chat
+      href: quickstarts/ui-library/get-started-chat-ui-library.md
+  - name: Tutorials
+    items:
+    - name: Build an authentication service using Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+    - name: Using Chat SDK with React Native
+      href: quickstarts/chat/react-native.md
+    - name: Add a bot to your chat app
+      href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Add file sharing to your application with UI Library
+      href: tutorials/file-sharing-tutorial.md
+    - name: Enable Push Notifications in your chat app
+      href: tutorials/add-chat-push-notifications.md
+  - name: Samples
+    items:
+    - name: Chat hero sample
+      href: samples/chat-hero-sample.md
+    - name: Authentication service hero sample
+      href: samples/trusted-auth-sample.md
+- name: Teams interoperability
+  items:
+  - name: As an external user
+    items:
+        - name: Create and manage access tokens
+          href: quickstarts/access-tokens.md
+        - name: Add Teams meeting video to your client app
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
+        - name: Add Teams meeting chat to your client app
+          href: quickstarts/chat/meeting-interop.md      
+  - name: As a Teams user
+    items:
+        - name: Manage access tokens for Teams users
+          href: quickstarts/manage-teams-identity.md                
+        - name: Add video calling as Teams user to your client app
+          href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
+- name: Email
+  items:
+  - name: Create an Email Communication Services resource
+    href: quickstarts/email/create-email-communication-resource.md
+  - name: Add Azure Managed domain
+    href: quickstarts/email/add-azure-managed-domains.md
+  - name: Add Custom domain
+    href: quickstarts/email/add-custom-verified-domains.md
+  - name: Connect domain to send Email
+    href: quickstarts/email/connect-email-communication-resource.md
+  - name: Send an Email
+    href: quickstarts/email/send-email.md
+  - name: Handle Email events
+    href: quickstarts/email/handle-email-events.md
+  - name: Send an Email in Azure Logic Apps
+    href: quickstarts/email/logic-app.md     
+- name: PSTN
+  items:
+  - name: Getting started
+    items:
+    - name: Get and manage phone numbers
+      href: quickstarts/telephony/get-phone-number.md
+    - name: Add phone calling to your app
+      href: quickstarts/telephony/pstn-call.md
+  - name: Tutorials
+  - name: Troubleshooting
+  - name: Additional resources
+    items:
+    - name: Port a phone number into Azure
+      href: quickstarts/telephony/port-phone-number.md
+    - name: Add emergency calling to your app
+      href: quickstarts/telephony/emergency-calling.md
+- name: Call Automation
+  items:
+  - name: Getting started
+    items:
+    - name: Get and manage phone numbers
+      href: quickstarts/telephony/get-phone-number.md
+    - name: Handle an inbound phone call
+      href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+    - name: Build a workflow for customer interactions 
+      href: quickstarts/call-automation/callflows-for-customer-interactions.md
+    - name: Record a call
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
+  - name: Tutorials
+    items:
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Customize voice prompts to users with Play action 
+      href: how-tos/call-automation/play-action.md
+    - name: Gather user input with Recognize action 
+      href: how-tos/call-automation/recognize-action.md
+  - name: Samples
+    items:
+    - name: Call Automation appointment reminder sample
+      href: samples/call-automation-appointment-reminder.md
+- name: Rooms
+  items:
+  - name: Getting started
+    items:
+      - name: Create and manage a room resource
+        href: quickstarts/rooms/get-started-rooms.md
+      - name: Create and manage access tokens
+        href: quickstarts/access-tokens.md  
+      - name: Join a room call
+        href: quickstarts/rooms/join-rooms-call.md
+  - name: Tutorials
+    items: 
+    - name: Build an authentication service using Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+- name: TURN
+  items:
+  - name: Getting started
+    items:
+    - name: Access TURN relays
+      href: quickstarts/relay-token.md  
+- name: Not sure where it goes 
+  items:
+  - name: Design with UI Library Design Kit
+    href: quickstarts/ui-library/get-started-ui-kit.md  
+  - name: Sign an HTTP request with HMAC
+    href: tutorials/hmac-header-tutorial.md  
+  - name: Export SDK telemetry to Application Insights
+    href: quickstarts/telemetry-application-insights.md
+- name: Concepts
+  expanded: false
+  items:
   - name: Identity and authentication
     items:
     - name: Identity 
@@ -347,34 +414,14 @@ items:
             href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
-  - name: Developer Tools
-    items:
-      - name: Network Diagnostic Tool 
-        href: concepts/developer-tools/network-diagnostic.md 
   - name: Data residency and user privacy
     href: concepts/privacy.md
   - name: Azure Government
-    href: concepts/government.md
-  - name: Pricing
-    items:
-      - name: Pricing overview
-        href: concepts/pricing.md
-      - name: Email Pricing
-        href: concepts/email-pricing.md
-      - name: SMS Pricing
-        href: concepts/sms-pricing.md
-      - name: PSTN Pricing
-        href: concepts/pstn-pricing.md
-      - name: Teams interoperability Pricing
-        href: concepts/pricing/teams-interop-pricing.md        
+    href: concepts/government.md   
   - name: Push notifications
     href: concepts/notifications.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
-  - name: Service limits
-    href: concepts/service-limits.md
-  - name: Troubleshooting
-    href: concepts/troubleshooting-info.md
 - name: How-to guides
   items:
   - name: Using the Calling SDK
@@ -415,30 +462,6 @@ items:
       href: how-tos/ui-library-sdk/data-model.md
     - name: Troubleshooting
       href: how-tos/ui-library-sdk/troubleshooting.md
-  - name: Using the Call Automation library
-    items: 
-    - name: Control and steer calls
-      href: how-tos/call-automation/actions-for-call-control.md
-    - name: Customize voice prompts to users with Play action 
-      href: how-tos/call-automation/play-action.md
-    - name: Gather user input with Recognize action 
-      href: how-tos/call-automation/recognize-action.md
-- name: Samples
-  items:
-  - name: Overview
-    href: samples/overview.md
-  - name: Calling hero sample
-    href: samples/calling-hero-sample.md
-  - name: Chat hero sample
-    href: samples/chat-hero-sample.md
-  - name: Authentication service hero sample
-    href: samples/trusted-auth-sample.md
-  - name: Web calling sample
-    href: samples/web-calling-sample.md
-  - name: UI Library cross platform samples
-    href: samples/ui-library-cross-platform.md
-  - name: Call Automation appointment reminder sample
-    href: samples/call-automation-appointment-reminder.md
 - name: References
   items:
   - name: Reference documentation overview
