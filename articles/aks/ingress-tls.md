@@ -36,7 +36,9 @@ You can bring your own certificates and integrate them with the Secrets Store CS
 
 ## Use TLS with your own certificates with Secrets Store CSI Driver
 
-To use TLS with your own certificates with Secrets Store CSI Driver, you need an AKS cluster with the Secrets Store CSI Driver configured and an Azure Key Vault instance. For more information, see [Set up Secrets Store CSI Driver to enable NGINX Ingress Controller with TLS][aks-nginx-tls-secrets-store].
+To use TLS with your own certificates with Secrets Store CSI Driver, you need an AKS cluster with the Secrets Store CSI Driver configured and an Azure Key Vault instance.
+
+For more information, see [Set up Secrets Store CSI Driver to enable NGINX Ingress Controller with TLS][aks-nginx-tls-secrets-store].
 
 ## Use TLS with Let's Encrypt certificates
 
@@ -82,7 +84,7 @@ Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName 
 ---
 
 > [!NOTE]
-> In addition to importing container images into your ACR, you can import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure Container Registry][acr-helm].
+> You can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an ACR][acr-helm].
 
 ## Ingress controller configuration options
 
@@ -90,24 +92,24 @@ An NGINX ingress controller is created with a new public IP address assignment b
 
 You can configure your ingress controller using one of the following methods:
 
-* Using a dynamic public IP address.
-* Using a static public IP address.
+* A dynamic public IP address.
+* A static public IP address.
 
 ## Use a static public IP address
 
 A common configuration requirement is to provide the NGINX ingress controller an existing static public IP address. The static public IP address remains if the ingress controller is deleted.
 
-Follow the commands below to create an IP address that will be deleted if you delete your AKS cluster.
+Follow the commands to create an IP address that will be deleted if you delete your AKS cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Get the resource group name of the AKS cluster with the [az aks show][az-aks-show] command.
+Get the resource group name of the AKS cluster with the [`az aks show`][az-aks-show] command.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
-Next, create a public IP address with the *static* allocation method using the [az network public-ip create][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
+Next, create a public IP address with the *static* allocation method using the [`az network public-ip create`][az-network-public-ip-create] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
 
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
@@ -115,13 +117,13 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Get the resource group name of the AKS cluster with the [Get-AzAksCluster][get-az-aks-cluster] command:
+Get the resource group name of the AKS cluster with the [`Get-AzAksCluster`][get-az-aks-cluster] command.
 
 ```azurepowershell-interactive
 (Get-AzAksCluster -ResourceGroupName $ResourceGroup -Name myAKSCluster).NodeResourceGroup
 ```
 
-Next, create a public IP address with the *static* allocation method using the [New-AzPublicIpAddress][new-az-public-ip-address] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step:
+Next, create a public IP address with the *static* allocation method using the [`New-AzPublicIpAddress`][new-az-public-ip-address] command. The following example creates a public IP address named *myAKSPublicIP* in the AKS cluster resource group obtained in the previous step.
 
 ```azurepowershell-interactive
 (New-AzPublicIpAddress -ResourceGroupName MC_myResourceGroup_myAKSCluster_eastus -Name myAKSPublicIP -Sku Standard -AllocationMethod Static -Location eastus).IpAddress
@@ -130,13 +132,13 @@ Next, create a public IP address with the *static* allocation method using the [
 ---
 
 > [!NOTE]
-> Alternatively, you can create an IP address in a different resource group, which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
+> Alternatively, you can create an IP address in a different resource group, which you can manage separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following are true:
 >
 > * The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*.
 > * Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides.
 >
 
-You must pass a parameter to the Helm release when you upgrade the ingress controller. This ensures that the ingress controller service is made aware of the load balancer that will be allocated to it. For the HTTPS certificates to work correctly, a DNS name label is used to configure a fully qualified domain name (FQDN) for the ingress controller IP address.
+You must pass a parameter to the Helm release when you upgrade the ingress controller. Passing a parameter ensures that the ingress controller service is made aware of the load balancer that will be allocated to it. For the HTTPS certificates to work correctly, a DNS name label is used to configure a fully qualified domain name (FQDN) for the ingress controller IP address.
 
 1. Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="<DNS_LABEL>"` parameter. The DNS label can be set either when the ingress controller is first deployed, or it can be configured later.
 2. Add the `--set controller.service.loadBalancerIP="<STATIC_IP>"` parameter. Specify your own public IP address that was created in the previous step.
@@ -190,11 +192,11 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 ### Add an A record to your DNS zone
 
-If you're using a custom domain, you need to add an A record to your DNS zone. Otherwise, you need to configure the public IP address with an FQDN.
+If you're using a custom domain, you need to add an *A* record to your DNS zone. Otherwise, you need to configure the public IP address with an FQDN.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
+Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`az network dns record-set a add-record`][az-network-dns-record-set-a-add-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -206,7 +208,7 @@ az network dns record-set a add-record \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Add an *A* record to your DNS zone with the external IP address of the NGINX service using [New-AzDnsRecordSet][new-az-dns-recordset-create-a-record].
+Add an *A* record to your DNS zone with the external IP address of the NGINX service using [`New-AzDnsRecordSet`][new-az-dns-recordset-create-a-record].
 
 ```azurepowershell
 $Records = @()
@@ -223,10 +225,10 @@ New-AzDnsRecordSet -Name "*" `
 
 ### Configure an FQDN for the ingress controller
 
-Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain. Your FQDN will be of the form `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`. You can configure it using one of the following methods:
+Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain. Your FQDN should follow this form: `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`. You can configure it using one of the following methods:
 
-* Setting the DNS label using the Azure CLI or Azure PowerShell
-* Setting the DNS label using Helm chart settings
+* Set the DNS label using the Azure CLI or Azure PowerShell.
+* Set the DNS label using Helm chart settings.
 
 #### Method 1: Set the DNS label using the Azure CLI or Azure PowerShell
 
@@ -270,7 +272,7 @@ Write-Output $UpdatedPublicIp.DnsSettings.Fqdn
 
 #### Method 2: Set the DNS label using Helm chart settings
 
-You can pass an annotation setting to your Helm chart configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter. This parameter can be set either when the ingress controller is first deployed, or it can be configured later.
+You can pass an annotation setting to your Helm chart configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter. This parameter can be set when the ingress controller is first deployed, or it can be configured later.
 
 The following example shows how to update this setting after the controller has been deployed.
 
@@ -416,7 +418,7 @@ In the following example, traffic is routed as such:
 
 > [!NOTE]
 > If you configured an FQDN for the ingress controller IP address instead of a custom domain, use the FQDN instead of *hello-world-ingress.MY_CUSTOM_DOMAIN*.
-> 
+>
 > For example, if your FQDN is *demo-aks-ingress.eastus.cloudapp.azure.com*, replace *hello-world-ingress.MY_CUSTOM_DOMAIN* with *demo-aks-ingress.eastus.cloudapp.azure.com* in `hello-world-ingress.yaml`.
 >
 
@@ -497,7 +499,9 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 ## Verify a certificate object has been created
 
-Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see [cert-manager certificates][cert-manager-certificates]. Cert-manager automatically creates a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
+Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see [cert-manager certificates][cert-manager-certificates].
+
+Cert-manager automatically creates a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
 
 To verify that the certificate was created successfully, use the `kubectl get certificate --namespace ingress-basic` command and verify *READY* is *True*. This may take several minutes.
 
@@ -527,7 +531,7 @@ This article used Helm to install the ingress components, certificates, and samp
 
 ### Delete the sample namespace and all resources
 
-To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace are deleted.
+To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace will be deleted.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -535,7 +539,9 @@ kubectl delete namespace ingress-basic
 
 ### Delete resources individually
 
-Alternatively, you can delete the resource individually. First, remove the cluster issuer resources.
+Alternatively, you can delete the resource individually.
+
+First, remove the cluster issuer resources.
 
 ```console
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
@@ -583,13 +589,13 @@ kubectl delete namespace ingress-basic
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:
 
-- [Helm CLI][helm-cli]
-- [NGINX ingress controller][nginx-ingress]
-- [cert-manager][cert-manager]
+* [Helm CLI][helm-cli]
+* [NGINX ingress controller][nginx-ingress]
+* [cert-manager][cert-manager]
 
 You can also:
 
-- [Enable the HTTP application routing add-on][aks-http-app-routing]
+* [Enable the HTTP application routing add-on][aks-http-app-routing]
 
 <!-- LINKS - external -->
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
