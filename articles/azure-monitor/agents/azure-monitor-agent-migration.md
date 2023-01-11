@@ -38,7 +38,7 @@ Azure Monitor Agent provides the following benefits over legacy agents:
 Your migration plan to the Azure Monitor Agent should take into account:
 
 - **Service (legacy Solutions) requirements:** 
-  - Review [Azure Monitor Agent's supported services list](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent supports the services you require. If you currently use service(s) in preview, start testing your scenarios during the preview phase. This will save time and ensure you're ready deploy to production as soon as the service becomes generally available. Moreover you benefit from added security and reduced cost immediately.  
+  - Review [Azure Monitor Agent's supported services list](agents-overview.md#supported-services-and-features) to ensure that Azure Monitor Agent supports the services you require. If you currently use service(s) in preview, start testing your scenarios during the preview phase. This will save time and ensure you're ready to deploy to production as soon as the service becomes generally available. Moreover you benefit from added security and reduced cost immediately.  
   - Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to *discover what solutions and features you're using today that depend on the legacy agents*.
   - If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.
 
