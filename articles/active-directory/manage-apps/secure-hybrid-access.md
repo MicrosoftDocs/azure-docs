@@ -34,7 +34,7 @@ Learn more:
 
 ## Single sign-on and multi-factor authentication
 
-With Azure AD as an pdentity provider (IdP), you can use modern authentication and authorization methods like single sign-on (SSO) and Azure AD Multi-Factor Authentication (MFA) to secure legacy, on-premises applications.
+With Azure AD as an identity provider (IdP), you can use modern authentication and authorization methods like single sign-on (SSO) and Azure AD Multi-Factor Authentication (MFA) to secure legacy, on-premises applications.
 
 Learn more:
 
