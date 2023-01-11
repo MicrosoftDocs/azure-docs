@@ -51,19 +51,19 @@ To monitor Python apps, use the [SDK](./opencensus-python.md).
 ### Method 1 - Azure portal / GUI
 1. Go to Azure portal and navigate to your Application Insights resource and copy your connection string to the clipboard.
 
-   :::image type="content"source="./media/azure-vm-vmss-apps/connect-string.png" alt-text=" Screenshot of the connection string."::: 
+   :::image type="content"source="./media/azure-vm-vmss-apps/connect-string.png" alt-text="Screenshot of the connection string." lightbox="./media/azure-vm-vmss-apps/connect-string.png":::
 
 2. Navigate to your virtual machine, open the "Extensions + applications" pane under the "Settings" section in the left side navigation menu, and select "+ Add"
 
-   :::image type="content"source="./media/azure-vm-vmss-apps/add-extension.png" alt-text=" Screenshot of the extensions pane with an add button."::: 
+   :::image type="content"source="./media/azure-vm-vmss-apps/add-extension.png" alt-text="Screenshot of the extensions pane with an add button." lightbox="media/azure-vm-vmss-apps/add-extension.png":::
 
 3. Select the "Application Insights Agent" card, and select "Next"
 
-   :::image type="content"source="./media/azure-vm-vmss-apps/select-extension.png" alt-text=" Screenshot of the install an extension pane with a next button."::: 
+   :::image type="content"source="./media/azure-vm-vmss-apps/select-extension.png" alt-text="Screenshot of the install an extension pane with a next button." lightbox="media/azure-vm-vmss-apps/select-extension.png"::: 
 
 4. Paste the connection string you copied at step 1 and select "Review + Create"
 
-    :::image type="content"source="./media/azure-vm-vmss-apps/install-extension.png" alt-text=" Screenshot of the create pane with a review and create button."::: 
+    :::image type="content"source="./media/azure-vm-vmss-apps/install-extension.png" alt-text="Screenshot of the create pane with a review and create button." lightbox="media/azure-vm-vmss-apps/install-extension.png"::: 
 
 #### Method 2 - PowerShell
 
