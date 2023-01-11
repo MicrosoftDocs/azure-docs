@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/29/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge

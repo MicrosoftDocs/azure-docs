@@ -22,7 +22,7 @@ This article provides the supported mappings in order to successfully enable and
 
 For more information, see [Log Analytics workspace and Automation account](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
-## Supported mappings for version 1
+## Supported mappings for Log Analytics and Azure Automation
 
 > [!NOTE]
 > As shown in following table, only one mapping can exist between Log Analytics and Azure Automation.
