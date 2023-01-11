@@ -356,7 +356,7 @@ If you don't see events in the receiver window or the code reports an error, try
 
 * If you see errors about "coroutine" when using the passwordless code (with credentials), make sure you're using importing from `azure.identity.aio`.
 
-* If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [Async credentials](/python/api/overview/azure/identity-readme?view=azure-python#async-credentials).
+* If you see "Unclosed client session" with passwordless code (with credentials), make sure you close the credential when finished. For more information, see [Async credentials](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#async-credentials).
 
 * If you see authorization errors with *recv.py* when accessing storage, make sure you followed the steps in [Create an Azure storage account and a blob container](#create-an-azure-storage-account-and-a-blob-container) and assigned the **Storage Blob Data Contributor** role to the service principal.
 
