@@ -65,7 +65,7 @@ Microsoft partners with various companies that deliver access solutions for on-p
 
    ![Diagram of secure hybrid access integrations and Application Proxy providing user access.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-## Partner solutions for conditional access policies
+## Secure hybrid access through Azure AD partner integration
 
 The following partners offer pre-built solutions to support conditional access policies per application. Use the following table to learn about the partners and Azure AD integration documentation.
 
