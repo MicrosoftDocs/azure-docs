@@ -34,7 +34,7 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
 1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and then select the **Marketplace** result under **Services**.
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-search-markeplace.png" alt-text="Screenshot that shows the word Marketplace typed in a search box.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-search.png" alt-text="Screenshot that shows the word Marketplace typed in a search box.":::
 
 1. In Azure Marketplace, search for **new relic**.   
 
@@ -46,11 +46,11 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
 1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Link an existing New Relic resource** option. 
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-link-or-existing.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-create.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
    
 1. The process creates a New Relic resource in Azure and links it to a new Relic account. A form to create the New Relic resource appears on the **Basics** tab.
 
-    :::image type="content" source="media/new-relic-link-to-existing/new-relic-basics.png" alt-text="Screenshot that shows the tab for basic information about linking an existing New Relic account.":::
+    :::image type="content" source="media/new-relic-link-to-existing/new-relic-account.png" alt-text="Screenshot that shows the tab for basic information about linking an existing New Relic account.":::
 
    Provide the following values:
 
@@ -62,9 +62,10 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
    | **Region**  | Select the Azure region where the New Relic resource should be created.|
    | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
-1. When the New Relic account that you selected has a parent New Relic organization that you created by using Azure Native New Relic Service, the New Relic billing details appear for your reference.
+1. When the New Relic account that you selected has a parent New Relic organization that you created by using New Relic, the New Relic billing details appear for your reference.
+<!-- this needs to be added as I don't know what this   -->
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-basics.png" alt-text="Screenshot that shows the Basics tab with New Relic account details.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab with New Relic account details.":::
 
    The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
     
@@ -72,7 +73,7 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
 ## Configure metrics and logs
 
-Your next step is to configure metrics and logs on the **Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
+Your next step is to configure metrics and logs on the **Metrics + Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
 
 - **Subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane). The logs also include updates on service-health events. 
 
@@ -80,7 +81,7 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
 
 - **Azure resource logs**: These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-:::image type="content" source="media/new-relic-link-to-existing/new-relic-logs.png" alt-text="Screenshot that shows the tab for logs, with actions to complete.":::
+:::image type="content" source="media/new-relic-link-to-existing/new-relic-metrics.png" alt-text="Screenshot that shows the tab for metrics and logs, with actions to complete.":::
 
 1. To send Azure resource logs to New Relic, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor resource log categories](/azure-monitor/essentials/resource-logs-categories).
 
