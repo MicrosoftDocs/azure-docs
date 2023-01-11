@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Creating certificates for appliance encryption and authentication (OT appliances)
 
-This article provides instructions needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+Change. This article provides instructions needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components:
 
@@ -53,7 +53,7 @@ Compare your certificate to the following sample certificate. Verify that the sa
 
 In order to import an SSL certificate, you'll first need to download a security certificate from the sensor's console using a web browser. You can then export the certificate locally and in the appropriate file format, and then import the certificate by installing it on a trusted store.
 
-**To import the SSL certificate:**
+### Download a security certificate
 
 1. Sign-in to your sensor console, using the sensor's IP address, without a secure connection.
 
@@ -61,45 +61,29 @@ In order to import an SSL certificate, you'll first need to download a security 
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-secure.png" alt-text="Screenshot of web page with a Not secure warning in the address bar.":::
 
-1. Select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website. For example:
+1. Select the :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/show-certificate-icon.png" border="false"::: **Show certificate** icon to view the security certificate for this website.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/show-certificate.png" alt-text="Screenshot of where to view the security certificate.":::
+1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine.
 
-1. In the **Certificate viewer** pane, select the **Details** tab, then select **Export** to save the file on your local machine. For example:
+### Export as an SSL certificate
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-certificate.png" alt-text="Screenshot of where to export the security certificate.":::
+1. Open the security certificate file you downloaded and select the **Details** tab, then select **Copy to file** to run the **Certificate Export Wizard**.
 
-1. Open the security certificate file you downloaded and select the **Details** tab, then select **Copy to file** to run the **Certificate Export Wizard**. For example:
-
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-copy-to-file.png" alt-text="Screenshot of the security certificate details tab.":::
-
-1. In the **Certificate Export Wizard**, select **Next**.
-
-1. In the **Export File Format** screen, select **DER encoded binary X.509 (.CER)**, then select **Next**. For example:
-
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/export-wizard-der-encoded.png" alt-text="Screenshot of the export file format screen.":::
+1. In the **Certificate Export Wizard**, select **Next**, **DER encoded binary X.509 (.CER)**, and then select **Next** again.
 
 1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
 
 1. Select **Finish** to export the certificate.
 
-1. To check the certificate's common name, open the security certificate file again and select the **Details** tab, then select the **Subject** field.
+### Import the SSL certificate
 
-    The certificate's common name will then appear next to **CN**. For example:
-
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-cn.png" alt-text="Screenshot of the certificate's common name.":::
-
-1. Open the security certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**. For example:
-
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/install-certificate-wizard.png" alt-text="Screenshot of where to start the install certificate wizard.":::
+1. Open the security certificate file and, in the **General** tab, select **Install Certificate** to start the **Certificate Import Wizard**.
 
 1. In **Store Location**, select **Local Machine**, then select **Next**.
 
 1. If a **User Allow Control** prompt appears, select **Yes** to allow the app to make changes to your device.
 
-1. In the **Certificate Store** screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**. For example:
-
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/certificate-store-screen.png" alt-text="Screenshot of the certificate store screen.":::
+1. In the **Certificate Store** screen, select **Automatically select the certificate store based on the type of certificate**, then select **Next**.
 
 1. Select **Place all certificates in the following store**, then **Browse**, and then select the **Trusted Root Certification Authorities** store. When you're done, select **Next**. For example:
 
@@ -107,13 +91,19 @@ In order to import an SSL certificate, you'll first need to download a security 
 
 1. Select **Finish** to import the certificate.
 
-1. Sign-in to your sensor console without a secure connection again. In the **Your connection isn't private** warning screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message. For example:
+### Validate the SSL certificate's common name
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private.png" alt-text="Screenshot of the connection isn't private screen.":::
+1. To view the certificate's common name, open the security certificate file you downloaded and select the **Details** tab, then select the **Subject** field.
 
-1. Select the error message to expand it, and then copy the name next to **Subject**. For example:
+    The certificate's common name will then appear next to **CN**.
+
+1. Sign-in to your sensor console without a secure connection again. In the **Your connection isn't private** warning screen, you might see a **NET::ERR_CERT_COMMON_NAME_INVALID** error message.
+
+1. Select the error message to expand it, and then copy the string next to **Subject**. For example:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/connection-is-not-private-details.png" alt-text="Screenshot of the connection isn't private screen with the details expanded.":::
+
+    The subject string should match the CN string in the security certificate's details.
 
 1. In your local file explorer, browse to **This PC > Local Disk (C:) > Windows > System32 > drivers > etc**, and open the **hosts** file.
 
