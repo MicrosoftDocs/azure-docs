@@ -170,7 +170,8 @@ VMs on Azure now support the following patch orchestration modes:
 - Custom images are not currently supported.
 
 ## Enable automatic VM guest patching
-Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image.
+Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image.  
+
 
 ### REST API for Linux VMs
 The following example describes how to enable automatic VM guest patching:
