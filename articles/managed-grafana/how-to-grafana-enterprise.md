@@ -89,7 +89,7 @@ To enable Grafana Enterprise on an existing Azure Managed Grafana instance, foll
 To update the Grafana Enterprise plan of an existing Azure Managed Grafana instance, optionally follow the steps below:
 
   1. In the Azure portal, open your Grafana instance and under **Settings**, select **Grafana Enterprise**. Review the available information about your current plan, price and billing.
-    :::image type="content" source="media/grafana-enterprise/update-grafana-enterprise.png" alt-text="Screenshot of the Grafana dashboard showing how to update a Grafana Enterprise plan.":::
+    :::image type="content" source="media/grafana-enterprise/update-grafana-enterprise.png" alt-text="Screenshot of the Grafana dashboard showing how to update a Grafana Enterprise plan." lightbox="media/grafana-enterprise/update-grafana-enterprise.png":::
   1. Select **Change plan** to review available Grafana Enterprise plans and select another plan. Then select **Update** at the bottom of the page to switch to the selected plan.
   1. Select **Edit recurring billing** and select **Enabled** to activate recurring billing and agree to be billed on your renewal date, or select **Disabled** to disable the renewal of your Grafana Enterprise plan. The subscription will expire on the date displayed on screen. To confirm, select **Update**.
   1. Select **Cancel enterprise** option to cancel the Grafana Enterprise subscription. Enter the name of the plan and select **Cancel enterprise** again to confirm.
