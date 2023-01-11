@@ -47,6 +47,8 @@ items:
     href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
+  - name: Subscribe to a Grafana Enterprise plan
+    href: how-to-grafana-enterprise.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md
   - name: Troubleshoot common issues
