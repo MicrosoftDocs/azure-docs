@@ -18,9 +18,10 @@ This article explains how to plan your migration from Splunk to Azure Monitor Lo
 > [!div class="checklist"]
 > * Introduction to key concepts 
 > * Set up a Log Analytics workspace
-> * Collect data
-> * Migrate Splunk artifacts
+> * Migrate Splunk artifacts to Azure Monitor
 > * Ingest historical data
+> * Collect data
+> * Test and operationalize your Azure Monitor deployment
 
 ## Introduction to key concepts
 
@@ -107,8 +108,6 @@ To collect data from a resource:
 1. Decide which data you need to collect from the resource.
 1. Use [transformations](../essentials/data-collection-transformations.md) to remove sensitive data, enrich data or perform calculations, and filter out data you don't need to reduce costs.   
 
-:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
-
 This table lists the tools to use to collect data from various resource types.  
 
 | Resource type | Data collection tool | Collected data |
@@ -119,7 +118,8 @@ This table lists the tools to use to collect data from various resource types.
 | **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
-# 5. Test and operationalize
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
+# 5. Test and operationalize your Azure Monitor deployment
 
 Now that you've set up Azure Monitor, to test and operationalize your Azure Monitor deployment:
 
