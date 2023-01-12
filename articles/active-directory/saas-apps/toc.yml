@@ -1715,8 +1715,6 @@
         href: orgvitality-sso-tutorial.md  
       - name: Origami
         href: origami-tutorial.md
-      - name: Otsuka Shokai
-        href: otsuka-shokai-tutorial.md
       - name: OutSystems
         href: outsystems-tutorial.md
       - name: OU Campus
@@ -3064,8 +3062,6 @@
         href: netskope-administrator-console-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
-      - name: Netsuite
-        href: netsuite-provisioning-tutorial.md
       - name: NordPass
         href: nordpass-provisioning-tutorial.md
       - name: OfficeSpace Software

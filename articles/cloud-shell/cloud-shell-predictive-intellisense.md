@@ -139,7 +139,6 @@ For more information on PowerShell profiles, see [About_Profiles][06].
 [01]: /powershell/module/psreadline/about/about_psreadline
 [02]: /powershell/azure/az-predictor
 [03]: /powershell/module/psreadline/set-psreadlineoption
-[04]: /azure/cloud-shell/using-cloud-shell-editor
+[04]: ./using-cloud-shell-editor.md
 [05]: /powershell/scripting/learn/shell/using-predictors
 [06]: /powershell/module/microsoft.powershell.core/about/about_profiles
-
