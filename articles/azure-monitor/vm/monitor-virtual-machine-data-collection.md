@@ -30,7 +30,7 @@ For virtual machines, DCRs will define data such as events and performance count
 ### View data collection rules
 You can view the DCRs in your Azure subscription from **Data Collection Rules** in the **Monitor** menu in the Azure portal. DCRs support other data collection scenarios in Azure Monitor, so all of your DCRs won't necessarily be for virtual machines.
 
-:::image type="content" source="media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot that shows DCRs in the Azure portal.":::
+:::image type="content" source="../essentials/media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="../essentials/media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot that shows DCRs in the Azure portal.":::
 
 
 ### Create data collection rules

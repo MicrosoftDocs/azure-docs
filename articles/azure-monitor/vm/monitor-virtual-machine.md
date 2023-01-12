@@ -61,10 +61,6 @@ The following table lists the steps in configuration. Each one links to the an a
 
 The articles in this guide provide guidance on configuring VM insights and using the data it collects with other Azure Monitor features. They also identify alternatives if you choose not to use VM insights.
 
-## System Center Operations Manager (SCOM)
-You may currently use System Center Operations Manager (SCOM) to monitor your virtual machines and their workloads and are starting to consider which monitoring you can move to Azure Monitor. As described in [Azure Monitor for existing Operations Manager customer](../azure-monitor-operations-manager.md), you may continue using SCOM for some period of time until you know longer require the extensive monitoring that SCOM provides.
-
-Use the information in this content to assess the capabilities of Azure Monitor to monitor your virtual machine and determine those machines and workloads that you can migrate from SCOM.
 
 ## Security monitoring
 Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud]() and [Microsoft Sentinel](). Configuration of these services is not included in this guide.

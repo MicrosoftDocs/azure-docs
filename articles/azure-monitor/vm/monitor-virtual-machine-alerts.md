@@ -22,8 +22,11 @@ This article presents alerting concepts specific to virtual machines and common 
 > [!IMPORTANT]
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
+## Data collection
+Alert rules inspect data that's already been collected in Azure Monitor. You need to ensure that data is being collected for a particular scenario before you can create an alert rule. See [Monitor virtual machines with Azure Monitor: Collect data](monitor-virtual-machine-data-collection.md) for guidance on configuring data collection for a variety of scenarios including all of the alert rules in this article.
+
 ## Recommended alert rules
-Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for any Azure virtual machine. These are a good starting point for basic monitoring but will not provide sufficient alerting for most enterprise implementations for the following reasons:
+Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for any Azure virtual machine. These are a great starting point for basic monitoring but alone will not provide sufficient alerting for most enterprise implementations for the following reasons:
 
 - Recommended alerts only apply to Azure virtual machines and not hybrid machines.
 - Recommended alerts only include host metrics and not guest metrics or logs. These are useful to monitor the health of the machine itself but give you minimal visibility into the workloads and applications running on the machine.
@@ -51,7 +54,7 @@ Common uses for log alerts include:
 Data sources for metric alerts include:
 - All data collected in a Log Analytics workspace.
 ## Scaling alert rules
-Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. There are different strategies to limit the number of alert rules you need to manage depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
+Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. You also want to ensure  There are different strategies to limit the number of alert rules you need to manage depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
 
 ### Metric alert rules
 Virtual machines support multiple resource metric alert rules as described in [Monitor multiple resources](../alerts/alerts-types.md#metric-alerts). This allows you to create a single metric alert rule that applies to all virtual machines in a resource group or subscription within the same region. Start with the [recommended alerts](#recommended-alert-rules) and [create a corresponding rule]() for each using your subscription or a resource group as the target resource. You will need to create duplicate rules for each region if you have machines in multiple regions.
