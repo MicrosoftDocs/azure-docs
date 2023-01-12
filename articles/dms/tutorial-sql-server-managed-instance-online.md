@@ -11,10 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019, ignite-2022
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 01/12/2023
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS
+
+> [!NOTE]
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-online-ads.md). 
 
 You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) with minimal downtime. For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 
