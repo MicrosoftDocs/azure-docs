@@ -231,7 +231,7 @@ Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatin
 
 ```azurepowershell-interactive
 Get-AzVM -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential
-Set-AzVMOperatingSystem -VM $VirtualMachine -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
 Update-AzVM -VM $VirtualMachine
 ```
 
