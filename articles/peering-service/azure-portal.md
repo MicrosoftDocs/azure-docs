@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
     | Setting | Value |
     | ------- | ----- |
     | **Project Details**  |  |
-    | Subscription | Select your Azure subscription. |  |
+    | Subscription | Select your Azure subscription. |
     | Resource Group | Select **Create new**. </br> Enter *myResourceGroup*. </br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter *myPeeringService*. |
@@ -67,7 +67,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Select the **provider backup peering location** as the next closest to your network location. A peering service will be active via the backup peering location only in the event of failure of primary peering service location for disaster recovery. If **None** is selected, internet will be the default failover route in the event of primary peering service location failure.
 
-1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the Prefix Key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix.
+1. Under the **Prefixes** section, select **Create new prefix**. In **Name**, enter a name for the prefix resource. Enter the prefixes that are associated with the service provider in **Prefix**. In **Prefix key**, enter the prefix key that was given to you by your provider (ISP or IXP). This key allows Microsoft to validate the prefix and provider who have allocated your IP prefix.
 
     :::image type="content" source="./media/azure-portal/peering-service-configuration.png" alt-text="Screenshot of the Configuration tab of Create a peering service connection in Azure portal."::: 
 
@@ -94,7 +94,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Select **Prefixes**, and then select **Add prefix** to add prefixes.
 
-1. Select the ellipsis **...** next to the listed prefix, and select **Delete**.
+1. Select the ellipsis (**...**) next to the listed prefix, and select **Delete**.
 
 > [!NOTE]
 > You can't modify an existing prefix.
@@ -105,6 +105,9 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Select the checkbox next to the Peering Service that you want to delete, and then select **Delete** at the top of the page.
 
+1. Enter *yes* in **Confirm delete**, and then select **Delete**.
+
+    :::image type="content" source="./media/azure-portal/peering-service-delete.png" alt-text="Screenshot of deleting a Peering Service in Azure portal.":::
 
 ## Next steps
 
