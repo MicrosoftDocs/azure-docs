@@ -202,7 +202,7 @@ You can define one or more templates within the MedTech service device mapping. 
 |[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
  
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech errors](troubleshoot-errors.md) for assistance resolving common MedTech service errors. 
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing common MedTech service errors. 
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -62,7 +62,7 @@ Metric category|Metric name|Metric description|
 
 ## Next steps
 
-In this article, you learned about how to use the MedTech service monitoring tab.
+In this article, you learned how to use the MedTech service monitoring tab.
 
 To learn how to configure the MedTech service metrics, see
 

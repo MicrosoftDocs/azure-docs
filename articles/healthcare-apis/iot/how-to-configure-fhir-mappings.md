@@ -275,7 +275,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech errors](troubleshoot-errors.md) for assistance resolving common MedTech service errors.
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing common MedTech service errors.
 
 ## Next steps
 
