@@ -83,26 +83,29 @@ Before starting this procedure, verify that:
 
 - Both the primary and secondary on-premises management console appliances are powered on.
 - At least two sensors are connected to the primary on-premises management console.
+- [Privileged user access for OT monitoring](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring)
 
-### On the primary on-premises management console
+### Copy the connection string from the secondary appliance
 
-1. Sign in to the primary on-premises management console, and select **System Settings** on the left.
+1. Sign in to the secondary on-premises management console, and select **System Settings** on the left.
 
 1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
-1.  Copy the part of the connection string after the IP address, after the colon. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy only ```a2c4gv9de23f56n078a44e12gf2ce77f``` to the clipboard.
-
-    For example:
+1.  The connection string is comprised of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 
     :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy the second part pf the connection string to use in the following command.":::
+
+### On the primary on-premises management console
+
+1. Sign in to the primary on-premises management console via SSH to access the CLI.
 
 1. Run the following command on the primary:
 
     ```bash
-    sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <copied part of the connection string>
+    sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <Secondary token>
     ```
 
-    In the ```<Secondary IP>``` field, enter the IP address of the secondary appliance. In the ```<copied part of the connection string>``` field, enter the part of the connection string you copied in the previous step, and press Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
+    In the ```<Secondary IP>``` field, enter the IP address of the secondary appliance, the first part of the connection string (copied in the previous step) before the colon. In the ```<Secondary token>``` field, enter the second part of the connection string after the colon, and press Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
 
     For example:
 
@@ -114,7 +117,7 @@ Before starting this procedure, verify that:
     sudo cyberx-management-trusted-hosts-apply
     ```
 
-1. Run the following command on the primary to verify that the certificate is installed properly:
+1. Run the following command on the primary to verify that the certificate is installed properly. **Do not run with sudo.**
 
     ```bash
     cyberx-management-trusted-hosts-list
@@ -129,9 +132,9 @@ Before starting this procedure, verify that:
 
 ### On the secondary on-premises management console
 
-1. Sign in to the CLI as a Defender for IoT user.
+1. Sign in to the secondary on-premises management console via SSH to access the CLI.
 
-1. Run the following command on the secondary on-premises management console. **Do not run with sudo**:
+1. Run the following command on the secondary. **Do not run with sudo**:
 
     ```bash
     cyberx-management-deploy-ssh-key <Primary IP>
@@ -139,7 +142,7 @@ Before starting this procedure, verify that:
 
     Enter the IP address of the primary appliance in the ```<Primary IP>``` field and press enter. This allows the connection between the primary and secondary appliances for backup and restore purposes between them.
 
-1. Run the following command to validate that the changes have been applied:
+1. Run the following command on the secondary to validate that the changes have been applied. **Do not run with sudo.**
 
     ```bash
     cyberx-management-trusted-hosts-list
