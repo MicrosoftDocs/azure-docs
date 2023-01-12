@@ -5,7 +5,7 @@ keywords:
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/13/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

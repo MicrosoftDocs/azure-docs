@@ -179,7 +179,7 @@ Telemetry logs are retained for one and a half years. During that period, suppor
 
 Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, Microsoft won't have a full history of your service, which could impede troubleshooting of the object in question.
 
-To remove references to specific objects, or to change the data retention period, [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for your search service.
+To remove references to specific objects, or to change the data retention period, [file a support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md) for your search service.
 
 1. In **Problem details**, tag your request using the following selections:
 
@@ -205,7 +205,7 @@ In Azure Cognitive Search, encryption starts with connections and transmissions.
 
 ### Data at rest
 
-For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Services that have a dependency on Azure Storage can use the [encryption features](/azure/storage/common/storage-service-encryption) of that technology.
+For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Services that have a dependency on Azure Storage can use the [encryption features](../storage/common/storage-service-encryption.md) of that technology.
 
 | Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
