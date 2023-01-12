@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Microsoft Sentinel entity types reference
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## Entity types and identifiers
 
 The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md).

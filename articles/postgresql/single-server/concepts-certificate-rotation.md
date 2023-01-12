@@ -154,7 +154,7 @@ openssl s_client -showcerts -connect <your-postgresql-server-name>:443
 ```
 
 ### 14. What if I have further questions?
-If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request):
+If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request):
 * For *Issue type*, select *Technical*.  
 * For *Subscription*, select your *subscription*.  
 * For *Service*, select *My Services*, then select *Azure Database for PostgreSQL – Single Server*.

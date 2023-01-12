@@ -203,13 +203,6 @@ isn't supported and can lead to instability. If you require more disk space, con
 disk space that meets your requirements or [attaching data disks](/rest/api/batchservice/pool/add#datadisk). For more information, see the next
 section about attaching and preparing data disks for compute nodes.
 
-> [!TIP]
-> When mounting a data disk in Linux, if nesting the disk mountpoint under the Azure temporary mount points such as `/mnt` or `/mnt/resource`,
-> care should be taken such that no dependency races are introduced. For example, if these mounts are automatically performed by the OS, there
-> can be a race between the temporary disk being mounted and your data disk(s) being mounted under the parent. Steps should be taken to
-> ensure that appropriate dependencies are enforced by facilities available such as `systemd` or defer mounting of the data disk to the start
-> task as part of your idempotent data disk preparation script.
-
 ### Attaching and preparing data disks
 
 Each individual compute node will have the exact same data disk specification attached if specified as part of the Batch pool instance. Only
@@ -217,6 +210,13 @@ new data disks may be attached to Batch pools. These data disks attached to comp
 mounted. It's your responsibility to perform these operations as part of your [start task](jobs-and-tasks.md#start-task). These start tasks
 must be crafted to be idempotent. A re-execution of the start task after the compute node has been provisioned is possible. If the start
 task isn't idempotent, potential data loss can occur on the data disks.
+
+> [!TIP]
+> When mounting a data disk in Linux, if nesting the disk mountpoint under the Azure temporary mount points such as `/mnt` or `/mnt/resource`,
+> care should be taken such that no dependency races are introduced. For example, if these mounts are automatically performed by the OS, there
+> can be a race between the temporary disk being mounted and your data disk(s) being mounted under the parent. Steps should be taken to
+> ensure that appropriate dependencies are enforced by facilities available such as `systemd` or defer mounting of the data disk to the start
+> task as part of your idempotent data disk preparation script.
 
 #### Preparing data disks in Linux Batch pools
 

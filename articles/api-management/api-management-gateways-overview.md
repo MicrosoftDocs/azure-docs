@@ -98,18 +98,18 @@ The following table compares features available in the managed gateway versus th
 
 ### Policies
 
-Managed and self-hosted gateways support all available [policies](api-management-howto-policies.md) in policy definitions with the following exceptions.
+Managed and self-hosted gateways support all available [policies](api-management-policies.md) in policy definitions with the following exceptions.
 
 | Policy | Managed (Dedicated)  | Managed (Consumption) | Self-hosted<sup>1</sup>  |
 | --- | ----- | ----- | ---------- |
-| [Dapr integration](api-management-dapr-policies.md) |  ❌ | ❌ | ✔️ |
-| [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) |  ✔️ |  ❌ | ❌ |
-| [Quota and rate limit](api-management-access-restriction-policies.md) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
-| [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) |  ✔️ |  ❌ | ❌ |
+| [Dapr integration](api-management-policies.md#dapr-integration-policies) |  ❌ | ❌ | ✔️ |
+| [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ❌ | ❌ |
+| [Quota and rate limit](api-management-policies.md#access-restriction-policies) |  ✔️ |  ✔️<sup>2</sup> | ✔️<sup>3</sup>
+| [Set GraphQL resolver](set-graphql-resolver-policy.md) |  ✔️ |  ❌ | ❌ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
 <sup>2</sup> The rate limit by key and quota by key policies aren't available in the Consumption tier.<br/>
-<sup>3</sup> [!INCLUDE [api-management-self-hosted-gatway-rate-limit](../../includes/api-management-self-hosted-gatway-rate-limit.md)]
+<sup>3</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)]
 
 ### Monitoring
 

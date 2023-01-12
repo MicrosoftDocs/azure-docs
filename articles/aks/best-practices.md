@@ -10,13 +10,12 @@ ms.date: 03/09/2021
 # Cluster operator and developer best practices to build and manage applications on Azure Kubernetes Service (AKS)
 
 Building and running applications successfully in Azure Kubernetes Service (AKS) require understanding and implementation of some key considerations, including:
+
 * Multi-tenancy and scheduler features.
 * Cluster and pod security.
-* Business continuity and disaster recovery. 
-
+* Business continuity and disaster recovery.
 
 The AKS product group, engineering teams, and field teams (including global black belts [GBBs]) contributed to, wrote, and grouped the following best practices and conceptual articles. Their purpose is to help cluster operators and developers understand the considerations above and implement the appropriate features.
-
 
 ## Cluster operator best practices
 
@@ -76,9 +75,7 @@ To help understand some of the features and components of these best practices, 
 
 ## Next steps
 
-If you need to get started with AKS, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

@@ -21,7 +21,7 @@ Conditional Access templates provide a convenient method to deploy new policies 
 
 :::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Azure portal." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
 
-There are 14 Conditional Access policy templates, filtered by six different scenarios: 
+There are 14 Conditional Access policy templates, filtered by five different scenarios: 
 
 - Secure foundation
 - Zero Trust
