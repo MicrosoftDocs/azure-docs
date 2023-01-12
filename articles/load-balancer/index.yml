@@ -27,13 +27,13 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
-          - text: What's new in Azure Load Blancer?
+          - text: What's new in Azure Load Balancer?
             url: whats-new.md
           - text: Load Balancer algorithm
             url: concepts.md
           - text: Load Balancer components
             url: components.md
-          - text: Azure Updates - Load Balancer releases
+          - text: Azure Updates - Load Balancer news
             url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md
