@@ -1,9 +1,6 @@
 ---
 title: How to test your Azure Data Lake Analytics code
 description: 'Learn how to add test cases for U-SQL and extended C# code for Azure Data Lake Analytics.'
-author: liudan66
-ms.author: liud
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
