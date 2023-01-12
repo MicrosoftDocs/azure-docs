@@ -74,13 +74,13 @@ If you develop a Spring Boot application, you can replace the JVM argument by a 
 
 1. There are two ways you can point the jar file to your Application Insights resource:
 
-   - You can set an environment variable:
+   - Set an environment variable:
     
         ```console
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.7.jar` with the following content:
+   - Create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.7.jar` with the following content:
 
         ```json
         {
