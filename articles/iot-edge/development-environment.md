@@ -4,7 +4,7 @@ description: Learn about the supported systems and first-party development tools
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/04/2019
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
