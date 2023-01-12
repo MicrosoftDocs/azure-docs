@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Adding visual effects to a Video call
+# Adding visual effects to a video call
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
@@ -51,7 +51,7 @@ Currently the video effects support the following ability:
 - Background blur 
 - Replace the background with a custom image 
 
-## Browser Support: 
+## Browser support: 
 
 Currently creating video effects is only supported on Chrome Desktop Browser and Mac Safari Desktop.
 
