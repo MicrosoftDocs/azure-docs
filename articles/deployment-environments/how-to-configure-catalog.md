@@ -108,7 +108,7 @@ To store the personal access token you generated as a [key vault secret](../key-
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. </br> This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.|
 
-   :::image type="content" source="media/how-to-configure-catalog/add-catalog-form.png" alt-text="Screenshot that shows how to add a catalog to a dev center.":::
+   :::image type="content" source="media/how-to-configure-catalog/add-catalog-form-inline.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-catalog-form-expanded.png":::
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
