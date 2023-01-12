@@ -1,12 +1,12 @@
 ---
-title: Resiliency in Azure Private 5G Core #Required; Must be "Resiliency in *your official service name*"
-description: Find out about reliability in Azure Private 5G Core #Required; 
-author: anaharris-ms #Required; your GitHub user alias, with correct capitalization.
-ms.author: anaharris #Required; Microsoft alias of author; optional team alias.
+title: Reliability in Azure Private 5G Core
+description: Find out about reliability in Azure Private 5G Core 
+author: robswain
+ms.author: robswain
+ms.service: private-5g-core
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
-ms.date: 01/31/2022 #Required; mm/dd/yyyy format.
+ms.date: 01/31/2022
 ---
 
 <!--#Customer intent: As a < type of user >, I want to understand reliability support for Azure Private 5G Core so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
