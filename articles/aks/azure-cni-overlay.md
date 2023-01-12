@@ -84,7 +84,7 @@ Use the traditional VNet option when:
 
 ## Limitations with Azure CNI Overlay
 
-The overlay solution has the following limitations today
+The overlay solution has the following limitations:
 
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.

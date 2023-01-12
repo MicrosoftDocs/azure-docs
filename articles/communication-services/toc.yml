@@ -163,6 +163,8 @@ items:
       href: concepts/identifiers.md
     - name: Credentials best practices
       href: concepts/credentials-best-practices.md
+    - name: Use cases for string identifiers
+      href: concepts/raw-id-use-cases.md
   - name: Chat
     items:
       - name: Chat SDK overview

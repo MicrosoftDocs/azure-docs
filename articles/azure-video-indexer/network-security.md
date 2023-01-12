@@ -8,7 +8,15 @@ ms.author: juliako
 
 # NSG service tags for Azure Video Indexer
 
-Azure Video Indexer is a service hosted on Azure. In some cases the service needs to interact with other services in order to index video files (for example, a Storage account) or when you orchestrate indexing jobs against Azure Video Indexer API endpoint using your own service hosted on Azure (for example, AKS, Web Apps, Logic Apps, Functions). 
+Azure Video Indexer is a service hosted on Azure. In some cases the service needs to interact with other services in order to index video files (for example, a Storage account) or when you orchestrate indexing jobs against Azure Video Indexer API endpoint using your own service hosted on Azure (for example, AKS, Web Apps, Logic Apps, Functions).
+
+> [!NOTE]
+> If you are already using "AzureVideoAnalyzerForMedia" Network Service Tag you may experience issues with your networking security group starting 9 January 2023. This is because we are moving to a new Security Tag label "VideoIndexer" that was unfortunately not launched to GA in the UI before removing the preceding "AzureVideoAnalyzerForMedia" tag. The mitigatation is to run the following command from Powershell CLI:
+
+`$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Testing our Service Tag" -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix "YourTagDisplayName" -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange $port`
+
+Where `YourTagDisplayName` needs to be replaced with VideoIndexer
+
 
 Use [Network Security Groups with Service Tags](../virtual-network/service-tags-overview.md) to limit access to your resources on a network level. A service tag represents a group of IP address prefixes from a given Azure service, in this case Azure Video Indexer. Microsoft manages the address prefixes grouped by the service tag and automatically updates the service tag as addresses change in our backend, minimizing the complexity of frequent updates to network security rules by the customer.
 
