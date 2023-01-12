@@ -32,6 +32,10 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 For more information, see [supported languages](language-support.md).
 
+### Face grouping
+
+Significantly reduced number of low-quality face detection occurrences in the UI and [insights.json](video-indexer-output-json-v2.md#insights). Enhancing the quality and usability through improved grouping algorithm.
+
 ## November 2022
 
 ### Speakers' names can now be edited from the Azure Video Indexer website
