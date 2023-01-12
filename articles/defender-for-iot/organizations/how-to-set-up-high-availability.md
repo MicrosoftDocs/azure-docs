@@ -82,15 +82,15 @@ Verify if your organizational security policy allows you to have access to the f
 Before starting this procedure, verify that:
 
 - Both the primary and secondary on-premises management console appliances are powered on.
-- At least two sensors are connected to the primary management console.
+- At least two sensors are connected to the primary on-premises management console.
 
-### On the primary management console
+### On the primary on-premises management console
 
-1. Sign in to the primary management console.
+1. Sign in to the primary on-premises management console, and select **System Settings** on the left.
 
-1. Select **System Settings** from the side menu.
+1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
-1. Under the Connection String, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string, and copy only the part of the string that is to the right of the ```:``` , after the IP address.
+1.  Copy the part of the connection string after the IP address, after the colon. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy only ```a2c4gv9de23f56n078a44e12gf2ce77f``` to the clipboard.
 
     For example:
 
@@ -106,7 +106,7 @@ Before starting this procedure, verify that:
 
     For example:
 
-    sudo cyberx-management-trusted-hosts-add -ip **172.10.246.232** -token **a2c4gv9de23f56n078a44e12gf2ce77f**
+    ```sudo cyberx-management-trusted-hosts-add -ip 172.10.246.232 -token a2c4gv9de23f56n078a44e12gf2ce77f```
 
 1. Run the following command on the primary to apply the changes:
 
@@ -127,11 +127,11 @@ Before starting this procedure, verify that:
 
    This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
 
-### On the secondary management console
+### On the secondary on-premises management console
 
 1. Sign in to the CLI as a Defender for IoT user.
 
-1. Run the following command on the secondary. **Do not run with sudo**:
+1. Run the following command on the secondary on-premises management console. **Do not run with sudo**:
 
     ```bash
     cyberx-management-deploy-ssh-key <Primary IP>
