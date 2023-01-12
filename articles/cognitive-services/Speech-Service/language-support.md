@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 01/12/2023
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -42,6 +42,9 @@ To improve Speech-to-text recognition accuracy, customization is available for s
 The tables in this section summarizes the locales and voices supported for Text-to-speech. Please see the table footnotes for more details.
 
 Additional remarks for Text-to-speech locales are included in the [Voice styles and roles](#voice-styles-and-roles), [Prebuilt neural voices](#prebuilt-neural-voices), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+
+> [!TIP]
+> Check the [voice samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs. 
 
 [!INCLUDE [Language support include](includes/language-support/tts.md)]
 
