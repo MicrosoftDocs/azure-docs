@@ -842,9 +842,13 @@ You can locate the public IPs for your nodes in various ways:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-### Allow host port connections
+### Allow host port connections and add node pools to application security groups
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
+
+If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](/azure/virtual-network/network-security-groups-overview#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the nodepool parameters.
+
+#### Host port specification format
 
 When specifying the list of ports to allow, use a comma-separate list with entries in the format of `port/protocol` or `startPort-endPort/protocol`.
 
@@ -893,34 +897,37 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
-#### Create a new cluster with allowed ports
+#### Create a new cluster with allowed ports and application security groups
 
 ```azurecli-interactive
 az aks create \
   --resource-group <resourceGroup> \
   --name <clusterName> \
   --nodepool-name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp
+  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
+  --nodepool-asg-ids "<asgId>,<asgId>"
 ```
 
-#### Add a new node pool with allowed ports
+#### Add a new node pool with allowed ports and application security groups
 
 ```azurecli-interactive
 az aks nodepool add \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp
+  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
+  --nodepool-asg-ids "<asgId>,<asgId>"
 ```
 
-#### Update the allowed ports for a node pool
+#### Update the allowed ports and application security groups for a node pool
 
 ```azurecli-interactive
 az aks nodepool update \
   --resource-group <resourceGroup> \
   --cluster-name <clusterName> \
   --name <nodepoolName> \
-  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp
+  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp\
+  --nodepool-asg-ids "<asgId>,<asgId>"
 ```
 
 ## Clean up resources
