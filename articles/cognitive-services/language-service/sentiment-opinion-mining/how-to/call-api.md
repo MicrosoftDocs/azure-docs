@@ -83,7 +83,7 @@ When you submit documents to be processed by sentiment analysis, you can specify
 
 Sentiment analysis and opinion mining produce a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. 
 
-To send an API request, you will need your Language resource endpoint and key.
+To send an API request, you'll need your Language resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
