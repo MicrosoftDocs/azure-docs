@@ -1,5 +1,5 @@
 ﻿---
-title: 'IPsec/IKE custom policy for S2S VPN & VNet-to-VNet connections: Azure portal'
+title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using the Azure portal.
 services: vpn-gateway
@@ -11,11 +11,11 @@ ms.date: 01/12/2023
 ms.author: cherylmc
 
 ---
-# Configure IPsec/IKE custom policy for S2S VPN and VNet-to-VNet connections: Azure portal
+# Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet: Azure portal
 
-This article walks you through the steps to configure IPsec/IKE custom policy for VPN Gateway Site-to-Site VPN or VNet-to-VNet connections using the Azure portal. The following sections help you create and configure an IPsec/IKE policy, and apply the policy to a new or existing connection.
+This article walks you through the steps to configure a custom IPsec/IKE policy for VPN Gateway Site-to-Site VPN or VNet-to-VNet connections using the Azure portal. The following sections help you create and configure an IPsec/IKE policy, and apply the policy to a new or existing connection.
 
-## <a name="about"></a>About IPsec and IKE policy parameters
+## <a name="about"></a>About IPsec and IKE policy parameters for VPN Gateway
 
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements.
 
