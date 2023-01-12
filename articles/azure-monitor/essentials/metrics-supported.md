@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 2021-10-05.
+Date list was last updated: 01/12/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface). 
 
@@ -2866,8 +2866,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ForwardingRuleCount |Yes |Forwarding Rule Count |Count |Maximum |This metric indicates the number of forwarding rules present in each DNS forwarding ruleset. |No Dimensions |
-|VirtualNetworkLinkCount |Yes |Virtual Network Link Count |Count |Maximum |This metric indicates the number of associated virtual network links to a DNS forwarding ruleset. |No Dimensions |
+|ForwardingRuleCount |No |Forwarding Rule Count |Count |Maximum |This metric indicates the number of forwarding rules present in each DNS forwarding ruleset. |No Dimensions |
+|VirtualNetworkLinkCount |No |Virtual Network Link Count |Count |Maximum |This metric indicates the number of associated virtual network links to a DNS forwarding ruleset. |No Dimensions |
 
 
 ## Microsoft.Network/dnsResolvers  
@@ -4340,4 +4340,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Thu Jan 12 2023 09:15:34 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Thu Jan 12 2023 10:16:33 GMT+0200 (Israel Standard Time)-->
