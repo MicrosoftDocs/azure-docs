@@ -486,7 +486,7 @@ version of a package on subsequent builds of an environment. This behavior can l
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ### UTF-8 decoding error
-- Failed to decode a character used in your conda specification. Make sure all characters used are in the UTF-8 character set  
+- Failed to decode a character used in your conda specification. Make sure all characters used are in the UTF-8 character set.
 
 ### *Pip issues*
 ### Pip not specified
