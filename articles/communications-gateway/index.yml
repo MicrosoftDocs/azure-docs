@@ -29,11 +29,13 @@ landingContent:
             url: interoperability.md
           - text: Resiliency and redundancy in Azure Communications Gateway
             url: resiliency.md
+          - text: Emergency calling with Azure Communications Gateway
+            url: emergency-calling.md
 
   # Card            
   - title: Learn how to deploy Azure Communications Gateway
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
           - text: Prepare to deploy
             url: prepare-to-deploy.md
