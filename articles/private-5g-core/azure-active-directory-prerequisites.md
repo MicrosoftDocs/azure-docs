@@ -34,14 +34,12 @@ In your local DNS server, configure the IP address for accessing local monitorin
 You'll now register a new local monitoring application with Azure AD to establish a trust relationship with the Microsoft identity platform.
 
 1. Follow [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app) to register a new application for your local monitoring tools with the Microsoft identity platform.
-    1. In [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri), select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
+    1. In *Add a redirect URI*, select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
     
         - https://*\<local monitoring domain\>*/sas/auth/aad/callback
         - https://*\<local monitoring domain\>*/grafana/login/azuread
 
-    1. In [Add credentials](/azure/active-directory/develop/quickstart-register-app#add-credentials), follow the steps to add a client secret.
-
-        Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
+    1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
 1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer and Editor) with the following configuration:
 

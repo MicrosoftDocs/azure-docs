@@ -148,7 +148,7 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     
-    - If you use Azure AD, in a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, reapply the Secret Object for both distributed tracing and Grafana. 
+    - If you use Azure AD, in a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, reapply the Secret Object for both distributed tracing and the packet core dashboards, specifying the admin kubeconfig filename. 
     
        `kubectl apply -f  /home/centos/secret-azure-ad-sas.yaml --kubeconfig=<admin kubeconfig>`
     
