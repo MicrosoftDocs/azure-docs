@@ -134,5 +134,6 @@ Now that you've set up Azure Monitor, to test and operationalize your Azure Moni
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
+- [Enable Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
 
 
