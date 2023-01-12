@@ -1,7 +1,7 @@
 ---
 title: include
 author: batamig
-ms.date: 06/02/2022
+ms.date: 01/12/2023
 ms.topic: include
 ---
 
@@ -13,7 +13,7 @@ This procedure describes how to install iLO software remotely from a virtual dri
 
 Before installing the sensor software with iLO, we recommend changing the iLO idle connection timeout setting to infinite, as the installation typically takes longer than the 30 minutes it is set to by default.
 
-**To change the iLO idle connection timeout settings**: 
+**To change the iLO idle connection timeout settings**:
 
 1. Sign in to the iLO console, and go to **Overview** on the top menu.
 
@@ -31,11 +31,11 @@ Continue the iLO installation with the following steps.
 
 1. Select **HTML5 Console**.
 
-1. In the console, select the **Virtual media** icon, and choose the CD/DVD option.
+1. In the console, select the **Virtual media** CD icon on the right, and choose the CD/DVD option.
 
 1. Select **Local ISO file**.
 
-1. In the dialog box, choose the D4IoT sensor installation ISO file.
+1. In the dialog box, choose the Defender for IoT sensor installation ISO file.
 
 1. Go to the left menu icon, select **Power**, and then select **Reset**.
 
