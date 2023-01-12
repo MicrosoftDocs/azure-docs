@@ -92,13 +92,8 @@ To install the Remote Rendering package manually, you need to:
 
 To update a local package, just repeat the respective download steps you used and reimport the package. Updating the package may occasionally lead to console errors. If you see errors in the console, try closing and reopening the project.
 
-## Unity render pipelines
-
-Remote Rendering works with both the **:::no-loc text="Standard render pipeline":::** ("built-in render pipeline") and the **:::no-loc text="Universal render pipeline":::** ("URP"). For performance reasons, it's recommended to use the built-in render pipeline, unless there are strong reasons that require URP.
-
-To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. The installation can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.3.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-and-openxr-packages).
-
 ## Next steps
 
+* [Unity Render Pipelines](unity-render-pipelines.md)
 * [Unity game objects and components](objects-components.md)
 * [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md)
