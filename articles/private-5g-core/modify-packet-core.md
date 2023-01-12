@@ -47,8 +47,11 @@ If you're making a change that doesn't trigger a reinstall, you can skip the nex
 
 The following list contains the data that will be lost over a packet core reinstall. If you're making a change that triggers a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
 
-1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
-1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
+1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
+    
+    - If you use Azure AD, save a copy of the two Kubernetes Secret Object YAML files you created in [Create Kubernetes Secret Objects](azure-active-directory-prerequisites.md#create-kubernetes-secret-objects).
+    - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
+
 1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
 1. Most UEs will automatically re-register and recreate any sessions after the upgrade completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
 
