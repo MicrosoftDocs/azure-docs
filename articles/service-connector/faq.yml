@@ -1,0 +1,25 @@
+### YamlMime:FAQ
+metadata:
+  title: Service Connector FAQ
+  description: Read answers to frequently asked questions (FAQ) about Service Connector.
+  author: maud-lv
+  ms.author: malev
+  ms.service: service-connector
+  ms.topic: faq 
+  ms.date: 01/12/2022
+title: Service Connector FAQ
+summary: This article answers frequently asked questions about Service Connector.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: Question?
+        answer: Answer
+          
+      - question: Question?
+        answer: Answer.
+
+additionalContent: |
+    ## Next steps
+
+    To learn more, see [About Service Connector](./overview.md)
