@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/02/2022
+ms.date: 01/12/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -56,6 +56,10 @@ Once you have your endpoint established, go to **Azure AD** and then **Diagnosti
 ## Cost considerations
 
 If you already have an Azure AD license, you need an Azure subscription to set up the storage account and Event Hubs. The Azure subscription comes at no cost, but you have to pay to utilize Azure resources, including the storage account that you use for archival and the Event Hubs that you use for streaming. The amount of data and, thus, the cost incurred, can vary significantly depending on the tenant size. 
+
+Azure Monitor added a feature for ingestion time log transformation. Using this feature will allow customers to drop whole events or fields or parts of fields they don't need, saving them Azure Monitor/Sentinel/etc. costs
+
+Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Azure AD. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).
 
 ### Storage size for activity logs
 
