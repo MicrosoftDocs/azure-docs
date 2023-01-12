@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot MedTech service error messages and conditions - Azure Health Data Services
-description: This article helps users troubleshoot MedTech service errors messages and conditions.
+title: Troubleshoot MedTech service errors - Azure Health Data Services
+description: This article assist troubleshooting and resolving MedTech service errors.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 12/15/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
-# Troubleshoot MedTech service error messages and conditions
+# Troubleshoot MedTech service errors
 
-This article provides steps for troubleshooting and fixing MedTech service error messages and conditions.
+This article provides assistance troubleshooting and resolving MedTech service errors.
 
 > [!TIP]
 > Having access to metrics and logs are essential tools for assisting you in troubleshooting and assessing the overall performance of your MedTech service. Check out these MedTech service articles to learn more about how to enable, configure, and use these monitoring features:
