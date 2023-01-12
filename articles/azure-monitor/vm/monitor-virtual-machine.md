@@ -22,7 +22,7 @@ This guide describes how to use Azure Monitor to monitor the health and performa
 This guide includes monitoring of the following types of machines using Azure Monitor. Many of the processes described here are the same regardless of the type of machine. Considerations for different types of machines are clearly identified where appropriate. The types of machines include:
 
 - Azure virtual machines.
-- Azure virtual machine scale sets.
+- Azure Virtual Machine Scale Sets.
 - Hybrid machines, which are virtual machines running in other clouds, with a managed service provider, or on-premises. They also include physical machines running on-premises.
 
 ## Layers of monitoring
@@ -47,7 +47,7 @@ The following table lists the steps in configuration. Each one links to the an a
 | [Configure data collection](monitor-virtual-machine-data-collection.md)) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
 | [Analyze collect data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
 | [Create alert rules](monitor-virtual-machine-alerts.md) | Create alerts to proactively identify critical issues in your monitoring data. |
-| [Monitor workloads](monitor-virtual-machine-workloads.md) | Monitor applications and other workloads running on your virtual machines. |
+| [Migrate management pack logic](monitor-virtual-machine-management-packs.md) | General guidance for translation the logic from your System Center Operations Manager management packs to Azure Monitor. |
 
  
 ## VM insights
@@ -63,7 +63,7 @@ The articles in this guide provide guidance on configuring VM insights and using
 
 
 ## Security monitoring
-Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud]() and [Microsoft Sentinel](). Configuration of these services is not included in this guide.
+Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Microsoft Sentinel](/azure/sentinel/). Configuration of these services is not included in this guide.
 
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.

@@ -12,9 +12,7 @@ ms.reviewer: Xema Pathak
 
 # Monitor virtual machines with Azure Monitor: Alerts
 
-This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from the Azure Monitor agent. 
-
-This article presents alerting concepts specific to virtual machines and common alert rules used by other Azure Monitor customers. See [Monitor virtual machines with Azure Monitor: Workloads](monitor-virtual-machine-workloads.md) for guidance on using these concepts to create other alert rules based on your particular requirements.
+This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from the Azure Monitor agent. This article presents alerting concepts specific to virtual machines and common alert rules used by other Azure Monitor customers.
 
 > [!NOTE]
 > This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md). To quickly enable a recommended set of alerts, see [Enable recommended alert rules for Azure virtual machine](tutorial-monitor-vm-alert-recommended.md)
@@ -54,7 +52,7 @@ Common uses for log alerts include:
 Data sources for metric alerts include:
 - All data collected in a Log Analytics workspace.
 ## Scaling alert rules
-Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. You also want to ensure  There are different strategies to limit the number of alert rules you need to manage depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
+Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. You also want to ensure  There are different strategies to limit the number of alert rules you need to manage, depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
 
 ### Metric alert rules
 Virtual machines support multiple resource metric alert rules as described in [Monitor multiple resources](../alerts/alerts-types.md#metric-alerts). This allows you to create a single metric alert rule that applies to all virtual machines in a resource group or subscription within the same region. Start with the [recommended alerts](#recommended-alert-rules) and [create a corresponding rule]() for each using your subscription or a resource group as the target resource. You will need to create duplicate rules for each region if you have machines in multiple regions.
@@ -90,7 +88,7 @@ The following section lists common alert rules for virtual machines in Azure Mon
 > The details for log alerts provided below are using data collected using [VM Insights](vminsights-overview.md) which provides a set of common performance counters for the client operating system. This name is independent of the operating system type.
 
 ### Machine unavailable
-One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the VM availability metric which is currently in public preview. See [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md) for a complete walk through on this metric.
+One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the VM availability metric which is currently in public preview. See [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md) for a complete walk-through on this metric.
 
 As described in [Scaling alert rules](#scaling-alert-rules), create an availability alert rule using a subscription or resource group as the target resource to have the rule apply to multiple virtual machines, including new machines that you create after the alter rule.
 
@@ -312,5 +310,4 @@ The following sample creates an alert when a specific Windows event is created. 
 
 ## Next steps
 
-* [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)
 * [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)

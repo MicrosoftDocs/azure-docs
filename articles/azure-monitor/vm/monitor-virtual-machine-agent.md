@@ -59,14 +59,14 @@ The Azure Monitor agent for both Linux and Windows communicates outbound to the 
 With the Log Analytics gateway, you can channel communications from your on-premises machines through a single gateway. Azure Arc doesn't use the gateway, but its Connected Machine agent is required to install Azure Monitor agent. For details on how to configure and use the Log Analytics gateway, see [Log Analytics gateway](../agents/gateway.md).
 
 ### Azure Private Link
-By using Azure Private Link, you can create a private endpoint for your Log Analytics workspace. After it's configured, any connections to the workspace must be made through this private endpoint. Private Link works by using DNS overrides, so there's no configuration requirement on individual agents. For details on Private Link, see [Use Azure Private Link to securely connect networks to Azure Monitor](../logs/private-link-security.md). For specific guidance on configuring private link for you virtual machines, see [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md).
+By using Azure Private Link, you can create a private endpoint for your Log Analytics workspace. After it's configured, any connections to the workspace must be made through this private endpoint. Private Link works by using DNS overrides, so there's no configuration requirement on individual agents. For details on Private Link, see [Use Azure Private Link to securely connect networks to Azure Monitor](../logs/private-link-security.md). For specific guidance on configuring private link for your virtual machines, see [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md).
 
 
 ## Agent deployment options
 The Azure Monitor agent is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md), so you can install it using a variety of standard methods including PowerShell, CLI, and Resource Manager templates. See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md) for details on each. Other notable methods for installation are described below.
 
 ### Azure Policy
-If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy. See [Enable VM insights by using Azure Policy](vminsights-enable-policy.md) for deploying the agent with VM insights .
+If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy. See [Enable VM insights by using Azure Policy](vminsights-enable-policy.md) for deploying the agent with VM insights.
 
 ### Data collection rule in the Azure portal
 When you create a data collection rule in the Azure portal as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md), you have the option of specifying virtual machines to receive it. The Azure Monitor agent will be automatically installed on any machines that don't already have it.
@@ -78,7 +78,7 @@ You can enable VM insights on individual machines by using the same methods for 
 
 
 ### Windows client installer
-Use the [Windows client installer](../agents/azure-monitor-agent-windows-client.md) to install the agent on Windows clients such as Windowss 11. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#install).
+Use the [Windows client installer](../agents/azure-monitor-agent-windows-client.md) to install the agent on Windows clients such as Windows 11. For different options deploying the agent on a single machine or as part of a script, see [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md?tabs=azure-portal#install).
 
 ## Next steps
 

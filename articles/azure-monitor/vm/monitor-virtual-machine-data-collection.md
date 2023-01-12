@@ -23,7 +23,7 @@ This article provides guidance on collecting the most common types of telemetry 
 
 
 ## Data collection rules
-Data collection from the Azure Monitor agent is defined by one or more [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) that are stored in your Azure subscription and are associated with your virtual machines. 
+Data collection from the Azure Monitor agent is defined by one or more [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) stored in your Azure subscription and are associated with your virtual machines. 
 
 For virtual machines, DCRs will define data such as events and performance counters to collect and specify the Log Analytics workspaces that data should be sent to. The DCR can also use [transformations](../essentials/data-collection-transformations.md) to filter out unwanted data and to add calculated columns. A single machine can be associated with multiple DCRs, and a single DCR can be associated with multiple machines. DCRs are delivered to any machines they're associated with where they're processed by the Azure Monitor agent.
 
@@ -70,7 +70,7 @@ See [Monitor virtual machines with Azure Monitor: Analyze monitoring data](monit
 ### VM insights
 When you enable VM insights, then it will create a data collection rule, with the **_MSVMI-_** prefix that collects the following information. You can use this same DCR with other machines as opposed to creating a new one for each VM.
 
-- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalize to use the same common name regardless of the operating system type.
+- Common performance counters for the client operating system are sent to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table in the Log Analytics workspace. Counter names will be normalized to use the same common name regardless of the operating system type.
 - If you specified processes and dependencies to be collected, then the following tables are populated:
   
   - [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) - Traffic for open server ports on the machine
@@ -319,5 +319,4 @@ The runbook can access any resources on the local machine to gather required dat
 
 * [Analyze monitoring data collected for virtual machines](monitor-virtual-machine-analyze.md)
 * [Create alerts from collected data](monitor-virtual-machine-alerts.md)
-* [Monitor workloads running on virtual machines](monitor-virtual-machine-workloads.md)
 

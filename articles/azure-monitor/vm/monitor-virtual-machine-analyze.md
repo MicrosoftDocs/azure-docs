@@ -29,7 +29,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 |:---|:---|
 | Overview page | Select the **Monitoring** tab to display alerts, [platform metrics](../essentials/data-platform-metrics.md), and other monitoring information for the virtual machine host. You can see the number of active alerts on the tab. In the **Monitoring** tab, you get a quick view of:<br><br>**Alerts:** the alerts fired in the last 24 hours, with some important statistics about those alerts. If you do not have any alerts set up for this VM, there is a link to help you quickly create new alerts for your VM.<br><br>**Key metrics:** the trend over different time periods for important metrics, such as CPU, network, and disk. Because these are host metrics though, counters from the guest operating system such as memory aren't included. Select a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md) where you can perform different aggregations, and add more counters for analysis. |
 | Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. Use this log to view the recent activity of the machine, such as any configuration changes and when it was stopped and started. 
-| Insights | Displays VM insights views if If the VM is enabled for [VM insights](../vm/vminsights-overview.md).<br><br>Select the **Performance** tab to view trends of critical performance counters over different periods of time. When you open VM insights from the virtual machine menu, you also have a table with detailed metrics for each disk. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).<br><br>If *processes and dependencies* is enabled for the VM, select the **Map** tab to view the running processes on the machine, dependencies on other machines, and external processes. For details on how to use the Map view for a single machine, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-a-vm).<br><br>If the VM is not enabled for VM insights, offers the option to enable VM insights. |
+| Insights | Displays VM insights views if If the VM is enabled for [VM insights](../vm/vminsights-overview.md).<br><br>Select the **Performance** tab to view trends of critical performance counters over different periods of time. When you open VM insights from the virtual machine menu, you also have a table with detailed metrics for each disk. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).<br><br>If *processes and dependencies* is enabled for the VM, select the **Map** tab to view the running processes on the machine, dependencies on other machines, and external processes. For details on how to use the Map view for a single machine, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-a-vm).<br><br>If the VM is not enabled for VM insights, it offers the option to enable VM insights. |
 | Alerts | View [alerts](../alerts/alerts-overview.md) for the current virtual machine. These alerts only use the machine as the target resource, so there might be other alerts associated with it. You might need to use the **Alerts** option in the Azure Monitor menu to view alerts for all resources. For details, see [Monitor virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md). |
 | Metrics | Open metrics explorer with the scope set to the machine. This option is the same as selecting one of the performance charts from the **Overview** page except that the metric isn't already added. |
 | Diagnostic settings | Enable and configure the [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. This option is different than the **Diagnostic settings** option for other Azure resources. This is a [legacy agent](monitor-virtual-machine-agent.md#legacy-agents) that has been replaced by the [Azure Monitor agent](monitor-virtual-machine-agent.md). |
@@ -45,8 +45,8 @@ Access the multiple machine analysis experience from the **Monitor** menu in the
 
 | Option | Description |
 |:---|:---|
-| Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view events for all your machines. |
-| Alerts | View [alerts](../alerts/alerts-overview.md) for all resources, which includes alerts related to virtual machines but that are associated with the workspace. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view alerts for all your machines. |
+| Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or Virtual Machine Scale Sets to view events for all your machines. |
+| Alerts | View [alerts](../alerts/alerts-overview.md) for all resources. This includes alerts related to all virtual machines in the workspace. Create a filter for a **Resource Type** of virtual machines or Virtual Machine Scale Sets to view alerts for all your machines. |
 | Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
 | Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the workspace. You can select from a variety of existing queries to drill into log and performance data for all machines. Or you can create a custom query to perform additional analysis. |
 | Workbooks | Open the workbook gallery with the VM insights workbooks for multiple machines. For a list of the VM insights workbooks designed for multiple machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
@@ -95,7 +95,7 @@ The following namespaces are used by virtual machines.
 
 
 ## Analyze log data with Log Analytics
-Use Log Analytics to perform custom analysis of your log data and when you want to dig deeper into the data used to create the views in workbooks and VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
+Use Log Analytics to perform custom analysis of your log data and when you want to dig deeper into the data used to create the views in workbooks and VM insights. You might want to analyze different logic and aggregations of that data or correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your [health and availability data](monitor-virtual-machine-data-collection.md).
 
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Select **Queries** at the top of the Log Analytics screen, and view queries with a **Resource type** of **Virtual machines** or **Virtual machine scale sets**. For information on how to use these queries, see [Using queries in Azure Monitor Log Analytics](../logs/queries.md). For a tutorial on how to use Log Analytics to run queries and work with their results, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md).
 
@@ -176,7 +176,7 @@ The availability state is in the `properties` field of the record which includes
 | Field | Description |
 |:---|:---|
 | targetResourceType | Type of resource for which health data is flowing |
-| targetResourceId | Resource Id |
+| targetResourceId | Resource ID |
 | occurredTime | Timestamp when the latest availability state is emitted by the platform |
 | previousAvailabilityState | Previous availability state of the VM |
 | availabilityState | Current availability state of the VM |
@@ -206,7 +206,7 @@ These annotations can be broadly classified into the following:
 | Field | Description |
 |:---|:---|
 | targetResourceType | Type of resource for which health data is flowing |
-| targetResourceId | Resource Id |
+| targetResourceId | Resource ID |
 | occurredTime | Timestamp when the latest availability state is emitted by the platform |
 | annotationName | Name of the Annotation emitted |
 | reason | Brief overview of the availability impact observed by the customer |
@@ -219,4 +219,4 @@ See [Azure Resource Graph sample queries by table](../../governance/resource-gra
 ## Next steps
 
 * [Create alerts from collected data](monitor-virtual-machine-alerts.md)
-* [Monitor workloads running on virtual machines](monitor-virtual-machine-workloads.md)
+

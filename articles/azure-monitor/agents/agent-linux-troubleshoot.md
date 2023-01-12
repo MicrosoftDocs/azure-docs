@@ -200,7 +200,7 @@ Below the output plug-in, uncomment the following section by removing the `#` in
 
 1. Review the section [Update proxy settings](agent-manage.md#update-proxy-settings) to verify you've properly configured the agent to communicate through a proxy server.
 
-1. Double-check that the endpoints outlined in the Azure Monitor [network firewall requirements](./log-analytics-agent.md#firewall-requirements) list are added to an allow list correctly. If you use Azure Automation, the necessary network configuration steps are also linked above.
+1. Double-check that the endpoints outlined in the Azure Monitor [network firewall requirements](./log-analytics-agent.md#firewall-requirements) list are added to an allowlist correctly. If you use Azure Automation, the necessary network configuration steps are also linked above.
 
 ## Issue: You receive a 403 error when trying to onboard
 
