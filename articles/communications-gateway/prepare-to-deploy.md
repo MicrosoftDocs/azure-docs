@@ -37,15 +37,14 @@ Operator Connect and Teams Phone Mobile inherit permissions and identities from 
 1. Scroll down to the Tenant ID field. Your tenant ID will be in the box. Make a note of your tenant ID.
 1. Open PowerShell.
 1. (If you don't have the Azure Active Directory module installed), run the cmdlet:
-  ```azurepowershell
-  Install-Module Azure AD
-  ```
+    ```azurepowershell
+    Install-Module Azure AD
+    ```
 1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
-
-  ```azurepowershell-interactive
-  Connect-AzureAD -TenantId "<AADTenantID>"
-  New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
-  ```
+    ```azurepowershell
+    Connect-AzureAD -TenantId "<AADTenantID>"
+    New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
+    ```
 
 ## 2. Allow the Project Synergy application
 
