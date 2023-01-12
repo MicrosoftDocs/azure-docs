@@ -49,32 +49,28 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
     For this example, use the **Link an existing New Relic resource** option and select **Create**. 
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-create.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
-   
-1.  A form to create the New Relic resource appears on the **Basics** tab. Select an existing in account in **New Relic account**.
+
+1. A form to create the New Relic resource appears on the **Basics** tab. Select an existing in account in **New Relic account**.
 
     :::image type="content" source="media/new-relic-link-to-existing/new-relic-account.png" alt-text="Screenshot that shows the tab for basic information about linking an existing New Relic account.":::
 
-   Provide the following values:
+1. Provide the following values:
 
-   |Property |  Description |
-   |---|---|
-   | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription will be linked to the New Relic account for monitoring purposes.|
-   | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
-   | **Resource name**  | Specify a name for the New Relic resource.|
-   | **Region**  | Select the Azure region where the New Relic resource should be created.|
-   | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
+    |Property |  Description |
+    |---|---|
+    | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription will be linked to the New Relic account for monitoring purposes.|
+    | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
+    | **Resource name**  | Specify a name for the New Relic resource.|
+    | **Region**  | Select the Azure region where the New Relic resource should be created.|
+    | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
-1. After you select a New Relic account, the New Relic billing details appear for your reference.
+1. After you select a New Relic account, the New Relic billing details appear for your reference. The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
 
-   The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
-    
 1. Select **Next**.
 
 ## Configure metrics and logs
-
-### Logs 
 
 Your next step is to configure metrics and logs on the **Metrics + Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
 

@@ -49,7 +49,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
    :::image type="content" source="media/new-relic-create/new-relic-basics.png" alt-text="Screenshot that shows the tab for basic information about a New Relic resource.":::
 
-   Provide the following values:
+1. Provide the following values:
 
    |  Property | Description |
    |--|--|
@@ -60,13 +60,14 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. When you're choosing the organization under which to create the New Relic account, you have two options: create a new organization, or select an existing organization to link the newly created account.
 
+   > [!IMPORTANT]
+   > You can't use **Associate with existing** functionality, presently. The ability to create a new New Relic resource and associate it with an existing organization is currently disabled.
+
    If you opt to create a new organization, you can choose a plan from the list of available plans by selecting **Change Plan** on the working pane.
 
-    :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of the panel for changing a plan.":::
+   :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of the panel for changing a plan.":::
 
-   > [!IMPORTANT]
-   > Creating a New Relic resource by associating it with an existing organization is currently disabled.
-
+ 
 ## Configure metrics and logs
 
 Your next step is to configure metrics and logs on the **Logs** tab. When you're creating the New Relic resource, you can set up automatic log forwarding for two types of logs:

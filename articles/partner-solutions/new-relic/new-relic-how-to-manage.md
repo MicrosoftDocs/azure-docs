@@ -42,8 +42,8 @@ The columns in the table denote valuable information for your resource:
 
 |Property  | Description  |
 |---------|---------|
-|   **Resource type**      |   Azure resource type      |
-|   **Total resources**      | Count of all resources for the resource type      |
+| **Resource type**      |   Azure resource type      |
+| **Total resources**      | Count of all resources for the resource type      |
 | **Logs to New Relic**        |    Count of logs for the resource type       |
 | **Metrics to New Relic**         |   Count of resources that are sending metrics to New Relic through the integration      |
 
@@ -63,7 +63,7 @@ To see the list of resources that are sending metrics and logs to New Relic, sel
 
 You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending metrics and logs.
 
-The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource is not sending logs, the reasons could be:
+The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource isn't sending logs, the reasons could be:
 
 - **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
