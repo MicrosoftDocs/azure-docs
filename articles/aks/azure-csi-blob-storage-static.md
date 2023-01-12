@@ -91,7 +91,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
       name: pv-blob
     spec:
       capacity:
-        storage: 10Gi
+        storage: 1Pi
       accessModes:
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
@@ -108,6 +108,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
           containerName: containerName
           protocol: nfs
     ```
+> [!NOTE]
+> The value `spec.capacity.storage` is mandatory in the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/master/pkg/apis/core/types.go#L303-L306), but this value is not used by the `blob.csi.azure.com` driver because you can flexibly write data until you reach the limit of your storage account capacity. The value is used only for size matching between `PersistentVolumes` and `PersistentVolumeClaims` so we suggest to use a fictitious high value. The Pod will see a mounted volume with a fictitious size of 5Petabytes.
 
 2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
