@@ -3,9 +3,10 @@ title: Resiliency in Azure Communications Gateway
 description: Find out about reliability in Azure Communications Gateway 
 author: nslack
 ms.author: nickslack
+ms.service: communications-gateway
 ms.topic: conceptual
 ms.custom: subject-reliability
-ms.date: 16/12/2022
+ms.date: 01/12/2023
 ---
 
 # What is reliability in Azure Communications Gateway?
@@ -14,7 +15,7 @@ Azure Communication Gateway ensures your service is reliable by using Azure redu
 
 ## Azure Communications Gateway's redundancy model
 
-Each Azure Communications Gateway deployment consists of three separate regions, a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+Each Azure Communications Gateway deployment consists of three separate regions, a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 :::image type="complex" source="media/resiliency/azure-communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
     Diagram showing two operator sites and the Azure regions for Azure Communications Gateway. Azure Communications Gateway has two service regions and one management region. The service regions connect to the management region and to the operator sites. The management region can be co-located with a service region.
