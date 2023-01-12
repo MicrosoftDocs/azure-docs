@@ -29,7 +29,7 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 
 Create this folder structure for your project:
 
-```text
+```
 📁 r-deploy-azureml
  ├─ docker-context
  │  ├─ Dockerfile
@@ -40,7 +40,7 @@ Create this folder structure for your project:
  ├─ endpoint.yml
 ```
 
-![NOTE]
+> ![NOTE]
 > The endpoint and deployment files are explained [later in the article](#deploy-model).
 
 ### Dockerfile
