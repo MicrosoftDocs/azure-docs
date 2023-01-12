@@ -842,6 +842,87 @@ You can locate the public IPs for your nodes in various ways:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
+### Allow host port connections
+
+AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
+
+When specifying the list of ports to allow, use a comma-separate list with entries in the format of `port/protocol` or `startPort-endPort/protocol`.
+
+Examples:
+
+- 80/tcp
+- 80/tcp,443/tcp
+- 53/udp,80/tcp
+- 50000-60000/tcp
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+#### Install the aks-preview Azure CLI extension
+
+Version 0.5.110 of the aks-preview extension is required.
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+#### Register the 'NodePublicIPNSGControlPreview' feature flag
+
+Register the `NodePublicIPNSGControlPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "NodePublicIPNSGControlPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "NodePublicIPNSGControlPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Create a new cluster with allowed ports
+
+```azurecli-interactive
+az aks create \
+  --resource-group <resourceGroup> \
+  --name <clusterName> \
+  --nodepool-name <nodepoolName> \
+  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp
+```
+
+#### Add a new node pool with allowed ports
+
+```azurecli-interactive
+az aks nodepool add \
+  --resource-group <resourceGroup> \
+  --cluster-name <clusterName> \
+  --name <nodepoolName> \
+  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp
+```
+
+#### Update the allowed ports for a node pool
+
+```azurecli-interactive
+az aks nodepool update \
+  --resource-group <resourceGroup> \
+  --cluster-name <clusterName> \
+  --name <nodepoolName> \
+  --nodepool-allowed-host-ports 80/tcp,443/tcp,53/udp,40000-60000/tcp,40000-50000/udp
+```
+
 ## Clean up resources
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
