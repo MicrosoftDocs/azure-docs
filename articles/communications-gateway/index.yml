@@ -35,6 +35,10 @@ landingContent:
   # Card            
   - title: Learn how to deploy Azure Communications Gateway
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Onboarding onto Microsoft Operator Connect and Microsoft Teams Phone Mobile
+            url: onboarding.md
       - linkListType: deploy
         links:
           - text: Prepare to deploy
@@ -43,5 +47,3 @@ landingContent:
             url: deploy.md
           - text: Prepare for live traffic
             url: prepare-for-live-traffic.md
-
-            
