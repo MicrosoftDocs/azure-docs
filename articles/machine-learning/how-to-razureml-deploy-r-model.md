@@ -178,7 +178,7 @@ This article shows you how to register a model created in a training job run and
 1. Select the **Experiment name** that you used to train your model.
 1. Select the job that contains your model.
 1. Select **+ Register model**.
-1. Select **Next**
+1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.
 1. Select **Next**.
 1. Review the information.
@@ -262,55 +262,57 @@ A *deployment* is a set of resources required for hosting the model that does th
     az ml online-endpoint create -f endpoint.yml
     ```
 
+1. Leave the terminal open to continue using it in the next section.
+
 ### Create deployment
 
-To create your deployment, add **deployment.yml** file with the following code. 
+1. To create your deployment, add the following code to the **deployment.yml** file. 
 
-* Replace `<ENDPOINT-NAME>` with the endpoint name you defined in the **environment.yml** file
-* Replace `<DEPLOYMENT-NAME>` with the name you want to give the deployment
-* Replace `<MODEL-URI>` with the registered model's URI in the form of `azureml:modelname@latest`
-* Replace `<IMAGE-TAG>` with the value from:
+    * Replace `<ENDPOINT-NAME>` with the endpoint name you defined in the **environment.yml** file
+    * Replace `<DEPLOYMENT-NAME>` with the name you want to give the deployment
+    * Replace `<MODEL-URI>` with the registered model's URI in the form of `azureml:modelname@latest`
+    * Replace `<IMAGE-TAG>` with the value from:
+    
+         ```bash
+         echo $IMAGE_TAG
+         ```
+    
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+    name: <DEPLOYMENT-NAME>
+    endpoint_name: <ENDPOINT-NAME>
+    code_configuration:
+      code: ./src
+      scoring_script: plumber.R
+    model: <MODEL-URI>
+    environment:
+      image: <IMAGE-TAG>
+      inference_config:
+        liveness_route:
+          port: 8000
+          path: /live
+        readiness_route:
+          port: 8000
+          path: /ready
+        scoring_route:
+          port: 8000
+          path: /score
+    instance_type: Standard_DS2_v2
+    instance_count: 1
+    ```
 
-     ```bash
-     echo $IMAGE_TAG
-     ```
+1. Next, in your terminal execute the following CLI command to create the deployment (notice that you're setting 100% of the traffic to this model):
 
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: <DEPLOYMENT-NAME>
-endpoint_name: <ENDPOINT-NAME>
-code_configuration:
-  code: ./src
-  scoring_script: plumber.R
-model: <MODEL-URI>
-environment:
-  image: <IMAGE-TAG>
-  inference_config:
-    liveness_route:
-      port: 8000
-      path: /live
-    readiness_route:
-      port: 8000
-      path: /ready
-    scoring_route:
-      port: 8000
-      path: /score
-instance_type: Standard_DS2_v2
-instance_count: 1
-```
-
-Next, in your terminal execute the following CLI command to create the deployment (notice that you're setting 100% of the traffic to this model):
-
-```azurecli
-az ml online-deployment create -f r-deployment.yml --all-traffic --skip-script-validation
-```
+    ```azurecli
+    az ml online-deployment create -f r-deployment.yml --all-traffic --skip-script-validation
+    ```
 
 > [!NOTE]
 > It may take several minutes for the service to be deployed
 
 ## Test
 
-Once your deployment has been successfully created, you can test the endpoint using the Studio UI or the CLI:
+Once your deployment has been successfully created, you can test the endpoint using studio or the CLI:
 
 # [Studio](#tab/azure-studio)
 
