@@ -189,13 +189,13 @@ You'll see a confirmation that the model is registered.
 
 ## Build container
 
-1. Open a terminal window and sign in to Azure.
+1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
 
     ```azurecli
-    az login
+    az login --identity
     ```
-
-    Follow the prompt to authenticate.
+    
+    If you're not on the compute instance, omit `--identity` and follow the prompt to open a browser window to authenticate.
 
 1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
 
@@ -203,7 +203,7 @@ You'll see a confirmation that the model is registered.
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Set the default workspace.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in the Azure portal or in [Azure Machine Learning studio](tutorial-azure-ml-in-a-day.md#connect-to-the-workspace)).
+1. Set the default workspace.  If you're doing this from a compute instance, you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in [Azure Machine Learning studio](how-to-razureml-train-model.md#submit-the-job).)
 
     ```azurecli
     az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE

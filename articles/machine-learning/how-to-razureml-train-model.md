@@ -91,21 +91,21 @@ description: <DESCRIPTION>
 
 ## Submit the job
 
-Gather other pieces of information about your AzureMl workspace to use in the job submission:
+In the following commands in this section, you may need to know:
 
 - The AzureML workspace name
 - The resource group name where the workspace is
-- The subscription ID where the workspace is
+- The subscription where the workspace is
 
 Find these values from [Azure Machine Learning studio](https://ml.azure.com):
 
 1. Sign in and open your workspace.
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. Copy the values from the section that opens.  
+1. You can copy the values from the section that appears.  
 
-:::image type="content" source="media/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/find-values.png":::
+:::image type="content" source="media/how-to-razureml-train-model/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/how-to-razureml-train-model/find-values.png":::
 
-In a terminal window:
+To submit the job, run the following commands in a terminal window:
 
 1. Change directories into the `r-job-azureml`.
 
@@ -113,13 +113,13 @@ In a terminal window:
     cd r-job-azureml
     ```
 
-1. Open a terminal window and sign in to Azure.
+1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
 
     ```azurecli
-    az login
+    az login --identity
     ```
-
-    Follow the prompt to authenticate.
+    
+    If you're not on the compute instance, omit `--identity` and follow the prompt to open a browser window to authenticate.
 
 1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
 
@@ -127,7 +127,7 @@ In a terminal window:
     az account set --subscription "<SUBSCRIPTION-NAME>"
     ```
 
-1. Now use CLI to submit the job, after replacing the `<VALUES-IN-BRACKETS>` with their values (also remove the brackets `<>`). If you are doing this on a compute instance in your workspace, you can use the environment variables for the workspace name and resource group.  If you are not on a compute instance, replace these values as well.
+1. Now use CLI to submit the job. If you are doing this on a compute instance in your workspace, you can use environment variables for the workspace name and resource group as show in the following code.  If you are not on a compute instance, replace these values with your workspace name and resource group.
 
     ```azurecli
     az ml job create -f job.yml  --workspace-name $CI_WORKSPACE --resource-group $CI_RESOURCE_GROUP
