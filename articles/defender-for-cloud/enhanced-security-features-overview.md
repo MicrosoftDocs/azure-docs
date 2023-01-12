@@ -127,7 +127,7 @@ If you're using a custom workspace and enable the plan on the subscription level
 
 Enabling the Servers plan on both the subscription and its connected workspaces, won't incur a double charge. The system will identify each unique VM.
 
-If you enable the Servers plan on cross-subscription workspaces, connected VMs from all subscriptions will be billed, including subscriptions that don't have the Servers plan enabled.
+If you enable the Servers plan on cross-subscription workspaces, connected VMs with the Log Analytics agent installed from all subscriptions will be billed, including subscriptions that don't have the Servers plan enabled. Connected VMs with the Azure Monitor agent installed are billed only if the Servers plan is enabled at the subscription level.
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 
