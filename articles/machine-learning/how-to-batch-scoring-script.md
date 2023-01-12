@@ -70,8 +70,6 @@ The method receives a list of file paths as a parameter (`mini_batch`). You can 
 > 
 > Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
 
-#### Generating predictions
-
 The `run()` method should return a Pandas `DataFrame` or an array/list. Each returned output element indicates one successful run of an input element in the input `mini_batch`. For file datasets, each row/element will represent a single file processed. For a tabular dataset, each row/element will represent a row in a processed file.
 
 > [!IMPORTANT]
