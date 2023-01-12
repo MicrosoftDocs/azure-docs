@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/31/2019
-ms.author: aahi
+ms.date: 01/12/2023
+ms.author: v-apunnamara
 ---
 
 # Bing Search API use and display requirements
@@ -33,7 +33,7 @@ These use and display requirements apply to any implementation of the content an
 
 |Term  |Description  |
 |---------|---------|
-|Answer     | A category of results returned in a response. For example, a response from the Bing Web Search API can include answers in the categories of webpage results, image, video, visual, and news. |
+|Answer     | A category of results returned in a response. For example, a response from the Bing Web Search API can include answers in the categories of webpage results, image, video, and news. |
 |Response     | Any and all answers and associated data received in response to a single call to a Search API. |
 |Result    | An item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer. |
 |Search APIs    | collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Local Business Search, and Web Search APIs. |
@@ -44,6 +44,7 @@ Do not:
 
 - Copy, store, or cache any data you receive from the Bing Spell Check or Bing Autosuggest APIs.
 - Use data you receive from Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity. Do not use this data to train, evaluate, or improve new or existing services that you or third parties might offer.
+- Display data received from the Bing Spell Check or Bing Autosuggest APIs on the same page as content from any general web search engine, large language models or advertising network.
 
 ## Bing Search APIs
 
@@ -75,6 +76,8 @@ Do not:
 - Copy, store, or cache any data from responses (except retention to the extent permitted by [continuity of service](#continuity-of-service). 
 
 - Use data received from the Search APIs as part of any machine learning or similar algorithmic activity. Do not use this data to train, evaluate, or improve new or existing services that you or third parties might offer.
+
+- Display data received from the Search APIs on the same page as content from any general web search engine, large language models or advertising network.
 
 - Modify the content of results (other than to reformat them in a way that does not violate any other requirement), unless required by law or agreed to by Microsoft. 
 
