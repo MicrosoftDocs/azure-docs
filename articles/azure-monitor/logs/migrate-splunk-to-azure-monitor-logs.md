@@ -132,8 +132,8 @@ Now that you've set up Azure Monitor, to test and operationalize your Azure Moni
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/migrate-from-splunk-to-azure-monitor-full-deployment.png" alt-text="Diagram that shows the full deployment of Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/migrate-from-splunk-to-azure-monitor-full-deployment.png":::
 ## Next steps
 
-- [Enable Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
+- [Enable Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 
