@@ -210,7 +210,7 @@ items:
     items:
     - name: Integration runtime overview
       href: concepts-integration-runtime.md
-    - name: Choose the right integration-runtime configuration for your scenario
+    - name: Choose the right integration runtime configuration for your scenario
       href: choose-the-right-integration-runtime-configuration.md
   - name: Data flows
     items:
