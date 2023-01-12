@@ -161,6 +161,10 @@ Azure Front Door can now access this key vault and the certificates it contains.
     >
     > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
 
+    > [!WARNING]
+    > This is a portal only warning. Besides configuring Service Principal to have Get permission on the Key Vault, for the user to be able to see the certificate in the portal dropdown, the user account itself need to have LIST and GET permission on the Key Vault. If the user doesn't have these permissions, they will see inaccessible error message on portal. However, the inccessible error message doesn't have impact on certificate autorotation or any HTTPS function. No action is required for this error message if you don't intend to make changes to the certificate or version. But if you want to change anything in this page, please follow [Provide pemrission to Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli) to add your account to the LIST and GET permission on the Key Vault.
+
+
 5. When you use your own certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
 
 ## Validate the domain
