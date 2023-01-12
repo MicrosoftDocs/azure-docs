@@ -19,7 +19,7 @@ To use the **:::no-loc text="Universal render pipeline":::**, its package has to
 1. Select **Graphics** from the left list menu
     1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
         ![Screenshot of the Unity Project Settings dialog. The Graphics entry is selected in the list on the left. The button to select a Universal Render Pipeline asset is highlighted.](./media/settings-graphics-render-pipeline.png)\
-        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
+        Sometimes the UI doesn't populate the list of available pipeline types from the packages. If this issue occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
         ![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./media/hybrid-rendering-pipeline.png)
 
         > [!NOTE]
