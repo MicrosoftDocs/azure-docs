@@ -9,8 +9,6 @@ ms.date: 06/30/2017
 
 # U-SQL user-defined objects overview
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
-
 ## U-SQL: user-defined objects: UDO
 U-SQL enables you to define custom programmability objects, which are called user-defined objects or UDO.
 

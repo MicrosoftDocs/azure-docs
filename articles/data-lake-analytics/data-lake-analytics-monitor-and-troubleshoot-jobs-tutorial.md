@@ -8,7 +8,7 @@ ms.date: 12/05/2016
 ---
 # Monitor jobs in Azure Data Lake Analytics using the Azure Portal
 
-v
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## To see all the jobs
 

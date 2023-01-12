@@ -10,8 +10,6 @@ ms.date: 12/05/2016
 # Develop U-SQL user-defined operators (UDOs)
 This article describes how to develop user-defined operators to process data in a U-SQL job.
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
-
 ## Define and use a user-defined operator in U-SQL
 
 ### To create and submit a U-SQL job

@@ -9,8 +9,6 @@ ms.date: 06/30/2017
 
 # Use user-defined extractor
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
-
 ## U-SQL UDO: user-defined extractor
 U-SQL allows you to import external data by using an EXTRACT statement. An EXTRACT statement can use built-in UDO extractors:  
 

@@ -9,8 +9,6 @@ ms.date: 06/30/2017
 
 # Use user-defined outputter
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
-
 ## U-SQL UDO: user-defined outputter
 User-defined outputter is another U-SQL UDO that allows you to extend built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
 
