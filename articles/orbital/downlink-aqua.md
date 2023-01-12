@@ -1,12 +1,12 @@
 ---
 title: Downlink data from NASA's Aqua satellite by using Azure Orbital Ground Station
 description: Learn how to schedule a contact with NASA's Aqua public satellite by using the Azure Orbital Ground Station service.
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
-ms.author: wamota
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from NASA's Aqua public satellite into Azure.
 ---
 
