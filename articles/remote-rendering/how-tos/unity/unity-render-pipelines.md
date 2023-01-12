@@ -7,13 +7,23 @@ ms.date: 01/12/2022
 ms.topic: how-to
 ---
 
-# Unity render pipelines
+# Unity Render Pipelines
 
 Remote Rendering works with both the **:::no-loc text="Standard render pipeline":::** ("built-in render pipeline") and the **:::no-loc text="Universal render pipeline":::** ("URP"). For performance reasons, it's recommended to use the built-in render pipeline, unless there are strong reasons that require URP.
 
 ## Setup Universal Render Pipeline
 
-To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. The installation can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.3.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-and-openxr-packages).
+To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. The installation can be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.3.1 or newer), as described in the [Unity - Manual:  Installing from a registry](https://docs.unity3d.com/Manual/upm-ui-install.html).
+
+1. Open *Edit > Project Settings...*
+1. Select **Graphics** from the left list menu
+    1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
+        ![Screenshot of the Unity Project Settings dialog. The Graphics entry is selected in the list on the left. The button to select a Universal Render Pipeline asset is highlighted.](./media/settings-graphics-render-pipeline.png)\
+        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
+        ![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./media/hybrid-rendering-pipeline.png)
+
+        > [!NOTE]
+        > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
 
 ## Next steps
 
