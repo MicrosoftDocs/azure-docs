@@ -9,8 +9,8 @@ ms.topic: reference
 
 This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors and on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as preconfigured appliances.
-
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 |Appliance characteristic  | Description|
 |---------|---------|

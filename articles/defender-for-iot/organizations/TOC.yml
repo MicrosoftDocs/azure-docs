@@ -19,8 +19,10 @@
   items:
   - name: Get started with OT security monitoring
     href: getting-started.md
+    displayName: onboard
   - name: Enable Enterprise IoT security
     href: eiot-defender-for-endpoint.md
+    displayName: onboard
 - name: Tutorials
   expanded: false
   items:
@@ -49,6 +51,7 @@
         displayName: users, user
     - name: OT system architecture
       href: architecture.md
+      displayName: committed devices
     - name: OT sensor cloud connection methods
       href: architecture-connections.md
     - name: OT network monitoring best practices
@@ -86,10 +89,13 @@
       items:
       - name: Azure portal
         href: how-to-manage-device-inventory-for-organizations.md
+        displayName: devices, assets, inventory
       - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+        displayName: devices, assets, inventory
       - name: On-premises management console
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+        displayName: devices, assets, inventory
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT devices per zone
@@ -115,6 +121,7 @@
     items:
     - name: Visualize data with workbooks
       href: workbooks.md
+      displayName: graphs, vulnerabilities
     - name: Create OT sensor reports
       items:
       - name: Create data mining reports
@@ -138,6 +145,7 @@
       href: integrate-overview.md
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
+      displayName: Splunk
     - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
@@ -174,6 +182,7 @@
       items:
       - name: Overview
         href: best-practices/traffic-mirroring-methods.md
+        displayName: traffic mirroring, SPAN port
       - name: Configure a switch SPAN port
         href: traffic-mirroring/configure-mirror-span.md
       - name: Configure a remote SPAN (RSPAN)
@@ -188,6 +197,7 @@
         href: traffic-mirroring/configure-mirror-hyper-v.md
     - name: Manage OT plans on Azure subscriptions
       href: how-to-manage-subscriptions.md
+      displayName: onboard
     - name: Onboard OT sensors
       href: onboard-sensors.md
     - name: Install OT monitoring software
@@ -202,24 +212,30 @@
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Deploy OT certificates
       href: how-to-deploy-certificates.md
+      displayName: SSL, TLS
     - name: Connect OT sensors to the cloud
       items:
       - name: Connect OT sensors to Defender for IoT
         href: connect-sensors.md
+        displayName: proxy
       - name: Connect OT sensors with a proxy (legacy)
         href: how-to-connect-sensor-by-proxy.md
     - name: Activate and set up your on-premises management console
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      displayName: sites, zones
     - name: Add support for proprietary protocols
       href: resources-manage-proprietary-protocols.md
   - name: Set up Enterprise IoT network monitoring
     items:
     - name: Manage Enterprise IoT plans on Azure subscriptions
       href: manage-subscriptions-enterprise.md
+      displayName: onboard
     - name: Discover Enterprise IoT devices
       href: eiot-sensor.md
+      displayName: Enterprise IoT sensor
     - name: Extra deployment steps and samples
       href: extra-deploy-enterprise-iot.md
+      displayName: Enterprise IoT sensor
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
   - name: Create and manage users
@@ -288,6 +304,7 @@
     items:
     - name: Overview
       href: appliance-catalog/index.yml
+      displayName: appliance catalog
     - name: Corporate environments
       items:
       - name: HPE ProLiant DL360
