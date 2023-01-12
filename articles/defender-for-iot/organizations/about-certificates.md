@@ -119,4 +119,5 @@ Verify that you've met the following parameter requirements before creating a ce
 
 ## Next steps
 
-For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+> [!div class="nextstepaction"]
+> [Identify required appliances](how-to-identify-required-appliances.md).
