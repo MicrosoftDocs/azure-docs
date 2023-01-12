@@ -3,13 +3,13 @@ title: Indexer troubleshooting guidance
 titleSuffix: Azure Cognitive Search
 description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search. 
 
-manager: nitinme
-author: mgottein
-ms.author: magottei
+manager: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/24/2022
+ms.date: 12/01/2022
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -235,6 +235,7 @@ Indexers leverage a conservative buffering strategy to ensure that every new and
 
 - On-demand indexer requests are issued in quick succession
 - The data source's topology includes multiple replicas and partitions (one such example is discussed [here](../cosmos-db/consistency-levels.md))
+- The data source is an Azure SQL database and the column chosen as "high water mark" is of type `datetime2`
 
 Indexers are not intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.
 

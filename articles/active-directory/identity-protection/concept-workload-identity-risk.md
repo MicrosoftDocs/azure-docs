@@ -68,9 +68,9 @@ Organizations can find workload identities that have been flagged for risk in on
    
 :::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
-### Graph APIs
+### Microsoft Graph APIs
 
-You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root?view=graph-rest-beta&preserve-view=true) 
+You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root). 
 
 - riskyServicePrincipals
 - servicePrincipalRiskDetections

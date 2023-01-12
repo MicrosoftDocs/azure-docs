@@ -49,7 +49,7 @@ Models can get logged by using MLflow SDK:
 
 ```python
 import mlflow
-mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+mlflow.sklearn.log_model(sklearn_estimator, "classifier")
 ```
 
 

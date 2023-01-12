@@ -45,7 +45,7 @@ The following steps show how to create a lab with Azure Lab Services.
         :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
     1. You can create a lab with a customizable template VM, or with a VM image that has no customization. 
-       - Template labs allow you to create a customizable template VM for the class and add software to it for the class. Your base image can be from a marketplace image or from your IT department (through a shared image gallery). 
+       - Template labs allow you to create a customizable template VM for the class and add software to it for the class. Your base image can be from an Azure Marketplace image or from your IT department through an Azure Compute Gallery. 
        - Templateless labs don't allow you to install any further software or tools on your image. You can use an Azure Marketplace image with the tools you need already installed, an image exported from a previous lab, or a pre-configured image supplied by your IT department. Templateless labs take around 5 minutes to create. </br>
        
         1. To create a lab with a customizable template, on the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.

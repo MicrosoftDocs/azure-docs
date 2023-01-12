@@ -370,5 +370,5 @@ See these notebooks for examples of training with various compute targets:
 * Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
 * [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)

@@ -16,7 +16,7 @@ ms.date: 11/30/2022
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-In Azure Cosmos DB for NoSQL, data is scehma-free and typically denormalized. Instead of joining data across entities and sets, like you would in a relational database, joins occur within a single item. Specifically, joins are scoped to that item and can't occur across multiple items and containers.
+In Azure Cosmos DB for NoSQL, data is schema-free and typically denormalized. Instead of joining data across entities and sets, like you would in a relational database, joins occur within a single item. Specifically, joins are scoped to that item and can't occur across multiple items and containers.
 
 > [!TIP]
 > If you find yourself needing to join across items and containers, consider reworking your [data model](../../modeling-data.md) to avoid this.
@@ -315,112 +315,6 @@ WHERE
   }
 ]
 ```
-
-## Under the hood - syntax
-
-The query language supports the syntax `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. This query returns a set of tuples with `N` values. Each tuple has values produced by iterating all container aliases over their respective sets.
-
-Let's look at the following FROM clause:
-
-```sql
-<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>
-```  
-  
-Let each source define `input_alias1, input_alias2, …, input_aliasN`. This `FROM` clause returns a set of `N`-tuples (tuple with `N` values). Each tuple has values produced by iterating all container aliases over their respective sets.
-  
-### First example (two sources)
-  
-- Let `<from_source1>` be container-scoped and represent set **{A, B, C}**.  
-  
-- Let `<from_source2>` be item-scoped referencing `input_alias1` and represent sets:  
-  
-  - **{1, 2}** for `input_alias1 = A`
-  
-  - **{3}** for `input_alias1 = B`  
-  
-  - **{4, 5}** for `input_alias1 = C`  
-  
-- The FROM clause `<from_source1> JOIN <from_source2>` will result in the following tuples:  
-  
-  - (`input_alias1, input_alias2`):  
-  
-    - `(A, 1)`
-
-    - `(A, 2)`
-
-    - `(B, 3)`
-
-    - `(C, 4)`
-
-    - `(C, 5)`  
-  
-### Second example (three sources)
-  
-- Let `<from_source1>` be container-scoped and represent set **{A, B, C}**.  
-  
-- Let `<from_source2>` be item-scoped referencing `input_alias1` and represent sets:  
-  
-  - **{1, 2}** for `input_alias1 = A`  
-  
-  - **{3}** for `input_alias1 = B`  
-  
-  - **{4, 5}** for `input_alias1 = C`  
-  
-- Let `<from_source3>` be item-scoped referencing `input_alias2` and represent sets:  
-  
-  - **{100, 200}** for `input_alias2 = 1`  
-  
-  - **{300}** for `input_alias2 = 3`  
-  
-- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
-  
-  - `(input_alias1, input_alias2, input_alias3)`:
-  
-    - `(A, 1, 100)`
-
-    - `(A, 1, 200)`
-
-    - `(B, 3, 300)`
-  
-  > [!NOTE]
-  > This example results includes a lack of tuples for other values of `input_alias1` and `input_alias2`. For these input values, `<from_source3>` did not return any values.  
-  
-### Third example (three sources)
-  
-- Let `<from_source1>` be container-scoped and represent set **{A, B, C}**.  
-  
-- Let `<from_source2>` be item-scoped referencing `input_alias1` and represent sets:  
-  
-  - **{1, 2}** for `input_alias1 = A`  
-  
-  - **{3}** for `input_alias1 = B`  
-  
-  - **{4, 5}** for `input_alias1 = C`  
-  
-- Let `<from_source3>` be scoped to `input_alias1` and represent sets:  
-  
-  - **{100, 200}** for `input_alias2 = A`  
-  
-  - **{300}** for `input_alias2 = C`  
-  
-- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
-  
-  - `(input_alias1, input_alias2, input_alias3)`:  
-  
-    - `(A, 1, 100)`
-
-    - `(A, 1, 200)`
-
-    - `(A, 2, 100)`
-
-    - `(A, 2, 200)`
-
-    - `(C, 4, 300)`
-
-    - `(C, 5, 300)`
-  
-  > [!NOTE]
-  > This query resulted in a cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.This result includes four (**2x2**) tuples having value `A`, no tuples having value `B` (**1x0**) and two (**2x1**) tuples having value `C`.  
 
 ## Next steps
 

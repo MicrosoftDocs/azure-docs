@@ -54,7 +54,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 2. Next, use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
-    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#overview-data-plane-apis) and [control plane](concepts-apis-sdks.md#overview-control-plane-apis) APIs.
+    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#data-plane-apis) and [control plane](concepts-apis-sdks.md#control-plane-apis) APIs.
 
     # [Data plane](#tab/data-plane)
     
@@ -164,7 +164,7 @@ Follow these steps to add a bearer token to the collection for authorization. Us
 
 # [Data plane](#tab/data-plane)
 
-If you're making a [data plane](concepts-apis-sdks.md#overview-data-plane-apis) collection, help the collection connect easily to your Azure Digital Twins resources by setting some variables provided with the collections. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
+If you're making a [data plane](concepts-apis-sdks.md#data-plane-apis) collection, help the collection connect easily to your Azure Digital Twins resources by setting some variables provided with the collections. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
 
 1. Still in the edit dialog for your collection, move to the **Variables** tab.
 
@@ -178,7 +178,7 @@ When you're finished with the above steps, you're done configuring the collectio
 
 # [Control plane](#tab/control-plane)
 
-If you're making a [control plane](concepts-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
+If you're making a [control plane](concepts-apis-sdks.md#control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
 
 --- 
 

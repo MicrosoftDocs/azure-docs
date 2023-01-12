@@ -18,6 +18,9 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
+> [!NOTE]
+> The examples in this article assume that you've created a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md) article.
+
 ## Understand container listing options
 
 To list containers in your storage account, call one of the following methods:
