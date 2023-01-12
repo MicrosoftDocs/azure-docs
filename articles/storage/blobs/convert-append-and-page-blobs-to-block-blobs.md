@@ -16,52 +16,99 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Convert append blobs and page blobs to block blobs
 
-Introduction goes here.
+Explain that you don't actually convert them, you copy them to new blobs of type block blob.
 
 ## Convert append and page blobs
 
-Short description goes here.
+Convert append and page blobs to block blobs by using PowerShell, Azure CLI, and AzCopy.
 
 ### [PowerShell](#tab/azure-powershell)
 
-To convert an append or page blob to a block blob, use the [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command. Remember to replace the placeholder values in brackets with your own values:
+1. Open a Windows PowerShell command window.
 
-```powershell
-$containerName = <source container name>
-$srcblobName = <source append or page blob name>
-$destcontainerName = <destination container name>
-$destblobName = <destination block blob name>
-$destTier = <destination block blob tier>
+2. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
-Copy-AzStorageBlob -SrcContainer $containerName -SrcBlob $srcblobName -Context $ctx -DestContainer $destcontainerName -DestBlob $destblobName -DestContext $ctx -DestBlobType Block -StandardBlobTier $destTier
-```
+   ```powershell
+   Connect-AzAccount
+   ```
+
+3. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account which contains the append or page blobs.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId '<subscription-id>'
+   Set-AzContext $context
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+4. Create the storage account context by using the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) command. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure Active Directory (Azure AD) credentials.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage account name>' -UseConnectedAccount
+   ```
+
+5. Use the [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command. Replace the placeholder values in brackets with your own values.
+
+   ```powershell
+   $containerName = '<source container name>'
+   $srcblobName = '<source append or page blob name>'
+   $destcontainerName = '<destination container name>'
+   $destblobName = '<destination block blob name>'
+   $destTier = '<destination block blob tier>'
+
+   Copy-AzStorageBlob -SrcContainer $containerName -SrcBlob $srcblobName -Context $ctx -DestContainer $destcontainerName -DestBlob $destblobName -DestContext $ctx -DestBlobType Block -StandardBlobTier $destTier
+   ```
+
+   > [!TIP]
+   > The `-StandardBlobTier` parameter is optional. If you omit that parameter, then the destination blob infers its tier from the [default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting). To change the tier after you've created a block blob, see [Change a blob's tier](access-tiers-online-manage.md#change-a-blobs-tier). 
+
 
 ### [Azure CLI](#tab/azure-cli)
 
-To convert an append or page blob to a block blob, use the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command. Then, use the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace the placeholder values in brackets with your own values:
+1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-```azurecli
-# CLI 2.44.0 and above is required.
-# convert to block blobs and write to desired tier directly. 
-        az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-blob $srcblobName --source-container $containerName --tier $destTier
-# convert to block blobs and change tier later. 
-        az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-blob $srcblobName --source-container $containerName
-        az storage blob set-tier --account-name $accountName --container-name $destcontainerName --name $destBlobName --tier $destTier
-```
+   > [!NOTE]
+   > If you're using a locally installed version of the Azure CLI, ensure that you are using version 2.44.O or later. 
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of storage account which contains the append or page blobs.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+3. Use the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command. Then, use the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Replace the placeholder values in brackets with your own values.
+
+   ```azurecli
+   containerName = '<source container name>'
+   srcblobName = '<source append or page blob name>'
+   destcontainerName = '<destination container name>'
+   destblobName = '<destination block blob name>'
+   destTier = '<destination block blob tier>'
+
+   az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-blob $srcblobName --source-container $containerName --tier $destTier
+   ```
+
+   > [!TIP]
+   > The `--tier` parameter is optional. If you omit that parameter, then the destination blob infers its tier from the [default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting). To change the tier after you've created a block blob, see [Change a blob's tier](access-tiers-online-manage.md#change-a-blobs-tier). 
+
 
 ### [AzCopy](#tab/azcopy)
 
-To blah, use the [azcopy copy](../common/storage-ref-azcopy-copy.md) command. Specify the source and destination paths, set the `blob-type` parameter to `BlockBlob` and set the `--block-blob-tier` to the desired tier. 
+Use the [azcopy copy](../common/storage-ref-azcopy-copy.md) command. Specify the source and destination paths. Set the `blob-type` parameter to `BlockBlob`. Replace the placeholder values in brackets with your own values.
 
 ```azcopy
-azcopy copy <SourceBlobPath> <DestinationBlobPath> --blob-type BlockBlob --block-blob-tier $destTier
+azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<append-or-page-blob-name>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<name-of-new-block-blob>' --blob-type BlockBlob --block-blob-tier <destination-tier>
 ```
 
-For other examples, see [Upload files to Azure Blob storage by using AzCopy](../common/storage-use-azcopy-blobs-upload.md).
+> [!TIP]
+> The `--block-blob-tier` parameter is optional. If you omit that parameter, then the destination blob infers its tier from the [default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting). To change the tier after you've created a block blob, see [Change a blob's tier](access-tiers-online-manage.md#change-a-blobs-tier). 
 
 ---
 
 ## See also
 
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
-- [Best practices for using blob access tiers](access-tiers-best-practices.md)
+- [Set a blob's access tier](access-tiers-online-manage.md)
+- [Best practices for using blob access tiers](access-tiers-baset-practices.md)
