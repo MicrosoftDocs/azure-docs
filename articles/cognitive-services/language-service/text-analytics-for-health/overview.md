@@ -33,16 +33,9 @@ Text Analytics for health extracts and labels relevant medical information from 
 
 > [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
-## Get started with Text analytics for health
+## Get started with Text Analytics for health
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are three ways to use Text Analytics for health:
-
-
-|Development option  |Description  | Links | 
-|---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try Text Analytics for health without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
-| REST API or Client library (Azure SDK)     | Integrate Text Analytics for health into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
-| Docker container | Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. | • [How to deploy on-premises](how-to/use-containers.md) |
+[!INCLUDE [Development options](./includes/development-options.md)] 
 
 ## Input requirements and service limits
 

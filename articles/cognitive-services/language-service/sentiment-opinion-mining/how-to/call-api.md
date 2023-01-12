@@ -46,6 +46,10 @@ For example, if a customer leaves feedback about a hotel such as "The room was g
 
 If you're using the REST API, to get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
+## Development options
+
+[!INCLUDE [development options](../includes/development-options.md)]
+
 ## Determine how to process the data (optional)
 
 ### Specify the sentiment analysis model
