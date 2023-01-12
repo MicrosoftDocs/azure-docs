@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 In Azure Automation, you can enable the Update Management, Change Tracking and Inventory, and Start/Stop VMs during off-hours features for your servers and virtual machines. These features have a dependency on a Log Analytics workspace, and therefore require linking the workspace with an Automation account. However, only certain regions are supported to link them together. In general, the mapping is *not* applicable if you plan to link an Automation account to a workspace that won't have these features enabled.
 
-The mappings discussed here applying only to linking the Log Analytics Workspace to an Automation account. They don't apply to the virtual machines (VMs) that are connected to the workspace that's linked to the Automation Account. VMs aren't limited to the regions supported by a given Log Analytics workspace. They can be in any region. Keep in mind that having the VMs in a different region may affect state, local, and country regulatory requirements, or your company's compliance requirements. Having VMs in a different region could also introduce data bandwidth charges.
+The mappings discussed here applying only to linking the Log Analytics Workspace to an Automation account. They don't apply to the virtual machines (VMs) that are connected to the workspace that's linked to the Automation Account. VMs aren't limited to the regions supported by a given Log Analytics workspace. They can be in any region. Keep in mind that having the VMs in a different region may affect state, local, and country/regional regulatory requirements, or your company's compliance requirements. Having VMs in a different region could also introduce data bandwidth charges.
 
 Before connecting VMs to a workspace in a different region, you should review the requirements and potential costs to confirm and understand the legal and cost implications.
 
@@ -22,7 +22,7 @@ This article provides the supported mappings in order to successfully enable and
 
 For more information, see [Log Analytics workspace and Automation account](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
-## Supported mappings for version 1
+## Supported mappings for Log Analytics and Azure Automation
 
 > [!NOTE]
 > As shown in following table, only one mapping can exist between Log Analytics and Azure Automation.

@@ -5,9 +5,9 @@ description: Learn about client libraries for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 01/04/2022
 ms.author: franlanglois
-
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
 ---
 
 # Client libraries
@@ -83,6 +83,8 @@ clusterServersConfig:
   keepAlive: false
   tcpNoDelay: true
 ```
+
+For an article demonstrating how to use Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 ## How to use client libraries
 
