@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Azure Key Vault keys client library for .NET (version 4)
-description: Learn how to create, retrieve, and delete keys from an Azure key vault using the .NET client library (version 4)
+title: Quickstart - Azure Key Vault keys client library for .NET
+description: Learn how to create, retrieve, and delete keys from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/04/2023
@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-csharp, devx-track-azurepowershell, mode-api, passwordless-dotnet
 ---
 
-# Quickstart: Azure Key Vault key client library for .NET (SDK v4)
+# Quickstart: Azure Key Vault key client library for .NET
 
 Get started with the Azure Key Vault key client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for cryptographic keys. You can securely store cryptographic keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete keys from an Azure key vault using the .NET key client library
 
@@ -131,11 +131,9 @@ using Azure.Security.KeyVault.Keys;
 
 ### Authenticate and create a client
 
-Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/dotnet/azure/sdk/authentication#defaultazurecredential) class provided by the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code.
+Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/dotnet/azure/sdk/authentication#defaultazurecredential) class provided by the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-Some Azure services also allow you to authorize requests using passwords, connection strings, or other credentials directly. However, these options should be used with caution. Developers must be diligent to never expose these secrets in an unsecure location. Anyone who gains access to the password or secret key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits to allow passwordless authentication and avoid these types of issues. 
-
-`DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
 In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
