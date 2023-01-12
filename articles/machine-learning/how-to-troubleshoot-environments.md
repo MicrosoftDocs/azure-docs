@@ -913,9 +913,8 @@ without using quotes. Consider adding quotes around the package specification
 This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
 
 **Potential causes:**
-* The path name to the container registry is incorrect
+* A transient issue has occurred with the ACR associated with the workspace.
 * A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
-* You haven't provided credentials for a private registry you're trying to push the image to, or the provided credentials are incorrect
 
 
 **Affected areas (symptoms):**
