@@ -20,7 +20,10 @@ items:
     href: onboarding.md
   - name: Interoperability with Microsoft Operator Connect and Teams Phone Mobile
     href: interoperability.md
+  - name: Resiliency and redundancy in Azure Communications Gateway
+    href: resiliency.md
 - name: How-to guides
   items:
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
+  

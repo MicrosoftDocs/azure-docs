@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: Interoperability of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
             url: interoperability.md
+          - text: Resiliency and redundancy in Azure Communications Gateway
+            url: resiliency.md
 
   # Card            
   - title: Learn how to deploy Azure Communications Gateway
