@@ -620,6 +620,8 @@ items:
               href: storage-blobs-tune-upload-download.md
             - name: Implement a retry policy
               href: storage-retry-policy.md
+            - name: Logging
+              href: /dotnet/azure/sdk/logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Manage concurrency
               href: concurrency-manage.md
             - name: Provide an encryption key on a write request
