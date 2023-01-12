@@ -119,7 +119,7 @@ This table lists the tools to use to collect data from various resource types.
 | **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
-# 5. Test
+# 5. Test and operationalize
 
 1. Query your data using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
 1. [Optimize query performance](../logs/query-optimization.md). 
