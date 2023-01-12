@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 01/12/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -114,7 +114,7 @@ You can choose to prioritize accuracy or latency with language identification.
 Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results.
 
 * **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned within 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.
-* **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. You set the priority for continuous LID with the `SpeechServiceConnection_ContinuousLanguageIdPriority` property.
+* **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. Continuous LID in `Accuracy` mode isn't supported with [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition.
 
 > [!IMPORTANT]
 > With [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition, do not set `Accuracy` with the SpeechServiceConnection_ContinuousLanguageIdPriority property. The setting will be ignored without error, and the default priority of `Latency` will remain in effect. 
@@ -170,6 +170,7 @@ Language identification is completed with recognition objects and operations. Yo
 
 > [!NOTE]
 > Don't confuse recognition with identification. Recognition can be used with or without language identification.
+
 Let's map these concepts to the code. You will either call the recognize once method, or the start and stop continuous recognition methods. You choose from:
 
 - Recognize once with at-start LID
@@ -1057,8 +1058,8 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-# Set the Priority (optional, default Latency, either Latency or Accuracy is accepted)
-translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
+# Set the Priority (optional, default Latency)
+translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
 auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])
