@@ -21,6 +21,7 @@ If you also want to move your Azure Stack Edge (ASE) resources, see TODO:link.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Verify pricing and charges associated with the target region to which you're moving.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
+- Decide whether you want the deployment in the source region to remain fully operational during and after the region move.
 
 ## Prepare to move your resources
 
@@ -28,18 +29,18 @@ If you also want to move your Azure Stack Edge (ASE) resources, see TODO:link.
 
 For security reasons, Azure Private 5G Core will never return the SIM credentials provided to the service as part of SIM creation. Therefore, it's not possible to export the SIM configuration in the same way as other Azure resources, and you'll need to delete your SIMs to avoid errors before performing an Azure region move.
 
-1. Refer to [Collect the required information for your SIMs](provision-sims-azure-portal.md#collect-the-required-information-for-your-sims) to take a backup of all the information you'll need to recreate your SIMs. You can view all your SIMs and SIM groups by following [View existing SIMs](manage-existing-sims.md#view-existing-sims).
-1. Follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
+1. Refer to [Collect the required information for your SIMs](provision-sims-azure-portal.md#collect-the-required-information-for-your-sims) to take a backup of all the information you'll need to recreate your SIMs. You can view all your SIMs and SIM groups by following [View existing SIMs](manage-existing-sims.md#view-existing-sims). <!-- TODO: steps to view SIMs and static IP configuration -->
+1. If you don't need your deployment to stay operational during or after the region move, follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
 
 ### Disable custom location
 
-Before moving your resources, you'll need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**.
+Before moving your resources, you'll need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. Only follow this step if you don't need your deployment to stay online in the original region.
 
-1. For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the following changes:
+1. For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the changes below. You can ignore the sections about attaching and modifying data networks.
 
-    1. In [Modify the packet core configuration](modify-packet-core.md#modify-the-packet-core-configuration), make a note of the custom location value in the **Custom ARC location** field.
+    1. In *Modify the packet core configuration*, make a note of the custom location value in the **Custom ARC location** field.
     1. Set the **Custom ARC location** field to **None**.
-    1. In [Submit and verify changes](modify-packet-core.md#submit-and-verify-changes), the packet core will be redeployed at an uninstalled state.
+    1. In *Submit and verify changes*, the packet core will be uninstalled.
 
 ### Generate template
 
@@ -63,6 +64,7 @@ You'll need to customize your template to ensure all your resources are correctl
 1. Open the *template.json* file you downloaded in [Generate template](#generate-template).
 1. Find every instance of the original region's code name and replace it with the target region you're moving your deployment to. This involves updating the **location** parameter for every resource. See TODO:link for instructions on how to obtain the target region's code name.
 1. Find every instance of the original region's resource group name and replace it with the target region's resource group name you defined in [Prerequisites](#prerequisites).
+1. If you decided in TODO to disable the custom location and delete SIMs via the template, ... <!-- TODO -->
 
 ### Deploy template
 
