@@ -112,7 +112,7 @@ Management regions can be co-located with service regions. We recommend choosing
 
 ## Service-level agreements
 
-The resiliency design described in this document is implemented by Microsoft and isn't configurable. For more information on the Azure Communications Gateway service-level agreements (SLAs), see the [Azure Communications Gateway SLA](https://azure.microsoft.com/support/legal/sla/communications-gateway).
+The resiliency design described in this document is implemented by Microsoft and isn't configurable. For more information on the Azure Communications Gateway service-level agreements (SLAs), see the Azure Communications Gateway SLA.
 
 ## Next steps
 
