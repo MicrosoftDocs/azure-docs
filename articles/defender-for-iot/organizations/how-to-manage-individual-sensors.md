@@ -132,11 +132,11 @@ Sensor Administrators may be required to update certificates that were uploaded 
     - Upload a CRT file and key file.
     - Upload a PEM file if necessary.
 
-If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+If the upload fails, contact your security or IT administrator, or review the information in [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](about-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted, and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [Verify CRL server access](how-to-deploy-certificates.md#verify-crl-server-access) for more information.
 
 1. Select **Save**.
 

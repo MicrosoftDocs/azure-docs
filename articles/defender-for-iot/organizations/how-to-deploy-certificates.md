@@ -18,7 +18,7 @@ Some organizations also validate their certificates against a Certificate Revoca
 
 Each certificate authority (CA)-signed certificate must have both a `.key` file and a `.crt` file, which are uploaded to OT network sensors and on-premises management consoles after the first sign-in. While some organizations may also require a `.pem` file, a `.pem` file isn't required for Defender for IoT.
 
-Make sure to create a unique certificate for each OT sensor, on-premises management console, and HA server, where each certificate meets required parameter criteria. For more information, see [Certificates for appliance encryption and authentication (OT appliances)](about-certificates.md).
+Make sure to create a unique certificate for each OT sensor, on-premises management console, and HA server, where each certificate meets required parameter criteria.
 
 ## Prerequisites
 
@@ -63,7 +63,9 @@ Create SSL/TLS certificates by first downloading the certificate from the OT sen
 
     1. Select **Finish** to export the certificate.
 
-    > [!NOTE] You may need to convert existing files types to supported types. For more information, see [Convert existing files to supported files](#convert-existing-files-to-supported-files).
+    > [!NOTE]
+    > You may need to convert existing files types to supported types.
+    > For more information, see [Convert existing files to supported files](#convert-existing-files-to-supported-files).
 
 1. <a name="1"></a> Verify that the certificates meet the following requirements:
 
@@ -76,7 +78,7 @@ Create SSL/TLS certificates by first downloading the certificate from the OT sen
         | **Valid from** | A  valid past date |
         | **Valid To** | A valid future date |
         | **Public Key** | RSA 2048 bits (Minimum) or 4096 bits |
-        | **CRL Distribution Point** | URL to a CRL server. If your organization doesn't [validate certificates against a CRL server](verify-crl-server-access), remove this line from the certificate. |
+        | **CRL Distribution Point** | URL to a CRL server. If your organization doesn't [validate certificates against a CRL server](#verify-crl-server-access), remove this line from the certificate. |
         | **Subject CN (Common Name)** | domain name of the appliance, such as *sensor.contoso.com*, or *.contoso.com* |
         | **Subject (C)ountry** | Certificate country code, such as `US` |
         | **Subject (OU) Org Unit** | The organization's unit name, such as *Contoso Labs* |
@@ -222,7 +224,7 @@ You won't be able to upload certificates to your OT sensors or on-premises manag
 | **Cannot validate chain of trust. The provided Certificate and Root CA don't match.**  | Make sure a `.pem` file correlates to the  `.crt` file. <br> If the problem continues, try recreating the certificate using the correct chain of trust, as defined by the `.pem` file. |
 | **This SSL certificate has expired and isn't considered valid.**  | Create a new certificate with valid dates.|
 |**This certificate has been revoked by the CRL and can't be trusted for a secure connection** | Create a new unrevoked certificate. |
-|**The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance** | Make sure that your network configuration allows the sensor or on-premises management console to reach the CRL server defined in the certificate. <br> For more information, see [CRL server](#verify-crl-server-access). |
+|**The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance** | Make sure that your network configuration allows the sensor or on-premises management console to reach the CRL server defined in the certificate. <br> For more information, see [CRL server access](#verify-crl-server-access). |
 |**Certificate validation failed**  | This indicates a general error in the appliance. <br> Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
 
 ## Next steps

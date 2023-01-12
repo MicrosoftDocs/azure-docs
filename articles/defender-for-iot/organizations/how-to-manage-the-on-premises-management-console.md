@@ -48,9 +48,9 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, **Adin** users are prompted to provide an SSL/TLS certificate.
 
-If your certificate has expired, make sure to create a new one and upload it to your sensor. 
+If your certificate has expired, make sure to create a new one and upload it to your sensor.
 
-For more information, see [ADD XREF TO NEW PROCEDURE IN THE OTHER PAGE](xref).
+For more information, see [Create SSL/TLS certificates](how-to-deploy-certificates.md#create-ssltls-certificates).
 
 Following on-premises management console installation, a local self-signed certificate is generated and used to access the web application. When logging in to the on-premises management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate.
 
@@ -74,7 +74,7 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](about-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [Verify CRL server access](how-to-deploy-certificates.md#verify-crl-server-access) for more information.
 
 1. Select **Save**.
 
