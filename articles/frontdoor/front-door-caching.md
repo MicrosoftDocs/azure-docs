@@ -118,7 +118,9 @@ When you configure caching, you specify how the cache should handle query string
 
 ::: zone pivot="front-door-standard-premium"
 
-* **Specify cache key query string** behavior, to include, or exclude specified parameters when cache key gets generated. For example, the default cache key is: /foo/image/asset.html, and the sample request is `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. There's a rule set rule to exclude query string 'userid'. Then the query string cache-key would be `/foo/image/asset.html?language=EN&sessionid=200`.
+* **Specify cache key query string** behavior to include or exclude specified parameters when the cache key is generated.
+
+  For example, suppose that the default cache key is `/foo/image/asset.html`, and a request is made to the URL `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. If there's a rules engine rule to exclude the `userid` query string parameter, then the query string cache key would be `/foo/image/asset.html?language=EN&sessionid=200`.
 
 Configure the query string behavior on the Front Door route.
 
