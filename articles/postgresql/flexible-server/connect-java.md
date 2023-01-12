@@ -206,7 +206,7 @@ az postgres flexible-server db create \
 Next, create a non-admin user and grant all permissions to the database.
 
 > [!NOTE]
-> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/flexible-server/how-to-create-users).
+> You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](./how-to-create-users.md).
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
