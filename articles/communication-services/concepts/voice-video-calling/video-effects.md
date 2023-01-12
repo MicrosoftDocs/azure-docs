@@ -2,7 +2,7 @@
 ms.author: micahvivion
 title: Azure Communication Services Calling video WebJS video effects
 titleSuffix: An Azure Communication Services document
-description: In this document you'll learn how to create video effects on a Azure Communication Services call.
+description: In this document, you'll learn how to create video effects on an Azure Communication Services call.
 author: sloanster
 services: azure-communication-services
 
@@ -25,11 +25,11 @@ ms.subservice: calling
 > [!NOTE]
 > This library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
 
-The Azure Communication Calling SDK allows you to create video effects that other viewsers on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. With background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
+The Azure Communication Calling SDK allows you to create video effects that other users on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. With background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
 
 ## Prerequisites
 ### Install the Azure Communication Services Calling SDK
-- An Azure account with an active subscription is required. Please see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription is required. See [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) on how to create an Azure account.
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A User Access Token to instantiate a call client. Learn how to [create and manage user access tokens](../../quickstarts/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
@@ -47,7 +47,7 @@ Use ‘npm install’ command to install the Azure Communication Calling Effects
 'npm install @azure/communication-calling-effects –save'
 
 ## Supported video effects:
-Currently the video effects supports the following ability:
+Currently the video effects support the following ability:
 - Background blur 
 - Replace the background with a custom image 
 
@@ -55,16 +55,16 @@ Currently the video effects supports the following ability:
 
 Currently creating video effects is only supported on Chrome Desktop Browser and Mac Safari Desktop.
 
-### Class model:
+## Class model:
 
 | Name  | Description  |
 |---|---|
 | BackgroundBlurEffect  | The background blur effect class.  |
 | BackgroundReplacementEffect  | The background replacement with image effect class.  |
 
-To use video effects with the Azure Communication Calling client library, once you have created a LocalVideoStream, you need to get the VideoEffects feature API of from the LocalVideoStream. 
+To use video effects with the Azure Communication Calling client library, once you've created a LocalVideoStream, you need to get the VideoEffects feature API of from the LocalVideoStream. 
 
-## Code examples
+### Code examples
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { BackgroundBlur, BackgroundReplacement } from '@azure/communication-calling-effects'; 
