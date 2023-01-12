@@ -86,7 +86,6 @@ Use the traditional VNet option when:
 
 The overlay solution has the following limitations today
 
-* Only available for Linux and not for Windows.
 * You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
