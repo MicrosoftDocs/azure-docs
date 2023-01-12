@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/13/2022
+ms.date: 01/06/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -46,7 +46,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md) (optional)                  | External & Internal  |
 | * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines (optional)        | External & Internal  |
+| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 
 ### [stv1](#tab/stv1)
@@ -65,7 +65,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md) (optional)                  | External & Internal  |
 | * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines (optional)        | External & Internal  |
+| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / *                         | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer** (required for Premium SKU, optional for other SKUs)                        | External & Internal  |
 
 ---
@@ -115,15 +115,13 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
 
 ## Control plane IP addresses
 
-The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address. In some cases, two IP addresses are listed. Permit both IP addresses.
+The following IP addresses are divided by **Azure Environment** and **Region**. In some cases, two IP addresses are listed. Permit both IP addresses.
 
 > [!IMPORTANT]
 > Control plane IP addresses should be configured for network access rules only when needed in certain networking scenarios. We recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) instead of control plane IP addresses to prevent downtime when infrastructure improvements necessitate IP address changes.   
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
-| Azure Public| South Central US (Global)| 104.214.19.224|
-| Azure Public| North Central US (Global)| 52.162.110.80|
 | Azure Public| Australia Central| 20.37.52.67|
 | Azure Public| Australia Central 2| 20.39.99.81|
 | Azure Public| Australia East| 20.40.125.155|

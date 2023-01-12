@@ -21,9 +21,17 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 - Deprecated functionality
 - Plans for changes
 
-
 <hr width=100%>
 
+## December 2022
+
+### Lockbox
+
+Most operations, support, and troubleshooting performed by Microsoft personnel do not require access to customer data. In those rare circumstances where such access is required, Customer Lockbox for Microsoft Energy Data Services provides you an interface to review and approve or reject data access requests. Microsoft Energy Data Services now supports Lockbox. [Learn more](../security/fundamentals/customer-lockbox-overview.md).
+
+
+
+<hr width=100%>
 
 ## October 20, 2022
 
