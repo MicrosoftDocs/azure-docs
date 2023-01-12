@@ -78,7 +78,7 @@ During a zone-wide outage, calls handled by the affected zone are terminated, wi
 
  During a zone-wide outage, no action is required during zone recovery. The management region self-heals and rebalances itself to take advantage of the healthy zone automatically.
 
-## Disaster recover: fallback to other regions
+## Disaster recovery: fallback to other regions
 
 This section describes the behavior of Azure Communications Gateway during a region-wide outage.
 
