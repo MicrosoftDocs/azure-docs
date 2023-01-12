@@ -90,11 +90,11 @@ Before starting this procedure, verify that:
 
 1. Select **System Settings** from the side menu.
 
-1. Under the Connection String, select the *eye icon* button to view the full connection string, and copy only the part of the string that is to the right of the ```:``` after the IP address.
+1. Under the Connection String, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string, and copy only the part of the string that is to the right of the ```:``` , after the IP address.
 
     For example:
 
-    :::image type="content" source="../media/how-to-set-up-high-availability/connection-string.png" alt-text="Copy the connection string to use in the following command.":::
+    :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy the second part pf the connection string to use in the following command.":::
 
 1. Run the following command on the primary:
 
@@ -103,6 +103,10 @@ Before starting this procedure, verify that:
     ```
 
     In the ```<Secondary IP>``` field, enter the IP address of the secondary appliance. In the ```<copied part of the connection string>``` field, enter the part of the connection string you copied in the previous step, and press Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
+
+    For example:
+
+    sudo cyberx-management-trusted-hosts-add -ip **172.10.246.232** -token **a2c4gv9de23f56n078a44e12gf2ce77f**
 
 1. Run the following command on the primary to apply the changes:
 
