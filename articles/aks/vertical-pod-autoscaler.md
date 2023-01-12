@@ -1,9 +1,8 @@
 ---
 title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 01/11/2023
+ms.date: 01/12/2023
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
@@ -402,7 +401,7 @@ If the metrics server throttling rate is high and the memory usage of its two po
 
 To update the coefficient values, create a ConfigMap in the overlay *kube-system* namespace to override the values in the metrics server specification. Perform the following steps to update the metrics server.
 
-1. Create a ConfigMap file named *metrics-server-config.yaml* and copy in the following manifest. 
+1. Create a ConfigMap file named *metrics-server-config.yaml* and copy in the following manifest.
 
     ```yml
     apiVersion: v1 
@@ -426,7 +425,7 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
     In this ConfigMap example, it changes the resource limit and request to the following:
 
     * cpu: (100+1n)millicore
-    * memory: (100+8n)mebibyte 
+    * memory: (100+8n)mebibyte
 
     Where *n* is the number of nodes.
 
@@ -436,7 +435,7 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
     kubectl apply -f metrics-server-config.yaml
     ```
 
-Be cautious of the baseCPU, cpuPerNode, baseMemory, and the memoryPerNode. This ConfigMap will not be reconciled by AKS. As a recommended practice, increase the value step by step to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.  
+Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode*. This ConfigMap will not be reconciled by AKS. As a recommended practice, increase the value gradually to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.  
 
 ## Next steps
 
