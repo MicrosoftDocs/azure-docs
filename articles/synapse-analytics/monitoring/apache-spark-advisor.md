@@ -73,16 +73,15 @@ The Apache Spark advisor displays the advices, including info, warning and error
 
 * Info
 
-    :::image type="content" source="./media/apache-spark-advisor/info.png" alt-text="info image" border="true":::
+    ![screenshot for advice infomation](./media/apache-spark-advisor/info.png)
 
 * Warning
 
-
-    :::image type="content" source="./media/apache-spark-advisor/warning.png" alt-text="warning image" border="true":::
+    ![screenshot for advice warning](./media/apache-spark-advisor/warning.png)
 
 * Errors
-
-    :::image type="content" source="./media/apache-spark-advisor/error.png" alt-text="error image" border="true":::
+ 
+    ![screenshot for advice error](./media/apache-spark-advisor/error.png)
 
 ## Next steps
 
