@@ -12,7 +12,7 @@ ms.author: danlep
 
     To create or import a certificate to the key vault, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../articles/key-vault/certificates/quick-create-portal.md).
 
-* Enable a system-assigned or user-assigned [managed identity](../articles/api-management-howto-use-managed-service-identity.md) in the API Management instance.
+* Enable a system-assigned or user-assigned [managed identity](../articles/api-management/api-management-howto-use-managed-service-identity.md) in the API Management instance.
 
 [!INCLUDE [api-management-key-vault-access](./api-management-key-vault-access.md)]
 

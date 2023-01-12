@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 
 # Secure backend services using client certificate authentication in Azure API Management
 
-API Management allows you to secure access to the backend service of an API using client certificates. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
+API Management allows you to secure access to the backend service of an API using client certificates and mutual TLS authentication. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
 You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/current-ga/certificate).
 
@@ -36,16 +36,21 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* If you have not created an API Management service instance yet, see [Create an API Management service instance][Create an API Management service instance].
+* If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 * You should have your backend service configured for client certificate authentication. To configure certificate authentication in the Azure App Service, refer to [this article][to configure certificate authentication in Azure WebSites refer to this article]. 
-* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed.
+* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
+
+    If you use a self-signed certificate:
+    * [Install a CA root certificate](api-management-howto-ca-certificates.md) in your API Management instance. 
+    
+        > [!NOTE]
+        > CA root certificates for certificate validation are not supported in the Consumption tier.
+    * [Disable certificate chain validation](#disable-certificate-chain-validation-for-self-signed-certificates)
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 
 After the certificate is uploaded, it shows in the **Certificates** window. If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-api-to-use-client-certificate-for-gateway-authentication).
 
-> [!NOTE]
-> To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in [Self-signed certificates](#self-signed-certificates), later in this article.
 
 ## Configure an API to use client certificate for gateway authentication
 
@@ -64,7 +69,7 @@ After the certificate is uploaded, it shows in the **Certificates** window. If y
 > [!TIP]
 > When a certificate is specified for gateway authentication for the backend service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.
 
-## Self-signed certificates
+## Disable certificate chain validation for self-signed certificates
 
 If you are using self-signed certificates, you will need to disable certificate chain validation for API Management to communicate with the backend system. Otherwise it will return a 500 error code. To configure this, you can use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new backend) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing backend) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
 
@@ -87,6 +92,7 @@ To delete a certificate, select it and then select **Delete** from the context m
 ## Next steps
 
 * [How to secure APIs using client certificate authentication in API Management](api-management-howto-mutual-certificates-for-clients.md)
+* [How to add a custom CA certificate in Azure API Management](./api-management-howto-ca-certificates.md)
 * Learn about [policies in API Management](api-management-howto-policies.md)
 
 

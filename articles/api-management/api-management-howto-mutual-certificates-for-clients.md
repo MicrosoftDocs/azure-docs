@@ -8,21 +8,22 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/01/2021
+ms.date: 01/12/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # How to secure APIs using client certificate authentication in API Management
 
-API Management provides the capability to secure access to APIs (i.e., client to API Management) using client certificates. You can validate certificates presented by the connecting client and check certificate properties against desired values using policy expressions.
+API Management provides the capability to secure access to APIs (i.e., client to API Management) using client certificates and mutual TLS authentication. You can validate certificates presented by the connecting client and check certificate properties against desired values using policy expressions.
 
-For information about securing access to the back-end service of an API using client certificates (i.e., API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).
+For information about securing access to the backend service of an API using client certificates (i.e., API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).
 
 For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
 
 ## Certificate options
 
-If you choose to use API Management to manage client certificates, you have the following options:
+For certificate validation, API Management can check one or more specified client certificate attributes, or check against certificates managed in your API Management instance. If you choose to use API Management to manage client certificates, you have the following options:
 
 * Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
 * Add a certificate file directly in API Management
@@ -35,21 +36,26 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ## Prerequisites
 
-* If you have not created an API Management service instance yet, see [Create an API Management service instance][Create an API Management service instance].
-* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed.
+* If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
+* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
+
+    If you use a self-signed certificate, also [install a CA root certificate](api-management-howto-ca-certificates.md) in your API Management instance.
+    
+    > [!NOTE]
+    > CA root certificates for certificate validation are not supported in the Consumption tier.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 
+## Enable API Management instance to receive and verify client certificates
 
-## Enable API Management instance to negotiate client certificates
+### Developer, Basic, Standard, or Premium tier
 
-> [!IMPORTANT]
-> To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
+To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tie,s you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
-> [!IMPORTANT]
-> To receive and verify client certificates in the Consumption tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
+### Consumption tier
+To receive and verify client certificates in the Consumption tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
 
 ![Request client certificate](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
@@ -128,5 +134,6 @@ The following example shows how to check the thumbprint of a client certificate 
 
 ## Next steps
 
--   [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md)
--   [How to upload certificates](./api-management-howto-mutual-certificates.md)
+-   [How to secure backend services using client certificate authentication](./api-management-howto-mutual-certificates.md)
+-   [How to add a custom CA certificate in Azure API Management](./api-management-howto-ca-certificates.md)
+-   Learn about [policies in API Management](api-management-howto-policies.md)
