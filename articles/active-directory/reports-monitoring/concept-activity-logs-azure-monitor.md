@@ -57,14 +57,11 @@ Once you have your endpoint established, go to **Azure AD** and then **Diagnosti
 
 If you already have an Azure AD license, you need an Azure subscription to set up the storage account and Event Hubs. The Azure subscription comes at no cost, but you have to pay to utilize Azure resources, including the storage account that you use for archival and the Event Hubs that you use for streaming. The amount of data and, thus, the cost incurred, can vary significantly depending on the tenant size. 
 
-Azure Monitor added a feature for ingestion time log transformation. Using this feature will allow customers to drop whole events or fields or parts of fields they don't need, saving them Azure Monitor/Sentinel/etc. costs
-
 Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Azure AD. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).
 
 ### Storage size for activity logs
 
 Every audit log event uses about 2 KB of data storage. Sign in event logs are about 4 KB of data storage. For a tenant with 100,000 users, which would incur about 1.5 million events per day, you would need about 3 GB of data storage per day. Because writes occur in approximately five-minute batches, you can anticipate approximately 9,000 write operations per month. 
-
 
 The following table contains a cost estimate of, depending on the size of the tenant, a general-purpose v2 storage account in West US for at least one year of retention. To create a more accurate estimate for the data volume that you anticipate for your application, use the [Azure storage pricing calculator](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -78,9 +75,6 @@ The following table contains a cost estimate of, depending on the size of the te
  
 
 If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
-
-
-
 
 ### Event Hubs messages for activity logs
 
