@@ -79,6 +79,6 @@ To get started with your first request, see the quickstarts:
 
 * [Java](quickstarts/java.md)
 
-* [node.js](quickstarts/nodejs.md)
+* [Node.js](quickstarts/nodejs.md)
 
 * [Python](quickstarts/python.md)

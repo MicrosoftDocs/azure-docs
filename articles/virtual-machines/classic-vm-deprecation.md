@@ -42,7 +42,7 @@ Azure Cloud Services (classic) retirement was announced in August 2021 [here](ht
 
 - [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track can assist eligible customers with planning & execution for this migration. [Nominate yourself](https://azure.microsoft.com/programs/azure-fasttrack/#nominations) for DC Migration Program.  
 
-- If your company/organization has partnered with Microsoft or works with Microsoft representatives (like cloud solution architects (CSAs) or technical account managers (TAMs)), please work with them for additional resources for migration.
+- If your company/organization has partnered with Microsoft or works with Microsoft representatives (like cloud solution architects (CSAs) or customer success account managers (CSAMs)), please work with them for additional resources for migration.
 
 ## What actions should I take? 
 

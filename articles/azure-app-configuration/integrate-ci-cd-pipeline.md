@@ -2,12 +2,12 @@
 title: Integrate Azure App Configuration using a continuous integration and delivery pipeline
 description: Learn to implement continuous integration and delivery using Azure App Configuration
 services: azure-app-configuration
-author: AlexandraKemperMS
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.custom: devx-track-csharp
-ms.date: 04/19/2020
-ms.author: alkemper
+ms.custom: devx-track-csharp, devdivchpfy22
+ms.date: 08/30/2022
+ms.author: malev
 
 # Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
 
@@ -22,7 +22,7 @@ If you have an Azure DevOps Pipeline, you can fetch key-values from App Configur
 
 ## Deploy App Configuration data with your application
 
-Your application may fail to run if it depends on Azure App Configuration and cannot reach it. Enhance the resiliency of your application by packaging  configuration data into a file that's deployed with the application and loaded locally during application startup. This approach guarantees that your application has default setting values on startup. These values are overwritten by any newer changes in an App Configuration store when it's available.
+Your application might fail to run if it depends on Azure App Configuration and can't reach it. Enhance the resiliency of your application by packaging configuration data into a file that's deployed with the application and loaded locally during application startup. This approach guarantees that your application has a default setting values on startup. These values are overwritten by any newer changes in an App Configuration store when it's available.
 
 Using the [Export](./howto-import-export-data.md#export-data) function of Azure App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then embed this file in a build or deployment step in your continuous integration and continuous deployment (CI/CD) pipeline.
 
@@ -34,8 +34,6 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 
 If you build locally, download and install the [Azure CLI](/cli/azure/install-azure-cli) if you haven’t already.
 
-To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](/cli/azure/install-azure-cli) is installed in your build system.
-
 ### Export an App Configuration store
 
 1. Open your *.csproj* file, and add the following script:
@@ -46,7 +44,8 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](/c
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method.  Add the `System.Reflection` namespace as well.
+
+1. Open *Program.cs*, and update the `CreateWebHostBuilder` method to use the exported JSON file by calling the `config.AddJsonFile()` method. Add the `System.Reflection` namespace as well.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -64,40 +63,57 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](/c
 
 ### Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. 
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named *ConnectionString*, and set it to the access key to your App Configuration store.
 
+    #### [Windows command prompt](#tab/windowscommandprompt)
+    
+    To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+    
     ```console
-     setx ConnectionString "connection-string-of-your-app-configuration-store"
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
-
+    
+    ### [PowerShell](#tab/powershell)
+    
     If you use Windows PowerShell, run the following command:
-
+    
     ```powershell
-     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
-
-    If you use macOS or Linux, run the following command:
-
+    
+    ### [macOS](#tab/unix)
+    
+    If you use macOS, run the following command:
+    
     ```console
-     export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
+    
+    ### [Linux](#tab/linux)
+    
+    If you use Linux, run the following command:
+    
+    ```console
+        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+    
+    ---
 
-2. To build the app by using the .NET Core CLI, run the following command in the command shell:
+1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
     ```console
      dotnet build
     ```
 
-3. After the build successfully completes, run the following command to run the web app locally:
+1. After the build completes successfully, run the following command to run the web app locally:
 
     ```console
      dotnet run
     ```
 
-4. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
+1. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
-    ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
+    :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local.png" alt-text="Screenshot that shows Quickstart app launch local page.":::
 
 ## Next steps
 

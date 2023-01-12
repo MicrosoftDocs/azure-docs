@@ -46,7 +46,7 @@ To get all the latest features, and the smoothest experience when connecting to 
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
-    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../azure-sql/database/authentication-mfa-ssms-overview.md). 
+    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-overview). 
    
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

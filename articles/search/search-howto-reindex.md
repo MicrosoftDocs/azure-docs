@@ -13,7 +13,7 @@ ms.date: 01/10/2022
 
 # Drop and rebuild an index in Azure Cognitive Search
 
-This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
+This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests. If you frequently have to rebuild your search index, we recommend using [index aliases](search-how-to-alias.md) to make it easier to swap which index your application is pointing to. 
 
 A search index is a collection of physical folders and field-based inverted indexes of your content, distributed in shards across the number of partitions allocated to your search index. In Azure Cognitive Search, you cannot drop and recreate individual fields. If you want to fully rebuild a field, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
 
@@ -79,7 +79,7 @@ If indexing workloads introduce unacceptable levels of query latency, conduct [p
 
 You can begin querying an index as soon as the first document is loaded. If you know a document's ID, the [Lookup Document REST API](/rest/api/searchservice/lookup-document) returns the specific document. For broader testing, you should wait until the index is fully loaded, and then use queries to verify the context you expect to see.
 
-You can use [Search Explorer](search-explorer.md) or a Web testing tool like [Postman](search-get-started-rest.md) or [Visual Studio Code](search-get-started-vs-code.md) to check for updated content.
+You can use [Search Explorer](search-explorer.md) or a Web testing tool like [Postman](search-get-started-rest.md) to check for updated content.
 
 If you added or renamed a field, use [$select](search-query-odata-select.md) to return that field: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 

@@ -9,8 +9,8 @@ metadata:
   description: Learn how to use Azure Applied AI Services to use AI to solve your complex business scenarios.
   ms.service: applied-ai-services
   ms.topic: hub-page
-  author: nitinme
-  ms.author: nitinme
+  author: mrbullwinkle
+  ms.author: mbullwin
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 06/11/2021
@@ -57,10 +57,10 @@ productDirectory:
       summary: Proactively monitor metrics and diagnose issues
       url: ./metrics-advisor/index.yml
     # Card
-    - title: Azure Video Analyzer
-      imageSrc: ./media/video-analytics.svg
+    - title: Azure Video Indexer
+      imageSrc: ./media/video-indexer.svg
       summary: Extract actionable insights from your videos
-      url: ../azure-video-analyzer/index.yml
+      url: ../azure-video-indexer/index.yml
      # Card
     - title: Azure Immersive Reader
       imageSrc: ./media/immersive-reader.svg
@@ -90,8 +90,8 @@ additionalContent:
             url: ./immersive-reader/quickstarts/client-libraries.md
           - text: Azure Cognitive Search
             url: ../search/search-get-started-portal.md
-          - text: Azure Video Analyzer
-            url: ../azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md
+          - text: Azure Video Indexer
+            url: ../azure-video-indexer/video-indexer-get-started.md
           - text: Azure Bot Service
             url: /composer/quickstart-create-bot
             

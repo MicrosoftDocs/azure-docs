@@ -2,11 +2,11 @@
 title: 'Azure Peering Service: How to access connection telemetry '
 description: In this tutorial learn how to access connection telemetry.
 services: peering-service
-author: gthareja
+author: halkazwini
 ms.service: peering-service
 ms.topic: tutorial
 ms.date: 04/06/2021
-ms.author: gatharej
+ms.author: halkazwini
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
 # Tutorial: Accessing Peering Service connection telemetry

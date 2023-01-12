@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure page blobs | Microsoft Docs
+title: Overview of Azure page blobs
 description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
 author: tamram
@@ -163,7 +163,7 @@ If you have a sparsely populated blob, you may want to just download the valid p
 
 # [.NET v12 SDK](#tab/dotnet)
 
-To determine which pages are backed by data, use [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). You can then enumerate the returned ranges and download the data in each range.
+To determine which pages are backed by data, use PageBlobClient.GetPageRanges. You can then enumerate the returned ranges and download the data in each range.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 

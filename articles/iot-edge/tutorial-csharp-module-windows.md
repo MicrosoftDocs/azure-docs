@@ -2,10 +2,10 @@
 title: Tutorial - Develop C# modules for Windows by using Azure IoT Edge
 description: This tutorial shows you how to create IoT Edge modules with C# code and deploy them to Windows devices that are running IoT Edge.
 services: iot-edge
-author: kgremban
+author: PatAltimore
 
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -15,7 +15,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Tutorial: Develop C# IoT Edge modules using Windows containers
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article shows you how to use Visual Studio to develop C# code and deploy it to a Windows device that's running Azure IoT Edge.
 
@@ -379,7 +379,7 @@ If you plan to continue to the next recommended article, you can keep and reuse 
 
 Otherwise, to avoid incurring charges, you can delete the local configurations and the Azure resources that you used here.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

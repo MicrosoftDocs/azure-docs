@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 10/05/2019
+ms.date: 01/04/2023
 
 ms.custom: seodec18
 
@@ -44,15 +44,14 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 
 - Windows client: Windows 8 and later.
 - Windows Server: Windows Server 2008 R2 and later.
-- Windows 10 Enterprise multi-session.  
+- Windows 10 Enterprise multi-session and later.  
  
 > [!NOTE]
-> Windows Server 2022 does not support an RSA 2048 bit key. For more details, see [FAQ: What size should I use for my key encryption key?](disk-encryption-faq.yml#what-size-should-i-use-for-my-key-encryption-key--kek--)
+> Windows Server 2022 and Windows 11 do not support an RSA 2048 bit key. For more information, see [FAQ: What size should I use for my key encryption key?](disk-encryption-faq.yml#what-size-should-i-use-for-my-key-encryption-key--kek--)
 >
 > Windows Server 2008 R2 requires the .NET Framework 4.5 to be installed for encryption; install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
 > Windows Server 2012 R2 Core and Windows Server 2016 Core requires the bdehdcfg component to be installed on the VM for encryption.
-
 
 ## Networking requirements
 To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
@@ -67,7 +66,7 @@ Azure Disk Encryption uses the BitLocker external key protector for Windows VMs.
 
 BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, and force the new policy to update (gpupdate.exe /force).  Restarting may be required.
 
-Microsoft Bitlocker Administration and Monitoring (MBAM) group policy features are not compatible with Azure Disk Encryption.
+Microsoft BitLocker Administration and Monitoring (MBAM) group policy features aren't compatible with Azure Disk Encryption.
 
 > [!WARNING]
 > Azure Disk Encryption **does not store recovery keys**. If the [Interactive logon: Machine account lockout threshold](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) security setting is enabled, machines can only be recovered by providing a recovery key via the serial console. Instructions for ensuring the appropriate recovery policies are enabled can be found in the [Bitlocker recovery guide plan](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).

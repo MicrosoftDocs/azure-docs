@@ -6,7 +6,7 @@ ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 6/10/2020
+ms.date: 7/11/2022
 
 ---
 
@@ -24,6 +24,9 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 * [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
+
+> [!NOTE]
+> Azure IoT solutions depend on services which may have different log retention periods. To help resolve your issue, please open a support request as soon as possible to help with troubleshooting.
 
 ## Post a question on Microsoft Q&A
 
@@ -62,7 +65,6 @@ If you do submit a new question to Stack Overflow, please use one or more of the
  - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
  - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
- - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [Azure Percept](https://stackoverflow.com/questions/tagged/azure-percept)
 
 ## Stay informed of updates and new releases

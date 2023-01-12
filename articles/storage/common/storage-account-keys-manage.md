@@ -3,12 +3,13 @@ title: Manage account access keys
 titleSuffix: Azure Storage
 description: Learn how to view, manage, and rotate your storage account access keys.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2022
-ms.author: tamram 
+ms.date: 04/14/2022
+ms.author: jammart
+ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -55,7 +56,7 @@ $storageAccountKey = `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values.
+To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
 az storage account keys list \
@@ -123,7 +124,7 @@ To rotate your storage account access keys with PowerShell:
 To rotate your storage account access keys with Azure CLI:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
-1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
+1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) command to regenerate the primary access key, as shown in the following example:
 
     ```azurecli
     az storage account keys renew \
@@ -198,7 +199,7 @@ $account.KeyPolicy
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a key expiration policy with Azure CLI, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the interval in days until the access key should be rotated.
+To create a key expiration policy with Azure CLI, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--key-exp-days` parameter to the interval in days until the access key should be rotated.
 
 The `keyCreationTime` property indicates when the account access keys were created or last rotated. Older accounts may have a null value for the `keyCreationTime` property because it has not yet been set. If the `keyCreationTime` property is null, you cannot create a key expiration policy until you rotate the keys. For this reason, it's a good idea to check the `keyCreationTime` property for the storage account before you attempt to set the key expiration policy.
 
@@ -227,9 +228,9 @@ else
 fi
 ```
 
-You can also set the key expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+You can also set the key expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
 
-To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
+To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
 
 ```azurecli
 az storage account show \
@@ -287,3 +288,4 @@ To bring a storage account into compliance, rotate the account access keys.
 
 - [Azure storage account overview](storage-account-overview.md)
 - [Create a storage account](storage-account-create.md)
+- [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)

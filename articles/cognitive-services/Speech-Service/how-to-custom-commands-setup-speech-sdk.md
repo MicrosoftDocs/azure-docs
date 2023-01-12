@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 ---
 
 # Integrate with a client application using Speech SDK
@@ -30,7 +30,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
-> * An Azure subscription key for Speech Services. [Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
+> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * [Enable your device for development](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Step 1: Publish Custom Commands application
@@ -51,7 +51,7 @@ You'll also need:
 
 ## Step 2: Create a Visual Studio project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+Create a Visual Studio project for UWP development and [install the Speech SDK](./quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=uwp).
 
 ## Step 3: Add sample code
 
@@ -302,19 +302,19 @@ Add the code-behind source as follows:
 1. Add the following code to the method body of `InitializeDialogServiceConnector`
 
    ```csharp
-   // This code creates the `DialogServiceConnector` with your subscription information.
-   // create a DialogServiceConfig by providing a Custom Commands application id and Cognitive Services subscription key
-   // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
+   // This code creates the `DialogServiceConnector` with your resource information.
+   // create a DialogServiceConfig by providing a Custom Commands application id and Speech resource key
+   // The RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
    const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
-   const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-   const string region = "YourServiceRegion"; // The subscription service region. 
+   const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your Speech resource key
+   const string region = "YourServiceRegion"; // The Speech resource region. 
 
    var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech subscription, and [region](regions.md)
+1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech key, and [region](regions.md)
 
 1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`
 

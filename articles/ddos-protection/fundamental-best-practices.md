@@ -1,24 +1,24 @@
 ---
 title: Azure DDoS Protection fundamental best practices
-description: Learn the best security practices using DDoS protection.
+description: Learn the best security practices using Azure DDoS Protection.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
-ms.author: yitoh
-
+ms.date: 10/12/2022
+ms.author: abell
 ---
-# Fundamental best practices
+# Azure DDoS Protection fundamental best practices
 
 The following sections give prescriptive guidance to build DDoS-resilient services on Azure.
 
 ## Design for security
 
-Ensure that security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of requests to use an inordinate amount of resources,  resulting in a service outage. 
+Ensure that security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of requests to use an inordinate amount of resources,  resulting in a service outage.
 
 To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](/azure/architecture/guide/pillars).
 You should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints that are exposed to the public internet.
@@ -47,4 +47,4 @@ We often see customers' on-premises resources getting attacked along with their 
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [create an Azure DDoS protection plan](manage-ddos-protection.md).

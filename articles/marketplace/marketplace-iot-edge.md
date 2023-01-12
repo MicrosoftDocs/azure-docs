@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 06/29/2022
 ---
 
 # Plan an IoT Edge module offer
@@ -64,7 +64,6 @@ These are the available licensing options for Azure Container offers:
 | --- | --- |
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -74,7 +73,9 @@ In all cases, IoT Edge modules should select the **Transact** publishing option.
 
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, you'll want to connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive; otherwise, connecting to a CRM is optional. Partner Center supports Azure table, Dynamics 365 Customer Engagement, HTTPS endpoint, Marketo, and Salesforce.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 
@@ -89,7 +90,7 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 To help create your offer more easily, prepare these items ahead of time. All are required except where noted.
 
-- **Name** – The name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 50 characters.
+- **Name** – The name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 200 characters.
 - **Search results summary** – The purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This is used in the commercial marketplace listing(s) search results.
 - **Short description** – Details of the purpose or function of the offer, written in plain text with no line breaks. This will appear on your offer's details page.
 - **Description** – This description displays in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. This text box has rich text editor controls to make your description more engaging. Optionally, use HTML tags for formatting.

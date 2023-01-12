@@ -3,10 +3,10 @@ title: Project lifecycle - question answering
 description: Question answering learns best in an iterative cycle of model changes, utterance examples, deployment, and gathering data from endpoint queries.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/03/2022
 ---
 
 # Question answering project lifecycle
@@ -25,7 +25,7 @@ Learn how to [create a knowledge base](../how-to/create-test-deploy.md).
 
 ## Testing and updating your project
 
-The project is ready for testing once it is populated with content, either editorially or through automatic extraction. Interactive testing can be done in the Language Studio portal, in the custom question answering menu through the **Test** panel. You enter common user queries. Then you verify that the responses returned with both the correct response and a sufficient confidence score.
+The project is ready for testing once it is populated with content, either editorially or through automatic extraction. Interactive testing can be done in Language Studio, in the custom question answering menu through the **Test** panel. You enter common user queries. Then you verify that the responses returned with both the correct response and a sufficient confidence score.
 
 * **To fix low confidence scores**: add alternate questions.
 * **When a query incorrectly returns the [default response](../How-to/change-default-answer.md)**: add new answers to the correct question.
@@ -48,7 +48,7 @@ Based on what you learn from your analytics, make appropriate updates to your pr
 
 ## Version control for data in your knowledge base
 
-Version control for data is provided through the import/export features on the project page in the question answering section of the Language Studio portal.
+Version control for data is provided through the import/export features on the project page in the question answering section of Language Studio.
 
 You can back up a project/knowledge base by exporting the project, in either `.tsv` or `.xls` format. Once exported, include this file as part of your regular source control check.
 
@@ -62,7 +62,7 @@ A project/knowledge base has two states: *test* and *published*.
 
 ### Test project/knowledge base
 
-The *test knowledge base* is the version currently edited and saved. The test version has been tested for accuracy, and for completeness of responses. Changes made to the test knowledge base don't affect the end user of your application or chat bot. The test knowledge base is known as `test` in the HTTP request. The `test` knowledge is available with the Language Studio's interactive **Test** pane.
+The *test knowledge base* is the version currently edited and saved. The test version has been tested for accuracy, and for completeness of responses. Changes made to the test knowledge base don't affect the end user of your application or chat bot. The test knowledge base is known as `test` in the HTTP request. The `test` knowledge is available with Language Studio's interactive **Test** pane.
 
 ### Production project/knowledge base
 

@@ -2,11 +2,11 @@
 title: Call flows in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about call flows in Azure Communication Services.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -20,7 +20,7 @@ The section below gives an overview of the call flows in Azure Communication Ser
 
 When you establish a peer-to-peer or group call, two protocols are used behind the scenes - HTTP (REST) for signaling and SRTP for media.
 
-Signaling between the SDKs or between SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). The ACS uses TLS 1.2. For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the SDK will use the Transmission Control Protocol (TCP) for media.
+Signaling between the SDKs or between SDKs and Communication Services Signaling Controllers is handled with HTTP REST (TLS). Azure Communication Services uses TLS 1.2. For Real-Time Media Traffic (RTP), the User Datagram Protocol (UDP) is preferred. If the use of UDP is prevented by your firewall, the SDK will use the Transmission Control Protocol (TCP) for media.
 
 Let's review the signaling and media protocols in various scenarios.
 
@@ -42,7 +42,7 @@ For Alice it will be the NAT of the coffee shop and for Bob it will be the NAT o
 
 ### Case 3: VoIP where neither a direct nor NAT connection is possible
 
-If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services Calling SDK automatically uses TURN services based on detected network conditions. Use of Microsoft's TURN service is charged separately.
+If one or both client devices are behind a symmetric NAT, a separate cloud service to relay the media between the two SDKs is required. This service is called TURN (Traversal Using Relays around NAT) and is also provided by the Communication Services. The Communication Services Calling SDK automatically uses TURN services based on detected network conditions. TURN charges are included in the price of the call.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram showing a VOIP call which utilizes a TURN connection.":::
 
@@ -66,7 +66,7 @@ The default real-time protocol (RTP) for group calls is User Datagram Protocol (
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram showing UDP media process flow within Communication Services.":::
 
-If the SDK can't use UDP for media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the Communication Services TURN service will be added to the group call to translate TCP to UDP. TURN charges will be incurred in this case unless TURN capabilities are manually disabled.
+If the SDK can't use UDP for media due to firewall restrictions, an attempt will be made to use the Transmission Control Protocol (TCP). Note that the Media Processor component requires UDP, so when this happens, the Communication Services TURN service will be added to the group call to translate TCP to UDP. TURN charges are included in the price of the call.
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram showing TCP media process flow within Communication Services.":::
 

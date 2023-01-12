@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 04/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -67,6 +67,7 @@ The CryptographicKeys element contains the following attributes:
 | --------- | -------- | ----------- |
 | MetadataSigning | Yes | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata. |
 | SamlMessageSigning| Yes| Specify the X509 certificate (RSA key set) to use to sign SAML messages. Azure AD B2C uses this key to signing the response `<samlp:Response>` send to the relying party.|
+| SamlAssertionSigning| No| Specify the X509 certificate (RSA key set) to use to sign SAML assertion `<saml:Assertion>` element of the SAML token. If not provided, the `SamlMessageSigning` cryptographic key is used instead.|
 
 ## Session management
 

@@ -89,213 +89,216 @@ Consider the following strategies:
 
 ## Create a webhook
 
-A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md). To follow along, edit your PowerShell runbook with the following code:
+> [!NOTE]
+> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - PowerShell 7.1 (preview)](./automation-runbook-types.md#limitations-and-known-issues). We recommend that you use the webhook with PowerShell 5 runbook.
 
-```powershell
-param
-(
-    [Parameter(Mandatory=$false)]
-    [object] $WebhookData
-)
+1. Create PowerShell runbook with the following code:
 
-write-output "start"
-write-output ("object type: {0}" -f $WebhookData.gettype())
-write-output $WebhookData
-#write-warning (Test-Json -Json $WebhookData)
-$Payload = $WebhookData | ConvertFrom-Json
-write-output "`n`n"
-write-output $Payload.WebhookName
-write-output $Payload.RequestBody
-write-output $Payload.RequestHeader
-write-output "end"
+    ```powershell
+    param
+    (
+        [Parameter(Mandatory=$false)]
+        [object] $WebhookData
+    )
 
-if ($Payload.RequestBody) { 
-    $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
+    write-output "start"
+    write-output ("object type: {0}" -f $WebhookData.gettype())
+    write-output $WebhookData
+    #write-warning (Test-Json -Json $WebhookData)
+    $Payload = $WebhookData | ConvertFrom-Json
+    write-output "`n`n"
+    write-output $Payload.WebhookName
+    write-output $Payload.RequestBody
+    write-output $Payload.RequestHeader
+    write-output "end"
 
-        foreach ($x in $names)
+    if ($Payload.RequestBody) { 
+        $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
+
+            foreach ($x in $names)
+            {
+                $name = $x.Name
+                Write-Output "Hello $name"
+            }
+    }
+    else {
+        Write-Output "Hello World!"
+    }
+    ```
+1. Create a webhook using the Azure portal, or PowerShell or REST API. A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md).
+
+    # [Azure portal](#tab/portal)
+
+    1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+    1. In the Azure portal, navigate to your Automation account.
+
+    1. Under **Process Automation**, select **Runbooks** to open the **Runbooks** page.
+
+    1. Select your runbook from the list to open the Runbook **Overview** page.
+
+    1. Select **Add webhook** to open the **Add Webhook** page.
+
+        :::image type="content" source="media/automation-webhooks/add-webhook-icon.png" alt-text="Runbook overview page with Add webhook highlighted.":::
+
+    1. On the **Add Webhook** page, select **Create new webhook**.
+
+        :::image type="content" source="media/automation-webhooks/add-webhook-page-create.png" alt-text="Add webhook page with create highlighted.":::
+
+    1. Enter in the **Name** for the webhook. The expiration date for the field **Expires** defaults to one year from the current date.
+
+    1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
+
+        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
+
+        > [!IMPORTANT]
+        > Once you create the webhook, you cannot retrieve the URL again. Make sure you copy and record it as above.
+
+    1. Select **OK** to return to the **Add Webhook** page.
+
+    1. From the **Add Webhook** page, select **Configure parameters and run settings** to open the **Parameters** page.
+
+        :::image type="content" source="media/automation-webhooks/add-webhook-page-parameters.png" alt-text="Add webhook page with parameters highlighted.":::
+
+    1. Review the **Parameters** page. For the example runbook used in this article, no changes are needed. Select **OK** to return to the **Add Webhook** page.
+
+    1. From the **Add Webhook** page, select **Create**. The webhook is created and you're returned to the Runbook **Overview** page.
+
+    # [PowerShell](#tab/powershell)
+
+    1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
+
+    1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
+
+        ```powershell
+        # Sign in to your Azure subscription
+        $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
         {
-            $name = $x.Name
-            Write-Output "Hello $name"
+            Connect-AzAccount
         }
-}
-else {
-    Write-Output "Hello World!"
-}
-```
+        ```
 
-Then save and publish the revised runbook. The examples below show to create a webhook using the Azure portal, PowerShell, and REST.
+    1. Use the [New-AzAutomationWebhook](/powershell/module/az.automation/new-azautomationwebhook) cmdlet to create a webhook for an Automation runbook. Provide an appropriate value for the variables and then execute the script.
 
-### From the portal
+        ```powershell
+        # Initialize variables with your relevant values
+        $resourceGroup = "resourceGroupName"
+        $automationAccount = "automationAccountName"
+        $runbook = "runbookName"
+        $psWebhook = "webhookName"
+        
+        # Create webhook
+        $newWebhook = New-AzAutomationWebhook `
+            -ResourceGroup $resourceGroup `
+            -AutomationAccountName $automationAccount `
+            -Name $psWebhook `
+            -RunbookName $runbook `
+            -IsEnabled $True `
+            -ExpiryTime "12/31/2022" `
+            -Force
+        
+        # Store URL in variable; reveal variable
+        $uri = $newWebhook.WebhookURI
+        $uri
+        ```
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+       The output will be a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
 
-1. In the Azure portal, navigate to your Automation account.
+    1. You can also verify the webhook with the PowerShell cmdlet [Get-AzAutomationWebhook](/powershell/module/az.automation/get-azautomationwebhook).
 
-1. Under **Process Automation**, select **Runbooks** to open the **Runbooks** page.
+        ```powershell
+        Get-AzAutomationWebhook `
+            -ResourceGroup $resourceGroup `
+            -AutomationAccountName $automationAccount `
+            -Name $psWebhook
+        ```
 
-1. Select your runbook from the list to open the Runbook **Overview** page.
+    # [REST API](#tab/rest)
 
-1. Select **Add webhook** to open the **Add Webhook** page.
+    The PUT command is documented at [Webhook - Create Or Update](/rest/api/automation/webhook/create-or-update). This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PUT request.
 
-   :::image type="content" source="media/automation-webhooks/add-webhook-icon.png" alt-text="Runbook overview page with Add webhook highlighted.":::
+    1. Create a file called `webhook.json` and then paste the following code:
 
-1. On the **Add Webhook** page, select **Create new webhook**.
-
-   :::image type="content" source="media/automation-webhooks/add-webhook-page-create.png" alt-text="Add webhook page with create highlighted.":::
-
-1. Enter in the **Name** for the webhook. The expiration date for the field **Expires** defaults to one year from the current date.
-
-1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
-
-    :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
-
-    > [!IMPORTANT]
-    > Once you create the webhook, you cannot retrieve the URL again. Make sure you copy and record it as above.
-
-1. Select **OK** to return to the **Add Webhook** page.
-
-1. From the **Add Webhook** page, select **Configure parameters and run settings** to open the **Parameters** page.
-
-   :::image type="content" source="media/automation-webhooks/add-webhook-page-parameters.png" alt-text="Add webhook page with parameters highlighted.":::
-
-1. Review the **Parameters** page. For the example runbook used in this article, no changes are needed. Select **OK** to return to the **Add Webhook** page.
-
-1. From the **Add Webhook** page, select **Create**. The webhook is created and you're returned to the Runbook **Overview** page.
-
-### Using PowerShell
-
-1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
-
-1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
-
-    ```powershell
-    # Sign in to your Azure subscription
-    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Connect-AzAccount
-    }
-    ```
-
-1. Use the [New-AzAutomationWebhook](/powershell/module/az.automation/new-azautomationwebhook) cmdlet to create a webhook for an Automation runbook. Provide an appropriate value for the variables and then execute the script.
-
-    ```powershell
-    # Initialize variables with your relevant values
-    $resourceGroup = "resourceGroupName"
-    $automationAccount = "automationAccountName"
-    $runbook = "runbookName"
-    $psWebhook = "webhookName"
-    
-    # Create webhook
-    $newWebhook = New-AzAutomationWebhook `
-        -ResourceGroup $resourceGroup `
-        -AutomationAccountName $automationAccount `
-        -Name $psWebhook `
-        -RunbookName $runbook `
-        -IsEnabled $True `
-        -ExpiryTime "12/31/2022" `
-        -Force
-    
-    # Store URL in variable; reveal variable
-    $uri = $newWebhook.WebhookURI
-    $uri
-    ```
-
-   The output will be a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
-
-1. You can also verify the webhook with the PowerShell cmdlet [Get-AzAutomationWebhook](/powershell/module/az.automation/get-azautomationwebhook).
-
-    ```powershell
-    Get-AzAutomationWebhook `
-        -ResourceGroup $resourceGroup `
-        -AutomationAccountName $automationAccount `
-        -Name $psWebhook
-    ```
-
-### Using REST
-
-The PUT command is documented at [Webhook - Create Or Update](/rest/api/automation/webhook/create-or-update). This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PUT request.
-
-1. Create a file called `webhook.json` and then paste the following code:
-
-    ```json
-    {
-      "name": "RestWebhook",
-      "properties": {
-        "isEnabled": true,
-        "expiryTime": "2022-03-29T22:18:13.7002872Z",
-        "runbook": {
-          "name": "runbookName"
+        ```json
+        {
+        "name": "RestWebhook",
+        "properties": {
+            "isEnabled": true,
+            "expiryTime": "2022-03-29T22:18:13.7002872Z",
+            "runbook": {
+            "name": "runbookName"
+            }
         }
-      }
-    }
-    ```
+        }
+        ```
 
-   Before running, modify the value for the **runbook:name** property with the actual name of your runbook. Review [Webhook properties](#webhook-properties) for more information about these properties.
+       Before running, modify the value for the **runbook:name** property with the actual name of your runbook. Review [Webhook properties](#webhook-properties) for more information about these properties.
 
-1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
+    1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
 
-1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
+    1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
 
-    ```powershell
-    # Sign in to your Azure subscription
-    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Connect-AzAccount
-    }
-    ```
+        ```powershell
+        # Sign in to your Azure subscription
+        $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Connect-AzAccount
+        }
+        ```
 
-1. Provide an appropriate value for the variables and then execute the script.
+    1. Provide an appropriate value for the variables and then execute the script.
 
-    ```powershell
-    # Initialize variables
-    $subscription = "subscriptionID"
-    $resourceGroup = "resourceGroup"
-    $automationAccount = "automationAccount"
-    $runbook = "runbookName"
-    $restWebhook = "webhookName"
-    $file = "path\webhook.json"
+        ```powershell
+        # Initialize variables
+        $subscription = "subscriptionID"
+        $resourceGroup = "resourceGroup"
+        $automationAccount = "automationAccount"
+        $runbook = "runbookName"
+        $restWebhook = "webhookName"
+        $file = "path\webhook.json"
 
-    # consume file
-    $body = Get-Content $file
-    
-    # Craft Uri
-    $restURI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount/webhooks/$restWebhook`?api-version=2015-10-31"
-    ```
+        # consume file
+        $body = Get-Content $file
+        
+        # Craft Uri
+        $restURI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount/webhooks/$restWebhook`?api-version=2015-10-31"
+        ```
 
-1. Run the following script to obtain an access token. If your access token expired, you need to rerun the script.
+    1. Run the following script to obtain an access token. If your access token expired, you need  to rerun the script.
 
-    ```powershell
-    # Obtain access token
-    $azContext = Get-AzContext
-    $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-    $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-    $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-    $authHeader = @{
-        'Content-Type'='application/json'
-        'Authorization'='Bearer ' + $token.AccessToken
-    }
-    ```
+        ```powershell
+        # Obtain access token
+        $azContext = Get-AzContext
+        $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+        $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+        $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+        $authHeader = @{
+            'Content-Type'='application/json'
+            'Authorization'='Bearer ' + $token.AccessToken
+        }
+        ```
 
-1. Run the following script to create the webhook using the REST API.
+    1. Run the following script to create the webhook using the REST API.
 
-    ```powershell
-    # Invoke the REST API
-    # Store URL in variable; reveal variable
-    $response = Invoke-RestMethod -Uri $restURI -Method Put -Headers $authHeader -Body $body
-    $webhookURI = $response.properties.uri
-    $webhookURI
-    ```
+        ```powershell
+        # Invoke the REST API
+        # Store URL in variable; reveal variable
+        $response = Invoke-RestMethod -Uri $restURI -Method Put -Headers $authHeader -Body $body
+        $webhookURI = $response.properties.uri
+        $webhookURI
+        ```
 
-   The output is a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
+       The output is a URL that looks similar to: `https://ad7f1818-7ea9-4567-b43a.webhook.wus.azure-automation.net/webhooks?token=uTi69VZ4RCa42zfKHCeHmJa2W9fd`
 
-1. You can also use [Webhook - Get](/rest/api/automation/webhook/get) to retrieve the webhook identified by its name. You can run the following PowerShell commands:
+    1. You can also use [Webhook - Get](/rest/api/automation/webhook/get) to retrieve the webhook identified by its name. You can run the following PowerShell commands:
 
-    ```powershell
-    $response = Invoke-RestMethod -Uri $restURI -Method GET -Headers $authHeader
-    $response | ConvertTo-Json
-    ```
+        ```powershell
+        $response = Invoke-RestMethod -Uri $restURI -Method GET -Headers $authHeader
+        $response | ConvertTo-Json
+        ```
+---
 
 ## Use a webhook
 
@@ -373,8 +376,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
         -ResourceGroupName $resourceGroup `
         -Stream Output
     ```
-
-   The output should look similar to the following:
+   When you trigger a runbook created in the previous step, it will create a job and the output should look similar to the following:
 
    :::image type="content" source="media/automation-webhooks/webhook-job-output.png" alt-text="Output from webhook job.":::
 

@@ -19,7 +19,10 @@ Stream Analytics has first-class integration with four kinds of resources as inp
 
 These input resources can live in the same Azure subscription as your Stream Analytics job, or from a different subscription.
 
-You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](/rest/api/streamanalytics/2020-03-01/inputs), and [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) to create, edit, and test Stream Analytics job inputs.
+You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](/rest/api/streamanalytics/2020-03-01/inputs), [Visual Studio](stream-analytics-tools-for-visual-studio-install.md), and [Visual Studio Code](./quick-create-visual-studio-code.md) to create, edit, and test Stream Analytics job inputs.
+
+> [!NOTE] 
+> We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
 
 ## Stream and reference inputs
 As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.

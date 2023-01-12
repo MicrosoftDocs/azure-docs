@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 Azure Video Analyzer allows you to enhance its processing capabilities through a [pipeline extension](../pipeline-extension.md) node. HTTP extension processor node enables extensibility scenarios using the HTTP extension protocol, where performance and/or optimal resource utilization is not the primary concern. In this article, you will learn about using this protocol to send messages between the Video Analyzer and an HTTP REST endpoint, which would typically be wrapped around an AI inference server.
 
 The HTTP contract is defined between the following two components:

@@ -12,7 +12,7 @@ The API supports setting some request options using the `Prefer` header. This se
 
 ## Visualization information
 
-In the query language, you can specify different [render options](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator). By default, the API does not return information about the type of visualization. To include a specific visualization, include this header:
+In the query language, you can specify different render options. By default, the API does not return information about the type of visualization. To include a specific visualization, include this header:
 
 ```
     Prefer: include-render=true
@@ -23,7 +23,7 @@ The header includes a `render` property in the response that specifies the type 
 For example, the following request specifies a visualization of a bar chart with title "Perf events in the last day":
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query
     Authorization: Bearer <access token>
     Prefer: include-render=true
     Content-Type: application/json

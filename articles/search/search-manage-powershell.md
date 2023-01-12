@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 08/03/2021 
+ms.topic: how-to
+ms.date: 06/08/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
@@ -34,19 +34,23 @@ You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud
 > * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
 > * [Create a shared private link resource](#create-a-shared-private-link-resource)
 
-Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
+Occasionally, questions are asked about tasks *not* on the above list.
 
-Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
+You cannot change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
+
+You cannot use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
+
+Preview administration features are typically not available in the **Az.Search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
 
 <a name="check-versions-and-load"></a>
 
 ## Check versions and load modules
 
-The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/).
+The examples in this article are interactive and require elevated permissions. Local PowerShell and the Azure PowerShell (the **Az** module) are required.
 
-### PowerShell version check (5.1 or later)
+### PowerShell version check
 
-Local PowerShell must be 5.1 or later, on any supported operating system.
+PowerShell 7.0.6 LTS, PowerShell 7.1.3, or higher is the recommended version of PowerShell for use with the Azure Az PowerShell module on all platforms. [Install the latest version of PowerShell](/powershell/scripting/install/installing-powershell) if you don't have it.
 
 ```azurepowershell-interactive
 $PSVersionTable.PSVersion
@@ -60,7 +64,7 @@ If you aren't sure whether **Az** is installed, run the following command as a v
 Get-InstalledModule -Name Az
 ```
 
-Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation instructions to see if you missed a step.
+Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation [Azure PowerShell installation instructions](/powershell/azure/) to see if you missed a step.
 
 ```azurepowershell-interactive
 Import-Module -Name Az
@@ -233,6 +237,19 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
                       -PartitionCount 3 -ReplicaCount 3 `
                       -HostingMode Default `
                       -IdentityType SystemAssigned
+```
+
+### Create an S3HD service
+
+To create an [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` is used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
+
+```azurepowershell-interactive
+New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard3 `
+                      -Location "West US" `
+                      -PartitionCount 1 -ReplicaCount 3 `
+                      -HostingMode HighDensity
 ```
 
 ## Create a service with a private endpoint

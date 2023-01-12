@@ -2,8 +2,9 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 09/14/2022
 ---
+
 # Bicep CLI commands
 
 This article describes the commands you can use in the Bicep CLI. You must have the [Bicep CLI installed](./install.md) to run the commands.
@@ -40,6 +41,9 @@ az bicep build --file main.bicep --stdout
 
 If your Bicep file includes a module that references an external registry, the build command automatically calls [restore](#restore). The restore command gets the file from the registry and stores it in the local cache.
 
+> [!NOTE]
+> The restore command doesn't refresh the cache. For more information, see [restore](#restore).
+
 To not call restore automatically, use the `--no-restore` switch:
 
 ```azurecli
@@ -64,7 +68,19 @@ The `decompile` command converts ARM template JSON to a Bicep file.
 az bicep decompile --file main.json
 ```
 
+The command creates a file named _main.bicep_ in the same directory as _main.json_. If _main.bicep_ exists in the same directory, use the **--force** switch to overwrite the existing Bicep file.
+
 For more information about using this command, see [Decompiling ARM template JSON to Bicep](decompile.md).
+
+## generate-params
+
+The `generate-params` command builds *.parameters.json* file from the given bicep file, updates if there is an existing parameters.json file.
+
+```azurecli
+az bicep generate-params --file main.bicep
+```
+
+The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
 
 ## install
 
@@ -148,7 +164,7 @@ To use the restore command, you must have Bicep CLI version **0.4.1008 or later*
 To manually restore the external modules for a file, use:
 
 ```powershell
-bicep restore <bicep-file>
+bicep restore <bicep-file> [--force]
 ```
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
@@ -162,11 +178,21 @@ module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 }
 ```
 
-The local cache is found at:
+The local cache is found in:
 
-```path
-%USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
-```
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
+
+The `restore` command doesn't refresh the cache if a module is already cached. To fresh the cache, you can either delete the module path from the cache or use the `--force` switch with the `restore` command.
 
 ## upgrade
 
@@ -202,6 +228,6 @@ If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't
 
 To learn about deploying a Bicep file, see:
 
-* [Azure CLI](deploy-cli.md)
-* [Cloud Shell](deploy-cloud-shell.md)
-* [PowerShell](deploy-powershell.md)
+- [Azure CLI](deploy-cli.md)
+- [Cloud Shell](deploy-cloud-shell.md)
+- [PowerShell](deploy-powershell.md)

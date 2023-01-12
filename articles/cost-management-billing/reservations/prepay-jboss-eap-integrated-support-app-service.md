@@ -1,13 +1,13 @@
 ---
 title: Save on JBoss EAP Integrated Support on Azure App Service with reservations
 description: Learn how you can save on your JBoss EAP Integrated Support fee on Azure App Service.
-author: jasonfreeberg
-ms.reviewer: primattal
+author: bandersmsft
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/01/2021
-ms.author: jafreebe
+ms.date: 12/06/2022
+ms.author: banders
 ms.custom: references_regions
 ---
 
@@ -31,7 +31,7 @@ To buy an instance:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
-3. Select **Add** to purchase a new reservation and then click **Instance**.
+3. Select **Add** to purchase a new reservation and then select **Instance**.
 4. Enter required fields. 
 
 If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.

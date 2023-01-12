@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 04/18/2022
 ms.devlang: csharp
 ---
 # Configure managed identities in Batch pools
@@ -18,11 +18,42 @@ This topic explains how to enable user-assigned managed identities on Batch pool
 
 ## Create a user-assigned identity
 
-First, [create your user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) in the same tenant as your Batch account. This managed identity does not need to be in the same resource group or even in the same subscription.
+First, [create your user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) in the same tenant as your Batch account. You can create the identity using the Azure portal, the Azure Command-Line Interface (Azure CLI), PowerShell, Azure Resource Manager, or the Azure REST API. This managed identity does not need to be in the same resource group or even in the same subscription.
+
+> [!IMPORTANT]
+> Identities must be configured as user-assigned managed identities. The system-assigned managed identity is available for retrieving [customer-managed keys from Azure KeyVault](batch-customer-managed-key.md), but these are not supported in batch pools.
 
 ## Create a Batch pool with user-assigned managed identities
 
-After you've created one or more user-assigned managed identities, you can create a Batch pool with that managed identity by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library).
+After you've created one or more user-assigned managed identities, you can create a Batch pool with that identity or those identities. You can:
+
+- [Use the Azure portal to create the Batch pool](#create-batch-pool-in-azure-portal)
+- [Use the Batch .NET management library to create the Batch pool](#create-batch-pool-with-net)
+
+### Create Batch pool in Azure portal
+
+To create a Batch pool with a user-assigned managed identity through the Azure portal:
+
+1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. In the search bar, enter and select **Batch accounts**.
+1. On the **Batch accounts** page, select the Batch account where you want to create a Batch pool.
+1. In the menu for the Batch account, under **Features**, select **Pools**.
+1. In the **Pools** menu, select **Add** to add a new Batch pool. 
+1. For **Pool ID**, enter an identifier for your pool.
+1. For **Identity**, change the setting to **User assigned**.
+1. Under **User assigned managed identity**, select **Add**.
+1. Select the user assigned managed identity or identities you want to use. Then, select **Add**.
+1. Under **Operating System**, select the publisher, offer, and SKU to use.
+1. Optionally, enable the managed identity in the container registry:
+    1. For **Container configuration**, change the setting to **Custom**. Then, select your custom configuration.
+    1. For **Start task** select **Enabled**. Then, select **Resource files** and add your storage container information.
+    1. Enable **Container settings**.
+    1. Change  **Container registry** to **Custom**
+    1. For **Identity reference**, select the storage container.
+
+###  Create Batch pool with .NET
+
+To create a Batch pool with a user-assigned managed identity with the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library), use the following example code:
 
 ```csharp
 var poolParameters = new Pool(name: "yourPoolName")

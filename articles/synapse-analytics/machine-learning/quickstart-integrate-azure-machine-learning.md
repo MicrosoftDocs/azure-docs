@@ -10,10 +10,12 @@ author: nelgson
 ms.author: negust
 ms.custom: mode-other
 ---
+
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
 
-**[!IMPORTANT] The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
-
+> **IMPORTANT, PLEASE NOTE THE BELOW LIMITATIONS:**
+> - **The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
+> - **AzureML linked service is not supported with self hosted integration runtimes.** This applies to Synapse workspaces with and without Data Exfiltration Protection.
 
 In this quickstart, you'll link an Azure Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
 
@@ -24,7 +26,9 @@ For example, this linking to an Azure Machine Learning workspace enables these e
 - Enrich your data with predictions by bringing a machine learning model from the Azure Machine Learning model registry and score the model in Synapse SQL pools. For more details, see [Tutorial: Machine learning model scoring wizard for Synapse SQL pools](tutorial-sql-pool-model-scoring-wizard.md).
 
 ## Two types of authentication
+
 There are two types of identities you can use when creating an Azure Machine Learning linked service in Azure Synapse.
+
 * Synapse workspace Managed Identity
 * Service Principal
 
@@ -54,13 +58,13 @@ This section will guide you on how to create an Azure Machine Learning linked se
 
    ![Create linked service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
-2. Fill out the form:
+1. Fill out the form:
 
    - Provide the details about the Azure Machine Learning workspace you want to link to. This includes details about subscription and workspace name.
-   
+
    - Select Authentication Method: **Managed Identity**
-  
-3. Click **Test Connection** to verify if the configuration is correct. If the connection test passes, click **Save**.
+
+1. Click **Test Connection** to verify if the configuration is correct. If the connection test passes, click **Save**.
 
    If the connection test fails, make sure that the Azure Synapse workspace MSI has permissions to access this Azure Machine Learning workspace, and try again.
 
@@ -96,7 +100,7 @@ This step will create a new Service Principal. If you want to use an existing Se
 
    ![Create linked service](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
-2. Fill out the form:
+1. Fill out the form:
 
    - Provide the details about the Azure Machine Learning workspace you want to link to. This includes details about subscription and workspace name.
 
@@ -109,7 +113,7 @@ This step will create a new Service Principal. If you want to use an existing Se
 
    - Service principal key: The secret you generated in the previous section.
 
-3. Click **Test Connection** to verify if the configuration is correct. If the connection test passes, click **Save**.
+1. Click **Test Connection** to verify if the configuration is correct. If the connection test passes, click **Save**.
 
    If the connection test fails, make sure that the service principal ID and secret are correct and try again.
 

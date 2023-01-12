@@ -3,9 +3,9 @@ title: Create and deploy workflows with Azure Arc-enabled Logic Apps
 description: Create and deploy single-tenant based logic app workflows that run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, reylons, archidda, sopai, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 08/20/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli
 #Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
@@ -62,9 +62,9 @@ This section describes the common prerequisites across all the approaches and to
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure CLI, follow these steps:
 
-  1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az_ad_sp_create) command.
+  1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az-ad-sp-create) command.
 
-  1. To review all the details, run the [`az ad sp show`](/cli/azure/ad/sp#az_ad_sp_show) command.
+  1. To review all the details, run the [`az ad sp show`](/cli/azure/ad/sp#az-ad-sp-show) command.
 
   1. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
@@ -102,7 +102,7 @@ Before you start, you need to have the following items:
 
 - An Azure storage account to use with your logic app for data and run history retention.
 
-  If you don't have this storage account, you can create this account when you create your logic app, or you can follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
+  If you don't have this storage account, you can create this account when you create your logic app, or you can follow the [steps to create a storage account](/cli/azure/storage/account#az-storage-account-create).
 
 <a name="check-environment-cli-version"></a>
 

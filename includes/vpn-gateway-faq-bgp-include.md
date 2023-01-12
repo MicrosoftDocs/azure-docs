@@ -1,13 +1,9 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 03/22/2021
+ ms.date: 05/25/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
 
@@ -63,7 +59,7 @@ Your on-premises BGP peer address must not be the same as the public IP address 
 
 ### Can I use the same ASN for both on-premises VPN networks and Azure virtual networks?
 
-No, you must assign different ASNs between your on-premises networks and your Azure virtual networks if you're connecting them together with BGP. Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when you're creating the VPN gateway, or you can change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure local network gateways.
+No, you must assign different ASNs between your on-premises networks and your Azure virtual networks if you're connecting them together with BGP. Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when you're creating the VPN gateway, or you can change the ASN after the gateway is created. You'll need to assign your on-premises ASNs to the corresponding Azure local network gateways.
 
 ### What address prefixes will Azure VPN gateways advertise to me?
 

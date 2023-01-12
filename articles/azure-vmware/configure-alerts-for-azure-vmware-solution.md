@@ -2,7 +2,9 @@
 title: Configure alerts and work with metrics in Azure VMware Solution 
 description: Learn how to use alerts to receive notifications. Also learn how to work with metrics to gain deeper insights into your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.custom: engagement-fy23
+ms.service: azure-vmware
+ms.date: 10/26/2022
 ---
 
 # Configure Azure Alerts in Azure VMware Solution 
@@ -48,7 +50,7 @@ The following metrics are visible through Azure Monitor Metrics.
 
 1. Under **Condition**, select **Add condition**, and in the window that opens, selects the signal you want to create for the alert rule. 
 
-   In our example, we've selected **Percentage Datastore Disk Used**, which is relevant from an [Azure VMware Solution SLA](https://aka.ms/avs/sla) perspective. 
+   In our example, we've selected **Percentage Datastore Disk Used**, which is relevant from an [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) perspective. 
 
    :::image type="content" source="media/configure-alerts-for-azure-vmware-solution/configure-signal-logic-options.png" alt-text="Screenshot showing the Configure signal logic window with signals to create for the alert rule."::: 
 

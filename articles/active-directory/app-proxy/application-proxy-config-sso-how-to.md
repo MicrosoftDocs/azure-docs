@@ -3,12 +3,12 @@ title: Understand single sign-on with an on-premises app using Application Proxy
 description: Understand single sign-on with an on-premises app using Application Proxy.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj, asteen
 ---

@@ -1,24 +1,24 @@
 ---
-title: Configure Azure AD Conditional Access for Azure Purview
-description: This article describes steps how to configure Azure AD Conditional Access for Azure Purview
+title: Configure Azure AD Conditional Access for Microsoft Purview
+description: This article describes steps how to configure Azure AD Conditional Access for Microsoft Purview
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/14/2022
-# Customer intent: As an identity and security admin, I want to set up Azure Active Directory Conditional Access for Azure Purview, for secure access.
+# Customer intent: As an identity and security admin, I want to set up Azure Active Directory Conditional Access for Microsoft Purview, for secure access.
 ---
 
-# Conditional Access with Azure Purview
+# Conditional Access with Microsoft Purview
 
-[Azure Purview](./overview.md) supports Microsoft Conditional Access.
+[Microsoft Purview](./overview.md) supports Microsoft Conditional Access.
 
-The following steps show how to configure Azure Purview to enforce a Conditional Access policy.  
+The following steps show how to configure Microsoft Purview to enforce a Conditional Access policy.  
 
 ## Prerequisites
 
-- When multi-factor authentication is enabled, to sign in to Azure Purview Studio, you must perform multi-factor authentication.
+- When multi-factor authentication is enabled, to sign in to the Microsoft Purview governance portal, you must perform multi-factor authentication.
 
 ## Configure conditional access
 
@@ -31,7 +31,7 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
   :::image type="content" source="media/catalog-conditional-access/select-users-and-groups.png" alt-text="Screenshot that shows User and Group selection"lightbox="media/catalog-conditional-access/select-users-and-groups.png":::
 
-1. Select **Cloud apps**, select **Select apps**. You see all apps available for Conditional Access. Select **Azure Purview**, at the bottom select **Select**, and then select **Done**.  
+1. Select **Cloud apps**, select **Select apps**. You see all apps available for Conditional Access. Select **Microsoft Purview**, at the bottom select **Select**, and then select **Done**.  
   
     :::image type="content" source="media/catalog-conditional-access/select-azure-purview.png" alt-text="Screenshot that shows Applications selection"lightbox="media/catalog-conditional-access/select-azure-purview.png":::
 
@@ -43,4 +43,4 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
 ## Next steps
 
-- [Use Azure Purview Studio](./use-purview-studio.md)
+- [Use the Microsoft Purview governance portal](./use-purview-studio.md)

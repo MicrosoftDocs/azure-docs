@@ -1,9 +1,9 @@
 ---
 title: Access built-in metrics - Azure IoT Edge
 description: Remote access to built-in metrics from the IoT Edge runtime components
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
@@ -13,7 +13,7 @@ services: iot-edge
 
 # Access built-in metrics
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The IoT Edge runtime components, IoT Edge hub and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 

@@ -4,7 +4,7 @@ description: Learn how to use the Operations APIs, which are part of the SaaS Fu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 11/10/2021
+ms.date: 08/24/2022
 author: arifgani
 ms.author: argani
 ---
@@ -12,6 +12,10 @@ ms.author: argani
 # SaaS fulfillment operations APIs v2 in the Microsoft commercial marketplace
 
 This article describes version 2 of the SaaS fulfillment operations APIs.
+
+Operations are useful to respond to any requests that come through the webhook as part of ChangePlan, ChangeQuantity, and ReInstate actions. This provides an opportunity to accept or reject a request by patch that webhook operation with Success or Failure by using the below APIs.
+
+This only applies to webhook events such as ChangePlan, ChangeQuantity, and ReInstate that need an ACK. No action is needed from the independent software vendor (ISV) on Renew, Suspend, and Unsubscribe events because they are notify-only events.
 
 ## List outstanding operations
 
@@ -27,7 +31,7 @@ Get list of the pending operations for the specified SaaS subscription. The publ
 |    `subscriptionId` | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the Resolve API.  |
 
 *Request headers:*
- 
+
 |  Parameter         | Value             |
 |  ---------------   |  ---------------  |
 |  `content-type`     |  `application/json` |
@@ -52,7 +56,7 @@ Returns pending operations on the specified SaaS subscription.
       "offerId": "offer1", // purchased offer ID
       "publisherId": "contoso",
       "planId": "silver", // purchased plan ID
-      "quantity": "20", // purchased amount of seats, will be empty is not relevant
+      "quantity": 20, // purchased amount of seats, will be empty is not relevant
       "action": "Reinstate",
       "timeStamp": "2018-12-01T00:00:00", // UTC
       "status": "InProgress" // the only status that can be returned in this case
@@ -118,7 +122,7 @@ Response body:
   "offerId": "offer1", // purchased offer ID
   "publisherId": "contoso",
   "planId": "silver", // purchased plan ID
-  "quantity": "20", // purchased amount of seats
+  "quantity": 20, // purchased amount of seats
   "action": "ChangePlan", // Can be ChangePlan, ChangeQuantity or Reinstate
   "timeStamp": "2018-12-01T00:00:00", // UTC
   "status": "InProgress", // Possible values: NotStarted, InProgress, Failed, Succeeded, Conflict (new quantity / plan is the same as existing)

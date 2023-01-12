@@ -2,11 +2,11 @@
 title: 'Tutorial: Improve web application access - Azure Application Gateway'
 description: In this tutorial, learn how to create an autoscaling, zone-redundant application gateway with a reserved IP address using Azure PowerShell.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/08/2021
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator new to Application Gateway, I want to configure the service in a way that automatically scales based on customer demand and is highly available across availability zones to ensure my customers can access their web applications when they need them.
 ---
@@ -128,7 +128,7 @@ New-AzWebApp -ResourceGroupName $rg -Name <site2-name> -Location $location -AppS
 
 ## Configure the infrastructure
 
-Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, listener, and rule in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, frontend IP config, backend pool, HTTP settings, certificate, port, listener, and rule in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 Replace your two web app FQDNs (for example: `mywebapp.azurewebsites.net`) in the $pool variable definition.
 

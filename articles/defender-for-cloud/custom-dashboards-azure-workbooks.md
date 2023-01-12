@@ -2,12 +2,13 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.custom: ignite-2022
+ms.author: benmansheim
+author: bmansheim
+ms.date: 11/30/2022
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
@@ -25,7 +26,7 @@ Within Microsoft Defender for Cloud, you can access the built-in workbooks to tr
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-|                                 |                                                                                                                                              |
+
 
 ## Workbooks gallery in Microsoft Defender for Cloud
 
@@ -35,11 +36,13 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
-- ['Active Alerts' workbook](#use-the-active-alerts-workbook) - view active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
+- ['Active Alerts' workbook](#use-the-active-alerts-workbook) - View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
+- Price Estimation workbook - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and do not provide actual billing data.
+- Governance workbook -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
+In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which are provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
-Choose one of the supplied workbooks or create your own.
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Screenshot showing the gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
 > [!TIP]
 > Use the **Edit** button to customize any of the supplied workbooks to your satisfaction. When you're done editing, select **Save** and your changes will be saved to a new workbook.
@@ -69,7 +72,6 @@ The secure score over time workbook has five graphs for the subscriptions report
 |**Recommendations with the most unhealthy resources**<br>This table helps you triage the recommendations that have had the most resources changed to unhealthy over the selected period.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="Recommendations with the most unhealthy resources.":::|
 |**Scores for specific security controls**<br>Defender for Cloud's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="Scores for your security controls over the selected time period.":::|
 |**Resources changes**<br>Recommendations with the most resources that have changed state (healthy, unhealthy, or not applicable) during the selected period are listed here. Select any recommendation from the list to open a new table listing the specific resources.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="Recommendations with the most resources that have changed health state.":::|
-|||
 
 ### Use the 'System Updates' workbook
 
@@ -90,9 +92,10 @@ Defender for Cloud includes vulnerability scanners for your machines, containers
 
 Learn more about using these scanners:
 
-- [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
+- [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-defender-vulnerability-management.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
-- [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
+- [Scan your ACR images for vulnerabilities](defender-for-containers-vulnerability-assessment-azure.md)
+- [Scan your ECR images for vulnerabilities](defender-for-containers-vulnerability-assessment-elastic.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:

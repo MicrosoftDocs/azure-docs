@@ -6,8 +6,8 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 02/08/2021
-#Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
+ms.date: 04/12/2022
+
 ---
 # Quickstart: Create a Redis Enterprise cache
 
@@ -21,6 +21,10 @@ Both Enterprise and Enterprise Flash support open-source Redis 6 and some new fe
 ## Prerequisites
 
 You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
+
+### Availability by region
+
+Azure Cache for Redis is continually expanding into new regions. To check the availability by region for all tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Create a cache
 

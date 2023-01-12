@@ -1,13 +1,11 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-author: craigshoemaker
 
 ms.topic: reference
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ms.date: 02/18/2019
-ms.author: cshoe
 ---
 
 # Azure Functions binding expression patterns
@@ -257,7 +255,7 @@ module.exports = async function (context, info) {
 
 ### Dot notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. The dot notation does not work or [Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings. 
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot (`.`) notation. This notation doesn't work for [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings.
 
 For example, suppose your JSON looks like this:
 

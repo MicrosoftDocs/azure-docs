@@ -2,10 +2,10 @@
 title: Schedule a recurring experiment run with Azure Chaos Studio
 description: Set up a logic app that schedules a chaos experiment in Azure Chaos Studio to run periodically.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: tutorial
 ms.date: 11/12/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-tutorial
 ---

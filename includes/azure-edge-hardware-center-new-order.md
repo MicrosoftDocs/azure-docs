@@ -1,8 +1,8 @@
 ---
-author: v-dalc
+author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/20/2021
+ms.date: 11/04/2022
 ms.author: alkohli
 ---
 
@@ -26,19 +26,25 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     ![Screenshot for selecting a shipping destination for your Azure Edge Hardware Center order. The shipping destination option and Next button are highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-04.png)
 
-6. On the **Select Hardware** page, use the **Select** button to select the hardware product to order. For example, select **Azure Stack Edge Pro - GPU**. 
+6. On the **Select Hardware** page, use the **Select** button to select the hardware product to order. For example, here **Azure Stack Edge Pro - GPU** was selected. 
 
     ![Screenshot for selecting a hardware product for an Azure Edge Hardware Center order. The Select button for a product is highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
 
-    After you select a hardware product, you'll select the device configuration to order. The following hardware products and device configurations are available in the  Azure Edge Hardware Center (Preview).
+    After you select a hardware product, you'll select the device configuration to order. For example, if you chose Azure Stack Edge Pro - GPU, you can choose from Azure Stack Edge Pro - 1 GPU and Azure Stack Edge Pro - 2 GPU models.
 
-    |Hardware product              |Configurations                                                                                              |
-    |------------------------------|------------------------------------------------------------------------------------------------------------|
-    |Azure Stack Edge Pro - GPU    |<ul><li>Azure Stack Edge Pro - 1 GPU</li><li>Azure Stack Edge Pro - 2 GPU</li><ul>                          |
-    |Azure Stack Edge Pro R        |<ul><li>Azure Stack Edge Pro R - single node</li><li>Azure Stack Edge Pro R - single node with UPS</li></ul>|
-    |Azure Stack Edge Mini R       |One configuration, selected automatically.                 |
+    If you are placing a first-time order for Azure Stack Edge, select **Sign-up** and fill out the web form as part of the Azure Edge Hardware Center ordering experience.
 
-7. Select the device configuration, and then choose **Select**. The screen below shows available configurations for Azure Stack Edge Pro - GPU devices.
+    The web form collects the following details about your deployment:
+   - Total deployment scale 
+   - Cluster size 
+   - Hardware requirements 
+   - Geographic presence 
+
+   Microsoft will evaluate the deployment details you provide and may contact you by email for more information. We have certain requirements in place for new customers to ensure that Azure Stack Edge is the right fit for the use case; not all requests will be fulfilled. If you have questions, you can send email to [AzureStack1Pinquiry@microsoft.com](mailto:AzureStack1Pinquiry@microsoft.com).
+
+   ![Screenshot of web form for first-time customer Azure Stack Edge hardware orders. The Sign-up button for a product is highlighted.](media/azure-edge-hardware-center-new-order/azure-edge-hardware-center-new-customer-hardware-order.png)
+
+7. Select the device configuration, and then choose **Select**. The available configurations depend on the hardware you selected. The screen below shows available configurations for Azure Stack Edge Pro - GPU devices.
 
     If you're ordering Azure Stack Edge Mini R devices, which all have the same configuration, you won't see this screen. 
 
@@ -118,10 +124,10 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
 15. After a device ships (**Shipped** tag is green), a **Configure hardware** option is added to the item details. Select that option to create a management resource for the device in Azure Stack Edge.    
 
-    ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)<!--Requested from Anam: Screenshot of an Azure Edge Hardware Center resource with Shipped status, with the Configure hardware option displayed. Graphical display of tags.-->
+    ![Screenshot showing the Configure hardware option for an order item shipped from the Azure Edge Hardware Center.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-17.png)
 
     The subscription, resource group, and deployment area are filled in from the order, but you can change them.
 
     ![Screenshot of the Create management resource screen for a shipped order item in an Azure Edge Hardware Center order.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-18.png)
 
-    After you activate the device, you'll be able to open the management resource from the item, and open the order item from the management resource.<!--Detailed procedure to be provided in an article on managing Hardware Center orders.-->
+    After you activate the device, you'll be able to open the management resource from the item, and open the order item from the management resource.

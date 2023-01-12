@@ -36,7 +36,7 @@ installed.
    > [!NOTE]
    > Azure CLI is required to enable Python to use the **CLI-based authentication** in the following
    > examples. For information about other options, see
-   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/azure-sdk-authenticate).
+   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/sdk/authentication-overview).
 
 1. Authenticate through Azure CLI.
 

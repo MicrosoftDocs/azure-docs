@@ -1,15 +1,14 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Node.js desktop app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call Microsoft Graph from a Node.js desktop app"
 description: In this quickstart, you learn how a Node.js Electron desktop application can sign-in users and get an access token to call an API protected by a Microsoft identity platform endpoint
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.date: 01/14/2022
-ms.author: marsma
+ms.author: cwerner
 ms.custom: mode-api
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
@@ -39,7 +38,7 @@ To register your application and add the app's registration information to your 
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Authentication**.
 1. Select **Add a platform** > **Mobile and desktop applications**.
-1. In the **Redirect URIs** section, enter `msal://redirect`.
+1. In the **Redirect URIs** section, enter `http://localhost`.
 1. Select **Configure**.
 
 #### Step 2: Download the Electron sample project
@@ -49,39 +48,77 @@ To register your application and add the app's registration information to your 
 
 #### Step 3: Configure the Electron sample project
 
-1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
-1. Edit *.env* and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
+*Extract the project, open the *ms-identity-JavaScript-nodejs-desktop-main* folder, and then open *.authConfig.js* file. Replace the value as follows:
+
+| Variable  |  Description | Example(s) |
+|-----------|--------------|------------|
+| `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com/` (include the trailing forward-slash)|
+| `Enter_the_Tenant_Id_Here` | Tenant ID or Primary domain | `contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
+| `Enter_the_Application_Id_Here` | Client ID of the application you registered | `fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91` |
+| `Enter_the_Redirect_Uri_Here` | Redirect Uri of the application you registered | `msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth` |
+| `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com/`  (include the trailing forward-slash)|
+
+Your file should look similar to below:
+
+   ```javascript   
+   const AAD_ENDPOINT_HOST = "https://login.microsoftonline.com/"; // include the trailing slash
+
+   const msalConfig = {
+       auth: {
+           clientId: "fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91",
+           authority: `${AAD_ENDPOINT_HOST}/cbe899ec-5f5c-4efe-b7a0-599505d3d54f`,
+       },
+       system: {
+           loggerOptions: {
+               loggerCallback(loglevel, message, containsPii) {
+                    console.log(message);
+                },
+                piiLoggingEnabled: false,
+                logLevel: LogLevel.Verbose,
+           }
+       }
+   }
+
+   const GRAPH_ENDPOINT_HOST = "https://graph.microsoft.com/"; // include the trailing slash
+
+   const protectedResources = {
+        graphMe: {
+            endpoint: `${GRAPH_ENDPOINT_HOST}v1.0/me`,
+            scopes: ["User.Read"],
+        }
+   };
+
+   module.exports = {
+        msalConfig: msalConfig,
+        protectedResources: protectedResources,
+    };
 
    ```
-   "TENANT_ID": "Enter_the_Tenant_Id_Here",
-   "CLIENT_ID": "Enter_the_Application_Id_Here"
-   ```
-   Where:
-   - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
-   - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
-
-> [!TIP]
-> To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal.
 
 #### Step 4: Run the application
 
-You'll need to install the dependencies of this sample once:
+1. You'll need to install the dependencies of this sample once:
 
-```console
-npm install
-```
+    ```console
+    cd ms-identity-javascript-nodejs-desktop-main
+    npm install
+    ```
 
-Then, run the application via command prompt or console:
+1. Then, run the application via command prompt or console:
 
-```console
-npm start
-```
+    ```console
+    npm start
+    ```
 
-You should see application's UI with a **Sign in** button.
+1. Select **Sign in** to start the sign-in process.
 
-## About the code
+    The first time you sign in, you're prompted to provide your consent to allow the application to sign you in and access your profile. After you're signed in successfully, you'll be redirected back to the application.
 
-Below, some of the important aspects of the sample application are discussed.
+## More information
+
+### How the sample works
+
+When a user selects the **Sign In** button for the first time, `acquireTokenInteractive` method of MSAL Node is called. This method redirects the user to sign-in with the *Microsoft identity platform endpoint*, obtains an **authorization code**, and then exchanges it for an access token.
 
 ### MSAL Node
 
@@ -92,124 +129,6 @@ You can install MSAL Node by running the following npm command.
 ```console
 npm install @azure/msal-node --save
 ```
-
-### MSAL initialization
-
-You can add the reference for MSAL Node by adding the following code:
-
-```javascript
-const { PublicClientApplication } = require('@azure/msal-node');
-```
-
-Then, initialize MSAL using the following code:
-
-```javascript
-const MSAL_CONFIG = {
-    auth: {
-        clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
-    },
-};
-
-const pca = new PublicClientApplication(MSAL_CONFIG);
-```
-
-> | Where: |Description |
-> |---------|---------|
-> | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-> | `authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
-
-### Requesting tokens
-
-In the first leg of authorization code flow with PKCE, prepare and send an authorization code request with the appropriate parameters. Then, in the second leg of the flow, listen for the authorization code response. Once the code is obtained, exchange it to obtain a token.
-
-```javascript
-// The redirect URI you setup during app registration with a custom file protocol "msal"
-const redirectUri = "msal://redirect";
-
-const cryptoProvider = new CryptoProvider();
-
-const pkceCodes = {
-    challengeMethod: "S256", // Use SHA256 Algorithm
-    verifier: "", // Generate a code verifier for the Auth Code Request first
-    challenge: "" // Generate a code challenge from the previously generated code verifier
-};
-
-/**
- * Starts an interactive token request
- * @param {object} authWindow: Electron window object
- * @param {object} tokenRequest: token request object with scopes
- */
-async function getTokenInteractive(authWindow, tokenRequest) {
-
-    /**
-     * Proof Key for Code Exchange (PKCE) Setup
-     *
-     * MSAL enables PKCE in the Authorization Code Grant Flow by including the codeChallenge and codeChallengeMethod
-     * parameters in the request passed into getAuthCodeUrl() API, as well as the codeVerifier parameter in the
-     * second leg (acquireTokenByCode() API).
-     */
-
-    const {verifier, challenge} = await cryptoProvider.generatePkceCodes();
-
-    pkceCodes.verifier = verifier;
-    pkceCodes.challenge = challenge;
-
-    const authCodeUrlParams = {
-        redirectUri: redirectUri
-        scopes: tokenRequest.scopes,
-        codeChallenge: pkceCodes.challenge, // PKCE Code Challenge
-        codeChallengeMethod: pkceCodes.challengeMethod // PKCE Code Challenge Method
-    };
-
-    const authCodeUrl = await pca.getAuthCodeUrl(authCodeUrlParams);
-
-    // register the custom file protocol in redirect URI
-    protocol.registerFileProtocol(redirectUri.split(":")[0], (req, callback) => {
-        const requestUrl = url.parse(req.url, true);
-        callback(path.normalize(`${__dirname}/${requestUrl.path}`));
-    });
-
-    const authCode = await listenForAuthCode(authCodeUrl, authWindow); // see below
-
-    const authResponse = await pca.acquireTokenByCode({
-        redirectUri: redirectUri,
-        scopes: tokenRequest.scopes,
-        code: authCode,
-        codeVerifier: pkceCodes.verifier // PKCE Code Verifier
-    });
-
-    return authResponse;
-}
-
-/**
- * Listens for auth code response from Azure AD
- * @param {string} navigateUrl: URL where auth code response is parsed
- * @param {object} authWindow: Electron window object
- */
-async function listenForAuthCode(navigateUrl, authWindow) {
-
-    authWindow.loadURL(navigateUrl);
-
-    return new Promise((resolve, reject) => {
-        authWindow.webContents.on('will-redirect', (event, responseUrl) => {
-            try {
-                const parsedUrl = new URL(responseUrl);
-                const authCode = parsedUrl.searchParams.get('code');
-                resolve(authCode);
-            } catch (err) {
-                reject(err);
-            }
-        });
-    });
-}
-```
-
-> |Where:| Description |
-> |---------|---------|
-> | `authWindow` | Current Electron window in process. |
-> | `tokenRequest` | Contains the scopes being requested, such as `"User.Read"` for Microsoft Graph or `"api://<Application ID>/access_as_user"` for custom web APIs. |
-
 ## Next steps
 
 To learn more about Electron desktop app development with MSAL Node, see the tutorial:

@@ -2,22 +2,22 @@
 title: Use xrdp with Linux
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.author: cynthn
+ms.date: 07/25/2022
+ms.author: mattmcinnes
 
 ---
 # Install and configure xrdp to use Remote Desktop with Ubuntu
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM running Ubuntu.
 
-The article was writen and tested using an Ubuntu 18.04 VM. 
+The article was written and tested using an Ubuntu 18.04 VM.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Next, install xfce using `apt` as follows:
 
 ```bash
 sudo apt-get update
-sudo apt-get -y install xfce4
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4
 sudo apt install xfce4-session
 ```
 
@@ -55,6 +55,11 @@ Now that you have a desktop environment installed, configure a remote desktop se
 ```bash
 sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
+```
+
+On Ubuntu 20, you'll need to give certificate access to an xrdp user:
+```bash
+sudo adduser xrdp ssl-cert
 ```
 
 Tell xrdp what desktop environment to use when you start your session. Configure xrdp to use xfce as your desktop environment as follows:
@@ -68,7 +73,6 @@ Restart the xrdp service for the changes to take effect as follows:
 ```bash
 sudo service xrdp restart
 ```
-
 
 ## Set a local user account password
 If you created a password for your user account when you created your VM, skip this step. If you only use SSH key authentication and do not have a local account password set, specify a password before you use xrdp to log in to your VM. xrdp cannot accept SSH keys for authentication. The following example specifies a password for the user account *azureuser*:
@@ -84,16 +88,47 @@ sudo passwd azureuser
 ## Create a Network Security Group rule for Remote Desktop traffic
 To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a network security group?](../../virtual-network/network-security-groups-overview.md) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md).
 
-The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az_vm_open_port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
+### [Azure CLI](#tab/azure-cli)
+
+The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az-vm-open-port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+The following example adds a network security group rule with [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig) on port *3389* to the existing network security group. From the Azure PowerShell, not the SSH session to your VM, get the existing network security group named *myVMnsg*:
+
+```azurepowershell
+$nsg = Get-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Name myVMnsg
+```
+
+Add an RDP network security rule named *open-port-3389* to your `$nsg` network security group and update the network security group with [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) in order for your changes to take effect:
+
+```azurepowershell
+$params = @{
+    Name                     = 'open-port-3389'
+    Description              = 'Allow RDP'
+    NetworkSecurityGroup     = $nsg
+    Access                   = 'Allow'
+    Protocol                 = 'TCP'
+    Direction                = 'Inbound'
+    Priority                 = 100
+    SourceAddressPrefix      = 'Internet'
+    SourcePortRange          = '*'
+    DestinationAddressPrefix = '*'
+    DestinationPortRange     = '3389'
+}
+
+Add-AzNetworkSecurityRuleConfig @params | Set-AzNetworkSecurityGroup
+```
+
+---
 
 ## Connect your Linux VM with a Remote Desktop client
 
-Open your local remote desktop client and connect to the IP address or DNS name of your Linux VM. 
+Open your local remote desktop client and connect to the IP address or DNS name of your Linux VM.
 
 :::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Screenshot of the remote desktop client.":::
 

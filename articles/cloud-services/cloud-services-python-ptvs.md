@@ -170,7 +170,7 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-    Write-Output "Checking if python is installed...$nl"
+    Write-Output "Checking if Python is installed...$nl"
     if ($is_python2) {
         & "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
     }
@@ -243,7 +243,7 @@ if (-not $is_emulated){
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
-This script calls the **worker.py** file from your python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
+This script calls the **worker.py** file from your Python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"

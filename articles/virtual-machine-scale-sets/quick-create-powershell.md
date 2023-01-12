@@ -1,20 +1,23 @@
 ---
-title: Quickstart - Create a virtual machine scale set with Azure PowerShell
+title: Quickstart - Create a Virtual Machine Scale Set with Azure PowerShell
 description: Get started with your deployments by learning how to quickly create a virtual machine scale with Azure PowerShell.
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.date: 11/08/2018
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Create a virtual machine scale set with Azure PowerShell
+# Quickstart: Create a Virtual Machine Scale Set with Azure PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-A virtual machine scale set allows you to deploy and manage a set of autoscaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with Azure PowerShell.
+> [!NOTE]
+> The following article is for Uniform Virtual Machine Scale Sets. We recommend using Flexible Virtual Machine Scale Sets for new workloads. Learn more about this new orchestration mode in our [Flexible Virtual Machine Scale Sets overview](flexible-virtual-machine-scale-sets.md).
+
+A Virtual Machine Scale Set allows you to deploy and manage a set of autoscaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a Virtual Machine Scale Set and deploy a sample application with Azure PowerShell.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,7 +31,7 @@ Before you can create a scale set, create a resource group with [New-AzResourceG
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
+Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -79,7 +82,7 @@ Update-AzVmss `
 
 ## Allow traffic to application
 
- To allow access to the basic web application, create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](virtual-machine-scale-sets-networking.md).
+ To allow access to the basic web application, create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure Virtual Machine Scale Sets](virtual-machine-scale-sets-networking.md).
 
  ```azurepowershell-interactive
  # Get information about the scale set
@@ -148,7 +151,7 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 
 
 ## Next steps
-In this quickstart, you created a basic scale set and used the Custom Script Extension to install a basic IIS web server on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
+In this quickstart, you created a basic scale set and used the Custom Script Extension to install a basic IIS web server on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
+> [Create and manage Azure Virtual Machine Scale Sets](tutorial-create-and-manage-powershell.md)

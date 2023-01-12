@@ -8,15 +8,14 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Security Frame: Input Validation | Mitigations 
@@ -393,7 +392,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic, MVC5, MVC6 |
 | **Attributes**              | N/A  |
 | **References**              | [Adding Validation](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validating Model Data in an MVC Application](/previous-versions/dd410404(v=vs.90)), [Guiding Principles For Your ASP.NET MVC Applications](/archive/msdn-magazine/2009/brownfield/extreme-asp-net-guiding-principles-for-your-asp-net-mvc-applications) |
-| **Steps** | <p>All the input parameters must be validated before they are used in the application to ensure that the application is safeguarded against malicious user inputs. Validate the input values using regular expression validations on server side with a allowed list validation strategy. Unsanitized user inputs / parameters passed to the methods can cause code injection vulnerabilities.</p><p>For web applications, entry points can also include form fields, QueryStrings, cookies, HTTP headers, and web service parameters.</p><p>The following input validation checks must be performed upon model binding:</p><ul><li>The model properties should be annotated with RegularExpression annotation, for accepting allowed characters and maximum permissible length</li><li>The controller methods should perform ModelState validity</li></ul>|
+| **Steps** | <p>All the input parameters must be validated before they are used in the application to ensure that the application is safeguarded against malicious user inputs. Validate the input values using regular expression validations on server side with an allowed list validation strategy. Unsanitized user inputs / parameters passed to the methods can cause code injection vulnerabilities.</p><p>For web applications, entry points can also include form fields, QueryStrings, cookies, HTTP headers, and web service parameters.</p><p>The following input validation checks must be performed upon model binding:</p><ul><li>The model properties should be annotated with RegularExpression annotation, for accepting allowed characters and maximum permissible length</li><li>The controller methods should perform ModelState validity</li></ul>|
 
 ## <a id="richtext"></a>Sanitization should be applied on form fields that accept all characters, e.g, rich text editor
 
@@ -415,7 +414,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Many javascript functions don't do encoding by default. When assigning untrusted input to DOM elements via such functions, may result in cross site script (XSS) executions.| 
+| **Steps** | Many JavaScript functions don't do encoding by default. When assigning untrusted input to DOM elements via such functions, may result in cross site script (XSS) executions.| 
 
 ### Example
 Following are insecure examples: 
@@ -651,7 +650,7 @@ myCommand.Fill(userDataset);
 ```
 In the preceding code example, the input value cannot be longer than 11 characters. If the data does not conform to the type or length defined by the parameter, the SqlParameter class throws an exception. 
 
-## <a id="sql-docdb"></a>Use parameterized SQL queries for Cosmos DB
+## <a id="sql-docdb"></a>Use parameterized SQL queries for Azure Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |

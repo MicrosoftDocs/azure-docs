@@ -3,11 +3,11 @@ title: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
 description: Connect to AD-integrated Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: cloudmelon
-ms.author: melqin
+ms.subservice: azure-arc-data-sqlmi
+author: mikhailalmeida
+ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 12/15/2021
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
@@ -15,21 +15,25 @@ ms.topic: how-to
 
 This article describes how to connect to SQL Managed Instance endpoint using Active Directory (AD) authentication. Before you proceed, make sure you have an AD-integrated Azure Arc-enabled SQL Managed Instance deployed already.
 
-See [Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)](deploy-active-directory-sql-managed-instance.md) to deploy a Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication enabled.
+See [Tutorial – Deploy AD-integrated SQL Managed Instance](deploy-active-directory-sql-managed-instance.md) to deploy Azure Arc-enabled SQL Managed Instance with Active Directory authentication enabled.
+
+> [!NOTE]
+> Ensure that a DNS record for the SQL endpoint is created in Active Directory DNS servers before continuing on this page. 
 
 ## Create Active Directory logins in SQL Managed Instance
 
-Once SQL Managed Instance is successfully deployed, you will need to provision AD logins in SQL Server.
-In order to do this, first connect to the SQL Managed Instance using the SQL login with administrative privileges and run the following TSQL:
+Once SQL Managed Instance is successfully deployed, you will need to provision Active Directory logins in SQL Server.
 
-```console
+To provision logins, first connect to the SQL Managed Instance using the SQL login with administrative privileges and run the following T-SQL:
+
+```sql
 CREATE LOGIN [<NetBIOS domain name>\<AD account name>] FROM WINDOWS;
 GO
 ```
 
-For an AD domain `contoso.local` with NetBIOS domain name as `CONTOSO`, if you want to create a login for AD account `admin`, the command should look like the following:
+The following example creates a login for an Active Directory account named `admin`, in the domain named `contoso.local`, with NetBIOS domain name as `CONTOSO`:
 
-```console
+```sql
 CREATE LOGIN [CONTOSO\admin] FROM WINDOWS;
 GO
 ```
@@ -45,30 +49,32 @@ A domain-aware Linux-based machine is one where you are able to use Kerberos aut
 
 To connect from a Linux/Mac OS client, authenticate to Active Directory using the kinit command and then use sqlcmd tool to connect to the SQL Managed Instance.
 
-```bash
+```console
 kinit <username>@<REALM>
 sqlcmd -S <Endpoint DNS name>,<Endpoint port number> -E
 ```
 
-For connecting using the CONTOSO\admin AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the commands should look like the following. The -E argument is used to perform Integrated Authentication.
+For example, to connect with the CONTOSO\admin account to the SQL managed instance with endpoint `sqlmi.contoso.local` at port `31433`, use the following command:
 
-```bash
+```console
 kinit admin@CONTOSO.LOCAL
 sqlcmd -S sqlmi.contoso.local,31433 -E
 ```
 
-## Connect to SQL MI instance from Windows
+In the example, `-E` specifies Active Directory integrated authentication.
 
-From Windows, when you run the following command, the AD identity you are logged in to Windows with should be picked up automatically for connecting to SQL Managed Instance.
+## Connect SQL Managed Instance from Windows
 
-```bash
+To log in to SQL Managed Instance with your current Windows Active Directory login, run the following command:
+
+```console
 sqlcmd -S <DNS name for master instance>,31433 -E
 ```
 
-## Connect to SQL MI instance from SSMS
+## Connect to SQL Managed Instance from SSMS
 
 ![Connect with SSMS](media/active-directory-deployment/connect-with-ssms.png)
 
-## Connect to SQL MI instance from ADS
+## Connect to SQL Managed Instance from ADS
 
 ![Connect with ADS](media/active-directory-deployment/connect-with-ads.png)

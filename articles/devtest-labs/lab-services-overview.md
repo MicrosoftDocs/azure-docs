@@ -2,6 +2,8 @@
 title: Azure Lab Services vs. Azure DevTest Labs
 description: Compare features, scenarios, and use cases for Azure DevTest Labs and Azure Lab Services.
 ms.topic: overview
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/15/2021
 ---
 
@@ -15,7 +17,7 @@ You can use two different Azure services to set up lab environments in the cloud
 
 - [Azure Lab Services](../lab-services/lab-services-overview.md) provides managed classroom labs.
 
-  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create classroom labs](../lab-services/how-to-manage-classroom-labs.md#create-a-classroom-lab) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
+  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create labs](../lab-services/quick-create-lab-portal.md) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
 
 ## Key capabilities
 

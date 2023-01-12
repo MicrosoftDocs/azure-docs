@@ -287,8 +287,8 @@ The following schemas are in use by Azure Machine Learning
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
-| AmlProjectId | The unique identifier of the AML project. |
-| AmlProjectName | The name of the AML project. |
+| AmlProjectId | The unique identifier of the AzureML project. |
+| AmlProjectName | The name of the AzureML project. |
 | AmlLabelNames | The label class names which are created for the project. |
 | AmlDataStoreName | The name of the data store where the project's data is stored. |
 
@@ -300,12 +300,12 @@ The following schemas are in use by Azure Machine Learning
 | TimeGenerated | Time (UTC) when the log entry was generated |
 | Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
-| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| AmlWorkspaceId | A GUID and unique ID of the AzureML workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
-| AmlDatasetId | The ID of the AML Data Set. |
-| AmlDatasetName | The name of the AML Data Set. |
+| AmlDatasetId | The ID of the AzureML Data Set. |
+| AmlDatasetName | The name of the AzureML Data Set. |
 
 ### AmlDataStoreEvent table
 
@@ -315,11 +315,11 @@ The following schemas are in use by Azure Machine Learning
 | TimeGenerated | Time (UTC) when the log entry was generated |
 | Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
-| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| AmlWorkspaceId | A GUID and unique ID of the AzureML workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
-| AmlDatastoreName | The name of the AML Data Store. |
+| AmlDatastoreName | The name of the AzureML Data Store. |
 
 ### AmlDeploymentEvent table
 
@@ -332,7 +332,7 @@ The following schemas are in use by Azure Machine Learning
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
-| AmlServiceName | The name of the AML Service. |
+| AmlServiceName | The name of the AzureML Service. |
 
 ### AmlInferencingEvent table
 
@@ -345,7 +345,7 @@ The following schemas are in use by Azure Machine Learning
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
-| AmlServiceName | The name of the AML Service. |
+| AmlServiceName | The name of the AzureML Service. |
 
 ### AmlModelsEvent table
 
@@ -359,7 +359,7 @@ The following schemas are in use by Azure Machine Learning
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
 | ResultSignature | The HTTP status code of the event. Typical values include 200, 201, 202 etc. |
-| AmlModelName | The name of the AML Model. |
+| AmlModelName | The name of the AzureML Model. |
 
 ### AmlPipelineEvent table
 
@@ -369,19 +369,19 @@ The following schemas are in use by Azure Machine Learning
 | TimeGenerated | Time (UTC) when the log entry was generated |
 | Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
-| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
-| AmlWorkspaceId | The name of the AML workspace. |
+| AmlWorkspaceId | A GUID and unique ID of the AzureML workspace. |
+| AmlWorkspaceId | The name of the AzureML workspace. |
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
 | AmlModuleId | A GUID and unique ID of the module.|
-| AmlModelName | The name of the AML Model. |
-| AmlPipelineId | The ID of the AML pipeline. |
-| AmlParentPipelineId | The ID of the parent AML pipeline (in the case of cloning). |
-| AmlPipelineDraftId | The ID of the AML pipeline draft. |
-| AmlPipelineDraftName | The name of the AML pipeline draft. |
-| AmlPipelineEndpointId | The ID of the AML pipeline endpoint. |
-| AmlPipelineEndpointName | The name of the AML pipeline endpoint. |
+| AmlModelName | The name of the AzureML Model. |
+| AmlPipelineId | The ID of the AzureML pipeline. |
+| AmlParentPipelineId | The ID of the parent AzureML pipeline (in the case of cloning). |
+| AmlPipelineDraftId | The ID of the AzureML pipeline draft. |
+| AmlPipelineDraftName | The name of the AzureML pipeline draft. |
+| AmlPipelineEndpointId | The ID of the AzureML pipeline endpoint. |
+| AmlPipelineEndpointName | The name of the AzureML pipeline endpoint. |
 
 
 ### AmlRunEvent table
@@ -393,7 +393,7 @@ The following schemas are in use by Azure Machine Learning
 | Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
 | ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | OperationName | The name of the operation associated with the log entry |
-| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| AmlWorkspaceId | A GUID and unique ID of the AzureML workspace. |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
 | RunId | The unique ID of the run. |
@@ -408,8 +408,8 @@ The following schemas are in use by Azure Machine Learning
 | OperationName | The name of the operation associated with the log entry |
 | Identity | The identity of the user or application that performed the operation. |
 | AadTenantId | The AAD tenant ID the operation was submitted for. |
-| AmlEnvironmentName | The name of the AML environment configuration. |
-| AmlEnvironmentVersion | The name of the AML environment configuration version. |
+| AmlEnvironmentName | The name of the AzureML environment configuration. |
+| AmlEnvironmentVersion | The name of the AzureML environment configuration version. |
 
 
 ## See also

@@ -94,12 +94,7 @@ The configuration would look like:
 2. Create Backend pool **MyBackendPoolOfPublicILB** and add the VMs.  
    1. Select the Virtual network  
    1. Select the VMs and their IP addresses and add them to the backend pool  
-3. [Create outbound rules](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](../../../cloud-shell/overview.md).  
-
-   ```azurecli
-    az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
-   ```
-
+3. Create a NAT gateway for outbound internet access. For more information see [Quickstart: Create a NAT gateway - Azure CLI](../../../virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md).
 4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to enable access to the Azure management API: 
    1. Navigate to the Network Security Group
    1. Click Outbound Security Rules

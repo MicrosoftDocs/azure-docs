@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions about SAP deployment automation
-  description: How to handle common errors with the SAP deployment automation framework on Azure.
+  description: How to handle common errors with the SAP on Azure Deployment Automation Framework.
   author: jhajduk
   ms.author: kimforss
   ms.reviewer: kimforss
@@ -9,11 +9,11 @@ metadata:
   ms.topic: faq
   ms.service: virtual-machines-sap
   
-title: SAP deployment automation framework for Azure FAQ
+title: SAP on Azure Deployment Automation Framework for Azure FAQ
 summary: |
   ## Frequently asked questions
   
-  This article provides answers to frequently asked questions (FAQ) about the [SAP deployment automation framework on Azure](automation-deployment-framework.md).
+  This article provides answers to frequently asked questions (FAQ) about the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md).
     
 sections:
   - name: Terraform deployment
@@ -31,14 +31,14 @@ sections:
         answer: |
            The naming convention for the SAP automation framework carefully matches Azure naming standards. If you want to use your own naming conventions, [follow the custom naming module instructions](automation-naming-module.md)
       - question: |
-          What does the error " does not have secrets get permission on key vault" mean?
+          What does the error " doesn't have secrets get permission on key vault" mean?
         answer: |
-           You might get the error `Error: checking for existing Secret….User, group, or application…does not have secrets get permission on key vault`.
+           You might get the error `Error: checking for existing Secret… User, group, or application…doesn't have secrets get permission on key vault`.
            Make sure that the deployment credentials have sufficient permissions to read the secrets from the deployment key vault. Also make sure that the `SPN AppID` and `SPN Secret` in the user's key vault are correct. 
       - question: |
-          What does the error "the client does not have authorization to perform action Microsoft.Authorization/roleAssignments/write" mean?
+          What does the error "the client doesn't have authorization to perform action Microsoft.Authorization/roleAssignments/write" mean?
         answer: |
-          You might get the error `authorization.RoleAssignment.Client#Create: The client… with object ID… does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope…or scope is invalid`.
+          You might get the error `authorization.RoleAssignment.Client#Create: The client… with object ID… doesn't have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope…or scope is invalid`.
           Make sure that you pass the correct application ID and application secret for the deployment. Validate the credential details by looking at the secrets in the deployment credentials key vault. 
       - question: |
           What does the error "A resource with ID already exists... this resource needs to be imported into the State" mean?
@@ -53,7 +53,7 @@ sections:
           What does the error "error executing "/tmp/terraform_273760270.sh" mean?
         answer: |
           You might see the error `error executing "/tmp/terraform_273760270.sh": Process exited with status 127`.
-          This error means there's an issue with the line endings in `sap-hana/deploy/terraform/terraform-units/modules/sap_deployer/templates/configure_deployer.sh.tmpl`.
+          This error means there's an issue with the line endings in `sap-automation/deploy/terraform/terraform-units/modules/sap_deployer/templates/configure_deployer.sh.tmpl`.
           Make sure to save this file with LF line endings, not CRLF. If you open the file in a Windows environment, the line endings might change from the original LF to CRLF.
       - question: |
           What does the error "building account: getting authenticated object ID: Error parsing json result from the Azure CLI" mean?
@@ -103,6 +103,10 @@ sections:
         answer: |
           You might see the error `'netAppAccounts' has been restricted in this region`.
           This error means the subscription isn't registered for the `netAppAccounts` resource provider. [Register the provider](../../../azure-netapp-files/azure-netapp-files-register.md) to fix the issue. 
+      - question: |
+          What does the error "AADSTS70043: The refresh token has expired or is invalid due to sign-in frequency checks by conditional access" mean? 
+        answer: |
+          This error means that the credentials for the service principal have expired. Update the secret for the Service Principal in Azure AD. Also update the secret in the deployer key vault.
   - name: Ansible configuration
     questions:
       - question: |
@@ -111,9 +115,17 @@ sections:
           When you deploy the SAP HANA software from `configuration_menu.sh`, you might get the fatal error `Retrieve SSH Key Secret Details`.
           Make sure that the name of the secrets in the user credentials' key vault match the environment naming prefix. For example, you might need to change `DEV-<ID>-SAP01` to `DEV-<ID>-SAP`.
 
+  - name: DevOps 
+    questions:
+      - question: |
+          What does the error "ERROR: AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app" mean?
+        answer: |
+          This error means that the secret for the service principal stored in the variable group is incorrect.
+         
+
 additionalContent: |
 
   ## Next steps
   
   > [!div class="nextstepaction"]
-  > [Get started with SAP deployment automation framework for Azure](automation-get-started.md)
+  > [Get started with SAP on Azure Deployment Automation Framework for Azure](automation-get-started.md)

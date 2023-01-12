@@ -2,7 +2,11 @@
 title: Configure a secondary node type for large virtual machine scale sets on a Service Fabric managed cluster
 description: This article walks through how to configure a secondary node type as a large virtual machine scale set
 ms.topic: how-to
-ms.date: 8/23/2021 
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Service Fabric managed cluster node type scaling

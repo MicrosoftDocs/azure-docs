@@ -3,13 +3,13 @@ title: Traffic View in Azure Traffic Manager
 description: In this introduction, learn how Traffic manager Traffic view works.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 01/22/2021
-ms.author: allensu
+ms.date: 04/18/2022
+ms.author: greglin
 ms.custom: 
 ---
 
@@ -31,7 +31,7 @@ Traffic View works by look at the incoming queries received over the last seven 
  
 In the next step, Traffic Manager correlates the user base region to Azure region mapping with the network intelligence latency tables. This table is maintained for different end-user networks to understand the average latency experienced by users from those regions when connecting to Azure regions. All these calculations are then combined at a per local DNS resolver IP level before it's presented to you. You can consume the information in various ways.
 
-The frequency of Traffic view data update depends on multiple internal service variables. However, the data is updated once every 24 hours.
+The frequency of Traffic view data update depends on multiple internal service variables. However, the data is updated once every 48 hours.
 
 >[!NOTE]
 >The latency described in Traffic View is a representative latency between the end user and the Azure regions to which they had connected to, and is not the DNS lookup latency. Traffic View makes a best effort estimate of the latency between the local DNS resolver and the Azure region the query was routed to, if there is insufficient data available then the latency returned will be null. 

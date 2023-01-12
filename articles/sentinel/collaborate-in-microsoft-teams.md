@@ -1,16 +1,14 @@
 ---
 title: Collaborate in Microsoft Teams with a Microsoft Sentinel incident team | Microsoft Docs
 description: Learn how to connect to Microsoft Teams from Microsoft Sentinel to collaborate with others on your team using Microsoft Sentinel data.
-author: batamig
+author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 03/30/2022
+ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Collaborate in Microsoft Teams (Public preview)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
 
@@ -46,23 +44,23 @@ Investigate together with an *incident team* by integrating Microsoft Teams dire
 
 1. In Microsoft Sentinel, in the **Threat management** > **Incidents** grid, select the incident you're currently investigating.
 
-1. At the bottom of the incident pane that appears on the right, select **Actions** > **Create team**.
+1. At the bottom of the incident pane that appears on the right, select **Actions** > **Create team (Preview)**.
 
     [ ![Create a team to collaborate in a incident team.](media/collaborate-in-microsoft-teams/create-team.png) ](media/collaborate-in-microsoft-teams/create-team.png#lightbox)
 
-    The **New team** pane opens on the right. Define the following settings for your incident team:
+    The **Incident team** pane opens on the right. Define the following settings for your incident team:
 
     - **Team name**: Automatically defined as the name of your incident. Modify the name as needed so that it's easily identifiable to you.
-    - **Description**: Enter a meaningful description for your incident team.
-    - **Add groups**: Select one or more Azure AD groups to add to your incident team. Individual users aren't supported in this page. If you need to add individual users, [do so in Microsoft Teams](#more-users) after you've created the team.
+    - **Team description**: Enter a meaningful description for your incident team.
+    - **Add groups and members**: Select one or more Azure AD users and/or groups to add to your incident team. As you select users and groups, they will appear in the **Selected groups and users:** list below the **Add groups and members** list.
 
         > [!TIP]
-        > If you regularly work with the same teams, you may want to select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: to save them as favorites.
+        > If you regularly work with the same users and groups, you may want to select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: next to each one in the **Selected groups and users** list to save them as favorites.
         >
-        > Favorites are automatically selected the next time you create a team. If you want to remove it from the next team you create, either select **Delete** :::image type="icon" source="media/collaborate-in-microsoft-teams/delete-user-group.png" border="false":::, or select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: again to remove the team from your favorites altogether.
+        > Favorites are automatically selected the next time you create a team. If you want to remove a favorite from the next team you create, either select **Delete** :::image type="icon" source="media/collaborate-in-microsoft-teams/delete-user-group.png" border="false":::, or select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: again to remove the team from your favorites altogether.
         >
 
-1. When you're done adding groups, select **Create** to create your incident team.
+1. When you're done adding users and groups, select **Create team** to create your incident team.
 
     The incident pane refreshes, with a link to your new incident team under the **Team name** title.
 

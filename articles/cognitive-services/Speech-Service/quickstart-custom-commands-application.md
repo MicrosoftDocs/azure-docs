@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/19/2022
 ms.author: eur
-ms.custom: references_regions
+ms.custom: cogserv-non-critical-speech, references_regions
 ---
 
 # Quickstart: Create a voice assistant with Custom Commands
@@ -18,17 +18,7 @@ ms.custom: references_regions
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
-At this time, Custom Commands supports speech subscriptions created in these regions:
-* West US
-* West US2
-* East US
-* East US2
-* West Central US
-* North Europe
-* West Europe
-* East Asia
-* Southeast Asia
-* Central India
+At this time, Custom Commands supports speech resources created in regions that have [voice assistant capabilities](./regions.md#voice-assistants).
 
 ## Prerequisites
 
@@ -40,17 +30,17 @@ At this time, Custom Commands supports speech subscriptions created in these reg
 
 ## Go to the Speech Studio for Custom Commands
 
-1. In a web browser, go to [Speech Studio](https://speech.microsoft.com/).
+1. In a web browser, go to [Speech Studio](https://aka.ms/speechstudio/customcommands).
 1. Enter your credentials to sign in to the portal.
 
-   The default view is your list of Speech subscriptions.
+   The default view is your list of Speech resources.
    > [!NOTE]
-   > If you don't see the select subscription page, you can navigate there by choosing "Speech resources" from the settings menu on the top bar.
+   > If you don't see the select resource page, you can navigate there by choosing "Resource" from the settings menu on the top bar.
 
-1. Select your Speech subscription, and then select **Go to Studio**.
+1. Select your Speech resource, and then select **Go to Studio**.
 1. Select **Custom Commands**.
 
-   The default view is a list of the Custom Commands applications you have under your selected subscription.
+   The default view is a list of the Custom Commands applications you have under your selected resource.
 
 ## Import an existing application as a new Custom Commands project
 

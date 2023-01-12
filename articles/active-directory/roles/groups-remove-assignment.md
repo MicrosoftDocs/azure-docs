@@ -3,7 +3,7 @@ title: Remove role assignments from a group in Azure Active Directory
 description: Remove role assignments from a group in Azure Active Directory using the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

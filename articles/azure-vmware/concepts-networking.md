@@ -2,7 +2,9 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.service: azure-vmware
+ms.date: 10/25/2022
+ms.custom: engagement-fy23
 ---
 
 # Azure VMware Solution networking and interconnectivity concepts
@@ -20,7 +22,7 @@ This article covers the key concepts that establish networking and interconnecti
 ## Azure VMware Solution private cloud use cases
 
 The use cases for Azure VMware Solution private clouds include:
-- New VMware VM workloads in the cloud
+- New VMware vSphere VM workloads in the cloud
 - VM workload bursting to the cloud (on-premises to Azure VMware Solution only)
 - VM workload migration to the cloud (on-premises to Azure VMware Solution only)
 - Disaster recovery (Azure VMware Solution to Azure VMware Solution or on-premises to Azure VMware Solution)
@@ -35,7 +37,7 @@ You can interconnect your Azure virtual network with the Azure VMware Solution p
 
 The diagram below shows the basic network interconnectivity established at the time of a private cloud deployment. It shows the logical networking between a virtual network in Azure and a private cloud. This connectivity is established via a backend ExpressRoute that is part of the Azure VMware Solution service. The interconnectivity fulfills the following primary use cases:
 
-- Inbound access to vCenter server and NSX-T manager that is accessible from VMs in your Azure subscription.
+- Inbound access to vCenter Server and NSX-T Manager that is accessible from VMs in your Azure subscription.
 - Outbound access from VMs on the private cloud to Azure services.
 - Inbound access of workloads running in the private cloud.
 
@@ -48,8 +50,8 @@ In the fully interconnected scenario, you can access the Azure VMware Solution f
 
 The diagram below shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 
-- Hot/Cold vCenter vMotion between on-premises and Azure VMware Solution.
-- On-Premises to Azure VMware Solution private cloud management access.
+- Hot/Cold vSphere vMotion between on-premises and Azure VMware Solution.
+- On-premises to Azure VMware Solution private cloud management access.
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagram showing the virtual network and on-premises to private cloud interconnectivity." border="false":::
 

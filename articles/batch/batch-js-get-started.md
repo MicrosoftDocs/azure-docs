@@ -309,7 +309,7 @@ containerList.forEach(function (val, index) {
 
     const task = batchClient.task.add(jobId, taskConfig, function (error, result) {
         if (error !== null) {
-            console.log("Error occured while creating task for container " + containerName + ". Details : " + error.response);
+            console.log("Error occurred while creating task for container " + containerName + ". Details : " + error.response);
         }
         else {
             console.log("Task for container : " + containerName + " submitted successfully");

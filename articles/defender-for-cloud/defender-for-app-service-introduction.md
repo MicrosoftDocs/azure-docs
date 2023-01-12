@@ -1,13 +1,13 @@
 ---
 title: Microsoft Defender for App Service - the benefits and features
 description: Learn about the capabilities of Microsoft Defender for App Service and how to enable it on your subscription
-ms.date: 11/09/2021
+ms.date: 01/10/2023
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 
-# Protect your web apps and APIs
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+# Overview of Defender for App Service to protect your Azure App Service web apps and APIs
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ To protect your Azure App Service plan with Microsoft Defender for App Service, 
 |------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:               | General availability (GA)                                                                                                                                                                      |
 | Pricing:                     | Microsoft Defender for App Service is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>Billing is according to total compute instances in all plans       |
-| Supported App Service plans: | [All App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are supported except [Azure Functions on the consumption plan](../azure-functions/functions-scale.md). |
+| Supported App Service plans: | [The supported App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are:<br>• Free plan<br>• Basic Service plan<br>• Standard Service plan<br>• Premium v2 Service Plan<br>• Premium v3 Service Plan<br>• App Service Environment v1<br>• App Service Environment v2<br>• App Service Environment v3|
 | Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)                                                     |
-|                              |                                                                                                                                                                                                |
+
 
 ## What are the benefits of Microsoft Defender for App Service?
 
@@ -52,7 +52,6 @@ As a cloud-native solution, Defender for App Service can identify attack methodo
 
 The log data and the infrastructure together can tell the story: from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Microsoft Defender for App Service is deployed after a web app has been exploited, it might be able to detect ongoing attacks.
 
-
 ## What threats can Defender for App Service detect?
 
 ### Threats by MITRE ATT&CK tactics
@@ -67,7 +66,7 @@ Defender for Cloud monitors for many threats to your App Service resources. The 
 
 ### Dangling DNS detection
 
-Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. When you remove a website and don't remove its custom domain from your DNS registrar, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. Defender for Cloud doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
+Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. When you remove a website and don't remove its custom domain from your DNS registrar, the DNS entry is pointing to a non-existent resource, and your subdomain is vulnerable to a takeover. Defender for Cloud doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
 
 Subdomain takeovers are a common, high-severity threat for organizations. When a threat actor detects a dangling DNS entry, they create their own site at the destination address. The traffic intended for the organization’s domain is then directed to the threat actor's site, and they can use that traffic for a wide range of malicious activity.
 
@@ -84,7 +83,7 @@ For a full list of the App Service alerts, see the [Reference table of alerts](a
 
 ## Next steps
 
-In this article, you learned about Microsoft Defender for App Service. 
+In this article, you learned about Microsoft Defender for App Service.
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)

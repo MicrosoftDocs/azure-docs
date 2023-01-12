@@ -12,10 +12,10 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, ms.custom: devx-track-csharp"
-ms.date: 08/23/2021
+ms.date: 03/08/2022
 ms.author: sethm
 ms.reviewer: thsomasu
-ms.lastreviewed: 12/04/2019
+ms.lastreviewed: 03/08/2022
 ---
 
 # Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs
@@ -62,13 +62,27 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 2. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
 
     ![Store app name](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Expand **Product management**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The application registration page opens in a new tab. Alternatively, you can navigate directly to the [My applications](https://apps.dev.microsoft.com) page, and select your application name to get to this page.
+3. Expand **Product management**, and then select **Product Identity**. Take note of the **Package SID**, **Package/Identity/Name**, **Package/Identity/Publisher**, and **Package/Properties/PublisherDisplayName** values.
 
-    ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Note the **Application Secrets** password as well as both **Package security identifier (SID)** and **Application Identity** under the Windows Store section.
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/product-identity.png" alt-text="Partner center apps":::
+4. Under **Product management**, select **WNS/MPNS**, and then select **App Registration portal**. Sign in to your Microsoft account. The application registration page opens in a new tab.
 
-    >[!WARNING]
-    >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+    ![WNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-page.png)
+
+5. Under **Essentials**, select **Client credentials: Add a certificate or secret**.
+
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/hub-azure-portal.png" alt-text="Notification Hub settings on Azure portal":::
+
+6. On the **Certificates & secrets** page, under **Client secrets**, select **New client secret**. After you create a client secret (also called an application secret), take note of it before you leave the page.
+
+   > [!WARNING]
+   > You can only view client secret (application secret) values immediately after creating them. Make sure to save the secret before leaving the page.
+
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/new-client-secret.png" alt-text="Client secret on portal":::
+
+   > [!WARNING]
+   > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+
 
 ## Create a Notification Hub
 
@@ -77,7 +91,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 ### Configure WNS settings for the hub
 
 1. In the **NOTIFICATION SETTINGS** category, select **Windows (WNS)**.
-2. Enter values for **Package SID** and **Security Key** you noted from the previous section.
+2. Enter values for **Package SID** (like this "ms-app://`<Your Package SID>`") and **Security Key** (the **Application Secret**) you noted from the previous section.
 3. Click **Save** on the toolbar.
 
     ![The Package SID and Security Key boxes](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
@@ -148,7 +162,7 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     This action guarantees that the channel URI is registered in your notification hub each time the application launches.
 
-12. Right-click on `Package.appxmanifest` and select View Code (**F7**). Locate  `<Identity .../>` and replace the value with the **Application Identity** from the WNS you created [earlier](#create-an-app-in-windows-store).
+12. Right-click `Package.appxmanifest` and select **View Code (F7)**. Locate  `<Identity .../>` and replace the **Name** value with the **Package/Identity/Name**, and replace its **Publisher** value with the **Package/Identity/Publisher** value from the app you created [earlier](#create-an-app-in-windows-store).
 
 13. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
 

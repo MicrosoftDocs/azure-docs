@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 03/01/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ The following is a list of the settings that will be roamed or backed up in Wind
 
 ## Windows Settings details
 
-List of settings that can be configured to sync in recent Windows versions. These can be found in Windows 10 under **Settings** > **Accounts** > **Sync your settings** or **Settings** > **Accounts** > **Windows backup** > **Remember my preferences** on Windows 11.
+List of settings that can be configured to sync in recent Windows versions. 
 
 | Settings | Windows 10 (21H1 or newer) |
 | --- | --- |
@@ -30,7 +30,13 @@ List of settings that can be configured to sync in recent Windows versions. Thes
 | Date, Time, and Region: region format (locale) | sync |
 | Language: language profile | sync |
 | Language: list of keyboards | sync |
+| Mouse: Primary Mouse Button | sync |
+| Passwords: Web Credentials | sync |
+| Pen: Pen Handedness | sync |
+| Touchpad: Scrolling Direction | sync |
 | Wi-Fi: Wi-Fi profiles (only WPA) | sync |
+
+Control over these settings can be found in Windows 10 under **Settings** > **Accounts** > **Sync your settings** or in Windows 11 under **Settings** > **Accounts** > **Windows backup** > **Remember my preferences**.
 
 ## Browser settings
 

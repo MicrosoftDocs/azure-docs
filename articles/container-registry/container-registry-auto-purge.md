@@ -2,14 +2,16 @@
 title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
 ms.topic: article
-ms.date: 05/07/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Automatically purge images from an Azure container registry
 
 When you use an Azure container registry as part of a development workflow, the registry can quickly fill up with images or other artifacts that aren't needed after a short period. You might want to delete all tags that are older than a certain duration or match a specified name filter. To delete multiple artifacts quickly, this article introduces the `acr purge` command you can run as an on-demand or [scheduled](container-registry-tasks-scheduled.md) ACR Task. 
 
-The `acr purge` command is currently distributed in a public container image (`mcr.microsoft.com/acr/acr-cli:0.4`), built from source code in the [acr-cli](https://github.com/Azure/acr-cli) repo in GitHub. `acr purge` is currently in preview.
+The `acr purge` command is currently distributed in a public container image (`mcr.microsoft.com/acr/acr-cli:0.5`), built from source code in the [acr-cli](https://github.com/Azure/acr-cli) repo in GitHub. `acr purge` is currently in preview.
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the ACR task examples in this article. If you'd like to use it locally, version 2.0.76 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
 
@@ -29,8 +31,8 @@ The `acr purge` container command deletes images by tag in a repository that mat
 
 At a minimum, specify the following when you run `acr purge`:
 
-* `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` parameters to purge multiple repositories.
-* `--ago` - A Go-style [duration string](https://golang.org/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
+* `--filter` - A repository name *regular expression* and a tag name *regular expression* to filter images in the registry. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, `--filter "hello-world:^1.*"` matches tags beginning with `1` in the `hello-world` repository, and `--filter ".*/cache:.*"` matches all tags in the repositories ending in `/cache`. You can also pass multiple `--filter` parameters.
+* `--ago` - A Go-style [duration string](https://go.dev/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
 
@@ -174,5 +176,5 @@ For more information about image storage, see [Container image storage in Azure 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-run]: /cli/azure/acr#az_acr_run
-[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show

@@ -6,16 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 04/27/2022
 
 ms.author: justinha
 author: rckyplln
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: ripull
 
 ms.collection: M365-identity-device-management
 ---
 # How to enable and disable operator assistance
+
+On September 30, 2023, we will retire operator assistance in Azure AD Multi-Factor Authentication and it will no longer be available. To avoid service disruption, follow the steps in this topic to disable operator assistance before September 30, 2023.
 
 Operator assistance is a feature within Azure AD that allows an operator to manually transfer phone calls instead of automatic transfer. When this setting is enabled, the office phone number is dialed and when answered, the system asks the operator to transfer the call to a given extension.
 

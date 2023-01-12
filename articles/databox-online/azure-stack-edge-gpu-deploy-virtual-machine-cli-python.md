@@ -122,7 +122,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 <!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
-1. Install Azure CLI on your client. In this example, Azure CLI 2.0.80 was installed. To verify the version of Azure CLI, run the [az --version](/cli/azure/reference-index#az_version) command.
+1. Install Azure CLI on your client. In this example, Azure CLI 2.0.80 was installed. To verify the version of Azure CLI, run the [az --version](/cli/azure/reference-index#az-version) command.
 
     The following is sample output from the above command:
 
@@ -261,7 +261,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
 ### Connect to Azure Stack Edge Pro
 
-1. Register your Azure Stack Edge Pro environment by running the [az cloud register](/cli/azure/cloud#az_cloud_register) command.
+1. Register your Azure Stack Edge Pro environment by running the [az cloud register](/cli/azure/cloud#az-cloud-register) command.
 
     In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as \"Unable to get endpoints from the cloud.\" To work around this error, set the following environment variables in Windows PowerShell:
 
@@ -280,7 +280,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     $ENV:PRIVATE_IP_ADDRESS = "5.5.174.126"
     ```
 
-3. Register your environment. Use the following parameters when running [az cloud register](/cli/azure/cloud#az_cloud_register):
+3. Register your environment. Use the following parameters when running [az cloud register](/cli/azure/cloud#az-cloud-register):
 
     | Value | Description | Example |
     | --- | --- | --- |
@@ -292,7 +292,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
     
-    ```output
+    ```azurecli
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud register -n az-new-env --endpoint-resource-manager "https://management.team3device.teatraining1.com"
     ```
     
@@ -304,7 +304,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
 
-    ```output
+    ```azurecli
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud set -n az-new-env
     Switched active cloud to 'az-new-env'.
     Use 'az login' to log in to this cloud.
@@ -312,7 +312,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Sign in to your Azure Stack Edge Pro environment by using the [az login](/cli/azure/reference-index#az_login) command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](../active-directory/develop/app-objects-and-service-principals.md).
+4. Sign in to your Azure Stack Edge Pro environment by using the [az login](/cli/azure/reference-index#az-login) command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](../active-directory/develop/app-objects-and-service-principals.md).
 
    Follow these steps to sign in as a *user*:
 

@@ -63,7 +63,7 @@ Now, when you deploy an application, it is automatically created in the new org 
 
 ## Deploy an application
 
-Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](https://spring.io) and [Spring Boot](https://projects.spring.io/spring-boot/).
+Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](https://spring.io) and [Spring Boot](https://spring.io/projects/spring-boot).
 
 ### Clone the Hello Spring Cloud repository
 
@@ -142,7 +142,7 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 [cf-cli]: https://github.com/cloudfoundry/cli
 [cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
-[spring-boot]: https://projects.spring.io/spring-boot/
+[spring-boot]: https://spring.io/projects/spring-boot
 [spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org

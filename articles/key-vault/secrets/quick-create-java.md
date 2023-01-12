@@ -82,7 +82,7 @@ The output from generating the project will look something like this:
 
 Change your directory to the newly created `akv-secrets-java/` folder.
 
-```console
+```azurecli
 cd akv-secrets-java
 ```
 
@@ -109,7 +109,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 #### Grant access to your key vault
 Create an access policy for your key vault that grants secret permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
@@ -171,7 +171,7 @@ Now that your application is authenticated, you can put a secret into your key v
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -196,7 +196,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) command:
+You can verify that the secret has been deleted with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -247,7 +247,7 @@ public class App {
         
         String secretValue = con.readLine();
 
-        System.out.print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with value '" + secretValue + "` ... ");
+        System.out.print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with value '" + secretValue + "' ... ");
 
         secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 

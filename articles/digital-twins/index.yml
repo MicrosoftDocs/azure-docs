@@ -9,36 +9,27 @@ metadata:
   ms.service: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: philmea
-  ms.author: philmea
-  ms.date: 10/5/2021
+  author: baanders
+  ms.author: baanders
+  ms.date: 03/10/2022
 
 landingContent:
-  - title: About Azure Digital Twins
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Digital Twins? (Includes sample architecture)
+          - text: What is Azure Digital Twins?
             url: overview.md
-      - linkListType: concept
-        links:
-          - text: DTDL models
-            url: concepts-models.md
-          - text: Digital twins and the twin graph
-            url: concepts-twins-graph.md
-          - text: Query language
-            url: concepts-query-language.md
-
-  - title: Get started with Azure Digital Twins Explorer
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Get started with Azure Digital Twins Explorer
             url: quickstart-azure-digital-twins-explorer.md
-      - linkListType: get-started
+          - text: Get started with 3D Scenes Studio
+            url: quickstart-3d-scenes-studio.md
+      - linkListType: how-to-guide
         links:
-          - text: Azure Digital Twins Explorer
-            url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
+          - text: Set up an instance and authentication
+            url: how-to-set-up-instance-portal.md
 
   - title: Go deeper with the tutorials
     linkLists:
@@ -55,70 +46,58 @@ landingContent:
           - text: Connect an end-to-end solution
             url: tutorial-end-to-end.md
 
+  - title: Learn about concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: DTDL models
+            url: concepts-models.md
+          - text: Digital twins and the twin graph
+            url: concepts-twins-graph.md
+          - text: Query language
+            url: concepts-query-language.md
+       
   - title: Develop
     linkLists:
       - linkListType: concept
         links:
+          - text: Azure Digital Twins APIs and SDKs 
+            url: concepts-apis-sdks.md
           - text: Azure Digital Twins CLI command set
             url: concepts-cli.md
-      - linkListType: how-to-guide
-        links:
-          - text: Set up an instance and authentication
-            url: how-to-set-up-instance-portal.md
-      - linkListType: how-to-guide
-        links:
-          - text: Write app authentication code
-            url: how-to-authenticate-client.md
-            
-  - title: Discover the APIs and SDKs
-    linkLists:
       - linkListType: reference
         links:
           - text: REST APIs
             url:  /rest/api/azure-digitaltwins/
-      - linkListType: reference
-        links:
           - text: Control plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
-      - linkListType: reference
-        links:
+            url:  /dotnet/api/overview/azure/digitaltwins
           - text: Data plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
-      - linkListType: concept
-        links:
-          - text: Azure Digital Twins APIs and SDKs 
-            url: concepts-apis-sdks.md
+            url:  /dotnet/api/overview/azure/digitaltwins.core-readme
       - linkListType: how-to-guide
         links:
-          - text: Make API requests with Postman 
-            url: how-to-use-postman.md
+          - text: Call the Azure Digital Twins APIs with Postman
+            url: how-to-use-postman-with-digital-twins.md
 
-  - title: Explore code samples
+  - title: DTDL-based industry ontologies
     linkLists:
-      - linkListType: sample
+      - linkListType: concept
         links:
-          - text: End-to-end samples
-            url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/   
-      - linkListType: sample
+          - text: What is an ontology?
+            url: concepts-ontologies.md
+          - text: Adopting DTDL-based industry ontologies
+            url: concepts-ontologies-adopt.md
+      - linkListType: reference
         links:
-          - text: DTDL validator (sample)
-            url:  /samples/azure-samples/dtdl-validator/dtdl-validator/
-      - linkListType: sample
-        links:
-          - text: DPS and IoT Hub integration sample
-            url:  /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-      - linkListType: sample
-        links:
-          - text: SignalR integration sample
-            url:  /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
-      - linkListType: sample
-        links:
-          - text: Custom Swaggers for Logic Apps connector
-            url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
-
-  - title: Scenario-based learning with Microsoft Learn
+          - text: RealEstateCore smart building ontology
+            url: https://github.com/Azure/opendigitaltwins-building
+          - text: Smart cities ontology
+            url: https://github.com/Azure/opendigitaltwins-smartcities
+          - text: Energy grid ontology
+            url: https://github.com/Azure/opendigitaltwins-energygrid/
+            
+  - title: Scenario-based learning
     linkLists:
       - linkListType: learn
         links:
           - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
-            url: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+            url: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/

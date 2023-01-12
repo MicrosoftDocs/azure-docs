@@ -1,6 +1,5 @@
 ---
 title: Set lifetimes for tokens
-titleSuffix: Microsoft identity platform
 description: Learn how to set lifetimes for tokens issued by Microsoft identity platform. Learn how to learn how to manage an organization's default policy, create a policy for web sign-in, create a policy for a native app that calls a web API, and manage an advanced policy.
 services: active-directory
 author: rwike77
@@ -10,21 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 10/17/2022
 ms.author: ryanwi
-ms.custom: aaddev, contperf-fy21q1
+ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
 ms.reviewer: ludwignick, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
-You can specify the lifetime of an access, SAML, or ID token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. For more info, read [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
-In this section, we walk through a common policy scenario that can help you impose new rules for token lifetime. In the example, you learn how to create a policy that requires users to authenticate more frequently in your web app.
+In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific service principal. They can also be set for multi-organizations (multi-tenant application). 
+
+For more information, see [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 ## Get started
 
 To get started, download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Next, run the `Connect` command to sign in to your Azure AD admin account. Run this command each time you start a new session.
+Next, run the `Connect-AzureAD` command to sign in to your Azure Active Directory (Azure AD) admin account. Run this command each time you start a new session.
 
 ```powershell
 Connect-AzureAD -Confirm
@@ -32,7 +32,7 @@ Connect-AzureAD -Confirm
 
 ## Create a policy for web sign-in
 
-In this example, you create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens to the service principal of your web app.
+In the following steps, you'll create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens to the service principal of your web app.
 
 1. Create a token lifetime policy.
 
@@ -74,7 +74,7 @@ To see all policies that have been created in your organization, run the [Get-Az
 Get-AzureADPolicy -All $true
 ```
 
-To see which apps and service principals are linked to a specific policy you identified run the following [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** with any of your policy IDs. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
+To see which apps and service principals are linked to a specific policy that you identified, run the following [`Get-AzureADPolicyAppliedObject`](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing `1a37dad8-5da7-4cc8-87c7-efbc0326cf20` with any of your policy IDs. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
 
 ```powershell
 Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
@@ -83,7 +83,7 @@ Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
 If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
 
 ### Troubleshooting
-Some users have reported a `Get-AzureADPolicy : The term 'Get-AzureADPolicy' is not recognized` error after running the `Get-AzureADPolicy` cmdlet. As a workaround, run the following to uninstall/re-install the AzureAD module and then install the AzureADPreview module:
+Some users have reported a `Get-AzureADPolicy : The term 'Get-AzureADPolicy' is not recognized` error after running the `Get-AzureADPolicy` cmdlet. As a workaround, run the following to uninstall/re-install the AzureAD module, and then install the AzureADPreview module:
 
 ```powershell
 # Uninstall the AzureAD Module

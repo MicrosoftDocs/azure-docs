@@ -20,10 +20,10 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
-* **Azure Storage account**. Create a python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
+* **Azure Storage account**. Create a Python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  
 
-### Upload python script to your Blob Storage account
-1. Create a python file named **WordCount_Spark.py** with the following content: 
+### Upload Python script to your Blob Storage account
+1. Create a Python file named **WordCount_Spark.py** with the following content: 
 
     ```python
     import sys

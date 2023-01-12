@@ -3,6 +3,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 11/01/2021
 ---
@@ -13,8 +14,8 @@ ms.date: 11/01/2021
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
 | Azure Cognitive Search | Yes | 
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Cosmos DB's API for MongoDB \* | Yes |
+| Azure Cosmos DB for NoSQL \* | Yes | 
+| Azure Cosmos DB for MongoDB \* | Yes |
 | Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
@@ -34,7 +35,7 @@ ms.date: 11/01/2021
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Microsoft Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 If you use Self-hosted Integration Runtime, note the minimal version with lineage support for:
 
@@ -61,7 +62,7 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Data store | Supported |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
-| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Cosmos DB for NoSQL \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure Database for MySQL \* | Yes | 
@@ -71,8 +72,8 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Azure Synapse Analytics \* | Yes |
 | Azure Dedicated SQL pool (formerly SQL DW) \* | Yes | 
 
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+*\* Microsoft Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 #### Limitations on data flow lineage
 
-Currently, data flow lineage doesn't integrate with Azure Purview [resource set](../concept-resource-sets.md).
+Currently, data flow lineage doesn't integrate with Microsoft Purview [resource set](../concept-resource-sets.md).

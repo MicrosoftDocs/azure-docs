@@ -3,7 +3,7 @@ title: Optimize Apache Spark cluster configuration - Azure HDInsight
 description: Learn how to configure your Apache Spark cluster to maximize throughput on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 12/26/2022
 ms.custom: contperf-fy21q1
 ---
 # Cluster configuration optimization for Apache Spark
@@ -53,6 +53,8 @@ When running concurrent queries, consider:
 For more information on using Ambari to configure executors, see [Apache Spark settings - Spark executors](apache-spark-settings.md#configuring-spark-executors).
 
 Monitor query performance for outliers or other performance issues, by looking at the timeline view. Also SQL graph, job statistics, and so forth. For information on debugging Spark jobs using YARN and the Spark History server, see [Debug Apache Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md). For tips on using YARN Timeline Server, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+## Tasks slower on some executors or nodes
 
 Sometimes one or a few of the executors are slower than the others, and tasks take much longer to execute. This slowness frequently happens on larger clusters (> 30 nodes). In this case, divide the work into a larger number of tasks so the scheduler can compensate for slow tasks. For example, have at least twice as many tasks as the number of executor cores in the application. You can also enable speculative execution of tasks with `conf: spark.speculation = true`.
 

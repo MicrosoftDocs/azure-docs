@@ -21,7 +21,7 @@ This tutorial shows you how to use the Azure Maps [Route service API](/rest/api/
 > * Create and add GeoJSON objects to the Map to represent start and end points.
 > * Get route directions from start and end points using the [Get Route directions API](/rest/api/maps/route/getroutedirections).
 
-You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+See the [route](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Route) tutorial in GitHub for the source code. See [Route to a destination](https://samples.azuremaps.com/?sample=route-to-a-destination) for a live sample.
 
 ## Prerequisites
 
@@ -238,8 +238,8 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="[A screenshot showing a map that demonstrates the Azure Map control and Route service.":::
 
-* For the completed code used in this tutorial, see [route.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) on GitHub.
-* To view this sample live, see [Route to a destination](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination) on the **Azure Maps Code Samples** site.
+* For the completed code used in this tutorial, see the [route](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Route) tutorial on GitHub.
+* To view this sample live, see [Route to a destination](https://samples.azuremaps.com/?sample=route-to-a-destination) on the **Azure Maps Code Samples** site.
 
 ## Next steps
 

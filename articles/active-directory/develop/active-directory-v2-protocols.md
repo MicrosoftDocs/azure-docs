@@ -1,7 +1,6 @@
 ---
-title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform | Azure
-titleSuffix: Microsoft identity platform
-description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform.
+title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
+description: A guide to OAuth 2.0 and OpenID Connect protocols as supported by the Microsoft identity platform.
 services: active-directory
 author: nickludwig
 manager: CelesteDG
@@ -10,76 +9,94 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 03/31/2022
 ms.author: ludwignick
-ms.reviewer: ludwignick
+ms.reviewer: marsma
 ms.custom: aaddev
 ---
 
-# OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
+# OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform
 
-The Microsoft identity platform endpoint for identity-as-a-service implements authentication and authorization with the industry standard protocols OpenID Connect (OIDC) and OAuth 2.0, respectively. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third-party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
+You don't need to learn OAuth or OpenID Connect (OIDC) at the protocol level to use the Microsoft identity platform. You will, however, encounter these and other protocol terms and concepts as you use the identity platform to add auth functionality to your apps.
 
-## The basics
+As you work with the Azure portal, our documentation, and our authentication libraries, knowing a few basics like these can make your integration and debugging tasks easier.
 
-In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
+## Roles in OAuth 2.0
+
+Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentication and authorization exchange. Such exchanges are often called *authentication flows* or *auth flows*.
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* The **Authorization Server** is the Microsoft identity platform and is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
-* The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow clients to access that data or resource.
-* The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
-* The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.
+* **Authorization server** - The Microsoft identity platform itself is the authorization server. Also called an *identity provider* or *IdP*, it securely handles the end-user's information, their access, and the trust relationships between the parties in the auth flow. The authorization server issues the security tokens your apps and APIs use for granting, denying, or revoking access to resources (authorization) after the user has signed in (authenticated).
 
-## App registration
+* **Client** - The client in an OAuth exchange is the application requesting access to a protected resource. The client could be a web app running on a server, a single-page web app running in a user's web browser, or a web API that calls another web API. You'll often see the client referred to as *client application*, *application*, or *app*.
 
-Every app that wants to accept both personal and work or school accounts must be registered through the **App registrations** experience in the [Azure portal](https://aka.ms/appregistrations) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
+* **Resource owner** - The resource owner in an auth flow is typically the application user, or *end-user* in OAuth terminology. The end-user "owns" the protected resource--their data--your app accesses on their behalf. The resource owner can grant or deny your app (the client) access to the resources they own. For example, your app might call an external system's API to get a user's email address from their profile on that system. Their profile data is a resource the end-user owns on the external system, and the end-user can consent to or deny your app's request to access their data.
 
-* An **Application ID** that uniquely identifies your app
-* A **Redirect URI** (optional) that can be used to direct responses back to your app
-* A few other scenario-specific values.
-
-For more details, learn how to [register an app](quickstart-register-app.md).
-
-## Endpoints
-
-Once registered, the app communicates with the Microsoft identity platform by sending requests to the endpoint:
-
-```
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
-https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
-```
-
-Where the `{tenant}` can take one of four different values:
-
-| Value | Description |
-| --- | --- |
-| `common` | Allows users with both personal Microsoft accounts and work/school accounts from Azure AD to sign into the application. |
-| `organizations` | Allows only users with work/school accounts from Azure AD to sign into the application. |
-| `consumers` | Allows only users with personal Microsoft accounts (MSA) to sign into the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure AD tenant to sign into the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. |
-
-To learn how to interact with these endpoints, choose a particular app type in the [Protocols](#protocols) section and follow the links for more info.
-
-> [!TIP]
-> Any app registered in Azure AD can use the Microsoft identity platform, even if they don't sign in personal accounts.  This way, you can migrate existing applications to the Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.
+* **Resource server** - The resource server hosts or provides access to a resource owner's data. Most often, the resource server is a web API fronting a data store. The resource server relies on the authorization server to perform authentication and uses information in bearer tokens issued by the authorization server to grant or deny access to resources.
 
 ## Tokens
 
-OAuth 2.0 and OpenID Connect make extensive use of **bearer tokens**, generally represented as [JWTs (JSON Web Tokens)](https://tools.ietf.org/html/rfc7519). A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is anyone that gets a copy of the token. Though a party must first authenticate with the Microsoft identity platform to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a malicious party can use a man-in-the-middle attack to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
+The parties in an authentication flow use **bearer tokens** to assure, verify, and authenticate a principal (user, host, or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
 
-There are primarily 3 types of tokens used in OAuth 2.0 / OIDC:
+Three types of bearer tokens are used by the Microsoft identity platform as *security tokens*:
 
-* [Access tokens](access-tokens.md) - tokens that a resource server receives from a client, containing permissions the client has been granted.  
-* [ID tokens](id-tokens.md) - tokens that a client receives from the authorization server, used to sign in a user and get basic information about them.
-* Refresh tokens - used by a client to get new access and ID tokens over time.  These are opaque strings, and are only understandable by the authorization server.
+* [Access tokens](access-tokens.md) - Access tokens are issued by the authorization server to the client application. The client passes access tokens to the resource server. Access tokens contain the permissions the client has been granted by the authorization server.
 
-## Protocols
+* [ID tokens](id-tokens.md) - ID tokens are issued by the authorization server to the client application. Clients use ID tokens when signing in users and to get basic information about them.
 
-If you're ready to see some example requests, get started with one of the below protocol documents. Each one corresponds to a particular authentication scenario. If you need help with determining which is the right flow for you, check out [the types of apps you can build with Microsoft identity platform](v2-app-types.md).
+* [Refresh tokens](refresh-tokens.md) - The client uses a refresh token, or *RT*, to request new access and ID tokens from the authorization server. Your code should treat refresh tokens and their string content as opaque because they're intended for use only by authorization server.
 
-* [Build mobile, native, and web application with OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Sign users in with OpenID Connect](v2-protocols-oidc.md)
-* [Build daemons or server-side processes with the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
-* [Get tokens in a web API with the OAuth 2.0 on-behalf-of Flow](v2-oauth2-on-behalf-of-flow.md)
-* [Build single-page apps with the  OAuth 2.0 Implicit Flow](v2-oauth2-implicit-grant-flow.md)
+## App registration
+
+Your client app needs a way to trust the security tokens issued to it by the Microsoft identity platform. The first step in establishing that trust is by [registering your app](quickstart-register-app.md) with the identity platform in Azure Active Directory (Azure AD).
+
+When you register your app in Azure AD, the Microsoft identity platform automatically assigns it some values, while others you configure based on the application's type.
+
+Two of the most commonly referenced app registration settings are:
+
+* **Application (client) ID** - Also called _application ID_ and _client ID_, this value is assigned to your app by the Microsoft identity platform. The client ID uniquely identifies your app in the identity platform and is included in the security tokens the platform issues.
+* **Redirect URI** - The authorization server uses a redirect URI to direct the resource owner's *user-agent* (web browser, mobile app) to another destination after completing their interaction. For example, after the end-user authenticates with the authorization server. Not all client types use redirect URIs.
+
+Your app's registration also holds information about the authentication and authorization *endpoints* you'll use in your code to get ID and access tokens.
+
+## Endpoints
+
+The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0. Standards-compliant authorization servers like the Microsoft identity platform provide a set of HTTP endpoints for use by the parties in an auth flow to execute the flow.
+
+The endpoint URIs for your app are generated for you when you register or configure your app in Azure AD. The endpoints you use in your app's code depend on the application's type and the identities (account types) it should support.
+
+Two commonly used endpoints are the [authorization endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [token endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). Here are examples of the `authorize` and `token` endpoints:
+
+```Bash
+# Authorization endpoint - used by client to obtain authorization from the resource owner.
+https://login.microsoftonline.com/<issuer>/oauth2/v2.0/authorize
+# Token endpoint - used by client to exchange an authorization grant or refresh token for an access token.
+https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
+
+# NOTE: These are examples. Endpoint URI format may vary based on application type,
+#       sign-in audience, and Azure cloud instance (global or national cloud).
+
+#       The {issuer} value in the path of the request can be used to control who can sign into the application. 
+#       The allowed values are **common** for both Microsoft accounts and work or school accounts, 
+#       **organizations** for work or school accounts only, **consumers** for Microsoft accounts only, 
+#       and **tenant identifiers** such as the tenant ID or domain name.
+```
+
+To find the endpoints for an application you've registered, in the [Azure portal](https://portal.azure.com) navigate to:
+
+**Azure Active Directory** > **App registrations** > \<YOUR-APPLICATION\> > **Endpoints**
+
+## Next steps
+
+Next, learn about the OAuth 2.0 authentication flows used by each application type and the libraries you can use in your apps to perform them:
+
+* [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
+* [Microsoft Authentication Library (MSAL)](msal-overview.md)
+
+**We strongly advise against crafting your own library or raw HTTP calls to execute authentication flows.** A [Microsoft authentication library](reference-v2-libraries.md) is safer and much easier. However, if your scenario prevents you from using our libraries or you'd just like to learn more about the identity platform's implementation, we have protocol reference:
+
+* [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
+* [Client credentials flow](v2-oauth2-client-creds-grant-flow.md) - Server-side processes, scripts, daemons
+* [On-behalf-of (OBO) flow](v2-oauth2-on-behalf-of-flow.md) - Web APIs that call another web API on a user's behalf
+* [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)

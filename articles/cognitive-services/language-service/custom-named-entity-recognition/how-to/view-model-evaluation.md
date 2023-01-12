@@ -8,41 +8,68 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 10/12/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 
-# View the model's evaluation and details
+# View the custom NER model's evaluation and details
 
-After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset. You must also have a [custom NER project](../quickstart.md) with a [trained model](train-model.md).
+After your model has finished training, you can view the model performance and see the extracted entities for the documents in the test set. 
+
+> [!NOTE]
+> Using the **Automatically split the testing set from training data** option may result in different model evaluation result every time you [train a new model](train-model.md), as the test set is selected randomly from the data. To make sure that the evaulation is calcualted on the same test set every time you train a model, make sure to use the **Use a manual split of training and testing data** option when starting a training job and define your **Test** documents when [labeling data](tag-data.md).
 
 ## Prerequisites
 
-* A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
-* [Tagged data](tag-data.md)
+Before viewing model evaluation, you need:
+
+* A successfully [created project](create-project.md) with a configured Azure blob storage account.
+* Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
+* [Labeled data](tag-data.md)
 * A [successfully trained model](train-model.md)
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
-## View the model's evaluation details
+## Model details
 
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
+### [Language studio](#tab/language-studio)
 
-2. Select **View model details** from the menu on the left side of the screen.
+[!INCLUDE [View model evaluation using Language Studio](../includes/language-studio/model-evaluation.md)]
 
-3. In this page you can only view the sucessfuly trained models. You can click on the model name for more details.
+### [REST APIs](#tab/rest-api)
 
-4. You can find the **model-level** evaluation metrics under **Overview**, and the **entity-level** evaluation metrics under **Entity performance metrics**. The confusion matrix for the model is located under **Test set confusion matrix**
-    
-    > [!NOTE]
-    > If you don't find all the entities displayed here, it's because they were not in any of the files within the test set.
+[!INCLUDE [Model evaluation](../includes/rest-api/model-evaluation.md)]
 
-    :::image type="content" source="../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio" lightbox="../media/model-details.png":::
+---
+
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../../conversational-language-understanding/includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../../custom-text-classification/includes/rest-api/load-export-model.md)]
+
+---
+
+## Delete model
+
+### [Language studio](#tab/language-studio)
+
+[!INCLUDE [Delete model](../includes/language-studio/delete-model.md)]
+
+### [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Delete model](../includes/rest-api/delete-model.md)]
+
+---
 
 ## Next steps
 
-* After reviewing your model's evaluation, you can start [improving your model](improve-model.md).
+* [Deploy your model](deploy-model.md)
 * Learn about the [metrics used in evaluation](../concepts/evaluation-metrics.md). 

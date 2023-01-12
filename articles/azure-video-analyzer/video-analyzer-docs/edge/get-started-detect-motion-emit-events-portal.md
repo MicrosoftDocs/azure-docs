@@ -13,6 +13,8 @@ Alternatively, check out [get started with Video Analyzer live pipelines using p
 
 ---
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll then deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device.
 
 After you complete the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.

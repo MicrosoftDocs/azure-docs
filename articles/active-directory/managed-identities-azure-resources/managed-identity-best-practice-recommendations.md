@@ -4,7 +4,7 @@ description: Recommendations on when to use user-assigned versus system-assigned
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -102,9 +102,15 @@ You'll need to manually delete a user-assigned identity when it's no longer requ
 Role assignments aren't automatically deleted when either system-assigned or user-assigned managed identities are deleted. These role assignments should be manually deleted so the limit of role assignments per subscription isn't exceeded. 
 
 Role assignments that are associated with deleted managed identities
-will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting.md#role-assignments-with-identity-not-found).
+will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting.md#symptom---role-assignments-with-identity-not-found).
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment.":::
+
+Role assignments which are no longer associated with a user or service principal will appear with an `ObjectType` value of `Unknown`. In order to remove them, you can pipe several Azure PowerShell commands together to first get all the role assignments, filter to only those with an `ObjectType` value of `Unknown` and then remove those role assignments from Azure.
+
+```azurepowershell
+Get-AzRoleAssignment | Where-Object {$_.ObjectType -eq "Unknown"} | Remove-AzRoleAssignment 
+```
 
 ## Limitation of using managed identities for authorization
 

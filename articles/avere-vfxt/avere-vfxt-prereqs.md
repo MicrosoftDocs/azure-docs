@@ -63,7 +63,7 @@ This step only needs to be done once per subscription.
 
 To accept the software terms in advance:
 
-1. Open a cloud shell in the Azure portal or by browsing to <https://shell.azure.com>. Sign in with your subscription ID.
+1. Use the [Azure Cloud Shell](https://shell.azure.com) to sign in using your subscription ID.
 
    ```azurecli
     az login​

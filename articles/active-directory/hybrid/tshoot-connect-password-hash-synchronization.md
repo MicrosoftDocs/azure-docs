@@ -4,7 +4,7 @@ description: This article provides information about how to troubleshoot passwor
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid:

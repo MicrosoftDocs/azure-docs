@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 06/18/2019
+ms.date: 09/09/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -17,6 +17,8 @@ ms.author: alkohli
 The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premises data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you 1 to 5 solid-state disks (SSDs). These 8-TB encrypted disks are sent to your datacenter through a regional carrier.
 
 You can quickly configure, connect, and unlock the disks through the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
+
+If you want to import data to Azure Blob storage and Azure Files, you can use Azure Import/Export service. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. You can supply your own disk drives and transfer data with the Azure Import/Export service, or you can also use disk drives supplied by Microsoft. For more information, go to [Azure Import/Export service](../import-export/storage-import-export-service.md).
 
 ## Use cases
 
@@ -60,6 +62,9 @@ A typical flow includes the following steps:
 5. **Upload** - Data is automatically copied from the disks to Azure. The disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
 Throughout this process, you are notified through email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
+
+> [!NOTE]
+> Only import is supported for Data Box Disk. Export functionality is not available. If you want to export data from Azure, you can use [Azure Data Box](data-box-overview.md).
 
 ## Benefits
 

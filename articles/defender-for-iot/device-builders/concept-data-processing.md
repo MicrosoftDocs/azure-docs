@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Data processing and residency
 
-Microsoft Defender for IoT is a separate service which adds an extra layer of threat protection to the Azure IoT Hub, IoT Edge, and your devices. Defender for IoT may process, and store your data within a different geographic location than your IoT Hub.
+Microsoft Defender for IoT is a separate service, which adds an extra layer of threat protection to the Azure IoT Hub, IoT Edge, and your devices. Defender for IoT may process, and store your data within a different geographic location than your IoT Hub.
 
 Mapping between the IoT Hub, and Microsoft Defender for IoT's regions is as follows:
 

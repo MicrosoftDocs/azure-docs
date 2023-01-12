@@ -1,29 +1,26 @@
 ---
-title: Register a client application in Azure AD using CLI and REST API - Azure Healthcare APIs
+title: Register a client application in Azure AD using CLI and REST API - Azure Health Data Services
 description: This article describes how to register a client application Azure AD using CLI and REST API.
 services: healthcare-apis
-author: SteveWohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/10/2021
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Register a client application using CLI and REST API
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access Azure Health Data Services. While you can register a client application using the Azure portal, the scripting approach enables you to test and deploy resources directly. For more information, see [Register a client application with the Azure portal](register-application.md).
 
-In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, the scripting approach enables you to test and deploy resources directly. For more information, see [Register a client application with the Azure portal](register-application.md).
-
-You can create a confidential or public client application by following the steps, including some optional steps, one by one or in a combined form. Also, you can define the variables upfront instead of placing them in the middle of the scripts. For more information, see [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/appregistrationcli.http).
+You can create a confidential or public client application by following the steps, including some optional steps, one by one or in a combined form. Also, you can define the variables upfront instead of placing them in the middle of the scripts. For more information, see [Azure Health Data Services Samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/appregistrationcli.http).
 
 > [!Note] 
 > The scripts are created and tested in Visual Studio Code. However, you'll need to validate them in your environment and make necessary adjustments. For example, you can run the scripts in the PowerShell environment, but you'll need to add the `$` symbol for your variables.
 
 ## Sign in to your Azure subscription
 
-Before signing in to Azure, check the `az` version you have installed in your environment, and upgrade it to the latest version if necessary. Also, ensure that you have the account and Healthcare APIs extensions installed.
+Before signing in to Azure, check the `az` version you've installed in your environment, and upgrade it to the latest version if necessary. Also, ensure that you have the account and Azure Health Data Services extensions installed.
 
 ```
 az --version
@@ -32,7 +29,7 @@ az extension add --name healthcareapis
 az provider register --namespace 'Microsoft.HealthcareApis'
 az provider show --namespace Microsoft.HealthcareApis --query "resourceTypes[?resourceType=='services'].locations"
 ```
-You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](/cli/azure/account#az_account_set). For more information about how to sign in to a specific tenant, see [Azure login](/cli/azure/authenticate-azure-cli).
+You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](/cli/azure/account#az-account-set). For more information about how to sign in to a specific tenant, see [Azure login](/cli/azure/authenticate-azure-cli).
 
 ```
 az login
@@ -41,7 +38,7 @@ az account show --output table
 
 ## Create a client application
 
-You can use the CLI command to create a confidential client application registration. You will need to change the display name "myappregtest1" in your scripts.
+You can use the CLI command to create a confidential client application registration. You'll need to change the display name "myappregtest1" in your scripts.
 
 `
 az ad app create --display-name myappregtest1
@@ -62,7 +59,7 @@ You can use `echo $<variable name>` to display the value of a specified variable
 
 ## Remove the user_impersonation scope
 
-The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations from the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
+The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations from the Azure portal. This scope isn't required in most cases. Therefore, you can remove it.
 
 [![User_Impersonation](media/app-registration-scope.png)](media/app-registration-scope.png#lightbox)
 
@@ -86,13 +83,13 @@ clientid=$(az rest -m post -u https://graph.microsoft.com/v1.0/applications  --h
 
 For confidential client applications, you'll need to add a client secret. For public client applications, you can skip this step.
 
-Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the `--end-date` option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it is not visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
+Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the `--end-date` option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it isn't visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
 
 ```
 ###Add client secret with expiration. The default is one year.
 clientsecretname=mycert2
 clientsecretduration=2
-clientsecret=$(az ad app credential reset --id $clientid --append --credential-description $clientsecretname --years $clientsecretduration --query password --output tsv)
+clientsecret=$(az ad app credential reset --id $clientid --append --display-name $clientsecretname --years $clientsecretduration --query password --output tsv)
 echo $clientsecret
 ```
 
@@ -124,7 +121,7 @@ graphurl=https://graph.microsoft.com/v1.0/applications/$objectid
 az rest --method PATCH --uri $graphurl --headers 'Content-Type=application/json' --body '{"'$redirecttype'":{"redirectUris":["'$redirecturl'"]}}'
 ```
 
-For more information about iOS/macOS, and Android applications, see [github](https://github.com/Azure/azure-cli/issues/9501).
+For more information about iOS/macOS, and Android applications, see [GitHub](https://github.com/Azure/azure-cli/issues/9501).
 
 ## Create a service principal
 
@@ -132,7 +129,7 @@ To complete the application registration process, you'll need to create a servic
 
 ```
 ###Create an AAD service principal
-spid=(az ad sp create --id $clientid --query objectId --output tsv)
+spid=$(az ad sp create --id $clientid --query objectId --output tsv)
 ###Look up a service principal
 spid=$(az ad sp show --id $clientid --query objectId --output tsv)
 ```
@@ -149,7 +146,7 @@ Now that you've completed the application registration using CLI and REST API, y
 
 ## Next steps
 
-In this article, you learned how to register a client application in Azure AD using CLI and REST API. For information on how to grant permissions for Healthcare APIs, see 
+In this article, you learned how to register a client application in Azure AD using CLI and REST API. For information on how to grant permissions for Azure Health Data Services, see 
 
 >[!div class="nextstepaction"]
->[Configure RBAC for Healthcare APIs](configure-azure-rbac.md)
+>[Configure RBAC for Azure Health Data Services](configure-azure-rbac.md)

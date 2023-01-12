@@ -17,6 +17,11 @@ Azure Synapse Data Explorer provides customers with an interactive query experie
 
 :::image type="content" border="false" source="../media/overview-what-is/synapse-architecture.png" alt-text="Diagram showing the Azure Synapse architecture.":::
 
+To learn more, see the following video:
+
+>
+> [!VIDEO https://learn.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
+
 ## What makes Azure Synapse Data Explorer unique?
 
 * **Easy ingestion** - Data Explorer offers built-in integrations for no-code/low-code, high-throughput data ingestion, and caching data from real-time sources. Data can be ingested from sources such as Event Hub, Kafka, Azure Data Lake, open source agents such as Fluentd/Fluent Bit, and a wide variety of cloud and on-premises data sources.

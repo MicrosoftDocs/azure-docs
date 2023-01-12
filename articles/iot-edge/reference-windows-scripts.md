@@ -1,9 +1,9 @@
 ---
 title: Scripts for Azure IoT Edge with Windows containers | Microsoft Docs 
 description: Reference information for IoT Edge PowerShell scripts to install, uninstall, or update on Windows devices
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 
 # PowerShell scripts for IoT Edge with Windows containers
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 Understand the PowerShell scripts that install, update, or uninstall IoT Edge on Windows devices.
 

@@ -45,7 +45,7 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
 
 - An existing [Azure Synapse workspace](../get-started-create-workspace.md)
 - At least one [dedicated SQL pool](../get-started-analyze-sql-pool.md)
-- Your workspace must be assigned the Azure contributor role to the affected Dedicated SQL Pool(s). See [Grant Synapse administrators the Azure Contributor role on the workspace](../security/how-to-set-up-access-control.md#step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace).
+- Your workspace must be assigned the Azure contributor role to the affected Dedicated SQL Pool(s). See [Grant Synapse administrators the Azure Contributor role on the workspace](../security/how-to-set-up-access-control.md#step-5-grant-synapse-administrators-an-azure-contributor-role-for-the-workspace).
 
 ## Step 1: Create a pipeline in Synapse Studio.
 1. Navigate to your workspace and open Synapse Studio. 

@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 06/06/2022
 ms.author: alkohli
 ---
 
@@ -15,7 +15,12 @@ Take the following steps if you're returning the device in South Africa.
 4. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address, where it is clearly visible.
 5. Book a pickup with DHL using one of the following methods:
  
-   * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Book a pickup online by going to [DHL Express South Africa](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference) and selecting **Schedule a Pickup**.
+
+        On the DHL website, select **No** to create a shipping label. Enter the DHL Waybill number generated when completing **Prepare to ship** process.
+    
+        :::image type="content" source="media/data-box-shipping-in-sa/dhl-schedule-pickup.png" alt-text="Screenshot of DHL site to schedule a pickup.":::
+
    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
      ```output

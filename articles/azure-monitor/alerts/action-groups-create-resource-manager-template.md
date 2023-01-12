@@ -1,12 +1,13 @@
 ---
 title: Create action groups with Resource Manager templates
 description: Learn how to create an action group by using an Azure Resource Manager template.
-author: dkamstra
+author: jacegummersall
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 2/23/2022
-ms.author: dukek
+ms.date: 09/07/2022
+ms.author: jagummersall
+ms.reviewer: jagummersall
 ---
 
 # Create an action group with a Resource Manager template
@@ -26,7 +27,7 @@ First template, describes how to create a Resource Manager template for an actio
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroupName": {
@@ -123,7 +124,7 @@ First template, describes how to create a Resource Manager template for an actio
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroupName": {

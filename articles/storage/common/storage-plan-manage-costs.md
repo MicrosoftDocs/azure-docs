@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 12/07/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -33,7 +33,14 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
    As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
 
-4. Modify the remaining options to see their affect on your estimate.
+4. Modify the remaining options to see their effect on your estimate.
+
+   > [!TIP]
+   > - To view an Excel template which can help you to itemize the amount of storage and number of operations required by your workloads, see [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/). 
+   > 
+   >   You can use that information as input to the Azure pricing calculator.
+   >
+   > - For more information about how to estimate the cost of archiving data that is rarely used, see [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
 
 ## Understand the full billing model for Azure Blob Storage
 
@@ -65,26 +72,43 @@ Data storage and metadata are billed per GB on a monthly basis. For data and met
 
 ### Finding the unit price for each meter
 
-To find unit prices, open the correct pricing page. If you've enabled the hierarchical namespace feature on your account, see the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. If you haven't enabled this feature, see the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
+To find unit prices, open the correct pricing page and select the appropriate file structure. Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
 
-In the pricing page, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
+The correct pricing page and file structure matter mostly to the cost of reading and writing data as the cost to store data is essentially unchanged by those selections. To accurately estimate the cost of reading and writing data, start by determining which [Storage account endpoint](storage-account-overview.md#storage-account-endpoints) clients, applications, and workloads will use to read and write data.  
 
-### Flat namespace accounts and transaction pricing
+#### Pricing requests to the blob service endpoint
 
-Clients can make a request by using either the Blob Storage endpoint or the Data Lake Storage endpoint of your account. To learn more about storage account endpoints, see [Storage account endpoints](storage-account-overview.md#storage-account-endpoints).
+The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net` and is the most common endpoint used by tools and applications that interact with Blob Storage. 
 
-Transaction prices that appear in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page apply only to requests that use the Blob Storage endpoint (For example: `https://<storage-account>.blob.core.windows.net`). The listed prices do not apply to requests that use the Data Lake Storage Gen2 endpoint (For example: `https://<storage-account>.dfs.core.windows.net`). For the transaction price of those requests, open the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page and select the **Flat Namespace** option.
+Requests can originate from any of these sources:
 
-> [!div class="mx-imgBorder"]
-> ![flat namespace option](media/storage-plan-manage-costs/select-flat-namespace.png)
+- Hadoop workloads that use the [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver
 
-Requests to the Data Lake Storage Gen2 endpoint can originate from any of the following sources:
+- Clients that use [Blob Storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or Blob Storage APIs from an Azure Storage client library
 
-- Workloads that use the Azure Blob File System driver or [ABFS driver](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+- Transfers to [Network File System (NFS) 3.0](../blobs/network-file-system-protocol-support.md) mounted containers
 
-- REST calls that use the [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)
+- Transfers made by using the [SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support.md)
 
-- Applications that use Data Lake Storage Gen2 APIs from an Azure Storage client library.
+The correct pricing page for these requests is the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page. 
+
+Requests to this endpoint can also occur in accounts that have a hierarchical namespace. In fact, to use NFS 3.0 and SFTP protocols, you must first enable the hierarchical namespace feature of the account. 
+
+If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
+
+#### Pricing requests to the Data Lake Storage endpoint
+
+The format of the Data Lake Storage endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
+
+Requests can originate from any of these sources:
+
+- Hadoop workloads that use the [Azure Blob File System driver (ABFS)](../blobs/data-lake-storage-abfs-driver.md) driver
+
+- Clients that use [Data Lake Storage Gen2 REST APIs](/rest/api/storageservices/data-lake-storage-gen2) or Data Lake Storage Gen2 APIs from an Azure Storage client library
+
+The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
+
+If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
 
 ### Using Azure Prepayment with Azure Blob Storage
 
@@ -110,7 +134,7 @@ To learn more, see [Optimize costs for Blob Storage with reserved capacity](../b
 
 #### Organize data into access tiers
 
-You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.
+You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md).
 
 To learn more, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal).
 
@@ -152,7 +176,7 @@ You can add other filters as well (For example: a filter to see costs for specif
 
 ## Export cost data
 
-You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## FAQ
 
@@ -163,8 +187,9 @@ Storage capacity is billed in units of the average daily amount of data stored, 
 ## Next steps
 
 - Learn more on how pricing works with Azure Storage. See [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
+- Understanding how your blobs and containers are stored, organized, and used in production so that you better optimize the tradeoffs between cost and performance. See [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md).
 - [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 - Learn [how to optimize your cloud investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

@@ -1,12 +1,12 @@
 ---
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 10/05/2022
 ms.custom: subject-rbac-steps
-ms.author: rohogue
+ms.author: v-erinkelly
 ---
 
 # Add storage targets
@@ -33,18 +33,20 @@ The procedure to add a storage target is slightly different depending on the typ
 
 ## Size your cache correctly to support your storage targets
 
-The number of supported storage targets depends on the cache size, which is set when you create the cache. The cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
+When you create the cache, make sure you select the type and size that will support the number of storage targets you need.
+
+The number of supported storage targets depends on the cache type and the cache capacity. Cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 
 * Up to 10 storage targets - A standard cache with the smallest or medium cache storage value for your selected throughput can have a maximum of 10 storage targets.
 
-  For example, if you choose 2GB/second throughput and don't choose the highest cache storage size, your cache supports a maximum of 10 storage targets.
+  For example, if you choose 2 GB/second throughput and don't choose the largest cache storage size (12 TB), your cache supports a maximum of 10 storage targets.
 
 * Up to 20 storage targets -
 
-  * All high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
+  * All read-only high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
   * Standard caches can support up to 20 storage targets if you choose the highest available cache size for your selected throughput value. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
 
-Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
+Read [Choose cache type and capacity](hpc-cache-create.md#choose-cache-type-and-capacity) to learn more about throughput and cache size settings.
 
 ## Choose the correct storage target type
 
@@ -175,7 +177,7 @@ Also check your storage account's firewall settings. If the firewall is set to r
 
 ### Add a blob storage target with Azure CLI
 
-Use the [az hpc-cache blob-storage-target add](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add) interface to define an Azure Blob storage target.
+Use the [az hpc-cache blob-storage-target add](/cli/azure/hpc-cache/blob-storage-target#az-hpc-cache-blob-storage-target-add) interface to define an Azure Blob storage target.
 
 > [!NOTE]
 > The Azure CLI commands currently require you to create a namespace path when you add a storage target. This is different from the process used with the Azure portal interface.
@@ -234,7 +236,7 @@ These three options cover most situations:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance.
 
-  Client reads and client writes are both cached. Files in the cache are assumed to be newer than files on the back-end storage system. Cached files are only automatically checked against the files on back-end storage every eight hours. Modified files in the cache are written to the back-end storage system after they have been in the cache for 20 minutes with no other changes.
+  Client reads and client writes are both cached. Files in the cache are assumed to be newer than files on the back-end storage system. Cached files are only automatically checked against the files on back-end storage every eight hours. Modified files in the cache are written to the back-end storage system after they have been in the cache for an hour with no other changes.
 
   Do not use this option if any clients mount the back-end storage volume directly, because there is a risk it will have outdated files.
 
@@ -281,7 +283,7 @@ When finished, click **OK** to add the storage target.
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_add) to create the storage target.
+Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/hpc-cache/nfs-storage-target#az-hpc-cache-nfs-storage-target-add) to create the storage target.
 
 > [!NOTE]
 > The Azure CLI commands currently require you to create a namespace path when you add a storage target. This is different from the process used with the Azure portal interface.
@@ -292,7 +294,7 @@ Supply these values in addition to the cache name and cache resource group:
 * ``--nfs3-target`` - The IP address of your NFS storage system. (You can use a fully qualified domain name here if your cache has access to a DNS server that can resolve the name.)
 * ``--nfs3-usage-model`` - One of the data caching profiles, described in [Choose a usage model](#choose-a-usage-model), above.
 
-  Verify the names of the usage models with the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage_model_list).
+  Verify the names of the usage models with the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az-hpc-cache-usage-model-list).
 
 * ``--junction`` - The junction parameter links the client-facing virtual file path with an export path on the storage system.
 
@@ -404,13 +406,13 @@ Read [View and manage storage targets](manage-storage-targets.md) and [Edit stor
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the [az hpc-cache storage-target list](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
+Use the [az hpc-cache storage-target list](/cli/azure/hpc-cache/storage-target#az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
 
 ```azurecli
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-Use [az hpc-cache storage-target show](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
+Use [az hpc-cache storage-target show](/cli/azure/hpc-cache/storage-target#az-hpc-cache-storage-target-list) to see details about a particular storage target. (Specify the storage target by name.)
 
 Example:
 

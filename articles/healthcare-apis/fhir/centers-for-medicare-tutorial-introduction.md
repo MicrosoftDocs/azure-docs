@@ -5,18 +5,14 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 12/16/2021
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/06/2022
 ---
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to support these implementation guides.
+In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure FHIR service in Azure Health Data Services (hereby called FHIR service) to support these implementation guides.
 
 
 ## Rule overview
@@ -48,7 +44,7 @@ The FHIR service has the following capabilities to help you configure your datab
 
 The Patient Access API describes adherence to four FHIR implementation guides:
 
-* [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html): Payers are required to make patients' claims and encounters data available according to the CARIN IG for Blue Button Implementation Guide (C4BB IG). The C4BB IG provides a set of resources that payers can display to consumers via a FHIR API and includes the details required for claims data in the Interoperability and Patient Access API. This implementation guide uses the ExplanationOfBenefit (EOB) Resource as the main resource, pulling in other resources as they are referenced.
+* [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html): Payers are required to make patients' claims and encounters data available according to the CARIN IG for Blue Button Implementation Guide (C4BB IG). The C4BB IG provides a set of resources that payers can display to consumers via a FHIR API and includes the details required for claims data in the Interoperability and Patient Access API. This implementation guide uses the ExplanationOfBenefit (EOB) Resource as the main resource, pulling in other resources as they're referenced.
 * [HL7 FHIR Da Vinci PDex IG](http://hl7.org/fhir/us/davinci-pdex/STU1/index.html): The Payer Data Exchange Implementation Guide (PDex IG) is focused on ensuring that payers provide all relevant patient clinical data to meet the requirements for the Patient Access API. This uses the US Core profiles on R4 Resources and includes (at a minimum) encounters, providers, organizations, locations, dates of service, diagnoses, procedures, and observations. While this data may be available in FHIR format, it may also come from other systems in the format of claims data, HL7 V2 messages, and C-CDA documents.
 * [HL7 US Core IG](https://www.hl7.org/fhir/us/core/toc.html): The HL7 US Core Implementation Guide (US Core IG) is the backbone for the PDex IG described above. While the PDex IG limits some resources even further than the US Core IG, many resources just follow the standards in the US Core IG.
 
@@ -58,7 +54,7 @@ The Patient Access API describes adherence to four FHIR implementation guides:
 
 The Provider Directory API describes adherence to one implementation guide:
 
-* [HL7 Da Vinci PDex Plan Network IG](http://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
+* [HL7 Da Vinci PDex Plan Network IG](https://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
 
 ## Touchstone
 
@@ -66,7 +62,9 @@ To test adherence to the various implementation guides, [Touchstone](https://tou
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the FHIR service for the CARIN IG for Blue Button. 
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we'll walk through setting up FHIR service for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
->[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)  
+>[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.  

@@ -13,6 +13,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This tutorial shows you how to use Azure Video Analyzer together with [Computer Vision for spatial analysis AI service from Azure Cognitive Services](../../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server enables you to analyze the streaming video to understand spatial relationships between people and movement in physical space. A subset of the frames in the video feed is sent to this inference server, and the results are sent to IoT Edge Hub and when some conditions are met, video clips are recorded and stored as videos in the Video Analyzer account.
 
 In this tutorial you will:

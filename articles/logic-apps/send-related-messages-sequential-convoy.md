@@ -1,14 +1,16 @@
 ---
 title: Send correlated messages in-order by using a sequential convoy
-description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus
+description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: apseth, divswa, logicappspm
-ms.topic: conceptual
+ms.reviewer: apseth, divswa, azla
+ms.topic: how-to
 ms.date: 05/29/2020
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you need to send correlated messages in a specific order, you can follow the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) when using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 

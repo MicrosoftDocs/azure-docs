@@ -12,16 +12,11 @@ ms.author: qixwang
 # Using Azure Front Door Standard/Premium with Cross-Origin Resource Sharing (CORS)
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
 ## What is CORS?
 
 CORS (Cross Origin Resource Sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. To reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy). This prevents a web page from calling APIs in a different domain.  CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How it works
 
@@ -64,7 +59,7 @@ If you need to allow a specific list of origins to be allowed for CORS, things g
 
 ### Azure Front Door Rule Set
 
-On Azure Front Door, you can create a rule in the Azure Front Door [Rules Set](concept-rule-set.md) to check the **Origin** header on the request. If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the correct value. In this case, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the AFD's rules engine completely manages the allowed CORS origins.
+On Azure Front Door, you can create a rule in the Azure Front Door [Rules Set](../front-door-rules-engine.md) to check the **Origin** header on the request. If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the correct value. In this case, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the AFD's rules engine completely manages the allowed CORS origins.
 
 :::image type="content" source="../media/troubleshooting-cross-origin-resource-sharing/cross-origin-resource.png" alt-text="Screenshot of rules example with rule set.":::
 

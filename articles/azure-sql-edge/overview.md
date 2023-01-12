@@ -1,24 +1,27 @@
 ---
-title: What is Azure SQL Edge? 
+title: What is Azure SQL Edge?
 description: Learn about Azure SQL Edge
-keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 05/19/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 05/19/2020
+keywords:
+  - introduction to SQL Edge
+  - what is SQL Edge
+  - SQL Edge overview
+services: sql-edge
 ---
 
 # What is Azure SQL Edge?
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
-Azure SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation), which provides industry-leading performance, security and query processing capabilities. Since Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL](../azure-sql/index.yml), it provides the same Transact-SQL (T-SQL) programming surface area that makes development of applications or solutions easier and faster, and makes application portability between IoT Edge devices, data centers and the cloud straight forward.
+Azure SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation), which provides industry-leading performance, security and query processing capabilities. Since Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL](/azure/azure-sql/index), it provides the same Transact-SQL (T-SQL) programming surface area that makes development of applications or solutions easier and faster, and makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
 What is Azure SQL Edge video on Channel 9:
-> [!VIDEO https://docs.microsoft.com/shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
+> [!VIDEO https://learn.microsoft.com/shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## Deployment Models
 

@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: gwallace
+ms.author: timwarner
 ---
 
 ### To sign up for a SendGrid account

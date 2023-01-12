@@ -6,7 +6,7 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
@@ -22,6 +22,11 @@ You can configure the schema that a publisher must conform to during topic creat
 
 Subscribers can also configure the schema in which they want the events delivered. If unspecified, default is topic's schema.
 Currently subscriber delivery schema has to match its topic's input schema. 
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## EventGrid schema
 

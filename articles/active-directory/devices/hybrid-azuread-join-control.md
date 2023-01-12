@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 04/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -72,10 +72,10 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
 
 ### Configure AD FS settings
 
-If you're using AD FS, you first need to configure client-side SCP using the instructions mentioned earlier by linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When client-side SCP is configured for AD FS, the source for device objects is established as Azure AD.
+If your Azure AD is federated with AD FS, you first need to configure client-side SCP using the instructions mentioned earlier by linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When client-side SCP is configured for AD FS, the source for device objects is established as Azure AD.
 
 > [!NOTE]
-> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises. ADFS will then start deleting device objects from on-premises directory after the stipulated period defined in the ADFS Device Registration's attribute "MaximumInactiveDays". ADFS Device Registration objects can be found using the [Get-AdfsDeviceRegistration cmdlet](/powershell/module/adfs/get-adfsdeviceregistration).
+> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises. AD FS will then start deleting device objects from on-premises directory after the stipulated period defined in the AD FS Device Registration's attribute "MaximumInactiveDays". AD FS Device Registration objects can be found using the [Get-AdfsDeviceRegistration cmdlet](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## Supporting down-level devices
 
@@ -89,6 +89,10 @@ To control the device registration, you should deploy the Windows Installer pack
 
 > [!NOTE]
 > If a SCP is not configured in AD, then you should follow the same approach as described to [Configure client-side registry setting for SCP](#configure-client-side-registry-setting-for-scp)) on your domain-joined computers using a Group Policy Object (GPO).
+
+## Why a device might be in a pending state
+
+When you configure a **Hybrid Azure AD join** task in the Azure AD Connect Sync for your on-premises devices, the task will sync the device objects to Azure AD, and temporarily set the registered state of the devices to "pending" before the device completes the device registration. This is because the device must be added to the Azure AD directory before it can be registered. For more information about the device registration process, see [How it works: Device registration](device-registration-how-it-works.md#hybrid-azure-ad-joined-in-managed-environments).
 
 ## Post validation
 

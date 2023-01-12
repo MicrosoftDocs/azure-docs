@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Internet peering documentation
+title: Internet Peering documentation
 summary: Learn about Internet peering with Microsoft.
 
 metadata:
@@ -10,8 +10,8 @@ metadata:
   services: internet-peering
   ms.service: internet-peering
   ms.topic: landing-page
-  author: prmitiki
-  ms.author: prmitiki
+  author: halkazwini
+  ms.author: halkazwini
   ms.date: 11/27/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

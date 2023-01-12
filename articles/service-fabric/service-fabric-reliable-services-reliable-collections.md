@@ -1,10 +1,14 @@
 ---
 title: Introduction to Reliable Collections
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
-
 ms.topic: conceptual
-ms.date: 3/10/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
 
 Reliable Collections enable you to write highly available, scalable, and low-latency cloud applications as though you were writing single computer applications. The classes in the **Microsoft.ServiceFabric.Data.Collections** namespace provide a set of collections that automatically make your state highly available. Developers need to program only to the Reliable Collection APIs and let Reliable Collections manage the replicated and local state.

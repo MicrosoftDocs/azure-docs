@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 
 To plan your QnA Maker app, you need to understand how QnA Maker works and interacts with other Azure services. You should also have a solid grasp of knowledge base concepts.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Azure resources
 
 Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.

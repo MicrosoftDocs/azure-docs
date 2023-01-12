@@ -58,12 +58,12 @@ Request body
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "16.040-LTS"
+            "sku": "18.04-lts"
         },
         "nodePlacementConfiguration": {
             "policy": "Zonal"
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
@@ -78,4 +78,4 @@ Request body
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [creating a pool in a subnet of an Azure virtual network](batch-virtual-network.md).
-- Learn about [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
+- Learn about [creating an Azure Batch pool without public IP addresses](./simplified-node-communication-pool-no-public-ip.md).

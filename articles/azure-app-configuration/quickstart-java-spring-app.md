@@ -3,14 +3,14 @@ title: Quickstart to learn how to use Azure App Configuration
 description: In this quickstart, create a Java Spring app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: mrm9084
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/18/2020
+ms.date: 05/02/2022
 ms.custom: devx-track-java, mode-api
-ms.author: alkemper
+ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Java Spring app with Azure App Configuration
@@ -20,7 +20,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
+- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create an App Configuration store
@@ -39,9 +39,9 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 ## Create a Spring Boot app
 
-Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boot project.
+To create a new Spring Boot project:
 
-1. Browse to <https://start.spring.io/>.
+1. Browse to the [Spring Initializr](https://start.spring.io).
 
 1. Specify the following options:
 
@@ -58,13 +58,13 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
 
-    **Spring Boot 2.4**
+    **Spring Boot 2.6**
 
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-        <version>2.0.0</version>
+        <version>2.6.0</version>
     </dependency>
     ```
 
@@ -129,7 +129,25 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     }
     ```
 
-1. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following lines to the file. Replace the sample values with the appropriate properties for your App Configuration store.
+1. Open the auto-generated unit test and update to disable Azure App Configuration, or it will try to load from the service when runnings unit tests.
+
+    ```java
+    package com.example.demo;
+
+    import org.junit.jupiter.api.Test;
+    import org.springframework.boot.test.context.SpringBootTest;
+
+    @SpringBootTest(properties = "spring.cloud.azure.appconfiguration.enabled=false")
+    class DemoApplicationTests {
+
+        @Test
+        void contextLoads() {
+        }
+
+    }
+    ```
+
+1. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following line to the file.
 
     ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
@@ -155,7 +173,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 ## Build and run the app locally
 
-1. Build your Spring Boot application with Maven and run it, for example:
+1. Open command prompt to the root directory and run the following commands to build your Spring Boot application with Maven and run it.
 
     ```cmd
     mvn clean package
@@ -176,7 +194,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](/java/azure/spring-framework/). To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](/java/azure/spring-framework/). For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-java-spring-app.md)

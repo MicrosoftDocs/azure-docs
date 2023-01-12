@@ -145,4 +145,4 @@ reduce the dependency size, refer to the [performance tuning][performance_tuning
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
-[api]:
+[api]: /java/api/overview/azure/messaging-webpubsub-readme

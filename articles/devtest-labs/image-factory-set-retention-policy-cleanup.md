@@ -2,6 +2,8 @@
 title: Set up retention policy
 description: Learn how to configure a retention policy, clean up the factory, and retire old images from DevTest Labs. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

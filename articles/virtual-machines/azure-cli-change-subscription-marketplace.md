@@ -125,18 +125,18 @@ az group delete --name $destinationResourceGroup --subscription $destinationSubs
 
 ## Azure CLI references used in this article
 
-- [az account set](/cli/azure/account#az_account_set)
-- [az disk create](/cli/azure/disk#az_disk_create)
-- [az group delete](/cli/azure/group#az_group_delete)
-- [az resource move](/cli/azure/resource#az_resource_move)
-- [az snapshot create](/cli/azure/snapshot#az_snapshot_create)
-- [az vm create](/cli/azure/vm#az_vm_create)
-- [az vm deallocate](/cli/azure/vm#az_vm_deallocate)
-- [az vm delete](/cli/azure/vm#az_vm_delete)
-- [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view)
-- [az vm image terms accept](/cli/azure/vm/image/terms#az_vm_image_terms_accept)
-- [az vm image terms show](/cli/azure/vm/image/terms#az_vm_image_terms_show)
-- [az vm show](/cli/azure/vm#az_vm_show)
+- [az account set](/cli/azure/account#az-account-set)
+- [az disk create](/cli/azure/disk#az-disk-create)
+- [az group delete](/cli/azure/group#az-group-delete)
+- [az resource move](/cli/azure/resource#az-resource-move)
+- [az snapshot create](/cli/azure/snapshot#az-snapshot-create)
+- [az vm create](/cli/azure/vm#az-vm-create)
+- [az vm deallocate](/cli/azure/vm#az-vm-deallocate)
+- [az vm delete](/cli/azure/vm#az-vm-delete)
+- [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view)
+- [az vm image terms accept](/cli/azure/vm/image/terms#az-vm-image-terms-accept)
+- [az vm image terms show](/cli/azure/vm/image/terms#az-vm-image-terms-show)
+- [az vm show](/cli/azure/vm#az-vm-show)
 
 ## Next steps
 

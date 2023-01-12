@@ -5,10 +5,10 @@ metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: sunilagarwal
   ms.author: sunila
-  ms.date: 09/21/2020
+  ms.date: 08/11/2022
   ms.service: postgresql
+  ms.custom: ignite-2022
   ms.topic: landing-page
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Database for PostgreSQL?
-            url: overview.md
+            url: single-server/overview.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
@@ -29,29 +29,29 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: concepts-servers.md
+            url: single-server/concepts-servers.md
           - text: View all Single server documentation
             url: single-server/index.yml
       - linkListType: quickstart
         links:
           - text: Create a server using the Azure Portal
-            url: quickstart-create-server-database-portal.md
+            url: single-server/quickstart-create-server-database-portal.md
           - text: Create a server using Azure CLI
-            url: quickstart-create-server-database-azure-cli.md
+            url: single-server/quickstart-create-server-database-azure-cli.md
       - linkListType: concept
         links:
           - text: Server concepts
-            url: concepts-servers.md
+            url: single-server/concepts-servers.md
           - text: Limits
-            url: concepts-limits.md
+            url: single-server/concepts-limits.md
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
-            url: tutorial-design-database-using-azure-portal.md
+            url: single-server/tutorial-design-database-using-azure-portal.md
           - text: Build Python (Django) app with PostgreSQL
-            url: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+            url: ../app-service/tutorial-python-postgresql-app.md?toc=/azure/postgresql/toc.json
           - text: Monitor and tune the server
-            url: tutorial-monitor-and-tune.md
+            url: single-server/tutorial-monitor-and-tune.md
   - title: Flexible Server 
     linkLists:
       - linkListType: overview
@@ -80,25 +80,6 @@ landingContent:
         links:
           - text: Create App and database server in virtual network
             url: flexible-server/tutorial-webapp-server-vnet.md
-# Card
-  - title: Hyperscale (Citus) cluster
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Hyperscale ?
-            url: hyperscale/concepts-nodes.md
-          - text: View all Hyperscale documentation
-            url: hyperscale/index.yml
-      - linkListType: concept
-        links:
-          - text: PostgreSQL extensions - Hyperscale
-            url: hyperscale/reference-extensions.md
-          - text: Understand distributed data
-            url: hyperscale/concepts-distributed-data.md
-      - linkListType: quickstart
-        links:
-          - text: Create a Hyperscale (Citus) cluster in the Azure Portal
-            url: hyperscale/quickstart-create-portal.md
 
 # Card
   - title: Connect and query
@@ -106,40 +87,36 @@ landingContent:
       - linkListType: concept
         links:
           - text: Enable firewall rules to connect
-            url: concepts-firewall-rules.md
+            url: single-server/concepts-firewall-rules.md
           - text: Configure SSL for secure connections
-            url: concepts-ssl-connection-security.md
+            url: single-server/concepts-ssl-connection-security.md
       - linkListType: quickstart
         links:
           - text: Connect using Python
-            url: connect-python.md
-          - text: Connect using  Node.js
-            url: connect-nodejs.md
+            url: single-server/connect-python.md
+          - text: Connect using Node.js
+            url: single-server/connect-nodejs.md
           - text: Connect using Java
-            url: connect-java.md
+            url: single-server/connect-java.md
           - text: Connect using Ruby
-            url: connect-ruby.md
+            url: single-server/connect-ruby.md
           - text: Connect using PHP
-            url: connect-php.md
+            url: single-server/connect-php.md
           - text: Connect using .Net
-            url: connect-csharp.md
+            url: single-server/connect-csharp.md
           - text: Connect using Go
-            url: connect-go.md
+            url: single-server/connect-go.md
  # Card
   - title: Application Development
     linkLists:
       - linkListType: concept
         links:
           - text: Connection resiliency
-            url: concepts-connectivity.md
+            url: single-server/concepts-connectivity.md
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
-            url: tutorial-design-database-using-azure-portal.md
-          - text: Design a multi-tenant database using Hyperscale
-            url: hyperscale/tutorial-design-database-multi-tenant.md
-          - text: Design a real-time database using Hyperscale
-            url: hyperscale/tutorial-design-database-realtime.md
+            url: single-server/tutorial-design-database-using-azure-portal.md
 
   # Card
   - title: Reference
@@ -147,11 +124,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: 'Learning module: Create an Azure Database for PostgreSQL server'
-            url: /learn/modules/create-azure-db-for-postgresql-server/
+            url: /training/modules/create-azure-db-for-postgresql-server/
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: ./sample-scripts-azure-cli.md
+            url: single-server/sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbforpostgresql/allversions
       - linkListType: reference

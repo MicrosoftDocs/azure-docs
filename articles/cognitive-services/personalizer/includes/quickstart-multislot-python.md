@@ -28,7 +28,7 @@ ms.date: 03/23/2021
 
 [!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file and create variables for your resource's endpoint and subscription key.
 
@@ -162,7 +162,7 @@ def get_context_features():
 
 Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
-This quickstart has simple slot features. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple slot features. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
 
 ```python
 def get_slots():
@@ -286,7 +286,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 To complete the Rank request, the program asks the user's preferences to create content choices. The request body contains the context, actions and slots with their respective features. The `send_multi_slot_rank` method takes in a rankRequest and executes the multi-slot rank request.
 
-This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../how-to-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
 ```python
 eventId = str(uuid.uuid4())
@@ -329,7 +329,7 @@ send_multi_slot_reward(multi_slot_rewards, multi_slot_rank_response['eventId'])
 
 ## Run the program
 
-Run the application with the python from your application directory.
+Run the application with the Python from your application directory.
 
 ```console
 python sample.py

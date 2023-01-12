@@ -3,20 +3,19 @@ title: Tutorial - Add an on-premises app - Application Proxy in Azure Active Dir
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 04/04/2022
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.custom: contperf-fy21q3-portal
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
 
-Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. To learn more about Application Proxy, see [What is App Proxy?](what-is-application-proxy.md). This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant. 
+Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. To learn more about Application Proxy, see [What is App Proxy?](what-is-application-proxy.md). This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant.
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Application Proxy Overview Diagram" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
@@ -54,7 +53,7 @@ For high availability in your production environment, we recommend having more t
 >
 > ```
 > Windows Registry Editor Version 5.00
-> 
+>
 > [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp]
 > "EnableDefaultHTTP2"=dword:00000000
 > ```
@@ -127,7 +126,7 @@ Allow access to the following URLs:
 | `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
 | `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | The connector uses these URLs to verify certificates.        |
 | `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | The connector uses these URLs during the registration process. |
-| `ctldl.windowsupdate.com` | 80/HTTP | The connector uses this URL during the registration process. |
+| `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 80/HTTP | The connector uses these URLs during the registration process. |
 
 You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 
@@ -156,7 +155,7 @@ To install the connector:
 1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
 1. At the bottom of the window, select **Run** to install the connector. An install wizard opens.
 1. Follow the instructions in the wizard to install the service. When you're prompted to register the connector with the Application Proxy for your Azure AD tenant, provide your application administrator credentials.
-   
+
     - For Internet Explorer (IE), if **IE Enhanced Security Configuration** is set to **On**, you may not see the registration screen. To get access, follow the instructions in the error message. Make sure that **Internet Explorer Enhanced Security Configuration** is set to **Off**.
 
 ### General remarks
@@ -167,7 +166,7 @@ If you choose to have more than one Windows server for your on-premises applicat
 
 If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](application-proxy-network-topology.md)
 
-If your organization uses proxy servers to connect to the internet, you need to configure them for Application Proxy.  For more information, see [Work with existing on-premises proxy servers](./application-proxy-configure-connectors-with-proxy-servers.md). 
+If your organization uses proxy servers to connect to the internet, you need to configure them for Application Proxy.  For more information, see [Work with existing on-premises proxy servers](./application-proxy-configure-connectors-with-proxy-servers.md).
 
 For information about connectors, capacity planning, and how they stay up-to-date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
@@ -202,12 +201,12 @@ To confirm the connector installed and registered correctly:
 
 ## Add an on-premises app to Azure AD
 
-Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.  
+Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. In the left navigation panel, select **Azure Active Directory**.
 3. Select **Enterprise applications**, and then select **New application**.
-4. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premise application**.
+4. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premises application**.
 5. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field  | Description |
@@ -215,10 +214,10 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Name** | The name of the application that will appear on My Apps and in the Azure portal. |
     | **Internal URL** | The URL for accessing the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.<br><br>If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at `https://yourapp/app` and uses images located at `https://yourapp/media`, then you should publish `https://yourapp/` as the path. This internal URL doesn't have to be the landing page your users see. For more information, see [Set a custom home page for published apps](application-proxy-configure-custom-home-page.md). |
     | **External URL** | The address for users to access the app from outside your network. If you don't want to use the default Application Proxy domain, read about [custom domains in Azure AD Application Proxy](./application-proxy-configure-custom-domain.md). |
-    | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like Conditional Access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Cloud Application Security.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
+    | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like Conditional Access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Defender for Cloud Apps.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
     | **Connector Group** | Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default**.<br><br>If your application uses WebSockets to connect, all connectors in the group must be version 1.5.612.0 or later. |
 
-6. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states. 
+6. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states.
 
     | Field | Description |
     | :------------------------------ | :----------------------------------------------------------- |

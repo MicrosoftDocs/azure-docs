@@ -1,13 +1,14 @@
 ---
 title: 'Quickstart: Create a server - Azure CLI - Azure Database for MySQL - Flexible Server'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL Flexible Server in an Azure resource group.
-author: savjani
-ms.author: pariks
 ms.service: mysql
-ms.devlang: azurecli
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.date: 9/21/2020
+author: shreyaaithal
+ms.author: shaithal
+ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli, mode-api
+ms.date: 9/21/2020
 ---
 
 # Quickstart: Create an Azure Database for MySQL Flexible Server using Azure CLI
@@ -30,13 +31,13 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account#az_account_set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az_account_list).
+Select the specific subscription under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
@@ -50,7 +51,7 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 az group create --name myresourcegroup --location eastus2
 ```
 
-Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context):
+Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az mysql flexible-server create

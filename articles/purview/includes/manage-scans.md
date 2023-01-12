@@ -13,7 +13,7 @@ ms.date: 1/20/2021
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the data source that you registered.
 

@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Deploy resources in Azure public MEC Preview using the Go SDK'
+title: 'Tutorial: Deploy resources in Azure public MEC using the Go SDK'
 description: In this tutorial, learn how to deploy resources in Azure public multi-access edge compute (MEC) by using the Go SDK.
 author: vsmsft
 ms.author: vivekshah
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 11/22/2022
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Deploy resources in Azure public MEC Preview using the Go SDK
+# Tutorial: Deploy resources in Azure public MEC using the Go SDK
 
-In this tutorial, you learn how to use the Go SDK to deploy resources in Azure public multi-access edge compute (MEC) Preview. The tutorial provides code snippets written in Go to deploy a virtual machine and public IP resources in an Azure public MEC solution. You can use the same model and template to deploy other resources and services that are supported for Azure public MEC. This article isn’t intended to be a tutorial on Go; it focuses only on the API calls required to deploy resources in Azure public MEC.
+In this tutorial, you learn how to use the Go SDK to deploy resources in Azure public multi-access edge compute (MEC). The tutorial provides code snippets written in Go to deploy a virtual machine and public IP resources in an Azure public MEC solution. You can use the same model and template to deploy other resources and services that are supported for Azure public MEC. This article isn’t intended to be a tutorial on Go; it focuses only on the API calls required to deploy resources in Azure public MEC.
 
 For more information about Go, see [Azure for Go developers](/azure/developer/go/). For Go samples, see [Azure Go SDK samples](https://github.com/azure-samples/azure-sdk-for-go-samples).
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 - Add an allowlisted subscription to your Azure account, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-- [Install Go](https://golang.org/doc/install)
+- [Install Go](https://go.dev/doc/install)
 
 - [Install the Azure SDK for Go](/azure/developer/go/azure-sdk-install)
 

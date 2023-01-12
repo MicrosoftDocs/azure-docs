@@ -51,7 +51,7 @@ The following example shows the `NetworkConfiguration` element and its child ele
         </Subnets>
       </InstanceAddress>
       <ReservedIPs>
-        <ReservedIP name="<reserved-ip-name>"/>
+        <ReservedIP name="GROUP <ResourceGroupNameOfReservedIP> <reserved-ip-name>"/>
       </ReservedIPs>
     </AddressAssignments>
   </NetworkConfiguration>

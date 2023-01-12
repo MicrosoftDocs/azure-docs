@@ -2,17 +2,17 @@
 title: Configure Request and Response Buffers
 description: Learn how to configure Request and Response buffers for your Azure Application Gateway.
 services: application-gateway
-author: jaesoni
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 12/01/2021
-ms.author: jaysoni
+ms.date: 08/03/2022
+ms.author: greglin
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
 ---
 
 # Configure Request and Response Proxy Buffers
 
-Azure Application Gateway Standard v2 and WAF v2 SKUs support buffering Requests (from clients) or Responses (from the backend servers). Based on the processing capabilities of the clients that interact with your Application Gateway, you can use these buffers to configure the speed of packet delivery.
+Azure Application Gateway Standard v2 SKU supports buffering Requests (from clients) or Responses (from the backend servers). Based on the processing capabilities of the clients that interact with your Application Gateway, you can use these buffers to configure the speed of packet delivery.
  
 ## Response Buffer 
 
@@ -69,3 +69,8 @@ You can change this setting by using GlobalConfiguration in the ARM template as 
 } 
 ```
 For reference, visit [Azure SDK for .NET](/dotnet/api/microsoft.azure.management.network.models.applicationgatewayglobalconfiguration)
+
+## Limitations
+- API version 2020-01-01 or later should be used to configure buffers.
+- Currently, these changes are supported only through ARM templates.
+- Request and Response Buffers can only be disabled for the WAF v2 SKU if request body checking is disabled. Otherwise, Request and Response Buffers cannot be disabled for the WAF v2 SKU.

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to build and modify a Blazor Server
 author: vicancy
 ms.service: signalr
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 05/22/2022
 ms.author: lianwei
 ms.devlang: csharp
 ---
@@ -18,6 +18,14 @@ This tutorial shows you how to build and modify a Blazor Server app. You'll lear
 > * Use event handling and data binding in Razor components.
 > * Quick-deploy to Azure App Service in Visual Studio.
 > * Migrate from local SignalR to Azure SignalR Service.
+
+Ready to start?
+
+> [!div class="nextstepaction"]
+> [Step by step build](#prerequisites)
+
+> [!div class="nextstepaction"]
+> [Try Blazor demo now](https://asrs-blazorchat-live-demo.azurewebsites.net/chatroom)
 
 ## Prerequisites
 
@@ -48,7 +56,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
        dotnet new blazorserver -o BlazorChat
        ```
    
-1. Add a new C# file called `BlazorChatSampleHub.cs` and create a new class `BlazorSampleHub` deriving from the `Hub` class for the chat app. For more information on creating hubs, see [Create and Use Hubs](/aspnet/core/signalr/hubs#create-and-use-hubs). 
+1. Add a new C# file called `BlazorChatSampleHub.cs` and create a new class `BlazorChatSampleHub` deriving from the `Hub` class for the chat app. For more information on creating hubs, see [Create and Use Hubs](/aspnet/core/signalr/hubs#create-and-use-hubs). 
    
    ```cs
    using System;
@@ -177,7 +185,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
               _messages.Add(new Message(name, message, isMine));
       
               // Inform blazor the UI needs updating
-              StateHasChanged();
+              InvokeAsync(StateHasChanged);
           }
       
           private async Task DisconnectAsync()

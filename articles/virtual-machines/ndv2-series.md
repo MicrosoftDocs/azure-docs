@@ -3,10 +3,10 @@ title: NDv2-series
 description: Specifications for the NDv2-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 12/20/2022
+ms.author: vikancha
 ---
 
 # Updated NDv2-series

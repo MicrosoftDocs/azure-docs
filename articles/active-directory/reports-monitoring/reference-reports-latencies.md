@@ -2,19 +2,14 @@
 title: Azure Active Directory reporting latencies | Microsoft Docs
 description: Learn about the amount of time it takes for reporting events to show up in your Azure portal
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/13/2019
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -44,13 +39,13 @@ The following table lists the latency information for activity reports.
 
 ### How soon can I see activities data after getting a premium license?
 
-If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
+When you upgrade to Azure AD P1 or P2 from a free version of Azure AD, the reports associated with P1 and P2 will begin to retain and display data from your tenant. You should expect a delay of roughly 24 hours from when you upgrade your tenant before all premium reporting features show data. Many premium reporting features will only begin retaining data after this 24 hour period following your upgrade to P1 or P2. 
 
 ## Security reports
 
 There are two types of security reports:
 
-- [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+- [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who isn't the legitimate owner of a user account. 
 - [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 The following table lists the latency information for security reports.

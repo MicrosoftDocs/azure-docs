@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hoxhunt | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Hoxhunt'
 description: Learn how to configure single sign-on between Azure Active Directory and Hoxhunt.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Hoxhunt
+# Tutorial: Azure AD SSO integration with Hoxhunt
 
 In this tutorial, you'll learn how to integrate Hoxhunt with Azure Active Directory (Azure AD). When you integrate Hoxhunt with Azure AD, you can:
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Hoxhunt supports **SP** initiated SSO.
 * Hoxhunt supports [Automated user provisioning](hoxhunt-provisioning-tutorial.md).
 
-## Adding Hoxhunt from the gallery
+## Add Hoxhunt from the gallery
 
 To configure the integration of Hoxhunt into Azure AD, you need to add Hoxhunt from the gallery to your list of managed SaaS apps.
 
@@ -47,6 +47,7 @@ To configure the integration of Hoxhunt into Azure AD, you need to add Hoxhunt f
 1. In the **Add from the gallery** section, type **Hoxhunt** in the search box.
 1. Select **Hoxhunt** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Hoxhunt
 
@@ -71,19 +72,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://app.hoxhunt.com/`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://app.hoxhunt.com/saml/consume/<ID>`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.hoxhunt.com/saml/consume/<ID>`
+
+	c. In the **Sign on URL** text box, type the URL:
+    `https://game.hoxhunt.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Identifier. Contact [Hoxhunt Client support team](mailto:support@hoxhunt.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Hoxhunt Client support team](mailto:support@hoxhunt.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

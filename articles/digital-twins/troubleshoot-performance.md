@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: "Troubleshooting: Performance"
+title: "Troubleshoot performance"
 titleSuffix: Azure Digital Twins
 description: Tips for troubleshooting performance of an Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/8/2021
-ms.topic: how-to
+ms.date: 03/10/2022
+ms.topic: troubleshooting
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Troubleshooting Azure Digital Twins: Performance
+# Troubleshoot Azure Digital Twins performance
 
 If you're experiencing delays or other performance issues when working with Azure Digital Twins, use the tips in this article to help you troubleshoot.
 
 ## Isolate the source of the delay
 
-Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this delay, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
+Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this delay, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For more about Azure Monitor metrics for Azure Digital Twins, see [Azure Digital Twins metrics and alerts](how-to-monitor.md#metrics-and-alerts).
 
 ## Check regions
 
@@ -29,7 +29,7 @@ If your solution uses Azure Digital Twins in combination with other Azure servic
 
 ## Check logs
 
-Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they're consistent, and understand their source.
+Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they're consistent, and understand their source.
 
 ## Check API frequency
 
@@ -41,13 +41,9 @@ If you're still experiencing performance issues after troubleshooting with the s
 
 Follow these steps:
 
-1. Gather [metrics](troubleshoot-metrics.md) and [logs](troubleshoot-diagnostics.md) for your instance.
+1. Gather [metrics](how-to-monitor.md#metrics-and-alerts) and [logs](how-to-monitor.md#diagnostics-logs) for your instance.
 2. Navigate to [Azure Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. Use the prompts to provide details of your issue, see recommended solutions, share your metrics/log files, and submit any other information that the support team can use to help investigate your issue. For more information on creating support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Next steps
 
-Read about other ways to troubleshoot your Azure Digital Twins instance in the following articles:
-* [Troubleshooting: Metrics](troubleshoot-metrics.md)
-* [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).
-* [Troubleshooting: Alerts](troubleshoot-alerts.md)
-* [Troubleshooting: Resource health](troubleshoot-resource-health.md)
+Read about other ways to monitor your Azure Digital Twins instance to help with troubleshooting in [Monitor your Azure Digital Twins instance](how-to-monitor.md).

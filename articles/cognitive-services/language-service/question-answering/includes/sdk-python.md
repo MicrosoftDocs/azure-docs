@@ -2,8 +2,8 @@
 title: "Quickstart: Question answering client library for Python"
 description: This quickstart shows how to get started with the question answering client library for Python.
 ms.topic: include
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 11/11/2021
 ---
 
@@ -13,7 +13,7 @@ Use this quickstart for the question answering client library for Python to:
 * Get an answer from a body of text that you send along with your question.
 * Get the confidence score for the answer to your question.
 
-[API reference documentation][questionanswering_refdocs] | [Source code][questionanswering_client_src] | [Package (PyPI)][questionanswering_pypi_package] | [Python Samples][questionanswering_samples] |
+[Reference documentation][questionanswering_refdocs] | [Package (PyPI)][questionanswering_pypi_package] | [Additional samples][questionanswering_samples] | [Library source code][questionanswering_client_src] 
 
 [questionanswering_client_class]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient
 [questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/
@@ -27,7 +27,11 @@ Use this quickstart for the question answering client library for Python to:
 * [Python 3.x](https://www.python.org/)
 * Question answering, requires a [Language resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
 	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
-* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+* To create a Language resource with [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) provide the following additional properties during resource creation configure Custom Question Answering  with your Language resource `--api-properties qnaAzureSearchEndpointId=/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Search/searchServices/<azure-search-service-name> qnaAzureSearchEndpointKey=<azure-search-service-auth-key>`
+* An existing knowledge base to query. If you have not set up a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -39,11 +43,14 @@ After installing Python, you can install the client library with:
 pip install azure-ai-language-questionanswering
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 ## Query a knowledge base
 
 ### Generate an answer from a knowledge base
 
-The example below will allow you to query a knowledge base using [get_answers](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get_answers) to get an answer to your question. You can copy this code into a dedicated .py file or into a cell in [Jupyter Notebook/Lab](https://jupyter.org/).
+The example below will allow you to query a knowledge base using [get_answers](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get-answers) to get an answer to your question. You can copy this code into a dedicated .py file or into a cell in [Jupyter Notebook/Lab](https://jupyter.org/).
 
 You will need to update the code below and provide your own values for the following variables.
 
@@ -53,6 +60,9 @@ You will need to update the code below and provide your own values for the follo
 | `credential` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys always for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
 | `knowledge_base_project` | The name of your question answering project.|
 | `deployment`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your knowledge base from **Language Studio** > **question answering** > **Deploy knowledge base**.|
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ```python
 from azure.core.credentials import AzureKeyCredential
@@ -93,7 +103,7 @@ For information on how confident question answering is that this is the correct 
 ```python
 print("Q: {}".format(question))
 print("A: {}".format(output.answers[0].answer))
-print("Confidence Score: {}".format(output.answers[0].confidence_score)) # add this line 
+print("Confidence Score: {}".format(output.answers[0].confidence)) # add this line 
 ```
 
 You will now receive a result with a confidence score:
@@ -125,9 +135,12 @@ A: No good match found in KB
 Confidence Score: 0.0
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Query-a-knowledge-base" target="_target">I ran into an issue</a>
+
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with [get_answers_from_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get_answers_from_text). In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also use question answering without a knowledge base with [get_answers_from_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get-answers-from-text). In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `endpoint` and `credential`.
 
@@ -174,4 +187,7 @@ A: Power and charging. It takes two to four hours to charge the Surface Pro 4 ba
 Confidence Score: 0.9254655838012695
 ```
 
-In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with [get_answers_from_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get_answers_from_text), review the [AnswersFromTextOptions parameters](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.models.html#azure.ai.language.questionanswering.models.AnswersFromTextOptions).
+In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with [get_answers_from_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.get-answers-from-text), review the [AnswersFromTextOptions parameters](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.models.html#azure.ai.language.questionanswering.models.AnswersFromTextOptions).
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Query-text-without-a-knowledge-base" target="_target">I ran into an issue</a>

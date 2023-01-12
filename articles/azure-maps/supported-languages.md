@@ -107,7 +107,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 Make sure you set up the **View** parameter as required for the REST APIs and the SDKs, which your services are using.
   
-### Rest APIs
+### REST APIs
   
 Ensure that you have set up the View parameter as required. View parameter specifies which set of geopolitically disputed content is returned via Azure Maps services.
 

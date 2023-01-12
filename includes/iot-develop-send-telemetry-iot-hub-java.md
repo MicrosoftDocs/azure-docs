@@ -207,7 +207,7 @@ To read telemetry sent by individual device components, you can use the plug and
 
 To view device telemetry with Azure CLI:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

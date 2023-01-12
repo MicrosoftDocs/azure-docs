@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault keys client library for .NET (version 4)
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the .NET client library (version 4)
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/23/2020
+ms.date: 01/04/2023
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -55,7 +55,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 Create an access policy for your key vault that grants key permissions to your user account
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
@@ -133,7 +133,7 @@ using Azure.Security.KeyVault.Keys;
 
 In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -151,7 +151,7 @@ var key = await client.CreateKeyAsync("myKey", KeyType.Rsa);
 ```
 
 > [!NOTE]
-> If key name exists, above code will create new version of that key.
+> If key name exists, this code will create new version of that key.
 
 ### Retrieve a key
 

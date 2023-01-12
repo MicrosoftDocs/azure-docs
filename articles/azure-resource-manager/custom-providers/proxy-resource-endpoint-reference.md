@@ -2,20 +2,21 @@
 title: Custom resource proxy reference
 description: Custom resource proxy reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing proxy custom resources.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.author: jobreen
 author: jjbfour
-ms.date: 06/20/2019
+ms.date: 05/13/2022
 ---
 
-# Custom Resource Proxy Reference
+# Custom resource proxy reference
 
-This article will go through the requirements for endpoints implementing proxy custom resources. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](overview.md).
+This article will go through the requirements for endpoints implementing proxy custom resources. If you're unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](overview.md).
 
-## How to define a proxy resource endpoint
+## Define a proxy resource endpoint
 
-A proxy resource can be created by specifying the **routingType** to "Proxy".
+A proxy resource can be created by specifying the `routingType` to "Proxy".
 
-Sample custom resource provider:
+### Sample custom resource provider:
 
 ```JSON
 {
@@ -35,16 +36,16 @@ Sample custom resource provider:
 }
 ```
 
-## Building proxy resource endpoint
+## Build a proxy resource endpoint
 
-An **endpoint** that implements a "Proxy" resource **endpoint** must handle the request and response for the new API in Azure. In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource, as well as `GET` to retrieve all existing resources.
+An endpoint that implements a "Proxy" resource endpoint must handle the request and response for the new API in Azure. In this case, the #*resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource, as well as `GET` to retrieve all existing resources.
 
 > [!NOTE]
-> The `id`, `name`, and `type` fields are not required, but are needed to integrate the custom resource with existing Azure ecosystem.
+> The `id`, `name`, and `type` fields are not required, but they're needed to integrate the custom resource with an existing Azure ecosystem.
 
-Sample resource:
+**Sample resource**:
 
-``` JSON
+```json
 {
     "name": "{myCustomResourceName}",
     "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
@@ -58,7 +59,7 @@ Sample resource:
 }
 ```
 
-Parameter reference:
+**Parameter reference**:
 
 Property | Sample | Description
 ---|---|---
@@ -68,7 +69,7 @@ id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 ### Create a custom resource
 
-Azure API Incoming Request:
+**Azure API incoming request**:
 
 ``` HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -85,7 +86,7 @@ Content-Type: application/json
 }
 ```
 
-This request will then be forwarded to the **endpoint** in the form:
+This request will then be forwarded to the endpoint in the form:
 
 ``` HTTP
 PUT https://{endpointURL}/?api-version=2018-09-01-preview
@@ -102,12 +103,12 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+The response from the endpoint is then forwarded back to the customer. The response should return:
 
 - A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
-**Endpoint** Response:
+**Endpoint response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -126,7 +127,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Azure Custom Resource Provider Response:
+**Azure Custom Resource Provider response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -147,7 +148,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Remove a custom resource
 
-Azure API Incoming Request:
+**Azure API incoming request**:
 
 ``` HTTP
 Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -155,7 +156,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-This request will then be forwarded to the **endpoint** in the form:
+This request will then be forwarded to the endpoint in the form:
 
 ``` HTTP
 Delete https://{endpointURL}/?api-version=2018-09-01-preview
@@ -163,19 +164,19 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+The response from the endpoint is then forwarded back to the customer. The response should return:
 
 - Valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
-**Endpoint** Response:
+**Endpoint response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-Azure Custom Resource Provider Response:
+**Azure Custom Resource Provider response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -184,7 +185,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Retrieve a custom resource
 
-Azure API Incoming Request:
+**Azure API incoming request**:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
@@ -192,7 +193,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-This request will then be forwarded to the **endpoint** in the form:
+This request will then be forwarded to the endpoint in the form:
 
 ``` HTTP
 GET https://{endpointURL}/?api-version=2018-09-01-preview
@@ -200,12 +201,12 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+The response from the endpoint is then forwarded back to the customer. The response should return:
 
 - A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
-**Endpoint** Response:
+**Endpoint response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -224,7 +225,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Azure Custom Resource Provider Response:
+**Azure Custom Resource Provider response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -245,7 +246,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Enumerate all custom resources
 
-Azure API Incoming Request:
+**Azure API incoming request**:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview
@@ -253,7 +254,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-This request will then be forwarded to the **endpoint** in the form:
+This request will then be forwarded to the endpoint in the form:
 
 ``` HTTP
 GET https://{endpointURL}/?api-version=2018-09-01-preview
@@ -261,13 +262,13 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources
 ```
 
-Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+The response from the endpoint is then forwarded back to the customer. The response should return:
 
 - A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 - The list of resources should be placed under the top-level `value` property.
 
-**Endpoint** Response:
+**Endpoint response**:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -290,7 +291,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Azure Custom Resource Provider Response:
+**Azure Custom Resource Provider response**:
 
 ``` HTTP
 HTTP/1.1 200 OK

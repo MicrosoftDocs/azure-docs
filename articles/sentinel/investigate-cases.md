@@ -3,20 +3,18 @@ title: Investigate incidents with Microsoft Sentinel| Microsoft Docs
 description: In this article, learn how to use Microsoft Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 author: yelevin
 ms.topic: how-to
-ms.date: 01/30/2022
+ms.date: 03/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
 # Investigate incidents with Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article helps you investigate incidents with Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
+This article helps you investigate incidents with Microsoft Sentinel. After you connected your data sources to Microsoft Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Microsoft Sentinel lets you create advanced analytics rules that generate incidents that you can assign and investigate.
 
 This article covers:
 > [!div class="checklist"]
@@ -34,9 +32,9 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 ## How to investigate incidents
 
-1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have, how many are open, how many you've set to **In progress**, and how many are closed. For each incident, you can see the time it occurred, and the status of the incident. Look at the severity to decide which incidents to handle first.
+1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have and whether they are new, **Active**, or closed. For each incident, you can see the time it occurred and the status of the incident. Look at the severity to decide which incidents to handle first.
 
-    ![View incident severity](media/tutorial-investigate-cases/incident-severity.png)
+    :::image type="content" source="media/investigate-cases/incident-severity.png" alt-text="Screenshot of view of incident severity." lightbox="media/investigate-cases/incident-severity.png":::
 
 1. You can filter the incidents as needed, for example by status or severity. For more information, see [Search for incidents](#search-for-incidents).
 
@@ -44,22 +42,29 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information. 
 
-    ![View alert details](media/tutorial-investigate-cases/incident-timeline.png)
-
-    For example:
+    :::image type="content" source="media/investigate-cases/incident-timeline.png" alt-text="Screenshot of view of alert details." lightbox="media/investigate-cases/incident-timeline.png":::
 
     - In the **Timeline** tab, review the timeline of alerts and bookmarks in the incident, which can help you reconstruct the timeline of attacker activity.
-    - In the **Alerts** tab, review the alert itself. You can see all relevant information about the alert – the query that triggered the alert, the number of results returned per query, and the ability to run playbooks on the alerts. To drill down even further into the incident, select the number of **Events**. This opens the query that generated the results and the events that triggered the alert in Log Analytics. 
-    - In the **Entities** tab, you can see all the entities that you mapped as part of the alert rule definition.
 
-1. If you're actively investigating an incident, it's a good idea to set the incident's status to **In progress** until you close it.
+    - In the **Similar incidents (Preview)** tab, you'll see a collection of up to 20 other incidents that most closely resemble the current incident. This allows you to view the incident in a larger context and helps direct your investigation. [Learn more about similar incidents below](#similar-incidents-preview).
 
-1. Incidents can be assigned to a specific user. For each incident you can assign an owner, by setting the **Incident owner** field. All incidents start as unassigned. You can also add comments so that other analysts will be able to understand what you investigated and what your concerns are around the incident.
+    - In the **Alerts** tab, review the alerts included in this incident. You'll see all relevant information about the alerts – the analytics rules that produced them, the number of results returned per alert, and the ability to run playbooks on the alerts. To drill down even further into the incident, select the number of **Events**. This opens the query that generated the results and the events that triggered the alert in Log Analytics. 
 
-    ![Assign incident to user](media/tutorial-investigate-cases/assign-incident-to-user.png)
+    - In the **Bookmarks** tab, you'll see any bookmarks you or other investigators have linked to this incident. [Learn more about bookmarks](./bookmarks.md).
+
+    - In the **Entities** tab, you can see all the [entities](entities.md) that you [mapped](./map-data-fields-to-entities.md) as part of the alert rule definition. These are the objects that played a role in the incident, whether they be users, devices, addresses, files, or [any other types](./entities-reference.md).
+
+    - Finally, in the **Comments** tab, you can add your comments on the investigation and view any comments made by other analysts and investigators. [Learn more about comments](#comment-on-incidents).
+
+1. If you're actively investigating an incident, it's a good idea to set the incident's status to **Active** until you close it.
+
+1. Incidents can be assigned to a specific user or to a group. For each incident you can assign an owner, by setting the **Owner** field. All incidents start as unassigned. You can also add comments so that other analysts will be able to understand what you investigated and what your concerns are around the incident.
+
+    :::image type="content" source="media/investigate-cases/assign-incident-to-user.png" alt-text="Screenshot of assigning incident to user.":::
+
+    Recently selected users and groups will appear at the top of the pictured drop-down list.
 
 1. Select **Investigate** to view the investigation map.
-
 
 
 ## Use the investigation graph to deep dive
@@ -79,7 +84,7 @@ To use the investigation graph:
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
 
-    [ ![View map.](media/tutorial-investigate-cases/investigation-map.png) ](media/tutorial-investigate-cases/investigation-map.png#lightbox)
+    [![View map.](media/investigate-cases/investigation-map.png)](media/investigate-cases/investigation-map.png#lightbox)
 
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
@@ -89,25 +94,65 @@ To use the investigation graph:
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
 
-    ![View entities in map](media/tutorial-investigate-cases/map-entities.png)
+    ![View entities in map](media/investigate-cases/map-entities.png)
   
 1. Expand your investigation by hovering over each entity to reveal a list of questions that was designed by our security experts and analysts per entity type to deepen your investigation. We call these options **exploration queries**.
 
-    ![Explore more details](media/tutorial-investigate-cases/exploration-cases.png)
+    ![Explore more details](media/investigate-cases/exploration-cases.png)
 
-   For example, on a computer you can request related alerts. If you select an exploration query, the resulting entitles are added back to the graph. In this example, selecting **Related alerts** returned the following alerts into the graph:
+    For example, you can request related alerts. If you select an exploration query, the resulting entitles are added back to the graph. In this example, selecting **Related alerts** returned the following alerts into the graph:
 
-    ![View related alerts](media/tutorial-investigate-cases/related-alerts.png)
+    :::image type="content" source="media/investigate-cases/related-alerts.png" alt-text="Screenshot: view related alerts" lightbox="media/investigate-cases/related-alerts.png":::
+
+    See that the related alerts appear connected to the entity by dotted lines.
 
 1. For each exploration query, you can select the option to open the raw event results and the query used in Log Analytics, by selecting **Events\>**.
 
 1. In order to understand the incident, the graph gives you a parallel timeline.
 
-    ![View timeline in map](media/tutorial-investigate-cases/map-timeline.png)
+    :::image type="content" source="media/investigate-cases/map-timeline.png" alt-text="Screenshot: view timeline in map." lightbox="media/investigate-cases/map-timeline.png":::
 
 1. Hover over the timeline to see which things on the graph occurred at what point in time.
 
-    ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
+    :::image type="content" source="media/investigate-cases/use-timeline.png" alt-text="Screenshot: use timeline in map to investigate alerts.'" lightbox="media/investigate-cases/use-timeline.png":::
+
+## Focus your investigation
+
+Learn how you can broaden or narrow the scope of your investigation by either [adding alerts to your incidents or removing alerts from incidents](relate-alerts-to-incidents.md).
+
+## Similar incidents (preview)
+
+As a security operations analyst, when investigating an incident you'll want to pay attention to its larger context. For example, you'll want to see if other incidents like this have happened before or are happening now.
+
+- You might want to identify concurrent incidents that may be part of the same larger attack strategy.
+
+- You might want to identify similar incidents in the past, to use them as reference points for your current investigation.
+
+- You might want to identify the owners of past similar incidents, to find the people in your SOC who can provide more context, or to whom you can escalate the investigation.
+
+The **similar incidents** tab in the incident details page, now in preview, presents up to 20 other incidents that are the most similar to the current one. Similarity is calculated by internal Microsoft Sentinel algorithms, and the incidents are sorted and displayed in descending order of similarity.
+
+:::image type="content" source="media/investigate-cases/similar-incidents.png" alt-text="Screenshot of the similar incidents display." lightbox="media/investigate-cases/similar-incidents.png":::
+
+### Similarity calculation
+
+There are three criteria by which similarity is determined:
+
+- **Similar entities:** An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common, the more similar they are considered to be.
+
+- **Similar rule:** An incident is considered similar to another incident if they were both created by the same [analytics rule](detect-threats-built-in.md).
+
+- **Similar alert details:** An incident is considered similar to another incident if they share the same title, product name, and/or [custom details](surface-custom-details-in-alerts.md).
+
+The reasons an incident appears in the similar incidents list are displayed in the **Similarity reason** column. Hover over the info icon to show the common items (entities, rule name, or details).
+
+:::image type="content" source="media/investigate-cases/similarity-popup.png" alt-text="Screenshot of pop-up display of similar incident details.":::
+
+#### Similarity time frame
+
+Incident similarity is calculated based on data from the 14 days prior to the last activity in the incident, that being the end time of the most recent alert in the incident.
+
+Incident similarity is recalculated every time you enter the incident details page, so the results may vary between sessions if new incidents were created or updated.
 
 ## Comment on incidents
 
@@ -117,7 +162,7 @@ Another important thing that you can do with comments is enrich your incidents a
 
 Comments are simple to use. You access them through the **Comments** tab on the incident details page.
 
-:::image type="content" source="media/tutorial-investigate-cases/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
+:::image type="content" source="media/investigate-cases/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
 
 ### Frequently asked questions
 
@@ -158,13 +203,13 @@ Once you have resolved a particular incident (for example, when your investigati
 - False Positive - incorrect data
 - Undetermined
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
+:::image type="content" source="media/investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
 
 For more information about false positives and benign positives, see [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
+:::image type="content" source="media/investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## Search for incidents
 
@@ -174,7 +219,7 @@ To modify the search parameters, select the **Search** button and then select th
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the incident search box and button to select basic and/or advanced search options.":::
+:::image type="content" source="media/investigate-cases/advanced-search.png" alt-text="Screenshot of the incident search box and button to select basic and/or advanced search options.":::
 
 By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. In the search pane, scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** reset the selected parameters to the default option.
 
@@ -193,7 +238,7 @@ Using advanced search options changes the search behavior as follows:
 | **Search strings**     | Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
 | **Cross workspace support**     | Advanced searches are not supported for cross-workspace views.     |
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
-|     |     |
+
 
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.

@@ -2,12 +2,12 @@
 title: Renew an Azure Application Gateway certificate
 description: Learn how to renew a certificate associated with an application gateway listener.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/25/2022
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

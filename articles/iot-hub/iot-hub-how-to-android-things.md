@@ -1,6 +1,6 @@
 ---
 title: Develop for Android Things platform using Azure IoT SDKs | Microsoft Docs
-description: Developer guide - Learn about how to develop on Android Things using Azure IoT Hub SDKs.
+description: In this article, learn about how to develop on Android Things using Azure IoT Hub SDKs.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -46,7 +46,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 2. Run the following commands in Azure Cloud Shell to get the *device connection string* for the device you just registered. Replace `YourIoTHubName` below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -65,13 +65,13 @@ A device must be registered with your IoT hub before it can connect. In this qui
    adb devices
    ```
 
-3. Download our sample for Android/Android Things from this [repository](https://github.com/Azure-Samples/azure-iot-samples-java) or use Git.
+3. Download our sample for Android/Android Things from the [Microsoft Azure IoT SDKs for Java repository](https://github.com/Azure/azure-iot-sdk-java/#samples) or use Git to clone the repository as shown in the following example.
 
    ```
-   git clone https://github.com/Azure-Samples/azure-iot-samples-java.git
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
    ```
 
-4. In Android Studio, open the Android Project in located in "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
+4. In Android Studio, open the Android Project from the *\azure-iot-sdk-java\device\iot-device-samples\android-sample* folder in your copy of the repository.
 
 5. Open gradle.properties file, and replace "Device_connection_string" with your device connection string noted earlier.
  

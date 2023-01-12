@@ -19,10 +19,12 @@ ms.author: v-baolianzou
 
 The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text-to-Speech technology, in a responsible way. 
 
-|Custom voice  |Custom neural voice | 
+|Custom voice |Custom neural voice | 
 |--|--|
 | The standard, or "traditional," method of custom voice breaks down spoken language into phonetic snippets that can be remixed and matched using classical programming or statistical methods.  | Custom neural voice synthesizes speech using deep neural networks that have "learned" the way phonetics are combined in natural human speech rather than using classical programming or statistical methods.|
-| Custom voice requires a large volume of voice data to produce a more human-like voice model. With fewer recorded lines, a standard custom voice model will tend to sound more obviously robotic. |The custom neural voice capability enables you to create a unique brand voice in multiple languages and styles by using a small set of recordings.|
+| Custom voice<sup>1</sup>  requires a large volume of voice data to produce a more human-like voice model. With fewer recorded lines, a standard custom voice model will tend to sound more obviously robotic. |The custom neural voice capability enables you to create a unique brand voice in multiple languages and styles by using a small set of recordings.|
+
+<sup>1</sup> When creating a custom voice model, the maximum number of data files allowed to be imported per subscription is 10 .zip files for free subscription (F0) users, and 500 for standard subscription (S0) users. 
 
 ## Action required
 
@@ -32,16 +34,11 @@ Before you can migrate to custom neural voice, your [application](https://aka.ms
 > Even without an Azure account, you can listen to voice samples in [Speech Studio](https://aka.ms/customvoice) and determine the right voice for your business needs.
 
 1. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and then [apply here](https://aka.ms/customneural).  
-2. Once your application is approved, you will be provided with the access to the "neural" training feature. Make sure you log in to [Speech Studio](https://speech.microsoft.com) using the same Azure subscription that you provide in your application. 
-    > [!IMPORTANT]
-    > To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
-    
-      :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
+1. Once your application is approved, you will be provided with the access to the "neural" training feature. Make sure you log in to [Speech Studio](https://aka.ms/speechstudio/customvoice) using the same Azure subscription that you provide in your application. 
+1. Before you can [train](how-to-custom-voice-create-voice.md) and [deploy](how-to-deploy-and-use-endpoint.md) a custom voice model, you must [create a voice talent profile](how-to-custom-voice-talent.md). The profile requires an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. 
+1. Update your code in your apps if you have created a new endpoint with a new model. 
 
-3. After the custom neural voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
-4. Update your code in your apps if you have created a new endpoint with a new model. 
-
-## Custom voice details (retired)
+## Custom voice details (deprecated)
 
 Read the following sections for details on custom voice.
 
@@ -89,6 +86,7 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
 
 ## Next steps
 

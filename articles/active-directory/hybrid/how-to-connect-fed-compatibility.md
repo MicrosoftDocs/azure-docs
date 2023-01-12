@@ -4,8 +4,7 @@ description: This page has non-Microsoft identity providers that can be used to 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
-editor: curtand
+manager: amycolannino
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
 ms.workload: identity

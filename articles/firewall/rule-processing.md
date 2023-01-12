@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/09/2021
+ms.date: 04/15/2022
 ms.author: victorh
 ---
 
@@ -35,14 +35,15 @@ Here's an example policy:
 |Name  |Type  |Priority  |Rules  |Inherited from
 |---------|---------|---------|---------|-------|
 |BaseRCG1      |Rule collection group           |200         |8         |Parent policy|
-|DNATRc1     |DNAT rule collection         |  600       |   7      |Parent policy|
-|NetworkRc1     |Network rule collection  | 800        |    1     |Parent policy|
+|DNATRC1     |DNAT rule collection         |  600       |   7      |Parent policy|
+|DNATRC3|DNAT rule collection|610|3|Parent policy|
+|NetworkRC1     |Network rule collection  | 800        |    1     |Parent policy|
 |BaseRCG2  |Rule collection group         |300         | 3        |Parent policy|
-|AppRCG2     |Application rule collection | 1200        |2         |Parent policy
+|AppRC2     |Application rule collection | 1200        |2         |Parent policy
 |NetworkRC2     |Network rule collection         |1300         |    1     |Parent policy|
 |ChildRCG1  | Rule collection group        | 300        |5         |-|
-|ChAppRC1     |Application rule collection         |  700       | 3        |-|
-|ChNetRC1       |   Network rule collection      |    900     |    2     |-|
+|ChNetRC1     |Network rule collection         |  700       | 3        |-|
+|ChAppRC1       |   Application rule collection      |    900     |    2     |-|
 |ChildRCG2      |Rule collection group         | 650        |    9     |-|
 |ChNetRC2      |Network rule collection         |    1100     |  2       |-|
 |ChAppRC2      |     Application rule collection    |2000         |7         |-|
@@ -157,13 +158,13 @@ SSH connections are denied because a higher priority network rule collection blo
 
 If you change a rule to deny previously allowed traffic, any relevant existing sessions are dropped.
 
-## 3-way handshake behavior
+## Three-way handshake behavior
 
-As a stateful service, Azure Firewall completes a TCP 3-way handshake for allowed traffic, from a source to the destination. For example, VNet-A to VNet-B.
+As a stateful service, Azure Firewall completes a TCP three-way handshake for allowed traffic, from a source to the destination. For example, VNet-A to VNet-B.
 
-Creating an allow rule from VNet-A to VNet-B does not mean that new initiated connections from VNet-B to VNet-A are allowed.
+Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there is no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you'll interrupt the 3-way handshake from the initial allow rule from VNet-A to VNet-B. 
+As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you'll interrupt the three-way handshake from the initial allow rule from VNet-A to VNet-B. 
 
 ## Next steps
 

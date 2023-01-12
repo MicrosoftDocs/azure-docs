@@ -26,7 +26,6 @@ Once metadata is added to a QnA pair, the client application can:
 * Request answers that only match certain metadata.
 * Receive all answers but post-process the answers depending on the metadata for each answer.
 
-
 ## Prerequisites
 
 * Complete the [previous quickstart](./create-publish-knowledge-base.md)

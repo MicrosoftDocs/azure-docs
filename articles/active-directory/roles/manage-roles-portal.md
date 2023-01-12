@@ -3,7 +3,7 @@ title: Assign Azure AD roles to users - Azure Active Directory
 description: Learn how to grant access to users in Azure Active Directory by assigning Azure AD roles.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -158,16 +158,11 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
 
 ## Microsoft Graph API
 
-Follow these instructions to assign a role using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+Follow these instructions to assign a role using the Microsoft Graph API.
 
 ### Assign a role
 
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
-
-1. Sign in to the [Graph Explorer](https://aka.ms/ge).
-2. Select **POST** as the HTTP method from the dropdown. 
-3. Select the API version to **v1.0**.
-4. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. To see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
 
 ```http
 POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
@@ -183,19 +178,16 @@ Content-type: application/json
 
 ### Assign a role using PIM
 
+#### Assign a time-bound eligible role assignment
+
 In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned a time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) for 180 days.
 
-1. Sign in to the [Graph Explorer](https://aka.ms/ge).
-2. Select **POST** as the HTTP method from the dropdown. 
-3. Select the API version to **beta**.
-4. Use the [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests) API to assign roles using PIM. Add following details to the URL and Request Body and select **Run query**.
-
 ```http
-POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
+POST https://graph.microsoft.com/v1.0/rolemanagement/directory/roleEligibilityScheduleRequests
 Content-type: application/json
 
 {
-    "action": "AdminAssign",
+    "action": "adminAssign",
     "justification": "for managing admin tasks",
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
@@ -203,21 +195,23 @@ Content-type: application/json
     "scheduleInfo": {
         "startDateTime": "2021-07-15T19:15:08.941Z",
         "expiration": {
-            "type": "AfterDuration",
+            "type": "afterDuration",
             "duration": "PT180D"
         }
     }
 }
 ```
 
+#### Assign a permanent eligible role assignment
+
 In the following example, a security principal is assigned a permanent eligible role assignment to Billing Administrator.
 
 ```http
-POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
+POST https://graph.microsoft.com/v1.0/rolemanagement/directory/roleEligibilityScheduleRequests
 Content-type: application/json
 
 {
-    "action": "AdminAssign",
+    "action": "adminAssign",
     "justification": "for managing admin tasks",
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
@@ -225,26 +219,30 @@ Content-type: application/json
     "scheduleInfo": {
         "startDateTime": "2021-07-15T19:15:08.941Z",
         "expiration": {
-            "type": "NoExpiration"
+            "type": "noExpiration"
         }
     }
 }
 ```
 
-To activate the role assignment, use the [Create unifiedRoleAssignmentScheduleRequest](/graph/api/unifiedroleassignmentschedulerequest-post-unifiedroleassignmentschedulerequests) API.
+#### Activate a role assignment
+
+To activate the role assignment, use the [Create roleAssignmentScheduleRequests](/graph/api/rbacapplication-post-roleeligibilityschedulerequests) API.
 
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests
 Content-type: application/json
 
 {
-    "action": "SelfActivate",
+    "action": "selfActivate",
     "justification": "activating role assignment for admin privileges",
     "roleDefinitionId": "b0f54661-2d74-4c50-afa3-1ec803f12efe",
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
 }
 ```
+
+For more information about managing Azure AD roles through the PIM API in Microsoft Graph, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
 ## Next steps
 

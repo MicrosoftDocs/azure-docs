@@ -1,8 +1,8 @@
 ---
 title: Reward score - Personalizer
 description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains its machine learning models by evaluating the rewards.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -93,9 +93,9 @@ By adding up reward scores, your final reward may be outside the expected score 
 
 ## Reward wait time
 
-Personalizer will correlate the information of a Rank call with the rewards sent in Reward calls to train the model. These may come at different times. Personalizer waits for a limited time, starting when the Rank call happened, even if the Rank call was made as an inactive event, and activated later.
+Personalizer will correlate the information of a Rank call with the rewards sent in Reward calls to train the model, which may come at different times. Personalizer waits for the reward score for a defined limited time, starting when the corresponding Rank call occured. This is done even if the Rank call was made using deferred activation](concept-active-inactive-events.md).
 
-If the **Reward Wait Time** expires, and there has been no reward information, a default reward is applied to that event for training. The maximum wait duration is 2 days. If your scenario requires longer reward wait times (e.g. for marketing email campaigns) we are offering a private preview of longer wait times. Open a support ticket in the Azure portal to get in contact with team and see if you qualify and it can be offered to you.
+If the **Reward Wait Time** expires and there has been no reward information, a default reward is applied to that event for training. You can select a reward wait time of 10 minutes, 4 hours, 12 hours, or 24 hours. If your scenario requires longer reward wait times (e.g., for marketing email campaigns) we are offering a private preview of longer wait times. Open a support ticket in the Azure portal to get in contact with team and see if you qualify and it can be offered to you.
 
 ## Best practices for reward wait time
 

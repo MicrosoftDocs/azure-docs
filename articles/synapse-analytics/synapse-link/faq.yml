@@ -1,0 +1,120 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ - Azure Synapse Link for SQL
+  description: FAQ for Azure Synapse Link for SQL
+  author: dearandyxu
+  ms.service: synapse-analytics
+  ms.topic: faq
+  ms.subservice: synapse-link
+  ms.custom: event-tier1-build-2022
+  ms.date: 11/09/2022
+  ms.author: yexu
+  ms.reviewer: wiassaf, imotiwala
+title: Azure Synapse Link for SQL FAQ
+summary: In this guide, you'll find the most frequently asked questions for Azure Synapse Link for SQL.
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          Can I use Azure Synapse Link for SQL to replicate data to Azure Synapse SQL serverless pool as the destination store?
+        answer: |
+          No, currently Azure Synapse Link for SQL supports Synapse dedicated SQL pool as the data destination store only.
+      - question: |
+          Does Azure Synapse Link for SQL support Azure SQL Managed Instance as a source store?
+        answer: |
+          No, currently Azure Synapse Link for SQL only supports Azure SQL Database and SQL Server (starting with SQL Server 2022) as the source.
+      - question: |
+          Do I need to stop the link connection when I want to add or remove tables to be replicated?
+        answer: |
+          No, you can add or remove tables when the link connection is running. The tables that are removed will stop being replicated automatically. The newly added tables will start from initial load with full snapshot and then do incremental synchronization. The rest of the tables in the same link connection will not be impacted.
+      - question: |
+          My destination tables exist in the target dedicated SQL pool, which causes my link connection to fail to start. What should I do?
+        answer: |
+          You should remove the destination tables before starting a link connection. You can do that by either manually removing the tables from Synapse dedicated SQL pool or checking “Drop and recreate table on target” in the link connection to let it automatically drop existing tables on the Synapse dedicated SQL pool every time when starts.
+          :::image type="content" source="../media/sql-synapse-link-overview/drop-recreate-target-table.png" lightbox="../media/sql-synapse-link-overview/drop-recreate-target-table.png" alt-text="Shows a screenshot of the Drop and Recreate Target Table option for Azure Synapse Link for SQL Server.":::
+      - question: |
+          What happens on my running link connection if the table columns have been added or dropped from our source stores?
+        answer: |
+          After you add tables to a link connection, these tables in the source database won't allow columns to be added, dropped or altered. To do these schema changes, the table should be removed from the link connection temporarily and added back after schema is changed. 
+      - question: |
+          Can I pause the data replication from my link connection, and then resume it from where it is paused?
+        answer: |
+          Yes, you can.
+      - question: |
+          Can I select managed virtual network in Synapse workspace with Synapse managed private endpoints, which allow the link connection to privately connect to the source database?
+        answer: |
+          Yes, you can. Similar like all the workloads in Synapse. You can enable Synapse link for SQL in Azure Synapse-managed virtual network to replicate data from SQL to Synapse in a secure manner.  You can protect against data exfiltration by allowing outbound connectivity from the managed virtual network only to approved targets using managed private endpoints.
+      - question: |
+          What is the best practice to select the core counts to replicate tables from source store to Synapse dedicated SQL pool when creating a link connection?
+        answer: |
+          Core count indicates the compute size required to replicate data from source store to the Synapse dedicated SQL Pool. It depends on the replication workload pattern on the source database, number of tables, rate of changes occurring, and size of rows, etc. We recommend you to start with a small core count and test the latency with the actual workload. Latency of replication can be reflected in the monitoring page of link tables; Time of last processed data column indicates how far the replication is running behind.
+      - question: |
+          Should I choose “enable transaction consistency across tables”?
+        answer: |
+          When this option is enabled, a transaction spanning across multiple tables on the source database is always replicated to the destination database in a single transaction. This, however, will create overhead on the overall replication throughput. When the option is disabled, each table will replicate changes in its own transaction boundary to the destination in parallel connections, thus improving overall replication throughput.
+          When you want to enable transaction consistency across tables, please also make sure the transaction isolation levels in your Synapse dedicated SQL pool is READ COMMITTED SNAPSHOT ISOLATION.
+      - question: |
+          How should I select the structure type of my destination table in the Synapse dedicated SQL pool?
+        answer: |
+          You can refer to [Indexing tables - Azure Synapse Analytics | Microsoft Docs](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to understand the three options for table structure type. When clustered columnstore index is chosen, data type with max length (for example, VARCHAR(MAX)) is not supported.
+      - question: |
+          Do I need to clean up data in the landing zone?
+        answer: |
+          No. There is a background thread that removes committed files after around 24 hours as long as the link is continuously running. When the link is stopped then the entire landing zone folder is removed.
+      - question: |
+          In which regions is Azure Synapse Link for SQL available?
+        answer: |
+          Azure Synapse Link for SQL is available in all regions where [Azure Synapse Workspace is currently available](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=synapse-analytics&rar=true&regions=all).
+      - question: |
+          Where is my landing zone located?
+        answer: |
+          For Azure SQL Database, the landing zone is fully managed and is located in the same region as your target Azure Synapse Analytics workspace. For SQL Server 2022, the landing zone is customer-managed and can be located where you like.
+      - question: |
+          What type of encryption is applied to the landing zone?
+        answer: |
+          For Azure SQL Database, the landing zone is fully managed and is encrypted with the same key as the target Azure Synapse Analytics workspace - either platform-managed or customer-managed. For SQL Server 2022, the landing zone is customer-managed and can be encrypted with either a platform-managed key or a customer-managed key.
+      - question: |
+          I updated all of the records in my source table. When I ran a query against the dedicated SQL pool I saw all of my data gone. I re-ran the query and all of the data was back - with the updates. Why does this happen?
+        answer: |
+          The ingestion service processes updates as a delete followed by an insert - all in the same transaction. By default, dedicated SQL pools run in READ UNCOMMITTED mode - which allows you to see the changes before the transaction has been committed. To ensure that you do not see these in-process changes, you can turn on READ COMMITTED SNAPSHOT ISOLATION.
+      - question: |
+          Will new tables added to my source database automatically be added to my link connection?
+        answer: |
+          No. You will need to edit the link connection in the Azure Synapse Analytics environment to add the new tables. You can add tables to a running connection without stopping it - the new tables will be included in the replication when you publish the changes to the link connection.
+      - question: |
+          What is the latency for data replicated from Azure SQL Database and SQL Server 2022 to Azure Synapse Analytics dedicated SQL pools?
+        answer: |
+          We do not have published latency SLA. If you are seeing high latency, you can adjust the number of cores allocated to the link connection, the size of the target dedicated SQL pool, or adjust the transactional consistency on write configuration to suit your workload.
+      - question: |
+          What format is used for the landing zone data? Can it be used for other purposes?
+        answer: |
+          The landing zone is a transient data store, and we do not support using that data for any purpose other than Azure Synapse Link for SQL.
+      - question: |
+          How is Azure Synapse Link for SQL different from using the ADF/Synapse Pipeline copy activity?
+        answer: |
+          Azure Synapse Link for SQL uses a push model where the source database writes data into a landing zone and is moved into the target dedicated SQL pool by an ingestion service that can either run continuously (providing near-real-time data processing) or in schedule mode. The copy activity uses a pull model where the data is queried from the source database and written into the target location on a scheduled basis.
+      - question: |
+          There is a documented limit of 7,500 bytes per row for Azure Synapse Link for SQL. What if I have larger data rows in my source database?
+        answer: |
+          This restriction is for on-page data only. For off-page data, the only thing that counts against the 7,500-byte limit is the 24-byte pointer to the off-page data.
+      - question: |
+          What data replication mechanism is used by Azure Synapse Link for SQL?
+        answer: |
+          A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.
+      - question: |
+          How do I rotate or change the SAS for the Landing Zone for Azure Synapse Link for SQL Server?
+        answer: |
+          If the SAS has expired for the user managed storage account for the Landing Zone, use [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) to update the database credential for the new SAS. 
+      - question: |
+          What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link to Azure SQL DB?
+        answer: |
+          If the Azure Synapse workspace is removed, Azure SQL DB will stop data replication from landing zone into Azure Synapse. The system stored procedure [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group) will be called automatically, and the storage account for the landing zone is managed and will be cleaned up automatically. If this fails, you may receive error 22739 from the SynapseGatewayClient in [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). If this occurs, you can manually drop the changefeed table group with `sp_change_feed_drop_table_group`.
+      - question: |
+          What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link for SQL Server?
+        answer: | 
+          In SQL Server, since landing zone storage account is user managed, data will continue to be published to the landing zone. You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group), and manually remove the storage account for the landing zone.
+      - question: |
+          What is the impact when a user intentionally removes the Azure Synapse Link landing zone for Azure Synapse Link for SQL Server?
+        answer: | 
+          In SQL Server, the landing zone storage account is user managed. If the landing zone storage account is no longer accessible, and there will be errors in the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group).

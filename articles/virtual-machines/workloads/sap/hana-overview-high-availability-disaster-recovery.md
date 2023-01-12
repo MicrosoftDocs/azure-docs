@@ -3,16 +3,15 @@ title: High availability and disaster recovery of SAP HANA on Azure (Large Insta
 description: Learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: mamccrea
+author: lauradolan
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
-ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/8/2021
-ms.author: mamccrea
+ms.date: 03/01/2021
+ms.author: ladolan
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -52,7 +51,7 @@ A dedicated DR setup is where the HANA Large Instance unit in the DR site isn't 
 To learn about storage layout and ethernet details for your architecture, see [HLI supported scenarios](hana-supported-scenario.md).
 
 > [!NOTE]
-> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. An exception is the use of HANA System Replication with an automatic failover cluster based on Pacemaker. Such a case only supports one HANA instance per unit. For [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage-based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed are valid.  
+> Before HANA2.0 SPS4 it was not supported to take database snapshots of multi-tenant database container databases (more than one tenant). With SPS4 and newer SAP is fully supporting this snapshot feature.  
 
 A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. If there's a disaster, shut down the non-production system, mount the storage-replicated (added) volume sets, and start the production HANA instance. Most customers who use the HANA Large Instance disaster recovery functionality use this configuration. 
 
@@ -61,7 +60,7 @@ You can find more information on SAP HANA high availability in the following SAP
 - [SAP HANA High Availability Whitepaper](https://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Administration Guide](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP HANA Academy Video on SAP HANA System Replication](https://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP Support Note #1999880 – FAQ on SAP HANA System Replication](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
+- [SAP Support Note #1999880 – FAQ on SAP HANA System Replication](https://launchpad.support.sap.com/#/notes/1999880)
 - [SAP Support Note #2165547 – SAP HANA Back up and Restore within SAP HANA System Replication Environment](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

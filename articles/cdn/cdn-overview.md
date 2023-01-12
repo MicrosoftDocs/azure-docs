@@ -18,7 +18,7 @@ ms.custom: mvc
 
 ---
 # What is a content delivery network on Azure?
-A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs' store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. 
+A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. 
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. Azure CDN can also accelerate dynamic content, which cannot be cached, by leveraging various network optimizations using CDN POPs. For example, route optimization to bypass Border Gateway Protocol (BGP).
 
@@ -46,7 +46,9 @@ For a list of current CDN node locations, see [Azure CDN POP locations](cdn-pop-
 6. If the TTL for the file hasn't expired, the POP edge server returns the file directly from the cache. This process results in a faster, more responsive user experience.
 
 ## Requirements
-To use Azure CDN, you must own at least one Azure subscription. You also need to create at least one CDN profile, which is a collection of CDN endpoints. Every CDN endpoint represents a specific configuration of content deliver behavior and access. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of pricing tiers. For information about the Azure CDN billing structure, see [Understanding Azure CDN billing](cdn-billing.md).
+* To use Azure CDN, you must own at least one Azure subscription. 
+* You also need to create a CDN profile, which is a collection of CDN endpoints. Every CDN endpoint is a specific configuration which users can customize with required content delivery behavior and access. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. 
+* Since [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of pricing tiers. For information about the Azure CDN billing structure, see [Understanding Azure CDN billing](cdn-billing.md).
 
 ### Limitations
 Each Azure subscription has default limits for the following resources:
@@ -73,3 +75,4 @@ For a complete list of features that each Azure CDN product supports, see [Compa
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 - Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
+- [Learn module: Introduction to Azure Content Delivery Network (CDN)](/training/modules/intro-to-azure-content-delivery-network).

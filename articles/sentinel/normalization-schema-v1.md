@@ -1,16 +1,13 @@
 ---
 title: Microsoft Sentinel network normalization schema (Legacy version - Public preview)| Microsoft Docs
 description: This article displays the Microsoft Sentinel data normalization schema.
-author: yelevin
+author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.author: ofshezaf
 ---
 
 # Microsoft Sentinel network normalization schema (Legacy version - Public preview)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable unifying analytics.
 
@@ -252,7 +249,7 @@ The following fields are now aliased in [version 0.2](network-normalization-sche
 |User     |     DstUsername    |
 |Hostname     |   DstHostname      |
 |UserAgent     |     HttpUserAgent    |
-|     |         |
+
 
 ### Modified fields in version 0.2
 
@@ -275,7 +272,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     |  EventResourceId  |   _ResourceId      |
     | EventUid   |     _ItemId    |
     | EventTimeIngested   |  ingestion_time()       |
-    |    |         |
+
 
 - **Renamed to align with improvements in ASIM and OSSEM**:
 
@@ -283,7 +280,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     |---------|---------|
     |  HttpReferrerOriginal  |   HttpReferrer      |
     | HttpUserAgentOriginal   |     HttpUserAgent    |
-    |    |         |
+
 
 - **Renamed to reflect that the network session destination does not have to be a cloud service**:
 
@@ -292,7 +289,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     |  CloudAppId  |   DstAppId      |
     | CloudAppName   |     DstAppName    |
     | CloudAppRiskLevel   |  ThreatRiskLevel       |
-    |    |         |
+
 
 - **Renamed to change the case and align with ASIM handling of the user entity**:
 
@@ -300,7 +297,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     |---------|---------|
     |  DstUserName  |   DstUsername      |
     | SrcUserName   |     SrcUsername    |
-    |    |         |
+
 
 - **Renamed to better align with the ASIM device entity, and allow for resource IDs other than Azure's**:
 
@@ -308,7 +305,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     |---------|---------|
     |  DstResourceId  |   SrcDvcAzureRerouceId      |
     | SrcResourceId   |     SrcDvcAzureRerouceId    |
-    |    |         |
+
 
 - **Renamed to remove the `Dvc` string from field names, as handling in version 0.1 was inconsistent**:
 
@@ -320,7 +317,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     | SrcDvcDomain   |     SrcDomain    |
     |  SrcDvcFqdn  |   SrcFqdn      |
     | SrcDvcHostname   |     SrcHostname    |
-    |    |         |
+
 
 - **Renamed to align with ASIM file representation guidance**:
 
@@ -331,7 +328,7 @@ The following fields were renamed in [version 0.2](network-normalization-schema.
     |  FileHashSha256  |   FileSHA256      |
     | FileHashSha512   |     FileSHA512    |
     |  FileMimeType  |   FileContentType      |
-    |    |         |
+
 
 ### Removed fields in version 0.2
 
@@ -345,7 +342,7 @@ The following fields exist in version 0.1 only, and were removed in [version 0.2
 |**Removed to align with ASIM file representation guidance**     |   - FilePath<br>- FileExtension      |
 |**Removed as this field indicates that a different schema should be used, such as the [Authentication schema](authentication-normalization-schema.md).**     |  - CloudAppOperation       |
 |**Removed as it duplicates `DstHostname`**     |  - DstDomainHostname         |
-|     |         |
+
 
 
 ## Next steps
@@ -354,7 +351,7 @@ For more information, see:
 
 - [Normalization in Microsoft Sentinel](normalization.md)
 - [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](normalization-schema-file-event.md)
+- [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
 - [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
 - [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

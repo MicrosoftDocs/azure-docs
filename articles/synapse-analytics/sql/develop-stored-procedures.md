@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: emtehran   
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Stored procedures using Synapse SQL in Azure Synapse Analytics

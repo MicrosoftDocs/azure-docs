@@ -3,7 +3,7 @@ title: What is IP address 168.63.129.16? | Microsoft Docs
 description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
 services: virtual-network
 documentationcenter: na
-author: genlin
+author: asudbring
 manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
-ms.author: genli
+ms.author: allensu
 
 ---
 
@@ -39,9 +39,102 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
 - 168.63.129.16 can provide DNS services to the VM. If this is not desired, outbound traffic to 168.63.129.16 ports 53/udp and 53/tcp can be blocked in the local firewall on the VM.
 
-  By default DNS communication is not subject to the configured network security groups unless specifically targeted leveraging the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags), and specify "*" as "Destination port ranges" and "Any" as protocol.
+  By default DNS communication is not subject to the configured network security groups unless specifically targeted leveraging the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags), and specify "Any" as "Source", "*" as "Destination port ranges", "Any" as protocol and "Deny" as action.
 
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule leverages the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired this traffic can be blocked by configuring the network security group however this will result in probes that fail.
+
+## Troubleshoot connectivity
+### Windows OS
+You can test communication to 168.63.129.16 by using the following tests with PowerShell.
+
+```
+Test-NetConnection -ComputerName 168.63.129.16 -Port 80
+Test-NetConnection -ComputerName 168.63.129.16 -Port 32526
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://168.63.129.16/?comp=versions
+```
+Results should return as shown below.
+
+```
+Test-NetConnection -ComputerName 168.63.129.16 -Port 80
+ComputerName     : 168.63.129.16
+RemoteAddress    : 168.63.129.16
+RemotePort       : 80
+InterfaceAlias   : Ethernet
+SourceAddress    : 10.0.0.4
+TcpTestSucceeded : True
+```
+
+```
+Test-NetConnection -ComputerName 168.63.129.16 -Port 32526
+ComputerName     : 168.63.129.16
+RemoteAddress    : 168.63.129.16
+RemotePort       : 32526
+InterfaceAlias   : Ethernet
+SourceAddress    : 10.0.0.4
+TcpTestSucceeded : True
+```
+
+```
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://168.63.129.16/?comp=versions
+xml                            Versions
+---                            --------
+version="1.0" encoding="utf-8" Versions
+```
+You can also test communication to 168.63.129.16 by using telnet or psping.
+
+If successful, telnet should connect and the file that is created will be empty.
+
+```
+telnet 168.63.129.16 80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port80.txt
+telnet 168.63.129.16 32526 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test--port32526.txt
+```
+
+```
+Psping 168.63.129.16:80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test--port80.txt
+Psping 168.63.129.16:32526 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port32526.txt
+```
+### Linux OS
+On Linux, you can test communication to 168.63.129.16 by using the following tests.
+
+```
+echo "Testing 80 168.63.129.16 Port 80" > 168-63-129-16_test.txt
+traceroute -T -p 80 168.63.129.16 >> 168-63-129-16_test.txt
+echo "Testing 80 168.63.129.16 Port 32526" >> 168-63-129-16_test.txt
+traceroute -T -p 32526 168.63.129.16 >> 168-63-129-16_test.txt
+echo "Test 168.63.129.16 Versions"  >> 168-63-129-16_test.txt
+curl http://168.63.129.16/?comp=versions >> 168-63-129-16_test.txt
+```
+
+Results inside 168-63-129-16_test.txt should return as shown below.
+
+```
+traceroute -T -p 80 168.63.129.16
+traceroute to 168.63.129.16 (168.63.129.16), 30 hops max, 60 byte packets
+1  168.63.129.16 (168.63.129.16)  0.974 ms  1.085 ms  1.078 ms
+
+traceroute -T -p 32526 168.63.129.16
+traceroute to 168.63.129.16 (168.63.129.16), 30 hops max, 60 byte packets
+1  168.63.129.16 (168.63.129.16)  0.883 ms  1.004 ms  1.010 ms
+	
+curl http://168.63.129.16/?comp=versions
+<?xml version="1.0" encoding="utf-8"?>
+<Versions>
+<Preferred>
+<Version>2015-04-05</Version>
+</Preferred>
+<Supported>
+<Version>2015-04-05</Version>
+<Version>2012-11-30</Version>
+<Version>2012-09-15</Version>
+<Version>2012-05-15</Version>
+<Version>2011-12-31</Version>
+<Version>2011-10-15</Version>
+<Version>2011-08-31</Version>
+<Version>2011-04-07</Version>
+<Version>2010-12-15</Version>
+<Version>2010-28-10</Version>
+</Supported>
+```
 
 ## Next steps
 

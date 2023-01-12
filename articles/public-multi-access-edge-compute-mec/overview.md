@@ -1,17 +1,17 @@
 ---
-title: What is Azure public MEC Preview?
+title: What is Azure public MEC?
 description: Learn about the benefits of Azure public multi-access edge compute (MEC) and how it works.
-author: dahliacanter
-ms.author: dahliac
+author: reemas-new
+ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: overview
-ms.date: 02/24/2022
+ms.date: 11/22/2022
 ms.custom: template-overview
 ---
 
-# What is Azure public MEC Preview?
+# What is Azure public MEC?
 
-Azure public multi-access edge compute (MEC) Preview sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require low latency while being attached to the mobile network.  Azure public MEC is offered in partnership with the operators. The placement of the infrastructure offers lower latency for applications that are accessed from mobile devices connected to the 5G mobile network.
+Azure public multi-access edge compute (MEC) sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require low latency while being attached to the mobile network.  Azure public MEC is offered in partnership with the operators. The placement of the infrastructure offers lower latency for applications that are accessed from mobile devices connected to the 5G mobile network.
 
 Azure public MEC provides secure, reliable, high-bandwidth connectivity between applications that run close to the user while being served by the Microsoft global network. Azure public MEC offers a set of Azure services like Azure Virtual Machines, Azure Load Balancer, and Azure Kubernetes for Edge, with the ability to leverage and connect to other Azure services available in the Azure region.
 
@@ -50,6 +50,7 @@ The following key services are available in Azure public MEC:
 
 - Azure Virtual Machines (Azure public MEC supports these [SKUs](key-concepts.md#azure-virtual-machines))
 - Virtual Machine Scale Sets
+- Azure Private Link
 - Standard public IP
 - Azure Virtual Networks
 - Virtual network peering
@@ -57,8 +58,10 @@ The following key services are available in Azure public MEC:
 - Azure Kubernetes for Edge
 - Azure Bastion (must be deployed in a virtual network in the parent Azure region)
 - Azure managed disks (Azure public MEC supports Standard SSD)
+- Azure IoT Edge
+- Azure Site Recovery (ASR) - preview
 
-The following diagram explains how services are deployed at the Azure public MEC location. With this capability, enterprises and developers can deploy the customer workloads closer to their users.
+The following diagram shows how services are deployed at the Azure public MEC location. With this capability, enterprises and developers can deploy the customer workloads closer to their users.
 
 :::image type="content" source="./media/overview/azure-public-mec-service-deployment.png" alt-text="Diagram showing Azure public MEC service deployment.":::  
 

@@ -4,8 +4,8 @@ description: Learn about backing up your question answering projects and knowled
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 recommendations: false
 ms.date: 01/25/2022
 ---
@@ -65,6 +65,7 @@ To automate the import process, use the [import functionality of the authoring A
 4. We recommend having a backup of your project/question answer pairs prior to running each refresh so that you can always roll-back if needed.
 
 5. Select a url-based source to refresh > Select **Refresh URL**.
+6. Only one URL can be refreshed at a time.
 
 ### Refresh a URL programmatically
 

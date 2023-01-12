@@ -3,30 +3,28 @@ title: 'Tutorial: Link a VNet to an ExpressRoute circuit - Azure portal'
 description: This tutorial shows you how to create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. 
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 08/10/2021
+ms.date: 07/18/2022
 ms.author: duau
-ms.custom: seodec18
-
+ms.custom: seodec18, template-tutorial
 ---
-# Tutorial: Connect a virtual network to an ExpressRoute circuit using the portal
+# Tutorial: Connect a virtual network to an ExpressRoute circuit using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Azure CLI](expressroute-howto-linkvnet-cli.md)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-This tutorial helps you create a connection to link a virtual network to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or be part of another subscription.
+This tutorial helps you create a connection to link a virtual network (VNet) to an Azure ExpressRoute circuit using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Connect a virtual network to a circuit in the same subscription.
 > - Connect a virtual network to a circuit in a different subscription.
+> - Configure ExpressRoute FastPath.
 > - Delete the link between the virtual network and ExpressRoute circuit.
 
 ## Prerequisites
@@ -47,7 +45,7 @@ In this tutorial, you learn how to:
 
 * In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add additional address spaces, up to 1,000, to the local or peered virtual networks.
 
-* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
+* Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ## Connect a VNet to a circuit - same subscription
 
@@ -97,6 +95,15 @@ Each of the smaller clouds within the large cloud is used to represent subscript
 The 'circuit owner' is an authorized Power User of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by 'circuit users'. Circuit users are owners of virtual network gateways that aren't within the same subscription as the ExpressRoute circuit. Circuit users can redeem authorizations (one authorization per virtual network).
 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
+
+  > [!NOTE]
+  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > The definition of the circuit owner is any role with the following access:
+  > - Microsoft.Network/expressRouteCircuits/authorizations/write
+  > - Microsoft.Network/expressRouteCircuits/authorizations/read
+  > - Microsoft.Network/expressRouteCircuits/authorizations/delete
+  >
+  > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](../role-based-access-control/built-in-roles.md).
 
 ### Circuit owner operations
 
@@ -200,7 +207,9 @@ You can delete a connection and unlink your VNet to an ExpressRoute circuit by s
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and a different subscription. For more information about the ExpressRoute gateway, see: 
+In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+
+To learn how to configure route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md)
+> [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)

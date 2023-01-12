@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 # Azure Video Analyzer terminology
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 This article provides an overview of terminology related to [Azure Video Analyzer](overview.md).
 
 ## Pipeline topology

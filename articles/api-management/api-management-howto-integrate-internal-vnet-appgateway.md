@@ -23,6 +23,11 @@ By combining API Management provisioned in an internal virtual network with the 
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turnkey way to switch access to API Management from the public internet on and off.
 
+For architectural guidance, see:
+* **Basic enterprise integration**: [Reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+
+
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
@@ -61,7 +66,7 @@ In the first setup example, all your APIs are managed only from within your virt
 * **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the TLS/SSL certificate name (if configuring TLS offload).
 * **Rule**: The rule binds a listener to a back-end server pool.
 * **Custom health probe**: Application Gateway, by default, uses IP address-based probes to figure out which servers in `BackendAddressPool` are active. API Management only responds to requests with the correct host header, so the default probes fail. You define a custom health probe to help the application gateway determine that the service is alive and should forward requests.
-* **Custom domain certificates**: To access API Management from the internet, create a CNAME mapping of its host name to the Application Gateway front-end DNS name. This mapping ensures that the host name header and certificate sent to Application Gateway and forwarded to API Management are ones that API Management recognizes as valid. In this example, we'll use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
+* **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the host name header and certificate sent to Application Gateway and forwarded to API Management are ones that API Management recognizes as valid. In this example, we'll use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
@@ -384,16 +389,19 @@ All configuration items must be set up before you create the application gateway
     $sku = New-AzApplicationGatewaySku -Name "WAF_v2" -Tier "WAF_v2" -Capacity 2
     ```
 
-1. Configure WAF to be in "Prevention" mode.
+1. Configure the WAF mode.
+
+    > [!TIP]
+    > For a short period during setup and to test your firewall rules, you might want to configure "Detection" mode, which monitors and logs threat alerts but doesn't block traffic. You can then make any updates to firewall rules before transitioning to "Prevention" mode, which blocks intrusions and attacks that the rules detect.
 
     ```powershell
     $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
     ```
 
-1. Because TLS 1.0 currently is the default, set the application gateway to use the most recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s).
+1. Because TLS 1.0 currently is the default, set the application gateway to use one of the recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#predefined-tls-policy).
 
     ```powershell
-    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20220101
     ```
 
 ## Create an application gateway
@@ -423,17 +431,11 @@ To create an Application Gateway resource:
 
 Ensure that the health status of each back-end pool is Healthy. If you need to troubleshoot an unhealthy back end or a back end with unknown health status, see [Troubleshoot back-end health issues in Application Gateway](../application-gateway/application-gateway-backend-health-troubleshooting.md).
 
-## Create a CNAME record from the public DNS name
+## Create DNS records to access API Management endpoints from the internet
 
-After the gateway is created, configure the front end for communication. When you use a public IP address, Application Gateway requires a dynamically assigned DNS name, which might not be easy to use.
+After the gateway is created, configure communication to API Management from the internet. Create DNS A-records that map each of the API Management endpoint host names that you configured to the application gateway's static public IP address. In this article, example host names are `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.
 
-Use the application gateway's DNS name to create a CNAME record that points the API Management gateway host name (`api.contoso.net` in the preceding examples) to this DNS name. To configure the front-end IP CNAME record, retrieve the details of the application gateway and its associated IP/DNS name by using the `PublicIPAddress` element. Don't use A-records because the VIP might change when the gateway restarts.
-
-```powershell
-Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
-```
-
-For testing purposes, you might update the hosts file on your local machine with entries that map the application gateway's public IP address to each of the API Management endpoint host names that you configured. Examples are `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.
+For testing purposes, you might update the hosts file on your local machine with entries that map the application gateway's public IP address to the API Management endpoint host names.
 
 ## Summary
 
@@ -441,7 +443,7 @@ API Management configured in a virtual network provides a single gateway interfa
 
 ## Next steps
 
-* Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/private-webapp-with-app-gateway-and-apim).
+* Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-application-gateway).
 * Learn more about Application Gateway:
 
   * [Application Gateway overview](../application-gateway/overview.md)

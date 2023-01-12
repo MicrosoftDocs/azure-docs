@@ -28,7 +28,6 @@ from the [Publish](./cloud-partner-portal-api-publish-offer.md) API operation.
 | publisherId    | Publisher identifier for the offer to retrieve, for example `contoso`       |  String       |
 | offerId        | Offer identifier of the offer to retrieve                                   |  String       |
 | api-version    | Latest version of the API                                                   |  Date         |
-|  |  |  |
 
 ## Header
 ------
@@ -37,7 +36,6 @@ from the [Publish](./cloud-partner-portal-api-publish-offer.md) API operation.
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
 | Authorization   | `Bearer YOUR_TOKEN` |
-|  |  |
 
 ## Body example
 
@@ -56,7 +54,6 @@ from the [Publish](./cloud-partner-portal-api-publish-offer.md) API operation.
 |  **Name**             |      **Value**                                                            |
 |  --------             |      ----------                                                           |
 | Location    |  The relative path to retrieve this operation's status            |
-|  |  |
 
 ### Response status codes
 
@@ -65,4 +62,3 @@ from the [Publish](./cloud-partner-portal-api-publish-offer.md) API operation.
 |  202     | `Accepted` - The request was successfully accepted. The response contains a location to track the operation status. |
 |  400     | `Bad/Malformed request` - Additional error information is found within the response body. |
 |  404     |  `Not found` - The specified entity does not exist.                                       |
-|  |  |

@@ -1,28 +1,28 @@
 ---
 title: Connect the Angular app to Azure Cosmos DB's API for MongoDB using Mongoose
 description: This tutorial describes how to build a Node.js application by using Angular and Express to manage the data stored in Cosmos DB. In this part, you use Mongoose to connect to Azure Cosmos DB.
-author: johnpapa
+author: gahl-levy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.author: jopapa
-ms.custom: seodec18, devx-track-js
-ms.reviewer: sngun
-#Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
+ms.author: gahllevy
+ms.custom: seodec18, devx-track-js, ignite-2022
+ms.reviewer: mjbrown
+#Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Azure Cosmos DB.
 ---
 
-# Create an Angular app with Azure Cosmos DB's API for MongoDB - Use Mongoose to connect to Cosmos DB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Create an Angular app with Azure Cosmos DB's API for MongoDB - Use Mongoose to connect to Azure Cosmos DB
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md). This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-nodejs-part-4.md).
+This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to it to your [Azure Cosmos DB account configured with Azure Cosmos DB's API for MongoDB](introduction.md). This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-nodejs-part-4.md).
 
 In this part of the tutorial, you will:
 
 > [!div class="checklist"]
-> * Use Mongoose to connect to Cosmos DB.
-> * Get your Cosmos DB connection string.
+> * Use Mongoose to connect to Azure Cosmos DB.
+> * Get your Azure Cosmos DB connection string.
 > * Create the Hero model.
 > * Create the Hero service to get Hero data.
 > * Run the app locally.
@@ -44,8 +44,11 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
 1. Install the mongoose npm module, which is an API that's used to talk to MongoDB.
 
     ```bash
-    npm i mongoose --save
+    npm install mongoose@5.13.15 --save
     ```
+
+    > [!IMPORTANT]
+    > Azure Cosmos DB for MongoDB is compatible with up to version `5.13.15` of Mongoose. For more information, please see the [issue discussion](https://github.com/Automattic/mongoose/issues/11072) in the Mongoose GitHub repository.
 
 1. In the **server** folder, create a file named **mongo.js**. You'll add the connection details of your Azure Cosmos DB account to this file.
 
@@ -233,7 +236,7 @@ Next, run the app by using the following steps:
 
     :::image type="content" source="./media/tutorial-develop-nodejs-part-5/azure-cosmos-db-heroes-app.png" alt-text="New Azure Cosmos DB account in the Azure portal":::
 
-There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos database. 
+There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos DB database. 
 
 ## Clean up resources
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 10/19/2022
 ---
 
 # Conversion functions in mapping data flow
@@ -25,6 +25,10 @@ Conversion functions are used to convert data and test for data types
 
 | Conversion function | Task |
 |----|----|
+| [ascii](data-flow-expressions-usage.md#ascii) | Returns the numeric value of the input character. If the input string has more than one character, the numeric value of the first character is returned|
+| [char](data-flow-expressions-usage.md#char) | Returns the ascii character represented by the input number. If number is greater than 256, the result is equivalent to char(number % 256)|
+| [decode](data-flow-expressions-usage.md#decode) | Decodes the encoded input data into a string based on the given charset. A second (optional) argument can be used to specify which charset to use - 'US-ASCII', 'ISO-8859-1', 'UTF-8' (default), 'UTF-16BE', 'UTF-16LE', 'UTF-16'|
+| [encode](data-flow-expressions-usage.md#encode) | Encodes the input string data into binary based on a charset. A second (optional) argument can be used to specify which charset to use - 'US-ASCII', 'ISO-8859-1', 'UTF-8' (default), 'UTF-16BE', 'UTF-16LE', 'UTF-16'|
 | [isBitSet](data-flow-expressions-usage.md#isBitSet) | Checks if a bit position is set in this bitset|
 | [setBitSet](data-flow-expressions-usage.md#setBitSet) | Sets bit positions in this bitset|
 | [isBoolean](data-flow-expressions-usage.md#isBoolean) | Checks if the string value is a boolean value according to the rules of ``toBoolean()``|

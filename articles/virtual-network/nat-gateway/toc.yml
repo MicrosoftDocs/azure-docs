@@ -5,17 +5,22 @@ items:
   items:
   - name: What is Virtual Network NAT?
     href: nat-overview.md
-- name: Tutorials
+- name: Quickstarts
   items:
-  - name: Create and validate NAT gateway - Azure portal
-    href: tutorial-create-nat-gateway-portal.md
-  - name: Create and validate NAT gateway - PowerShell
-    href: tutorial-create-nat-gateway-powershell.md
-  - name: Create and validate NAT gateway - Azure CLI
-    href: tutorial-create-nat-gateway-cli.md
-  - name: Create NAT gateway - ARM template
+  - name: Portal
+    href: quickstart-create-nat-gateway-portal.md
+  - name: PowerShell
+    href: quickstart-create-nat-gateway-powershell.md
+  - name: CLI
+    href: quickstart-create-nat-gateway-cli.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-nat-gateway-bicep.md
+  - name: ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
+- name: Tutorials
+  items:
   - name: Integrate NAT gateway public load balancer
     href: tutorial-nat-gateway-load-balancer-public-portal.md
   - name: Integrate NAT gateway internal load balancer
@@ -31,12 +36,18 @@ items:
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
+  - name: Resource Health
+    href: resource-health.md
+  - name: Availability zones
+    href: nat-availability-zones.md
   - name: Security
     items:
     - name: Virtual network NAT security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:
+  - name: Manage NAT gateway
+    href: manage-nat-gateway.md
   - name: Move across regions
     items:
     - name: Create and configure NAT gateway after region move
@@ -45,6 +56,10 @@ items:
     items:
     - name: Troubleshoot NAT gateway
       href: troubleshoot-nat.md
+    - name: Troubleshoot NAT gateway connectivity
+      href: troubleshoot-nat-connectivity.md
+    - name: Troubleshoot NAT gateway and Azure services
+      href: troubleshoot-nat-and-azure-services.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -70,8 +85,8 @@ items:
     href: ../policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/modules/intro-to-azure-virtual-network-nat/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

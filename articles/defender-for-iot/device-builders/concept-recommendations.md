@@ -1,8 +1,8 @@
 ---
 title: Security recommendations for IoT Hub 
-description: Learn about the concept of security recommendations and how they are used in the Defender for IoT Hub.
+description: Learn about the concept of security recommendations and how they're used in the Defender for IoT Hub.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
 # Security recommendations for IoT Hub
@@ -11,6 +11,9 @@ Defender for IoT scans your Azure resources and IoT devices and provides securit
 Security recommendations are actionable and aim to aid customers in complying with security best practices.
 
 In this article, you will find a list of recommendations, which can be triggered on your IoT Hub.
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 
 ## Built in recommendations in IoT Hub
 
@@ -43,4 +46,4 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 
 ## Next steps
 
-- Learn more about the [Classic Defender for IoT devices security alerts](agent-based-security-alerts.md)
+- Learn more about the [Legacy Defender for IoT devices security alerts](agent-based-security-alerts.md)

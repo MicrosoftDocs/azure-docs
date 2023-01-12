@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
-ms.date: 04/16/2020
+ms.date: 03/16/2022
 ms.author: sebansal 
 ms.devlang: azurecli
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
@@ -35,39 +35,28 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-## Create a vault
+## Create a key vault
 
-1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
-2. In the Search box, enter **Key Vault**.
-3. From the results list, choose **Key Vault**.
-4. On the Key Vault section, choose **Create**.
-5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. For this quickstart, we use **Example-Vault**. 
-    - **Subscription**: Choose a subscription.
-    - Under **Resource Group**, choose **Create new** and enter a resource group name.
-    - In the **Location** pull-down menu, choose a location.
-    - Leave the other options to their defaults.
-6. After providing the information above, select **Create**.
+Create a key vault using one of these three methods:
 
-Take note of the two properties listed below:
+- [Create a key vault using the Azure portal](../general/quick-create-portal.md)
+- [Create a key vault using the Azure CLI](../general/quick-create-cli.md)
+- [Create a key vault using Azure PowerShell](../general/quick-create-powershell.md)
 
-* **Vault Name**: In the example, this is **Example-Vault**. You will use this name for other steps.
-* **Vault URI**: In the example, this is https://example-vault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+## Import a certificate to your key vault
 
-At this point, your Azure account is the only one authorized to perform operations on this new vault.
-
-![Output after Key Vault creation completes](../media/certificates/tutorial-import-cert/vault-properties.png)
-
-## Import a certificate to Key Vault
-
-To import a certificate to the vault, you need to have a PEM or PFX certificate file to be on disk. In this case, we will import a certificate with file name called **ExampleCertificate**.
+To import a certificate to the vault, you need to have a PEM or PFX certificate file to be on disk. If the certificate is in PEM format, the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
 
 > [!IMPORTANT]
-> In Azure Key Vault, supported certificate formats are PFX and PEM. 
+> In Azure Key Vault, supported certificate formats are PFX and PEM.
 > - .pem file format contains one or more X509 certificate files.
 > - .pfx file format is an archive file format for storing several cryptographic objects in a single file i.e. server certificate (issued for your domain), a matching private key, and may optionally include an intermediate CA.  
 
-1. On the Key Vault properties pages, select **Certificates**.
+In this case, we will create a certificate called **ExampleCertificate**, or import a certificate called **ExampleCertificate**  with a path of **/path/to/cert.pem". You can import a certificate with the Azure portal, Azure CLI, or Azure PowerShell.
+
+# [Azure portal](#tab/azure-portal)
+
+1. On the page for your key vault, select **Certificates**.
 2. Click on **Generate/Import**.
 3. On the **Create a certificate** screen choose the following values:
     - **Method of Certificate Creation**: Import.
@@ -76,64 +65,47 @@ To import a certificate to the vault, you need to have a PEM or PFX certificate 
     - **Password** : If you are uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
 4. Click **Create**.
 
-![Certificate properties](../media/certificates/tutorial-import-cert/cert-import.png)
+:::image type="content" source="../media/certificates/tutorial-import-cert/cert-import.png" alt-text="Importing a certificate through the Azure portal":::
 
-By adding a certificate using **Import** method, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
+When importing a certificate, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
 
-Once you receive the message that the certificate has been successfully imported, you may click on it on the list to view its properties. 
+Once you receive the message that the certificate has been successfully imported, you may click on it on the list to view its properties.
 
-![Screenshot that shows where to view the certificate properties.](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+:::image type="content" source="../media/certificates/tutorial-import-cert/cert-properties.png" alt-text="Properties of a newly imported certificate in the Azure portal":::
 
-## Import a certificate using Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
-Import a certificate into a specified key vault. To 
-import an existing valid certificate, containing a private key, into Azure Key Vault, the file to be imported can be in either PFX or PEM format. If the certificate is in PEM format, the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
-
-```azurecli
-az keyvault certificate import --file
-                               --name
-                               --vault-name
-                               [--disabled {false, true}]
-                               [--only-show-errors]
-                               [--password]
-                               [--policy]
-                               [--subscription]
-                               [--tags]
-```
-
-Learn more about the [parameters](/cli/azure/keyvault/certificate#az_keyvault_certificate_import).
-
-After importing the certificate, you can view the certificate using [Certificate show](/cli/azure/keyvault/certificate#az_keyvault_certificate_show)
-
+Import a certificate into your key vault using the Azure CLI [az keyvault certificate import](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) command:
 
 ```azurecli
-az keyvault certificate show [--id]
-                             [--name]
-                             [--only-show-errors]
-                             [--subscription]
-                             [--vault-name]
-                             [--version]
+az keyvault certificate import --vault-name "<your-key-vault-name>" -n "ExampleCertificate" -f "/path/to/ExampleCertificate.pem"
 ```
 
-Now, you have created a Key vault, imported a certificate and viewed Certificate's properties.
+After importing the certificate, you can view the certificate using the Azure CLI [az keyvault certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show) command.
 
-## Import a certificate using Azure PowerShell
-
-```
-Import-AzureKeyVaultCertificate
-      [-VaultName] <String>
-      [-Name] <String>
-      -FilePath <String>
-      [-Password <SecureString>]
-      [-Tag <Hashtable>]
-      [-DefaultProfile <IAzureContextContainer>]
-      [-WhatIf]
-      [-Confirm]
-      [<CommonParameters>]
+```azurecli
+az keyvault certificate show --vault-name "<your-key-vault-name>" --name "ExampleCertificate"
 ```
 
-Learn more about the [parameters](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?).
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+You can import a certificate into Key Vault using the Azure PowerShell [Import-AzKeyVaultCertificate](/powershell/module/az.keyvault/import-azkeyvaultcertificate) cmdlet.
+
+```azurepowershell
+$Password = ConvertTo-SecureString -String "123" -AsPlainText -Force
+Import-AzKeyVaultCertificate -VaultName "<your-key-vault-name>" -Name "ExampleCertificate" -FilePath "C:\path\to\ExampleCertificate.pem" -Password $Password
+```
+
+After importing the certificate, you can view the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate) cmdlet
+
+```azurepowershell
+Get-AzKeyVaultCertificate -VaultName "<your-key-vault-name>" -Name "ExampleCertificate"
+```
+
+---
+
+Now, you have created a Key vault, imported a certificate and viewed a certificate's properties.
 
 ## Clean up resources
 
@@ -143,7 +115,6 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
-
 
 ## Next steps
 

@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/04/2021
-ms.custom: mode-other
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 ---
 
 # Quickstart: Connect an NXP MIMXRT1050-EVKB Evaluation kit to IoT Central
@@ -219,6 +219,9 @@ You can view the device information from IoT Central.
 Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot and debug
 

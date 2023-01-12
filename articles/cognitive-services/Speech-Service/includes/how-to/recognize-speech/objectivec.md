@@ -10,10 +10,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
 ## Install Speech SDK and samples
 
 The [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository contains samples written in Objective-C for iOS and Mac. Select a link to see installation instructions for each sample:
@@ -23,3 +19,13 @@ The [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Sampl
 * [Additional samples for Objective-C on iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
 For more information, see the [Speech SDK for Objective-C reference](/objectivec/cognitive-services/speech/).
+
+## Use a custom endpoint
+
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+
+```Objective-C
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:"YourSubscriptionKey" region:"YourServiceRegion"];
+speechConfig.endpointId = "YourEndpointId";
+SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] init:speechConfig];
+```

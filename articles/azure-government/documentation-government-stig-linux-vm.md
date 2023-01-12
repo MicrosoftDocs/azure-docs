@@ -1,12 +1,13 @@
 ---
 title: Deploy STIG-compliant Linux Virtual Machines (Preview)
-description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from Azure Marketplace
+description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from the Azure portal or Azure Government portal.
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 06/14/2021
-ms.custom: mode-other
+ms.custom: mode-other, kr2b-contr-experiment
+recommendations: false
+ms.date: 08/25/2022
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -157,3 +158,16 @@ To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)
+
+For more information about Azure Government, see the following resources:
+
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)
+- [FedRAMP – Azure compliance](/azure/compliance/offerings/offering-fedramp)
+- [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
+- [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
+- [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)

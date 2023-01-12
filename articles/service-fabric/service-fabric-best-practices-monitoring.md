@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric monitoring best practices
 description: Best practices and design considerations for monitoring clusters and applications using Azure Service Fabric.
-author: peterpogorski
-
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Monitoring and diagnostic best practices for Azure Service Fabric

@@ -1,6 +1,6 @@
 ---
 title: Get started with manual deployment of automation framework
-description: Manually deploy the SAP deployment automation framework on Azure using an example configuration and sample parameter files.
+description: Manually deploy the SAP on Azure Deployment Automation Framework using an example configuration and sample parameter files.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Get started with manual deployment
 
-Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP deployment automation framework on Azure](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
+Along with [automated deployment](automation-get-started.md), you can also do manual deployment of the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md). Use this example configuration and sample parameter files to get started.
 
 > [!TIP]
 > This guide covers only how to perform a **manual** deployment. If you want to get started quickly, see the [**automated** deployment guide](automation-get-started.md) instead.
@@ -242,7 +242,7 @@ The deployer uses a service principal to deploy resources into a subscription.
 1. Create a role assignment for the service principal. Make sure to replace `<appId>` with the application identifier you noted in the previous step.
 
     ```azurecli-interactive
-    az role assignment create --assignee <appId> --role "User Access Administrator"
+    az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>
     ```
 
 1. Add keys for the service principal to the key vault as follows. Be sure to replace the placeholder values with the information you noted in previous steps. Replace `<environment>` with the name of your environment, such as `DEMO`. 

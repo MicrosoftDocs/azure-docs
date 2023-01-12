@@ -93,11 +93,18 @@ You've granted your function app access to the service bus namespace using manag
 
     | Name      | Value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connections your function app to the Service Bus use identity-based connections instead of secrets. |
+    | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connects your function app to the Service Bus using an identity-based connection instead of secrets. |
 
 1. After you create the two settings, select **Save** > **Confirm**.
 
+> [!NOTE]
+> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> 
+> For example, `ServiceBusConnection:fullyQualifiedNamespace`.
+
 Now that you've prepared the function app to connect to the service bus namespace using a managed identity, you can add a new function that uses a Service Bus trigger to your local project.
+
+
 
 ## Add a Service Bus triggered function
 
@@ -147,6 +154,11 @@ Now that you've prepared the function app to connect to the service bus namespac
 
 > [!NOTE]  
 > If you try to run your functions now using `func start` you'll receive an error. This is because you don't have an identity-based connection defined locally. If you want to run your function locally, set the app setting `ServiceBusConnection__fullyQualifiedNamespace` in `local.settings.json` as you did in [the previous section](#connect-to-service-bus-in-your-function-app). In addition, you'll need to assign the role to your developer identity. For more details, please refer to the [local development with identity-based connections documentation](./functions-reference.md#local-development-with-identity-based-connections).
+
+> [!NOTE]
+> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> 
+> For example, `ServiceBusConnection:fullyQualifiedNamespace`.
 
 ## Publish the updated project
 

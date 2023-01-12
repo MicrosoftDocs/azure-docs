@@ -73,7 +73,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 Create an access policy for your key vault that grants certificate permission to your user account
 
-```console
+```azurecli
 az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
@@ -166,7 +166,7 @@ To read a certificate from Key Vault, use the [get_certificate](/python/api/azur
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
+You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
 
 ### Delete a certificate
 
@@ -179,7 +179,7 @@ deleted_certificate = poller.result()
 
 The `begin_delete_certificate` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
+You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
 
 Once deleted, a certificate remains in a deleted but recoverable state for a time. If you run the code again, use a different certificate name.
 

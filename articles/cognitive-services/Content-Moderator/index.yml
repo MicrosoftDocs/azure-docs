@@ -26,11 +26,15 @@ landingContent:
         links:
           - text: What is Content Moderator?
             url: overview.md
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn training
+            url: /training/modules/intro-to-content-moderator/
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator
             url: /Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
-
+      
   - title: Analyze image content
     linkLists:
       - linkListType: concept
@@ -119,7 +123,7 @@ landingContent:
           - text: Content Moderator API
             url: ./api-reference.md
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
+            url: /dotnet/api/overview/azure/content-moderator
           - text: Python SDK
             url: /python/api/azure-cognitiveservices-vision-contentmoderator/
           - text: Java SDK

@@ -3,11 +3,10 @@ title: Tutorial to transfer data to Azure Files with Azure Import/Export | Micro
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
 author: alkohli
 services: storage
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: tutorial
-ms.date: 12/21/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
 # Tutorial: Transfer data to Azure Files with Azure Import/Export
@@ -32,7 +31,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 
 - Have an active Azure subscription to use with Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
-  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, auto splitting the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, auto splitting the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
   - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
 - Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
@@ -136,37 +135,37 @@ Use the following steps to create an import job in the Azure CLI.
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az-extension-add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli
     az group create --name myierg --location "West US"
     ```
 
-1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command:
 
     ```azurecli
     az storage account create -resource-group myierg -name myssdocsstorage --https-only
     ```
 
-1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az-import-export-location-list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Use the [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) command to get locations for your region:
+1. Use the [az import-export location show](/cli/azure/import-export/location#az-import-export-location-show) command to get locations for your region:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an import job:
+1. Run the following [az import-export create](/cli/azure/import-export#az-import-export-create) command to create an import job:
 
     ```azurecli
     az import-export create \
@@ -194,13 +193,13 @@ Use the following steps to create an import job in the Azure CLI.
    > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 
-1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
+1. Use the [az import-export list](/cli/azure/import-export#az-import-export-list) command to see all the jobs for the myierg resource group:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az-import-export-update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -320,7 +319,7 @@ Install-Module -Name Az.ImportExport
 [!INCLUDE [storage-import-export-verify-data-copy](../../includes/storage-import-export-verify-data-copy.md)]
 
 > [!NOTE]
-> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
 
 
 ## Samples for journal files

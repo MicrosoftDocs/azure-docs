@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure Front Door documentation
+title: Azure Front Door and CDN documentation
 summary: Azure Front Door is a scalable and secure entry point for fast delivery of your global web applications.
 
 metadata:
-  title: Azure Front Door Documentation
+  title: Azure Front Door and CDN Documentation
   description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
   services: frontdoor
   ms.service: frontdoor
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 06/30/2021
+  ms.date: 06/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,15 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Front Door
-            url: /learn/modules/intro-to-azure-front-door/       
-
-  # Card
-  - title: Learn about Azure Front Door Standard/Premium (Preview)
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Front Door Standard/Premium (Preview)?
-            url: standard-premium/overview.md
+            url: /training/modules/intro-to-azure-front-door/       
        
   # Card
   - title: Create a Front Door
@@ -44,39 +36,115 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Front Door
-            url: quickstart-create-front-door.md
+            url: create-front-door-portal.md
+
+  # Card
+  - title: Learn about Front Door and CDN architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Expose Azure Spring Apps through a reverse proxy
+            url: /azure/architecture/reference-architectures/microservices/spring-cloud-reverse-proxy
+          - text: CDN guidance
+            url: /azure/architecture/best-practices/cdn
+          - text: Scalable and secure WordPress on Azure
+            url: /azure/architecture/example-scenario/infrastructure/wordpress
+          - text: Content Delivery Network analytics
+            url: /azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer
+
+  # Card
+  - title: Configure Endpoint Manager
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Endpoint Manager
+            url: manager.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Front Door manager
+            url: how-to-configure-endpoints.md
 
   # Card
   - title: Add a custom domain
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Add a custom domain to your Front Door
-            url: front-door-custom-domain.md
       - linkListType: how-to-guide
         links:
-          - text: Onboard a root or apex domain on your Front Door
-            url: front-door-how-to-onboard-apex-domain.md
-
+          - text: Add a custom domain
+            url: standard-premium/how-to-add-custom-domain.md
+  
   # Card
-  - title: Learn about geo-filtering
+  - title: Manage your Origin Groups
     linkLists:
       - linkListType: concept
         links:
-          - text: What is geo-filtering on a domain?
-            url: front-door-geo-filtering.md
-      - linkListType: tutorial
+          - text: Origin
+            url: origin.md
+          - text: Health probes
+            url: front-door-health-probes.md
+      - linkListType: how-to-guide
         links:
-          - text: Set up a geo-filtering WAF policy
-            url: front-door-tutorial-geo-filtering.md
+          - text: Configure an Origin Group
+            url: how-to-configure-origin.md
 
   # Card
-  - title:  Configure HTTPS
+  - title: Configure a Rule Set
     linkLists:
-      - linkListType: tutorial
+      - linkListType: concept
         links:
-          - text: Configure HTTPS on a Front Door custom domain
-            url: front-door-custom-domain-https.md
+          - text: What is Rule Set?
+            url: front-door-rules-engine.md
+          - text: Rule Set Match Conditions
+            url: rules-match-conditions.md
+          - text: Rule Set Actions
+            url: front-door-rules-engine-actions.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a Rule Set
+            url: standard-premium/how-to-configure-rule-set.md
+
+  # Card
+  - title: Secure your application
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Private Link
+            url: private-link.md
+          - text: WAF on Azure Front Door
+            url: ../web-application-firewall/afds/afds-overview.md
+          - text: DDoS protection
+            url: front-door-ddos.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Private Link
+            url: standard-premium/how-to-enable-private-link-web-app.md
+          - text: Configure WAF policy
+            url: ../web-application-firewall/afds/waf-front-door-create-portal.md
+
+  # Card
+  - title: Configure reports, metrics, and logs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Reports
+            url: standard-premium/how-to-reports.md
+          - text: Monitoring Metrics and Alerts
+            url: standard-premium/how-to-monitor-metrics.md
+          - text: Logging
+            url: standard-premium/how-to-logs.md
+
+  # Card
+  - title: Configure caching and optimization
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Caching
+            url: front-door-caching.md
+      - linkListType: how-to-guide
+        links:
+          - text: Cache purge
+            url: standard-premium/how-to-cache-purge.md
+          - text: Compression
+            url: standard-premium/how-to-compression.md
 
 # Card
   - title: Troubleshoot Azure Front Door
@@ -85,29 +153,3 @@ landingContent:
         links:
           - text: Common routing issues
             url: front-door-troubleshoot-routing.md
-
-# Card
-  - title: Learn about Azure load balancing
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Azure load balancing
-            url: front-door-lb-with-azure-app-delivery-suite.md
-
-# Card
-  - title: Configure a Rules Engine
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is Rules Engine?
-            url: front-door-rules-engine.md
-          - text: Rules Engine Match Conditions
-            url: front-door-rules-engine-match-conditions.md
-          - text: Rules Engine Actions
-            url: front-door-rules-engine-actions.md
-      - linkListType: tutorial
-        links:
-          - text: Set up a Rules Engine configuration
-            url: front-door-tutorial-rules-engine.md
-          - text: Add Security headers with Rules Engine
-            url: front-door-security-headers.md

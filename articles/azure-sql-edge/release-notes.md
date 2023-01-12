@@ -1,19 +1,26 @@
 ---
-title: Release notes for Azure SQL Edge 
-description: Release notes detailing what's new or what has changed in the Azure SQL Edge images. 
-keywords: release notes SQL Edge
-services: sql-edge
+title: Release notes for Azure SQL Edge
+description: Release notes detailing what's new or what has changed in the Azure SQL Edge images.
+author: kendalvandyke
+ms.author: kendalv
+ms.reviewer: randolphwest
+ms.date: 6/21/2022
 ms.service: sql-edge
 ms.topic: conceptual
-ms.subservice:
-author: kendalvandyke
-ms.author: kendalv 
-ms.reviewer: jroth
-ms.date: 11/24/2020
+keywords: release notes SQL Edge
+services: sql-edge
 ---
 # Azure SQL Edge release notes 
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
+
+## Azure SQL Edge 1.0.6
+
+SQL engine build 15.0.2000.1565
+
+### What's new?
+
+- Security bug fixes
 
 ## Azure SQL Edge 1.0.5
 

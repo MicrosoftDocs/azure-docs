@@ -5,7 +5,7 @@ description: In this article, you will learn how to use the reference layer in A
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 11/29/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
@@ -18,7 +18,7 @@ To add a **GeoJSON** file as a reference layer, go to the **Format** pane, expan
 
 After a GeoJSON file is added to the reference layer, the name of the file will appear in place of the **+ Add local file** button with an **X** beside it. Press the **X** button to remove the data from the visual and delete the GeoJSON file from Power BI.
 
-The following map is displays [2016 census tracts for Colorado](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Common/data/geojson), colored by population.
+The following map is displays [2016 census tracts for Colorado](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Static/data/geojson), colored by population.
 
 > [!div class="mx-imgBorder"]
 > ![A map displaying 2016 census tracts for Colorado, colored by population as a reference layer](media/power-bi-visual/reference-layer-CO-census-tract.png)

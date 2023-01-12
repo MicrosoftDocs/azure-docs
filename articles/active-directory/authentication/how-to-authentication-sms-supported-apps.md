@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/19/2021
 ms.author: justinha
 author: aanjusingh
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ SMS-based authentication is available to Microsoft apps integrated with the Micr
 | Office 365- Microsoft Online Services* | ● |   |
 | Microsoft One Note | ● |   |
 | Microsoft Teams | ● | ● |
-| Microsoft Intune Company portal | ● | ● |
+| Company portal | ● | ● |
 | My Apps Portal | ● |Not available|
 | Microsoft Forms | ● |Not available|
 | Microsoft Edge | ● |   |
@@ -41,12 +41,12 @@ The above mentioned Microsoft apps support SMS sign-in is because they use the M
 ## Unsupported Microsoft apps
 
 Microsoft 365 desktop (Windows or Mac) apps and Microsoft 365 web apps (except MS One Note) that are accessed directly on the web don't support SMS sign-in. These apps use the Microsoft Office login (`https://office.live.com/start/*`) that requires a password to sign in.
-For the same reason, Microsoft Office mobile apps (except Microsoft Teams, Intune Company Portal, and Microsoft Azure) don't support SMS sign-in.
+For the same reason, Microsoft Office mobile apps (except Microsoft Teams, Company Portal, and Microsoft Azure) don't support SMS sign-in.
 
 | Unsupported Microsoft apps| Examples |
 | --- | --- |
 | Native desktop Microsoft apps | Microsoft Teams, O365 apps, Word, Excel, etc.|
-| Native mobile Microsoft apps (except Microsoft Teams, Intune Company Portal, and Microsoft Azure) | Outlook, Edge, Power BI, Stream, SharePoint, Power Apps, Word, etc.|
+| Native mobile Microsoft apps (except Microsoft Teams, Company Portal, and Microsoft Azure) | Outlook, Edge, Power BI, Stream, SharePoint, Power Apps, Word, etc.|
 | Microsoft 365 web apps (accessed directly on web) | [Outlook](https://outlook.live.com/owa/), [Word](https://office.live.com/start/Word.aspx), [Excel](https://office.live.com/start/Excel.aspx), [PowerPoint](https://office.live.com/start/PowerPoint.aspx), [OneDrive](https://onedrive.live.com/about/signin)|  
 
 ## Support for Non-Microsoft apps 

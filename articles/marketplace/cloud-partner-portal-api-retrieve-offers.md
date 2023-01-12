@@ -24,7 +24,6 @@ Retrieves a summarized list of offers under a publisher namespace.
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Publisher identifier, for example `contoso` |   String    |
 |  api-version     | Latest version of API                    |    Date        |
-|  |  |
 
 ## Header
 
@@ -32,7 +31,6 @@ Retrieves a summarized list of offers under a publisher namespace.
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
 |  Authorization   | `Bearer YOUR_TOKEN`     |
-|  |  |
 
 ## Body example
 
@@ -66,7 +64,6 @@ Retrieves a summarized list of offers under a publisher namespace.
 |  version        | Current version of the offer. The version property cannot be modified by the client. It's incremented after each publishing. |
 |  definition     | Contains a summarized view of the actual definition of the workload. To get a detailed definition, use the [Retrieve specific offer](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | UTC time when the offer was last modified                                                                              |
-|  |  |
 
 ### Response status codes
 
@@ -76,7 +73,6 @@ Retrieves a summarized list of offers under a publisher namespace.
 |  400      | `Bad/Malformed request` - The error response body may contain more information.                                    |
 |  403      | `Forbidden` - The client doesn't have access to the specified namespace.                                          |
 |  404      | `Not found` - The specified entity doesn't exist.                                                                 |
-|  |  |
 
 ### Offer Status
 
@@ -89,4 +85,3 @@ Retrieves a summarized list of offers under a publisher namespace.
 |  Succeeded                   | Offer submission has completed processing.       |
 |  Canceled                    | Offer submission was canceled.                   |
 |  Failed                      | Offer submission failed.                         |
-|  |  |

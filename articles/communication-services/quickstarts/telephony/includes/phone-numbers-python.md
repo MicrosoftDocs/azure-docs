@@ -4,7 +4,7 @@
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7, 3.5, or above.
+- [Python](https://www.python.org/downloads/) 3.7+.
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Setting up
@@ -220,7 +220,7 @@ print('Status of the operation: ' + release_poller.status())
 
 ## Run the code
 
-From a console prompt, navigate to the directory containing the phone_numbers_sample.py file, then execute the following python command to run the app.
+From a console prompt, navigate to the directory containing the phone_numbers_sample.py file, then execute the following Python command to run the app.
 
 ```console
 python phone_numbers_sample.py

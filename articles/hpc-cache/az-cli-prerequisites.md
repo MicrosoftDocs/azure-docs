@@ -18,7 +18,7 @@ Follow these steps to prepare your environment before using Azure CLI to create 
 
 ## Set default resource group (optional)
 
-Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az config](/cli/azure/reference-index#az_config).
+Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az config](/cli/azure/reference-index#az-config).
 
 ## Next steps
 

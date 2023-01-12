@@ -1,8 +1,8 @@
 ---
 title: Manage model and learning settings - Personalizer
 description: The machine-learned model and learning settings can be exported for backup in your own source control system.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -23,15 +23,15 @@ From the Resource management's section for **Model and learning settings**, revi
 ## Clear data for your learning loop
 
 1. In the Azure portal, for your Personalizer resource, on the **Model and learning settings** page, select **Clear data**.
-1. In order to clear all data, and reset the learning loop to the original state, select all 3 check boxes.
+1. In order to clear all data, and reset the learning loop to the original state, select all three check boxes.
 
     ![In Azure portal, clear data from Personalizer resource.](./media/settings/clear-data-from-personalizer-resource.png)
 
     |Value|Purpose|
     |--|--|
-    |Logged personalization and reward data.|This logging data is used in offline evaluations. Clear the data if you are resetting your resource.|
+    |Logged personalization and reward data.|This logging data is used in offline evaluations. Clear the data if you're resetting your resource.|
     |Reset the Personalizer model.|This model changes on every retraining. This frequency of training is specified in **upload model frequency** on the **Configuration** page. |
-    |Set the learning policy to default.|If you have changed the learning policy as part of an offline evaluation, this resets to the original learning policy.|
+    |Set the learning policy to default.|If you've changed the learning policy as part of an offline evaluation, this resets to the original learning policy.|
 
 1. Select **Clear selected data** to begin the clearing process. Status is reported in Azure notifications, in the top-right navigation.
 

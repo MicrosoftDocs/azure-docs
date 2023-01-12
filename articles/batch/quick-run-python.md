@@ -21,7 +21,7 @@ After completing this quickstart, you'll understand key concepts of the Batch se
 
 - A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) version 2.7 or 3.6 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager.
+- [Python](https://python.org/downloads) version 3.6 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager.
 
 ## Sign in to Azure
 
@@ -48,11 +48,11 @@ pip install -r requirements.txt
 Open the file `config.py`. Update the Batch and storage account credential strings with the values you obtained for your accounts. For example:
 
 ```Python
-_BATCH_ACCOUNT_NAME = 'mybatchaccount'
-_BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
-_BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
-_STORAGE_ACCOUNT_NAME = 'mystorageaccount'
-_STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
+BATCH_ACCOUNT_NAME = 'mybatchaccount'
+BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
+BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
+STORAGE_ACCOUNT_NAME = 'mystorageaccount'
+STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
 ## Run the app
@@ -109,11 +109,8 @@ To interact with a storage account, the app creates a [BlobServiceClient](/pytho
 
 ```python
 blob_service_client = BlobServiceClient(
-        account_url="https://{}.{}/".format(
-            config._STORAGE_ACCOUNT_NAME,
-            config._STORAGE_ACCOUNT_DOMAIN
-        ),
-        credential=config._STORAGE_ACCOUNT_KEY
+        account_url=f"https://{config.STORAGE_ACCOUNT_NAME}.{config.STORAGE_ACCOUNT_DOMAIN}/",
+        credential=config.STORAGE_ACCOUNT_KEY
     )
 ```
 
@@ -132,19 +129,19 @@ input_files = [
 The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports Azure Active Directory authentication.
 
 ```python
-credentials = SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
-        config._BATCH_ACCOUNT_KEY)
+credentials = SharedKeyCredentials(config.BATCH_ACCOUNT_NAME,
+        config.BATCH_ACCOUNT_KEY)
 
     batch_client = BatchServiceClient(
         credentials,
-        batch_url=config._BATCH_ACCOUNT_URL)
+        batch_url=config.BATCH_ACCOUNT_URL)
 ```
 
 ### Create a pool of compute nodes
 
 To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes (`_POOL_NODE_COUNT`) and VM size (`_POOL_VM_SIZE`) are defined constants. The sample by default creates a pool of 2 size *Standard_DS1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
+The number of nodes (`POOL_NODE_COUNT`) and VM size (`POOL_VM_SIZE`) are defined constants. The sample by default creates a pool of 2 size *Standard_DS1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
 
 The [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) method submits the pool to the Batch service.
 
@@ -159,8 +156,8 @@ new_pool = batchmodels.PoolAddParameter(
                 version="latest"
             ),
             node_agent_sku_id="batch.node.ubuntu 20.04"),
-        vm_size=config._POOL_VM_SIZE,
-        target_dedicated_nodes=config._POOL_NODE_COUNT
+        vm_size=config.POOL_VM_SIZE,
+        target_dedicated_nodes=config.POOL_NODE_COUNT
     )
     batch_service_client.pool.add(new_pool)
 ```
@@ -184,16 +181,17 @@ The app creates a list of task objects using the [TaskAddParameter](/python/api/
 Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues them to run on the compute nodes.
 
 ```python
-tasks = list()
+tasks = []
 
-for idx, input_file in enumerate(input_files):
-    command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
+for idx, input_file in enumerate(resource_input_files):
+    command = f"/bin/bash -c \"cat {input_file.file_path}\""
     tasks.append(batchmodels.TaskAddParameter(
-        id='Task{}'.format(idx),
+        id=f'Task{idx}',
         command_line=command,
         resource_files=[input_file]
     )
     )
+
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
@@ -207,15 +205,22 @@ tasks = batch_service_client.task.list(job_id)
 for task in tasks:
 
     node_id = batch_service_client.task.get(job_id, task.id).node_info.node_id
-    print("Task: {}".format(task.id))
-    print("Node: {}".format(node_id))
+    print(f"Task: {task.id}")
+    print(f"Node: {node_id}")
 
     stream = batch_service_client.file.get_from_task(
-        job_id, task.id, config._STANDARD_OUT_FILE_NAME)
+        job_id, task.id, config.STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,
-        encoding)
+        text_encoding)
+
+    if text_encoding is None:
+        text_encoding = DEFAULT_ENCODING
+
+    sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = text_encoding)
+    sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = text_encoding)
+
     print("Standard output:")
     print(file_text)
 ```

@@ -2,7 +2,7 @@
 title: B-series burstable - Azure Virtual Machines
 description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 author: rishabv90
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -25,7 +25,7 @@ The B-series comes in the following VM sizes:
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported**<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 
 *B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.<br>
@@ -33,18 +33,18 @@ The B-series comes in the following VM sizes:
 <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_B1ls<sup>2</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 4000/100  | 2 |
-| Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 4000/100  | 2 |
-| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 4000/100  | 2 |
-| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 4000/100  | 3 |
-| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22.5 | 1920/22.5 | 4000/100  | 3 |
-| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 3600/35   | 2880/35   | 8000/200  | 4 |
-| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 4320/50   | 8000/200  | 4 |
-| Standard_B12ms            | 12 | 48  | 96  | 202% | 1200% | 360 | 121 | 2909 | 16 | 6480/75   | 4320/50   | 16000/400 | 6 |
-| Standard_B16ms            | 16 | 64  | 128 | 270% | 1600% | 480 | 162 | 3888 | 32 | 8640/100  | 4320/50   | 16000/400 | 8 |
-| Standard_B20ms            | 20 | 80  | 160 | 337% | 2000% | 600 | 203 | 4860 | 32 | 10800/125 | 4320/50   | 16000/400 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_B1ls<sup>2</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 160/10    | 4000/100  | 2 |
+| Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 320/10    | 4000/100  | 2 |
+| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 640/10    | 4000/100  | 2 |
+| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1280/15   | 4000/100  | 3 |
+| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 1920/22.5 | 4000/100  | 3 |
+| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 2880/35   | 8000/200  | 4 |
+| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 8000/200  | 4 |
+| Standard_B12ms            | 12 | 48  | 96  | 202% | 1200% | 360 | 121 | 2909 | 16 | 4320/50   | 16000/400 | 6 |
+| Standard_B16ms            | 16 | 64  | 128 | 270% | 1600% | 480 | 162 | 3888 | 32 | 4320/50   | 16000/400 | 8 |
+| Standard_B20ms            | 20 | 80  | 160 | 337% | 2000% | 600 | 203 | 4860 | 32 | 4320/50   | 16000/400 | 8 |
 
 <sup>1</sup> B-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 

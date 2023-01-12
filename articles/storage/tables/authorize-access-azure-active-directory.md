@@ -1,27 +1,24 @@
 ---
-title: Authorize access to tables using Active Directory (preview)
+title: Authorize access to tables using Active Directory
 titleSuffix: Azure Storage
-description: Authorize access to Azure tables using Azure Active Directory (Azure AD) (preview). Assign Azure roles for access rights. Access data with an Azure AD account.
+description: Authorize access to Azure tables using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/13/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 
-# Authorize access to tables using Azure Active Directory (preview)
+# Authorize access to tables using Azure Active Directory
 
-Azure Storage supports using Azure Active Directory (Azure AD) to authorize requests to table data (preview). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can then be used to authorize a request against the Table service.
+Azure Storage supports using Azure Active Directory (Azure AD) to authorize requests to table data. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can then be used to authorize a request against the Table service.
 
 Authorizing requests against Azure Storage with Azure AD provides superior security and ease of use over Shared Key authorization. Microsoft recommends using Azure AD authorization with your table applications when possible to assure access with minimum required privileges.
 
 Authorization with Azure AD is available for all general-purpose in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
-
-> [!IMPORTANT]
-> Authorization with Azure AD for tables is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Overview of Azure AD for tables
 

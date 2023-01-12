@@ -1,19 +1,18 @@
 ### YamlMime:Landing
 
-title: DICOM documentation
-summary: DICOM service documentation page for Azure Healthcare APIs (preview). 
-
+title: DICOM service documentation
+summary: DICOM service documentation for Azure Health Data Services. DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It is backed by a managed Platform as a Service (PaaS) offering in the cloud with complete PHI compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
 metadata:
-  title: Azure Healthcare APIs DICOM Services
-  description: DICOM documentation section for Azure Healthcare APIs
+  title: Azure Health Data Services DICOM service 
+  description: DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It is backed by a managed Platform as a Service (PaaS) offering in the cloud with complete PHI compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: ginalee-dotcom
-  ms.author: ginle
-  ms.date: 06/21/2021
+  author: mmitrik
+  ms.author: mmitrik
+  ms.date: 05/04/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -26,6 +25,10 @@ landingContent:
           - text: About DICOM service
             url: dicom-services-overview.md
       - linkListType: quickstart
+        links:
+          - text: Get started with DICOM service
+            url: get-started-with-dicom.md
+      - linkListType: deploy
         links:
           - text: Deploy DICOM Services using the Azure portal
             url: deploy-dicom-services-in-azure.md

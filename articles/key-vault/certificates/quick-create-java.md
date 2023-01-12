@@ -4,7 +4,7 @@ description: Learn about the the Azure Key Vault Certificate client library for 
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.author: mbaldwin
-ms.date: 12/18/2020
+ms.date: 11/14/2022
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -110,7 +110,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 #### Grant access to your key vault
 Create an access policy for your key vault that grants certificate permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 

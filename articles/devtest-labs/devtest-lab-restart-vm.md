@@ -2,6 +2,8 @@
 title: Restart a VM in a lab
 description: This article provides steps to quickly and easily restart virtual machines (VM) in  Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

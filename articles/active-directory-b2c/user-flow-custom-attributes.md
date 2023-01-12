@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 03/01/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -29,7 +29,7 @@ Your Azure AD B2C directory comes with a [built-in set of attributes](user-profi
 
 The terms *extension property*, *custom attribute*, and *custom claim* refer to the same thing in the context of this article. The name varies depending on the context, such as application, object, or policy.
 
-Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](microsoft-graph-operations.md).
+Azure AD B2C allows you to extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Microsoft Graph API](microsoft-graph-operations.md#application-extension-directory-extension-properties).
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ The custom attribute is now available in the list of **User attributes** and for
 1. Select **Application claims** and then select the custom attribute.
 1. Select **Save**.
 
-Once you've created a new user using a user flow, which uses the newly created custom attribute, the object can be queried in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Alternatively you can use the [Run user flow](./tutorial-create-user-flows.md) feature on the user flow to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application.
+Once you've created a new user using the user flow, you can use the [Run user flow](./tutorial-create-user-flows.md) feature on the user flow to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application.
 
 ::: zone-end
 
@@ -89,7 +89,7 @@ Extension attributes can only be registered on an application object, even thoug
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
-1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
+1. Select the **b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.** application.
 1. Copy the following identifiers to your clipboard and save them:
     * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
     * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
@@ -143,8 +143,11 @@ You can create these attributes by using the portal UI before or after you use t
 
 |Name     |Used in |
 |---------|---------|
-|`extension_loyaltyId`  | Custom policy|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md)|
+|`extension_loyaltyId` | Custom policy|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md#application-extension-directory-extension-properties)|
+
+> [!NOTE] 
+> When using a custom attribute in custom policies, you must prefix the claim type ID with `extension_` to allow the correct data mapping to take place within the Azure AD B2C directory.
 
 The following example demonstrates the use of custom attributes in an Azure AD B2C custom policy claim definition.
 
@@ -177,28 +180,28 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 
 ::: zone-end
 
-## Using custom attribute with MS Graph API
+## Manage extension attributes through Microsoft Graph
 
-Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
+You can use Microsoft Graph to create and manage the custom attributes then set the values for a user. Extension attributes are also called directory or Azure AD extensions.
 
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
-``` 
+Custom attributes (directory extensions) in the Microsoft Graph API are named by using the convention `extension_{appId-without-hyphens}_{extensionProperty-name}` where `{appId-without-hyphens}` is the stripped version of the **appId** (called Client ID on the Azure AD B2C portal) for the `b2c-extensions-app` with only characters 0-9 and A-Z. For example, if the **appId** of the `b2c-extensions-app` application is `25883231-668a-43a7-80b2-5685c3f874bc` and the attribute name is `loyaltyId`, then the custom attribute will be named `extension_25883231668a43a780b25685c3f874bc_loyaltyId`.
+
+Learn how to [manage extension attributes in your Azure AD B2C tenant](microsoft-graph-operations.md#application-extension-directory-extension-properties) using the Microsoft Graph API. 
 
 ## Remove extension attribute
 
-Unlike built-in attributes, extension/custom attributes can be removed. The extension attributes' values can also be removed. 
+Unlike built-in attributes, custom attributes can be removed. The extension attributes' values can also be removed. 
 
 > [!Important]
-> Before you remove the extension/custom attribute, for each account in the directory, set the extension attribute value to null.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Extension/custom attribute is queryable using MS Graph API. 
+> Before you remove the custom attribute, for each account in the directory, set the extension attribute value to `null`.  In this way you explicitly remove the extension attributes’s values. Then continue to remove the extension attribute itself. Custom attributes can be queries using Microsoft Graph API. 
 
 ::: zone pivot="b2c-user-flow"
 
-Use the following steps to remove extension/custom attribute from a user flow:
+Use the following steps to remove a custom attribute from a user flow in your:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1.  Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User attributes**, and then select the attribute you want to delete.
@@ -208,7 +211,7 @@ Use the following steps to remove extension/custom attribute from a user flow:
 
 ::: zone pivot="b2c-custom-policy"
 
-To remove a custom attribute, use [MS Graph API](microsoft-graph-operations.md), and use the [Delete](/graph/api/application-delete-extensionproperty) command.
+Use the [Microsoft Graph API](microsoft-graph-operations.md#application-extension-directory-extension-properties) to manage the custom attributes.
 
 ::: zone-end
 
@@ -218,3 +221,8 @@ To remove a custom attribute, use [MS Graph API](microsoft-graph-operations.md),
 ## Next steps
 
 Follow the guidance for how to [add claims and customize user input using custom policies](configure-user-input.md). This sample uses a built-in claim 'city'. To use a custom attribute, replace 'city' with your own custom attributes.
+
+
+<!-- LINKS -->
+[ms-graph]: /graph/
+[ms-graph-api]: /graph/api/overview

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/17/2021
+ms.date: 03/07/2022
 ms.topic: include
 ms.custom: "include file, devx-track-dotnet, cog-serv-seo-aug-2020"
 
@@ -18,7 +18,7 @@ Use the Language Understanding (LUIS) client libraries for .NET to:
 * Train and publish app
 * Query prediction runtime
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding) | [Authoring](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) and [Prediction](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime)  Library source code | [Authoring](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) and [Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) NuGet | [C# Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/sdk-3x//Program.cs)
+[Reference documentation](/dotnet/api/overview/azure/language-understanding) | [Authoring](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) and [Prediction](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime)  Library source code | [Authoring](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) and [Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) NuGet | [C# Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/sdk-3x//Program.cs)
 
 ## Prerequisites
 
@@ -119,6 +119,8 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 ## Create variables for the app
 
 Create two sets of variables: the first set you change, the second set leave as they appear in the code sample. 
+
+[!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
 
 1. Create variables to hold your authoring key and resource names.
 

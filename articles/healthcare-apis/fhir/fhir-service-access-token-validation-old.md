@@ -2,23 +2,20 @@
 title: FHIR service access token validation
 description: Access token validation procedure and troubleshooting guide for FHIR service
 services: healthcare-apis
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/05/2021
-ms.author: cavoeg
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 # FHIR service access token validation
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-How the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+How the FHIR service in Azure Health Data Services (hereby called FHIR service) validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 
-The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server will be configured to use a specific identity provider known as the authority `Authority`. The FHIR server will retrieve information about the identity provider from the `/.well-known/openid-configuration` endpoint. When using Azure AD, the full URL would be:
+The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server will be configured to use a specific identity provider known as the authority `Authority`. The FHIR server will retrieve information about the identity provider from the `/.well-known/openid-configuration` endpoint. When you use Azure AD, the full URL would be:
 
 ```
 GET https://login.microsoftonline.com/<TENANT-ID>/.well-known/openid-configuration
@@ -92,13 +89,13 @@ Azure AD will return a document like the one below to the FHIR server.
     "rbac_url": "https://pas.windows.net"
 }
 ``` 
-The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it is receiving an authentic token.
+The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it's receiving an authentic token.
 
 ## Validate claims of the token
 
 Once the server has verified the authenticity of the token, the FHIR server will then proceed to validate that the client has the required claims to access the token.
 
-When using the FHIR service, the server will validate:
+When you use the FHIR service, the server will validate:
 
 1. The token has the right `Audience` (`aud` claim).
 1. The user or principal that the token was issued for is allowed to access the FHIR server data plane. The `oid` claim of the token contains an identity object ID, which uniquely identifies the user or principal.
@@ -112,4 +109,13 @@ When using the OSS Microsoft FHIR server for Azure, the server will validate:
 
 Consult details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
 
-A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the FHIR service does not validate token scopes.
+A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the FHIR service doesn't validate token scopes.
+
+## Next steps
+
+In this article, you learned about the FHIR service access token validation steps. For more information about the supported FHIR service features, see
+ 
+>[!div class="nextstepaction"]
+>[Supported FHIR Features](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

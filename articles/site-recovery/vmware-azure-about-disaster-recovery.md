@@ -4,11 +4,16 @@ description: This article provides an overview of disaster recovery of VMware VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/19/2021
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # About disaster recovery of VMware VMs to Azure
 
 This article provides an overview of disaster recovery for on-premises VMware VMs to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
+
+>[!NOTE]
+>You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
 
 ## What is BCDR?
 
@@ -84,14 +89,14 @@ After you have your Azure and on-premises infrastructure in place, you can set u
 
 1. To understand the components that you'll need to deploy, review the [VMware to Azure architecture](vmware-azure-architecture.md), and the [physical to Azure architecture](physical-azure-architecture.md). There are a number of components, so it's important to understand how they all fit together.
 2. **Source environment**: As a first step in deployment, you set up your replication source environment. You specify what you want to replicate, and where you want to replicate to.
-3. **Configuration server** (applicable to Classic): You need to set up a configuration server in your on-premises source environment:
+3. **Configuration server** (applicable for Classic): You need to set up a configuration server in your on-premises source environment:
     - The configuration server is a single on-premises machine. For VMware disaster recovery, we recommend that you deploy it as a VMware VM that can be deployed from a downloadable OVF template.
     - The configuration server coordinates communications between on-premises and Azure
     - A couple of other components run on the configuration server machine.
         - The process server receives, optimizes, and sends replication data to cache storage account in Azure. It also handles automatic installation of the Mobility service on machines you want to replicate, and performs automatic discovery of VMs on VMware servers.
         - The master target server handles replication data during failback from Azure.
     - Set up includes registering the configuration server in the vault, downloading MySQL Server and VMware PowerCLI, and specifying the accounts created for automatic discovery and Mobility service installation.
-4. **Azure Site Recovery replication appliance** (applicable for Preview): You need to set up a replication appliance in your on-premises source environment. The appliance is the basic building block of the entire Azure Site Recovery on-premises infrastructure. For VMware disaster recovery, we recommend that [you deploy it as a VMware VM](deploy-vmware-azure-replication-appliance-preview.md#create-azure-site-recovery-replication-appliance) that can be deployed from a downloadable OVF template.  Learn more about replication appliance [here](vmware-azure-architecture-preview.md).   
+4. **Azure Site Recovery replication appliance** (applicable for modernized): You need to set up a replication appliance in your on-premises source environment. The appliance is the basic building block of the entire Azure Site Recovery on-premises infrastructure. For VMware disaster recovery, we recommend that [you deploy it as a VMware VM](deploy-vmware-azure-replication-appliance-modernized.md#create-azure-site-recovery-replication-appliance) that can be deployed from a downloadable OVF template.  Learn more about replication appliance [here](vmware-azure-architecture-modernized.md).   
 5. **Target environment**: You set up your target Azure environment by specifying your Azure subscription and network settings.
 6. **Replication policy**: You specify how replication should occur. Settings include how often recovery points are created and stored, and whether app-consistent snapshots should be created.
 7. **Enable replication**. You enable replication for on-premises machines. If you created an account to install the Mobility service, then it will be installed when you enable replication for a machine.

@@ -26,7 +26,7 @@ You can use heat maps in many different scenarios, including:
 
 </br>
 
->[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
 
 ## Add a heat map layer
 

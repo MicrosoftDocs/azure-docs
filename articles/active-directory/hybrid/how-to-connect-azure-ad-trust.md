@@ -4,14 +4,14 @@ description: Operational details of Azure AD trust handling by Azure AD connect.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: karenhoran
+manager: amycolannino
 ms.subservice: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 03/24/2022
 ms.author: billmath
 author: billmath
 ms.custom: 
@@ -115,7 +115,7 @@ You can restore the issuance transform rules using the suggested steps below
 ## Best practice for securing and monitoring the AD FS trust with Azure AD
 When you federate your AD FS with Azure AD, it is critical that the federation configuration (trust relationship configured between AD FS and Azure AD) is monitored closely, and any unusual or suspicious activity is captured. To do so, we recommend setting up alerts and getting notified whenever any changes are made to the federation configuration. To learn how to setup alerts, see [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md). 
 
-
+If you are using cloud Azure MFA, for multi factor authentication, with federated users, we highly recommend enabling additional security protection.  This security protection prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled, for a federated domain in your Azure AD tenant, it ensures that a bad actor cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, `federatedIdpMfaBehavior`.For additional information see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-mfa-when-federated-with-azure-ad)
 
 ## Next steps
 * [Manage and customize Active Directory Federation Services using Azure AD Connect](how-to-connect-fed-management.md)

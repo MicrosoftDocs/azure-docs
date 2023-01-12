@@ -1,8 +1,8 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft Docs
+title: Azure Quickstart - Create a blob in object storage using PHP
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP. Upload, download, and list block blobs in a container in Azure Blob storage.
-author: normesta
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
@@ -215,4 +215,4 @@ In this quickstart, you learned how to transfer files between a local disk and A
 > [!div class="nextstepaction"]
 > [PHP Developer Center](https://azure.microsoft.com/develop/php/)
 
-For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json).

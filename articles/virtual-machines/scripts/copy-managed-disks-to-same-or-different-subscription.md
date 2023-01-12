@@ -4,7 +4,8 @@ description: Azure CLI Script Sample - Copy (or move) managed disks to the same 
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: storage
+ms.subservice: disks
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
@@ -27,7 +28,7 @@ This script copies a managed disk to same or different subscription but in the s
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh" range="3-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh" id="FullScript":::
 
 ## Clean up resources
 

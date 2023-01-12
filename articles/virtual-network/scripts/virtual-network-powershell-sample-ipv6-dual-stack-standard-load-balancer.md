@@ -4,12 +4,12 @@ titlesuffix: Azure Virtual Network
 description: Learn about configuring an IPv6 frontend in a virtual network script sample with Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 ---
 

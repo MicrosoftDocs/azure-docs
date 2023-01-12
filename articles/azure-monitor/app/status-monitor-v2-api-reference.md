@@ -13,6 +13,8 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 > - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 > [!IMPORTANT] 
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 > - This cmdlet requires that you review and accept our license and privacy statement.
@@ -606,7 +608,7 @@ The full path will be displayed during script execution.
 
 #### Example of application startup logs
 ```powershell
-PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -ColectRedfieldEvents
+PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
 Starting...
 Log File: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\logs\20190627_144217_ApplicationInsights_ETW_Trace.etl
 Tracing enabled, waiting for events.

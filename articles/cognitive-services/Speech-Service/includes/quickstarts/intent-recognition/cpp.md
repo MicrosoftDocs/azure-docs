@@ -48,11 +48,14 @@ Insert this code in the `recognizeIntent()` method. Make sure you update these v
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp" id="create_speech_configuration":::
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/cpp/cognitive-services/speech/speechconfig).
 
-The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
+The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
 
@@ -72,13 +75,6 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp" id="add_intents":::
 
 This example uses the `AddIntent()` function to individually add intents. If you want to add all intents from a model, use `AddAllIntents(model)` and pass the model.
-
-> [!NOTE]
-> Speech SDK only supports LUIS v2.0 endpoints.
-> You must manually modify the v3.0 endpoint URL found in the example query field to use a v2.0 URL pattern.
-> LUIS v2.0 endpoints always follow one of these two patterns:
-> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
-> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## Recognize an intent
 
@@ -103,7 +99,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp" id="code":::
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp":::
 
 ## Build and run your app
 

@@ -8,7 +8,7 @@ ms.subservice: machine-learning
 ms.topic: overview 
 ms.reviewer: sngun, garye
 
-ms.date: 10/01/2021
+ms.date: 08/31/2022
 author: nelgson
 ms.author: negust
 ---
@@ -35,7 +35,7 @@ Most machine learning projects involve well-established steps, and one of these 
 
 ### Data source and pipelines
 
-Thanks to [Azure Data Factory](../../data-factory/introduction.md), a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) in Synapse. 
+Thanks to [Azure Data Factory](../../data-factory/introduction.md), a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](../../data-factory/concepts-pipelines-activities.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json) in Synapse. 
 
 ### Data preparation and exploration/visualization
 
@@ -68,6 +68,10 @@ Models that have been trained either in Azure Synapse or outside Azure Synapse c
 * You can use the [TSQL PREDICT function](../sql-data-warehouse/sql-data-warehouse-predict.md) in Synapse SQL pools to run your predictions right where your data lives. This powerful and scalable function allows you to enrich your data without moving any data out of your data warehouse. A new [guided machine learning model experience in Synapse Studio](./tutorial-sql-pool-model-scoring-wizard.md) was introduced where you can deploy an ONNX model from the Azure Machine Learning model registry in Synapse SQL Pools for batch scoring using PREDICT.
 
 * Another option for batch scoring machine learning models in Azure Synapse is to leverage the Apache Spark Pools for Azure Synapse. Depending on the libraries used to train the models, you can use a code experience to run your batch scoring.
+
+## SynapseML
+
+SynapseML (previously known as MMLSpark), is an open-source library that simplifies the creation of massively scalable machine learning (ML) pipelines. It is an ecosystem of tools used to expand the Apache Spark framework in several new directions. SynapseML unifies several existing machine learning frameworks and new Microsoft algorithms into a single, scalable API that’s usable across Python, R, Scala, .NET, and Java. To learn more, see the [key features of SynapseML](synapse-machine-learning-library.md).
 
 ## Next steps
 

@@ -1,9 +1,8 @@
 ---
 title: Move Azure Stream Analytics cluster - Azure PowerShell
 description: Use Azure PowerShell and Azure Resource Manager to Move Azure Stream Analytics cluster to another region. 
-author: sidramadoss
-ms.author: sidram
-
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
@@ -43,7 +42,7 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName <name of your resource group> `
   -TemplateFile <path-to-template>
 ```
-For more information on how to deploy a template using Azure PowerShell, see [Deploy a template](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-powershell#deploy-a-template).
+For more information on how to deploy a template using Azure PowerShell, see [Deploy a template](../azure-resource-manager/management/manage-resources-powershell.md#deploy-a-template).
 
 ## Next steps
 

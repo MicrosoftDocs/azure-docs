@@ -35,7 +35,6 @@ This extension supports the following OS distros, depending on driver support fo
 | Windows Server 2019 | CX3-Pro, CX5, CX6 |
 | Windows Server 2016 | CX3-Pro, CX5, CX6 |
 | Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
-| Windows Server 2012 | CX3-Pro, CX5, CX6 |
 
 For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
 

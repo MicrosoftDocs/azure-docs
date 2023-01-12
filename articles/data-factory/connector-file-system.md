@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 11/10/2022
 ms.author: jianleishen
 ---
 
@@ -21,21 +21,22 @@ This article outlines how to copy data to and from file system. To learn more re
 
 ## Supported capabilities
 
-This file system connector is supported for the following activities:
+This file system connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
-- [GetMetadata activity](control-flow-get-metadata-activity.md)
-- [Delete activity](delete-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 Specifically, this file system connector supports:
 
-- Copying files from/to local machine or network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
+- Copying files from/to network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
 - Copying files using **Windows** authentication.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
-
-> [!NOTE]
-> Mapped network drive is not supported when loading data from a network file share. Use the actual path instead e.g. ` \\server\share`.
 
 ## Prerequisites
 
@@ -87,11 +88,14 @@ The following properties are supported for file system linked service:
 
 | Scenario | "host" in linked service definition | "folderPath" in dataset definition |
 |:--- |:--- |:--- |
-| Local folder on Integration Runtime machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |In JSON: `D:\\`<br/>On UI: `D:\` |In JSON: `.\\` or `folder\\subfolder`<br>On UI: `.\` or `folder\subfolder` |
 | Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |In JSON: `\\\\myserver\\share`<br/>On UI: `\\myserver\share` |In JSON: `.\\` or `folder\\subfolder`<br/>On UI: `.\` or `folder\subfolder` |
 
 >[!NOTE]
 >When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
+
+>[!NOTE]
+>Copying files from local machine is not supported under Azure Integration Runtime.<br>
+>Refer to the command line from [here](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) to enable the access to the local machine under Self-hosted integration runtime. By default, it's disabled.
 
 **Example:**
 
@@ -127,7 +131,7 @@ The following properties are supported for file system under `location` settings
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | The type property under `location` in dataset must be set to **FileServerLocation**. | Yes      |
-| folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
+| folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. Note that you will need to setup the file share location in your Windows or Linux environment to expose the folder for sharing. | No       |
 | fileName   | The file name under the given folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
 
 **Example:**
@@ -171,7 +175,7 @@ The following properties are supported for file system under `storeSettings` set
 | type                     | The type property under `storeSettings` must be set to **FileServerReadSettings**. | Yes                                           |
 | ***Locate the files to copy:*** |  |  |
 | OPTION 1: static path<br> | Copy from the given folder/file path specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: server side filter<br>- fileFilter  | File server side native filter, which provides better performance than OPTION 3 wildcard filter. Use `*` to match zero or more characters and `?` to match zero or single character. Learn more about the syntax and notes from the **Remarks** under [this section](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
+| OPTION 2: server side filter<br>- fileFilter  | File server side native filter, which provides better performance than OPTION 3 wildcard filter. Use `*` to match zero or more characters and `?` to match zero or single character. Learn more about the syntax and notes from the **Remarks** under [this section](/dotnet/api/system.io.directory.getfiles#system-io-directory-getfiles(system-string-system-string-system-io-searchoption)). | No                                                          |
 | OPTION 3: client side filter<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. Such filter happens within the service, which enumerate the folders/files under the given path then apply the wildcard filter.<br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | OPTION 3: client side filter<br>- wildcardFileName | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. Such filter happens within the service, which enumerates the files under the given path then apply the wildcard filter.<br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual file name has wildcard or this escape char inside.<br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When using this option, do not specify file name in dataset. See more examples in [File list examples](#file-list-examples). |No |

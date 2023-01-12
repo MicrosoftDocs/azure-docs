@@ -3,11 +3,10 @@ title: Create Support ticket or case for Azure Import/Export job | Microsoft Doc
 description: Learn how to log support request for issues related to your Import/Export job.
 services: storsimple
 author: alkohli
-ms.service: storage
+ms.service: azure-import-export
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
 ms.custom: contperf-fy22q1
 ---
 # Open a support ticket for an Import/Export job

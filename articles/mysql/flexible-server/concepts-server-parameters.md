@@ -1,11 +1,13 @@
 ---
 title: Server parameters - Azure Database for MySQL - Flexible Server
 description: This topic provides guidelines for configuring server parameters in Azure Database for MySQL - Flexible Server.
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/10/2020
+author: code-sidd
+ms.author: sisawant
+ms.custom: event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
 
@@ -48,20 +50,20 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Burstable (B1s)|1|1|134217728|33554432|134217728|
 |Burstable (B1ms)|1|2|536870912|134217728|536870912|
 |Burstable|2|4|2147483648|134217728|2147483648|
-|General Purpose|2|8|6442450944|134217728|6442450944|
+|General Purpose|2|8|5368709120|134217728|5368709120|
 |General Purpose|4|16|12884901888|134217728|12884901888|
 |General Purpose|8|32|25769803776|134217728|25769803776|
 |General Purpose|16|64|51539607552|134217728|51539607552|
 |General Purpose|32|128|103079215104|134217728|103079215104|
 |General Purpose|48|192|154618822656|134217728|154618822656|
 |General Purpose|64|256|206158430208|134217728|206158430208|
-|Memory Optimized|2|16|12884901888|134217728|12884901888|
-|Memory Optimized|4|32|25769803776|134217728|25769803776|
-|Memory Optimized|8|64|51539607552|134217728|51539607552|
-|Memory Optimized|16|128|103079215104|134217728|103079215104|
-|Memory Optimized|32|256|206158430208|134217728|206158430208|
-|Memory Optimized|48|384|309237645312|134217728|309237645312|
-|Memory Optimized|64|504|405874409472|134217728|405874409472|
+|Business Critical|2|16|12884901888|134217728|12884901888|
+|Business Critical|4|32|25769803776|134217728|25769803776|
+|Business Critical|8|64|51539607552|134217728|51539607552|
+|Business Critical|16|128|103079215104|134217728|103079215104|
+|Business Critical|32|256|206158430208|134217728|206158430208|
+|Business Critical|48|384|309237645312|134217728|309237645312|
+|Business Critical|64|504|405874409472|134217728|405874409472|
 
 ### innodb_file_per_table
 
@@ -94,13 +96,13 @@ The value of max_connection is determined by the memory size of the server.
 |General Purpose|32|128|10923|10|21845|
 |General Purpose|48|192|16384|10|32768|
 |General Purpose|64|256|21845|10|43691|
-|Memory Optimized|2|16|1365|10|2731|
-|Memory Optimized|4|32|2731|10|5461|
-|Memory Optimized|8|64|5461|10|10923|
-|Memory Optimized|16|128|10923|10|21845|
-|Memory Optimized|32|256|21845|10|43691|
-|Memory Optimized|48|384|32768|10|65536|
-|Memory Optimized|64|504|43008|10|86016|
+|Business Critical|2|16|1365|10|2731|
+|Business Critical|4|32|2731|10|5461|
+|Business Critical|8|64|5461|10|10923|
+|Business Critical|16|128|10923|10|21845|
+|Business Critical|32|256|21845|10|43691|
+|Business Critical|48|384|32768|10|65536|
+|Business Critical|64|504|43008|10|86016|
 
 When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
@@ -120,7 +122,7 @@ If you receive an error similar to "Row size too large (> 8126)", you may want t
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 
 > [!NOTE]
-> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
+> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to ON if you have read replicas.
 
 ### time_zone
 
@@ -130,7 +132,7 @@ Upon initial deployment, an Azure for MySQL Flexible Server includes system tabl
 
 In Azure Database for MySQL this parameter specifies the number of seconds the service waits before purging the binary log file.
 
-The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log are used mainly for two purposes , replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. In case of multiple replica, it would wait for the slowest replica to read the changes before it is been purged. If you want to persist binary logs for a more duration of time you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0 which is the default value, it will purge as soon as the handle to the binary log is freed. if binlog_expire_logs_seconds > 0 then it would wait for the until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally . When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs will not get purged soon enough and can lead to increase in the storage billing. 
+The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log are used mainly for two purposes , replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. In case of multiple replica, it would wait for the slowest replica to read the changes before it is been purged. If you want to persist binary logs for a more duration of time you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it will purge as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally . When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs will not get purged soon enough and can lead to increase in the storage billing. 
 
 ## Non-modifiable server parameters
 

@@ -2,17 +2,13 @@
 title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 
 # Configure IP firewall for an Azure Relay namespace
 By default, Relay namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 This feature is helpful in scenarios in which Azure Relay should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Relay with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
-
-
-> [!IMPORTANT]
-> This feature is currently in preview. 
 
 
 ## Enable IP firewall rules

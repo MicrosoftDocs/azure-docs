@@ -58,7 +58,7 @@ from uuid_test
 
 It's caused by the difference of WebHCat(Templeton) between HDInsight 3.6 and HDInsight 4.0.
 
-* Hive Rest API - add ```arg=--showHeader=false -d arg=--outputformat=tsv2 -d```
+* Hive REST API - add ```arg=--showHeader=false -d arg=--outputformat=tsv2 -d```
 
 * .NET SDK - initialize args of ```HiveJobSubmissionParameters```
     ```csharp

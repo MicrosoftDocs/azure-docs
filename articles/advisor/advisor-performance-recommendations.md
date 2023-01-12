@@ -22,7 +22,7 @@ Azure Advisor provides a consistent, consolidated view of recommendations for al
 > [!NOTE]
 > Before you can get recommendations, your database needs to be in use for about a week, and within that week there needs to be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
 
-For more information, see [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
+For more information, see [SQL Database Advisor](/azure/azure-sql/database/database-advisor-implement-performance-recommendations).
 
 ## Upgrade your Storage client library to the latest version for better reliability and performance
 
@@ -48,7 +48,7 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ## Remove data skew on your Azure Synapse Analytics tables to increase query performance
 
-Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-is-a-good-choice).
 
 ## Create or update outdated table statistics in your Azure Synapse Analytics tables to increase query performance
 
@@ -164,8 +164,8 @@ Advisor analysis indicates that your MySQL server may be incurring unnecessary I
 ## Distribute data in server group to distribute workload among nodes
 Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
-## Improve user experience and connectivity by deploying VMs closer to Windows Virtual Desktop deployment location
-We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience. [Learn more about connection latency here](../virtual-desktop/connection-latency.md).
+## Improve user experience and connectivity by deploying VMs closer to Azure Virtual Desktop deployment location
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Azure Virtual Desktop. This may lead to prolonged connection response times and will impact overall user experience on Azure Virtual Desktop. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the Azure Virtual Desktop service and a better overall quality of experience. [Learn more about connection latency here](../virtual-desktop/connection-latency.md).
 
 ## Upgrade to the latest version of the Immersive Reader SDK
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
@@ -175,7 +175,7 @@ Learn more about [Immersive reader SDK](../applied-ai-services/immersive-reader/
 
 Advisor detects that you have a host pool that has depth first set as the load balancing algorithm, and that host pool's max session limit is greater than or equal to 999999. Depth first load balancing uses the max session limit to determine the maximum number of users that can have concurrent sessions on a single session host. If the max session limit is too high, all user sessions will be directed to the same session host, and this will cause performance and reliability issues. Therefore, when setting a host pool to have depth first load balancing, you must set an appropriate max session limit according to the configuration of your deployment and capacity of your VMs. 
 
-To learn more about load balancing in Windows Virtual Desktop, see [Configure the Windows Virtual Desktop load-balancing method](../virtual-desktop/troubleshoot-set-up-overview.md).
+To learn more about load balancing in Azure Virtual Desktop, see [Host pool load-balancing algorithms](../virtual-desktop/host-pool-load-balancing.md).
 
 ## Upgrade to the latest version of the Azure Communication Services SDKs
 
@@ -186,7 +186,7 @@ Learn more about [Azure Communication Services](../communication-services/overvi
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, select the **Performance** tab.
+2.    On the Advisor dashboard, select the **Performance** tab.
 
 ## Next steps
 
