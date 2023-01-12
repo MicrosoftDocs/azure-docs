@@ -1,5 +1,5 @@
 ---
-title: "Input data for batch endpoints jobs"
+title: "Create jobs and input data for batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to access data from different sources in batch endpoints jobs.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Input data for batch endpoints jobs
+# Create jobs and input data for batch endpoints
 
 Batch endpoints can be used to perform batch scoring on large amounts of data. Such data can be placed in different places. In this tutorial we'll cover the different places where batch endpoints can read data from and how to reference it.
 
@@ -58,7 +58,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     ```
     
     > [!NOTE]
-    > Data stores ID would look like `azureml:/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
+    > Data stores ID would look like `/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
 
     # [Python](#tab/sdk)
 
@@ -117,7 +117,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
 
     > [!TIP]
-    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
+    > You can also use `azureml://datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
 
 1. Run the deployment:
 
@@ -198,7 +198,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     To get the newly created data asset, use:
     
     ```python
-    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name)
+    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
     ```
 
     # [REST](#tab/rest)

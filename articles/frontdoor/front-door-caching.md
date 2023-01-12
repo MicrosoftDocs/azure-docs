@@ -175,7 +175,7 @@ The following request headers won't be forwarded to a backend when using caching
 
 ## Response headers
 
-The following response headers will be stripped if the origin response is cacheable. For example, Cache control header has max-age value.
+The following response headers will be stripped if the origin response is cacheable. For example, Cache control response header with max-age value indicates  response is cacheable.
 
 - Set-Cookie
 

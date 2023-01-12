@@ -356,7 +356,7 @@ Let's create the SIM policies.
     |Field  |Value  |
     |---------|---------|
     |**Slice**     | Select the **Default** slice.         |
-    |**Data network**     | Select the data network to which your private mobile network connects.        |
+    |**Data network**     | Select any data network to which your private mobile network connects.        |
     |**Service configuration**     | Select **service_restricted_udp_and_icmp** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
@@ -417,7 +417,7 @@ Let's create the SIM policies.
     |Field  |Value  |
     |---------|---------|
     |**Slice**     | Select the **Default** slice.         |
-    |**Data network**     | Select the data network to which your private mobile network connects.        |
+    |**Data network**     | Select any data network to which your private mobile network connects.        |
     |**Service configuration**     | Select **service_blocking_udp_from_specific_sources** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |

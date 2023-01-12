@@ -26,7 +26,7 @@ Choose whether each site in the private mobile network should provide coverage f
 
 ## Allocate subnets and IP addresses
 
-Azure Private 5G Core requires a management network, access network, and data network. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
+Azure Private 5G Core requires a management network, access network, and one or more data networks. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
 
 For each of these networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
@@ -44,16 +44,21 @@ Depending on your networking requirements (for example, if a limited set of subn
 
 - Network address in CIDR notation. 
 - Default gateway. 
-- One IP address for port 5 on the Azure Stack Edge Pro device. 
 - One IP address for the control plane interface. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.*
 - One IP address for the user plane interface. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.*
+- One IP address for port 5 on the Azure Stack Edge Pro device.
 
-### Data network
+### Data networks
+
+Allocate the following IP addresses for each data network in the site:
 
 - Network address in CIDR notation.
 - Default gateway.
-- One IP address for port 6 on the Azure Stack Edge Pro device.
 - One IP address for the user plane interface. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface.*
+
+The following IP address must be shared by all the data networks in the site:
+
+- One IP address for port 6 on the Azure Stack Edge Pro device.
 
 ## Allocate user equipment (UE) IP address pools
 
@@ -63,14 +68,14 @@ Azure Private 5G Core supports the following IP address allocation methods for U
 
 - Static. Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart. You'll allocate static IP addresses to a UE as part of [provisioning its SIM](provision-sims-azure-portal.md).
 
-You can choose to support one or both of these methods for each site in your private mobile network. 
+You can choose to support one or both of these methods for each data network in your site.
 
-For each site you're deploying, do the following:
+For each data network you're deploying, do the following:
 
 - Decide which IP address allocation methods you want to support.
-- For each method you want to support, identify an IP address pool from which IP addresses can be allocated to UEs. You'll need to provide each IP address pool in CIDR notation. 
+- For each method you want to support, identify an IP address pool from which IP addresses can be allocated to UEs. You'll need to provide each IP address pool in CIDR notation.
 
-    If you decide to support both methods for a particular site, ensure that the IP address pools are of the same size and don't overlap.
+    If you decide to support both methods for a particular data network, ensure that the IP address pools are of the same size and don't overlap.
 
 - Decide whether you want to enable Network Address and Port Translation (NAPT) for the data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.
 
@@ -89,7 +94,7 @@ DNS allows the translation between human-readable domain names and their associa
 For each site you're deploying, do the following. 
 
 - Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
-- If you're not enabling NAPT as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
+- For every network where you decided not to enable NAPT (as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools)), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
 
 ### Ports required for local access
 
@@ -103,7 +108,7 @@ You should set these up in addition to the [ports required for Azure Stack Edge 
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
-| All IP traffic       | Port 6 (Data network)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
+| All IP traffic       | Port 6 (Data networks)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
@@ -113,7 +118,7 @@ Do the following for each site you want to add to your private mobile network. D
 |--|--|--|
 | 1. | Complete the Azure Stack Edge Pro deployment checklist. | [Deployment checklist for your Azure Stack Edge Pro GPU device](../databox-online/azure-stack-edge-gpu-deploy-checklist.md)|
 | 2. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal) |
-| 3. | Rack and cable your Azure Stack Edge Pro device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network</br>- Port 6 - data network</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-install.md) |
+| 3. | Rack and cable your Azure Stack Edge Pro device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network</br>- Port 6 - data networks</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-install.md) |
 | 4. | Connect to your Azure Stack Edge Pro device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-connect.md) |
 | 5. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, ensure you use the port you've connected to your management network. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md) |
 | 6. | Configure a name, DNS name, and (optionally) time settings. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md) |

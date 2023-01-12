@@ -521,7 +521,7 @@ model = run.register_model(model_name = model_name,
 ```
 
 
-For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
+For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
 
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
@@ -540,7 +540,7 @@ For general information on how model explanations and feature importance can be 
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](../how-to-deploy-managed-online-endpoints.md).
++ Learn more about [how and where to deploy a model](../how-to-deploy-online-endpoints.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](how-to-auto-train-models-v1.md).
 

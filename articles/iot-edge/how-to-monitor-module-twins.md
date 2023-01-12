@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/29/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 ---
 # Monitor module twins
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules each maintain their module twins, `$edgeAgent` and `$edgeHub`, respectively:
 

@@ -16,7 +16,7 @@ Azure Private 5G Core Preview provides flexible traffic handling. You can custom
 
 ## 5G quality of service (QoS) and QoS flows
 
-In 5G networks, the packet core instance is a key component in establishing *protocol data unit (PDU)* sessions, which are used to transport user plane traffic between a UE and the data network. Within each PDU session, there are one or more *service data flows (SDFs)*. Each SDF is a single IP flow or a set of aggregated IP flows of UE traffic that is used for a specific service.
+In 5G networks, the packet core instance is a key component in establishing *protocol data unit (PDU)* sessions, which are used to transport user plane traffic between a UE and a data network. Within each PDU session, there are one or more *service data flows (SDFs)*. Each SDF is a single IP flow or a set of aggregated IP flows of UE traffic that is used for a specific service.
 
 Each SDF may require a different set of QoS characteristics, including prioritization and bandwidth limits. For example, an SDF carrying traffic used for industrial automation will need to be handled differently to an SDF used for internet browsing.
 

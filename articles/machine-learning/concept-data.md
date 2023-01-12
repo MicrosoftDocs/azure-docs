@@ -41,7 +41,7 @@ Azure Machine Learning distinguishes two types of URIs:
 Data type | Description | Examples
 ---|------|---
 `uri_file` | Refers to a specific **file** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`<br> `azureml://datastores/<datastore_name>/paths/<folder>/<file>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
-`uri_folder`| Refers to a specific **folder** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>`<br> `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
+`uri_folder`| Refers to a specific **folder** location | `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
 
 URIs are mapped to the filesystem on the compute target, hence using URIs is like using files or folders in the command that consumes/produces them. URIs leverage **identity-based authentication** to connect to storage services with either your Azure Active Directory ID (default) or Managed Identity.
 
@@ -93,7 +93,7 @@ command: |
 inputs:
   sampledata:
     type: uri_folder
-    path: https://<account_name>.blob.core.windows.net/<container_name>/<folder>
+    path: azureml://datastores/<datastore_name>/paths/<folder>
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
 compute: azureml:cpu-cluster
 ```

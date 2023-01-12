@@ -10,8 +10,6 @@ ms.author: juliako
 
 # Examine the Azure Video Indexer output
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 For information, see [Azure Video Indexer insights](insights-overview.md).
@@ -32,12 +30,13 @@ For information, see [Azure Video Indexer insights](insights-overview.md).
 |`isEditable`|Indicates whether the current user is authorized to edit the playlist.|
 |`isBase`|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |`durationInSeconds`|The total duration of the playlist.|
-|`summarizedInsights`|Contains one [summarized insight](#summary-of-the-insights).
+|`summarizedInsights`|The produced JSON output contains `Insights` and `SummarizedInsights` elements. We recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).|
 |`videos`|A list of [videos](#videos) that construct the playlist.<br/>If this playlist is constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
 {
-  "accountId": "bca61527-1221-bca6-1527-a90000002000",
+  ...
+  "accountId": "00000000-0000-0000-0000-000000000000",
   "id": "abc3454321",
   "name": "My first video",
   "description": "I am trying VI",
@@ -49,17 +48,19 @@ For information, see [Azure Video Indexer insights](insights-overview.md).
   "isEditable": false,
   "isBase": false,
   "durationInSeconds": 120, 
-  "summarizedInsights" : { . . . }
+  "summarizedInsights" : null,
   "videos": [{ . . . }]
 }
 ```
+
+> [!TIP]
+> The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
+
 
 ## Summary of the insights
 
 This section shows a summary of the insights.
 
-> [!TIP]
-> The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
 
 |Attribute | Description|
 |---|---|
@@ -67,7 +68,7 @@ This section shows a summary of the insights.
 |`id`|The ID of the video. For example: `63c6d532ff`.|
 |`privacyMode`|Your breakdown can have one of the following modes: A `Public` video is visible to everyone in your account and anyone who has a link to the video. A `Private` video is visible to everyone in your account.|
 |`duration`|The time when an insight occurred, in seconds.|
-|`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.
+|`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.|
 |`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it `thumbnailVideoId` and `thumbnailId`.|
 |`faces/animatedCharacters`|Contains zero or more faces. For more information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |`keywords`|Contains zero or more keywords. For more information, see [keywords](#keywords).|

@@ -30,7 +30,7 @@ Here some common insights:
 
 For information about features and other insights, see [Azure Video Indexer insights](video-indexer-overview.md#video-models).
 
-Once you [set up](video-indexer-get-started.md) an Azure Video Indexer account and [upload a video](upload-index-videos.md), you can view insights as described below.
+Once you [set up](video-indexer-get-started.md) an Azure Video Indexer account (see [account types](accounts-overview.md)) and [upload a video](upload-index-videos.md), you can view insights as described below.
 
 ## Get the insights using the website
 
