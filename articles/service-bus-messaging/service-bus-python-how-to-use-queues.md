@@ -67,21 +67,21 @@ Note down the following, which you'll use in the code below:
 
 ### [Passwordless](#tab/passwordless)
 
-1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples and then run this command.
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages: 
+1. Install the following packages by running: 
 
     ```shell
     pip install azure-servicebus
     pip install azure-identity
     pip install aiohttp
-        ```
+    ```
 
 ### [Connection string](#tab/connection-string)
 
-1. To install the required Python package for this Service Bus tutorial, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
+1. To install the required Python package for this Service Bus tutorial, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following package: 
+1. Install the following packages by running: 
 
     ```bash
     pip install azure-servicebus
