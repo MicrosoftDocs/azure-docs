@@ -46,6 +46,12 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 ## Manage certificates
 
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, **Adin** users are prompted to provide an SSL/TLS certificate.
+
+If your certificate has expired, make sure to create a new one and upload it to your sensor. 
+
+For more information, see [ADD XREF TO NEW PROCEDURE IN THE OTHER PAGE](xref).
+
 Following on-premises management console installation, a local self-signed certificate is generated and used to access the web application. When logging in to the on-premises management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate.
 
 Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
