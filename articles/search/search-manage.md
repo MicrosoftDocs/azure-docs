@@ -102,7 +102,7 @@ Azure roles used for service administration include:
 
 * Owner
 * Contributor (same as Owner, minus the ability to assign roles)
-* Reader (provides access to service information in Essentials section and in the Monitoring tab)
+* Reader (provides access to service information in the Essentials section and in the Monitoring tab)
 
 By default, all search services start with at least one Owner. Owners, service administrators, and co-administrators have permission to create other administrators and other role assignments.
 
