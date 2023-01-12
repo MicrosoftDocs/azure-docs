@@ -105,11 +105,33 @@ Find these values from [Azure Machine Learning studio](https://ml.azure.com):
 
 :::image type="content" source="media/find-values.png" alt-text="Screenshot: Find the values to use in your CLI command." lightbox="media/find-values.png":::
 
-In a terminal window, change directories into the `r-job-azureml`.  Then use the CLI to submit the job, after replacing the `<VALUES-IN-BRACKETS>` with their values (also remove the brackets `<>`).
+In a terminal window:
 
-```bash
-az ml job create -f job.yml  --workspace-name <WORKSPACE-NAME> --resource-group <RG-NAME> --subscription <SUBSCRIPTION-ID>
-```
+1. Change directories into the `r-job-azureml`.
+
+    ```bash
+    cd r-job-azureml
+    ```
+
+1. Open a terminal window and sign in to Azure.
+
+    ```azurecli
+    az login
+    ```
+
+    Follow the prompt to authenticate.
+
+1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
+
+    ```azurecli
+    az account set --subscription "<SUBSCRIPTION-NAME>"
+    ```
+
+1. Now use CLI to submit the job, after replacing the `<VALUES-IN-BRACKETS>` with their values (also remove the brackets `<>`). If you are doing this on a compute instance in your workspace, you can use the environment variables for the workspace name and resource group.  If you are not on a compute instance, replace these values as well.
+
+    ```azurecli
+    az ml job create -f job.yml  --workspace-name $CI_WORKSPACE --resource-group $CI_RESOURCE_GROUP
+    ```
 
 ## Next steps
 
