@@ -185,13 +185,11 @@ The following sample code shows you how to send a message to a queue.
                 await send_batch_message(sender)
     ```
 
-1. Call the `run` method.
+1. Call the `run` method and print message.
 
     ```python
     asyncio.run(run())
-    
     print("Done sending messages")
-    print("-----------------------")
     ```
 
 ---
