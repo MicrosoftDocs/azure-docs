@@ -49,7 +49,7 @@ The columns in the table denote valuable information for your resource:
 
 ## Reconfigure rules for logs or metrics
 
-To change the configuration rules for logs or metrics, select **Logs** on the left pane.
+To change the configuration rules for logs or metrics, select **Metrics and Logs** in the Resource menu.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-metrics.png" alt-text="Screenshot that shows metrics and logs for a New Relic resource.":::
 
@@ -57,11 +57,11 @@ For more information, see [Configure metrics and logs](new-relic-how-to-configur
 
 ## View monitored resources
 
-To see the list of resources that are sending logs and metrics to New Relic, select **Monitored resources** on the left pane.
+To see the list of resources that are sending metrics and logs to New Relic, select **Monitored resources** on the left pane.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
 
-You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and metrics.
+You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending metrics and logs.
 
 The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource is not sending logs, the reasons could be:
 
