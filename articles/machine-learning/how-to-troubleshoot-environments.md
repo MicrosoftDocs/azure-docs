@@ -871,16 +871,87 @@ Ensure that you're using a compatible python version
 * [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
 
 ### Interactive auth was attempted
-- Failed to create or update the conda environment because pip attempted interactive authentication 
-- Instead, provide authentication via [workspace connection](https://aka.ms/azureml/environment/set-connection-v1)
+<!--issueDescription-->
+This issue can happen when pip attempts interactive authentication during package installation.
+
+**Potential causes:**
+* You've listed a package that requires authentication, but you haven't provided credentials
+* During the image build, pip tried to prompt you to authenticate which failed the build
+because you can't provide interactive authentication during a build
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Provide authentication via workspace connections
+
+*Applies to: Python SDK azureml V1*
+
+```
+from azureml.core import Workspace
+ws = Workspace.from_config()
+ws.set_connection("connection1", "PythonFeed", "<URL>", "Basic", "{'Username': '<username>', 'Password': '<password>'}")
+```
+
+*Applies to: Azure CLI extensions V1 & V2*
+
+Create a workspace connection from a YAML specification file
+
+```
+az ml connection create --file connection.yml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+**Resources**
+* [Python SDK AzureML v1 workspace connections](https://aka.ms/azureml/environment/set-connection-v1)
+* [Python SDK AzureML v2 workspace connections](/python/api/azure-ai-ml/azure.ai.ml.entities.workspaceconnection)
+* [Azure CLI workspace connections](/cli/azure/ml/connection)
 
 ### Forbidden blob
-- Failed to create or update the conda environment because a blob contained in the associated storage account was inaccessible
-- Either open up permissions on the blob or add/replace the SAS token in the URL
+<!--issueDescription-->
+This issue can happen when an attempt to access a blob in a storage account is rejected.
+
+**Potential causes:**
+* The authorization method you're using to access the storage account is invalid
+* You're attempting to authorize via shared access signature (SAS), but the SAS token is expired or invalid
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Read the following to understand [how to authorize access to blob data in the Azure portal](../storage/blobs/authorize-data-operations-portal.md)
+
+Read the following to understand [how to authorize access to data in Azure storage](../storage/common/authorize-data-access.md)
+
+Read the following if you're interested in [using SAS to access Azure storage resources](../storage/common/storage-sas-overview.md)
 
 ### Horovod build
-- Failed to create or update the conda environment because horovod failed to build
-- See [horovod installation](https://aka.ms/azureml/environment/install-horovod)
+<!--issueDescription-->
+This issue can happen when the conda environment fails to be created or updated because horovod failed to build.
+
+**Potential causes:**
+* Horovod installation requires other modules that you haven't installed
+* Horovod installation requires certain libraries that you haven't included
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
+* Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
+* Review your Build log to see if there's an error message that surfaced when horovod failed to build
+* It's possible that the problem you're encountering is detailed in the horovod troubleshooting guide, along with a solution
+
+**Resources**
+* [horovod installation](https://aka.ms/azureml/environment/install-horovod)
 
 ### Conda command not found
 - Failed to create or update the conda environment because the conda command is missing 

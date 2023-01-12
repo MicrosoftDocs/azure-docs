@@ -43,6 +43,11 @@
       href: concepts-ddms.md
     - name: Entitlements
       href: concepts-entitlements.md
+    - name: Reliability
+      items:
+        - name: Reliability overview 
+          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.yml
+          displayName: availability zones, high-availability, zone redundancy
 - name: How-to guides
   items:
     - name: Administration
