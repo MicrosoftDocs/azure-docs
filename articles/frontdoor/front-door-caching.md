@@ -93,10 +93,10 @@ When a request for an asset specifies compression and the request results in a c
 
 If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door PoP, then response sizes greater than 8 MB aren't supported.
 
-::: zone-end
-
 > [!NOTE]
 > Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `Accept-Encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on the origin, or create a Rules Engine rule to remove the `Accept-Encoding` header from the request for byte range requests.
+
+::: zone-end
 
 ## Query string behavior
 
@@ -190,8 +190,8 @@ If the origin response is cacheable, then the `Set-Cookie` header is removed bef
 
 In addition, Front Door attaches the `X-Cache` header to all responses. The `X-Cache` response header includes one of the following values:
 
-- `TCP_HIT` or `TCP_REMOTE_HIT`: The first byte of the request is a cache hit, and content is served from the Front Door cache.
-- `TCP_MISS`: The first byte of the request is a cache miss, and the content is served from the origin.
+- `TCP_HIT` or `TCP_REMOTE_HIT`: The first 8MB chunk of the response is a cache hit, and the content is served from the Front Door cache.
+- `TCP_MISS`: The first 8MB chunk of the response is a cache miss, and the content is fetched from the origin.
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
 
