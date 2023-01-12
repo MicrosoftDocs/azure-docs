@@ -101,7 +101,7 @@ Create your secured virtual hub using Firewall Manager.
 
    :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Screenshot of configuring Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
-16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you will refine your settings later in this article.
+16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you'll refine your settings later in this article.
 17. Select **Next: Security Partner Provider**.
 
     :::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Screenshot of configuring Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
@@ -248,15 +248,15 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 
 
 1. Select **Next: IDPS**.
-23. On the **IDPS** page, click on **Next: Threat Intelligence**
+23. On the **IDPS** page, select **Next: Threat Intelligence**
 
     :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png" alt-text="Screenshot of configuring IDPS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png":::
 
-24. In the **Threat Intelligence** page, accept defaults and click on **Review and Create**:
+24. In the **Threat Intelligence** page, accept defaults and select **Review and Create**:
 
     :::image type="content" source="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png" alt-text="Screenshot of configuring Threat Intelligence settings." lightbox="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png":::
 
-25. Review and confirm your selection clicking on **Create** button.
+25. Review to confirm your selection and then select **Create**.
 
 ## Associate policy
 
