@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 01/11/2023
+ms.date: 01/12/2023
 ms.author: abell
 ---
 # Tutorial: View and configure Azure DDoS Protection alerts
@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to:
 > * Configure alerts through Azure Monitor
 > * Configure alerts through portal
 > * View alerts in Microsoft Defender for Cloud
-> * Validate and test your alerts
+
 
 ## Prerequisites
 
@@ -38,15 +38,15 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts.":::
-
 1. Select **+ Create** on the navigation bar, then select **Alert rule**.
+
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-page.png" alt-text="Screenshot of creating Alerts.":::
 
 1. On the **Create an alert rule** page, Select **+ Select scope**.
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-scope.png" alt-text="Screenshot of selecting DDoS Protection attack alert scope.":::
 
-1. Enter or select the following information in the **Select a resource** tab.
+1. Select the following information in the **Select a resource** tab.
 
     | Setting | Value |
     |--|--|
@@ -60,7 +60,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition.":::
 
-1. In the **Create an alert rule** page, enter the following information. 
+1. In the **Create an alert rule** page, enter or select the following information. 
 
     | Setting | Value |
     |--|--|
@@ -116,13 +116,9 @@ You can also learn more about [configuring webhooks](../azure-monitor/alerts/ale
 
 With these templates, you'll be able to configure alerts for all public IP addresses that you have enabled diagnostic logging on. 
 
-> [!NOTE]
-> In order to use these alert templates, you'll first need a Log Analytics Workspace with diagnostic settings enabled. For more information, see [Create Log Analytics workspace](alerts.md#create-log-analytics-workspace).
-### Azure Monitor alert rule
+### Create Log Analytics workspace
 
-This Azure Monitor alert rule template will run a query against the diagnostic logs to detect when an active DDoS mitigation is occurring. This indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
-
-#### Create Log Analytics workspace
+In order to use these alert templates, you'll first need a Log Analytics Workspace with diagnostic settings enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
@@ -159,6 +155,10 @@ This Azure Monitor alert rule template will run a query against the diagnostic l
 1. Select **Save**.
 
 For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
+### Azure Monitor alert rule
+
+The Azure Monitor alert rule template will run a query against the diagnostic logs to detect when an active DDoS mitigation is occurring. The alert indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
+
 
 #### Deploy the template
 
@@ -187,7 +187,7 @@ For more information, see [Log Analytics workspace overview](../azure-monitor/lo
 ### Azure Monitor alert rule with Logic App
 
 This DDoS Mitigation Alert Enrichment template deploys the necessary components of an enriched DDoS mitigation alert: Azure Monitor alert rule, action group, and Logic App. The result of the process is an email alert with details about the IP address under attack, including information about the resource associated with the IP. The owner of the resource is added as a recipient of the email, along with the security team. A basic application availability test is also performed and the results are included in the email alert.
-
+#### Deploy the template 
 
 1.  Select **Deploy to Azure** to sign in to Azure and open the template. 
 
@@ -218,7 +218,7 @@ There are two specific alerts that you'll see for any DDoS attack detection and 
 - **DDoS Attack mitigated for Public IP**: This alert is generated when an attack on the public IP address has been mitigated.
 To view the alerts, open **Defender for Cloud** in the Azure portal and select **Security alerts**. Under **Threat Protection**, select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-alert-asc.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/manage-ddos-protection/ddos-alert-asc.png":::
+    :::image type="content" source="./media/manage-ddos-protection/ddos-alert-asc.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/manage-ddos-protection/ddos-alert-asc.png":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Microsoft Defender for Cloud**. Select **Microsoft Defender for Cloud** in the search results.
