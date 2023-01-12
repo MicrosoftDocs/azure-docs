@@ -80,3 +80,4 @@ The API mediation function is designed to map between CRM and BSS systems in you
 
 - [Learn how Azure Communications Gateway fits into your network](interoperability.md)
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
+- [Understand the Teams Onboarding Included Benefit](onboarding.md)

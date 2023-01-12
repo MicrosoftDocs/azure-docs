@@ -19,7 +19,7 @@ Before you can launch your Operator Connect or Teams Phone Mobile service, you a
 In this article, you learn about the steps you and your onboarding team must take.
 
 > [!TIP]
-> In many cases, your onboarding team is from Microsoft.
+> In many cases, your onboarding team is from Microsoft, provided through the [Basic Integration Included Benefit](onboarding.md) or through a separate arrangement.
 
 ## Prerequisites
 
