@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 01/12/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -95,7 +95,7 @@ In this step, configure your search service to recognize an **authorization** he
    | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API. |
    | Both | Preview | Requests are valid using either an API key or an authorization token. |
 
-If you can't save your selection, or if you get "API access control failed to update for search service `<name>`. DisableLocalAuth is preview and not enabled for this subscription", your subscription enrollment hasn't been initiated or it hasn't been processed.
+All network calls for search service operations and content will respect the option you select: API keys for **API Keys**, an RBAC token for **Role-based access control**, or API keys and RBAC tokens equally for **Both**. This applies to both portal features and clients that access a search service programmatically.
 
 ### [**REST API**](#tab/config-svc-rest)
 
@@ -201,6 +201,8 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 ## Test role assignments
 
+When testing roles, remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group can't be deleted or denied at the resource (search service) level. 
+
 ### [**Azure portal**](#tab/test-portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
@@ -209,13 +211,15 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 1. On the Overview page, select the **Indexes** tab:
 
+   + Members of the Contributor role can view and create any object, but can't query an index using Search Explorer.
+
    + Members of Search Index Data Reader can use Search Explorer to query the index. You can use any API version to check for access. You should be able to issue queries and view results, but you shouldn't be able to view the index definition.
 
    + Members of Search Index Data Contributor can select **New Index** to create a new index. Saving a new index will verify write access on the service.
 
 ### [**REST API**](#tab/test-rest)
 
-+ Register your application with Azure Active Directory.
++ Register your REST client with Azure Active Directory. 
 
 + Revise your code to use a [Search REST API](/rest/api/searchservice/) (any supported version) and set the **Authorization** header on requests, replacing the **api-key** header.
 
@@ -395,13 +399,27 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 ## Disable API key authentication
 
-API keys can't be deleted, but they can be disabled on your service. If you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader preview roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests that pass an API key in the header for content-related requests.
+API keys can't be deleted, but they can be disabled on your service if you're using the Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader roles and Azure AD authentication. Disabling API keys causes the search service to refuse all data-related requests that pass an API key in the header.
 
-To disable [key-based authentication](search-security-api-keys.md), use the Management REST API version 2021-04-01-Preview and send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+Owner or Contributor permissions are required to disable features.
 
-Owner or Contributor permissions are required to disable features. Use Postman or another web testing tool to complete the following steps (see Tip below):
+To disable [key-based authentication](search-security-api-keys.md), use Azure portal or the Management REST API.
 
-1. On the first request, set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey" to enable Azure AD authentication. Notice that the option indicates availability of either approach: Azure AD or the native API keys.
+### [**Portal**](#tab/disable-keys-portal)
+
+1. In the Azure portal, navigate to your search service.
+
+1. In the left-navigation pane, select **Keys**.
+
+1. Select **Role-based access control**.
+
+The change is effective immediately. Assuming you have permission to assign roles as a member of Owner, service administrator, or co-administrator, you can use portal features to test role-based access.
+
+### [**REST API**](#tab/disable-keys-rest)
+
+Use Postman or another REST client to send two consecutive requests for [Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update). See [Manage a search service using REST APIs](search-manage-rest.md) for instructions on setting up the client.
+
+1. On the first request, set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey" to enable Azure AD authentication. Activating Azure AD authentication is a prerequisite to setting "disableLocalAuth".
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -439,8 +457,7 @@ You can't combine steps one and two. In step one, "disableLocalAuth" must be fal
 
 To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they're specified).
 
-> [!TIP]
-> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principal and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+---
 
 ## Conditional Access
 
