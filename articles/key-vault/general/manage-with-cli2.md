@@ -215,7 +215,7 @@ To authorize the same application to read secrets in your vault, type the follow
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Setting key vault advanced access policies
+## Setting key vault advanced access policies
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable advanced policies for the key vault.
 
