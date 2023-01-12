@@ -25,7 +25,7 @@ ms.subservice: calling
 > [!NOTE]
 > This library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
 
-The Azure Communication Calling SDK allows you to create video effects that other users on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. With background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
+The Azure Communication Calling SDK allows you to create video effects that other users on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. When background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
 
 ## Prerequisites
 ### Install the Azure Communication Services Calling SDK
@@ -39,7 +39,7 @@ An example using the Azure CLI to
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
-For details on using the CLI see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/access-tokens.md?pivots=platform-azcli).
+For details on using the CLI, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/access-tokens.md?pivots=platform-azcli).
 
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
