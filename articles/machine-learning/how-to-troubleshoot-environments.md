@@ -927,7 +927,7 @@ If you suspect that the path name to your container registry is incorrect
 * For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
 * See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
 
-If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
 
