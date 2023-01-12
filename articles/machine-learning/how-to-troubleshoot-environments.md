@@ -910,7 +910,7 @@ without using quotes. Consider adding quotes around the package specification
 ### *Docker push issues*
 ### Failed to store Docker image
 <!--issueDescription-->
-This issue can happen when a Docker image fails to be stored in the container registry.  
+This issue can happen when a Docker image fails to be stored (pushed) to a container registry.  
 
 **Potential causes:**
 * The path name to the container registry is incorrect
