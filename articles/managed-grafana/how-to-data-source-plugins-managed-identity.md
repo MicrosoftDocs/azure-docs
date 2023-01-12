@@ -22,7 +22,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Supported Grafana data sources
 
-By design, Grafana can be configured with multiple data sources. A data source is an externalized storage backend that holds your telemetry information. Azure Managed Grafana supports many popular data sources. 
+By design, Grafana can be configured with multiple data sources. A data source is an externalized storage backend that holds your telemetry information. Azure Managed Grafana supports many popular data sources.
 
 Azure-specific data sources available for all customers:
 
@@ -106,8 +106,8 @@ az grafana data-source create --name <instance-name> --definition '{
   },
   "name": "Microsoft SQL Server",
   "type": "mssql",
-  "url": "testsql.database.windows.net",
-  "user": "admin1"
+  "url": "<url>",
+  "user": "<user>"
 }'
 ```
 
