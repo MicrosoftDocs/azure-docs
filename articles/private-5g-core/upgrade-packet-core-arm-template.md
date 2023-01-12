@@ -38,7 +38,9 @@ The template modifies the version of an existing [**Microsoft.MobileNetwork/pack
 
 We recommend upgrading your packet core instance during a maintenance window to minimize the impact of the upgrade on your service.
 
-When planning for your upgrade, make sure you're allowing sufficient time for an upgrade and a possible rollback in the event of any issues. In addition, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
+When planning for your upgrade, make sure you're allowing sufficient time for an upgrade and a possible rollback in the event of any issues. An upgrade and rollback of packet core can each take up to two hours to complete.
+
+In addition, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 
 - Refer to the packet core release notes for the version of packet core you're upgrading to and whether it's supported by the version your Azure Stack Edge (ASE) is currently running.
 - If your ASE version is incompatible with the packet core version you're upgrading to, you'll need to upgrade ASE first. Refer to [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md) for the latest available version of ASE.
@@ -51,7 +53,7 @@ When planning for your upgrade, make sure you're allowing sufficient time for an
 
 ### Back up deployment information
 
-The following list contains data that will get lost over a packet core upgrade. Back up any information you'd like to preserve; after the upgrade, you can use this information to reconfigure your packet core instance.
+The following list contains the data that will be lost over a packet core upgrade. Back up any information you'd like to preserve; after the upgrade, you can use this information to reconfigure your packet core instance.
 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
 1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.

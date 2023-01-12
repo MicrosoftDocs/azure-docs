@@ -161,7 +161,7 @@ If the user doesn't define options for `read_parquet` transformation, default op
 
 - `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This setting is useful when you're reading multiple files, and want to know which file a particular record originated from. And you can also keep useful information in file path.
 
-## MLTable transformations: read_delta_lake
+## MLTable transformations: read_delta_lake (preview)
 ```yaml
 type: mltable
 
@@ -173,7 +173,7 @@ transformations:
       timestamp_as_of: '2022-08-26T00:00:00Z'
 ```
 
-### Delta lake transformations
+### Delta lake transformations (preview)
 
 - `timestamp_as_of`: Datetime string in RFC-3339/ISO-8601 format to be specified for time-travel on the specific Delta Lake data. 
 - `version_as_of`: Version to be specified for time-travel on the specific Delta Lake data.
