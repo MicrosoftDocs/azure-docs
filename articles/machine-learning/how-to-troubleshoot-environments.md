@@ -876,8 +876,8 @@ This issue can happen when pip attempts interactive authentication during packag
 
 **Potential causes:**
 * You've listed a package that requires authentication, but you haven't provided credentials
-* During the image build, pip tries to prompt the user to authenticate which fails the build
-because the user can't provide authentication during the running of the build
+* During the image build, pip tried to prompt you to authenticate which failed the build
+because you can't provide interactive authentication during a build
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -947,8 +947,8 @@ This issue can happen when the conda environment fails to be created or updated 
 
 Many issues could cause a horovod failure, and there's a comprehensive list of them in horovod's documentation
 * Review the [horovod troubleshooting guide](https://horovod.readthedocs.io/en/stable/troubleshooting_include.html#) 
-* Review the Build log for your failed build to see if there's an error message that surfaced when horovod failed to build
-* It's possible that the problem you're encountering is detailed in the troubleshooting guide, along with the solution
+* Review your Build log to see if there's an error message that surfaced when horovod failed to build
+* It's possible that the problem you're encountering is detailed in the horovod troubleshooting guide, along with a solution
 
 **Resources**
 * [horovod installation](https://aka.ms/azureml/environment/install-horovod)
