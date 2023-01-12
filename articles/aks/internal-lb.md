@@ -102,7 +102,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 For more information on configuring your load balancer in a different subnet, see [Specify a different subnet][different-subnet]
 
-## Connect Azure Private Link service to internal load balancer
+## Connect Azure Private Link service to internal load balancer (Preview)
 
 ### Before you begin
 
