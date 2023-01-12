@@ -33,6 +33,10 @@ The following illustration shows an example of an Azure Spring Apps virtual netw
 
 :::image type="content" source="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" lightbox="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" alt-text="Architecture diagram that shows user-defined routing.":::
 
+* Public Ingress is forced to flow through firewall filters
+  * ASA instance is isolated dedicated subnets.
+  * The firewall is owned and managed by customers. Please ensure it builds a healthy envrioment for all functions you need.
+
 ### Define environment variables
 
 The following example shows how to define a set of environment variables to be used in resource creation:
@@ -273,6 +277,28 @@ VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
 az role assignment create \
     --role "Owner" \
     --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    
+APP_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
+    --name $APP_ROUTE_TABLE_NAME \
+    --resource-group $RG \
+    --query "id" \
+    --output tsv)
+    
+az role assignment create \
+    --role "Owner" \
+    --scope ${APP_ROUTE_TABLE_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    
+SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
+    --name $SERVICE_RUNTIME_ROUTE_TABLE_NAME \
+    --resource-group $RG \
+    --query "id" \
+    --output tsv)
+    
+az role assignment create \
+    --role "Owner" \
+    --scope ${SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID} \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
