@@ -485,6 +485,9 @@ environment definition
 version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
+### UTF-8 decoding error
+- Failed to decode a character used in your conda specification. Make sure all characters used are in the UTF-8 character set  
+
 ### *Pip issues*
 ### Pip not specified
 - For reproducibility, pip should be specified as a dependency in your conda specification, and it should be pinned
@@ -903,3 +906,31 @@ without using quotes. Consider adding quotes around the package specification
 ### Can't uninstall package
 - Pip failed to uninstall a Python package that was installed via the OS's package manager
 - Consider creating a separate environment using conda instead
+
+### *Docker push issues*
+### Failed to store Docker image
+<!--issueDescription-->
+This issue can happen when a Docker image fails to be stored in the container registry.  
+
+**Potential causes:**
+* The path name to the container registry is incorrect
+* A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* You haven't provided credentials for a private registry you're trying to push the image to, or the provided credentials are incorrect
+
+
+**Affected areas (symptoms):**
+* ?
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+If you suspect that the path name to your container registry is incorrect
+* For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
+* See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
+
+If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* Configure the container registry by using the service endpoint (public access) from the portal and retry
+* After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
+
+If you haven't provided credentials for a private registry you're trying to push to, or the provided credentials are incorrect
+* Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
