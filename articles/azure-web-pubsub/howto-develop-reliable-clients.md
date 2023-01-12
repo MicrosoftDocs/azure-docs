@@ -52,7 +52,7 @@ When the client reconnects to the service using reliable subprotocols, the clien
 }
 ```
 
-Once the WebSocket connection drops, the client should first try to reconnect with the same `connectionId` to keep the restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, reconnection should make a websocket connect request directly to the service with the service uri, `connection_id`, and `reconnection_token`:
+Once the WebSocket connection drops, the client should try to reconnect with the same `connectionId` to keep the restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, reconnection should make a websocket connect request directly to the service with the service uri, `connection_id`, and `reconnection_token`:
 
 ```text
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&awps_reconnection_token=<reconnection_token>
