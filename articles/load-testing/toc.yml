@@ -102,4 +102,4 @@ items:
     - name: Service limits
       href: resource-limits-quotas-capacity.md
     - name: JMeter property overrides
-      href: resource-overridden-jmeter-config-settings
+      href: resource-jmeter-property-overrides.md
