@@ -68,7 +68,7 @@ path_on_datastore '<path>'
 uri = f'azureml://subscriptions/{subscription}/resourcegroups/{resource_group}/workspaces/{workspace}/datastores/{datastore_name}/paths/{path_on_datastore}'. 
 ```
 
-These Datastore URIs are a known implementation of [Filesystem spec](https://filesystem-spec.readthedocs.io/latest/index.html#) (`fsspec`): A unified pythonic interface to local, remote and embedded file systems and bytes storage.
+These Datastore URIs are a known implementation of [Filesystem spec](https://filesystem-spec.readthedocs.io/en/latest/index.html) (`fsspec`): A unified pythonic interface to local, remote and embedded file systems and bytes storage.
 
 The Azure ML Datastore implementation of `fsspec` automatically handles credential/identity passthrough used by the Azure ML datastore. This means you don't need to expose account keys in your scripts or do additional sign-in procedures on a compute instance.
 
