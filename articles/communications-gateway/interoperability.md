@@ -17,7 +17,9 @@ Azure Communications Gateway sits at the edge of your network. This position all
 
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communication Gateway sits in your network.
 
-:::image type="content" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. The mobile network also contains an application server for anchoring calls in the Microsoft Phone System." :::
+:::image type="complex" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks":::
+    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. The mobile network also contains an application server for anchoring calls in the Microsoft Phone System.
+:::image-end:::
 
 Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
 
