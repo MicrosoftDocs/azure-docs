@@ -7,7 +7,7 @@ ms.date: 01/12/2023
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. This ensures pods are scheduled onto nodes that have the required CPU and memory resources.  
+This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.  
 
 ## Benefits
 
@@ -180,7 +180,7 @@ The following steps create a deployment with two pods, each running a single con
 
     The pod has 100 millicpu and 50 Mibibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there's no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
 
-1. Wait for the vpa-updater to launch a new hamster pod. This should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
+1. Wait for the vpa-updater to launch a new hamster pod, which should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
 
     ```bash
     kubectl get --watch pods -l app=hamster
@@ -395,9 +395,9 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
 ## Metrics server VPA throttling
 
-With AKS clusters version 1.24 and higher, vertical pod autoscaling is enabled for the metrics server. This enables you to adjust the resource limit when the metrics server is experiencing consistent CPU and memory resource constraints.
+With AKS clusters version 1.24 and higher, vertical pod autoscaling is enabled for the metrics server. VPA enables you to adjust the resource limit when the metrics server is experiencing consistent CPU and memory resource constraints.
 
-If the metrics server throttling rate is high and the memory usage of its two pods are unbalanced, it indicates the metrics server requires more resources than specified by our default values.
+If the metrics server throttling rate is high and the memory usage of its two pods are unbalanced, this indicates the metrics server requires more resources than the default values specified.
 
 To update the coefficient values, create a ConfigMap in the overlay *kube-system* namespace to override the values in the metrics server specification. Perform the following steps to update the metrics server.
 
@@ -424,8 +424,8 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
 
     In this ConfigMap example, it changes the resource limit and request to the following:
 
-    * cpu: (100+1n)millicore
-    * memory: (100+8n)mebibyte
+    * cpu: (100+1n) millicore
+    * memory: (100+8n) mebibyte
 
     Where *n* is the number of nodes.
 
@@ -435,7 +435,7 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
     kubectl apply -f metrics-server-config.yaml
     ```
 
-Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode*. This ConfigMap will not be reconciled by AKS. As a recommended practice, increase the value gradually to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.  
+Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode* as the ConfigMap won't be validated by AKS. As a recommended practice, increase the value gradually to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.  
 
 ## Next steps
 
