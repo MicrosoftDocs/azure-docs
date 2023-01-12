@@ -1008,7 +1008,7 @@ The peering is successfully established after you see **Connected** in the **Pee
 
 For more information about using your own DNS for name resolution, see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-For more information about Azure DNS, see [What is Azure DNS?](/azure/dns/dns-overview).
+For more information about Azure DNS, see [What is Azure DNS?](../dns/dns-overview.md).
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

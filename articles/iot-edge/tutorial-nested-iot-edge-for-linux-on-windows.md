@@ -4,7 +4,7 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 08/04/2022
+ms.date: 11/15/2022
 ms.topic: tutorial
 ms.service: iot-edge
 monikerRange: ">=iotedge-2020-11"

@@ -181,18 +181,6 @@ items:
     - name: Edit a data collection rule
       displayName: data collection rules
       href: essentials/data-collection-rule-edit.md
-    - name: Transformations
-      items:
-      - name: Overview
-        displayName: Transformations
-        href: essentials/data-collection-transformations.md
-      - name: Structure
-        displayName: Transformations
-        href: essentials/data-collection-transformations-structure.md
-      - name: Migrate retention to Azure Storage lifecycle
-        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
-    - name: Data collection endpoints
-      href: essentials/data-collection-endpoint-overview.md
   - name: Data sources
     items:
       - name: Overview of data sources
@@ -211,6 +199,16 @@ items:
     - name: Create Diagnostic Settings with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
+  - name: Transformations
+    items:
+      - name: Overview
+        displayName: Transformations
+        href: essentials/data-collection-transformations.md
+      - name: Structure
+        displayName: Transformations
+        href: essentials/data-collection-transformations-structure.md
+      - name: Migrate retention to Azure Storage lifecycle
+        href: essentials/migrate-to-azure-storage-lifecycle-policy.md
   - name: Azure Monitor Agent
     items:
     - name: Overview
@@ -378,6 +376,8 @@ items:
         href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: logs/create-pipeline-datacollector-api.md
+  - name: Data collection endpoints
+    href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
     items:
     - name: Private Link overview

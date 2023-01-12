@@ -51,13 +51,13 @@ As these credentials are highly sensitive, Azure Private 5G Core won't allow use
 
 Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by HTTPS. You can provide your own HTTPS certificate to attest access to your local diagnostics tools. Providing a certificate signed by a globally known and trusted certificate authority (CA) grants additional security to your deployment; we recommend this option over using a certificate signed by its own private key (self-signed).
 
-If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](/azure/key-vault/) and set up the appropriate access permissions. See [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) for additional information on configuring custom HTTPS certificates for local monitoring access.
+If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](../key-vault/index.yml) and set up the appropriate access permissions. See [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) for additional information on configuring custom HTTPS certificates for local monitoring access.
 
 You can configure how access to your local monitoring tools is attested while [creating a site](create-a-site.md). For existing sites, you can modify the local access configuration by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 We recommend that you replace certificates at least once per year, including removing the old certificates from your system. This is known as rotating certificates. You might need to rotate your certificates more frequently if they expire after less than one year, or if organizational policies require it.
 
-For more information on how to generate a Key Vault certificate, see [Certificate creation methods](/azure/key-vault/certificates/create-certificate).
+For more information on how to generate a Key Vault certificate, see [Certificate creation methods](../key-vault/certificates/create-certificate.md).
 
 ## Next steps
 
