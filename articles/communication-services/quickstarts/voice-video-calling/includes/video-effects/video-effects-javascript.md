@@ -14,6 +14,15 @@ ms.custom: mode-other
 
 You can use the Video effects feature to add effects to your video in video calls.
 
+>[!IMPORTANT]
+> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
+
+> [!NOTE]
+> This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
+
+> [!NOTE]
+> The calling effect library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
+
 ## Prerequisites
 - Setup Azure Communication Services to be able to start video calls. [Follow this guide](../video-calling/video-calling-javascript.md). You'll need the `LocalVideoStream` to be able to start effects.
 
@@ -32,7 +41,7 @@ npm install @azure/communication-calling-effects --save
 > - Background replacement with an image
 >
 
-To use video effects with the Azure Communication Calling SDK, once you have created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
+To use video effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 
@@ -98,7 +107,7 @@ if (backgroundReplacementSupported) {
 }
 ```
 
-Changing the image for this effect can be done by passing it in in the configure method:
+Changing the image for this effect can be done by passing it via the configure method:
 ```js
 const newBackgroundImage = 'https://linkToNewImageFile'; 
 
