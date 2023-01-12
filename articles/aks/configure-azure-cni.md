@@ -164,7 +164,6 @@ A drawback with the traditional CNI is the exhaustion of pod IP addresses as the
 
 The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
 
-* Only linux node clusters and node pools are supported.
 * AKS Engine and DIY clusters are not supported.
 * Azure CLI version `2.37.0` or later.
 
