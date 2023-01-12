@@ -916,7 +916,6 @@ This issue can happen when a Docker image fails to be stored (pushed) to a conta
 * A transient issue has occurred with the ACR associated with the workspace.
 * A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 
-
 **Affected areas (symptoms):**
 * Failure in building environments from the UI, SDK, and CLI.
 * Failure in running jobs because it will implicitly build the environment in the first step.
