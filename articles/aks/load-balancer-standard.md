@@ -114,7 +114,7 @@ You can customize different settings for your standard public load balancer at c
 > [!IMPORTANT]
 > Only one outbound IP option (managed IPs, bring your own IP, or IP prefix) can be used at a given time.
 
-### Change the outbound pool type (PREVIEW)
+### Change the inbound pool type (PREVIEW)
 
 AKS nodes can be referenced in the load balancer backend pools by either their IP configuration (VMSS based membership) or by their IP address only. Utilizing the IP address based backend pool membership provides higher efficiencies when updating services and provisioning load balancers, especially at high node counts. Provisioning new clusters with IP based backend pools and converting existing clusters is now supported. When combined with NAT Gateway or user-defined routing egress types, provisioning of new nodes and services will be more performant.
 
@@ -128,6 +128,10 @@ Two different pool membership types are available:
 * The `aks-preview` extension must be at least version 0.5.103.
 * The AKS cluster must be version 1.23 or newer.
 * The AKS cluster must be using standard load balancers and virtual machine scale sets.
+
+#### Limitations
+
+* Clusters using IP based backend pools are limited to 2500 nodes.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -143,7 +147,7 @@ az extension update --name aks-preview
 
 #### Register the `IPBasedLoadBalancerPreview` preview feature
 
-To create an AKS cluster with API Server VNet Integration, you must enable the `IPBasedLoadBalancerPreview` feature flag on your subscription.
+To create an AKS cluster with IP based backend pools, you must enable the `IPBasedLoadBalancerPreview` feature flag on your subscription.
 
 Register the `IPBasedLoadBalancerPreview` feature flag by using the `az feature register` command, as shown in the following example:
 
@@ -163,7 +167,7 @@ When the feature has been registered, refresh the registration of the *Microsoft
 az provider register --namespace Microsoft.ContainerService
 ```
 
-#### Create a new AKS cluster with IP-based outbound pool membership
+#### Create a new AKS cluster with IP-based inbound pool membership
 
 ```azurecli-interactive
 az aks create \
@@ -172,7 +176,7 @@ az aks create \
     --load-balancer-backend-pool-type=nodeIP
 ```
 
-#### Update an existing AKS cluster to use IP-based outbound pool membership
+#### Update an existing AKS cluster to use IP-based inbound pool membership
 
 > [!WARNING]
 > This operation will cause a temporary disruption to incoming service traffic in the cluster. The impact time will increase with larger clusters that have many nodes.
