@@ -5,7 +5,7 @@ author: ericd-mst-github
 ms.author: erd
 ms.topic: overview
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: virtual-machines
 ms.date: 01/12/2023
 ---
 
@@ -31,11 +31,11 @@ Virtual machines support availability zones with three availability zones per su
 
 ### Prerequisites
 
-Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). Check for VM SKU availability by using PowerShell, the Azure CLI, or review list of foundational services. For more information, see [reliability prerequisites](/azure/reliability/migrate-vm#prerequisites).
+Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). Check for VM SKU availability by using PowerShell, the Azure CLI, or review list of foundational services. For more information, see [reliability prerequisites](/azure/reliability/migrate-vm#prerequisites).
 
 ### SLA improvements
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/).
+Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
 #### Create a resource with availability zone enabled
 
@@ -78,7 +78,7 @@ The following guidance is provided for Azure virtual machines in the case of a s
 
 ### Low-latency design
 
-Cross Region (secondary region), Cross Subscription (preview), and Cross Zonal (preview) are available options to consider when designing a low-latency virtual machine solution. For more information on these options, see the [supported restore methods](azure/backup/backup-support-matrix-iaas#supported-restore-methods).
+Cross Region (secondary region), Cross Subscription (preview), and Cross Zonal (preview) are available options to consider when designing a low-latency virtual machine solution. For more information on these options, see the [supported restore methods](/azure/backup/backup-support-matrix-iaas#supported-restore-methods).
 
 >[!IMPORTANT]
 >By opting out of zone-aware deployment, you forego protection from isolation of underlying faults. Use of SKUs that don't support availability zones or opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
@@ -109,7 +109,7 @@ Follow the health signals below for monitoring before upgrading your next set of
 For migrating existing virtual machine resources to a zone redundant configuration, refer to the below resources:
 
 - Move a VM to another subscription or resource group
-    - [CLI](azure/virtual-machines/linux/move-vm)
+    - [CLI](/azure/virtual-machines/linux/move-vm)
     - [PowerShell](/azure/virtual-machines/windows/move-vm)
 - [Azure Resource Mover](/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](/azure/site-recovery/move-azure-vms-avset-azone)
