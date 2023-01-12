@@ -36,6 +36,9 @@ You can define user properties for your JMeter test script by uploading a *.prop
 
 You can also specify [JMeter configuration settings](https://jmeter.apache.org/usermanual/properties_reference.html) in user properties file to override default behavior.
 
+> [!NOTE]
+> Azure Load Testing overrides specific JMeter properties. Learn more about the list of [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
+
 The following code snippet shows an example user properties file that defines three user properties and configures the `jmeter.save.saveservice.thread_name` configuration setting:
 
 ```properties
@@ -130,5 +133,6 @@ You can [download the JMeter errors logs](./how-to-find-download-logs.md) to tro
 
 ## Next steps
 
+- Learn more about [JMeter properties that Azure Load Testing overrides](./resource-jmeter-property-overrides.md).
 - Learn more about [parameterizing a load test by using environment variables and secrets](./how-to-parameterize-load-tests.md).
 - Learn more about [troubleshooting load test execution errors](./how-to-find-download-logs.md).
