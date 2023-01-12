@@ -291,7 +291,7 @@ The endpoints can also be configured through environment variables:
 
 # [JavaScript](#tab/js)
 
-The current snippet listed here is version 5. The version is encoded in the snippet as sv:"#" and the [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current snippet listed here is version 5. The version is encoded in the snippet as `sv:"#"`. The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
