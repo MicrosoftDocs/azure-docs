@@ -46,11 +46,7 @@ The current preview of Azure Kubernetes Fleet Manager resource supports joining 
 Azure Kubernetes Fleet Manager resource is a regional resource. Support for region failover for disaster recovery use cases is in the [roadmap](https://aka.ms/fleet/roadmap).
 
 ## What happens when the user changes the cluster identity of a joined cluster?
-Changing the identity of a joined cluster will break the communication between fleet hub and member clusters. \
-The member agent will automatically pick up the new identity and communicate with the hub using the new token.  \
-However, the fleet hub is unaware of the new identity, and needs to be reconfigured to authorize the member. \
-You can join the member cluster to the fleet again by performing an update operation to notify the fleet hub to pick up the new identity. \ 
-If using Azure CLI, you can run "az fleet member create".
+Changing the identity of a member AKS cluster will break the communication between fleet and that member cluster. While the member agent will use the new identity to communicate with the fleet cluster, fleet still needs to be made aware of this new identity. To achieve this, run the following command:
 
 ## Roadmap
 
