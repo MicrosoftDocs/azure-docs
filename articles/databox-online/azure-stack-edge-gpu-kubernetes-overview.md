@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/07/2021
+ms.date: 01/12/2023
 ms.author: alkohli
 ---
 
@@ -58,7 +58,7 @@ The Kubernetes master and the worker nodes are virtual machines that consume CPU
 |Kubernetes VM type|CPU and memory requirement|
 |---------|---------|
 |Master VM|4 cores, 4-GB RAM|
-|Worker VM|12 cores, 32-GB RAM|
+|Worker VM|30% of available physical cores, 32-GB RAM|
 
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
