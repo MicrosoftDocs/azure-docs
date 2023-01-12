@@ -44,11 +44,13 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
 ## Link to an existing New Relic account
 
-1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Link an existing New Relic resource** option. 
+1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. When you complete this process, you create a New Relic resource on Azure that links to an existing New Relic account.
+
+    For this example, use the **Link an existing New Relic resource** option and select **Create**. 
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-create.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
    
-1. The process creates a New Relic resource in Azure and links it to a new Relic account. A form to create the New Relic resource appears on the **Basics** tab.
+1.  A form to create the New Relic resource appears on the **Basics** tab. Select an existing in account in **New Relic account**.
 
     :::image type="content" source="media/new-relic-link-to-existing/new-relic-account.png" alt-text="Screenshot that shows the tab for basic information about linking an existing New Relic account.":::
 
@@ -62,10 +64,9 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
    | **Region**  | Select the Azure region where the New Relic resource should be created.|
    | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
-1. When the New Relic account that you selected has a parent New Relic organization that you created by using New Relic, the New Relic billing details appear for your reference.
-<!-- this needs to be added as I don't know what this   -->
+1. After you select a New Relic account, the New Relic billing details appear for your reference.
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab with New Relic account details.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
 
    The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
     
@@ -73,9 +74,11 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
 ## Configure metrics and logs
 
+### Logs 
+
 Your next step is to configure metrics and logs on the **Metrics + Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
 
-- **Subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane). The logs also include updates on service-health events. 
+- **Send subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane). The logs also include updates on service-health events. 
 
   Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
 
@@ -95,7 +98,7 @@ Your next step is to configure metrics and logs on the **Metrics + Logs** tab. W
 
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource and link an existing New Relic account to it.
-
+``
 1. After you finish configuring metrics and logs, select **Next**.
 
 ## Add tags
