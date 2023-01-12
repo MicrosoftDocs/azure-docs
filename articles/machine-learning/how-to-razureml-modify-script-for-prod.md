@@ -164,12 +164,15 @@ To log a model, and/or parameter:
 
 For example, to log the `crated_model` object as created in the [previous section](#crate-your-models-with-the-carrier-package), you would include the following code in your R script:
 
+> [!TIP]
+> Use `models` as value for `artifact_path` when logging a model, this is a best practice (even though you can name it something else.)
+
 ```r
 mlflow_start_run()
 
 mlflow_log_model(
   model = crated_model, # the crate model object
-  artifact_path = "model" # a path to save the model object to
+  artifact_path = "models" # a path to save the model object to
   )
 
 mlflow_log_param(<key-name>, <value>)
@@ -236,7 +239,7 @@ mlflow_start_run()
 
 mlflow_log_model(
   model = crated_model, # the crate model object
-  artifact_path = "model" # a path to save the model object to
+  artifact_path = "models" # a path to save the model object to
   )
 
 mlflow_log_param(<key-name>, <value>)
