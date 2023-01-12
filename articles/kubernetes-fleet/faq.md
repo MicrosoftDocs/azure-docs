@@ -47,13 +47,15 @@ Azure Kubernetes Fleet Manager resource is a regional resource. Support for regi
 
 ## What happens when the user changes the cluster identity of a joined cluster?
 Changing the identity of a member AKS cluster will break the communication between fleet and that member cluster. While the member agent will use the new identity to communicate with the fleet cluster, fleet still needs to be made aware of this new identity. To achieve this, run the following command:
-```bash
+
+```azurecli
 az fleet member create \
     --resource-group ${GROUP} \
     --fleet-name ${FLEET} \
     --name ${MEMBER_NAME} \
     --member-cluster-id ${MEMBER_CLUSTER_ID}
 ```  
+
 ## Roadmap
 
 The roadmap for Azure Kubernetes Fleet Manager resource is available [here](https://aka.ms/fleet/roadmap).
