@@ -21,7 +21,7 @@
           href: quickstart-dotnet-app.md
         - name: Azure Functions in .NET Core
           href: quickstart-azure-functions-csharp.md
-        - name: ContainerApps
+        - name: Container Apps
           href: quickstart-container-apps.md
         - name: Java Spring
           href: quickstart-java-spring-app.md

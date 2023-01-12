@@ -159,7 +159,7 @@ In the next step, deploy the container image to [Azure Container Apps](../contai
 
 #### [Portal](#tab/azure-portal)
 
-1. Create a container app environment and a container app with your existing container image, following the [Azure Container Apps quickstart](/azure/container-apps/get-started-existing-container-image-portal). In the **App settings** tab, use the following configuration:
+Create a container app environment and a container app with your existing container image, following the [Azure Container Apps quickstart](/azure/container-apps/get-started-existing-container-image-portal). In the **App settings** tab, use the following configuration:
 
 | Setting               | Suggested value                         | Description                                                                                                                                                                       |
 |-----------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
