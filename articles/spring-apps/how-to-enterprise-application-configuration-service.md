@@ -214,7 +214,7 @@ You can enable/disable Application Configuration Service after service creation 
 Use the following steps to enable/disable Application Configuration Service using the Azure portal:
 
 1. Navigate to your service resource, and then select **Application Configuration Service**.
-1. Select **Manage tools**.
+1. Select **Manage**.
 
 1. Check/Uncheck the **Enable Application Configuration Service** checkbox, and then select **Save**.
 

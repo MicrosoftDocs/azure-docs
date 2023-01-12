@@ -263,7 +263,7 @@ You can enable/disable Spring Cloud Gateway after service creation using Azure p
 Use the following steps to enable/disable Spring Cloud Gateway using the Azure portal:
 
 1. Navigate to your service resource, and then select **Spring Cloud Gateway**.
-1. Select **Manage tools**.
+1. Select **Manage**.
 
 1. Check/Uncheck the **Enable Spring Cloud Gateway** checkbox, and then select **Save**.
 

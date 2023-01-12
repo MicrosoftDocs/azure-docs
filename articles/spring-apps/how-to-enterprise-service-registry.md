@@ -460,7 +460,7 @@ You can enable/disable Service Registry after service creation using Azure porta
 Use the following steps to enable/disable Service Registry using the Azure portal:
 
 1. Navigate to your service resource, and then select **Service Registry**.
-1. Select **Manage tools**.
+1. Select **Manage**.
 
 1. Check/Uncheck the **Enable Service Registry** checkbox, and then select **Save**.
 

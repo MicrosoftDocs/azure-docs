@@ -168,7 +168,7 @@ You can enable/disable API portal after service creation using Azure portal or A
 Use the following steps to enable/disable API portal using the Azure portal:
 
 1. Navigate to your service resource, and then select **API portal**.
-1. Select **Manage tools**.
+1. Select **Manage**.
 
 1. Check/Uncheck the **Enable API portal** checkbox, and then select **Save**.
 
