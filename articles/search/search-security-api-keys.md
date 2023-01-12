@@ -1,5 +1,5 @@
 ---
-title: Connect with API keys
+title: Connect using API keys
 titleSuffix: Azure Cognitive Search
 description: Learn how to use an admin or query API key for inbound access to an Azure Cognitive Search service endpoint.
 
@@ -15,10 +15,10 @@ ms.date: 01/10/2023
 
 Cognitive Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint will be accepted if both the request and the API key are valid.
 
-API keys are frequently used when making REST API calls to a search service. You can also use them in search solutions if Azure Active Directory isn't an option.
+API keys are used for content-related requests, such as creating or querying an index. Upon service creation, it's the only authentication mechanism for data plane (content) operations, but you can replace or supplement key authentication with [Azure roles](search-security-rbac.md) if you can't use hard-coded keys in your code.
 
 > [!NOTE]
-> A quick note about "key" terminology in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A "document key" refers to a unique string in your indexed content that's used to uniquely identify documents in a search index. API keys and document keys are unrelated.
+> A quick note about how "key" terminology is used in Cognitive Search. An "API key", which is described in this article, refers to a GUID used for authenticating a request. A separate term, "document key", refers to a unique string in your indexed content that's used to uniquely identify documents in a search index.
 
 ## Types of API keys
 
