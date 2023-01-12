@@ -11,6 +11,9 @@ This article describes how to manage individual sensors, such as managing activa
 
 You can also perform some management tasks for multiple sensors simultaneously from the Azure portal or an on-premises management console. For more information, see [Next steps](#next-steps).
 
+> [!CAUTION]
+> Only documented configuration parameters on the OT network sensor and on-premises management console are supported for customer configuration. Do not change any non-documented configuration parameters, as changes may cause unexpected behavior and system failures.
+
 ## View overall sensor status
 
 When you sign into your sensor, the first page shown is the **Overview** page.
