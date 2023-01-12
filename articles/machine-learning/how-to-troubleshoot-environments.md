@@ -918,7 +918,8 @@ This issue can happen when a Docker image fails to be stored (pushed) to a conta
 
 
 **Affected areas (symptoms):**
-* ?
+* Failure in building environments from the UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
