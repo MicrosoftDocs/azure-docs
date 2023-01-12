@@ -13,8 +13,9 @@ Remote Rendering works with both the **:::no-loc text="Standard render pipeline"
 
 ## Setup Universal Render Pipeline
 
-To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. The installation can be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.3.1 or newer), as described in the [Unity - Manual:  Installing from a registry](https://docs.unity3d.com/Manual/upm-ui-install.html).
+To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity, and the *HybridRenderingPipeline* asset must be added to the Graphics settings.
 
+1. Install the **Universal RP** package (version 7.3.1 or newer) using Unity's **Package Manager** UI, as described in the [Unity - Manual:  Installing from a registry](https://docs.unity3d.com/Manual/upm-ui-install.html).
 1. Open *Edit > Project Settings...*
 1. Select **Graphics** from the left list menu
     1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
