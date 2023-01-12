@@ -17,10 +17,6 @@ ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 
 Sentiment analysis and opinion mining are two ways of detecting positive and negative sentiment. Using sentiment analysis, you can get sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. Opinion Mining provides granular information about the opinions related to words (such as the attributes of products or services) in the text.
 
-> [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
-
-
 ## Sentiment Analysis
 
 Sentiment Analysis applies sentiment labels to text, which are returned at a sentence and document level, with a confidence score for each. 

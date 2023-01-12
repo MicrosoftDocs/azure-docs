@@ -28,7 +28,7 @@ PII comes into two shapes:
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-## Get started with Personally Identifiable Information detection
+## Get started with PII detection
 
 [!INCLUDE [development options](./includes/development-options.md)]
 
