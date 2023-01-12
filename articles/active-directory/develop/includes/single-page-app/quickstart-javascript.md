@@ -2,7 +2,7 @@
 title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth code"
 description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: include
 ms.workload: identity
 ms.date: 12/06/2021
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---

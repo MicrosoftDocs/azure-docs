@@ -106,7 +106,7 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 
 ## Supported resources and features available for migration associated with Cloud Services (classic)
 - 	Storage Accounts
-- 	Virtual Networks
+- 	Virtual Networks (Azure Batch not supported)
 - 	Network Security Groups
 - 	Reserved Public IP addresses
 - 	Endpoint Access Control Lists

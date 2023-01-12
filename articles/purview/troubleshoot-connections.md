@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot your connections in Microsoft Purview
 description: This article explains the steps to troubleshoot your connections in Microsoft Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/05/2022
 ms.custom: ignite-fall-2021
 ---
 # Troubleshoot your connections in Microsoft Purview
@@ -27,7 +27,7 @@ There are specific instructions for each [source type](azure-purview-connector-o
 
 ### Registering single Azure data source
 
-To register a single data source in Microsoft Purview, such as an Azure Blog Storage or an Azure SQL Database, you must be granted at least **Reader** role on the resource or inherited from higher scope such as resource group or subscription. Some Azure RBAC roles, such as Security Admin, don't have read access to view Azure resources in control plane.  
+To register a single data source in Microsoft Purview, such as an Azure Blob Storage or an Azure SQL Database, you must be granted at least **Reader** role on the resource or inherited from higher scope such as resource group or subscription. Some Azure RBAC roles, such as Security Admin, don't have read access to view Azure resources in control plane.  
 
 Verify this by following the steps below:
 
@@ -81,7 +81,14 @@ To verify this, do the following steps:
 
 If you don't see your Microsoft Purview managed identity listed, then follow the steps in [Create and manage credentials for scans](manage-credentials.md) to add it.
 
+## Scans no longer run
+
+If your Microsoft Purview scan used to successfully run, but are now failing, check these things:
+1. Have credentials to your resource changed or been rotated? If so, you'll need to update your scan to have the correct credentials.
+1. Is an [Azure Policy](../governance/policy/overview.md) preventing **updates to Storage accounts**? If so follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts.
+1. Are you using a self-hosted integration runtime? Check that it's up to date with the latest software and that it's connected to your network.
+
 ## Next steps
 
-- [Browse the Microsoft Purview Data catalog](how-to-browse-catalog.md)
+- [Browse the Microsoft Purview Data Catalog](how-to-browse-catalog.md)
 - [Search the Microsoft Purview Data Catalog](how-to-search-catalog.md)

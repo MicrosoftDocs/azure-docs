@@ -56,5 +56,5 @@ For more information related to this white paper, check out the following resour
 
 - [Azure Synapse Analytics Blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog)
 - [Azure security baseline for Azure Synapse dedicated SQL pool (formerly SQL DW)](/security/benchmark/azure/baselines/synapse-analytics-security-baseline)
-- [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
+- [Overview of the Microsoft cloud security benchmark](/security/benchmark/azure/overview)
 - [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview)

@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 09/26/2022
+ms.date: 01/07/2023
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -108,17 +108,37 @@ The second way to resolve this error is to create the role assignment by using t
 az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
 ```
 
-### Symptom - Assigning a role sometimes fails with REST API or ARM templates
+### Symptom - Assigning a role to a new principal sometimes fails
 
-You create a new service principal and immediately try to assign a role to that service principal and the role assignment sometimes fails.
+You create a new user, group, or service principal and immediately try to assign a role to that principal and the role assignment sometimes fails. You get a message similar to following error:
+
+```
+PrincipalNotFound
+Principal {principalId} does not exist in the directory {tenantId}. Check that you have the correct principal ID. If you are creating this principal and then immediately assigning a role, this error might be related to a replication delay. In this case, set the role assignment principalType property to a value, such as ServicePrincipal, User, or Group.  See https://aka.ms/docs-principaltype
+```
 
 **Cause**
 
-The reason is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet.
+The reason is likely a replication delay. The principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the principal yet.
 
-**Solution**
+**Solution 1**
 
-Set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal).
+If you are creating a new user or service principal using the REST API or ARM template, set the `principalType` property when creating the role assignment using the [Role Assignments - Create](/rest/api/authorization/role-assignments/create) API. 
+
+| principalType | apiVersion |
+| --- | --- |
+| `User` | `2020-03-01-preview` or later |
+| `ServicePrincipal` | `2018-09-01-preview` or later |
+
+For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal).
+
+**Solution 2**
+
+If you are creating a new user or service principal using Azure PowerShell, set the `ObjectType` parameter to `User` or `ServicePrincipal` when creating the role assignment using [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). The same underlying API version restrictions of Solution 1 still apply. For more information, see [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md).
+
+**Solution 3**
+
+If you are creating a new group, wait a few minutes before creating the role assignment.
 
 ### Symptom - ARM template role assignment returns BadRequest status
 
@@ -255,7 +275,7 @@ Removing the last Owner role assignment for a subscription is not supported to a
 
 If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
-You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are the Global Administrator for the tenant. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
 
 ### Symptom - Role assignment is not moved after moving a resource
 
@@ -288,6 +308,34 @@ You added managed identities to a group and assigned a role to that group. The b
 **Solution 2**
 
 It can take several hours for changes to a managed identity's group or role membership to take effect. For more information, see [Limitation of using managed identities for authorization](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
+
+### Symptom - Removing role assignments using PowerShell takes several minutes
+
+You use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command to remove a role assignment. You then use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command to verify the role assignment was removed for a security principal. For example:
+
+```powershell
+Get-AzRoleAssignment -ObjectId $securityPrincipalObject.Id
+```
+
+The [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command indicates that the role assignment was not removed. However, if you wait 5-10 minutes and run [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) again, the output indicates the role assignment was removed.
+
+**Cause**
+
+The role assignment has been removed. However, to improve performance, PowerShell uses a cache when listing role assignments. There can be delay of around 10 minutes for the cache to be refreshed.
+
+**Solution**
+
+Instead of listing the role assignments for a security principal, list all the role assignments at the subscription scope and filter the output. For example, the following command:
+
+```powershell
+$validateRemovedRoles = Get-AzRoleAssignment -ObjectId $securityPrincipalObject.Id 
+```
+
+Can be replaced with this command instead:
+
+```powershell
+$validateRemovedRoles = Get-AzRoleAssignment -Scope /subscriptions/$subId | Where-Object -Property ObjectId -EQ $securityPrincipalObject.Id
+```
 
 ## Custom roles
 

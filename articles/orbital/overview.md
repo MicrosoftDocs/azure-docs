@@ -1,12 +1,12 @@
 ---
 title: Why use Azure Orbital Ground Station?
 description: Azure Orbital Ground Station is a cloud-based ground station as a service that allows you to streamline your operations by ingesting space data directly into Azure.
-author: wamota
+author: apoorvanori
 ms.service: orbital
 ms.topic: overview
 ms.custom: ga
-ms.date: 07/13/2022
-ms.author: wamota
+ms.date: 12/06/2022
+ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 

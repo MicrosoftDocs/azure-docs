@@ -3,7 +3,7 @@ title: Quickstart - Export data from Azure IoT Central
 description: In this quickstart, you learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/26/2022
+ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -107,7 +107,7 @@ To configure the data export:
     }
     ```
 
-    :::image type="content" source="media/quick-export-data/data-transformation-query.png" alt-text="Screenshot that shows the data transformation query for the export.":::
+    :::image type="content" source="media/quick-export-data/data-transformation-query.png" alt-text="Screenshot that shows the data transformation query for the export." lightbox="media/quick-export-data/data-transformation-query.png":::
 
     If you want to see how the transformation works and experiment with the query, paste the following sample telemetry message into **1. Add your input message**:
 
@@ -154,7 +154,7 @@ To configure the data export:
 
 Wait until the export status shows **Healthy**:
 
-:::image type="content" source="media/quick-export-data/healthy-export.png" alt-text="Screenshot that shows a running data export with the healthy status.":::
+:::image type="content" source="media/quick-export-data/healthy-export.png" alt-text="Screenshot that shows a running data export with the healthy status." lightbox="media/quick-export-data/healthy-export.png":::
 
 ## Query exported data
 
@@ -174,7 +174,7 @@ To query the exported telemetry:
 
 You may need to wait for several minutes to collect enough data. Try holding your phone in different orientations to see the telemetry values change:
 
-:::image type="content" source="media/quick-export-data/acceleration-plot.png" alt-text="Screenshot of the query results for the accelerometer telemetry.":::
+:::image type="content" source="media/quick-export-data/acceleration-plot.png" alt-text="Screenshot of the query results for the accelerometer telemetry." lightbox="media/quick-export-data/acceleration-plot.png":::
 
 ## Clean up resources
 

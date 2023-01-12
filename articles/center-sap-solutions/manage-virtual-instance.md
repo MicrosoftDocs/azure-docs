@@ -1,9 +1,9 @@
 ---
 title: Manage a Virtual Instance for SAP solutions (preview)
-description: Learn how to configure a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
+description: Learn how to configure a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 author: lauradolan
 ms.author: ladolan
 #Customer intent: As a developer, I want to configure my Virtual Instance for SAP solutions resource so that I can find system properties and connect to databases.
@@ -13,7 +13,7 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this article, you'll learn how to view the *Virtual Instance for SAP solutions (VIS)* resource created in *Azure Center for SAP solutions (ACSS)* through the Azure portal. You can use these steps to find your SAP system's properties and connect parts of the VIS to other resources like databases.
+In this article, you'll learn how to view the *Virtual Instance for SAP solutions (VIS)* resource created in *Azure Center for SAP solutions* through the Azure portal. You can use these steps to find your SAP system's properties and connect parts of the VIS to other resources like databases.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To configure your VIS in the Azure portal:
 1. On the **Azure Center for SAP solutions** overview page, search for and select **Virtual Instances for SAP solutions** in the sidebar menu.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to view.
 
-    :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of Azure portal, showing the VIS page in the ACSS service with a table of available VIS resources.":::
+    :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of Azure portal, showing the VIS page in the Azure Center for SAP solutions service with a table of available VIS resources.":::
 
 ## Monitor VIS
 
@@ -55,7 +55,7 @@ In the sidebar menu, look under the section **SAP resources**:
 
 ## Connect to HANA database
 
-If you've deployed an SAP system using ACSS, [find the SAP system's main password and HANA database passwords](#find-sap-and-hana-passwords).
+If you've deployed an SAP system using Azure Center for SAP solutions, [find the SAP system's main password and HANA database passwords](#find-sap-and-hana-passwords).
 
 The HANA database username is either `system` or `SYSTEM` for:
 
@@ -120,7 +120,7 @@ To delete a VIS:
 1. Select **Delete** to delete the VIS.
 1. Wait for the deletion operation to complete for the VIS and related resources.
 
-After you delete a VIS, you can register the SAP system again. Open ACSS in the Azure portal, and select **Register an existing SAP system**. 
+After you delete a VIS, you can register the SAP system again. Open Azure Center for SAP solutions in the Azure portal, and select **Register an existing SAP system**. 
 
 ## Next steps
 

@@ -30,7 +30,7 @@ To learn how to manage users and roles by using the IoT Central UI, see [Manage 
 The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example that includes the three built-in roles and a custom role:
@@ -73,7 +73,7 @@ The REST API lets you:
 Use the following request to retrieve a list of users from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/users?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/users?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example. The role values identify the role ID the user is associated with:
@@ -130,7 +130,7 @@ The response to this request looks like the following example. The role values i
 Use the following request to retrieve details of an individual user from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/users/dc1c916b-a652-49ea-b128-7c465a54c759?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/users/dc1c916b-a652-49ea-b128-7c465a54c759?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example. The role value identifies the role ID the user is associated with:
@@ -153,7 +153,7 @@ The response to this request looks like the following example. The role value id
 Use the following request to create a user in your application. The ID and email must be unique in the application:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-07-31
 ```
 
 In the following request body, the `role` value is for the operator role you retrieved previously:
@@ -193,7 +193,7 @@ You can also add a service principal user which is useful if you need to use ser
 Use the following request to change the role assigned to user. This example uses the ID of the builder role you retrieved previously:
 
 ```http
-PATCH https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-05-31
+PATCH https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-07-31
 ```
 
 Request body. The value is for the builder role you retrieved previously:
@@ -228,7 +228,7 @@ The response to this request looks like the following example:
 Use the following request to delete a user:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-05-31
+DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-07-31
 ```
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Generic steps to prepare a Windows template machine in Lab Services
 author: EMaher
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Guide to setting up a Windows template machine in Azure Lab Services
@@ -20,7 +20,7 @@ To protect student data from being lost if a virtual machine is reset, we recomm
 
 ### Install OneDrive
 
-To manually download and install OneDrive, see the [OneDrive](https://onedrive.live.com/about/download/) or [OneDrive for Business](https://onedrive.live.com/about/business/) download pages.
+To manually download and install OneDrive, see the [OneDrive](https://onedrive.live.com/about/download/) or [OneDrive for Business](https://www.microsoft.com/microsoft-365/onedrive/onedrive-for-business) download pages.
 
 You can also use the following PowerShell script.  It will automatically download and install the latest version of OneDrive.  Once the OneDrive client is installed, run the installer.  In our example, we use the `/allUsers` switch to install OneDrive for all users on the machine. We also use the `/silent` switch to silently install OneDrive.
 

@@ -31,6 +31,7 @@ The control for blocking access considers any assignments and prevents access ba
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
 - [Require multifactor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require authentication strength (Preview)](#require-authentication-strength-preview)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
@@ -49,6 +50,13 @@ By default, Conditional Access requires all selected controls.
 Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multi-factor Authentication. You can find more information about deploying Azure AD Multi-Factor Authentication in [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies.
+
+### Require authentication strength (preview)
+
+Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Azure portal** > **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**. Administrators can choose to create their own or use the built-in versions.
+
+> [!NOTE]
+> Require authentication strength is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Require device to be marked as compliant
 
@@ -83,7 +91,7 @@ Organizations can require that an approved client app is used  to access selecte
 
 To apply this grant control, the device must be registered in Azure AD, which requires using a broker app. The broker app can be Microsoft Authenticator for iOS, or either Microsoft Authenticator or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the appropriate app store to install the required broker app.
 
-The following client apps support this setting:
+The following client apps support this setting, this list isn't exhaustive and is subject to change::
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -134,8 +142,9 @@ To apply this grant control, Conditional Access requires that the device is regi
 
 Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the [SDK documentation](/mem/intune/developer/app-sdk-get-started).
 
-The following client apps are confirmed to support this setting:
+The following client apps are confirmed to support this setting, this list isn't exhaustive and is subject to change:
 
+- iAnnotate for Office 365
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
@@ -150,17 +159,18 @@ The following client apps are confirmed to support this setting:
 - Microsoft PowerApps
 - Microsoft PowerPoint
 - Microsoft SharePoint
+- Microsoft Stream Mobile Native 2.0
 - Microsoft Teams
 - Microsoft To Do
 - Microsoft Word
-- Microsoft Power Apps
+- Microsoft Whiteboard Services
 - Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
 - Notate for Intune
-- Yammer (iOS and iPadOS)
+- Yammer (Android, iOS, and iPadOS)
 
-This list is not all encompassing, if your app is not in this list please check with the application vendor to confirm support.
+This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.
 
 > [!NOTE]
 > Kaizala, Skype for Business, and Visio don't support the **Require app protection policy** grant. If you require these apps to work, use the **Require approved apps** grant exclusively. Using the "or" clause between the two grants will not work for these three applications.
@@ -195,7 +205,7 @@ If your organization has created terms of use, other options might be visible un
 
 ### Custom controls (preview)
 
-Custom controls is a preview capability of Azure AD. When you use custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
+Custom controls are a preview capability of Azure AD. When you use custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
 
 ## Next steps
 

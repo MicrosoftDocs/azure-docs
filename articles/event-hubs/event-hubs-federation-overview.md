@@ -2,6 +2,7 @@
 title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs. 
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 09/28/2021
 ms.author: spelluru
 ---
@@ -310,8 +311,7 @@ example, you can:
   Azure Synapse Analytics, etc.) to perform batch analytics or train machine
   learning models based on very large, indexed pools of historical data.
 - Store projections (also called "materialized views") in databases ([SQL
-  Database](../stream-analytics/sql-database-output.md), [Cosmos
-  DB](../stream-analytics/azure-cosmos-db-output.md) ).
+  Database](../stream-analytics/sql-database-output.md), [Azure Cosmos DB](../stream-analytics/azure-cosmos-db-output.md) ).
 
 ### Stateless replication applications in Azure Functions
 
@@ -333,7 +333,7 @@ custom extensions for
 triggers will dynamically adapt to the throughput needs by scaling the number of concurrently executing instances up and down based on documented metrics. 
 
 For building log projections, Azure Functions supports output bindings for
-[Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md)
+[Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md)
 and [Azure Table Storage](../azure-functions/functions-bindings-storage-table-output.md).
 
 Azure Functions can run under a [Azure managed

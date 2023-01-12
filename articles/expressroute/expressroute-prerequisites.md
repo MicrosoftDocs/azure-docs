@@ -37,8 +37,8 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 If you plan to enable Microsoft 365 on ExpressRoute, review the following documents for more information about Microsoft 365 requirements.
 
 * [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* [Routing with ExpressRoute for Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
-* [High availability and failover with ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
+* [Routing with ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
+* [High availability and failover with ExpressRoute](/azure/expressroute/designing-for-high-availability-with-expressroute)
 * [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)

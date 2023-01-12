@@ -22,8 +22,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 > * [v1](v1/how-to-access-data.md)
 > * [v2 (current version)](how-to-datastore.md)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores.
 
@@ -222,7 +221,7 @@ store = AzureDataLakeGen2Datastore(
     name="",
     description="",
     account_name="",
-    file_system=""
+    filesystem=""
 )
 
 ml_client.create_or_update(store)

@@ -5,22 +5,22 @@ ms.reviewer: mjbrown
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 07/02/2021
- ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **Core (SQL) - Recommend** section. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. [Learn more about the SQL API](../introduction.md).
+1. On the **Select API option** page, select the **Create** option within the **NoSQL - Recommend** section. Azure Cosmos DB provides five APIs: NoSQL and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. [Learn more about the API for NoSQL](../introduction.md).
 
-1. In the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos account.
+1. In the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos DB account.
 
    |Setting|Value|Description |
    |---|---|---|
-   |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
+   |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos DB account. |
    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-   |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
+   |Account Name|A unique name|Enter a name to identify your Azure Cosmos DB account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
    |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode.|
    |Apply Azure Cosmos DB free tier discount|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|

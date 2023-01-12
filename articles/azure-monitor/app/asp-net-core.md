@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/12/2021
+ms.date: 10/27/2022
 ms.reviewer: casocha
 ---
 # Application Insights for ASP.NET Core applications
@@ -28,6 +28,9 @@ We'll use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+> [!NOTE]
+> You can also use the Microsoft.Extensions.Logging.ApplicationInsights package to capture logs. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [Console application](ilogger.md#console-application).
+
 ## Supported scenarios
 
 The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported and covers the following scenarios:
@@ -41,8 +44,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, Visual Studio Code, or command line
 
 > [!NOTE]
-> - ASP.NET Core 6.0 requires [Application Insights 2.19.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.18.0) or later
-> - ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later
+> - ASP.NET Core 6.0 requires [Application Insights 2.19.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.19.0) or later
 
 ## Prerequisites
 
@@ -83,7 +85,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 
 2. Add `AddApplicationInsightsTelemetry()` to your `startup.cs` or `program.cs` class (depending on your .NET Core version)
 
-    ### [ASP.NET Core 6.0](#tab/netcore6)
+    ### [ASP.NET Core 6 and later](#tab/netcorenew)
     
     Add `builder.Services.AddApplicationInsightsTelemetry();` after the `WebApplication.CreateBuilder()` method in your `Program` class, as in this example:
     
@@ -100,7 +102,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
     var app = builder.Build();
     ```
     
-    ### [ASP.NET Core 3.1](#tab/netcore3)
+    ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
     
     Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` method in your `Startup` class, as in this example:
     
@@ -167,7 +169,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### ILogger logs
 
-The default configuration collects `ILogger` `Warning` logs and more severe logs. Review the FAQ to [customize this configuration](../faq.yml).
+The default configuration collects `ILogger` `Warning` logs and more severe logs. Review [How do I customize ILogger logs collection?](#how-do-i-customize-ilogger-logs-collection) for more information.
 
 ### Dependencies
 
@@ -235,7 +237,7 @@ You can customize the Application Insights SDK for ASP.NET Core to change the de
 
 You can modify a few common settings by passing `ApplicationInsightsServiceOptions` to `AddApplicationInsightsTelemetry`, as in this example:
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -252,7 +254,7 @@ builder.Services.AddApplicationInsightsTelemetry(aiOptions);
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -317,7 +319,7 @@ When you want to enrich telemetry with additional information, use [telemetry in
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -330,7 +332,7 @@ var app = builder.Build();
 > [!NOTE]
 > `builder.Services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, the following is required: `builder.Services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -348,7 +350,7 @@ public void ConfigureServices(IServiceCollection services)
 
 By default, telemetry initializers are present. To remove all or specific telemetry initializers, use the following sample code *after* calling `AddApplicationInsightsTelemetry()`.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -370,7 +372,7 @@ builder.Services.RemoveAll(typeof(ITelemetryInitializer));
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -397,7 +399,7 @@ public void ConfigureServices(IServiceCollection services)
 
 You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](./api-filtering-sampling.md#itelemetryprocessor-and-itelemetryinitializer). Use the following example.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -412,7 +414,7 @@ builder.Services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetr
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -444,7 +446,7 @@ By default, the following automatic-collection modules are enabled. These module
 
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
@@ -478,7 +480,7 @@ if (performanceCounterService != null)
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
@@ -521,7 +523,7 @@ In versions 2.12.2 and later, [`ApplicationInsightsServiceOptions`](#using-appli
 
 The default [telemetry channel](./telemetry-channels.md) is `ServerTelemetryChannel`. The following example shows how to override it.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -537,7 +539,7 @@ builder.Services.AddApplicationInsightsTelemetry();
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -561,7 +563,7 @@ public void ConfigureServices(IServiceCollection services)
 
 If you want to disable telemetry conditionally and dynamically, you can resolve the `TelemetryConfiguration` instance with an ASP.NET Core dependency injection container anywhere in your code and set the `DisableTelemetry` flag on it.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### [ASP.NET Core 6 and later](#tab/netcorenew)
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -574,7 +576,7 @@ builder.Services.Configure<TelemetryConfiguration>(x => x.DisableTelemetry = tru
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 3.1](#tab/netcore3)
+### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -737,6 +739,10 @@ This limitation isn't applicable from version [2.15.0](https://www.nuget.org/pac
 ### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
 
 This SDK requires `HttpContext`. Therefore, it doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 

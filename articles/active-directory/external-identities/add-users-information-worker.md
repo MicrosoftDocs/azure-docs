@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/19/2018
+ms.date: 10/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # How users in your organization can invite guest users to an app
 
-After a guest user has been added to the directory in Azure AD, an application owner can send the guest user a direct link to the app they want to share. Azure AD admins can also set up self-service management for gallery or SAML-based apps in their Azure AD tenant. This way, application owners can manage their own guest users, even if the guest users haven’t been added to the directory yet. When an app is configured for self-service, the application owner uses their Access Panel to invite a guest user to an app or add a guest user to a group that has access to the app. Self-service app management for gallery and SAML-based apps requires some initial setup by an admin. The following is a summary of the setup steps (for more detailed instructions, see [Prerequisites](#prerequisites) later on this page):
+After a guest user has been added to the directory in Azure AD, an application owner can send the guest user a direct link to the app they want to share. Azure AD admins can also set up self-service management for gallery or SAML-based apps in their Azure AD tenant. This way, application owners can manage their own guest users, even if the guest users haven’t been added to the directory yet. When an app is configured for self-service, the application owner uses their Access Panel to invite a guest user to an app or add a guest user to a group that has access to the app. Self-service app management for gallery and SAML-based apps requires some initial setup by an admin. Follow the summary of the setup steps (for more detailed instructions, see [Prerequisites](#prerequisites) later on this page):
 
  - Enable self-service group management for your tenant
  - Create a group to assign to the app and make the user an owner
@@ -26,23 +26,23 @@ After a guest user has been added to the directory in Azure AD, an application o
 
 > [!NOTE]
 > * This article describes how to set up self-service management for gallery and SAML-based apps that you’ve added to your Azure AD tenant. You can also [set up self-service Microsoft 365 groups](../enterprise-users/groups-self-service-management.md) so your users can manage access to their own Microsoft 365 groups. For more ways users can share Office files and apps with guest users, see [Guest access in Microsoft 365 groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) and [Share SharePoint files or folders](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-> * Users are only able to invite guests if they have the **Guest inviter** role.
+> * Users are only able to invite guests if they have the [**Guest inviter**](../roles/permissions-reference.md#guest-inviter
+) role.
 ## Invite a guest user to an app from the Access Panel
 
 After an app is configured for self-service, application owners can use their own Access Panel to invite a guest user to the app they want to share. The guest user doesn't necessarily need to be added to Azure AD in advance. 
 
 1. Open your Access Panel by going to `https://myapps.microsoft.com`.
 2. Point to the app, select the ellipses (**...**), and then select **Manage app**.
- 
-   ![Screenshot showing the Manage app sub-menu for the Salesforce app](media/add-users-iw/access-panel-manage-app.png)
- 
-3. At the top of the users list, select **+**.
-   
-   ![Screenshot showing the plus symbol for adding members to the app](media/add-users-iw/access-panel-manage-app-add-user.png)
+
+:::image type="content" source="media/add-users-iw/access-panel-manage-app.png" alt-text="Screenshot showing the Manage app sub-menu for the Salesforce app.":::
+
+3. At the top of the users list, select **+** on the right-hand side.
    
 4. In the **Add members** search box, type the email address for the guest user. Optionally, include a welcome message.
    
-   ![Screenshot showing the Add members window for adding a guest](media/add-users-iw/access-panel-invitation.png)
+:::image type="content" source="media/add-users-iw/access-panel-invitation.png" alt-text="Screenshot showing the Add members window for adding a guest.":::
+
    
 5. Select **Add** to send an invitation to the guest user. After you send the invitation, the user account is automatically added to the directory as a guest.
 
@@ -53,19 +53,19 @@ After an app is configured for self-service, application owners can invite guest
 2. Open your Access Panel by going to `https://myapps.microsoft.com`.
 3. Select the **Groups** app.
    
-   ![Screenshot showing the Groups app in the Access Panel](media/add-users-iw/access-panel-groups.png)
+:::image type="content" source="media/add-users-iw/access-panel-groups.png" alt-text="Screenshot showing the Groups app in the Access Panel.":::
    
 4. Under **Groups I own**, select the group that has access to the app you want to share.
    
-   ![Screenshot showing where to select a group under the Groups I own](media/add-users-iw/access-panel-groups-i-own.png)
+:::image type="content" source="media/add-users-iw/access-panel-groups-i-own.png" alt-text="Screenshot showing where to select a group under the Groups I own.":::
    
 5. At the top of the group members list, select **+**.
    
-   ![Screenshot showing the plus symbol for adding members to the group](media/add-users-iw/access-panel-groups-add-member.png)
+:::image type="content" source="media/add-users-iw/access-panel-groups-add-member.png" alt-text="Screenshot showing the plus symbol for adding members to the group.":::
    
 6. In the **Add members** search box, type the email address for the guest user. Optionally, include a welcome message.
    
-   ![Screenshot showing the Add members window for adding a guest](media/add-users-iw/access-panel-invitation.png)
+:::image type="content" source="media/add-users-iw/access-panel-invitation.png" alt-text="Screenshot showing the Add members window for adding a guest.":::
    
 7. Select **Add** to automatically send the invitation to the guest user. After you send the invitation, the user account is automatically added to the directory as a guest.
 

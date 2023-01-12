@@ -13,7 +13,7 @@ ms.date: 05/12/2022
 
 In this article you learn how to enable deeper integration of the **NGINX** SaaS service with Azure.
 
-The Cloud-Native Observability Platform of NGINX centralizes log, metric, and tracing analytics in one place. You can more easily monitor the health and performance of your Azure environment, and troubleshoot your services faster.
+NGINX for Azure (preview) delivers secure and high performance applications using familiar and trusted load balancing solutions. Use NGINX for Azure (preview) as a reverse proxy within your Azure environment.
 
 The NGINX for Azure (preview) offering in the Azure Marketplace allows you to manage NGINX in the Azure portal as an integrated service. You can implement NGINX as a monitoring solution for your cloud workloads through a streamlined workflow.
 

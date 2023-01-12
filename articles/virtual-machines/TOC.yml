@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new
+  href: whats-new.md  
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -92,6 +94,8 @@
       href: /dotnet/api/overview/azure/virtualmachines
   - name: Java
     items:
+    - name: Create and manage VMs using Java
+      href: ./windows/java.md
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
@@ -149,7 +153,23 @@
   - name: SQL on Virtual Machines
     href: /azure/azure-sql/virtual-machines/index
   - name: High Performance Computing (HPC)
-    href: /azure/architecture/topics/high-performance-computing/
+    items:
+    - name: HPC on Azure
+      href: /azure/architecture/topics/high-performance-computing/
+    - name: HPC for H-series and N-series VMs
+      href: ./workloads/hpc/overview.md
+    - name: How to set up HPC/AI VMs
+      href: ./workloads/hpc/set-up-hpc-vms.md
+    - name: Configuration
+      items:
+      - name: Configure and optimize VMs
+        href: ./workloads/hpc/configure.md
+      - name: Enable InfiniBand
+        href: ./workloads/hpc/enable-infiniband.md
+      - name: Set up MPI
+        href: ./workloads/hpc/setup-mpi.md 
+    - name: Scaling applications
+      href: ./workloads/hpc/compiling-scaling-applications.md  
 - name: Instances
   items:
   - name: Sizes
@@ -327,19 +347,47 @@
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
       - name: H-series
-        href: h-series.md
+        items: 
+        - name: H-series
+          href: h-series.md
+        - name: H-series retirement
+          href: h-series-retirement.md
       - name: HB-series
         href: hb-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hb-series-overview.md
+        - name: Performance
+          href: ./workloads/hpc/hb-series-performance.md  
+        - name: HB-series retirement
+          href: hb-series-retirement.md
       - name: HBv2-series
         href: hbv2-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hbv2-series-overview.md
+        - name: Performance
+          href: ./workloads/hpc/hbv2-performance.md
       - name: HBv3-series
-        href: hbv3-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hbv3-series-overview.md
+        - name: HBv3-series
+          href: hbv3-series.md
+        - name: Performance
+          href: ./workloads/hpc/hbv3-performance.md
+      - name: HBv4-series
+        href: hbv4-series.md
       - name: HC-series
-        href: hc-series.md
-      - name: H-series retirement
-        href: h-series-retirement.md
-      - name: HB-series retirement
-        href: hb-series-retirement.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hc-series-overview.md
+        - name: HC-series
+          href: hc-series.md
+        - name: Performance
+          href: ./workloads/hpc/hc-series-performance.md
+      - name: HX-series
+        href: hx-series.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -453,8 +501,8 @@
       - name: Windows client images
         displayName: Windows, Client, find
         href: ./windows/client-images.md
-      - name: Windows 10 images
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows, find
+      - name: Windows 11 images
+        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows 11, find
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Linux custom images
       items:
@@ -674,6 +722,8 @@
     - name: ARM template
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
       href: ./linux/spot-template.md
+    - name: Spot Priority Mix (preview)
+      href: ../virtual-machine-scale-sets/spot-priority-mix.md?toc=/azure/virtual-machines/toc.json
     - name: VM size recommendation 
       href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md?toc=/azure/virtual-machines/toc.json
     - name: Error codes
@@ -813,7 +863,7 @@
     - name: Windows
       displayName: Time sync
       href: ./windows/time-sync.md
-    - name: Active Directory Windows Virtual Machines in Azure with External NTP Source
+    - name: Time mechanism for Active Directory Windows Virtual Machines in Azure
       displayName: Active Directory, Timesync, Windows, NTP
       href: ./windows/external-ntpsource-configuration.md
   - name: Run Command
@@ -1118,8 +1168,8 @@
         - name: CLI
           href: linux/disks-enable-customer-managed-keys-cli.md
           displayname: Server side encryption, encryption, ADE
-      - name: Enable cross-tenant customer-managed keys
-        href: disks-cross-tenant-cmk.md
+      - name: Use customer-managed keys across Azure AD tenants
+        href: disks-cross-tenant-customer-managed-keys.md
         displayname: Server side encryption, encryption, ADE
       - name: Enable encryption at host
         items:
@@ -1438,17 +1488,17 @@
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
       - name: Copy a snapshot to the same or different subscription
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
       - name: Export a managed disk as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
       - name: Create a snapshot from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
 - name: Networking
   items:
   - name: Overview
@@ -1717,6 +1767,8 @@
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
+  - name: Update management center (preview)
+    href: ../update-center/index.yml
   - name: Maintenance
     items:
     - name: Overview

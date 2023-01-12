@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 09/13/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,6 +52,9 @@ If the required controls of a policy weren't previously satisfied, the policy is
 - Sign-in risk
 - User risk
 - Country location (resolving new IP or GPS coordinates)
+- Authentication strengths
+
+When active, the Backup Authentication Service doesn't evaluate authentication methods required by [authentication strengths](../authentication/concept-authentication-strengths.md). If you used a non-phishing-resistant authentication method before an outage, during an outage you aren't be prompted for multifactor authentication even if accessing a resource protected by a Conditional Access policy with a phishing-resistant authentication strength.
 
 ## Resilience defaults enabled
 

@@ -7,18 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 01/04/2023
 ms.author: lajanuar
-keywords: on-premises, Docker, container, identify
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 
-# Install and run Form Recognizer v2.1-preview containers
+# Install and run Form Recognizer v2.1 containers
 
-> [!IMPORTANT]
->
-> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. For more information, *see* [**Request approval to run container**](#request-approval-to-run-the-container) below.
->
-> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents. The results are delivered as structured data that includes the relationships in the original file.
 
@@ -35,20 +32,12 @@ You'll also need the following to use Form Recognizer containers:
 | **Familiarity with Docker** | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology). |
 | **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
 |**Form Recognizer resource** | A [**single-service Azure Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. To use the containers, you must have the associated key and endpoint URI. Both values are available on the Azure portal Form Recognizer **Keys and Endpoint** page: <ul><li>**{FORM_RECOGNIZER_KEY}**: one of the two available resource keys.<li>**{FORM_RECOGNIZER_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></li></ul>|
-| **Computer Vision API resource** | **To process business cards, ID documents, or Receipts, you'll need a Computer Vision resource.** <ul><li>You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). The usual [billing](#billing) fees apply.</li> <li>If you use the **cognitive-services-recognize-text** container, make sure that your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`). If you use both the Computer Vision container and Form Recognizer container together on the same host, they can't both be started with the default port of *5000*. </li></ul></br>Pass in both the key and endpoints for your Computer Vision Azure cloud or Cognitive Services container:<ul><li>**{COMPUTER_VISION_KEY}**: one of the two available resource keys.</li><li> **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></ul> |
+| **Computer Vision API resource** | **To process business cards, ID documents, or Receipts, you'll need a Computer Vision resource.** <ul><li>You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image). The usual [billing](#billing) fees apply.</li> <li>If you use the **cognitive-services-recognize-text** container, make sure that your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`). If you use both the Computer Vision container and Form Recognizer container together on the same host, they can't both be started with the default port of *5000*. </li></ul></br>Pass in both the key and endpoints for your Computer Vision Azure cloud or Cognitive Services container:<ul><li>**{COMPUTER_VISION_KEY}**: one of the two available resource keys.</li><li> **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></ul> |
 
 |Optional|Purpose|
 |---------|----------|
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 |||
-
-## Request approval to run the container
-
-Complete and submit the [Application for Gated Services form](https://aka.ms/csgate)  to request approval to run the container.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision within 10 business days.
-
-On the form, you must use an email address associated with an Azure subscription ID. The Azure resource you use to run the container must have been created with the approved Azure subscription ID. Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft. After you're approved, you'll be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
 
 ## Host computer requirements
 
@@ -83,12 +72,12 @@ The following table lists the supporting container(s) for each Form Recognizer c
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1-preview | 8 cores, 16-GB memory | 8 cores, 24-GB memory |
-| Business Card 2.1-preview | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
-| ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
-| Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
-| Receipt 2.1-preview |  4 cores, 8-GB memory | 8 cores, 8-GB memory  |
+| Read 3.2 | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+| Layout 2.1 | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| Business Card 2.1 | `2` cores, 4-GB memory | `4` cores, 4-GB memory |
+| ID Document 2.1 | `1` core, 2-GB memory |`2` cores, 2-GB memory |
+| Invoice 2.1 | `4` cores, 8-GB memory | `8` cores, 8-GB memory |
+| Receipt 2.1 |  `4` cores, 8-GB memory | `8` cores, 8-GB memory  |
 
 ##### Custom containers
 
@@ -96,8 +85,8 @@ The following host machine requirements are applicable to **train and analyze** 
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
-|Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
+| Custom API| 0.5 cores, 0.5-GB memory| `1` core, 1-GB memory |
+|Custom Supervised | `4` cores, 2-GB memory | `8` cores, 4-GB memory|
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
@@ -257,7 +246,6 @@ services:
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
-    user: root
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
@@ -323,7 +311,7 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you'll need 
 ####  &bullet; Create a folder to store the following files:
 
   1. [**.env**](#-create-an-environment-file)
-  1. [**nginx.conf**](#-create-a-nginx-file)
+  1. [**nginx.conf**](#-create-an-nginx-file)
   1. [**docker-compose.yml**](#-create-a-docker-compose-file)
 
 #### &bullet; Create a folder to store your input data
@@ -354,7 +342,7 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you'll need 
   NGINX_CONF_FILE="<file-path>"
   ```
 
-#### &bullet; Create a **nginx** file
+#### &bullet; Create an **nginx** file
 
   1. Name this file **nginx.conf**.
 
@@ -621,4 +609,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) 
+* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md)
+
+* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)

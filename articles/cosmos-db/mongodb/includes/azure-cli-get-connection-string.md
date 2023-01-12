@@ -1,15 +1,16 @@
 ---
 author: diberry
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 10/31/2022
 ms.author: diberry
 ---
-1. Find the MongoDB API **connection string** from the list of connection strings for the account with the [``az cosmosdb list-connection-strings``](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) command.
+1. Find the API for MongoDB **connection string** from the list of connection strings for the account with the [``az cosmosdb keys list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
-    az cosmosdb list-connection-strings \
+    az cosmosdb keys list --type connection-strings \
         --resource-group $resourceGroupName \
         --name $accountName 
     ```

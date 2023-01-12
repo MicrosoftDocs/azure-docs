@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/21/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ---
 
@@ -19,7 +19,7 @@ ms.author: aahi
 
     |Instance detail  |Required value  |
     |---------|---------|
-    |Region | One of the [supported regions](../service-limits.md#regional-support).          |
+    |Region | One of the [supported regions](../service-limits.md#regional-availability).          |
     |Name| A name for your Language resource. |
     |Pricing tier     | One of the [supported pricing tiers](../service-limits.md#language-resource-limits).        |
 

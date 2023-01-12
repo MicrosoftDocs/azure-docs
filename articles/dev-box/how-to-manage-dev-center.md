@@ -1,16 +1,16 @@
 ---
 title: How to manage a dev center
-titleSuffix: Microsoft Dev Box
-description: This article describes how to create, delete, and manage Microsoft Dev Box dev centers.
+titleSuffix: Microsoft Dev Box Preview
+description: This article describes how to create, delete, and manage Microsoft Dev Box Preview dev centers.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 08/18/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
-<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation. -->
+<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box Preview implementation. -->
 
 # Manage a dev center
 Development teams vary in the way they function and may have different needs. A dev center helps you to manage these different scenarios by enabling you to group similar sets of projects together and apply similar settings.
@@ -48,7 +48,7 @@ The following steps show you how to create a dev center.
  
    :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot showing the Create dev center Basics tab."::: 
        
-   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box](https://aka.ms/devbox_acom).
+   The currently supported Azure locations with capacity are listed here: [Microsoft Dev Box Preview](https://aka.ms/devbox_acom).
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-tags.png" alt-text="Screenshot showing the Create dev center Tags tab."::: 

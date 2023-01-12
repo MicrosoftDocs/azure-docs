@@ -94,8 +94,8 @@ You need an Azure Media Services account. You can create one for free through [C
 
 If you're new to Azure Video Indexer, see:
 
-* [Azure Video Indexer documentation](./index.yml)
-* [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/)
+* [The Azure Video Indexer documentation](./index.yml)
+* [The Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/)
 
 After you complete this tutorial, head to other Azure Video Indexer samples described in [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md).
 

@@ -47,7 +47,7 @@ auto ticks_per_second = 10000000;
 To call the Speech service by using the Speech SDK, create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) class. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
 ```cpp
 shared_ptr<SpeechConfig> GetSpeechConfig()

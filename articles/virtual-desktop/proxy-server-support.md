@@ -61,13 +61,6 @@ Azure Virtual Desktop components on the session host run in the context of their
 
 Proxy servers have capacity limits. Unlike regular HTTP traffic, RDP traffic has long running, chatty connections that are bi-directional and consume lots of bandwidth. Before you set up a proxy server, talk to your proxy server vendor about how much throughput your server has. Also make sure to ask them how many proxy sessions you can run at one time. After you deploy the proxy server, carefully monitor its resource use for bottlenecks in Azure Virtual Desktop traffic.
 
-### Proxy servers for Windows 7 session hosts
-
-Session hosts running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the session host can't directly connect to the Azure Virtual Desktop gateways, the connection won't work.
-
-> [!IMPORTANT]
-> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
-
 ### Proxy servers and  Teams optimization
 
 Azure Virtual Desktop doesn't support proxy servers for Teams optimization.
@@ -96,10 +89,6 @@ bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://server/proxy.pac
 
 The Azure Virtual Desktop client supports proxy servers configured with system settings or a [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp).
 
-### Support for clients running on Windows 7
-
-Clients running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the client can't directly connect to the Azure Virtual Desktop gateways, the connection won't work.
-
 ### Azure Virtual Desktop client support
 
 The following table shows which Azure Virtual Desktop clients support proxy servers:
@@ -113,7 +102,7 @@ The following table shows which Azure Virtual Desktop clients support proxy serv
 | macOS | Yes |
 | Windows Store | Yes |
 
-For more information about proxy support on Linux based thin clients, see [Thin client support](./user-documentation/linux-overview.md).
+For more information about proxy support on Linux based thin clients, see [Thin client support](users/connect-thin-clients.md).
 
 ## Support limitations
 

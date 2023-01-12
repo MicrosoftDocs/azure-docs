@@ -60,6 +60,6 @@ keywords: text to speech
 
 ## Next steps
 
+* [Try the text-to-speech quickstart](get-started-text-to-speech.md)
 * [Get started with Custom Neural Voice](how-to-custom-voice.md)
 * [Improve synthesis with SSML](speech-synthesis-markup.md)
-* [Synthesize from long-form text](long-audio-api.md) like books and news articles

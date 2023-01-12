@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Collect resource logs from an Azure resource
-description: Tutorial to configure diagnostic settings to send resource logs from an Azure resource io a Log Analytics workspace where they can be analyzed with a log query.
-ms.topic: tutorial
+title: Collect resource logs from an Azure resource
+description: Learn how to configure diagnostic settings to send resource logs from an Azure resource io a Log Analytics workspace where they can be analyzed with a log query.
+ms.topic: article
 author: bwren
 ms.author: bwren
 ms.date: 11/08/2021
 ms.reviewer: lualderm
 ---
 
-# Tutorial: Collect and analyze resource logs from an Azure resource
+# Collect and analyze resource logs from an Azure resource
 Resource logs provide insight into the detailed operation of an Azure resource and are useful for monitoring their health and availability. Azure resources generate resource logs automatically, but you must create a diagnostic setting to collect them. This tutorial takes you through the process of creating a diagnostic setting to send resource logs to a Log Analytics workspace where you can analyze them with log queries.
 
 In this tutorial, you learn how to:
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you need the following: 
+To complete the steps in this tutorial, you need the following: 
 
 - An Azure resource to monitor. You can use any resource in your Azure subscription that supports diagnostic settings. To determine whether a resource supports diagnostic settings, go to its menu in the Azure portal and verify that there's a **Diagnostic settings** option in the **Monitoring** section of the menu.
 

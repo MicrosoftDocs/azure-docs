@@ -2,7 +2,9 @@
 title: Transfer artifacts
 description: Overview of ACR Transfer and prerequisites
 ms.topic: article
-ms.date: 11/18/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom:
 ---
 

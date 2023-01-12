@@ -109,7 +109,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 
 ## Arguments
 
-You have two choices for input files that contain the target data for querying. Valid values are:
+You have three choices for input files that contain the target data for querying. Valid values are:
 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
@@ -484,7 +484,7 @@ FROM
     OPENROWSET(
         BULK (
             'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
-            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet'
         ),
         FORMAT='PARQUET'
     )

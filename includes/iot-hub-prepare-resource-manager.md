@@ -10,7 +10,7 @@ You must authenticate all the operations that you perform on resources using the
 
 Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you continue.
 
-The following steps show how to set up authentication for your app to register with Azure Active Directory. You can run these commands in a standard PowerShell session. Registering with Azure Active Directory is necessary to authenticate any future REST calls. For more information, see [How and why applications are added to Azure AD](/azure/active-directory/develop/active-directory-how-applications-are-added).
+The following steps show how to set up authentication for your app to register with Azure Active Directory. You can run these commands in a standard PowerShell session. Registering with Azure Active Directory is necessary to authenticate any future REST calls. For more information, see [How and why applications are added to Azure AD](../articles/active-directory/develop/active-directory-how-applications-are-added.md).
 
 1. Sign in to your Azure subscription using the following command. If you're using PowerShell in Azure Cloud Shell you're already signed in, so you can skip this step.
 
@@ -37,7 +37,7 @@ The following steps show how to set up authentication for your app to register w
 1. Create a new Azure Active Directory application using the following command, replacing these placeholders with your own values:
    
    * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](/azure/active-directory/develop/reference-app-manifest#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (`your-Id` can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
+   * **{Application identifier}:** A unique identifier such as your primary domain. To find the primary domain associated with your subscription, go to the [Azure portal](https://ms.portal.azure.com/#home) in the **Azure Active Directory** service on its **Overview page** and find **Primary domain**. See the different domain possibilities in the [Azure Active Directory app manifest](../articles/active-directory/develop/reference-app-manifest.md#identifieruris-attribute). Be sure to add `/your-id` at the end of your domain (`your-Id` can be any name), for example, `"https://microsoft.onmicrosoft.com/my-unique-ad-app"`.
 
    :::image type="content" source="/includes/media/iot-hub-prepare-resource-manager/find-domain.png" alt-text="Screenshot showing location of your Primary domain in the Azure portal.":::
      
@@ -55,7 +55,7 @@ The following steps show how to set up authentication for your app to register w
     New-AzRoleAssignment -RoleDefinitionName "Owner" -ApplicationId {MyAppId}
     ```
 
-   To understand roles and permissions, see [Create or update Azure custom roles using Azure PowerShell](/azure/role-based-access-control/custom-roles-powershell).
+   To understand roles and permissions, see [Create or update Azure custom roles using Azure PowerShell](../articles/role-based-access-control/custom-roles-powershell.md).
 
 With your new Azure AD application, you can now authenticate from your custom C# application. 
 

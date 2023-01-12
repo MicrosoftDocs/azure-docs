@@ -2,19 +2,14 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 04/12/2022
+ms.date: 10/12/2022
 ms.author: larryfr
 ---
 
-When using Azure Machine Learning __compute instance__ (with a public IP) or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. Compute instance with no public IP (preview) does not require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
-
 > [!IMPORTANT]
-> Using service tags with user-defined routes is now GA. For more information, see [Virtual Network routing](../articles/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
+> A compute instance or compute cluster without a public IP (a preview feature) does not need inbound traffic from Azure Batch management and Azure Machine Learning services. However, if you have multiple computes and some of them use a public IP address, you will need to allow this traffic.
 
-
-> [!TIP]
-> While a compute instance without a public IP (a preview feature) does not need a UDR for this inbound traffic, you will still need these UDRs if you also use a compute cluster or a compute instance with a public IP.
-
+When using Azure Machine Learning __compute instance__ or __compute cluster__ (_with a public IP address_), allow inbound traffic from Azure Batch management and Azure Machine Learning services. A compute instance or compute cluster _with no public IP_ (preview) __doesn't__ require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
 
 # [IP Address routes](#tab/ipaddress)
 

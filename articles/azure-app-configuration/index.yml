@@ -152,6 +152,8 @@ landingContent:
           url: /dotnet/api/microsoft.featuremanagement
         - text: .NET Core filter library
           url: /dotnet/api/microsoft.featuremanagement.featurefilters
+        - text: Java Spring Library
+          url: https://azure.github.io/azure-sdk-for-java/springboot.html
 
   - title: Configuration SDKs and samples
     linkLists:

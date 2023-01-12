@@ -7,6 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
+ms.reviewer: lagayhar
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: deploy, studio, designer, event-tier1-build-2022

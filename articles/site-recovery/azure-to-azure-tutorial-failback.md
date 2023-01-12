@@ -4,6 +4,8 @@ description: Tutorial to learn about failing back Azure VMs to a primary region 
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 #Customer intent: As an Azure admin, I want to fail back VMs to the primary region after running a failover to a secondary region.  
 ---
 

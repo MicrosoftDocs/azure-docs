@@ -1,11 +1,13 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+
 ms.service: storage
+ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/03/2022
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -39,7 +41,7 @@ Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data
 
 This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
 
-- You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 or APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
+- You cannot use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you are overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
 
 - When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -63,13 +65,13 @@ The ability to apply ACL changes recursively from parent directory to child item
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs.
+If [anonymous read access](./anonymous-read-access-overview.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs. We recommend requiring authorization for all requests to blob data.
 
 <a id="known-issues-tools"></a>
 
 ## AzCopy
 
-Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
+Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=/azure/storage/tables/toc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
 <a id="storage-explorer"></a>
 
@@ -79,9 +81,9 @@ Use only versions `1.6.0` or higher.
 
 <a id="explorer-in-portal"></a>
 
-## Storage Explorer in the Azure portal
+## Storage browser in the Azure portal
 
-ACLs are not yet supported.
+In the storage browser that appears in the Azure portal, you can't access a file or folder by specifying a path. Instead, you must browse through folders to reach a file.  Therefore, if an ACL grants a user read access to a file but not read access to all folders leading up to the file, that user won't be able to view the file in storage browser.  
 
 <a id="third-party-apps"></a>
 
@@ -89,9 +91,6 @@ ACLs are not yet supported.
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. Applications that call Blob APIs will likely work.
 
-## Storage Analytics logs (classic)
-
-The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ## Windows Azure Storage Blob (WASB) driver
 

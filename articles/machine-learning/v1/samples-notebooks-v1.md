@@ -11,7 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/27/2021
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 #Customer intent: As a professional data scientist, I find and run example Jupyter Notebooks for Azure Machine Learning.
 ---
 
@@ -20,7 +20,7 @@ ms.custom: seodec18
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
 > * [v1](<samples-notebooks-v1.md>)
-> * [v2 (preview)](../samples-notebooks.md)
+> * [v2](../samples-notebooks.md)
 
 The [Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes Azure Machine Learning Python SDK (v1) samples. These Jupyter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.  In this repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 
@@ -33,7 +33,12 @@ This article shows you how to access the repositories from the following environ
 
 ## Option 1: Access on Azure Machine Learning compute instance (recommended)
 
-The easiest way to get started with the samples is to complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.
+The easiest way to get started with the samples is to complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.  
+
+To view example notebooks:
+    1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.
+    1. Select **Notebooks**.
+    1. Select the **Samples** tab. Use the **SDK v1** folder for examples using Python SDK v1.
 
 ## Option 2: Access on your own notebook server
 
@@ -56,4 +61,3 @@ Explore the [MachineLearningNotebooks](https://github.com/Azure/MachineLearningN
 For more GitHub sample projects and examples, see these repos:
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
-

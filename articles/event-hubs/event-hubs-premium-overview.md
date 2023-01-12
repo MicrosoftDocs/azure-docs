@@ -51,8 +51,8 @@ Azure Event Hubs provides encryption of data at rest with Azure Storage Service 
 The premium tier offers all the features of the standard plan, but with better performance, isolation and more generous quotas. 
 For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
-## High availability with Azure Availability Zones 
-Event Hubs premium offers [availability zones](../availability-zones/az-overview.md#availability-zones) support with no extra cost. Using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures. 
+## High availability with availability zones 
+Event Hubs standard, premium, and dedicated tiers offer [availability zones](../availability-zones/az-overview.md#availability-zones) support with no extra cost. Using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures. 
 
 > [!IMPORTANT] 
 > Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
