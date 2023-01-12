@@ -121,13 +121,18 @@ This table lists the tools to use to collect data from various resource types.
 
 # 5. Test and operationalize
 
-1. Query your data using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
-1. [Optimize query performance](../logs/query-optimization.md). 
+Now that you've set up Azure Monitor, to test and operationalize your Azure Monitor deployment:
 
+1. Query your data using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md) and [optimize query performance](../logs/query-optimization.md), as necessary.
+1. Check that features, such as alerts and dashboards, are working as expected.
+1. Verify that users have the correct permissions to access data and perform activities, as needed. 
+1. For a short period, you might want to run both your Azure Monitor and Splunk deployments in parallel. Use the [Log ingestion API](../logs/logs-ingestion-api-overview.md) to ingest data from Splunk. Use [Log Analytics workspace data export](../logs/logs-data-export.md) to export data out of Azure Monitor.  
+1. [Define Azure policies](/azure/governance/policy/overview) to enforce organizational standards and to assess compliance at-scale.
+
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/migrate-from-splunk-to-azure-monitor-full-deployment.png" alt-text="Diagram that shows the full deployment of Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/migrate-from-splunk-to-azure-monitor-full-deployment.png":::
 ## Next steps
 
 - Learn more about using [Log Analytics](../logs/log-analytics-overview.md) and the [Log Analytics Query API](../logs/api/overview.md).
-- [Use Azure policies](/azure/governance/policy/overview) to define rules to enforce organizational standards and to assess compliance at-scale.
 - Take the [Analyze logs in Azure Monitor with KQL training module](/training/modules/analyze-logs-with-kql/).
 
 
