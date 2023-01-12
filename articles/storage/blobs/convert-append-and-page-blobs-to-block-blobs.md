@@ -1,7 +1,7 @@
 ---
-title: Convert append and page blobs to block blobs (Azure Storage)
+title: Convert append and page blobs into block blobs (Azure Storage)
 titleSuffix: Azure Storage
-description: Learn how to convert an append blob or a page blob to a block blob in Azure Blob Storage.
+description: Learn how to convert an append blob or a page blob into a block blob in Azure Blob Storage.
 author: normesta
 
 ms.service: storage
@@ -14,13 +14,11 @@ ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Convert append blobs and page blobs to block blobs
+# Convert append blobs and page blobs into block blobs
 
-Explain that you don't actually convert them, you copy them to new blobs of type block blob.
+To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or AzCopy. You'll use command parameters to ensure that the destination blob is a block blob. 
 
 ## Convert append and page blobs
-
-Convert append and page blobs to block blobs by using PowerShell, Azure CLI, and AzCopy.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -47,7 +45,7 @@ Convert append and page blobs to block blobs by using PowerShell, Azure CLI, and
    $ctx = New-AzStorageContext -StorageAccountName '<storage account name>' -UseConnectedAccount
    ```
 
-5. Use the [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command. Replace the placeholder values in brackets with your own values.
+5. Use the [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command and set the `-DestBlobType` parameter to `Block`.
 
    ```powershell
    $containerName = '<source container name>'
@@ -78,7 +76,7 @@ Convert append and page blobs to block blobs by using PowerShell, Azure CLI, and
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Use the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command. Then, use the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Replace the placeholder values in brackets with your own values.
+3. Use the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and set the `--destination-blob-type` parameter to `blockBlob`. 
 
    ```azurecli
    containerName = '<source container name>'
@@ -96,7 +94,7 @@ Convert append and page blobs to block blobs by using PowerShell, Azure CLI, and
 
 ### [AzCopy](#tab/azcopy)
 
-Use the [azcopy copy](../common/storage-ref-azcopy-copy.md) command. Specify the source and destination paths. Set the `blob-type` parameter to `BlockBlob`. Replace the placeholder values in brackets with your own values.
+Use the [azcopy copy](../common/storage-ref-azcopy-copy.md) command. Specify the source and destination paths. Set the `blob-type` parameter to `BlockBlob`.
 
 ```azcopy
 azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<append-or-page-blob-name>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<name-of-new-block-blob>' --blob-type BlockBlob --block-blob-tier <destination-tier>
@@ -111,4 +109,4 @@ azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<cont
 
 - [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
 - [Set a blob's access tier](access-tiers-online-manage.md)
-- [Best practices for using blob access tiers](access-tiers-baset-practices.md)
+- [Best practices for using blob access tiers](access-tiers-best-practices.md)
