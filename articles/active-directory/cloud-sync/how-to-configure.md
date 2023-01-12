@@ -67,6 +67,9 @@ You can scope the agent to synchronize specific users and groups by using on-pre
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  For more information, see [attribute mapping](how-to-attribute-mapping.md).
 
+## Directory extensions and custom attribute mapping.
+Azure AD Connect cloud sync allows you to extend the directory with extensions and provides for custom attribute mapping.  For more information see [Directory extensions and custom attribute mapping](custom-attribute-mapping.md).
+
 ## On-demand provisioning
 Azure AD Connect cloud sync allows you to test configuration changes, by applying these changes to a single user or group.  You can use this to validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  For more information, see [on-demand provisioning](how-to-on-demand-provision.md).
 
