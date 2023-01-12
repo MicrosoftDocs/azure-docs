@@ -1,7 +1,7 @@
 ---
 
-title: Leave an organization - Azure Active Directory
-titleSuffix: Azure External Identities
+title: Leave an organization as a guest user
+titleSuffix: Azure Active Directory External Identities
 description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
