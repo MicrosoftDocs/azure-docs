@@ -54,13 +54,21 @@ In this tutorial, you learn how to:
 
 6. In **Outbound IP** in **Public IP addresses**, select **Create a new public IP address**.
 
-7. Enter **myPublicIP-NAT-1** in **Name**.
+7. Enter **myPublicIP-NAT** in **Name**.
 
 8. Select **OK**.
 
 9. Select **Review + create**. 
 
 10. Select **Create**.
+
+### Obtain NAT gateway public IP address
+
+1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
+
+2. Select **myPublic-NAT**.
+
+3. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
 
 ## Create hub virtual network
 
@@ -348,22 +356,465 @@ sudo reboot
 
 15. Select **OK**.
 
-## Create first spoke virtual network
+## Create spoke 1 virtual network
 
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
+2. Select **+ Create**.
 
+3. In the **Basics** tab of **Create virtual network**, enter or select the following information:
 
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | **Instance details** |   |
+    | Name | Enter **myVNet-Spoke-1**. |
+    | Region | Select **East US 2**. |
 
+4. Select **Next: IP Addresses**.
 
+5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
 
+6. In **IPv4 address space** enter **10.2.0.0/16**.
+
+7. Select **+ Add subnet**.
+
+8. In **Add subnet** enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet name | Enter **subnet-private**. |
+    | Subnet address range | Enter **10.2.0.0/24**. |
+
+9. Select **Add**.
+
+10. Select **+ Add subnet**.
+
+11. Select **Review + create**.
+
+12. Select **Create**.
+
+## Create peering between hub and spoke 1
+
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+2. Select **myVNet-Hub**.
+
+3. Select **Peerings** in **Settings.
+
+4. Select **+ Add**.
+
+5. Enter or select the following information in **Add peering**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **This virtual network** |   |
+    | Peering link name | Enter **myVNet-Hub-To-myVNet-Spoke-1**. |
+    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
+    | Virtual network gateway or Route Server | Leave the default of **None**. |
+    | **Remote virtual network** |   |
+    | Peering link name | Enter **myVNet-Spoke-1-To-myVNet-Hub**. |
+    | Virtual network deployment model | Leave the default of **Resource manager**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **myVNet-Spoke-1**. |
+    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
+    | Virtual network gateway or Route Server | Leave the default of **None**. |
+
+6. Select **Add**.
+
+7. Select **Refresh** and verify **Peering status** is **Connected**.
+
+## Create spoke 1 network route table
+
+1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
+
+2. Select **+ Create**.
+
+3. In **Create Route table** enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | **Instance details** |   |
+    | Region | Select **East US 2**. |
+    | Name | Enter **myRouteTable-NAT-Spoke-1**. |
+    | Propagate gateway routes | Leave the default of **Yes**. |
+
+4. Select **Review + create**. 
+
+5. Select **Create**.
+
+6. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
+
+7. Select **myRouteTable-NAT-Spoke-1**.
+
+8. In **Settings** select **Routes**.
+
+9. Select **+ Add** in **Routes**.
+
+10. Enter or select the following information in **Add route**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Route name | Enter **default-via-NAT-Spoke-1**. |
+    | Address prefix destination | Select **IP Addresses**. |
+    | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
+    | Next hop type | Select **Virtual appliance**. |
+    | Next hop address | Enter **10.1.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
+
+11. Select **Add**.
+
+12. Select **Subnets** in **Settings**.
+
+13. Select **+ Associate**.
+
+14. Enter or select the following information in **Associate subnet**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Virtual network | Select **myVNet-Spoke-1 (TutorialNATHubSpoke-rg)**. |
+    | Subnet | Select **subnet-private**. |
+
+15. Select **OK**.
+
+## Create spoke 1 test virtual machine
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **+ Create** then **Azure virtual machine**.
+
+3. In **Create a virtual machine** enter or select the following information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVM-Spoke-1**. |
+    | Region | Select **(US) East US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Authentication type | Select **Password**. |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Re-enter password. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+4. Select **Next: Disks** then **Next: Networking**.
+
+5. In the **Networking** tab enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Select **myVNet-Spoke-1**. |
+    | Subnet | Select **subnet-private (10.2.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Basic**. |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **HTTP (80)**. </br> Select **RDP (3389)**. |
+
+6. Leave the rest of the options at the defaults and select **Review + create**.
+
+7. Select **Create**.
+
+## Create spoke 2 virtual network
+
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+2. Select **+ Create**.
+
+3. In the **Basics** tab of **Create virtual network**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | **Instance details** |   |
+    | Name | Enter **myVNet-Spoke-2**. |
+    | Region | Select **West US 2**. |
+
+4. Select **Next: IP Addresses**.
+
+5. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+
+6. In **IPv4 address space** enter **10.3.0.0/16**.
+
+7. Select **+ Add subnet**.
+
+8. In **Add subnet** enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet name | Enter **subnet-private**. |
+    | Subnet address range | Enter **10.3.0.0/24**. |
+
+9. Select **Add**.
+
+10. Select **+ Add subnet**.
+
+11. Select **Review + create**.
+
+12. Select **Create**.
+
+## Create peering between hub and spoke 2
+
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+2. Select **myVNet-Hub**.
+
+3. Select **Peerings** in **Settings.
+
+4. Select **+ Add**.
+
+5. Enter or select the following information in **Add peering**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **This virtual network** |   |
+    | Peering link name | Enter **myVNet-Hub-To-myVNet-Spoke-2**. |
+    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
+    | Virtual network gateway or Route Server | Leave the default of **None**. |
+    | **Remote virtual network** |   |
+    | Peering link name | Enter **myVNet-Spoke-2-To-myVNet-Hub**. |
+    | Virtual network deployment model | Leave the default of **Resource manager**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **myVNet-Spoke-2**. |
+    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
+    | Virtual network gateway or Route Server | Leave the default of **None**. |
+
+6. Select **Add**.
+
+7. Select **Refresh** and verify **Peering status** is **Connected**.
+
+## Create spoke 2 network route table
+
+1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
+
+2. Select **+ Create**.
+
+3. In **Create Route table** enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | **Instance details** |   |
+    | Region | Select **West US 2**. |
+    | Name | Enter **myRouteTable-NAT-Spoke-2**. |
+    | Propagate gateway routes | Leave the default of **Yes**. |
+
+4. Select **Review + create**. 
+
+5. Select **Create**.
+
+6. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
+
+7. Select **myRouteTable-NAT-Spoke-2**.
+
+8. In **Settings** select **Routes**.
+
+9. Select **+ Add** in **Routes**.
+
+10. Enter or select the following information in **Add route**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Route name | Enter **default-via-NAT-Spoke-2**. |
+    | Address prefix destination | Select **IP Addresses**. |
+    | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
+    | Next hop type | Select **Virtual appliance**. |
+    | Next hop address | Enter **10.1.0.10**. </br> **_This is the IP address you added to the private interface of the NVA in the previous steps._**. |
+
+11. Select **Add**.
+
+12. Select **Subnets** in **Settings**.
+
+13. Select **+ Associate**.
+
+14. Enter or select the following information in **Associate subnet**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Virtual network | Select **myVNet-Spoke-2 (TutorialNATHubSpoke-rg)**. |
+    | Subnet | Select **subnet-private**. |
+
+15. Select **OK**.
+
+## Create spoke 2 test virtual machine
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **+ Create** then **Azure virtual machine**.
+
+3. In **Create a virtual machine** enter or select the following information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorialNATHubSpoke-rg**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVM-Spoke-2**. |
+    | Region | Select **(US) West US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Authentication type | Select **Password**. |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Re-enter password. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+4. Select **Next: Disks** then **Next: Networking**.
+
+5. In the **Networking** tab enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Select **myVNet-Spoke-2**. |
+    | Subnet | Select **subnet-private (10.3.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Basic**. |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **HTTP (80)**. </br> Select **RDP (3389)**. |
+
+6. Leave the rest of the options at the defaults and select **Review + create**.
+
+7. Select **Create**.
+
+## Test outbound via NAT gateway
+
+### Obtain NAT gateway public IP address
+
+1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
+
+2. Select **myPublic-NAT**.
+
+3. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
+
+### Test NAT gateway from spoke 1
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **myVM-Spoke-1**.
+
+3. Select **Connect** then **Bastion**.
+
+4. Enter the username and password you entered when the virtual machine was created.
+
+5. Select **Connect**.
+
+6. Open **Microsoft Edge** when the desktop finishes loading.
+
+7. In the address bar enter **https://whatsmyip.com**.
+
+8. Verify the outbound IP address displayed is the same as the IP of the NAT gateway you obtained previously.
+
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/outbound-ip-address.png" alt-text="Screenshot of outbound IP address.":::
+
+9. Open **Windows PowerShell**.
+
+10. Use the following example to install IIS. IIS will be used later to test inter-spoke routing.
+
+```powershell
+Install-WindowsFeature Web-Server
+```
+
+11. Leave the bastion connection open to **myVM-Spoke-1**.
+
+### Test NAT gateway from spoke 2
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **myVM-Spoke-2**.
+
+3. Select **Connect** then **Bastion**.
+
+4. Enter the username and password you entered when the virtual machine was created.
+
+5. Select **Connect**.
+
+6. Open **Microsoft Edge** when the desktop finishes loading.
+
+7. In the address bar enter **https://whatsmyip.com**.
+
+8. Verify the outbound IP address displayed is the same as the IP of the NAT gateway you obtained previously.
+
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/outbound-ip-address.png" alt-text="Screenshot of outbound IP address.":::
+
+9. Open **Windows PowerShell**.
+
+10. Use the following example to install IIS. IIS will be used later to test inter-spoke routing.
+
+```powershell
+Install-WindowsFeature Web-Server
+```
+
+11. Leave the bastion connection open to **myVM-Spoke-2**.
+
+### Test routing from spoke 1 to spoke 2
+
+1. Return to the open bastion connection to **myVM-Spoke-1**.
+
+2. Open **Microsoft Edge** if it's not open.
+
+3. In the address bar enter **10.3.0.4**.
+
+4. Verify the default IIS page is displayed from **myVM-Spoke-2**.
+
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-myvm-spoke-1.png" alt-text="Screenshot of default IIS page on myVM-Spoke-1.":::
+
+5. Close the bastion connection to **myVM-Spoke-1**.
+
+### Test routing from spoke 2 to spoke 1
+
+1. Return to the open bastion connection to **myVM-Spoke-2**.
+
+2. Open **Microsoft Edge** if it's not open.
+
+3. In the address bar enter **10.2.0.4**.
+
+4. Verify the default IIS page is displayed from **myVM-Spoke-1**.
+
+    :::image type="content" source="./media/tutorial-hub-spoke-route-nat/iis-myvm-spoke-2.png" alt-text="Screenshot of default IIS page on myVM-Spoke-2.":::
+
+5. Close the bastion connection to **myVM-Spoke-1**.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+If you're not going to continue to use this application, delete the created resources with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+
+2. Select **myResourceGroup**.
+
+3. In the **Overview** of **myResourceGroup**, select **Delete resource group**.
+
+4. In **TYPE THE RESOURCE GROUP NAME:**, enter **TutorialNATHubSpoke-rg**.
+
+5. Select **Delete**.
 
 ## Next steps
 
