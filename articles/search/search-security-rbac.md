@@ -216,32 +216,30 @@ When testing roles, remember that roles are cumulative and inherited roles that 
 
 ### [**REST API**](#tab/test-rest)
 
-This approach assumes Postman as the REST client and uses a Postman collection and variables to provided the bearer token. You'll need Azure CLI or another tool to create a security principal for the REST client.
+This approach assumes Postman as the REST client and uses a Postman collection and variables to provide the bearer token. You'll need Azure CLI or another tool to create a security principal for the REST client.
 
-1. Open a command shell for Azure CLI. If you don't have Azure CLI installed, you can open [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#1-create-a-service-principal), select **Try It**. 
-
-1. Sign in to your Azure subscription.
+1. Open a command shell for Azure CLI and sign in to your Azure subscription.
 
    ```azurecli
    az login
    ```
 
-1. First, get your subscription ID. In the console, enter the following command:
+1. Get your subscription ID. You'll provide this value as variable in a future step.
 
    ```azurecli
    az account show --query id -o tsv
    ````
 
-1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region.
+1. Create a resource group for your security principal, specifying a location and name. This example uses the West US region. You'll provide this value as variable in a future step.
 
    ```azurecli
    az group create -l westus -n MyResourceGroup
    ```
 
-1. Create the service principal, replacing the placeholder values with valid values. You'll need a descriptive security principal name, subscription ID, resource group name. This example uses the "Search Service Contributor" (quote enclosed) role.
+1. Create the service principal, replacing the placeholder values with valid values. You'll need a descriptive security principal name, subscription ID, and resource group name. This example uses the "Search Index Data Reader" (quote enclosed) role.
 
     ```azurecli
-    az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Service Contributor" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
+    az ad sp create-for-rbac --name mySecurityPrincipalName --role "Search Index Data Reader" --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
     ```
 
    A successful response includes "appId", "password", and "tenant". You'll use these values for the variables "clientId", "clientSecret", and "tenant".
