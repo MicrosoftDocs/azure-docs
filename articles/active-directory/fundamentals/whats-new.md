@@ -83,20 +83,6 @@ In this Public Preview refresh, we have enhanced the user experience with an upd
 
 For more information, see: [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md).
 
-
----
-
-### Public Preview - Enabling customization capabilities for the conditional error messages in Company Branding.
-
-
-
-**Type:** New feature   
-**Service category:** Other             
-**Product capability:** End User Experiences    
-
-Updates to the Company Branding functionality on the Azure AD/Microsoft 365 login experience, to allow customizing conditional access (CA) error messages. For more information, see: [Company Branding](../fundamentals/customize-branding.md).
-
-
 ---
 
 ### Public Preview - Admins can restrict their users from creating tenants
@@ -557,18 +543,6 @@ For more information, see:
 **Product capability:** Identity Security & Protection  
 
 Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multi-factor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services, and to remain in a supported state, organizations should migrate their users’ authentication data to the cloud-based Azure AD Multi-Factor Authentication service using the latest Migration Utility included in the most recent Azure AD Multi-Factor Authentication Server update. For more information, see: [Migrate from MFA Server to Azure AD Multi-Factor Authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md).
-
----
-
-### General Availability - Change of Default User Consent Settings
-
-
-
-**Type:** New feature  
-**Service category:** Enterprise Apps     
-**Product capability:** Developer Experience  
-
-Starting Sept 30th, 2022, Microsoft will require all new tenants to follow a new user consent configuration. While this won't impact any existing tenants that were created before September 30, 2022, all new tenants created after September 30, 2022, will have the default setting of “Enable automatic updates (Recommendation)” under User consent settings. This change reduces the risk of malicious applications attempting to trick users into granting them access to your organization's data. For more information, see: [Configure how users consent to applications](../manage-apps/configure-user-consent.md).
 
 ---
 
