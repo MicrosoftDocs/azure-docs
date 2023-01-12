@@ -269,7 +269,7 @@ A deployment is a set of resources required for hosting the model that does the 
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
 
-1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]` which are required by batch ednpoints plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
+1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]` which are required by batch endpoints plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
     
     __mnist/environment/conda.yml__
         
