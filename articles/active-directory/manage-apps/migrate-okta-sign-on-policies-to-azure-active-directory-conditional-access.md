@@ -14,79 +14,95 @@ ms.subservice: app-mgmt
 
 # Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access
 
-In this tutorial, you'll learn how your organization can migrate from global or application-level sign-on policies in Okta to Azure Active Directory (Azure AD) Conditional Access policies to secure user access in Azure AD and connected applications.
+In this tutorial, learn to migrate an an organization from global or application-level sign-on policies in Okta Conditional Access in Azure Active Directory (Azure AD). Conditional Access policies secure user access in Azure AD and connected applications.
 
-This tutorial assumes you have an Office 365 tenant federated to Okta for sign-in and multifactor authentication (MFA). You should also have Azure AD Connect server or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD.
+Learn more: [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
+
+This tutorial assumes you have:
+
+* Office 365 tenant federated to Okta for sign-in and multi-factor authentication.
+* Azure AD Connect server, or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD
 
 ## Prerequisites
 
-When you switch from Okta sign-on to Conditional Access, it's important to understand licensing requirements. Conditional Access requires users to have an Azure AD Premium P1 license assigned before registration for Azure AD Multi-Factor Authentication.
+See the following two section for licensing and credentials prerequisites.
 
-Before you do any of the steps for hybrid Azure AD join, you'll need an enterprise administrator credential in the on-premises forest to configure the service connection point (SCP) record.
+### Licensing
 
-## Catalog current Okta sign-on policies
+There are licensing requirements if you switch from Okta sign-on to Conditional Access. The process requires an Azure AD Premium P1 license to enable registration for Azure AD Multi-Factor Authentication (MFA).
 
-To complete a successful transition to Conditional Access, evaluate the existing Okta sign-on policies to determine use cases and requirements that will be transitioned to Azure AD.
+Learn more: [Assign or remove licenses in the Azure Active Directory portal](/azure/active-directory/fundamentals/license-users-groups)
 
-1. Check the global sign-on policies by going to **Security** > **Authentication** > **Sign On**.
+### Enterprise Administrator credentials
 
-   ![Screenshot that shows global sign-on policies.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies.png)
+To configure the service connection point (SCP) record, ensure you have Enterprise Administrator credentials in the on-premises forest.
 
-   In this example, the global sign-on policy enforces MFA on all sessions outside of our configured network zones.
+## Evaluate Okta sign-on policies for transition
 
-   ![Screenshot that shows global sign-on policies enforcing MFA.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
+Locate and evaluate Okta sign-on policies to determine what will be transitioned to Azure AD.
 
-2. Go to **Applications** and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
+1. In Okta go to **Security** > **Authentication** > **Sign On**.
 
-3. Select **Sign On** and scroll to the bottom of the page.
+    ![Screenshot of Global MFA Sign On Policy entries on the Authentication page.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies.png)
 
-In the following example, the Office 365 application sign-on policy has four separate rules:
+2. Go to **Applications**. 
+3. From the submenu, select **Applications**
+4. From the **Active apps list**, select the Microsft Office 365 connected instance.
 
-- **Enforce MFA for Mobile Sessions**: Requires MFA from every modern authentication or browser session on iOS or Android.
-- **Allow Trusted Windows Devices**: Prevents your trusted Okta devices from being prompted for more verification or factors.
-- **Require MFA from Untrusted Windows Devices**: Requires MFA from every modern authentication or browser session on untrusted Windows devices.
-- **Block Legacy Authentication**: Prevents any legacy authentication clients from connecting to the service.
+    ![Screenshot of settings under Sign On, for Microsoft Office 365.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
 
-  ![Screenshot that shows Office 365 sign-on rules.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
+5. Select **Sign On**.
+6. Scroll to the bottom of the page.
 
-## Configure condition prerequisites
+The Microsft Office 365 application sign-on policy has four rules:
 
-Conditional Access policies can be configured to match Okta's conditions for most scenarios without more configuration.
+- **Enforce MFA for Mobile Sessions** - Requires MFA from modern authentication or browser sessions on iOS or Android
+- **Allow Trusted Windows Devices** - Prevents unnecessary verification or factor prompts for trusted Okta devices
+- **Require MFA from Untrusted Windows Devices** - Requires MFA from modern authentication or browser sessios on untrusted Windows devices
+- **Block Legacy Authentication** - Prevents legacy authentication clients from connecting to the service
 
-In some scenarios, you might need more setup before you configure the Conditional Access policies. The two known scenarios at the time of writing this article are:
+   ![Screenshot of conditions and actions for the four rules, on the Sign On Policy screen.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
 
-- **Okta network locations to named locations in Azure AD**: Follow the instructions in [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md#named-locations) to configure named locations in Azure AD.
-- **Okta device trust to device-based CA**: Conditional Access offers two possible options when you evaluate a user's device:
+## Configure Conditional Access policies
 
-  - [Use hybrid Azure AD join](#hybrid-azure-ad-join-configuration), which is a feature enabled within the Azure AD Connect server that synchronizes Windows current devices, such as Windows 10, Windows Server 2016, and Windows Server 2019, to Azure AD.
-  - [Enroll the device in Endpoint Manager](#configure-device-compliance) and assign a compliance policy.
+Configure Conditional Access policies to match Okta conditions. However, in some scenarios, you might need more setup:
+
+* Okta network locations to named locations in Azure AD
+  *  [Using the location condition in a Conditional Access policy](/articles/active-directory/conditional-access/location-condition.md#named-locations)
+* Okta device trust to device-based Conditional Access (two options to evaluate user devices):
+  * See the following section, **Hybrid Azure AD join configuration** to synchronizes Windows devices, such as Windows 10, Windows Server 2016 and 2019, to Azure AD.
+  * See the following section, **Configure device compliance**
 
 ### Hybrid Azure AD join configuration
 
-To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. You'll need to take steps post-configuration to automatically enroll devices.
+To enable hybrid Azure AD join on your Azure AD Connect server, run the configuration wizard. After configuration, enroll devices.
 
 >[!NOTE]
 >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. To enable hybrid Azure AD join, follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+1. [Configure hybrid Azure AD join](/articles/active-directory/devices/howto-hybrid-azure-ad-join.md).
+2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
 
-1. On the **SCP configuration** page, select the **Authentication Service** dropdown. Choose your Okta federation provider URL and select **Add**. Enter your on-premises enterprise administrator credentials and then select **Next**.
+    ![Screenshot of the Authentication Service dropdown on the Microsoft Azure Active Directory Connect dialog.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
 
-   ![Screenshot that shows SCP configuration.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/scp-configuration.png)
+4. Select an Okta federation provider URL.
+5. Select **Add**. 
+6. Enter your on-premises Enterprise Administrator credentials
+7. Select **Next**.
 
-1. If you've blocked legacy authentication on Windows clients in either the global or app-level sign-on policy, make a rule to allow the hybrid Azure AD join process to finish.
-
-1. Allow the entire legacy authentication stack through for all Windows clients. You can also contact Okta support to enable its custom client string on your existing app policies.
+    > [!TIP]
+    > If you blocked legacy authentication on Windows clients in the global or app-level sign-on policy, make a rule that enables the hybrid Azure AD join process to finish.
+    > Allow the legacy authentication stack for Windows clients. </br>To enable custom client strings on app policies, contact the [Okta Help Center](https://support.okta.com/help/). 
 
 ### Configure device compliance
 
-Hybrid Azure AD join is a direct replacement for Okta device trust on Windows. Conditional Access policies can also look at device compliance for devices that have fully enrolled in Endpoint Manager:
+Hybrid Azure AD join replaces Okta device trust on Windows. Conditional Access policies can include compliance for devices enrolled in Endpoint Manager:
 
-- **Compliance overview**: Refer to [device compliance policies in Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
-- **Device compliance**: Create [policies in Intune](/mem/intune/protect/create-compliance-policy).
-- **Windows enrollment**: If you've opted to deploy hybrid Azure AD join, you can deploy another group policy to complete the [auto-enrollment process of these devices in Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
-- **iOS/iPadOS enrollment**: Before you enroll an iOS device, you must make [more configurations](/mem/intune/enrollment/ios-enroll) in the Endpoint Management console.
-- **Android enrollment**: Before you enroll an Android device, you must make [more configurations](/mem/intune/enrollment/android-enroll) in the Endpoint Management console.
+* **Compliance overview**: Refer to [device compliance policies in Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows)
+* **Device compliance**: Create [policies in Intune](/mem/intune/protect/create-compliance-policy)
+* **Windows enrollment**: If you've opted to deploy hybrid Azure AD join, you can deploy another group policy to complete the [auto-enrollment process of these devices in Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy)
+* **iOS/iPadOS enrollment**: Before you enroll an iOS device, you must make [more configurations](/mem/intune/enrollment/ios-enroll) in the Endpoint Management console
+* **Android enrollment**: Before you enroll an Android device, you must make [more configurations](/mem/intune/enrollment/android-enroll) in the Endpoint Management console.
 
 ## Configure Azure AD Multi-Factor Authentication tenant settings
 
