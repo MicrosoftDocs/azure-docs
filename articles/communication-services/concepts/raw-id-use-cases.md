@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Raw ID use cases
+title: Azure Communication Services - Use cases for string identifiers
 description: Learn how to use Raw ID in SDKs
 author: ostoliarova-msft
 manager: rajuanitha88
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 #Customer intent: As a developer, I want to learn how to correctly use Raw ID so that I can build applications that run efficiently.
 ---
 
-# Raw ID use cases in Communication SDKs
+# Use cases for string identifiers in Communication SDKs
 
 This article provides use cases for choosing a string (Raw ID) as a representation type of the [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over the CommunicationIdentifier derived types.
 
