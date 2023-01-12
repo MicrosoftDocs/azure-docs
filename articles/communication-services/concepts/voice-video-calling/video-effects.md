@@ -19,37 +19,37 @@ ms.subservice: calling
 > [!NOTE]
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
 
-The Azure Communication Calling SDK allows you to create video effects that other viewsers on a call will be able to see.
-
 > [!NOTE]
 > This library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
- 
+
+>[!IMPORTANT]
+> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
+
+The Azure Communication Calling SDK allows you to create video effects that other viewsers on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. With background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
 
 ## Prerequisites
 ### Install the Azure Communication Services Calling SDK
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription is required. Please see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A User Access Token to instantiate a call client. Learn how to [create and manage user access tokens](../../quickstarts/access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token. (Need to grab connection string from the resource through Azure portal.)
-- Azure Communication Calling client library set up (https://www.npmjs.com/package/@azure/communication-calling).
+- Azure Communication Calling client library is properly set up and configured (https://www.npmjs.com/package/@azure/communication-calling).
 
+An example using the Azure CLI to 
 ```azurecli-interactive
 az communication identity token issue --scope voip --connection-string "yourConnectionString"
 ```
 For details on using the CLI see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/access-tokens.md?pivots=platform-azcli).
-
-
->[!IMPORTANT]
-> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version or newer when trying the instructions below.
 
 ## Install the Calling effects SDK 
 Use ‘npm install’ command to install the Azure Communication Calling Effects SDK for JavaScript. 
 
 'npm install @azure/communication-calling-effects –save'
 
-## Supported video effects: 
+## Supported video effects:
+Currently the video effects supports the following ability:
 - Background blur 
-- Background replacement with image 
+- Replace the background with a custom image 
 
 
 Class model: 
@@ -59,13 +59,13 @@ Class model:
 | BackgroundReplacementEffect      | The background replacement with image effect class.   |
 
 
-Browser Support: 
+## Browser Support: 
 
 Currently creating video effects on Chrome Desktop Browser and Mac Safari Desktop. Other browser support will come in the future.
 
 To use video effects with the Azure Communication Calling client library, once you have created a LocalVideoStream, you need to get the VideoEffects feature API of from the LocalVideoStream. 
 
- 
+## Code examples
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { BackgroundBlur, BackgroundReplacement } from '@azure/communication-calling-effects'; 
