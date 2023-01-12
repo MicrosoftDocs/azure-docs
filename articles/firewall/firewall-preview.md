@@ -186,6 +186,9 @@ This new capability is available through the Azure portal as shown here, as well
 > [!NOTE]
 > This new upgrade/downgrade capability will also support the Basic SKU for GA.
 
+### AZFW Latency Probe (Preview)
+
+Metric that estimates Azure Firewall average latency. For more information, see [Azure Firewall logs and metrics](logs-and-metrics.md#metrics).
 
 ## Next steps
 
