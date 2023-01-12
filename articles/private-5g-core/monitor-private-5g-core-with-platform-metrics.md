@@ -46,8 +46,8 @@ You can select individual dashboards to open an expanded view where you can spec
 
 The platform metrics displayed in the **Mobile Network Site** resource combine information captured from two sources:
 
-- The **Packet Core Control Plane** resource's metrics relate to the control plane, and are emitted by the Access and Mobility Management Function (AMF), Session Management Function (SMF) and Mobile Management Entity (MME).
-- The **Packet Core Data Plane** resource's metrics relate to the data plane, and are emitted by the User Plane Function (UPF).
+- The **Packet Core Control Plane** resource emits metrics relating to access, mobility and session management, such as registration and session establishment successes and failures.
+- The **Packet Core Data Plane** resource emits metrics relating to the data plane, such as throughput and packet drops.
 
 You can export the platform metrics from each of those resources to [Log Analytics workspace](/azure/azure-monitor/logs/workspace-design), [Azure Storage](/azure/storage/), [Azure Event Hubs](/azure/event-hubs/), and [Azure Monitor partner integrations](/azure/partner-solutions/overview).
 
