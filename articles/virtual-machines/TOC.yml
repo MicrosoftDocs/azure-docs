@@ -1941,6 +1941,11 @@
   - name: Overview
     displayName: Backup and recovery
     href: backup-recovery.md
+- name: Reliability in Virtual Machines
+  items:
+  - name: Reliability in Virtual Machines
+    displayName: Reliability in Virtual Machines
+    href: virtual-machines-reliability.md
   - name: Service disruptions
     href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs
