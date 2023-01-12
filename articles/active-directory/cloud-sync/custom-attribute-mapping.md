@@ -122,7 +122,7 @@ Check if application with the identifier URI "api://<tenantId>/CloudSyncCustomEx
      ```
      New-AzureADServicePrincipal -AppId '<appId>'
      ```
-     For more information see [New-AzureADServicePrincipal](https://learn.microsoft.com/en-us/powershell/module/azuread/new-azureadserviceprincipal?view=azureadps-2.0)
+     For more information see [New-AzureADServicePrincipal](https://learn.microsoft.com/powershell/module/azuread/new-azureadserviceprincipal?view=azureadps-2.0)
  
  5. Create directory extension 
 You can create directory extensions in Azure AD in several different ways. 
