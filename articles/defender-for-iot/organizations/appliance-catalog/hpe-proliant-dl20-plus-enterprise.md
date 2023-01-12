@@ -146,7 +146,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 > For **Data-at-Rest** encryption, see HPE guidance for activating RAID SR Secure Encryption or using Self-Encrypting-Drives (SED).
 >
 
-[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](organizations\includes\ilo-remote-install.md)]
+[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install.md)]
 
 ### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus
 
