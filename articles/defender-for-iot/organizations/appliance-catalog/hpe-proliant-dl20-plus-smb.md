@@ -164,7 +164,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
     :::image type="content" source="../media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window.":::
 
-[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install.md)]
+[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install-hpe.md)]
 
 ### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus
 
