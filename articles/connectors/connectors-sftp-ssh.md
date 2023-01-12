@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 01/12/2023
 tags: connectors
 ---
 
