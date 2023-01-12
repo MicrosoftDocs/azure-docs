@@ -28,6 +28,56 @@ This article contains reference information that may be useful when [configuring
 - AzureML extension region availability: 
   - AzureML extension can be deployed to AKS or Azure Arc-enabled Kubernetes in supported regions listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all).
 
+## Recommended resource planning
+
+When you deploy the AzureML extension, some related services will be deployed to your Kubernetes cluster for Azure Machine Learning. The following table lists the **Related Services and their resource usage** in the cluster:
+
+|Deploy/Daemonset |Replica # |Training |Inference|CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
+|-- |--|--|--|--|--|--|--|
+|metrics-controller-manager  |1 |**&check;**|**&check;**|10|100|20|300|
+|prometheus-operator  |1 |**&check;**|**&check;**|100|400|128|512|
+|prometheus |1 |**&check;**|**&check;**| 100|1000|512|4096|
+|kube-state-metrics  |1 |**&check;**|**&check;**|10|100|32|256|
+|gateway |1 |**&check;**|**&check;**|50 |500|256|2048|
+|fluent-bit  |1 per Node |**&check;**|**&check;**|10|200|100|300|
+|inference-operator-controller-manager |1 |**&check;**|N/A|100|1000|128|1024|
+|amlarc-identity-controller |1 |**&check;**|N/A |200|1000|200|1024|
+|amlarc-identity-proxy |1 |**&check;**|N/A |200|1000|200|1024|
+|azureml-ingress-nginx-controller  |1 |**&check;**|N/A | 100|1000|64|512|
+|azureml-fe-v2  |**1** (for Test purpose) <br>or <br>**3** (for Production purpose) |**&check;**|N/A |900|2000|800|1200|
+|online-deployment |1 per Deployment | User-created|N/A |\<user-define> |\<user-define> |\<user-define> |\<user-define> |
+|online-deployment/identity-sidecar |1 per Deployment |**&check;**|N/A |10|50|100|100|
+|aml-operator |1  |N/A |**&check;**|20|1020|124|2168|
+|volcano-admission |1  |N/A |**&check;**|10|100|64|256|
+|volcano-controller |1  |N/A |**&check;**|50|500|128|512|
+|volcano-schedular |1  |N/A |**&check;**|50|500|128|512|
+
+
+Excluding the user deployments/pods, the **total minimum system resources requirements** are as follows:
+
+|Scenario | Enabled Inference | Enabled Training | CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) | Node count | Recommended minimum VM size | Corresponding AKS VM SKU |
+|-- |-- |--|--|--|--|--|--|--|--|
+|For Test | **&check;** | N/A | **1780** |8300 |**2440** | 12296 |1 Node |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW| DS2v2|
+|For Test | N/A| **&check;**  | **410** | 4420 |**1492** | 10960 |1 Node |2 vCPU, 7 GiB Memory, 6400 IOPS, 1500Mbps BW|DS2v2|
+|For Test | **&check;** | **&check;**  | **1910** | 10420 |**2884** | 15744 |1 Node |4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW|DS3v2|
+|For Production |**&check;** | N/A | 3600 |**12700**|4240|**15296**|3 Node(s)|4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW|  DS3v2|
+|For Production |N/A | **&check;**| 410 |**4420**|1492|**10960**|1 Node(s)|8 vCPU, 28GiB Memroy, 25600 IOPs, 6000Mbps BW|DS4v2|
+|For Production |**&check;** | **&check;**  | 3730 |**14820**|4684|**18744**|3 Node(s)|4 vCPU, 14 GiB Memory, 12800 IOPS, 1500Mbps BW| DS4v2|
+
+> [!NOTE]
+> 
+> * For **test purpose**, you should refer tp the resource **request**. 
+> * For **production purpose**, you should refer to the resource **limit**.
+
+
+> [!IMPORTANT]
+>
+> Here are some other considerations for reference:
+> * For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
+>     * Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
+>     * More information about AKS reservation can be found in [AKS reservation](../aks/concepts-clusters-workloads.md#resource-reservations).
+> * If you are using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq.md#what-is-the-size-limit-on-a-container-image-in-aks).
+
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
 
@@ -53,38 +103,6 @@ For AzureML extension deployment on ARO or OCP cluster, grant privileged access 
 > * `{EXTENSION-NAME}`: is the extension name specified with the `az k8s-extension create --name` CLI command. 
 >* `{KUBERNETES-COMPUTE-NAMESPACE}`: is the namespace of the Kubernetes compute specified when attaching the compute to the Azure Machine Learning workspace. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if `KUBERNETES-COMPUTE-NAMESPACE` is `default`.
 
-## AzureML extension components
-
-For Arc-connected cluster, AzureML extension deployment will create [Azure Relay](../azure-relay/relay-what-is-it.md) in Azure cloud, used to route traffic between Azure services and the Kubernetes cluster. For AKS cluster without Arc connected, Azure Relay resource won't be created.
-
-Upon AzureML extension deployment completes, it will create following resources in Kubernetes cluster, depending on each AzureML extension deployment scenario:
-
-   |Resource name  |Resource type |Training |Inference |Training and Inference| Description | Communication with cloud|
-   |--|--|--|--|--|--|--|
-   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relay server is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relay server works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
-   |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|The gateway is used to communicate and send data back and forth.|Send nodes and cluster resource information to cloud services.|
-   |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.| Token exchange with the cloud token service for authentication and authorization of Azure Container Registry.|
-   |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
-   |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster-related metrics to Prometheus.|N/A|
-   |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|Optional|Optional|Optional| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|N/A|
-   |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Container  Registry and Azure Blob used by inference/model deployment.|
-   |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token  through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Container  Registry and Azure Blob used by inference/model deployment.|
-   |azureml-fe-v2|Kubernetes deployment|N/A|**&check;**|**&check;**|The front-end component that routes incoming inference requests to deployed services.|Send service logs to Azure Blob.|
-   |inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|Manage the lifecycle of inference endpoints. |N/A|
-   |volcano-admission|Kubernetes deployment|Optional|N/A|Optional|Volcano admission webhook.|N/A|
-   |volcano-controllers|Kubernetes deployment|Optional|N/A|Optional|Manage the lifecycle of Azure Machine Learning training job pods.|N/A|
-   |volcano-scheduler |Kubernetes deployment|Optional|N/A|Optional|Used to perform in-cluster job scheduling.|N/A|
-   |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather the components' system log.| Upload the components' system log to cloud.|
-   |{EXTENSION-NAME}-dcgm-exporter|Kubernetes daemonset|Optional|Optional|Optional|dcgm-exporter exposes GPU metrics for Prometheus.|N/A|
-   |nvidia-device-plugin-daemonset|Kubernetes daemonset|Optional|Optional|Optional|nvidia-device-plugin-daemonset exposes GPUs on each node of your cluster| N/A|
-   |prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|Gather and send job metrics to cloud.|Send job metrics like cpu/gpu/memory utilization to cloud.|
-
-> [!IMPORTANT]
-   > * Azure Relay resource  is under the same resource group as the Arc cluster resource. It is used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
-   > * By default, the kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described as below.
-
-> [!NOTE]
-   > * **{EXTENSION-NAME}:** is the extension name specified with ```az k8s-extension create --name``` CLI command. 
 
 ## AzureML jobs connect with custom data storage
 

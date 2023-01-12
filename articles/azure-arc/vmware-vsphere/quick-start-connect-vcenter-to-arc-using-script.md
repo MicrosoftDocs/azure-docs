@@ -79,7 +79,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, supported regions are **East US**, **West Europe**, **Australia East** and **Canada Central**.
 
-9. Provide a name for **Custom location**. This is the name that you'll see when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
+9. Provide a name for **Custom location**. You'll see this name when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
 
 10. Leave **Use the same subscription and resource group as your resource bridge** selected.
 
@@ -145,10 +145,34 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 | **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge VM. |
 | **Folder** | Select the name of the vSphere VM and the template folder where the Azure Arc resource bridge's VM will be deployed. |
 | **VM template Name** | Provide a name for the VM template that will be created in your vCenter Server instance based on the downloaded OVA file. For example: **arc-appliance-template**. |
-| **Control Plane IP** address | Provide a static IP address that's outside the DHCP range but still available on the network. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. Control Plane IP must have internet access. |
+| **Control Plane IP address** | Provide a static IP address that is outside the DHCP scope for virtual machines but in the same subnet. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. Control Plane IP must have internet access. |
 | **Appliance proxy settings** | Enter **y** if there's a proxy in your appliance network. Otherwise, enter **n**. </br> You need to populate the following boxes when you have a proxy set up: </br> 1. **Http**: Address of the HTTP proxy server. </br> 2. **Https**: Address of the HTTPS proxy server. </br> 3. **NoProxy**: Addresses to be excluded from the proxy. </br> 4. **CertificateFilePath**: For SSL-based proxies, the path to the certificate to be used.
 
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
+
+> [!IMPORTANT]
+> After the successful installation of Azure Arc resource bridge, it is recommended to retain a copy of the resource bridge config .yaml files and the kubeconfig file safe and secure in a place that facilitates easy retrieval. These files may be needed later to run a few commands to perform management operations on the resource bridge. You can find the 3 .yaml files (config files) and the kubeconfig file in the same folder where you ran the script. 
+
+## Recovering from failed deployments
+
+If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting document](../resource-bridge/troubleshoot-resource-bridge.md). While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../resource-bridge/troubleshoot-resource-bridge.md#kva-timeout-error).
+
+To clean up the installation and retry the deployment, use the following commands.
+
+### Retry command - Windows
+
+Run the command with ```-Force``` to clean up the installation and onboard again.
+
+```powershell-interactive
+./resource-bridge-onboarding-script.ps1 -Force
+```
+
+### Retry command - Linux
+
+Run the command with ```--force``` to clean up the installation and onboard again.
+```bash
+bash resource-bridge-onboarding-script.sh --force
+```    
 
 ## Next steps
 

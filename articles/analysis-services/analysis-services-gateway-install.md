@@ -33,6 +33,7 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 
 * During setup, when registering your gateway with Azure, the default region for your subscription is selected. You can choose a different subscription and region. If you have servers in more than one region, you must install a gateway for each region. 
 * The gateway cannot be installed on a domain controller.
+* The gateway cannot be installed and configured by using automation.
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer with a wireless only connection to your network. Performance can be diminished.

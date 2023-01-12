@@ -9,7 +9,8 @@ ms.topic: reference
 
 This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 | Appliance characteristic |Details |
 |---------|---------|

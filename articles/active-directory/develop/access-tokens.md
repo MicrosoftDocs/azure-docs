@@ -9,9 +9,8 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/20/2022
+ms.date: 12/28/2022
 ms.author: davidmu
-ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
@@ -319,7 +318,7 @@ A *non-password-based* login is one where the user didn't type in a password to 
 - Voice
 - PIN
 
-Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.
+For more information, see [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md).
 
 ## Next steps
 
