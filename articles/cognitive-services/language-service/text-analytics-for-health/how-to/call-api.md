@@ -26,7 +26,7 @@ There are two ways to call the service:
 
 ## Development options
 
-[!INCLUDE [Development options](./includes/development-options.md)] 
+[!INCLUDE [Development options](../includes/development-options.md)] 
 
 
 

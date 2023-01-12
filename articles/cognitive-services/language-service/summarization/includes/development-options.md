@@ -23,7 +23,7 @@ To use summarization, you submit raw unstructured text for analysis and handle t
 
 |Development option  |Description  | Links |
 |---------|---------|---------|
-| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md?tabs=conversation-summarization&pivots=rest-api) |
+| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](../quickstart.md?tabs=conversation-summarization&pivots=rest-api) |
 
 ---
 
