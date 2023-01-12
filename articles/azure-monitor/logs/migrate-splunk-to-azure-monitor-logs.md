@@ -119,6 +119,7 @@ This table lists the tools to use to collect data from various resource types.
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Diagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
+<br>
 # 5. Test and operationalize your Azure Monitor deployment
 
 Now that you've set up Azure Monitor, to test and operationalize your Azure Monitor deployment:
