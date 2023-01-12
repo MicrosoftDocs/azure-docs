@@ -1569,4 +1569,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Thu Jan 12 2023 09:15:34 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Thu Jan 12 2023 14:50:44 GMT+0200 (Israel Standard Time)-->
