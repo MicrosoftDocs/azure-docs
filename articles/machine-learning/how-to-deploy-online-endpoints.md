@@ -38,13 +38,6 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
-
-   ```azurecli
-   az account set --subscription <subscription ID>
-   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
-   ```
-
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
 > [!IMPORTANT]
@@ -95,6 +88,13 @@ Before following the steps in this article, make sure you have the following pre
 
 # [Azure CLI](#tab/azure-cli)
 
+If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
+
+   ```azurecli
+   az account set --subscription <subscription ID>
+   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+   ```
+
 ### Clone the sample repository
 
 To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
@@ -107,17 +107,6 @@ cd cli
 
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
-
-### Set an endpoint name
-
-To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
-
-For Unix, run this command:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
-
-> [!NOTE]
-> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
 
 # [Python](#tab/python)
 
@@ -174,28 +163,36 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 # [Studio](#tab/azure-studio)
 
-Open a terminal in the AzureML studio:
+If you have Git installed on your local machine, you can follow the instructions to clone the sample repository. Otherwise, follow the instructions to download files from the sample repository.
+
+### Clone the sample repository
+
+To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and then change into the `azureml-examples/cli/endpoints/online/model-1` directory.
+
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/cli/endpoints/online/model-1
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+
+<!-- Open a terminal in the AzureML studio:
 
 1. Sign into [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace, if it isn't already open.
 1. On the left, select **Notebooks**.
 1. Select **Open terminal**.
     
-    :::image type="content" source="media/how-to-deploy-online-endpoints/create-new-terminal.png" alt-text="Screenshot: create a new terminal in AzureML studio.":::
+    :::image type="content" source="media/how-to-deploy-online-endpoints/create-new-terminal.png" alt-text="Screenshot: create a new terminal in AzureML studio."::: -->
 
-### Clone the sample repository
+### Download files from the sample repository
 
-To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and then change into the `azureml-examples/cli/endpoints/online` directory.
+If you cloned the sample repo, you already have copies of the files for this example on your local machine and can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
 
-In the terminal you just created, run the following code:
-
-```bash
-git clone --depth 1 https://github.com/Azure/azureml-examples
-cd azureml-examples/sdk/python/endpoints/online/managed
-```
-
-> [!TIP]
-> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+1. Go to [https://github.com/Azure/azureml-examples/](https://github.com/Azure/azureml-examples/).
+1. Go to the **<> Code** button on the page, and then select **Download ZIP** from the **Local** tab.
+1. Locate the folder `/cli/endpoints/online/model-1/model` and the file `/cli/endpoints/online/model-1/onlinescoring/score.py`.
 
 # [ARM template](#tab/arm)
 
@@ -211,45 +208,24 @@ cd azureml-examples
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
+---
+
+## Define the endpoint and deployment
+
+# [Azure CLI](#tab/azure-cli)
+
 ### Set an endpoint name
 
 To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
 
 For Unix, run this command:
 
-:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
 > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
 
-Also set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
-
-```bash
-export SUBSCRIPTION_ID="your Azure subscription ID"
-export LOCATION="Azure region where your workspace is located"
-export RESOURCE_GROUP="Azure resource group that contains your workspace"
-export WORKSPACE="Azure Machine Learning workspace name"
-```
-
-A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
-
-1. Get an access token:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
-
-1. Set the REST API version:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="api_version":::
-
-1. Get the storage information:
-
-    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
-
----
-
-## Define the endpoint and deployment
-
-# [Azure CLI](#tab/azure-cli)
+### Configure the endpoint and deployment
 
 The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* file: 
 
@@ -302,24 +278,27 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 # [Python](#tab/python)
 
-In this article, we first define names of online endpoint and deployment for debugging locally.
+In this article, we first define names of the online endpoint and deployment.
 
-1. Define endpoint (with name for local endpoint):
+1. Define an endpoint:
       ```python
-    # Creating a local endpoint
+    # Define an endpoint name
+    endpoint_name = "my-endpoint"
+
+    # Example way to define a random name
     import datetime
 
-    local_endpoint_name = "local-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+    endpoint_name = "endpt-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
     # create an online endpoint
     endpoint = ManagedOnlineEndpoint(
-        name=local_endpoint_name, description="this is a sample local endpoint"
+        name = endpoint_name, description="this is a sample endpoint"
     )
     ```
 
-1. Define deployment (with name for local deployment)
+1. Define deployment (with name for deployment)
 
-    The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
+    The example contains all the files needed to deploy a model to an online endpoint. To deploy a model, you must have:
 
     * Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
     * The code that's required to score the model. In this case, we have a *score.py* file.
@@ -346,7 +325,7 @@ In this article, we first define names of online endpoint and deployment for deb
 
     blue_deployment = ManagedOnlineDeployment(
         name="blue",
-        endpoint_name=local_endpoint_name,
+        endpoint_name=endpoint_name,
         model=model,
         environment=env,
         code_configuration=CodeConfiguration(
@@ -359,20 +338,17 @@ In this article, we first define names of online endpoint and deployment for deb
 
 # [Studio](#tab/azure-studio)
 
-> [!NOTE]
-> The AzureML studio doesn't support local endpoints and deployments.
-
-In general, to deploy a model, you must have:
+You'll define the endpoint name and the deployment name in the AzureML studio at the same time that you create the. To deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace).
-- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned earlier.
+- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned (or downloaded) earlier.
 - An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
 **Key aspects of a deployment**
 
 * `name` - Name of the deployment.
-* `endpoint_name` - Name of the endpoint that will contain the deployment.
+* `endpoint_name` - Name of the endpoint to create the deployment under.
 * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
 * `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. For more information on creating an environment, see 
 [Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment).
@@ -384,7 +360,43 @@ In general, to deploy a model, you must have:
 
 # [ARM template](#tab/arm)
 
-The Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json) are used by the steps in this article.
+### Set an endpoint name
+
+To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
+
+For Unix, run this command:
+
+:::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" ID="set_endpoint_name":::
+
+> [!NOTE]
+> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
+
+Also set the following environment variables, as they are used in the examples in this article. Replace the values with your Azure subscription ID, the Azure region where your workspace is located, the resource group that contains the workspace, and the workspace name:
+
+```bash
+export SUBSCRIPTION_ID="your Azure subscription ID"
+export LOCATION="Azure region where your workspace is located"
+export RESOURCE_GROUP="Azure resource group that contains your workspace"
+export WORKSPACE="Azure Machine Learning workspace name"
+```
+
+A couple of the template examples require you to upload files to the Azure Blob store for your workspace. The following steps will query the workspace and store this information in environment variables used in the examples:
+
+1. Get an access token:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_access_token":::
+
+1. Set the REST API version:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="api_version":::
+
+1. Get the storage information:
+
+    :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="get_storage_details":::
+
+### Configure the endpoint and deployment
+
+To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json).
 
 ---
 
@@ -409,19 +421,21 @@ For more information on creating an environment, see
 
 ### Register the model
 
-A model registration is a logical entity in the workspace that may contain a single model file or a directory of multiple files. The steps in this article assume that you've downloaded the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace that may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
-To register the example model using AzureML studio, use the following steps:
+To register the example model, follow these steps:
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Models** page.
-1. Select **Register**, and then **From local files**.
-1. Select __Unspecified type__ for the __Model type__, then select __Browse__, and __Browse folder__.
+1. Select **Register**, and then choose **From local files**.
+1. Select __Unspecified type__ for the __Model type__.
+1. Select __Browse__, and choose __Browse folder__.
 
     :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/register-model-folder.png" alt-text="A screenshot of the browse folder option.":::
 
-1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you downloaded earlier. When prompted, select __Upload__. Once the upload completes, select __Next__.
-1. Enter a friendly __Name__ for the model. The steps in this article assume it's named `model-1`.
+1. Select the `\azureml-examples\cli\endpoints\online\model-1\model` folder from the local copy of the repo you cloned or downloaded earlier. When prompted, select __Upload__ and wait for the upload to complete.
+1. Select __Next__ after the folder upload is completed.
+1. Enter a friendly __Name__ for the model. The steps in this article assume the model is named `model-1`.
 1. Select __Next__, and then __Register__ to complete registration.
 
 For more information on working with registered models, see [Register and work with models](how-to-manage-models.md).
