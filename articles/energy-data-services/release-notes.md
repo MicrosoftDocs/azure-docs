@@ -24,7 +24,6 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 
 <hr width=100%>
 
-
 ## October 20, 2022
 
 ### Support for Private Links
