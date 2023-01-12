@@ -40,7 +40,7 @@ Understanding the offer hierarchy is important when it comes to defining the off
 > [!IMPORTANT]
 > You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 > [!Note]
-> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](/azure/marketplace/marketplace-geo-availability-currencies).
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. Learn more on ["How we convert currency?"](../marketplace-geo-availability-currencies.md).
 ## Sample offer
 
 As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS lets its customers send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish SaaS offers to Azure customers. There are three plans associated with CNS, outlined below:
@@ -166,5 +166,3 @@ To understand publisher support options and open a support ticket with Microsoft
 
 - [SaaS Metered Billing Overview](https://go.microsoft.com/fwlink/?linkid=2196314)
 - [The SaaS Metered Billing API with REST](https://go.microsoft.com/fwlink/?linkid=2196418)
-
-
