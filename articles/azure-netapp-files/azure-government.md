@@ -32,9 +32,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Azure NetApp Files cross-region replication | Generally available (GA) | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public preview | No |
-| [Convert an NFS volume between NFSv3 and NFSv4.1](convert-nfsv3-nfsv41.md) | Generally available (GA) | Contact your account team |
-| Single-file restore | Public preview | [Contact your account team](snapshots-restore-file-single.md#register-the-feature)
-| [Standard network features](azure-netapp-files-network-topologies.md) | Generally available (GA) | No |
+| Standard network features | Generally available (GA) | No |
 
 ## Portal access
 
