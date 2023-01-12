@@ -169,7 +169,7 @@ When you set up your NSG, you must configure it to allow both the URLs in the [r
 > [!NOTE]
 > If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource.
 >
-> If you restrict ports to the endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
+> If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
 ## Validate your Private Link deployment
 
