@@ -38,8 +38,8 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 
 ## Updates in Version 3.0
 
-- Adding ACL permission to downloaded certificates
-- Store configuration per certificate
+- Ability to add ACL permission to downloaded certificates
+- Certificate Store configuration per certificate
 - Exportable private keys
 
 ## Prerequisites
