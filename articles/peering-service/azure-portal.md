@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure subscription
 
-- Connectivity provider. For more information, see [Azure peering service partners](./location-partners.md).
+- A connectivity provider. For more information, see [Azure peering service partners](./location-partners.md).
 
 ## Sign in to Azure
 
