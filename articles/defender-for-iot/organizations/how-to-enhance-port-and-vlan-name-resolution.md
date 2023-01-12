@@ -1,7 +1,7 @@
 ---
 title: Customize port and VLAN names on OT network sensors - Microsoft Defender for IoT
 description: Learn how to customize port and VLAN names on Microsoft Defender for IoT OT network sensors.
-ms.date: 01/09/2023
+ms.date: 01/12/2023
 ms.topic: how-to
 ---
 
@@ -19,9 +19,9 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 ## Customize names of detected ports
 
-Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. However, you might want to customize the name of specific port to highlight it, such as when you're watching a port with unusually high activity detected.
+Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. However, you might want to customize the name of a specific port to highlight it, such as when you're watching a port with unusually high detected activity.
 
-Port names are shown in Defender for IoT when [viewing device groups from the OT sensor's device map](hyperlink this), or when you create OT sensor reports that include port information.
+Port names are shown in Defender for IoT when [viewing device groups from the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#group-highlight-and-filters-tools), or when you create OT sensor reports that include port information.
 
 **To customize a port name:**
 
@@ -35,9 +35,9 @@ Port names are shown in Defender for IoT when [viewing device groups from the OT
 
 ## Customize a VLAN name
 
-VLANS are either discovered automatically by the OT network sensor or added manually. Automatically discovered VLANs can't be edited or deleted, but manually added VLANs require a unique name. If a VLAN isn't explicitely named, the VLANs number is shown instead.
+VLANs are either discovered automatically by the OT network sensor or added manually. Automatically discovered VLANs can't be edited or deleted, but manually added VLANs require a unique name. If a VLAN isn't explicitly named, the VLAN's number is shown instead.
 
-VLANs support is based on 802.1q (up to VLAN ID 4094).
+VLAN's support is based on 802.1q (up to VLAN ID 4094).
 
 VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
 
