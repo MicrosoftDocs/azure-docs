@@ -28,7 +28,6 @@ These inconsistencies may not happen on every run, but to eliminate them complet
 A view already exists with the same name as the created table, or a table already exists with the same name as the created view. 
 When this name is used in queries or applications, only the view will be returned no matter which one created first. To avoid conflicts, rename either the table or the view. 
 
-## Hints related advise
 ### Unable to recognize a hint
 The selected query contains a hint that isn't recognized. Verify that the hint is spelled correctly.
 
@@ -50,21 +49,21 @@ The selected query contains a hint that prevents another hint from being applied
 spark.sql("SELECT /*+ BROADCAST(t1), MERGE(t1, t2) */ * FROM t1 INNER JOIN t2 ON t1.str = t2.str")
 ```
 
-## Enable 'spark.advise.divisionExprConvertRule.enable' to reduce rounding error propagation
+### Enable 'spark.advise.divisionExprConvertRule.enable' to reduce rounding error propagation
 This query contains the expression with Double type. We recommend that you enable the configuration 'spark.advise.divisionExprConvertRule.enable', which can help reduce the division expressions and to reduce the rounding error propagation.
 
 ```text
 "t.a/t.b/t.c" convert into "t.a/(t.b * t.c)"
 ```
 
-## Enable 'spark.advise.nonEqJoinConvertRule.enable' to improve query performance
+### Enable 'spark.advise.nonEqJoinConvertRule.enable' to improve query performance
 This query contains time consuming join due to "Or" condition within query. We recommend that you enable the configuration 'spark.advise.nonEqJoinConvertRule.enable', which can help to convert the join triggered by "Or" condition to SMJ or BHJ to accelerate this query.
 
-## Optimize delta table with small files compaction
+### Optimize delta table with small files compaction
 
 This query is on a delta table with many small files. To improve the performance of queries, run the OPTIMIZE command on the delta table. More details could be found within this [article](https://aka.ms/small-file-advise-delta).  
 
-## Optimize Delta table with ZOrder
+### Optimize Delta table with ZOrder
 
 This query is on a Delta table and contains a highly selective filter. To improve the performance of queries, run the OPTIMIZE ZORDER BY command on the delta table. More details could be found within this [article](https://aka.ms/small-file-advise-delta). 
 
@@ -74,16 +73,16 @@ The Apache Spark advisor displays the advices, including info, warning and error
 
 * Info
 
-    :::image type="content" source="./media/apache-spark-advisor/info.png" alt-text="info" border="true":::
+    :::image type="content" source="./media/apache-spark-advisor/info.png" alt-text="info image" border="true":::
 
 * Warning
 
 
-    :::image type="content" source="./media/apache-spark-advisor/warning.png" alt-text="warning" border="true":::
+    :::image type="content" source="./media/apache-spark-advisor/warning.png" alt-text="warning image" border="true":::
 
 * Errors
 
-    :::image type="content" source="./media/apache-spark-advisor/error.png" alt-text="error" border="true":::
+    :::image type="content" source="./media/apache-spark-advisor/error.png" alt-text="error image" border="true":::
 
 ## Next steps
 
