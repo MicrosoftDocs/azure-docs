@@ -11,15 +11,13 @@ ms.reviewer: Xema Pathak
 ---
 
 # Monitor virtual machines with Azure Monitor: Analyze monitoring data
-This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to analyze monitoring data for your virtual machines after you've completed their configuration.
+This article is part of the guide [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to analyze monitoring data for your virtual machines after you've completed their configuration.
 
 > [!NOTE]
 > This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md) or [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md). 
 
-After you've enabled VM insights on your virtual machines, data will be available for analysis. This article describes the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines. Several of these features provide a different experience depending on whether you're analyzing a single machine or multiple. Each experience is described here with any unique behavior of each feature depending on which experience is being used.
+After you've [configured data collection](monitor-virtual-machine-data-collection.md) for your virtual machines, data will be available for analysis. This article describes the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines. Several of these features provide a different experience depending on whether you're analyzing a single machine or multiple. Each experience is described here with any unique behavior of each feature depending on which experience is being used.
 
-> [!NOTE]
-> This article includes guidance on analyzing data that's collected by Azure Monitor and VM insights. For data that you configure to monitor workloads running on virtual machines, see [Monitor workloads](monitor-virtual-machine-workloads.md).
 
 ## Single machine experience
 Access the single machine analysis experience from the **Monitoring** section of the menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. These options either limit the data that you're viewing to that machine or at least set an initial filter for it. In this way, you can focus on a particular machine, view its current performance and its trending over time, and help to identify any issues it might be experiencing.
@@ -34,7 +32,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 | Insights | Displays VM insights views if If the VM is enabled for [VM insights](../vm/vminsights-overview.md).<br><br>Select the **Performance** tab to view trends of critical performance counters over different periods of time. When you open VM insights from the virtual machine menu, you also have a table with detailed metrics for each disk. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).<br><br>If *processes and dependencies* is enabled for the VM, select the **Map** tab to view the running processes on the machine, dependencies on other machines, and external processes. For details on how to use the Map view for a single machine, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-a-vm).<br><br>If the VM is not enabled for VM insights, offers the option to enable VM insights. |
 | Alerts | View [alerts](../alerts/alerts-overview.md) for the current virtual machine. These alerts only use the machine as the target resource, so there might be other alerts associated with it. You might need to use the **Alerts** option in the Azure Monitor menu to view alerts for all resources. For details, see [Monitor virtual machines with Azure Monitor - Alerts](monitor-virtual-machine-alerts.md). |
 | Metrics | Open metrics explorer with the scope set to the machine. This option is the same as selecting one of the performance charts from the **Overview** page except that the metric isn't already added. |
-| Diagnostic settings | Enable and configure the [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. This option is different than the **Diagnostic settings** option for other Azure resources. This is a legacy agent that has been replaced by Azure Monitor agent. |
+| Diagnostic settings | Enable and configure the [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. This option is different than the **Diagnostic settings** option for other Azure resources. This is a [legacy agent](monitor-virtual-machine-agent.md#legacy-agents) that has been replaced by the [Azure Monitor agent](monitor-virtual-machine-agent.md). |
 | Advisor recommendations | See recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml). |
 | Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the current virtual machine. You can select from a variety of existing queries to drill into log and performance data for only this machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
@@ -73,7 +71,7 @@ Use the **Map** view to see running processes on machines and their dependencies
 
 
 ## Compare Metrics and Logs
-For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper, you'll need to understand the difference between [Metrics](../essentials/data-platform-metrics.md) and [Logs](../logs/data-platform-logs.md). Different features of Azure Monitor use different kinds of data. The type of alerting that you use for a particular scenario depends on having that data available in a particular location.
+For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper, you'll need to understand the difference between [Azure Monitor Metrics](../essentials/data-platform-metrics.md) and [Azure Monitor Logs](../logs/data-platform-logs.md). Different features of Azure Monitor use different kinds of data. The type of alerting that you use for a particular scenario depends on having that data available in a particular location.
 
 This level of detail can be confusing if you're new to Azure Monitor. The following information helps you understand the differences between the types of data:
 
@@ -86,12 +84,15 @@ This level of detail can be confusing if you're new to Azure Monitor. The follow
 ## Analyze metric data with metrics explorer
 By using metrics explorer, you can plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. For details on how to use this tool, see [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md). 
 
-Thwo namespaces are used by virtual machines.
+The following namespaces are used by virtual machines.
 
 | Namespace | Description | Requirement |
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| insights.virtualmachine | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../essentials/data-collection-rule-overview.md). |
+| Virtual Machine Guest | Guest operating system and application performance data on Windows machines. | Azure Monitor agent installed with a [Data Collection Rule](monitor-virtual-machine-data-collection.md#collect-performance-counters). |
+| azure.vm.linux.guestmetrics |  Guest operating system and application performance data on Linux machines. | Azure Monitor agent installed with a [Data Collection Rule](monitor-virtual-machine-data-collection.md#collect-performance-counters). |
+
+
 
 ## Analyze log data with Log Analytics
 Use Log Analytics to perform custom analysis of your log data and when you want to dig deeper into the data used to create the views in workbooks and VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
@@ -138,7 +139,7 @@ VM insights include the following workbooks. You can use these workbooks or use 
 | Security and Audit | Provides an analysis of your TCP/IP traffic that reports on overall connections, malicious connections, and where the IP endpoints reside globally. To enable all features, you'll need to enable Security Detection. |
 | TCP Traffic | Provides a ranked report for your monitored machines and their sent, received, and total network traffic in a grid and displayed as a trend line. |
 | Traffic Comparison | Compares network traffic trends for a single machine or a group of machines. |
-| Log Analytics agent | Analyzes the health of your agents, including the number of agents connecting to a workspace that are unhealthy, and the effect of the agent on the performance of the machine. This workbook isn't available from VM insights like the other workbooks. On the Azure Monitor menu, go to **Workbooks** and select **Public Templates**. |
+| AMA Migration Helper | Helps you discover what to migrate and track progress as you move from Log Analytics Agent to Azure Monitor Agent. This workbook isn't available from VM insights like the other workbooks. On the Azure Monitor menu, go to **Workbooks** and select **Public Templates**. See [Tools for migrating from Log Analytics Agent to Azure Monitor Agent](../agents/azure-monitor-agent-migration-tools.md#using-ama-migration-helper) |
 
 For instructions on how to create your own custom workbooks, see [Create interactive reports VM insights with workbooks](vminsights-workbooks.md).
 
@@ -146,7 +147,7 @@ For instructions on how to create your own custom workbooks, see [Create interac
 
 
 ## VM availability information in Azure Resource Graph
-[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service that allows you to use the same KQL query language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../../service-health/resource-health-vm-annotation.md) to Azure Resource Graph (ARG   ) for detailed failure attribution and downtime analysis including the following:
+[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service that allows you to use the same KQL query language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../../service-health/resource-health-vm-annotation.md) to Azure Resource Graph (ARG) for detailed failure attribution and downtime analysis including the following:
 
 - Query the latest snapshot of VM availability together across all your Azure subscriptions. 
 - Assess the impact to business SLAs and trigger decisive mitigation actions, in response to disruptions and type of failure signature.

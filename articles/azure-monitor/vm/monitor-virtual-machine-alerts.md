@@ -5,7 +5,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/28/2022
+ms.date: 01/11/2023
 ms.reviewer: Xema Pathak
 
 ---
@@ -35,13 +35,21 @@ The most common types of alert rules in Azure Monitor are [metric alerts](../ale
 The type of alert rule that you create for a particular scenario depends on where the data that you're alerting on is located. You might have cases where data for a particular alerting scenario is available in both Metrics and Logs, and you'll need to determine which rule type to use. You might also have flexibility in how you [collect certain data]() and let your decision of alert rule type drive your decision for data collection method.
 
 
+### Metric alerts
+Common uses for metric alerts include:
+- Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.
 
-| Type | Common uses for virtual machines | Data sources |
-|:---|:---|:---|
-| [Metric](../alerts/alerts-types.md#metric-alerts) | Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.  | - Host metrics for Azure virtual machines, which are collected automatically.<br>- Metrics collected by the Azure Monitor agent from the guest operating system. |
-| [Log](../alerts/alerts-types.md#log-alerts)  | - Alert when a particular event or pattern of events from Windows event log or syslog are found. These alert rules will typically measure table rows returned from the query.<br>- Alert based on a calculation of numeric data across multiple machines. These alert rules will typically measure the calculation of a numeric column in the query results. | Data collected in a Log Analytics workspace. |
+Data sources for metric alerts include:
+- Host metrics for Azure virtual machines, which are collected automatically.
+- Metrics collected by the Azure Monitor agent from the guest operating system
 
+### Log alerts
+Common uses for log alerts include:
+- Alert when a particular event or pattern of events from Windows event log or syslog are found. These alert rules will typically measure table rows returned from the query.
+- Alert based on a calculation of numeric data across multiple machines. These alert rules will typically measure the calculation of a numeric column in the query results.
 
+Data sources for metric alerts include:
+- All data collected in a Log Analytics workspace.
 ## Scaling alert rules
 Since you may have many virtual machines that require the same monitoring, you don't want to have to create individual alert rules for each one. There are different strategies to limit the number of alert rules you need to manage depending on the type of rule. Each of these strategies depends on understanding the target resource of the alert rule.
 
@@ -56,24 +64,27 @@ If you set the target resource of a log alert rule to a specific machine, then q
 
 If you set the target resource of a log alert rule to a Log Analytics workspace, you have access to all data in that workspace which allows you to alert on data from all machines in the workgroup with a single rule. This gives you the option of creating a single alert for all machines. You can then use dimensions to create a separate alert for each machine. 
 
-For example, you may want to alert when an error event is created by any machine in the Windows event log. You would first need to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) to send these events to the `Event` table in the Log Analytics workspace. You could then create an alert rule that queries this table using the workspace as the target resource and the condition shown below. 
+For example, you may want to alert when an error event is created in the Windows event log by any machine. You would first need to create a data collection rule as described in [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) to send these events to the `Event` table in the Log Analytics workspace. You could then create an alert rule that queries this table using the workspace as the target resource and the condition shown below. 
 
 The query will return a record for any error messages on any machine. Use the **Split by dimensions** option and specify **_ResourceId** to instruct the rule to create an alert for each machine if multiple machines are returned in the results.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of new log alert rule with split by dimensions.":::
 
-Depending on the information you would like to include in the alert, you might need to split using different dimensions. In this case, make sure the necessary dimensions are projected in the query using the [project operator](/azure/data-explorer/kusto/query/projectoperator). Set the **Resource ID column** field to **Don't split** and include all the meaningful dimension in the list. Make sure the **Include all future values** is selected, so any value returned from the query will be included.
+#### Dimensions
+
+Depending on the information you would like to include in the alert, you might need to split using different dimensions. In this case, make sure the necessary dimensions are projected in the query using the [project](/azure/data-explorer/kusto/query/projectoperator) or [extend](/azure/data-explorer/kusto/query/extendoperator) operator. Set the **Resource ID column** field to **Don't split** and include all the meaningful dimensions in the list. Make sure the **Include all future values** is selected, so any value returned from the query will be included.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-rule-multiple-dimensions.png" alt-text="Screenshot of new log alert rule with split by multiple dimensions.":::
 
-As additional benefit using log alert rules, you can define specific thresholds to compare with directly as part of the query. These threshold could hardcoded, applying to all resources, or calculated dinamically based on some field or calcualted value. This way, the threshold will be calculated and apply only to resources according to the condition for which the threshold has been calcualted (i.e. total amount of memory)
+#### Dynamic thresholds
+An additional benefit using log alert rules is the ability to include complex logic in the query for determining the threshold value. This threshold could be hardcoded, applied to all resources, or calculated dynamically based on some field or calculated value. This allows the threshold to be applied to only resources according to specific conditions. For example, you might create an alert based on available memory but only for machines with a particular amount of total memory.
 
 ## Common alert rules
 
-The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. For guidance on which type of alert to use, see [Alert types](#alert-types). If you're unfamiliar with the process for creating alert rules in Azure Monitor, see [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
+The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log alerts are provided for each. For guidance on which type of alert to use, see [Alert types](#alert-types). If you're unfamiliar with the process for creating alert rules in Azure Monitor, see [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
 
 > [!NOTE]
-> The details for log alerts provided below are using data collected using [VM Insights](vminsights-overview.md) which provides a set of common performance counters for the client operating system, whose name is independent of the operating system type.
+> The details for log alerts provided below are using data collected using [VM Insights](vminsights-overview.md) which provides a set of common performance counters for the client operating system. This name is independent of the operating system type.
 
 ### Machine unavailable
 One of the most common monitoring requirements for a virtual machine is to create an alert if it stops running. The best method for this is to create a metric alert rule in Azure Monitor using the VM availability metric which is currently in public preview. See [Create availability alert rule for Azure virtual machine](tutorial-monitor-vm-alert-availability.md) for a complete walk through on this metric.
@@ -88,7 +99,7 @@ The agent heartbeat is slightly different than the machine unavailable alert bec
 A metric called *Heartbeat* is included in each Log Analytics workspace. Each virtual machine connected to that workspace sends a heartbeat metric value each minute. Because the computer is a dimension on the metric, you can fire an alert when any computer fails to send a heartbeat. Set the **Aggregation type** to **Count** and the **Threshold** value to match the **Evaluation granularity**.
 
 
-#### Log query alert rules
+#### Log alert rules
 
 Log query alerts use the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat), which should have a heartbeat record every minute from each machine.
 
