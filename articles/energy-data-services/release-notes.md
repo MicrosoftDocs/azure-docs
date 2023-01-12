@@ -24,16 +24,6 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 
 <hr width=100%>
 
-
-## January 9, 2023
-
-### Audit Logs
-
-You can use audit logs to monitor and investigate actions taken in Microsoft Energy Data Services. Knowing who is taking what action on which item can be critical in helping your organization meet regulatory compliance and records management requirements. Microsoft Energy Data services captures audit logs for control plane operations such as instance creation, instance deletion, data partition creation etc. and OSDU&trade; service audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R2.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). You can store your audit log information to an Azure Storage container or a Log Analytics server of your choice. Refer [Audit logging in Microsoft Energy Data Services](link to docs.microsoft.com) to use this feature.
-
-
-<hr width=100%>
-
 ## October 20, 2022
 
 ### Support for Private Links
