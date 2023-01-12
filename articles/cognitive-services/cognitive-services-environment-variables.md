@@ -106,15 +106,15 @@ For more information, see <a href="/cpp/c-runtime-library/reference/getenv-s-wge
 #include <iostream> 
 #include <stdlib.h>
 
-std::string getEnvironmentVariable(const char* name);
+std::string GetEnvironmentVariable(const char* name);
 
 int main()
 {
     // Get the named env var, and assign it to the value variable
-    auto value = getEnvironmentVariable("ENVIRONMENT_VARIABLE_KEY");
+    auto value = GetEnvironmentVariable("ENVIRONMENT_VARIABLE_KEY");
 }
 
-std::string getEnvironmentVariable(const char* name)
+std::string GetEnvironmentVariable(const char* name)
 {
 #if defined(_MSC_VER)
     size_t requiredSize = 0;

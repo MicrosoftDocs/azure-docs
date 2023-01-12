@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 08/01/2022
 ---
 
 # Get more data, items, or records by using pagination in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you retrieve data, items, or records by using a connector action in 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you might get 
@@ -104,6 +106,8 @@ property along with the `"minimumItemCount"` property in that action's
    }
 },
 ```
+
+In this case, the response returns an array that contains JSON objects.
 
 ## Get support
 

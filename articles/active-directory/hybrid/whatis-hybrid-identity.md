@@ -46,7 +46,6 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Enable cloud-based multi-factor authentication solutions.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Enable on-premises multi-factor authentication solutions.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Support smartcard authentication for my users.<sup>4</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
-|Display password expiry notifications in the Office Portal and on the Windows 10 desktop.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Password hash synchronization with single sign-on. 
 > 

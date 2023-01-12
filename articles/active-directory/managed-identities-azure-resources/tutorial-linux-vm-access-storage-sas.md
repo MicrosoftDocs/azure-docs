@@ -99,15 +99,17 @@ Now that you have your SSH client continue to the steps below:
     > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element has been shortened for brevity.
     
-    ```bash
-    {"access_token":"eyJ0eXAiOiJ...",
-    "refresh_token":"",
-    "expires_in":"3599",
-    "expires_on":"1504130527",
-    "not_before":"1504126627",
-    "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
-     ```
+    ```json
+    {
+      "access_token":"eyJ0eXAiOiJ...",
+      "refresh_token":"",
+      "expires_in":"3599",
+      "expires_on":"1504130527",
+      "not_before":"1504126627",
+      "resource":"https://management.azure.com",
+      "token_type":"Bearer"
+    }
+    ```
 
 ## Get a SAS credential from Azure Resource Manager to make storage calls
 

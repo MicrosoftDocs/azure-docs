@@ -7,15 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/08/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021, mode-ui
+monikerRange: 'form-recog-3.0.0'
 ---
 
 # Get started: Form Recognizer Studio | v3.0
 
+[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
-[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-v3-sdk-rest-api.md) and other quickstarts.
+[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
 
@@ -33,7 +34,7 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 
 * [**General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document): extract text, tables, structure, key-value pairs and named entities.
 * [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
-* [ **Read**](https://formrecognizer.appliedai.azure.com/studio/read): extract text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+* [**Read**](https://formrecognizer.appliedai.azure.com/studio/read): extract text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 * [**Layout**](https://formrecognizer.appliedai.azure.com/studio/layout): extract text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 * [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extract text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extract text and key information from receipts.
@@ -146,7 +147,8 @@ To create custom models, you start with configuring your project:
 ### Labeling as tables
 
 > [!NOTE]
-> Tables are currently only supported for custom template models. When training a custom neural model, labeled tables are ignored.
+> * With the release of API versions 2022-06-30-preview and later, custom template models will add support for [cross page tabular fields (tables)](../concept-custom-template.md#tabular-fields).
+> * With the release of API versions 2022-06-30-preview and later, custom neural models will support [tabular fields (tables)](../concept-custom-template.md#tabular-fields) and models trained with API version 2022-08-31, or later will accept tabular field labels.
 
 1. Use the Delete command to delete models that aren't required.
 
@@ -204,7 +206,7 @@ To label for signature detection: (Custom form only)
 ## Next steps
 
 * Follow our [**Form Recognizer v3.0 migration guide**](../v3-migration-guide.md) to learn the differences from the previous version of the REST API.
-* Explore our [**v3.0 SDK quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features in your applications using the new SDKs.
-* Refer to our [**v3.0 REST API quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features using the new REST API.
+* Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
+* Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
 
 [Get started with the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com).

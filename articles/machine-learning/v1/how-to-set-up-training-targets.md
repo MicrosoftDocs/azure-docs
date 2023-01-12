@@ -81,7 +81,7 @@ The example code in this article assumes that you have already created a compute
 ## Create an environment
 Azure Machine Learning [environments](../concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
-You can either define your own environment, or use an Azure ML curated environment. [Curated environments](../how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the job preparation cost. See [Azure Machine Learning Curated Environments](../resource-curated-environments.md) for the full list of available curated environments.
+You can either define your own environment, or use an Azure ML curated environment. [Curated environments](../how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduce the job preparation cost. See [Azure Machine Learning Curated Environments](../resource-curated-environments.md) for the full list of available curated environments.
 
 For a remote compute target, you can use one of these popular curated environments to start with:
 
@@ -136,8 +136,7 @@ If you want to run a [distributed training](../how-to-train-distributed-gpu.md) 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
-* [Train TensorFlow models](../how-to-train-tensorflow.md#distributed-training)
-* [Train PyTorch models](../how-to-train-pytorch.md#distributed-training)
+* [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
 
 ## Submit the experiment
 
@@ -233,6 +232,6 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 * [Tutorial: Train and deploy a model](tutorial-1st-experiment-sdk-train.md) uses a managed compute target to  train a model.
 * See how to train models with specific ML frameworks, such as [Scikit-learn](../how-to-train-scikit-learn.md), [TensorFlow](../how-to-train-tensorflow.md), and [PyTorch](../how-to-train-pytorch.md).
 * Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-online-endpoints.md).
 * View the [ScriptRunConfig class](/python/api/azureml-core/azureml.core.scriptrunconfig) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)

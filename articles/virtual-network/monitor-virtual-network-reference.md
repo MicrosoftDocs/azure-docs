@@ -1,9 +1,9 @@
 ---
 title: Monitoring Azure virtual network data reference 
 description: Important reference material needed when you monitor Azure virtual network 
-author: duongau
+author: asudbring
 ms.topic: reference
-ms.author: duau
+ms.author: allensu
 ms.service: expressroute
 ms.custom: subject-monitoring
 ms.date: 06/29/2021

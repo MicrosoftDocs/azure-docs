@@ -274,4 +274,5 @@ Remove-AzStorageMoverProject `
 ## Next steps
 
 After your projects are created, you can begin working with job definitions.
-Check back soon for a guide on how to manage job definitions.
+> [!div class="nextstepaction"]
+> [Define a migration job](job-definition-create.md)

@@ -7,7 +7,7 @@ ms.service: peering-service
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 07/31/2022
+ms.date: 10/03/2022
 ms.author: halkazwini
 ---
 
@@ -28,10 +28,11 @@ The table in this article provides information on the Peering Service connectivi
 | [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
-| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
+| [Colt](https://www.colt.net/why-colt/partner-hub/)|Europe, Asia|
 | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)|Africa |
 | [DE-CIX](https://www.de-cix.net/)|Europe, North America |
+| [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |North America, Asia|
 | [IIJ](https://www.iij.ad.jp/en/) |Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |

@@ -1,12 +1,13 @@
 ---
-title: What is Microsoft Dev Box?
-description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
+title: What is Microsoft Dev Box Preview?
+titleSuffix: Microsoft Dev Box Preview
+description: Microsoft Dev Box Preview gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
 services: dev-box
 ms.service: dev-box
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/21/2022
+ms.date: 10/12/2022
 adobe-target: true
 ---
 
@@ -64,10 +65,10 @@ Microsoft Dev Box bridges the gap between development teams and IT, bringing con
         - Require multi-factor authentication (MFA) sign-in.
         - Configure risk-based sign-in policies for Dev Boxes that access sensitive source code and customer data.    
 
-
+[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 ## Next steps
 
 Start using Microsoft Dev Box:
-- [Quickstart: Configure the Microsoft Dev Box service](./quickstart-configure-dev-box-service.md)
-- [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md)
+- [Quickstart: Configure the Microsoft Dev Box Preview service](./quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
 - [Quickstart: Create a Dev Box](./quickstart-create-dev-box.md)

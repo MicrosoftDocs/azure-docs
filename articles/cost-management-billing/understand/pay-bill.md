@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 01/04/2023
 ms.author: banders
 ---
 
@@ -30,7 +30,9 @@ If you have Azure credits, they automatically apply to your invoice each billing
 
 **The Reserve Bank of India has issued new directives.**
 
-On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you may need to make payments manually in the Azure portal. This directive won't affect the total amount you'll be charged for your Azure usage. 
+On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you may need to make payments manually in the Azure portal. This directive won't affect the total amount you'll be charged for your Azure usage.
+
+On 8 June 2022, The Reserve Bank of India (RBI) increased the limit of e-mandates on cards for recurring payments from INR 5,000 to INR 15,000.
 
 [Learn more about the Reserve Bank of India directive; Processing of e-mandate on cards for recurring transactions](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
@@ -80,7 +82,6 @@ There are a few countries that don't allow the use of debit cards, however in ge
 
 - Hong Kong and Brazil only support credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
-
 
 ### Check or wire transfer
 
@@ -254,8 +255,8 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.
 1. In the left menu, select **Invoices** under **Billing**.
-1. If any of your invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
-1. In the Pay now window, select **Select a payment method** to choose an existing credit card or add a new one.
+1. If any of your eligible invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
+1. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
 1. After you select a payment method, select **Pay now**.
 
 The invoice status shows *paid* within 24 hours.
@@ -263,6 +264,8 @@ The invoice status shows *paid* within 24 hours.
 ## Pay now might be unavailable
 
 If you have a Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
+
+Based on the default payment method and invoice amount, the **Pay now** option might be unavailable. Check your invoice for payment instructions.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

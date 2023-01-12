@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/03/2018
+ms.date: 09/01/2022
 ---
 
 # Run actions based on group status by using scopes in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 

@@ -4,6 +4,7 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 06/30/2022
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)
@@ -366,7 +367,7 @@ The `pollingConfig` section includes the following properties:
 
 | Name         | Type        | Description  |
 | ------------ | ----------- | ------------ |
-| **id**       | String      | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB |
+| **id**       | String      | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in Azure Cosmos DB |
 | **auth**     | String      | Describes the authentication properties for polling the data. For more information, see [auth configuration](#auth-configuration). |
 | <a name="authtype"></a>**auth.authType** | String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2`, `Session`, `CiscoDuo` |
 | **request**  | Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration). |

@@ -18,6 +18,9 @@ This article describes how to set up autoscale for a web app by using a custom m
 
 Autoscale allows you to add and remove resources to handle increases and decreases in load. In this article, we'll show you how to set up autoscale for a web app by using one of the Application Insights metrics to scale the web app in and out.
 
+> [!NOTE]
+> Autoscaling on custom metrics in Application Insights is supported only for metrics published to **Standard** and **Azure.ApplicationInsights** namespaces. If any other namespaces are used for custom metrics in Application Insights, it will return **Unsupported Metric** error.
+
 Azure Monitor autoscale applies to:
 
 + [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)

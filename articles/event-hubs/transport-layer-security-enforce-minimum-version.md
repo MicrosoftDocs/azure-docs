@@ -11,7 +11,7 @@ ms.date: 04/25/2022
 ms.author: egrootenboer
 ---
 
-# Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace (Preview)
+# Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace
 
 Communication between a client application and an Azure Event Hubs namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 

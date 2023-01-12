@@ -179,7 +179,7 @@ After you publish a product, developers can access the APIs. Depending on how th
     > [!TIP]
     > You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update) or PowerShell command.
 
-* **Open product** - Developers can access an open product's APIs without a subscription key. However, you can configure other mechanisms to secure client access to the APIs, including [OAuth 2.0](api-management-howto-protect-backend-with-aad.md), [client certificates](api-management-howto-mutual-certificates-for-clients.md), and [restricting caller IP addresses](./api-management-access-restriction-policies.md#RestrictCallerIPs).
+* **Open product** - Developers can access an open product's APIs without a subscription key. However, you can configure other mechanisms to secure client access to the APIs, including [OAuth 2.0](api-management-howto-protect-backend-with-aad.md), [client certificates](api-management-howto-mutual-certificates-for-clients.md), and [restricting caller IP addresses](ip-filter-policy.md).
 
     > [!NOTE]
     > Open products aren't listed in the developer portal for developers to learn about or subscribe to. They're visible only to the **Administrators** group. You'll need to use another mechanism to inform developers about APIs that can be accessed without a subscription key.

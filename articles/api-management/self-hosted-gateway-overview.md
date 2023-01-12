@@ -39,7 +39,6 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 :::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways":::
 
-
 ## Packaging
 
 The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/shgw/registry-portal) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
@@ -87,6 +86,8 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 -   Regularly checking for (every 10 seconds) and applying configuration updates whenever they're available
 -   Sending metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
+
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ### FQDN dependencies
 

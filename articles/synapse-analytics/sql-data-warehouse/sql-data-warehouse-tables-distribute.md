@@ -5,7 +5,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 08/09/2022
+ms.date: 09/27/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
@@ -107,7 +107,7 @@ WITH
 > [!NOTE]
 > Multi-column distribution is currently in preview for Azure Synapse Analytics. For more information on joining the preview, see multi-column distribution with [CREATE MATERIALIZED VIEW](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), or [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 
-<!-- Data stored in the distribution column(s) can be updated. Updates to data in distribution column(s) could result in data shuffle operation.-->
+Data stored in the distribution column(s) can be updated. Updates to data in distribution column(s) could result in data shuffle operation.
 
 Choosing distribution column(s) is an important design decision since the values in the hash column(s) determine how the rows are distributed. The best choice depends on several factors, and usually involves tradeoffs. Once a distribution column or column set is chosen, you cannot change it. If you didn't choose the best column(s) the first time, you can use [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to re-create the table with the desired distribution hash key.
 

@@ -1,13 +1,13 @@
 ---
 title: HPE ProLiant DL360 OT monitoring - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL360 appliance when used for OT monitoring with Microsoft Defender for IoT.
-ms.date: 04/24/2022
+ms.date: 10/03/2022
 ms.topic: reference
 ---
 
 # HPE ProLiant DL360
 
-This article describes the **HPE ProLiant DL360** appliance for OT sensors.
+This article describes the **HPE ProLiant DL360** appliance for OT sensors, customized for use with Microsoft Defender for IoT.
 
 | Appliance characteristic |Details |
 |---------|---------|
@@ -16,14 +16,10 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
 |**Status** | Supported, Available preconfigured|
 
-
-The following image shows a view of the HPE ProLiant Dl360 front panel:
-
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="Photo of the HPE ProLiant DL360 front panel." border="false":::
-
-The following image shows a view of the HPE ProLiant Dl360 back panel:
+The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
 
 :::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel." border="false":::
+
 
 ## Specifications
 
@@ -151,11 +147,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 > For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
 >
 
-### Install iLO remotely from a virtual drive
+### Install OT sensor software with iLO
 
 This procedure describes how to install iLO software remotely from a virtual drive.
-
-**To install sensor software with iLO**:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 

@@ -20,7 +20,7 @@ Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/
 
 ## Run post-call transcription analysis
 
-Follow these steps to create a new console application.
+Follow these steps to build and run the post-call transcription analysis quickstart code example.
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/call-center/"  title="Copy the samples"  target="_blank">scenarios/python/console/call-center/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `call-center.py`.
@@ -33,7 +33,7 @@ Follow these steps to create a new console application.
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-    The default console output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a better formatted version of the results is written to the file.
+    The default console output is a combination of the JSON responses from the [batch transcription](../../../batch-transcription.md) (Speech), [sentiment](../../../../language-service/sentiment-opinion-mining/overview.md) (Language), and [conversation summarization](../../../../language-service/summarization/overview.md?tabs=conversation-summarization) (Language) APIs. If you specify `--output FILE`, a better formatted version of the results is written to the file.
 
 ## Usage and arguments
 
@@ -44,4 +44,3 @@ Usage: `python call-center.py -- [...]`
 ## Clean up resources
 
 [!INCLUDE [Delete resource](delete-resource.md)]
-

@@ -1,17 +1,17 @@
 ---
-title: Azure Hybrid Benefit for Windows Server 
+title: Explore Azure Hybrid Benefit for Windows VMs 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 ms.service: virtual-machines
 ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 4/22/2018
+ms.date: 9/28/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
 ---
-# Azure Hybrid Benefit for Windows Server
+# Explore Azure Hybrid Benefit for Windows VMs
 
 For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 

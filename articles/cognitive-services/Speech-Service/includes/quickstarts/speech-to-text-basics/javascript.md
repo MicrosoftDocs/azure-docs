@@ -44,6 +44,8 @@ Follow these steps to create a Node.js console application for speech recognitio
     ```javascript
     const fs = require("fs");
     const sdk = require("microsoft-cognitiveservices-speech-sdk");
+
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
     speechConfig.speechRecognitionLanguage = "en-US";
 
@@ -84,6 +86,9 @@ Run your new console application to start speech recognition from a file:
 ```console
 node.exe SpeechRecognition.js
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 The speech from the audio file should be output as text: 
 

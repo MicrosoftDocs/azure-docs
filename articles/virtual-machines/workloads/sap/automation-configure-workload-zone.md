@@ -1,6 +1,6 @@
 ---
 title: About workload zone configuration in automation framework
-description: Overview of the SAP workload zone configuration process within the SAP deployment automation framework on Azure.
+description: Overview of the SAP workload zone configuration process within the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Workload zone configuration in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP deployment automation framework on Azure](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
+An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
 
 :::image type="content" source="./media/automation-deployment-framework/workload-zone-architecture.png" alt-text="Diagram of SAP workflow zones and systems.":::
 
@@ -218,15 +218,18 @@ ANF_service_level         = "Ultra"
 
 ```
 
-### DNS Support   
+### DNS Support
+
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                             | Description                                                            | Type         | Notes  |
-> | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
-> | `use_custom_dns_a_registration`      | Should a custom DNS A record be created when using private endpoints.  | Optional     | |
-> | `management_dns_subscription_id`     | Custom DNS subscription ID.                                            | Optional     | |
-> | `management_dns_resourcegroup_name`  | Custom DNS resource group name.                                        | Optional     | |
-> |                                      |                                                                        |              | |
+> | Variable                            | Description                                                          | Type     |
+> | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
+
+
 ## Other Parameters
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -235,6 +238,7 @@ ANF_service_level         = "Ultra"
 > | `enable_purge_control_for_keyvaults` | Is purge control is enabled on the Key Vault.                          | Optional | Use only for test deployments         |
 > | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional |                                       |
 > | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional |                                       |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets | Optional |
 > | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.          |
 > | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.          |
 

@@ -63,17 +63,6 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --address-prefixes 10.1.0.0/16 \
     --subnet-name mySubnet \
     --subnet-prefixes 10.1.0.0/24
-
-```
-
-To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnet \
-    --resource-group CreatePrivLinkService-rg \
-    --vnet-name myVNet \
-    --disable-private-link-service-network-policies true
 ```
 
 ### Create standard load balancer
@@ -209,16 +198,6 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --address-prefixes 11.1.0.0/16 \
     --subnet-name mySubnetPE \
     --subnet-prefixes 11.1.0.0/24
-```
-
-To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnetPE \
-    --resource-group CreatePrivLinkService-rg \
-    --vnet-name myVNetPE \
-    --disable-private-endpoint-network-policies true
 ```
 
 ### Create endpoint and connection

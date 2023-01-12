@@ -10,7 +10,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -325,7 +325,7 @@ Rotation functions template for two sets of credentials and several ready to use
 - [Project template](https://serverlesslibrary.net/sample/bc72c6c3-bd8f-4b08-89fb-c5720c1f997f)
 - [Redis Cache](https://serverlesslibrary.net/sample/0d42ac45-3db2-4383-86d7-3b92d09bc978)
 - [Storage Account](https://serverlesslibrary.net/sample/0e4e6618-a96e-4026-9e3a-74b8412213a4)
-- [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
+- [Azure Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
 
 > [!NOTE]
 > Above rotation functions are created by a member of the community and not by Microsoft. Community Azure Functions are not supported under any Microsoft support programme or service, and are made available AS IS without warranty of any kind.

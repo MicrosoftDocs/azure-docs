@@ -5,7 +5,7 @@ ms.author: nickoman
 author: nickomang
 services: container-service
 ms.topic: article
-ms.date: 09/26/2022
+ms.date: 12/14/2022
 ---
 
 # Use ImageCleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
@@ -26,19 +26,31 @@ It's common to use pipelines to build and deploy images on Azure Kubernetes Serv
 
 ### [Azure CLI](#tab/azure-cli)
 
-Register the `EnableImageCleanerPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+First, install the aks-preview extension by running the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+Then register the `EnableImageCleanerPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableImageCleanerPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableImageCleanerPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "EnableImageCleanerPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -91,7 +103,10 @@ In addition to choosing between manual and automatic mode, there are several opt
 |----|-----------|--------|
 |--enable-image-cleaner|Enable the ImageCleaner feature for an AKS cluster|Yes, unless disable is specified|
 |--disable-image-cleaner|Disable the ImageCleaner feature for an AKS cluster|Yes, unless enable is specified|
-|--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value is one week, the minimum value is 24 hours and the maximum is three months.|No|
+|--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
+
+> [!NOTE]
+> After disabling ImageCleaner, the old configuration still exists. This means that if you enable the feature again without explicitly passing configuration, the existing value will be used rather than the default.
 
 ## Enable ImageCleaner on your AKS cluster
 
@@ -139,7 +154,7 @@ And apply it to the cluster:
 kubectl apply -f image-list.yml
 ```
 
-A job named `eraser-aks-xxx`will be triggerred which causes ImageCleaner to remove the desired images from all nodes.
+A job named `eraser-aks-xxx`will be triggered which causes ImageCleaner to remove the desired images from all nodes.
 
 ## Disable ImageCleaner
 
@@ -161,11 +176,11 @@ The deletion logs are stored in the `image-cleaner-kind-worker` pods. You can ch
 
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
 [register-azproviderpreviewfeature]: /powershell/module/az.resources/register-azproviderpreviewfeature
-[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [get-azproviderpreviewfeature]: /powershell/module/az.resources/get-azproviderpreviewfeature
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [register-azresourceprovider]: /powershell/module/az.resources/register-azresourceprovider
 
 [arm-vms]: https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/

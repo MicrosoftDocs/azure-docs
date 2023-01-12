@@ -20,7 +20,7 @@ The Open-source component versions associated with HDInsight 5.0 are listed in t
 |------------------------|---------------| --------------|
 |Apache Spark | 3.1.2 | 2.4.4|
 |Apache Hive | 3.1.2 | 3.1.2 |
-|Apache Kafka | 2.4.1 | 2.1.1|
+|Apache Kafka | - |2.1.1 and 2.4.1|
 |Apache Hadoop |3.1.1 | 3.1.1 |
 |Apache Tez |0.9.1 | 0.9.1 |
 |Apache Pig	| 0.16.1 | 0.16.1 |
@@ -53,8 +53,10 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 :::image type="content" source="./media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png" alt-text="Screenshot of interactive query 3.1 for HDI 5.0":::
 
 > [!NOTE]
-> * If you are creating an Interactive Query Cluster, you will see from the dropdown list an other version as Interactive Query 3.1 (HDI 5.0).
+> If you are creating an Interactive Query Cluster, you will see from the dropdown list another version as Interactive Query 3.1 (HDI 5.0).
 > * If you are going to use Spark 3.1 version along with Hive which require ACID support via Hive Warehouse Connector (HWC). 
+
+
 you need to select this version Interactive Query 3.1 (HDI 5.0).
 
 ## Kafka 
@@ -77,4 +79,5 @@ HDInsight team is working on upgrading other open-source components.
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
+
 

@@ -21,27 +21,27 @@
     href: ./machine-configuration-custom.md
 - name: Quickstarts
   items:
-  - name: How to create a machine configuration assignment using templates
-    href: ./machine-configuration-create-assignment.md
-  - name: How to create custom machine configuration policy definitions
-    href: ./machine-configuration-create-definition.md
+  - name: How to setup a machine configuration authoring environment
+    href: ./machine-configuration-create-setup.md
   - name: How to create custom machine configuration package artifacts
     href: ./machine-configuration-create.md
   - name: How to test machine configuration package artifacts
     href: ./machine-configuration-create-test.md
-  - name: How to sign machine configuration packages
-    href: ./machine-configuration-create-signing.md
   - name: How to publish custom machine configuration package artifacts
     href: ./machine-configuration-create-publish.md
-  - name: How to setup a machine configuration authoring environment
-    href: ./machine-configuration-create-setup.md
+  - name: How to sign machine configuration packages
+    href: ./machine-configuration-create-signing.md
   - name: Understand machine configuration assignment resources
     href: ./machine-configuration-assignments.md
-  - name:  Azure Automation state configuration to machine configuration migration planning
-    href: ./machine-configuration-azure-automation-migration.md
-  - name: Changes to behavior in PowerShell DSC for machine configuration
-    href: ./machine-configuration-custom.md
-  - name: Planning a change from DSC extension for Linux to machine configuration
-    href: ./machine-configuration-dsc-extension-migration.md
+  - name: How to create a machine configuration assignment using templates
+    href: ./machine-configuration-create-assignment.md
+  - name: How to create custom machine configuration policy definitions
+    href: ./machine-configuration-create-definition.md
   - name: Remediation options for machine configuration
     href: ./machine-configuration-policy-effects.md
+  - name: Changes to behavior in PowerShell DSC for machine configuration
+    href: ./machine-configuration-custom.md
+  - name:  Azure Automation state configuration to machine configuration migration planning
+    href: ./machine-configuration-azure-automation-migration.md
+  - name: Planning a change from DSC extension for Linux to machine configuration
+    href: ./machine-configuration-dsc-extension-migration.md

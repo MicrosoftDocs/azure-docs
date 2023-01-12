@@ -17,6 +17,9 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
+> [!div class="nextstepaction"]
+> [Install Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)
+> 
 Azure AD Connect provides the following features:
      
 - [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
@@ -54,7 +57,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 ## Why use Azure AD Connect Health?
 When authenticating with Azure AD, your users are more productive because there's a common identity to access both cloud and on-premises resources. Ensuring the environment is reliable, so that users can access these resources, becomes a challenge.  Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of this environment. It is as simple as installing an agent on each of your on-premises identity servers.
 
-Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 and Windows Server 2016. It also supports monitoring the AD FS proxy or web application proxy servers that provide authentication support for extranet access. With an easy and quick installation of the Health Agent, Azure AD Connect Health for AD FS provides you a set of key capabilities.
+Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 and Windows Server 2019. It also supports monitoring the AD FS proxy or web application proxy servers that provide authentication support for extranet access. With an easy and quick installation of the Health Agent, Azure AD Connect Health for AD FS provides you a set of key capabilities.
 
 Key benefits and best practices:
 

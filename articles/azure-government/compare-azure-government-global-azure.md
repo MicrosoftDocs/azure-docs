@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 09/20/2022
+ms.date: 01/09/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -242,6 +242,10 @@ The following features have known limitations in Azure Government:
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
 
+### [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)
+
+The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
+
 ## Management and governance
 
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
@@ -290,7 +294,7 @@ Application Insights (part of Azure Monitor) enables the same features in both A
 
 **Visual Studio** - In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
-**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/custom-endpoints.md).
+**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/create-new-resource.md#application-insights-overriding-default-endpoints).
 
 **Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
 

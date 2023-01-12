@@ -10,9 +10,11 @@ ms.author: juliako
 
 # Enable and view a clapperboard with extracted metadata (preview)
 
-The clapperboard insight is used to detect clapper board instances and information written on each. For example, *head* or *tail* (the board is upside-down), *production*, *roll*, *scene*, *take*, etc. A [clapperboard](https://en.wikipedia.org/wiki/Clapperboard)'s extracted metadata is most useful to customers involved in the movie post-production process. 
+A clapperboard insight is used to detect clapperboard instances and information written on each. For example, *head* or *tail* (the board is upside-down), *production*, *roll*, *scene*, *take*, *date*, etc. The [clapperboard](https://en.wikipedia.org/wiki/Clapperboard)'s extracted metadata is most useful to customers involved in the movie post-production process. 
 
-When the movie is being edited, the slate is removed from the scene but a metadata with what's on the clapper board is important. Azure Video Indexer extracts the data from clapperboards, preserves and presents the metadata as described in this article.
+When the movie is being edited, a clapperboard is removed from the scene; however, the information that was written on the clapperboard is important. Azure Video Indexer extracts the data from clapperboards, preserves, and presents the metadata. 
+
+This article shows how to enable the post-production insight and view clapperboard instances with extracted metadata.
 
 ## View the insight
 
@@ -30,9 +32,7 @@ After the file has been uploaded and indexed, if you want to view the timeline o
 
 ### Clapperboards
 
-Clapperboards contain titles, like: *production*, *roll*, *scene*, *take* and values associated with each title.
-
-The titles and their values' quality may not always be recognizable. For more information, see [limitations](#clapperboard-limitations).
+Clapperboards contain fields with titles (for example, *production*, *roll*, *scene*, *take*) and values (content) associated with each title. 
 
 For example, take this clapperboard:
 
@@ -47,7 +47,7 @@ In the following example the board contains the following fields:
 |date|FILTER (in this case the board contains no date)|
 |director|John|
 |production|Prod name|
-|scene|FPS|
+|scene|1|
 |take|99|
 
 #### View the insight
@@ -61,7 +61,7 @@ To see the instances on the website, select **Insights** and scroll to **Clapper
 
 If you checked the **Post-production** insight, You can also find the clapperboard instance and its timeline (includes time, fields' values) on the **Timeline** tab.
 
-#### Vew JSON
+#### View JSON
 
 To display the JSON file: 
 
@@ -83,10 +83,12 @@ The following table describes fields found in json:
 
 ## Clapperboard limitations
 
+The values may not always be correctly identified by the detection algorithm. Here are some limitations:
+
 - The titles of the fields appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
 - Handwritten text or digital digits may not be correctly identified by the fields detection algorithm.
-- The algorithm is optimized to identify fields categories that appear horizontally.  
-- The clapper board may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
+- The algorithm is optimized to identify fields' categories that appear horizontally.  
+- The clapperboard may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
 - Empty fields’ values may lead to to wrong fields categories.  
 <!-- If a part of a clapper board is hidden a value with the highest confidence is shown.  -->
 

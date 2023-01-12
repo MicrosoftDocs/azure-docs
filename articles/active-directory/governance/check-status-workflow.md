@@ -1,5 +1,5 @@
 ---
-title: Check status of a Lifecycle workflow - Azure Active Directory
+title: Check status of a Lifecycle workflow
 description: This article guides a user on checking the status of a Lifecycle workflow
 author: OWinfreyATL
 ms.author: owinfrey

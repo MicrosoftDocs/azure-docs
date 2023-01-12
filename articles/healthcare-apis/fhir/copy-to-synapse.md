@@ -56,7 +56,7 @@ You can configure the server to export the data to any kind of Azure storage acc
 
 #### Using `$export` command
 
-After configuring your FHIR server, you can follow the [documentation](./export-data.md#calling-the-export-endpoint) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
+After configuring your FHIR server, you can follow the [documentation](./export-data.md#call-the-export-endpoint) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  

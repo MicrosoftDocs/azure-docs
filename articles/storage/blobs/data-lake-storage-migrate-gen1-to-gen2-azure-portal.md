@@ -1,7 +1,9 @@
 ---
 title: Migrate from Azure Data Lake Storage Gen1 to Gen2 using the Azure portal
+titleSuffix: Azure Storage
 description: You can simplify the task of migrating from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 by using the Azure portal.
 author: normesta
+
 ms.topic: how-to
 ms.author: normesta
 ms.date: 09/12/2022
@@ -224,6 +226,10 @@ When we copy the data over to your Gen2-enabled account, we automatically create
 #### What should I consider in terms of migration performance?
 
 When you copy the data over to your Gen2-enabled account, two factors that can affect performance are the number of files and the amount of metadata you have. For example, many small files can affect the performance of the migration.
+
+#### Will WebHDFS File System API's supported on Gen2 account post migraiton?
+
+WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibilty layer. Customers should plan to levarage ADLS Gen2-specific APIs for better performance and features.
 
 ## Next steps
 

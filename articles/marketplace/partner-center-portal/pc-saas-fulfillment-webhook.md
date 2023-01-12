@@ -16,8 +16,8 @@ When creating a transactable SaaS offer in Partner Center, the partner provides 
 * When the SaaS subscription is in *Subscribed* status:
     * ChangePlan
     * ChangeQuantity
-    * Renew
-    * Suspend
+    * Renew (notify only, no ACK needed)
+    * Suspend (notify only, no ACK needed)
     * Unsubscribe (notify only, no ACK needed)
 * When SaaS subscription is in *Suspended* status:
     * Reinstate

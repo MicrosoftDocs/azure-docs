@@ -28,6 +28,8 @@ WAF with Front Door provides detailed reporting on each request, and each threat
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
+If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs.  For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md). 
+
 Front Door provides two types of logs: access logs and WAF logs.
 
 ### Access logs

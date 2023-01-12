@@ -77,7 +77,7 @@ When the updates to a user object are synchronized to the Azure AD Tenant, Azure
 >
 >Whenever Azure AD recalculates the UserPrincipalName attribute, it also recalculates the MOERA. 
 >
->In case of verified domain change, Azure AD also recalculates the UserPrincipalName attribute. For more information, see [Troubleshoot: Audit data on verified domain change](https://docs.microsoft.com/azure/active-directory/reports-monitoring/troubleshoot-audit-data-verified-domain)
+>In case of verified domain change, Azure AD also recalculates the UserPrincipalName attribute. For more information, see [Troubleshoot: Audit data on verified domain change](../reports-monitoring/troubleshoot-audit-data-verified-domain.md)
 
 ## UPN scenarios
 The following are example scenarios of how the UPN is calculated based on the given scenario.

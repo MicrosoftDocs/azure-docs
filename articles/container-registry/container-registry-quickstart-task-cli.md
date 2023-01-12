@@ -2,7 +2,9 @@
 title: Quickstart - Build a container image on-demand in Azure
 description: Use Azure Container Registry commands to quickly build, push, and run a Docker container image on-demand, in the Azure cloud.
 ms.topic: quickstart
-ms.date: 09/25/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
 ---
 
@@ -111,7 +113,7 @@ Run ID: ca8 was successful after 10s
 
 Now quickly run the image you built and pushed to your registry. Here you use [az acr run][az-acr-run] to run the container command. In your container development workflow, this might be a validation step before you deploy the image, or you could include the command in a [multi-step YAML file][container-registry-tasks-multi-step]. 
 
-The following example uses `$Registry` to specify the registry where you run the command:
+The following example uses $Registry to specify the endpoint of the registry where you run the command:
 
 ```azurecli-interactive
 az acr run --registry myContainerRegistry008 \

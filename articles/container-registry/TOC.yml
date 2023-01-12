@@ -99,8 +99,6 @@
         href: container-registry-helm-repos.md
       - name: Push and pull supply chain artifacts (preview)
         href: container-registry-oras-artifacts.md
-      - name: Sign and verify containers with notation (preview)
-        href: container-registry-tutorial-sign-build-push.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -145,10 +143,10 @@
         href: container-registry-vnet.md
       - name: Allow access by trusted services
         href: allow-access-trusted-services.md
-      - name: Encrypt with customer-managed key
-        href: container-registry-customer-managed-keys.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
+      - name: Enable conditional access policy
+        href: container-registry-enable-conditional-access-policy.md
       - name: Authentication
         items:
         - name: Authentication overview
@@ -178,6 +176,8 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
+      - name: Sign and verify containers with notation (preview)
+        href: container-registry-tutorial-sign-build-push.md
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -304,7 +304,7 @@
   - name: PowerShell
     href: /powershell/module/az.containerregistry
   - name: .NET
-    href: /dotnet/api/overview/azure/containerregistry
+    href: /dotnet/api/overview/azure/container-registry
   - name: Python
     href: /python/api/overview/azure/container-registry
   - name: Java

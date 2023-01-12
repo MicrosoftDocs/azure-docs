@@ -53,9 +53,9 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. It is recommended that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
+    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. We recommend that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az group create --name contoso-us-resource-group --location westus
     ```
 
@@ -63,7 +63,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
     ```
 
@@ -75,8 +75,8 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
     > [!CAUTION]
     > The example Azure Function code for the custom allocation policy requires the substring `-toasters-` in the hub name. Make sure to use a name containing the required toasters substring.
-    
-    ```azurecli-interactive 
+
+    ```azurecli-interactive
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
@@ -84,20 +84,20 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
 
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**. 
+    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
 
     > [!CAUTION]
     > The example Azure Function code for the custom allocation policy requires the substring `-heatpumps-` in the hub name. Make sure to use a name containing the required heatpumps substring.
 
-    ```azurecli-interactive 
+    ```azurecli-interactive
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
     This command may take a few minutes to complete.
 
-5. The IoT hubs must be linked to the DPS resource. 
+5. The IoT hubs must be linked to the DPS resource.
 
-    Run the following two commands to get the connection strings for the hubs you just created. Replace the hub resource names with the names you chose in each command:
+    Run the following two commands to get the connection strings for the hubs you created. Replace the hub resource names with the names you chose in each command:
 
     ```azurecli-interactive 
     hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
@@ -165,7 +165,7 @@ In this section, you create an Azure function that implements your custom alloca
         </Project>
         ```
 
-    2. Click the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop down box to verify the contents.
+    2. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
 
     3. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload will create the file without uploading the contents.)
 
@@ -431,11 +431,11 @@ The simulated devices will use the derived device keys with each registration ID
 
 In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
 
-This section is oriented toward a Windows-based workstation. For a Linux example, see the set-up of the VMs in [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
+This section is oriented toward a Windows-based workstation. For a Linux example, see the set-up of the VMs in [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
-    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+    It's important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
 2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
@@ -462,7 +462,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    If `cmake` doesn't find your C++ compiler, you might get build errors while running the command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    If `cmake` doesn't find your C++ compiler, you might see build errors while running the command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
@@ -513,7 +513,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. In the `main()` function, find the call to `Prov_Device_Register_Device()`. Just before that call, add the following lines of code that use [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) to pass a custom JSON payload during provisioning. This can be used to provide more information to your custom allocation functions. This could also be used to pass the device type instead of examining the registration ID. For more information on sending and receiving custom data payloads with DPS, see [How to transfer payloads between devices and DPS](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
+6. In the `main()` function, find the call to `Prov_Device_Register_Device()`. Just before that call, add the following lines of code that use [`Prov_Device_Set_Provisioning_Payload()`](https://github.com/Azure/azure-iot-sdk-c/blob/main/provisioning_client/inc/azure_prov_client/prov_device_client.h#L52) to pass a custom JSON payload during provisioning. This can be used to provide more information to your custom allocation functions. This could also be used to pass the device type instead of examining the registration ID. For more information on sending and receiving custom data payloads with DPS, see [How to transfer payloads between devices and DPS](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
 
     ```c
     // An example custom payload
@@ -619,7 +619,7 @@ The following table shows expected scenarios and the results error codes you mig
 | The webhook returns 200 OK with ‘iotHubHostName’ present in the response, but set to an empty string or null | Result status: Failed<br><br> Error code: CustomAllocationIotHubNotSpecified (400208) | SDK returns PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | The webhook returns 401 Unauthorized | Result status: Failed<br><br>Error code: CustomAllocationUnauthorizedAccess (400209) | SDK returns PROV_DEVICE_RESULT_UNAUTHORIZED |
 | An Individual Enrollment was created to disable the device | Result status: Disabled | SDK returns PROV_DEVICE_RESULT_DISABLED |
-| The webhook returns error code >= 429 | DPS’ orchestration will retry a number of times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1s<br>&nbsp;&nbsp;- Increment: 9s | SDK will ignore error and submit another get status message in the specified time |
+| The webhook returns error code >= 429 | DPS’ orchestration will retry several times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1 s<br>&nbsp;&nbsp;- Increment: 9 s | SDK will ignore error and submit another get status message in the specified time |
 | The webhook returns any other status code | Result status: Failed<br><br>Error code: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 ## Clean up resources
@@ -644,17 +644,7 @@ To delete the resource group by name:
 
 ## Next steps
 
-* To learn more about custom allocation policies, see
+To learn more about custom allocation policies, see
 
-    > [!div class="nextstepaction"]
-    > [Understand custom allocation policies](concepts-custom-allocation.md)
-
-* To learn more Reprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more Deprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [How to deprovision devices that were previously autoprovisioned](how-to-unprovision-devices.md)
+> [!div class="nextstepaction"]
+> [Understand custom allocation policies](concepts-custom-allocation.md)

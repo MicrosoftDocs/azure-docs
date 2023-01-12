@@ -159,7 +159,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Resolved retry 503 error |Related information |
 | :----------------------------------- | :--------------- |
-|Retry 503 error from Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
+|Retry 503 error from Azure Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
 |Fixes processing 429s from StoreProcedures. |[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
 
 |GitHub issues closed |Related information |

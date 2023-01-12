@@ -67,15 +67,15 @@ landingContent:
         - text: Form Recognizer Sample Labeling tool
           url: quickstarts/try-sample-label-tool.md
         - text: REST API
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: C# SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Java SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: JavaScript SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Python SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
 
       - linkListType: how-to-guide
         links:
@@ -84,13 +84,13 @@ landingContent:
           - text: Migrate to Form Recognizer v3.0
             url: v3-migration-guide.md
           - text: Use the read model
-            url: how-to-guides/use-prebuilt-read.md
+            url: how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true
           - text: Create SAS tokens for storage containers
             url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
             url:  how-to-guides/build-custom-model-v3.md
           - text: Compose custom models (v3.0)
-            url: compose-custom-models-v3.md
+            url: how-to-guides/compose-custom-models.md?view=form-recog-3.0.0&preserve-view=true
           - text: Install and run Form Recognizer containers
             url: containers/form-recognizer-container-install-run.md
           - text: Create and use managed identities

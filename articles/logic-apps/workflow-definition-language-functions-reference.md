@@ -5,10 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
-ms.date: 05/05/2022
+ms.custom: engagement-fy23
+ms.date: 09/20/2022
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference or process the values in these expressions, you can use *expression functions* provided by the [Workflow Definition Language](logic-apps-workflow-definition-language.md).
 
@@ -4223,7 +4226,7 @@ And returns this array: `[0,1,2,3]`
 This example sorts an array of objects by key:
 
 ```
-sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }'), "last")
+sort(createArray(json('{ "first": "Amalie", "last": "Rose" }'), json('{ "first": "Elise", "last": "Renee" }')), 'last')
 ```
 
 And returns this array: `[{ "first": "Elise", "last": "Renee" }, {"first": "Amalie", "last": "Rose" }')]`
@@ -5478,9 +5481,9 @@ In this example, suppose your `items` XML string also contains these attributes:
 </produce>
 ```
 
-This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
+This example passes in the XPath expression, `'//name[@price>35]'`, to find all the `name` elements that have `price > 35`:
 
-`xpath(xml(parameters('items')), '//name[price>35]')`
+`xpath(xml(parameters('items')), '//name[@price>35]')`
 
 Here's the result: `Honeycrisp`
 

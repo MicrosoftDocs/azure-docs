@@ -3,7 +3,7 @@ title: Azure Functions error handling and retry guidance
 description: Learn to handle errors and retry events in Azure Functions with links to specific binding errors, including information on retry policies.
 
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/03/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -14,7 +14,7 @@ Handling errors in Azure Functions is important to avoid lost data, missed event
 This article describes general strategies for error handling and the available retry strategies. 
 
 > [!IMPORTANT]
-> The retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in October 2022. For more information, see the [Retries section below](#retries).
+> The retry policy support in the runtime for triggers other than Timer, Kafka, and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in December 2022. For more information, see the [Retries section below](#retries).
 
 ## Handling errors
 
@@ -49,7 +49,7 @@ There are two kinds of retries available for your functions: built-in retry beha
 
 | Trigger/binding | Retry source | Configuration | 
 | ---- | ---- | ----- | 
-| Azure Cosmos DB | n/a | Not configurable |
+| Azure Cosmos DB | [Retry policies](#retry-policies) | Function-level |
 | Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) |
 | Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription | 
 | Event Hubs | [Retry policies](#retry-policies) | Function-level | 
@@ -107,7 +107,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/fixed-delay)
 
-Retry policies aren't yet supported when running in an isolated process.
+Retry policies aren't yet supported when running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script/fixed-delay)
 
@@ -156,7 +156,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 
 # [Isolated process](#tab/isolated-process/exponential-backoff)
 
-Retry policies aren't yet supported when running in an isolated process.
+Retry policies aren't yet supported when running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script/exponential-backoff)
 

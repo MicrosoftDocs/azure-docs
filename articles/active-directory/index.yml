@@ -13,7 +13,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: CelesteDG
-  ms.date: 08/03/2022
+  ms.date: 10/10/2022
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -136,9 +136,13 @@ additionalContent:
           summary: Manage just-in-time role assignments to limit access to secure information and resources.
           url: ./privileged-identity-management/index.yml
         # Card
-        - title: External Identities
-          summary: Collaborate with partners using their own identities (B2B), or design customer identity and access management for your app (B2C).
+        - title: External partners (B2B)
+          summary: Collaborate with partners using their own external identities (B2B).
           url: ./external-identities/index.yml
+        # Card
+        - title: Customers (B2C)
+          summary: Manage customer identity and access management (CIAM) for your app.
+          url: ../active-directory-b2c/index.yml
         # Card
         - title: Cloud sync
           summary: Create and manage user identities in Azure AD using Azure AD Connect cloud sync.

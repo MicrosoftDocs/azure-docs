@@ -42,9 +42,10 @@ A resource's `properties` object has the following properties:
 
 ### <a name="container-apps-environment-examples"></a>Examples
 
-# [ARM template](#tab/arm-template)
-
 The following example ARM template deploys a Container Apps environment.
+
+> [!NOTE]
+> The commands to create container app environments don't support YAML configuration input.
 
 ```json
 {
@@ -118,12 +119,6 @@ The following example ARM template deploys a Container Apps environment.
   ]
 }
 ```
-
-# [YAML](#tab/yaml)
-
-YAML input isn't currently used by Azure CLI commands to specify a Container Apps environment.
-
----
 
 ## Container app
 
@@ -217,9 +212,6 @@ The following example ARM template deploys a container app.
     },
     "registry_password": {
       "type": "SecureString"
-    },
-    "storage_share_name": {
-      "type": "String"
     }
   },
   "variables": {},

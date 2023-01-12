@@ -7,13 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/20/2022
 ms.author: bemabonsu
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
 ---
 
 # Create a Form Recognizer resource
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
 
@@ -73,7 +76,7 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
 
-  * [C#](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Python](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Java](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [C#](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Java](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [JavaScript](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

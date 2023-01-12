@@ -64,4 +64,4 @@ In this section, you'll retrieve and download the Azure Load Testing results fil
 
 - Learn more about [Troubleshooting test execution errors](./how-to-find-download-logs.md).
 - For information about comparing test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
