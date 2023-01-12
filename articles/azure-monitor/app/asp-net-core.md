@@ -516,7 +516,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ---
 
-In versions 2.12.2 and later, [`ApplicationInsightsServiceOptions`](#using-applicationinsightsserviceoptions) includes an easy option to disable any of the default modules.
+In versions 2.12.2 and later, [`ApplicationInsightsServiceOptions`](#use-applicationinsightsserviceoptions) includes an easy option to disable any of the default modules.
 
 ### Configure a telemetry channel
 
@@ -592,7 +592,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ---
 
-The preceding code sample prevents the sending of telemetry to Application Insights. It doesn't prevent any automatic collection modules from collecting telemetry. If you want to remove a particular autocollection module, see [Remove the telemetry module](#configuring-or-removing-default-telemetrymodules).
+The preceding code sample prevents the sending of telemetry to Application Insights. It doesn't prevent any automatic collection modules from collecting telemetry. If you want to remove a particular autocollection module, see [Remove the telemetry module](#configure-or-remove-default-telemetrymodules).
 
 ## Frequently asked questions
 
