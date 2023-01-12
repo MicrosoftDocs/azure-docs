@@ -36,7 +36,7 @@ When you submit documents to be processed by entity linking, you can specify whi
 
 Entity linking produces a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
-To send an API request, You will need a Language resource endpoint and key.
+To send an API request, you will need a Language resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
