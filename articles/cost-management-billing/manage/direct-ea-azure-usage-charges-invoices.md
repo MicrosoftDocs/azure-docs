@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2023
+ms.date: 01/11/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -131,7 +131,7 @@ Azure is enhancing its invoicing experience. The enhanced experience includes an
 
 There are no changes to invoices generated before November 18, 2022.
 
-The invoice notification email address is changing from `msftinv@microsoft.com` to `no-reply@microsoft.com` for customers and partners under the enhanced invoicing experience.
+The invoice notification email address is changing from `msftinv@microsoft.com` to `microsoft-noreply@microsoft.com` for customers and partners under the enhanced invoicing experience.
 
 We recommend that you add the new email address to your address book or safe sender list to ensure that you receive the emails.
 
