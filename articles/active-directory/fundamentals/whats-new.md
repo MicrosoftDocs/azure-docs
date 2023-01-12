@@ -83,20 +83,6 @@ In this Public Preview refresh, we have enhanced the user experience with an upd
 
 For more information, see: [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md).
 
-
----
-
-### Public Preview - Enabling customization capabilities for the conditional error messages in Company Branding.
-
-
-
-**Type:** New feature   
-**Service category:** Other             
-**Product capability:** End User Experiences    
-
-Updates to the Company Branding functionality on the Azure AD/Microsoft 365 login experience, to allow customizing conditional access (CA) error messages. For more information, see: [Company Branding](../fundamentals/customize-branding.md).
-
-
 ---
 
 ### Public Preview - Admins can restrict their users from creating tenants
