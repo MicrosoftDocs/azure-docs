@@ -73,15 +73,15 @@ The Apache Spark advisor displays the advices, including info, warning and error
 
 * Info
 
-    ![screenshot for advice infomation](./media/apache-spark-advisor/info.png)
+    ![Screenshot showing for advice information.](./media/apache-spark-advisor/info.png)
 
 * Warning
 
-    ![screenshot for advice warning](./media/apache-spark-advisor/warning.png)
+    ![Screenshot showing for advice warning.](./media/apache-spark-advisor/warning.png)
 
 * Errors
  
-    ![screenshot for advice error](./media/apache-spark-advisor/error.png)
+    ![Screenshot showing for advice error.](./media/apache-spark-advisor/error.png)
 
 ## Next steps
 
