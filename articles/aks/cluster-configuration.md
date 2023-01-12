@@ -61,7 +61,9 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [A
 
 Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 only.
 
-### Generation 2 virtual machines on Windows
+### Generation 2 virtual machines on Windows (preview)
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 * Generation 2 VMs are supported on Windows for WS2022 only.
 * Generation 2 VMs are default for Windows clusters greater than or equal to Kubernetes 1.25.
@@ -82,7 +84,17 @@ az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster
 
 ```
 
----
+To determine if you're on generation 1 or generation 2, run the following command from the nodepool level and check that the `nodeImageVersion` contains `gen2`:
+
+```azurecli
+az aks nodepool show
+```
+
+To determine available generation 2 VM sizes, run the following command:
+
+```azurecli
+az vm list -skus -l $region
+```
 
 For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
