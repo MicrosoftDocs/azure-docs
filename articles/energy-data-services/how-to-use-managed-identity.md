@@ -62,7 +62,7 @@ There are five important steps to configure Azure Functions to access Microsoft 
 3.	Search for the *Object ID* of the user assigned identity or system assigned identity in the *Search by application name or Object ID* search box.
 4.	Copy the *Application ID* from Enterprise Application section of Azure Active Directory.
  
-[![Screenshot of Application Id for user assigned identity.](media/how-to-use-managed-identity/3-object-id-applicationid-user-assigned-identity.png)](media/how-to-use-managed-identity/3-object-id-applicationid-user-assigned-identity.png#lightbox)
+[![Screenshot of Application Id for user assigned identity.](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png)](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png#lightbox)
 
 ## Step 3: Add the user assigned managed identity to Azure Functions
 
@@ -72,7 +72,7 @@ There are five important steps to configure Azure Functions to access Microsoft 
 4.	Select the User assigned tab, and then select Add.
 5.	Select your existing user-assigned managed identity and then select Add. You'll then be returned to the User assigned tab.
  
-[![Screenshot of adding user assigned identity to Azure Function.](media/how-to-use-managed-identity/4-user-assigned-identity-azurefunction.png)](media/how-to-use-managed-identity/4-user-assigned-identity-azurefunction.png#lightbox)
+[![Screenshot of adding user assigned identity to Azure Function.](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png)](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png#lightbox)
 
 ## Step 4: Add the Application ID to entitlement groups to access Microsoft Energy Data Services APIs
 Next, you need to add this Application ID to appropriate groups using the entitlement service to access Microsoft Energy Data Services APIs. You need to perform the following actions: 
