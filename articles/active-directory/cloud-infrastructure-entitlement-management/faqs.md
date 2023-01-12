@@ -132,21 +132,21 @@ You can read our blog and visit our web page. You can also get in touch with you
 
 ## What is the data destruction/decommission process? 
 
-If a customer initiates a free Permissions Management 90-day trial, but does not follow up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
+If a customer initiates a free Permissions Management 45-day trial, but does not follow up and convert to a paid license within 45 days of the free trial expiration, we will delete all collected data on or just before 45 days.  
 
-If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
+If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 45 days of license termination.  
 
 We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
 
 ## Do I require a license to use Entra Permissions Management? 
 
-Yes, as of July 1st, 2022, new customers must acquire a free 90-trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
+Yes, as of July 1st, 2022, new customers must acquire a free 45-trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
  
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
 If you are using the Public Preview version of Entra Permissions Management, your current deployment(s) will continue to work through October 1st.  
 
-After October 1st you will need to move over to use the newly released version of the service and enable a 90-day trial or purchase licenses to continue using the service.  
+After October 1st you will need to move over to use the newly released version of the service and enable a 45-day trial or purchase licenses to continue using the service.  
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 
