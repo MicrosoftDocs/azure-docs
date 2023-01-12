@@ -5,7 +5,7 @@ author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: reference 
-ms.date: 01/08/2023
+ms.date: 01/12/2023
 ---
 
 # Create reliable Websocket with subprotocol
@@ -13,11 +13,11 @@ ms.date: 01/08/2023
 When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers, so publishers may not detect a subscribers' dropped connection or message loss. It's crucial for clients to overcome intermittent network issues and maintain reliable message delivery. To achieve that, you can create a reliable Websocket client with the help of reliable Azure Web PubSub subprotocols.
 
 > [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in future.
+> Reliable protocols are still in preview. Some changes are expected in the future.
 
 ## Reliable Protocol
 
-The Web PubSub service supports two reliable subprotocols `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the reconnection, publisher and subscriber parts of the protocol to achieve the reliability.  Failing to follow the subprotocols, the message delivery may not work as expected or the service may terminate the client as it violates the protocol spec.
+The Web PubSub service supports two reliable subprotocols `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the publisher, subscriber, and reconnection parts of the subprotocol to achieve reliability.  Failing to properly implement the subprotocol may result in the message delivery not working as expected or the service terminating the client due to protocol violations.
 
 ## Initialization
 
@@ -37,7 +37,11 @@ To use reliable subprotocols, you must set the subprotocol when constructing Web
 
 ## Reconnection
 
-Websocket connections rely on TCP, so if the connection doesn't drop, all messages should be lossless and in order. When facing network issues and connection drops, all the status, such as group and message info, are kept by the Web PubSub service for reconnection. A Websocket connection owns a session in the service and the identifier is `connectionId`. Reconnection is the basis of achieving reliability and must be implemented. When the client reconnects to the service using reliable subprotocols, the client will receive a `Connected` message containing the  `connectionId` and `reconnectionToken`.
+Reconnection is the basis of achieving reliability and must be implemented when using the `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1` protocols.
+
+Websocket connections rely on TCP.  When the connection doesn't drop, messages are lossless and delivered in order. When connections drop, reconnection is enabled by using the connection status information, including group and message information kept by the Web PubSub service. 
+
+When the client reconnects to the service using reliable subprotocols, the client will receive a `Connected` message containing the  `connectionId` and `reconnectionToken`. The `connectionId` identifies the session of the connection in the service.
 
 ```json
 {
@@ -48,7 +52,7 @@ Websocket connections rely on TCP, so if the connection doesn't drop, all messag
 }
 ```
 
-Once the WebSocket connection drops, the client should first try to reconnect with the same `connectionId` to keep the session. Clients don't need to negotiate with server and obtain the `access_token`. Instead, reconnection should make a websocket connect request to service directly with `connection_id` and `reconnection_token` with the following uri:
+Once the WebSocket connection drops, the client should first try to reconnect with the same `connectionId` to keep the restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, reconnection should make a websocket connect request directly to the service with the service uri, `connection_id`, and `reconnection_token`:
 
 ```text
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&awps_reconnection_token=<reconnection_token>
@@ -61,7 +65,7 @@ Reconnection may fail if the network issue hasn't been recovered yet. The client
 
 ## Publisher
 
-Clients that send events to event handler or publish messages to other clients are called publishers. Publishers should set `ackId` in the message to receive an acknowledgment from the Web PubSub service that publishing the message was successful or not. The `ackId` in message is the identifier of the message, each new message should use a unique ID.  The original `ackId` should be used when resending a message.
+Clients that send events to event handlers or publish messages to other clients are called publishers. Publishers should set `ackId` in the message to receive an acknowledgment from the Web PubSub service that publishing the message was successful or not. The `ackId` in message is the identifier of the message, each new message should use a unique ID.  The original `ackId` should be used when resending a message.
 
 A sample group send message:
 
@@ -87,7 +91,7 @@ A sample ack response:
 
 When the Web PubSub service returns an ack response with `success: true`, the message has been processed by the service, and the client can expect the message will be delivered to all subscribers.
 
-When the service meets some transient internal error and the message can't be sent to subscriber, the publisher will receive an ack with `success: false`.  The publisher should read the error.  If the message is resent, the same `ackId` should be used.
+When the service experiences a transient internal error and the message can't be sent to subscriber, the publisher will receive an ack with `success: false`.  The publisher should read the error to determine whether or not to resend the message.  If the message is resent, the same `ackId` should be used.
 
 ```json
 {
@@ -103,7 +107,7 @@ When the service meets some transient internal error and the message can't be se
 
 ![Message Failure](./media/howto-develop-reliable-clients/message-failed.png)
 
-When the service's ack response is dropped because the WebSockets connection dropped, the publisher should resend message with the same `ackId` after reconnection. When the message has previously processed by the service, it will send an ack containing a `Duplicate` error and the publisher should stop resending this message.
+If the service's ack response is lost because the WebSocket connection dropped, the publisher should resend message with the same `ackId` after reconnection. When the message was previously processed by the service, it will send an ack containing a `Duplicate` error and the publisher should stop resending this message.
 
 ```json
 {
@@ -132,6 +136,6 @@ A sample sequence ack:
 }
 ```
 
-The `sequenceId` is a uint64 incremental number in a connection-id session. Subscribers should record the largest `sequenceId` it received, accept all messages with larger `sequenceId`, and drop all messages with smaller or equal `sequenceId`. The sequence ack supports cumulative ack, which means if you ack `sequenceId: 5`, the service will treat all messages with `sequenceId` smaller than 5 have already been received by the subscriber. The subscriber should ack with the largest `sequenceId` it recorded, so that the service can skip redelivering messages that subscribers have already received.
+The `sequenceId` is a uint64 incremental number in a connection-id session. Subscribers should record the largest `sequenceId` it has received, accept only messages with a larger `sequenceId`, and drop messages with a smaller or equal `sequenceId`. The subscriber should ack with the largest `sequenceId` it recorded, so that the service can skip redelivering messages that subscribers have already received. For example, if the subscriber responds with a `sequenceAck` with `sequenceId: 5`, the service will only resend messages with a `sequenceId` larger than 5.
 
-All messages are delivered to subscribers in order until the WebSockets connection drops. With `sequenceId`, the service can know about how many messages subscribers have received across WebSockets connections in a connection-id session. After a WebSockets connection drops, the service will redeliver messages not acknowledged by the subscriber. The service stores a limited number of unacknowledged messages. When the number of messages exceed the limit, the service will close the WebSockets connection and remove the connection-id session. Thus, subscribers should ack the `sequenceId` as soon as possible.
+All messages are delivered to subscribers in order until the WebSocket connection drops. With `sequenceId`, the service can know how many messages subscribers have received across WebSocket connections in a session. After a WebSocket connection drops, the service will redeliver messages not acknowledged by the subscriber. The service stores a limited number of unacknowledged messages. When the number of messages exceed the limit, the service will close the WebSocket connection and remove the session. Thus, subscribers should ack the `sequenceId` as soon as possible.
