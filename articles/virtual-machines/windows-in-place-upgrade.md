@@ -4,7 +4,7 @@ description: This article describes how to do an in-place upgrade for VMs runnin
 services: virtual-machines
 author: cynthn
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/17/2023
 ms.author: cynthn
 
 ---
@@ -23,7 +23,31 @@ Before you begin an in-place upgrade:
 
 1. Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
 
- 
+## Windows versions not yet supported for in-place system upgrades
+For the following versions, consider using the work around in the next section:
+
+- Windows Server 2012 R2 Datacenter
+- Windows Server 2012 R2 Standard
+- Windows Server 2012 Datacenter
+- Windows Server 2012 Standard
+- Windows Server 2008 R2 Datacenter
+- Windows Server 2008 R2 Standard
+### Workaround
+To work around this issue, create an Azure VM that's running a supported version. And then either migrate the workload (Method 1, preferred), or download and upgrade the VHD of the VM (Method 2).
+To prevent data loss, back up the Windows 10 VM by using [Azure Backup](../backup/backup-overview.md). Or use a third-party backup solution from [Azure Marketplace Backup & Recovery](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=Backup).
+#### Method 1: Deploy a newer system and migrate the workload
+
+Create an Azure VM that runs a supported version of the operating system, and then migrate the workload. To do so, you will use Windows Server migration tools. For instructions to migrate Windows Server roles and features, see [Install, use, and remove Windows Server migration tools](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012).
+
+
+#### Method 2: Download and upgrade the VHD
+1. Do an in-place upgrade in a local Hyper-V VM
+   1. [Download the VHD](./windows/download-vhd.md) of the VM.
+   2. Attach the VHD to a local Hyper-V VM.
+   3. Start the VM.
+   4. Run the in-place upgrade.
+2. Upload the VHD to Azure. For more information, see  [Upload a generalized VHD and use it to create new VMs in Azure](./windows/upload-generalized-managed.md).
+
 
 ## Upgrade VM to volume license (KMS server activation) 
 
