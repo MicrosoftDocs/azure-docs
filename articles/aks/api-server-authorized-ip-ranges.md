@@ -26,7 +26,7 @@ The *API server authorized IP ranges* feature has the following limitations:
 
 - The *API server authorized IP ranges* feature was moved out of preview in October 2019. For clusters created after the feature was moved out of preview, this feature is only supported on the *Standard* SKU load balancer. Any existing clusters on the *Basic* SKU load balancer with the *API server authorized IP ranges* feature enabled will continue to work as is. However, these clusters cannot be migrated to a *Standard* SKU load balancer. Existing clusters will continue to work if the Kubernetes version and control plane are upgraded.
 - The *API server authorized IP ranges* feature isn't supported on private clusters.
-- When using this feature with clusters that use [Node Public IP](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools), the node pools using Node Public IP must use public IP prefixes. The public IP prefixes must be added as authorized ranges.
+- When using this feature with clusters that use [Node Public IP](use-node-public-ips.md), the node pools using Node Public IP must use public IP prefixes. The public IP prefixes must be added as authorized ranges.
 
 ## Overview of API server authorized IP ranges
 

@@ -248,6 +248,8 @@
               href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use instance-level public IP addresses
+              href: use-node-public-ips.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
             - name: Start/stop node pools

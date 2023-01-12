@@ -56,15 +56,33 @@ Finally, when creating a new cluster or adding a new node pool, use the flag `no
 az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
 ```
 
+## Locate public IPs for nodes
+
+You can locate the public IPs for your nodes in various ways:
+
+* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
+* Use [PowerShell or Bash commands][vmss-commands]. 
+* You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
+
+> [!Important]
+> The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
+
 ## Use public IP tags on node public IPs (PREVIEW)
 
 Public IP tags can be utilized on node public IPs to utilize the [Azure Routing Preference](/azure/virtual-network/ip-services/routing-preference-overview.md) feature.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-### Install the aks-preview Azure CLI extension
+### Requirements
 
-Version 0.5.115 of the aks-preview extension is required.
+* AKS version 1.24 or greater is required.
+* Version 0.5.115 of the aks-preview extension is required.
+
+### Install the aks-preview Azure CLI extension
 
 To install the aks-preview extension, run the following command:
 
@@ -114,22 +132,7 @@ az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location>
   --node-public-ip-tags RoutingPreference=Internet
 ```
 
-## Locate public IPs for nodes
-
-You can locate the public IPs for your nodes in various ways:
-
-* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
-* Use [PowerShell or Bash commands][vmss-commands]. 
-* You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
-
-> [!Important]
-> The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
-
-```azurecli
-az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
-```
-
-## Allow host port connections and add node pools to application security groups
+## Allow host port connections and add node pools to application security groups (PREVIEW)
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
@@ -295,6 +298,7 @@ spec:
 ```
 
 When the deployment is applied, the `hostPort` entries will be in the YAML of the individual pods:
+
 ```shell
 $ kubectl describe pod echoserver-hostport-75dc8d8855-4gjfc
 <cut for brevity>
@@ -321,6 +325,57 @@ Containers:
 
 <!-- EXTERNAL LINKS -->
 
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
+[capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
+
 <!-- INTERNAL LINKS -->
+[arm-sku-vm1]: ../virtual-machines/dpsv5-dpdsv5-series.md
+[arm-sku-vm2]: ../virtual-machines/dplsv5-dpldsv5-series.md
+[arm-sku-vm3]: ../virtual-machines/epsv5-epdsv5-series.md
+[aks-quickstart-windows-cli]: ./learn/quick-windows-container-deploy-cli.md
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-nodepool-add]: /cli/azure/aks#az_aks_nodepool_add
+[enable-fips-nodes]: enable-fips-nodes.md
+[gpu-cluster]: gpu-cluster.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[quotas-skus-regions]: quotas-skus-regions.md
+[supported-versions]: supported-kubernetes-versions.md
+[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
+[taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
+[vm-sizes]: ../virtual-machines/sizes.md
+[use-system-pool]: use-system-pools.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss#az_vmss_list_instance_public_ips
+[reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/ip-services/public-ip-address-prefix.md
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create
+[node-image-upgrade]: node-image-upgrade.md
+[use-tags]: use-tags.md
+[use-labels]: use-labels.md
+[cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
+[internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
+[drain-nodes]: resize-node-pool.md#drain-the-existing-nodes
