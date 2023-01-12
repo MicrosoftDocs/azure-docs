@@ -103,7 +103,7 @@ SecurityAlert
 After you've installed the Microsoft Defender for IoT solution and deployed the [AD4IoT-AutoAlertStatusSync](iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot) playbook, alert status changes are synchronized from Microsoft Sentinel to Defender for IoT. Alert status changes are *not* synchronized from Defender for IoT to Microsoft Sentinel.
 
 > [!IMPORTANT]
-> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](/azure/sentinel/work-with-tasks).
+> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](../../sentinel/work-with-tasks.md).
 >
 
 ### Defender for IoT incidents in Microsoft Sentinel
