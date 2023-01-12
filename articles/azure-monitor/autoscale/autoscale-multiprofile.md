@@ -46,7 +46,7 @@ In the above example, on Monday after 6 AM, the recurring profile will be used. 
 ## Multiple contiguous profiles
 Autoscale transitions between profiles based on their start times. The end time for a given profile is determined by the start time of the following profile.
 
-In the portal, the end time field becomes the next start time for the default profile. You cannot specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
+In the portal, the end time field becomes the next start time for the default profile. You can't specify the same time for the end of one profile and the start of the next. The portal will force the end time to be one minute before the start time of the following profile. During this minute, the default profile will become active. If you don't want the default profile to become active between recurring profiles, leave the end time field empty.
 
 > [!TIP]
 > To set up multiple contiguous profiles using the portal, leave the end time empty. The current profile will stop being used when the next profile becomes active. Only specify an end time when you want to revert to the default profile.
@@ -59,7 +59,7 @@ When creating multiple profiles using templates, the CLI, and PowerShell, follow
 
 See the autoscale section of the [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings) for a full template reference.
 
-Note that there is no specification in the template for end time. A profile will remain active until the next profile's start time.  
+There is no specification in the template for end time. A profile will remain active until the next profile's start time.  
 
 
 ## Add a recurring profile using AIM templates
@@ -295,8 +295,8 @@ $DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -Ma
 
 * [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
 * [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
-* [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
+* [PowerShell Az PowerShell module.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
 * [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
-* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
