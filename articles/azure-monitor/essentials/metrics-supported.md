@@ -439,14 +439,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
-|allConnectionsClosedPerSecond|Yes|Connections Closed Per Second (Instance Based)|CountPerSecond|Maximum|The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). For more details, see https://aka.ms/redis/metrics.|ShardId, Primary, Ssl|
-|allConnectionsCreatedPerSecond|Yes|Connections Created Per Second (Instance Based)|CountPerSecond|Maximum|The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). For more details, see https://aka.ms/redis/metrics.|ShardId, Primary, Ssl|
-|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary|
+|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary|
+|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary|
+|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary|
+|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary|
+|allConnectionsClosedPerSecond|Yes|Connections Closed Per Second (Instance Based)|CountPerSecond|Maximum|The number of instantaneous connections closed per second on the cache via port 6379 or 6380 (SSL). For more details, see https://aka.ms/redis/metrics. |ShardId, Primary, Ssl|
+|allConnectionsCreatedPerSecond|Yes|Connections Created Per Second (Instance Based)|CountPerSecond|Maximum|The number of instantaneous connections created per second on the cache via port 6379 or 6380 (SSL). For more details, see https://aka.ms/redis/metrics. |ShardId, Primary, Ssl|
+|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary|
 |allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
 |allgetcommands|Yes|Gets (Instance Based)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
 |alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
