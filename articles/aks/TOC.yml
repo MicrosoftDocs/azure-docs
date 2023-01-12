@@ -388,8 +388,10 @@
           items:
             - name: Restrict and control cluster egress traffic
               href: limit-egress-traffic.md
-            - name: Use a user defined route for egress
+            - name: Configure outbound type for AKS
               href: egress-outboundtype.md
+            - name: Use a user defined route for egress
+              href: egress-udr.md
             - name: Managed NAT Gateway
               href: nat-gateway.md
             - name: Use an HTTP proxy
