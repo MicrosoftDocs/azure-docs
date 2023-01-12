@@ -3,7 +3,7 @@ title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
 ms.service: machine-learning
-ms.date: 01/11/2023
+ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -23,7 +23,7 @@ In this article, you'll learn how to deploy an R model to a managed endpoint (We
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
 - [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job.
 - An understanding of the [R `plumber` package](https://www.rplumber.io/index.html)
-- A model that you've trained and [packaged with `crate`]((how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
+- A model that you've trained and [packaged with `crate`](how-to-razureml-modify-script-for-prod.md#crate-your-models-with-the-carrier-package).
 
 ## Create a folder with this structure
 
@@ -40,8 +40,8 @@ Create this folder structure for your project:
  ├─ endpoint.yml
 ```
 
-> ![NOTE]
-> The endpoint and deployment files are explained [later in the article](#deploy-model).
+The contents of each of these files is shown and explained in this article.
+
 
 ### Dockerfile
 
@@ -225,13 +225,10 @@ You'll see a confirmation that the model is registered.
     az acr build ./docker-context -t $IMAGE_TAG -r $ACR_NAME
     ```
 
-    > [!TIP]
-    > Don't close this terminal, you'll use it next to create the deployment.
+> [!IMPORTANT]
+> It will take a few minutes for the image to be built. Wait until the build process is complete before proceeding to the next section.  Don't close this terminal, you'll use it next to create the deployment.
 
 The `az acr` command will automatically upload your docker-context folder - that contains the artifacts to build the image - to the cloud where the image will be built and hosted in an Azure Container Registry.
-
-> [!NOTE]
-> It may take a few minutes for the image to be built.
 
 ## Deploy model
 
@@ -307,8 +304,10 @@ A *deployment* is a set of resources required for hosting the model that does th
     az ml online-deployment create -f r-deployment.yml --all-traffic --skip-script-validation
     ```
 
+If this command gives an error that the parameter `--skip-script-validation` is not recognized, you have an older version of the `ml` extension.  In that case, [reinstall the extension](how-to-configure-cli.md#installation) and try again.
+
 > [!NOTE]
-> It may take several minutes for the service to be deployed
+> It may take several minutes for the service to be deployed.  Wait until deployment is finished before proceeding to the next section.
 
 ## Test
 
@@ -328,7 +327,7 @@ Enter the following json into the **Input data to rest real-time endpoint** text
 
 Select **Test**. You should see the following output:
 
-:::image type="content" source="media/how-to-razureml-deploy-an-r-model/test-r-model-ui.png" alt-text="Test an R Model":::
+:::image type="content" source="media/how-to-razureml-deploy-an-r-model/test-deployment.png" alt-text="Test an R Model":::
 
 # [Azure CLI](#tab/cli)
 

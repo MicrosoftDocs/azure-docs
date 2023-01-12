@@ -239,18 +239,6 @@
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
           href: concept-vulnerability-management.md
-- name: R Support
-  items:
-    - name: Overview of R capabilities
-      href: how-to-razureml-overview-r-capabilities.md
-    - name: Interactive R development
-      href: how-to-razureml-interactive-development.md
-    - name: Adapt interactive R scripts for jobs and production
-      href: how-to-razureml-modify-script-for-prod.md
-    - name: Train R model
-      href: how-to-razureml-train-model.md
-    - name: Deploy R model
-      href: how-to-razureml-deploy-r-model.md
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
@@ -710,6 +698,7 @@
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
+    
       items:
         - name: Generate Responsible AI insights
           items:
@@ -725,6 +714,18 @@
         - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Use R with Azure ML
+      items:
+        - name: Bring R workloads
+          href: how-to-razureml-overview-r-capabilities.md
+        - name: Interactive R development
+          href: how-to-razureml-interactive-development.md
+        - name: Adapt R scripts for jobs and production
+          href: how-to-razureml-modify-script-for-prod.md
+        - name: Train R model
+          href: how-to-razureml-train-model.md
+        - name: Deploy R model
+          href: how-to-razureml-deploy-r-model.md
 - name: Troubleshoot & debug
   items:
     - name: Troubleshoot secure workspace connectivity

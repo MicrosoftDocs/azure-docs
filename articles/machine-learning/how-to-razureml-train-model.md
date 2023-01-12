@@ -1,9 +1,9 @@
 ---
-title: Train R models in Azure Machine Learning
+title: Train R models
 titleSuffix: Azure Machine Learning
-description: 'Learn how to train R models in Azure Machine Learning.'
+description: 'Learn how to train your machine learning model with R for use in Azure Machine Learning.'
 ms.service: machine-learning
-ms.date: 01/04/2023
+ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
 ms.author: mavaisma
@@ -11,7 +11,7 @@ ms.reviewer: sgilley
 ms.devlang: r
 ---
 
-# How to train R models in Azure Machine Learning
+# Run an R job to train a model
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -25,7 +25,7 @@ This article explains how to take the R script that you [adapted to run in produ
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - [A registered data asset](how-to-create-data-assets.md) that your training job will use.
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
-- [A compute cluster](how-to-create-attach-compute-cluster.md) to run your training job.
+- [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-compute-instance) to run your training job.
 - [An R environment](how-to-razureml-modify-script-for-prod.md#create-an-environment) for the compute cluster to use to run the job.
 
 ## Create a folder with this structure
@@ -84,7 +84,7 @@ inputs:
     path: azureml:<REGISTERED-DATA-ASSET>@latest
   other: 1  # this is a sample parameter, which is the number 1 (as text)
 environment: azureml:<R-ENVIRONMENT-NAME>@latest
-compute: azureml:<COMPUTE-CLUSTER-NAME>
+compute: azureml:<COMPUTE-CLUSTER-OR-INSTANCE-NAME>
 experiment_name: <NAME-OF-EXPERIMENT>
 description: <DESCRIPTION>
 ```
