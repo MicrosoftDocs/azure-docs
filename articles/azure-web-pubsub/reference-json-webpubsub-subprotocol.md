@@ -48,7 +48,7 @@ Message types received by the client can be:
 
 ### Ack response
 
-When the client request contains `ackId`, the service will return an ack response for the request. The client should handle the ack mechanism, by waiting for the ack response with an `async` `await` operation and a using a timeout operation when the ack response isn't received in a certain period.
+When the client request contains `ackId`, the service will return an ack response for the request. The client should handle the ack mechanism, by waiting for the ack response with an `async` `await` operation and using a timeout operation when the ack response isn't received in a certain period.
 
 Format:
 
