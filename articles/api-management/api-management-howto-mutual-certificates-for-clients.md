@@ -23,7 +23,7 @@ For a conceptual overview of API authorization, see [Authentication and authoriz
 
 ## Certificate options
 
-For certificate validation, API Management can check one or more specified client certificate attributes, or check against certificates managed in your API Management instance. If you choose to use API Management to manage client certificates, you have the following options:
+For certificate validation, API Management can check the values of one or more specified client certificate attributes, or check against certificates managed in your API Management instance. If you choose to use API Management to manage client certificates, you have the following options:
 
 * Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
 * Add a certificate file directly in API Management
