@@ -37,7 +37,7 @@ Before you begin, make sure:
 
 * You've created a [Python Azure Function using portal](../azure-functions/create-first-function-vs-code-python.md) or using [command line.](../azure-functions/create-first-function-cli-python.md)
 
-* You have created [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). You can create a system assigned identity as well however, this document will explain the flow using user assigned managed identity. 
+* You've created [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). You can create a system assigned identity as well however, this document will explain the flow using user assigned managed identity.
 
 
 ## Steps for Azure Functions to access Microsoft Energy Data Services using Managed Identity
