@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 10/25/2021
+ms.date: 01/11/2023
 ---
 
 # Connect Data Factory to Microsoft Purview
