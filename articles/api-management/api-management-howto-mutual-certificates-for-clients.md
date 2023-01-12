@@ -5,12 +5,8 @@ description: Learn how to secure access to APIs by using client certificates. Yo
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
 ms.author: danlep
@@ -24,14 +20,36 @@ For information about securing access to the back-end service of an API using cl
 
 For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
 
+## Certificate options
+
+If you choose to use API Management to manage client certificates, you have the following options:
+
+* Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
+* Add a certificate file directly in API Management
+
+Using key vault certificates is recommended because it helps improve API Management security:
+
+* Certificates stored in key vaults can be reused across services
+* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to certificates stored in key vaults
+* Certificates updated in the key vault are automatically rotated in API Management. After update in the key vault, a certificate in API Management is updated within 4 hours. You can also manually refresh the certificate using the Azure portal or via the management REST API.
+
+## Prerequisites
+
+* If you have not created an API Management service instance yet, see [Create an API Management service instance][Create an API Management service instance].
+* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed.
+
+[!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
+
+
+## Enable API Management instance to negotiate client certificates
 
 > [!IMPORTANT]
-> To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers you must turn on the "Negotiate client certificate" setting on the "Custom domains" blade as shown below.
+> To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
 > [!IMPORTANT]
-> To receive and verify client certificates in the Consumption tier you must turn on the "Request client certificate" setting on the "Custom domains" blade as shown below.
+> To receive and verify client certificates in the Consumption tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
 
 ![Request client certificate](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
@@ -40,8 +58,6 @@ For a conceptual overview of API authorization, see [Authentication and authoriz
 Use the [validate-client-certificate](validate-client-certificate-policy.md) policy to validate one or more attributes of a client certificate used to access APIs hosted in your API Management instance.
 
 Configure the policy to validate one or more attributes including certificate issuer, subject, thumbprint, whether the certificate is validated against online revocation list, and others.
-
-For more information, see [API Management access restriction policies](api-management-access-restriction-policies.md).
 
 ## Certificate validation with context variables
 
@@ -66,7 +82,7 @@ Below policies can be configured to check the issuer and subject of a client cer
 ```
 
 > [!NOTE]
-> To disable checking certificate revocation list use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
+> To disable checking certificate revocation list, use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
 > If client certificate is self-signed, root (or intermediate) CA certificate(s) must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work.
 
 ### Checking the thumbprint
@@ -84,7 +100,7 @@ Below policies can be configured to check the thumbprint of a client certificate
 ```
 
 > [!NOTE]
-> To disable checking certificate revocation list use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
+> To disable checking certificate revocation list, use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
 > If client certificate is self-signed, root (or intermediate) CA certificate(s) must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work.
 
 ### Checking a thumbprint against certificates uploaded to API Management
@@ -103,7 +119,7 @@ The following example shows how to check the thumbprint of a client certificate 
 ```
 
 > [!NOTE]
-> To disable checking certificate revocation list use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
+> To disable checking certificate revocation list, use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
 > If client certificate is self-signed, root (or intermediate) CA certificate(s) must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work.
 
 > [!TIP]
