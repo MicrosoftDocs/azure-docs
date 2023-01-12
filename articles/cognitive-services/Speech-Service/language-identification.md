@@ -117,7 +117,7 @@ Prioritize `Latency` if you need a low-latency result such as during live stream
 * **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. You set the priority for continuous LID with the `SpeechServiceConnection_ContinuousLanguageIdPriority` property.
 
 > [!IMPORTANT]
-> With [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition, do not set `Accuracy`with the SpeechServiceConnection_ContinuousLanguageIdPriority property. The setting will be ignored without error, and the default priority of `Latency` will remain in effect. 
+> With [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition, do not set `Accuracy` with the SpeechServiceConnection_ContinuousLanguageIdPriority property. The setting will be ignored without error, and the default priority of `Latency` will remain in effect. 
  
 Speech uses at-start LID with `Latency` prioritization by default. You need to set a priority property for any other LID configuration.
 
@@ -1057,8 +1057,8 @@ translation_config = speechsdk.translation.SpeechTranslationConfig(
     target_languages=('de', 'fr'))
 audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
 
-# Set the Priority
-translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
+# Set the Priority (optional, default Latency, either Latency or Accuracy is accepted)
+translation_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Accuracy')
 
 # Specify the AutoDetectSourceLanguageConfig, which defines the number of possible languages
 auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])
