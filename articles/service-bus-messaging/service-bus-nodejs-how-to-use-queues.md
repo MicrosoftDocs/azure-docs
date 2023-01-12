@@ -22,7 +22,7 @@ In this tutorial, you complete the following steps:
 2. Create a Service Bus queue, using the Azure portal.
 3. Write a JavaScript application to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package to:
     1. Send a set of messages to the queue.
-    1. Write a .NET console application to receive those messages from the queue.
+    1. Receive those messages from the queue.
 
 > [!NOTE]
 > This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for JavaScript repository on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus/samples/v7). 
