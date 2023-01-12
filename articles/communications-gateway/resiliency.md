@@ -54,7 +54,7 @@ The details of this hunting behavior but will be specific to your network. You m
     Diagram of two operator sites (operator site A and operator site B) and two service regions (service region A and service region B). Operator site A has a primary route to service region A and a secondary route to service region B. Operator site B has a primary route to service region B and a secondary route to service region A.
 :::image-end:::
 
-In order to meet the Azure Communications Gateway SLA, your infrastructure must:
+Your infrastructure must:
 
 > [!div class="checklist"]
 > - Use OPTIONS polling towards Azure Communications Gateway.
@@ -92,7 +92,7 @@ Voice and API Bridge traffic are unaffected by failures in the management region
 
 ## Choosing management and service regions
 
-A single deployment of Azure Communications Gateway is designed to handle the Operator Connect and Teams Phone Mobile traffic within a geographic area. Both service regions should be deployed within the same geographic area (for example North America) to ensure that latency on voice calls remain within the SLA limits defined by the Operator Connect and Teams Phone Mobile programs. Consider the following points when you choose your service region locations:
+A single deployment of Azure Communications Gateway is designed to handle the Operator Connect and Teams Phone Mobile traffic within a geographic area. Both service regions should be deployed within the same geographic area (for example North America) to ensure that latency on voice calls remain within the limits required by the Operator Connect and Teams Phone Mobile programs. Consider the following points when you choose your service region locations:
 
 - Select from the list of available Azure regions. You can see the Azure regions that can be selected as service regions on the [Products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page.
 - Choose regions near to your own premises and the peering locations between your network and Microsoft to reduce call latency.
