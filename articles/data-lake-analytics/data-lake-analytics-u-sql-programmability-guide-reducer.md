@@ -9,6 +9,8 @@ ms.date: 06/30/2017
 
 # Use user-defined reducer
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## U-SQL UDO: user-defined reducer
 
 U-SQL enables you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.

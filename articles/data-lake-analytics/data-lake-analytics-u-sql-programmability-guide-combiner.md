@@ -9,6 +9,8 @@ ms.date: 06/30/2017
 
 # Use user-defined combiner
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## U-SQL UDO: user-defined combiner
 User-defined combiner, or UDC, enables you to combine rows from left and right rowsets, based on custom logic. User-defined combiner is used with COMBINE expression.
 

@@ -8,6 +8,8 @@ ms.date: 06/05/2018
 ---
 # Get started with the Cognitive capabilities of U-SQL
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Overview
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
 

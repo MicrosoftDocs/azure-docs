@@ -8,6 +8,8 @@ ms.date: 10/10/2019
 ---
 # Learn how to troubleshoot U-SQL runtime failures due to runtime changes
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 The Azure Data Lake U-SQL runtime, including the compiler, optimizer, and job manager, is what processes your U-SQL code.
 
 ## Choosing your U-SQL runtime version

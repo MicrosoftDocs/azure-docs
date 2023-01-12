@@ -10,6 +10,8 @@ ms.date: 08/02/2017
 # Use Job Browser and Job View for Azure Data Lake Analytics
 The Azure Data Lake Analytics service archives submitted jobs in a query store. In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 By default, the Data Lake Analytics service archives the jobs for 30 days. The expiration period can be configured from the Azure portal by configuring the customized expiration policy. You will not be able to access the job information after expiration. 
 
 ## Prerequisites

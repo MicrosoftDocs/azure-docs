@@ -9,6 +9,8 @@ ms.date: 06/30/2017
 
 # Use user-defined processor
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## U-SQL UDO: user-defined processor
 User-defined processor, or UDP, is a type of U-SQL UDO that enables you to process the incoming rows by applying programmability features. UDP enables you to combine columns, modify values, and add new columns if necessary. Basically, it helps to process a rowset to produce required data elements.
 

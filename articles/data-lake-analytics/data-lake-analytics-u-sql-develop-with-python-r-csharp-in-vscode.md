@@ -12,6 +12,8 @@ Learn how to use Visual Studio Code (VSCode) to write Python, R and C# code behi
 
 Before writing code-behind custom code, you need to open a folder or a workspace in VSCode.
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 
 ## Prerequisites for Python and R
 Register Python and, R extensions assemblies for your ADL account. 

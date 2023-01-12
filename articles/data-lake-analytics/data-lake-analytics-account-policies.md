@@ -12,6 +12,8 @@ Account policies help you control how resources an Azure Data Lake Analytics acc
 
 These policies apply to all jobs in a Data Lake Analytics account.
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Maximum number of AUs in a Data Lake Analytics account
 
 A policy controls the total number of Analytics Units (AUs) your Data Lake Analytics account can use. By default, the value is set to 250. For example, if this value is set to 250 AUs, you can have one job running with 250 AUs assigned to it, or 10 jobs running with 25 AUs each. Additional jobs that are submitted are queued until the running jobs are finished. When running jobs are finished, AUs are freed up for the queued jobs to run.
