@@ -16,9 +16,9 @@ items:
     href: prepare-for-live-traffic.md
 - name: Concepts
   items:
-  - name: Onboarding onto Microsoft Operator Connect and Microsoft Teams Phone Mobile 
+  - name: Microsoft Teams Onboarding 
     href: onboarding.md
-  - name: Interoperability with Microsoft Operator Connect and Teams Phone Mobile
+  - name: Interoperability with Microsoft Teams 
     href: interoperability.md
   - name: Reliability
     href: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json

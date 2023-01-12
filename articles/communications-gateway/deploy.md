@@ -37,15 +37,13 @@ In this step, you'll create the Azure Communications Gateway resource.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
 1. Select **Review + create**.
 
-## 2. Wait for Microsoft to validate your deployment
-
 If you've entered your configuration correctly, you'll see a **Validation Passed** message at the top of your screen. Navigate to the **Review + create** section.
 
 If you haven't filled in the configuration correctly, you'll see an error message in the configuration section(s) containing the invalid configuration. Correct the invalid configuration by selecting the flagged section(s) and use the information within the error messages to correct invalid configuration before returning to the **Review + create** section.
 
 :::image type="content" source="media/deploy/failed-validation.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a validation that failed due to missing information in the Contacts section.":::
 
-## 3. Submit your Azure Communications Gateway configuration
+## 2. Submit your Azure Communications Gateway configuration
 
 Check your configuration and ensure it matches your requirements. If the configuration is correct, select **Create**.
 
@@ -55,18 +53,18 @@ Once your resource has been provisioned, a message will appear saying **Your dep
 
 :::image type="content" source="media/deploy/go-to-resource-group.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
-## 4. Complete the JSON onboarding file
+## 3. Complete the JSON onboarding file
 
 Your onboarding team will require additional information to complete your Operator Connect onboarding. If you're being onboarded to Operator Connect/Teams Phone Mobile by Microsoft, the onboarding team will reach out to you.
 Wait for your onboarding team to confirm that the process is complete before testing your portal access.
 
-## 5. Test your portal access
+## 4. Test your portal access
 
 Navigate to the [Operator Connect homepage](https://operatorconnect.microsoft.com/) and ensure you're able to sign in.
 
-## 6. Register your Fully Qualified Domain Name (FQDN)
+## 5. Register your Fully Qualified Domain Name (FQDN)
 
-Your Azure Communications Gateway will require a custom domain name inside your tenant. Follow this step to set up the custom domain name that Teams will use to recognize an Azure Communications Gateway that belongs to you.
+Your Azure Communications Gateway will require a custom domain name inside your Active Directory tenant. Follow this step to set up the custom domain name that Teams will use to recognize an Azure Communications Gateway that belongs to you.
 
 1. Navigate to your Azure Communications Gateway resource and select **Properties**. You'll see a field named **Domain name**. This name is your custom domain name.
 1. Complete the following procedure: [Add your custom domain name to Azure AD](/azure/active-directory/fundamentals/add-custom-domain).

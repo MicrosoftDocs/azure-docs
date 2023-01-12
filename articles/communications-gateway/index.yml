@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Communications Gateway documentation
-summary: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile.
+summary: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
 
 metadata:
   title: Azure Communications Gateway documentation
-  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile.
+  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
   ms.service: communications-gateway
   ms.topic: landing-page
   author: rcdun
@@ -25,11 +25,11 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Interoperability of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
+          - text: Interoperability with Microsoft Teams
             url: interoperability.md
-          - text: Reliability in Azure Communications Gateway
+          - text: Reliability
             url: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
-          - text: Emergency calling with Azure Communications Gateway
+          - text: Emergency calling
             url: emergency-calling.md
 
   # Card
@@ -37,7 +37,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Onboarding onto Microsoft Operator Connect and Microsoft Teams Phone Mobile
+          - text: Microsoft Teams Onboarding 
             url: onboarding.md
       - linkListType: deploy
         links:

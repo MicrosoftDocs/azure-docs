@@ -13,7 +13,7 @@ ms.date: 01/12/2023
 
 # What is reliability in Azure Communications Gateway?
 
-Azure Communication Gateway ensures your service is reliable by using Azure redundancy mechanisms and SIP-specific retry behavior. Your network must also meet specific requirements to ensure service availability.
+Azure Communication Gateway ensures your service is reliable by using Azure redundancy mechanisms and SIP-specific retry behavior. Your network must  meet specific requirements to ensure service availability.
 
 ## Azure Communications Gateway's redundancy model
 
@@ -25,7 +25,7 @@ Each Azure Communications Gateway deployment consists of three separate regions:
 
 ## Service regions
 
-Service regions contain the voice and API infrastructure used for handling traffic between Microsoft Teams Phone System and your network. Each instance of Azure Communications Gateway consists of two service regions that are deployed in an active-active mode. This geo-redundancy is mandated by the Operator Connect and Microsoft Teams Phone System Mobile programs. Fast failover between the service regions is provided at the infrastructure/IP level and at the application (SIP/RTP/HTTP) level.
+Service regions contain the voice and API infrastructure used for handling traffic between Microsoft Teams Phone System and your network. Each instance of Azure Communications Gateway consists of two service regions that are deployed in an active-active mode. This geo-redundancy is mandated by the Operator Connect and Teams Phone Mobile programs. Fast failover between the service regions is provided at the infrastructure/IP level and at the application (SIP/RTP/HTTP) level.
 
 > [!TIP]
 > You must always have two service regions, even if one of the service regions chosen is in a single-region Azure Geography (for example, Qatar). If you choose a single-region Azure Geography, choose a second Azure region in a different Azure Geography.
@@ -92,7 +92,7 @@ Monitoring services might be temporarily unavailable until service has been rest
 
 ## Choosing management and service regions
 
-A single deployment of Azure Communications Gateway is designed to handle the Operator Connect and Teams Phone Mobile traffic within a geographic area. Both service regions should be deployed within the same geographic area (for example North America) to ensure that latency on voice calls remain within the limits required by the Operator Connect and Teams Phone Mobile programs. Consider the following points when you choose your service region locations:
+A single deployment of Azure Communications Gateway is designed to handle your Operator Connect and Teams Phone Mobile traffic within a geographic area. Both service regions should be deployed within the same geographic area (for example North America) to ensure that latency on voice calls remain within the limits required by the Operator Connect and Teams Phone Mobile programs. Consider the following points when you choose your service region locations:
 
 - Select from the list of available Azure regions. You can see the Azure regions that can be selected as service regions on the [Products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page.
 - Choose regions near to your own premises and the peering locations between your network and Microsoft to reduce call latency.

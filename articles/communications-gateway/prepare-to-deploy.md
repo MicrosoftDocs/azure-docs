@@ -26,7 +26,7 @@ We strongly recommend that all operators have a support plan that includes techn
 ## 1. Configure Azure Active Directory in Operator Azure tenancy
 
 > [!NOTE]
->This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already onboarded to TPM or OC.
+>This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip steps 1 and 2 if you have already onboarded to TPM or OC.
 
 Operator Connect and Teams Phone Mobile inherit permissions and identities from the Azure Active Directory within the Azure tenant where the Project Synergy app is configured. As such, performing this step within an existing Azure tenant uses your existing identities for fully integrated authentication and is recommended. However, if you need to manage identities for Operator Connect separately from the rest of your organization, complete the following steps in a new dedicated tenant.
 
@@ -58,7 +58,7 @@ Project Synergy allows Operator Connect to access your Azure Active Directory. I
 1. Select **Add user/group**.
 1. Specify the user you want to use for setting up Azure Communications Gateway and assign them the **Admin** role.
 
-## 3. Create App registrations to provide Azure Communications Gateway access to the Operator Connect API
+## 3. Create an App registration to provide Azure Communications Gateway access to the Operator Connect API
 
 You must create an App registration to enable Azure Communication Gateway to function correctly. The App registration provides Azure Communication Gateway with access to the Operator Connect API on your behalf. The App registration **must** be created in **your** tenant.
 
@@ -97,7 +97,7 @@ For the App registration that you created in [3.1 Create an App registration](#3
 
 ### 3.3 Add the application ID to the Operator Connect Portal
 
-This step is required to allow Azure Communications Gateway to use the Operator Connect API on your behalf. For the App registration you created:
+You must add the application ID to your Operator Connect environment. This step allows Azure Communications Gateway to use the Operator Connect API.
 
 1. Navigate to **App registrations** in the Azure portal (select **Azure Active Directory** and then in the left-hand menu, select **App registrations**). Alternatively, you can search for it with the search bar: it will appear under the **Services** subheading.
 1. Copy the **Application (client) ID** from the Overview page of your new App registration.
@@ -111,7 +111,7 @@ This step guides you through creating a Key Vault to store a secret for the App 
 
 ### 4.1 Create a Key Vault
 
-The App registration you created in [3. Create App registrations to provide Azure Communications Gateway access to the Operator Connect API](#3-create-app-registrations-to-provide-azure-communications-gateway-access-to-the-operator-connect-api) requires a dedicated Key Vault. The Key Vault is used to store the secret name and secret value (created in the next steps) for the App registration.
+The App registration you created in [3. Create an App registration to provide Azure Communications Gateway access to the Operator Connect API](#3-create-an-app-registration-to-provide-azure-communications-gateway-access-to-the-operator-connect-api) requires a dedicated Key Vault. The Key Vault is used to store the secret name and secret value (created in the next steps) for the App registration.
 
 1. Create a Key Vault. Follow the steps in [Create a Vault](/azure/key-vault/general/quick-create-portal).
 1. Provide your onboarding team with the ResourceID and the Vault URI of your Key Vault.

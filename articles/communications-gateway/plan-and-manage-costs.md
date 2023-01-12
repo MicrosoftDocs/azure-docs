@@ -53,12 +53,12 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 You'll need to pay for Azure networking costs, because these costs aren't included in the Azure Communication Gateway meters.
 
-- If you're connecting to the public internet with Microsoft Azure Peering Service (MAPS), you might need to pay another operator for an exchange location cross-connect for MAPS.
+- If you're connecting to the public internet with Microsoft Azure Peering Service (MAPS), you might need to pay a third party for the cross-connect at the exchange location.
 - If you're connecting into Azure as a next hop, you might need to pay vNet peering costs.
 
 ### Costs if you cancel or change your deployment
 
-If you cancel Azure Communications Gateway, your final bill or invoice will only include charges on each meter for the part of the billing cycle before you cancel.
+If you cancel Azure Communications Gateway, your final bill or invoice will only include charges on service-availability meters for the part of the billing cycle before you cancel. Per-user meters charge for the entire billing cycle. 
 
 You'll need to remove any networking resources that you set up for Azure Communications Gateway. For example, if you're connecting into Azure as a next hop, you'll need to remove the vNet peering. Otherwise, you'll still be charged for those networking resources.
 

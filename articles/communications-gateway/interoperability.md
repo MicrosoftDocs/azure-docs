@@ -1,5 +1,5 @@
 ---
-title: Interoperability with Microsoft Operator Connect and Microsoft Teams Phone Mobile
+title: Interoperability of Azure Communications Gateway with Microsoft Teams
 description: Understand how Azure Communications Gateway fits into your existing fixed and mobile networks and into Microsoft Teams
 author: rcdun
 ms.author: rdunstan
@@ -40,8 +40,7 @@ Azure Communications Gateway supports the Microsoft specifications for Certified
  the Operator Connect or Teams Phone Mobile documentation provided by your Microsoft representative.
 
 ### Call control integration for Teams Phone Mobile
-
-Teams Phone Mobile allows you to offer Microsoft Teams call services for calls made from the native dialer on mobile handsets, for example presence and call history. These features require anchoring the calls in Microsoft's Intelligent Conversation and Communications Cloud (IC3), part of the Microsoft Phone System.
+[Teams Phone Mobile](/microsoftteams/operator-connect-mobile-plan) allows you to offer Microsoft Teams call services for calls made from the native dialer on mobile handsets, for example presence and call history. These features require anchoring the calls in Microsoft's Intelligent Conversation and Communications Cloud (IC3), part of the Microsoft Phone System.
 
 The Microsoft Phone System relies on information in SIP signaling to determine whether a call is:
 
@@ -52,7 +51,7 @@ Your core mobile network must supply this information to Azure Communications Ga
 
 Your core mobile network must also be able to anchor and divert calls into the Microsoft Phone System. You can choose from the following options.
 
-- Deploying Metaswitch MCP. MCP is an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Microsoft Teams Phone Mobile Subscriber. MCP then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway.
+- Deploying Metaswitch Mobile Control Point (MCP). MCP is an IMS Application Server that queries the Teams Phone Mobile Consultation API to determine whether the call involves a Teams Phone Mobile Subscriber. MCP then adds X-MS-FMC headers and updates the signaling to divert the call into the Microsoft Phone System through Azure Communications Gateway.
 - Using other routing capabilities in your core network to detect Teams Phone Mobile subscribers and route INVITEs to or from these subscribers into the Microsoft Phone System through Azure Communications Gateway.
 
 > [!IMPORTANT]
@@ -60,11 +59,14 @@ Your core mobile network must also be able to anchor and divert calls into the M
 
 ## SIP signaling
 
-Azure Communications Gateway includes SIP trunks to your own networks. These trunks can interwork between your existing core networks and the requirements of the Microsoft Phone System. For example, Azure Communications Gateway automatically interworks calls to support the following requirements from Operator Connect and Teams Phone Mobile:
+Azure Communications Gateway includes SIP trunks to your own network and can interwork between your existing core networks and the requirements of the Microsoft Phone System. For example, Azure Communications Gateway automatically interworks calls to support the following requirements from Operator Connect and Teams Phone Mobile:
 
 - SIP over TLS
 - X-MS-SBC header (describing the SBC function)
 - Strict rules on a= attribute lines in SDP bodies
+- Strict rules on call transfer handling
+
+SIP trunks between your network and Azure Communications Gateway are multi-tenant, meaning that traffic from all your customers share the same trunk. By default, traffic sent from the Azure Communications Gateway contains an X-MSTenantID header which uniquely identifies from which enterprise the traffic is originating and can be used by your billing systems.
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 
@@ -72,6 +74,7 @@ You can arrange more interworking function as part of your initial network desig
 - Support for reliable provisional messages (100rel)
 - Interworking between early and late media
 - Interworking away from inband DTMF tones
+- Placing the unique tenant ID elsewhere in SIP messages to make it easier for your network to consume, for example in tgrp parameters
 
 ## RTP and SRTP media
 
@@ -95,11 +98,10 @@ For full details of the media interworking features available in Azure Communica
 
 ## Compatibility with monitoring requirements
 
-The Azure Communication Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor include:
+The Azure Communication Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor cover all metrics required to be monitored by Operators as part of the Operator Connect program and include:
 
 - Call quality
 - Call errors and unusual behavior (for example, call setup failures, short calls, or unusual disconnections)
-- All metrics required to be monitored by Operators as part of the Operator Connect program
 - Other errors in Azure Communications Gateway
 
 We'll investigate the potential fault, and determine whether the fault relates to Azure Communications Gateway or the Microsoft Phone System. We may require you to carry out some troubleshooting steps in your networks to help isolate the fault.
