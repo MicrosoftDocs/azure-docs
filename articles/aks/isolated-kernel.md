@@ -23,11 +23,13 @@ This article helps you understand this new feature, and how to implement it.
 
 - The `aks-preview` Azure CLI extension version x.x.xxx or later to select the Mariner 2.0 operating system SKU.
 
-- 1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
+- If you want to run `kubectl` locally on your Windows system, you can install it using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
 
     ```azurepowershell
     Install-AzAksKubectl
-    ```.
+    ```
+
+   To install it locally on your Linux system, see [Install and setup Kubectl on Linux][install-kubectl-linux].
 
 ## Limitations
 
@@ -49,10 +51,10 @@ Perform the following steps to deploy an AKS Mariner cluster using either the Az
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the `--os-sku mariner` parameter. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+1. Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the `--os-sku mariner` and `--kernel-isolation` parameters. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner
+    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku mariner --kernel-isolation
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
@@ -258,9 +260,9 @@ You can also specify the Mariner `os_sku` in [`azurerm_kubernetes_cluster_node_p
 
 ---
 
-## Deploy application
+## Deploy a trusted application
 
-To demonstrate the isolation of an application on the AKS cluster deployed earlier, perform the following steps.
+To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
 
 1. Create a file named *trusted-app.yaml* to describe a trusted DaemonSet, and then paste the following manifest.
 
@@ -307,7 +309,23 @@ To demonstrate the isolation of an application on the AKS cluster deployed earli
     daemonset.apps/trusted created
     ```
 
-3. Create a file named *untrusted-app.yaml* to describe an un-trusted DaemonSet, and then paste the following manifest.
+3. To verify the deployment and that the kernel is isolated, run the following command.
+
+    ```bash
+    kubectl get nodes
+    ```
+
+    The output resembles the following for an isolated node:
+
+    ```output
+    blah
+    ```
+
+## Deploy an untrusted application
+
+To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
+
+1. Create a file named *untrusted-app.yaml* to describe an un-trusted DaemonSet, and then paste the following manifest.
 
     ```yml
     apiVersion: apps/v1
@@ -341,7 +359,7 @@ To demonstrate the isolation of an application on the AKS cluster deployed earli
           hostIPC: true
     ```
 
-4. Deploy the a Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
+2. Deploy the a Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
 
     ```bash
     kubectl apply -f untrusted-app.yaml
@@ -353,13 +371,32 @@ To demonstrate the isolation of an application on the AKS cluster deployed earli
     daemonset.apps/untrusted created
     ```
 
+3. To verify the deployment and that the kernel isn't isolated, run the following command.
+
+    ```bash
+    kubectl get nodes
+    ```
+
+    The output resembles the following for an untrusted node:
+
+    ```output
+    blah
+    ```
+
+## Verify isolation configuration
+
+1. Run `cat /proc/version` on nested VM and shared VM to show kernel separation (nested is 1+, and shared is .m2)
+
+2. Run `ps faux` on nested VM and shared VM to show resource isolation.
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[install-kubectl-linux]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[connect-to-aks-cluster-nodes]: node-access.md
