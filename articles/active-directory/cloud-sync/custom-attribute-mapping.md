@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 01/12/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
