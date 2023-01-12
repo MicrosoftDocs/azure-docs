@@ -180,11 +180,11 @@ Now we associate the Data Collection Rules (DCR) to the Monitored Object by crea
 
 **Request URI**
 ```HTTP
-PUT https://management.azure.com/{MOResourceId}/providers/microsoft.insights/datacollectionruleassociations/assoc?api-version=2021-04-01
+PUT https://management.azure.com/{MOResourceId}/providers/microsoft.insights/datacollectionruleassociations/{associationName}?api-version=2021-09-01-preview
 ```
 **Sample Request URI**
 ```HTTP
-PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}/providers/microsoft.insights/datacollectionruleassociations/assoc?api-version=2021-04-01
+PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{AADTenantId}/providers/microsoft.insights/datacollectionruleassociations/{associationName}?api-version=2021-09-01-preview
 ```
 
 **URI Parameters**
@@ -213,12 +213,11 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 | `dataCollectionRuleID` | The resource ID of an existing Data Collection Rule that you created in the **same region** as the Monitored Object. |
 
 
-### Using PowerShell
+### Using PowerShell for onboarding
 ```PowerShell
 $TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
 $SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
 $ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
-$DCRName = "CollectWindowsOSlogs" #Your Data collection rule name
 
 Connect-AzAccount -Tenant $TenantID
 
@@ -252,10 +251,10 @@ $body = @"
 }
 "@
 
-$request = "https://management.azure.com/providers/microsoft.insights/providers/microsoft.authorization/roleassignments/$newguid`?api-version=2021-04-01-preview"
+$requestURL = "https://management.azure.com/providers/microsoft.insights/providers/microsoft.authorization/roleassignments/$newguid`?api-version=2021-04-01-preview"
 
 
-Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body
+Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
 
 
 ##########################
@@ -263,24 +262,27 @@ Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body
 #2. Create Monitored Object
 
 # "location" property value under the "body" section should be the Azure region where the MO object would be stored. It should be the "same region" where you created the Data Collection Rule. This is the location of the region from where agent communications would happen.
-
-$request = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
-$body = @'
+$Location = "eastus" #Use your own loacation
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+$body = @"
 {
     "properties":{
-        "location":"eastus"
+        "location":`"$Location`"
     }
 }
-'@
+"@
 
-$Respond = Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body -Verbose
+$Respond = Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body -Verbose
 $RespondID = $Respond.id
 
 ##########################
 
 #3. Associate DCR to Monitored Object
+#See reference documentation https://learn.microsoft.com/en-us/rest/api/monitor/data-collection-rule-associations/create?tabs=HTTP
+$associationName = "assoc01" #You can define your custom associationname, must change the association name to a unique name, if you want to associate multiple DCR to monitored object
+$DCRName = "dcr-WindowsClientOS" #Your Data collection rule name
 
-$request = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations/assoc?api-version=2021-04-01"
+$requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations/$associationName`?api-version=2021-09-01-preview"
 $body = @"
         {
             "properties": {
@@ -290,10 +292,49 @@ $body = @"
 
 "@
 
-Invoke-RestMethod -Uri $request -Headers $AuthenticationHeader -Method PUT -Body $body
+Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
+
+#(Optional example). Associate another DCR to Monitored Object
+#See reference documentation https://learn.microsoft.com/en-us/rest/api/monitor/data-collection-rule-associations/create?tabs=HTTP
+$associationName = "assoc02" #You must change the association name to a unique name, if you want to associate multiple DCR to monitored object
+$DCRName = "dcr-PAW-WindowsClientOS" #Your Data collection rule name
+
+$requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations/$associationName`?api-version=2021-09-01-preview"
+$body = @"
+        {
+            "properties": {
+                "dataCollectionRuleId": "/subscriptions/$SubscriptionID/resourceGroups/$ResourceGroup/providers/Microsoft.Insights/dataCollectionRules/$DCRName"
+            }
+        }
+
+"@
+
+Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method PUT -Body $body
+
+#4. (Optional) Get all the associatation.
+$requestURL = "https://management.azure.com$RespondId/providers/microsoft.insights/datacollectionruleassociations?api-version=2021-09-01-preview"
+(Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method get).value
+
+
 ```
 
+### Using PowerShell for offboarding
+```PowerShell
+#This will remove the monitor object
+$TenantID = "xxxxxxxxx-xxxx-xxx"  #Your Tenant ID
+$SubscriptionID = "xxxxxx-xxxx-xxxxx" #Your Subscription ID
+$ResourceGroup = "rg-yourResourseGroup" #Your resroucegroup
 
+Connect-AzAccount -Tenant $TenantID
+
+#Select the subscription
+Select-AzSubscription -SubscriptionId $SubscriptionID
+
+#Delete monitored object
+$requestURL = "https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/$TenantID`?api-version=2021-09-01-preview"
+#Invoke-RestMethod -Uri $requestURL -Headers $AuthenticationHeader -Method Delete
+
+```
 
 ## Verify successful setup
 Check the ‘Heartbeat’ table (and other tables you configured in the rules) in the Log Analytics workspace that you specified as a destination in the data collection rule(s).

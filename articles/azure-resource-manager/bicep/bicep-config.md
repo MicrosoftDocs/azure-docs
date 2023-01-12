@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 01/09/2023
 ---
 
 # Configure your Bicep environment
@@ -17,37 +17,9 @@ To create a `bicepconfig.json` file in Visual Studio Code, open the Command Pale
 
 ## Available settings
 
-When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
+When working with [modules](modules.md), you can add aliases for module paths. These aliases simplify your Bicep file because you don't have to repeat complicated paths. You can also configure cloud profile and  credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function.For more information, see [Add module settings to Bicep config](bicep-config-modules.md).
 
 The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can override the default settings for the Bicep file validation by modifying `bicepconfig.json`. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
-
-You can also configure the credential precedence for authenticating to Azure from Bicep CLI and Visual Studio Code. The credentials are used to publish modules to registries and to restore external modules to the local cache when using the insert resource function.
-
-## Credential precedence
-
-You can configure the credential precedence for authenticating to the registry. By default, Bicep uses the credentials from the user authenticated in Azure CLI or Azure PowerShell. To customize the credential precedence, add `cloud` and `credentialPrecedence` elements to the config file.
-
-```json
-{
-  "cloud": {
-    "credentialPrecedence": [
-      "AzureCLI",
-      "AzurePowerShell"
-    ]
-  }
-}
-```
-
-The available credential types are:
-
-- AzureCLI
-- AzurePowerShell
-- Environment
-- ManagedIdentity
-- VisualStudio
-- VisualStudioCode
-
-[!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
 ## Intellisense
 

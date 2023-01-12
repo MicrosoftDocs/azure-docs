@@ -65,7 +65,7 @@ This table summarizes support for the cache storage account used by Site Recover
 **Setting** | **Support** | **Details**
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is recommended because GPv1 does not support ZRS (Zonal Redundant Storage). 
-Premium storage | Supported | Use Premium Block Blob storage accounts to get High Churn support (in Public Preview). For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
+Premium storage | Supported | Use Premium Block Blob storage accounts to get High Churn support (in Public Preview). For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
@@ -344,7 +344,7 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 
 
 >[!Note]
->High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
+>High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 
 ## Replicated machines - networking
 
