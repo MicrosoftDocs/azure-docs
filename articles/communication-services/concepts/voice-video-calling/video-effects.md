@@ -1,5 +1,5 @@
 ---
-ms.author: sloanster
+ms.author: micahvivion
 title: Azure Communication Services Calling video WebJS video effects
 titleSuffix: An Azure Communication Services document
 description: In this document you'll learn how to create video effects on a Azure Communication Services call.
@@ -16,14 +16,14 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
+>[!IMPORTANT]
+> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
+
 > [!NOTE]
 > This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
 
 > [!NOTE]
 > This library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
-
->[!IMPORTANT]
-> The Calling Video effects are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Please ensure that you use this or a newer SDK when using video effects.
 
 The Azure Communication Calling SDK allows you to create video effects that other viewsers on a call will be able to see. For example, for a user doing ACS calling using the WebJS SDK you can now enable that the user can turn on background blur. With background blur enabled a user can feel more comfortable in doing a video call that the output video will just show a user and all other content will be blurred.
 
@@ -51,17 +51,16 @@ Currently the video effects supports the following ability:
 - Background blur 
 - Replace the background with a custom image 
 
-
-Class model: 
-| Name        | Description           |
-| ------------- |:-------------:|
-| BackgroundBlurEffect      | The background blur effect class.  |
-| BackgroundReplacementEffect      | The background replacement with image effect class.   |
-
-
 ## Browser Support: 
 
-Currently creating video effects on Chrome Desktop Browser and Mac Safari Desktop. Other browser support will come in the future.
+Currently creating video effects is only supported on Chrome Desktop Browser and Mac Safari Desktop.
+
+### Class model:
+
+| Name  | Description  |
+|---|---|
+| BackgroundBlurEffect  | The background blur effect class.  |
+| BackgroundReplacementEffect  | The background replacement with image effect class.  |
 
 To use video effects with the Azure Communication Calling client library, once you have created a LocalVideoStream, you need to get the VideoEffects feature API of from the LocalVideoStream. 
 
