@@ -120,7 +120,7 @@ You can modify the default behavior as follows:
 If you plan to make changes to the default behavior, we recommend that you do so before you enable group writeback. However, you can still modify the default behavior if group writeback is already enabled. For more information, see [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md). 
 
 > [!NOTE]
-> To prevent all existing Microsoft 365 groups to be automatically written back to Active Directory, you need to make these changes before enabling group writeback. Also the new and original versions of the feature need to be enabled in the order documented. If the original feature is enabled first, all existing Microsoft 365 groups will be written back to Active Directory.
+> You need to make these changes before enabling group writeback; otherwise, all existing Microsoft 365 groups will be automatically written back to Active Directory. Also, the new and original versions of the feature need to be enabled in the order documented. If the original feature is enabled first, all existing Microsoft 365 groups will be written back to Active Directory.
 
 ## Understand limitations of public preview  
 
