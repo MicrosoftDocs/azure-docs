@@ -21,7 +21,7 @@ When you migrate data to Azure Blob Storage, try to choose the most appropriate 
 
 If you change tiers, you'll pay the cost of writing to the initial tier, and then pay the cost of writing to the second tier. If you change tiers by using a lifecycle management policy, then you'll incur the cost of listing operations and policies will require a day to take effect and a day to complete execution.
 
-To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various read percentages. 
+To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various the percentage of capacity that workloads and applications read in a month. 
 
 > [!div class="mx-imgBorder"]
 > ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/access-tiers-best-practices/read-pattern-access-tiers.png)
@@ -30,7 +30,7 @@ For guidance about how to upload to a specific access tier, see [Set a blob's ac
 
 ## Move data into the most cost-efficient access tiers
 
-After data is uploaded, you should periodically analyze how your blobs and containers are stored, organized, and used in production. Then, use lifecycle management policies to move data to tiers which optimize the cost of those blobs based on use patterns. For example, data not accessed for more than 30 days might be more cost efficient if placed into the cool tier. Consider archiving data that has not been accessed for over 180 days. 
+After data is uploaded, you should periodically analyze your containers and blobs to understand how they are stored, organized, and used in production. Then, use lifecycle management policies to move data to the most cost-efficient tiers. For example, data that has not been accessed for more than 30 days might be more cost efficient if placed into the cool tier. Consider archiving data that has not been accessed for over 180 days. 
 
 To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking). Analyze use patterns by using tools such as Azure Synapse or Azure Databricks. To learn about how to analyze your data, see [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md). To learn about ways to analyze individual containers in your storage account. See these articles:
 
@@ -40,7 +40,7 @@ To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enab
 
 #### Tier append and page blobs
 
-Your analysis might reveal append or page blobs that are not in being actively used. For example, you might have log files (append blobs) that are no longer being written to, but you'd like to store them for compliance reasons. Similarly, you might want to back up disks or disk snapshots (page blobs). You can move these blobs into cooler tiers as well.  However, you must first convert them to block blobs. 
+Your analysis might reveal append or page blobs that are not actively used. For example, you might have log files (append blobs) that are no longer being written to, but you'd like to store them for compliance reasons. Similarly, you might want to back up disks or disk snapshots (page blobs). You can move these blobs into cooler tiers as well.  However, you must first convert them to block blobs. 
 
 For information about how to convert append and page blobs to block blobs, see [Convert append blobs and page blobs to block blobs](convert-append-and-page-blobs-to-block-blobs.md).
 
