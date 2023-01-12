@@ -1,9 +1,6 @@
 ---
 title: Overview of Azure Data Lake Analytics
 description: Data Lake Analytics lets you drive your business using insights gained in your cloud data at any scale.
-author: saveenr
-ms.author: saveenr
-
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: overview
