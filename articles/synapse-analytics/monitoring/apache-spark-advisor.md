@@ -11,20 +11,20 @@ ms.subservice: spark
 ms.date: 06/23/2022
 ---
 
-# Spark Advisor
+# Apache Spark Advisor in Azure Synapse Analytics
 
-Spark Advisor is a system to automatically analyze commands/queries, and show the appropriate advice when customer executes code or query. After applying the advice, you would have chance to improve your execution performance, decrease cost and fix the execution failures.
+The Apache Spark advisor analyzes commands and code run by Spark and displays real-time advice for Notebook runs. The Spark advisor has built-in patterns to help users avoid common mistakes, offer recommendations for code optimization, perform error analysis, and locate the root cause of failures.
 
+## Built-in advices
 
-
-## May return inconsistent results when using 'randomSplit'
+### May return inconsistent results when using 'randomSplit'
 Inconsistent or inaccurate results may be returned when working with the results of the 'randomSplit' method. Use Apache Spark (RDD) caching before using the 'randomSplit' method.
 
 Method randomSplit() is equivalent to performing sample() on your data frame multiple times, with each sample refetching, partitioning, and sorting your data frame within partitions. The data distribution across partitions and sorting order is important for both randomSplit() and sample(). If either changes upon data refetch, there may be duplicates, or missing values across splits and the same sample using the same seed may produce different results.
 
 These inconsistencies may not happen on every run, but to eliminate them completely, cache your data frame, repartition on a column(s), or apply aggregate functions such as groupBy.
 
-## Table/view name is already in use
+### Table/view name is already in use
 A view already exists with the same name as the created table, or a table already exists with the same name as the created view. 
 When this name is used in queries or applications, only the view will be returned no matter which one created first. To avoid conflicts, rename either the table or the view. 
 
@@ -67,6 +67,24 @@ This query is on a delta table with many small files. To improve the performance
 ## Optimize Delta table with ZOrder
 
 This query is on a Delta table and contains a highly selective filter. To improve the performance of queries, run the OPTIMIZE ZORDER BY command on the delta table. More details could be found within this [article](https://aka.ms/small-file-advise-delta). 
+
+## User Experience
+
+The Apache Spark advisor displays the advices, including info, warning and errors, at Notebook cell output real-time.
+
+* Info
+
+    :::image type="content" source="./media/apache-spark-advisor/info.png" alt-text="info" border="true":::
+
+* Warning
+
+
+    :::image type="content" source="./media/apache-spark-advisor/warning.png" alt-text="warning" border="true":::
+
+* Errors
+
+    :::image type="content" source="./media/apache-spark-advisor/error.png" alt-text="error" border="true":::
+
 ## Next steps
 
 For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.
