@@ -243,8 +243,6 @@ const App = (): JSX.Element => {
     </FluentThemeProvider>
   );
 }
-
-export default App;
 ```
 
 The app will now present the user with prompts to guide them through device access:

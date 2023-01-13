@@ -127,11 +127,11 @@ First create a utility file call `environmentSupportUtils.ts`. Inside this call,
 `src/environmentSupportUtils.ts`
 
 ```ts
-import { Features, EnvrionmentInfo } from "@azure/communication-calling";
+import { Features, EnvironmentInfo } from "@azure/communication-calling";
 import { StatefulCallClient } from "@azure/communication-react";
 
 /** Use the CallClient's getEnvironmentInfo() method to check if the browser is supported. */
-export const checkBrowserSupport = async (callClient: StatefulCallClient): Promise<EnvironmentInfo> => {
+export const checkEnvironmentSupport = async (callClient: StatefulCallClient): Promise<EnvironmentInfo> => {
   const environmentInfo = await callClient.feature(Features.DebugInfo).getEnvironmentInfo();
   console.info(environmentInfo); // view console logs in the browser to see what environment info is returned
   return environmentInfo;
