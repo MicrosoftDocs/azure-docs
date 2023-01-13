@@ -39,6 +39,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
         <math xmlns="http://www.w3.org/1998/Math/MathML"></math>
         <mstts:express-as style="string" styledegree="value" role="string"></mstts:express-as>
         <mstts:silence type="string" value="string"/>
+        <mstts:audioduration value="string"/>
         <mstts:viseme type="string"/>
         <p></p>
         <phoneme alphabet="string" ph="string"></phoneme>
@@ -61,6 +62,7 @@ Some examples of contents that are allowed in each element are described in the 
 - `mstts:backgroundaudio`: This element can't contain text or any other elements.
 - `mstts:express-as`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:silence`: This element can't contain text or any other elements.
+- `mstts:audioduration`: This element can't contain text or any other elements.
 - `mstts:viseme`: This element can't contain text or any other elements.
 - `p`: This element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
 - `phoneme`: This element can only contain text and no other elements.
@@ -172,6 +174,34 @@ In this example, `mstts:silence` is used to add 200 ms of silence between two se
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
 <mstts:silence  type="Sentenceboundary" value="200ms"/>
+If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
+</voice>
+</speak>
+```
+
+## Control audio duration
+
+Use the `mstts:audioduration` element to set the length of output audio. Before using this element, we recommend that you first estimate the length of the original audio based on your script text. To do this, you can refer to the [voice list](rest-text-to-speech.md#get-a-list-of-voices) and check the "WordsPerMinute" attribute of the voice being used. The expected audio length should be within 0.5 to 2 times the original audio. If the expected length exceeds the limit, the `mstts:audioduration` element will not control the length of the output audio as you expect. In such a case, to enable this element effectively, it would be best to adjust your script text to meet the limit before using this element. For example, if the length of your original audio is around 10s and your expected length is 30s, you should first adjust your script to ensure that your original audio is no less than 15s.
+
+The audio duration setting is applied to all input text within its enclosing `voice` element. To reset or change the duration setting again, you must use a new `voice` element with either the same voice or a different voice. 
+
+Usage of the `mstts:audioduration` element's attributes are described in the following table.
+
+| Attribute | Description | Required or optional |
+| ---------- | ---------- | ---------- |
+| `value` | The duration of the output audio in seconds (such as `2s`) or milliseconds (such as `500ms`). Audio duration can be applied at the voice level. The value should be within 0.5 to 2 times the original audio.| Required |
+
+###  mstts audio duration examples
+
+The supported values for attributes of the `mstts:audioduration` element were [described previously](#control-audio-duration).
+
+In this example, `mstts:audioduration` is used to set the audio duration to 30s.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
+<voice name="en-US-JennyNeural">
+<mstts:audioduration value="30s"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
 </voice>
