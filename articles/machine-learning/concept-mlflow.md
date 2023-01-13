@@ -24,9 +24,9 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 
 > [!TIP]
 > Azure Machine Learning workspaces are MLflow-compatible, which means you can use Azure Machine Learning workspaces in the same way that you use an MLflow tracking server. Such compatibility has the following advantages:
-> * You can use Azure Machine Learning workspaces as your tracking server for any experiment you're running with MLflow, whether it runs on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
-> * There are not hosted instances of MLflow server running under the hood. The workspace can talk the MLflow protocol.
-> * You can run any training routine that uses MLflow in Azure Machine Learning without any change. You can also manage the lifecycle using MLflow when connected to Azure Machine Learning.
+> * We don't host MLflow server instances under the hood. The workspace can talk the MLflow standard.
+> * You can use Azure Machine Learning workspaces as your tracking server for any MLflow code, whether it runs on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
+> * You can run any training routine that uses MLflow in Azure Machine Learning without any change.
 
 
 ## Tracking with MLflow
@@ -34,7 +34,7 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments. When connected to Azure Machine Learning, all tracking performed using MLflow is materialized in the workspace you are working on. To learn more about how to instrument your experiments for tracking experiments and training routines, see [Log metrics, parameters, and files with MLflow](how-to-log-view-metrics.md). You can also use MLflow to [Query & compare experiments and runs with MLflow](how-to-track-experiments-mlflow.md).
 
 > [!TIP]
-> __Why can't I track experiments using Azure Machine Learning SDK (v2)?__: Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 and we recommend using MLflow for logging. By doing so, your training routines will be cloud-agnostic, achieving decoupling of data operations (what your training code does) from control operations (what your cloud provider requires for orchestration).
+> Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 and we recommend using MLflow for logging. By doing so, your training routines will be cloud-agnostic, achieving decoupling of data operations (what your training code does) from control operations (what your cloud provider requires for orchestration).
 
 ### Centralize tracking
 
@@ -89,8 +89,8 @@ Learn more at [Train machine learning models with MLflow projects and Azure Mach
 
 ### Example notebooks
 
-* [Train an MLflow project on a local compute](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-local/train-projects-local.ipynb)
-* [Train an MLflow project on remote compute](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-remote/train-projects-remote.ipynb).
+* [Track an MLflow project in Azure Machine Learning workspaces](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-local/train-projects-local.ipynb)
+* [Train and run an MLflow project on Azure Machine Learning jobs](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-remote/train-projects-remote.ipynb).
 
 ## MLflow SDK, Azure Machine Learning v2, and Azure Machine Learning studio capabilities
 
