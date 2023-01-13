@@ -77,7 +77,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Initialize variable** actions. These actions are set up to create two string variables and an integer variable.
 
@@ -202,7 +202,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
@@ -408,7 +408,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Output**.
 
-   ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
+   ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create CSV table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
 
    > [!NOTE]
    >
@@ -427,7 +427,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create CSV table** action, select **Output**.
 
-   ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field in the entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-standard.png)
+   ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create CSV table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-standard.png)
 
    > [!NOTE]
    >
@@ -458,7 +458,7 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
@@ -632,7 +632,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    Example:
 
    ```json
-   "Create_CSV_table": {
+   "Create_HTML_table": {
       "inputs": {
          "columns": [
             { 
@@ -644,7 +644,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
                "value": "@item()?['Product_ID']"
             }
          ],
-         "format": "CSV",
+         "format": "HTML",
          "from": "@variables('myJSONArray')"
       }
    }
@@ -656,26 +656,52 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 To confirm whether the **Create HTML table** action creates the expected results, send yourself a notification that includes output from the **Create HTML table** action.
 
-1. In your logic app, add an action that can send you the results from the **Create HTML table** action.
+#### [Consumption](#tab/consumption)
 
-1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Create HTML table** action, select **Output**. 
+1. In your workflow, add an action that can send you the results from the **Create HTML table** action.
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
+   This example continues by using the Office 365 Outlook action named **Send an email** action.
 
-   !["Output" fields for "Create HTML table"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create HTML table** action, select **Output**.
 
-   > [!NOTE]
-   > When including the HTML table output in an email action, make sure that you set the **Is HTML** property to **Yes** 
-   > in the email action's advanced options. That way, the email action correctly formats the HTML table.
+   ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-consumption.png)
 
    > [!NOTE]
-   > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
+   >
+   > * If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Create HTML table** label in the list.
+   >
+   >   ![Screenshot showing a Consumption workflow and the dynamic content list with "See more" selected for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-see-more.png)
+   >
+   > * When you include the HTML table output in an email action, make sure that you set the **Is HTML** property 
+   > to **Yes** in the email action's advanced options. That way, the email action correctly formats the HTML table. 
+   > However, if your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
 
-1. Now, manually run your logic app. On the designer toolbar, select **Run**.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
 
-   Based on the email connector you used, here are the results you get:
+#### [Standard](#tab/standard)
 
-   ![Email with "Create HTML table" results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+1. In your workflow, add an action that can send you the results from the **Create HTML table** action.
+
+   This example continues by using the Office 365 Outlook action named **Send an email** action.
+
+1. In the action, click inside the boxes where you want the results to appear. From the dynamic content list opens, under the **Create HTML table** action, select **Output**.
+
+   ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-standard.png)
+
+   > [!NOTE]
+   >
+   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
+   > select **See more** next to the **Create HTML table** label in the list.
+   >
+   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-see-more.png)
+
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+---
+
+If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+
+![Screenshot showing an email with the "Create HTML table" results.](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
@@ -694,7 +720,7 @@ To create a smaller array that has items, which meet specific criteria, from an 
 
 If you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some sample integers. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
@@ -758,7 +784,7 @@ To create a string that has all the items from an array and separate those items
 
 If you prefer working in the code view editor, you can copy the example **Join** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. This action is set up for creating a variable whose initial value is an array that has some sample integers. When you test your logic app later, you can manually run your app without waiting for the trigger to fire.
 
@@ -816,7 +842,7 @@ To reference or access properties in JavaScript Object Notation (JSON) content, 
 
 If you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is a JSON object that has properties and values. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
@@ -890,7 +916,7 @@ To create an array that has JSON objects built from values in an existing array,
 
 If you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app in Logic App Designer.
 
    This example uses the Azure portal and a logic app with a **Recurrence** trigger and an **Initialize variable** action. The action is set up for creating a variable whose initial value is an array that has some sample integers. When you later test your logic app, you can manually run your app without waiting for the trigger to fire.
 
