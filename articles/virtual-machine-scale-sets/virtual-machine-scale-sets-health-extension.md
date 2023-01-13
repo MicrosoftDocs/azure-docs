@@ -30,7 +30,37 @@ This article assumes that you are familiar with:
 
 The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
 
-As the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview.md)) can’t be used.
+The Application Health Extension is deployed inside a virtual machine scale set instance and reports on application health from inside the scale set instance. The extension probes on a local application endpoint and will update the health status based on TCP/HTTP(S) responses received from the application. This health status is used by Azure to initiate repairs on unhealthy instances and to determine if an instance is eligible for upgrade operations. 
+
+The extension reports health from within a VM and can be used in situations where an external probe such as the [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) can’t be used.  
+
+## Binary versus Rich health states
+
+Application Health Extensions has two options available: **Binary Health States** and **Rich Health States**. The following table highlights some key differences between the two options. See the end of this section for general recommendations.
+
+| Features | Binary Health States | Rich Health States |
+| -------- | -------------------- | ------------------ |
+| Available Health States | 2 available states: *Healthy*, *Unhealthy* | 4 available states: *Healthy*, *Unhealthy*, *Initializing*, *Unknown*<sup>1</sup> |
+| Sending Health Signals | Health signals are sent through HTTP/HTTPS response codes or TCP connections. | Health signals on HTTP/HTTPS protocol are sent through the probe response code and response body. Health signals through TCP protocol remain unchanged from Binary Health States. |
+| Identifying “Unhealthy” Instances | Instances will automatically fall into *Unhealthy* state if a *Healthy* signal is not received from the application. An *Unhealthy* instance can indicate either an issue with the extension configuration (e.g. unreachable endpoint) or an issue with the application (e.g. non-2xx status code). | Instances will only go into an *Unhealthy* state if the application emits an *Unhealthy* probe response. Users are responsible for implementing custom logic to identify and flag instances with *Unhealthy* applications<sup>2</sup>. Instances with incorrect extension settings (e.g. unreachable endpoint) or invalid health probe responses will fall under the *Unknown* state<sup>2</sup>. |
+| *Initializing* state for newly created instances | *Initializing* state is not available. Newly created instances may take some time before settling into a steady state. | *Initializing* state allows newly created instances to settle into a steady health state before making the instance eligible for rolling upgrades or instance repair operations. |
+| HTTP/HTTPS protocol | Supported | Supported |
+| TCP protocol | Supported | Limited Support – *Unknown* state is unavailable on TCP protocol. See [Link to Rich Health States > TCP protocol table] for health state behaviors on TCP. |
+
+<sup>1</sup> The *Unknown* state is unavailable on TCP protocol. 
+<sup>2</sup> Only applicable for HTTP/HTTPS protocol. TCP protocol will follow the same process of identifying *Unhealthy* instances as in Binary Health States. 
+
+In general, you should use **Binary Health States** if:
+- You are not interested in configuring custom logic to identify and flag an unhealthy instance 
+- You do not require an *initializing* grace period for newly created instances
+
+You should use **Rich Health States** if:
+- You send health signals through HTTP/HTTPS protocol and can submit health information through the probe response body 
+- You would like to use custom logic to identify and mark unhealthy instances 
+- You would like to set an *initializing* grace period for newly created instances to settle into a steady health state before making the instance eligible for rolling upgrade or instance repairs.
+
+
+
 
 ## Extension schema
 
