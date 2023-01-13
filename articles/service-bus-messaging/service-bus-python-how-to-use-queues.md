@@ -288,7 +288,7 @@ The following sample code shows you how to receive messages from a queue. The co
 
 Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code into it.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
 
