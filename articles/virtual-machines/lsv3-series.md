@@ -46,7 +46,7 @@ The Lsv3-series VMs are available in sizes from 8 to 80 vCPUs. There are 8 GiB o
 2. **NVMe Disks**: NVMe disk throughput can go higher than the specified numbers. However, higher performance isn't guaranteed. Local NVMe disks are ephemeral. Data is lost on these disks if you stop or deallocate your VM. 
 3. **NVMe Disk encryption** Lsv3 VMs created or allocated on or after 1/1/2023 have their local NVME drives encrypted by default using hardware-based encryption with a Platform-managed key, except for the regions listed below. 
 > [!NOTE]
-> Central US, East US 2, and Quatar Central do not support Local NVME disk encryption, but will be added in the future. 
+> Central US, East US 2, and Qatar Central do not support Local NVME disk encryption, but will be added in the future. 
 4. **NVMe Disk throughput**: Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space. Lsv3 NVMe disk throughput can go higher than the specified numbers, but higher performance isn't guaranteed. To achieve maximum performance, see how to optimize performance on the Lsv3-series [Windows-based VMs](../virtual-machines/windows/storage-performance.md) or [Linux-based VMs](../virtual-machines/linux/storage-performance.md).   Read/write performance varies based on IO size, drive load, and capacity utilization. 
 5. **Max burst uncached data disk throughput**: Lsv3-series VMs can [burst their disk performance](./disk-bursting.md) for up to 30 minutes at a time. 
 
