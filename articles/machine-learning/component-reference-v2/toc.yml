@@ -1,0 +1,6 @@
+- name: Designer algorithms & components (V2)
+  href: component-reference.md
+- name: AutoML
+  items:
+  - name: Classification
+    href: component-reference.md
