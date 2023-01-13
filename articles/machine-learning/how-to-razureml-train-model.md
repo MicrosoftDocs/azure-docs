@@ -113,7 +113,7 @@ To submit the job, run the following commands in a terminal window:
     cd r-job-azureml
     ```
 
-1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
+1. Sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
 
     ```azurecli
     az login --identity
