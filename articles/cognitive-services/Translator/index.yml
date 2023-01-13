@@ -12,7 +12,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 04/28/2022
+  ms.date: 12/17/2022
   ms.author: lajanuar
 
 
@@ -54,7 +54,7 @@ landingContent:
           - text: Text Translator quickstart
             url: quickstart-translator.md
           - text: Document Translation quickstart
-            url: document-translation/get-started-with-document-translation.md
+            url: document-translation/quickstarts/get-started-with-rest-api.md
           - text: Custom Translator quickstart
             url: custom-translator/quickstart.md
             
@@ -86,7 +86,7 @@ landingContent:
       - linkListType: reference
         links:
          - text: Client-library SDKs
-           url: document-translation/client-sdks.md
+           url: document-translation/how-to-guides/use-client-sdks.md
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md
          - text: Document Translation FAQ
@@ -94,9 +94,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create SAS tokens
-            url: document-translation/create-sas-tokens.md
+            url: document-translation/how-to-guides/create-sas-tokens.md
           - text: Create and use managed identities
-            url: document-translation/managed-identity.md
+            url: document-translation/how-to-guides/create-use-managed-identities.md
 
   # Card 5
   - title: Custom Translator

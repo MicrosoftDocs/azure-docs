@@ -1,11 +1,11 @@
 ---
 title: Get started with the MedTech service in Azure Health Data Services
-description: This document describes how to get you started with the MedTech service in Azure Health Data Services.
+description: This article describes how to get started with the MedTech service in Azure Health Data Services.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -18,7 +18,7 @@ This article will show you how to get started with the Azure MedTech service in 
 
 The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a medical device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key development stages: deployment, post-deployment, and data processing.
 
-:::image type="content" source="media/iot-get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/iot-get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
 
 ### Deployment
 
@@ -173,7 +173,7 @@ You can verify that the data is correctly persisted into the FHIR service by usi
 
 This article only described the basic steps needed to get started using the MedTech service. 
 
-To learn about different deployment methods for the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

@@ -123,7 +123,7 @@ az extension add --name azure-firewall
 
 az network firewall create \
     --resource-group $RG \
-    --firewall-name $FWNAME -l $LOC \
+    --name $FWNAME -l $LOC \
     --enable-dns-proxy true
 ```
 

@@ -103,6 +103,7 @@ For AzureML extension deployment on ARO or OCP cluster, grant privileged access 
 > * `{EXTENSION-NAME}`: is the extension name specified with the `az k8s-extension create --name` CLI command. 
 >* `{KUBERNETES-COMPUTE-NAMESPACE}`: is the namespace of the Kubernetes compute specified when attaching the compute to the Azure Machine Learning workspace. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if `KUBERNETES-COMPUTE-NAMESPACE` is `default`.
 
+<<<<<<< HEAD
 ## Collected log details
 
 Some logs about AzureML workloads in the cluster will be collected through extension components, such as status, metrics, life cycle, etc. The following list shows all the log details collected, including the type of logs collected and where they were sent to or stored.
@@ -119,6 +120,8 @@ Some logs about AzureML workloads in the cluster will be collected through exten
 | metrics-controller-manager	| Manage the configuration for Prometheus.|Trace logs for status of uploading training job and inference  deployment metrics on CPU utilization and memory utilization.|
 | relayserver	| relayserver is only needed in arc-connected cluster and will not be installed in AKS cluster.| Relayserver works with Azure Relay to communicate with the cloud services.	The logs contain request level info from Azure relay.  |
  	
+=======
+>>>>>>> d6e95b9b9b73a9b3fc7cef21e7d2f4cf6c7974f1
 
 ## AzureML jobs connect with custom data storage
 

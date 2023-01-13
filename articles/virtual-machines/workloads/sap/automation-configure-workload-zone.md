@@ -218,15 +218,18 @@ ANF_service_level         = "Ultra"
 
 ```
 
-### DNS Support   
+### DNS Support
+
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                             | Description                                                            | Type         | Notes  |
-> | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
-> | `use_custom_dns_a_registration`      | Should a custom DNS A record be created when using private endpoints.  | Optional     | |
-> | `management_dns_subscription_id`     | Custom DNS subscription ID.                                            | Optional     | |
-> | `management_dns_resourcegroup_name`  | Custom DNS resource group name.                                        | Optional     | |
-> |                                      |                                                                        |              | |
+> | Variable                            | Description                                                          | Type     |
+> | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
+
+
 ## Other Parameters
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -235,6 +238,7 @@ ANF_service_level         = "Ultra"
 > | `enable_purge_control_for_keyvaults` | Is purge control is enabled on the Key Vault.                          | Optional | Use only for test deployments         |
 > | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional |                                       |
 > | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional |                                       |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets | Optional |
 > | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.          |
 > | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.          |
 

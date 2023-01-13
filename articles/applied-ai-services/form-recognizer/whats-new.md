@@ -305,7 +305,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 ---
 * [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Form Recognizer Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
-  * **Code sample for Javascript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
+  * **Code sample for JavaScript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
   * **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
   * **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
 

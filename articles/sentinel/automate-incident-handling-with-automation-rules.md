@@ -34,10 +34,6 @@ Automation rules apply to the following categories of use cases:
 
 - Automation rules can also be the mechanism by which you run a playbook in response to an **alert** *not associated with an incident*.
 
-    > [!IMPORTANT]
-    >
-    > **Automation rules for alerts** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your threat response orchestration processes.
 
 ## Components
@@ -50,15 +46,15 @@ Automation rules are made up of several components:
 
 ### Triggers
 
-Automation rules are triggered **when an incident is created or updated** or **when an alert is created** (the **update** and **alert** triggers are now in **Preview**). Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
 | **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
-| **When incident is updated**<br>(Preview) | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br>(Preview) | - An alert is created by a scheduled analytics rule.
+| **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
+| **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
 #### Incident-based or alert-based automation?
 
@@ -175,7 +171,7 @@ Automation rules allow you to standardize and formalize the steps required for t
 
 ### Incident- and alert-triggered automation
 
-Automation rules can be triggered by the creation or updating of incidents and also (in Preview) by the creation of alerts. These occurrences can all trigger automated response chains, which can include playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)). 
+Automation rules can be triggered by the creation or updating of incidents and also by the creation of alerts. These occurrences can all trigger automated response chains, which can include playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)). 
 
 ### Trigger playbooks for Microsoft providers
 
@@ -287,7 +283,7 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 
 - **Analytics rule wizard**
 
-    In the **Automated response** tab of the analytics rule wizard, under **Automation rules (Preview)**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
+    In the **Automated response** tab of the analytics rule wizard, under **Automation rules**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
 
     You'll notice that when you create an automation rule from here, the **Create new automation rule** panel shows the **analytics rule** condition as unavailable, because this rule is already set to apply only to the analytics rule you're editing in the wizard. All the other configuration options are still available to you.
 

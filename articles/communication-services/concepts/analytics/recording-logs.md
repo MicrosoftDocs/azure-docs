@@ -1,8 +1,8 @@
 ---
-title: Azure Communication Services - Recording Analytics Public Preview
-titleSuffix: An Azure Communication Services concept document
-description: About using Log Analytics for recording logs
-author:  Mkhribech
+title: Azure Communication Services - Call Recording summary logs
+titleSuffix: An Azure Communication Services conceptual article
+description: Learn about the properties of summary logs for the Call Recording feature.
+author: Mkhribech
 services: azure-communication-services
 
 ms.author: mkhribech
@@ -12,50 +12,53 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Call Recording Summary Log
-Call recording summary logs provide details about the call duration, media content (e.g., Audio-Video, Unmixed, Transcription, etc.), the format types used for the recording (e.g., WAV, MP4, etc.), as well as the reason of why the recording ended.
+# Call Recording summary logs
+In Azure Communication Services, summary logs for the Call Recording feature provide details about:
 
-Recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot) or ended  due to a system failure.
+- Call duration.
+- Media content (for example, audio/video, unmixed, or transcription).
+- Format types used for the recording (for example, WAV or MP4).
+- The reason why the recording ended.
 
-> [!IMPORTANT]
+A recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot). It can also end because of a system failure.
 
-> Please note the call recording logs will be published once the call recording is ready to be downloaded. The log will be published within the standard latency time for Azure Monitor Resource logs see [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log)
+Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
 
+## Properties
 
-## Properties Description
-
-| Field Name |	DataType |	Description |
+| Property name |	Data type |	Description |
 |----------  |-----------|--------------|
-|timeGenerated|DateTime|The timestamp (UTC) of when the log was generated|
-|operationName| String | The operation associated with log record|
-|correlationId	|String |`CallID` is used to correlate events between multiple tables|
-|recordingID| String | The ID given to the recording this log refers to|
-|category| String | The log category of the event. Logs with the same log category and resource type will have the same properties fields|        
-|resultType|	String| The status of the operation                                                        |
-|level	|String	|The severity level of the operation                                                                                                                          |
-|chunkCount	|Integer|The total number of chunks created for the recording|
-|channelType|	String |The recording's channel type, i.e., mixed, unmixed|
-|recordingStartTime|	DateTime|The time that the recording started |
-|contentType|	String | The recording's content, i.e., Audio Only, Audio - Video, Transcription, etc.|
-|formatType|	String | The recording's file format                                                                  |
-|recordingLength|	Double | 	Duration of the recording in seconds                                                                                                                                                                                            |
-|audioChannelsCount|	Integer | Total number of audio channels in the recording|
-|recordingEndReason|	String | The reason why the recording ended |   
+|`timeGenerated`|DateTime|Time stamp (UTC) of when the log was generated.|
+|`operationName`|String|Operation associated with a log record.|
+|`correlationId`|String|ID that's used to correlate events between tables.|
+|`recordingID`|String|ID for the recording that this log refers to.|
+|`category`|String|Log category of the event. Logs with the same log category and resource type have the same property fields.|        
+|`resultType`|String| Status of the operation.|
+|`level`|String	|Severity level of the operation.| 
+|`chunkCount`|Integer|Total number of chunks created for the recording.|
+|`channelType`|String|Channel type of the recording, such as mixed or unmixed.|
+|`recordingStartTime`|DateTime|Time that the recording started.|
+|`contentType`|String|Content of the recording, such as audio only, audio/video, or transcription.|
+|`formatType`|String|File format of the recording.|
+|`recordingLength`|Double|Duration of the recording in seconds.|                                                               
+|`audioChannelsCount`|Integer|Total number of audio channels in the recording.|
+|`recordingEndReason`|String|Reason why the recording ended.|   
 
+## Call Recording and example data
 
-## Call recording and sample data
 ```json
 "operationName":            "Call Recording Summary",
 "operationVersion":         "1.0",
 "category":                 "RecordingSummaryPUBLICPREVIEW",
 
 ```
-A call can have one recording or many recordings depending on how many times a recording event is triggered.
+A call can have one recording or many recordings, depending on how many times a recording event is triggered.
 
-For example, if an agent initiates an outbound call in a recorded line and the call drops due to poor network signal, the `callid` will have one `recordingid`. If the agent calls back the customer, the system will generate a new `callid` as well as a new `recordingid`. 
+For example, if an agent initiates an outbound call on a recorded line and the call drops because of a poor network signal, `callid` will have one `recordingid` value. If the agent calls back the customer, the system generates a new `callid` instance and a new `recordingid` value. 
 
 
-#### Example1: Call recording for "One call to one recording"
+#### Example: Call Recording for one call to one recording
+
 ```json
 "properties"
 {  
@@ -77,9 +80,10 @@ For example, if an agent initiates an outbound call in a recorded line and the c
 }
 ```
 
-If the agent initiated a recording and stopped and restarted the recording  multiple times while the call is still on, the `callid` will have many `recordingid` depending on how many times the recording events were triggered.
+If the agent initiates a recording and then stops and restarts the recording multiple times while the call is still on, `callid` will have many `recordingid` values, depending on how many times the recording events were triggered.
 
-#### Example2: Call recording for "One call to many recordings"
+#### Example: Call Recording for one call to many recordings
+
 ```json 
 
 {   
@@ -117,6 +121,8 @@ If the agent initiated a recording and stopped and restarted the recording  mult
     "AudioChannelsCount": 1
 }
 ```
-See also call recording for more info 
-[Azure Communication Services Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md) 
+
+## Next steps
+
+For more information about Call Recording, see [Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md). 
 

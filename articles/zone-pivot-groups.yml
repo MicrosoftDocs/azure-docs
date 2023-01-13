@@ -70,6 +70,23 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-set-translator
+# Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: "C#: Visual Studio"
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: "Java: Gradle"
+  - id: programming-language-javascript
+    title: "JavaScript: Node.js"
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -279,7 +296,7 @@ groups:
     title: Language Detection
   - id: text-analytics-sentiment-analysis
     title: Sentiment Analysis
-##### Begin azure-functions    
+##### Begin azure-functions
 - id: programming-languages-set-functions-lang-workers
   title: Programming languages
   prompt: Choose a programming language
@@ -921,7 +938,7 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container    
+    title: Windows container
 - id: app-service-containers-windows-linux-portal-ps-cli
   title: App Service with custom containers
   prompt: Choose a custom container platform and deployment environment
@@ -1099,7 +1116,7 @@ groups:
   - id: platform-web
     title: Web
   - id: platform-android
-    title: Android    
+    title: Android
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1556,7 +1573,7 @@ groups:
   - id: identity-wif-mi-methods-azp
     title: Azure portal
   - id: identity-wif-mi-methods-powershell
-    title: Azure PowerShell 
+    title: Azure PowerShell
   - id: identity-wif-mi-methods-azcli
     title: Azure CLI
   - id: identity-wif-mi-methods-arm
