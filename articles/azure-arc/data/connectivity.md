@@ -77,4 +77,4 @@ Some Azure-attached services are only available when they can be directly reache
 
 ## Additional network requirements
 
-In addition, resource bridge (preview) requires [Arc-enabled Kubernetes endpoints](../network-requirements-consolidated.md#arc-enabled-kubernetes-endpoints).
+In addition, resource bridge (preview) requires [Arc-enabled Kubernetes endpoints](../network-requirements-consolidated.md#azure-arc-enabled-kubernetes-endpoints).

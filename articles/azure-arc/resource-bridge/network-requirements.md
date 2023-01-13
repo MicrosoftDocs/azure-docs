@@ -15,7 +15,7 @@ This article describes the networking requirements for deploying Azure Arc resou
 
 ## Additional network requirements
 
-In addition, resource bridge (preview) requires [Arc-enabled Kubernetes endpoints](../network-requirements-consolidated.md#arc-enabled-kubernetes-endpoints).
+In addition, resource bridge (preview) requires [Arc-enabled Kubernetes endpoints](../network-requirements-consolidated.md#azure-arc-enabled-kubernetes-endpoints).
 
 ## Next steps
 
