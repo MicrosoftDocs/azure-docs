@@ -47,8 +47,6 @@ The following table lists the supported configurable cryptographic algorithms an
 
 [!INCLUDE [Algorithm and keys table](../../includes/vpn-gateway-ipsec-ike-algorithm-include.md)]
 
-##### Important requirements
-
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
 
 #### Diffie-Hellman groups

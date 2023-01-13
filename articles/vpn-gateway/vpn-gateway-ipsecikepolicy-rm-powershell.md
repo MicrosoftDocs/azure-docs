@@ -51,8 +51,6 @@ The following table lists the supported configurable cryptographic algorithms an
 
 [!INCLUDE [Algorithm and keys table](../../includes/vpn-gateway-ipsec-ike-algorithm-include.md)]
 
-##### Important requirements
-
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
 
 #### Diffie-Hellman groups
@@ -114,7 +112,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### 2. Create the virtual network, VPN gateway, and local network gateway
 
-The following samples create the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails.
+The following samples create the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails. It can take 45 minutes or more for the virtual network gateway to create. During this time, if you are using Azure Cloud Shell, your connection may time out. This doesn't affect the gateway create command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -133,65 +131,26 @@ $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $sub
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-1. Create a resource group:
+Create the local network gateway. You may need to reconnect and declare the following variables again if Azure Cloud Shell timed out.
 
-   ```azurepowershell-interactive
-   New-AzResourceGroup -Name $RG1 -Location $Location1
-   ```
+Declare variables.
 
-1. Create TestVNet1.
+```azurepowershell-interactive
+$RG1           = "TestRG1"
+$Location1     = "EastUS"
+$LNGName6      = "Site6"
+$LNGPrefix61   = "10.61.0.0/16"
+$LNGPrefix62   = "10.62.0.0/16"
+$LNGIP6        = "131.107.72.22"
+$GWName1       = "VNet1GW"
+$Connection16  = "VNet1toSite6"
+```
 
-   Declare variables.
+Create local network gateway Site6.
 
-   ```azurepowershell-interactive
-   $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
-   $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
-   ```
-
-   Create the VNet.
-
-   ```azurepowershell-interactive
-   New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11 -Subnet $fesub1,$besub1,$gwsub1
-   ```
-
-1. Create the virtual network gateway. This can take about 45 minutes to complete. During this time, if you are using Azure Cloud Shell, your connection may time out.
-
-   Declare variables.
-
-   ```azurepowershell-interactive
-   $gw1pip1 = New-AzPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
-   $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-   $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-   $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
-   ```
-
-   Create VNetGW1.
-
-   ```azurepowershell-interactive
-   New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
-   ```
-
-1. Create the local network gateway. You may need to declare the following variables again if Azure Cloud Shell timed out.
-
-   Declare variables.
-
-   ```azurepowershell-interactive
-   $RG1           = "TestRG1"
-   $Location1     = "EastUS"
-   $LNGName6      = "Site6"
-   $LNGPrefix61   = "10.61.0.0/16"
-   $LNGPrefix62   = "10.62.0.0/16"
-   $LNGIP6        = "131.107.72.22"
-   $GWName1       = "VNet1GW"
-   $Connection16  = "VNet1toSite6"
-   ```
-
-   Create local network gateway Site6.
-
-   ```azurepowershell-interactive
-   New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
-   ```
+```azurepowershell-interactive
+New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
+```
 
 ### <a name="s2sconnection"></a>Step 2 - Create a S2S VPN connection with an IPsec/IKE policy
 
@@ -282,17 +241,28 @@ It can take about 45 minutes or more to create the VPN gateway.
 
 ### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
 
-Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection.
+Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection. If you used Azure Cloud Shell, your connection may have timed out. If so, re-connect and state the necessary variables again.
+
+```azurepowershell-interactive
+$GWName1 = "VNet1GW"
+$GWName2 = "VNet2GW"
+$RG1     = "TestRG1"
+$RG2     = "TestRG2"
+$Location1     = "EastUS"
+$Location2    = "EastUS"
+$Connection21 = "VNet2toVNet1"
+$Connection12 = "VNet1toVNet2"
+```
 
 #### 1. Create the IPsec/IKE policy
 
 The following sample script creates a different IPsec/IKE policy with the following algorithms and parameters:
 
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
+* IPsec: GCMAES128, GCMAES128, PFS24, SA Lifetime 14400 seconds & 102400000KB
 
 ```azurepowershell-interactive
-$ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+$ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS24 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### 2. Create VNet-to-VNet connections with the IPsec/IKE policy
@@ -377,14 +347,14 @@ To enable "UsePolicyBasedTrafficSelectors" when connecting to an on-premises pol
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-You can get the connection again to check if the policy is updated.
+To check the connection for the updated policy, run the following command.
 
 ```azurepowershell-interactive
 $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
-You should see the output from the last line, as shown in the following example:
+Example output:
 
 ```azurepowershell-interactive
 SALifeTimeSeconds   : 14400
@@ -411,8 +381,6 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
-
-You can use the same script to check if the policy has been removed from the connection.
 
 ## Next steps
 
