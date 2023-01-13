@@ -408,9 +408,9 @@ Create another virtual network in a different region for the first spoke of the 
 
 12. Select **Create**.
 
-## Create peering between hub and spoke 1
+## Create peering between hub and spoke one
 
-A virtual network peering is used to connect the hub to spoke 1 and spoke 1 to the hub. Use the following example to create a two-way network peering between the hub and spoke 1.
+A virtual network peering is used to connect the hub to spoke one and spoke one to the hub. Use the following example to create a two-way network peering between the hub and spoke one.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -590,9 +590,9 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 12. Select **Create**.
 
-## Create peering between hub and spoke 2
+## Create peering between hub and spoke two
 
-Create a two-way virtual network peer between the hub and spoke 2.
+Create a two-way virtual network peer between the hub and spoke two.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -683,7 +683,7 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 ## Create spoke two test virtual machine
 
-Create a Windows Server 2022 virtual machine for the test virtual machine in spoke 2.
+Create a Windows Server 2022 virtual machine for the test virtual machine in spoke two.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -744,7 +744,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 3. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
 
-### Test NAT gateway from spoke 1
+### Test NAT gateway from spoke one
 
 Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to https://whatsmyip.com to verify the functionality of the NAT gateway.
 
@@ -776,7 +776,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 11. Leave the bastion connection open to **myVM-Spoke-1**.
 
-### Test NAT gateway from spoke 2
+### Test NAT gateway from spoke two
 
 Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to https://whatsmyip.com to verify the functionality of the NAT gateway.
 
@@ -808,11 +808,11 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 11. Leave the bastion connection open to **myVM-Spoke-2**.
 
-## Test routing between spoke 1 and spoke 2
+## Test routing between spoke one and spoke two
 
-Traffic from spoke 1 to spoke 2 and spoke 2 to spoke 1 will route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
+Traffic from spoke one to spoke two and spoke two to spoke one will route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
 
-### Test routing from spoke 1 to spoke 2
+### Test routing from spoke one to spoke two
 
 Use Microsoft Edge to connect to the web server on **myVM-Spoke-2** you installed in the previous steps.
 
@@ -828,7 +828,7 @@ Use Microsoft Edge to connect to the web server on **myVM-Spoke-2** you installe
 
 5. Close the bastion connection to **myVM-Spoke-1**.
 
-### Test routing from spoke 2 to spoke 1
+### Test routing from spoke two to spoke one
 
 Use Microsoft Edge to connect to the web server on **myVM-Spoke-1** you installed in the previous steps.
 
