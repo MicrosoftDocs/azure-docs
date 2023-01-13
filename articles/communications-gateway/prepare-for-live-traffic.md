@@ -104,6 +104,7 @@ You must test typical call flows for your network. Consult your onboarding team 
 - If you need changes to the configuration of devices in your core network, you must make those changes.
 
 ## 5. Run a connectivity test and upload proof
+
 Before you can launch, Microsoft Teams requires proof that your service can connect to the Microsoft Phone System and your own networks correctly.
 
 1. Provide your onboarding team with proof that BFD is enabled. You enabled BFD in [1. Connect Azure Communications Gateway to your networks](#1-connect-azure-communications-gateway-to-your-networks). For example, if you have a Cisco router, you can provide configuration similar to the following.
@@ -139,7 +140,7 @@ Before you can go live, you must get your customer-facing materials approved by 
 
 ## 7. Test raising a ticket
 
-You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway.
+You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway. See [Get support or request changes for Azure Communications Gateway](request-changes.md).
 
 ## 8. Learn about monitoring Azure Communications Gateway
 
@@ -177,4 +178,5 @@ Your service can be launched on specific dates each month. Your onboarding team 
 ## Next steps
 
 - Wait for your launch date.
+- Learn about [getting support and requesting changes for Azure Communications Gateway](request-changes.md).
 - Learn about [planning and managing costs for Azure Communications Gateway](plan-and-manage-costs.md).
