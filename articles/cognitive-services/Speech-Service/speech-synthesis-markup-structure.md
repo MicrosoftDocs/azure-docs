@@ -182,9 +182,9 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ## Control audio duration
 
-Use the `mstts:audioduration` element to set the length of output audio. Before using this element, we recommend that you first estimate the length of the original audio based on your script text. To do this, you can refer to the [voice list](rest-text-to-speech.md#get-a-list-of-voices) and check the "WordsPerMinute" attribute of the voice being used. The expected audio length should be within 0.5 to 2 times the original audio. If the expected length exceeds the limit, the `mstts:audioduration` element will not control the length of the output audio as you expect. In such a case, to enable this element effectively, it would be best to adjust your script text to meet the limit before using this element. For example, if the length of your original audio is around 10s and your expected length is 30s, you should first adjust your script to ensure that your original audio is no less than 15s.
+Use the `mstts:audioduration` element to set the length of the output audio. The audio duration setting is applied to all input text within its enclosing `voice` element. To reset or change the duration setting again, you must use a new `voice` element with either the same voice or a different voice. 
 
-The audio duration setting is applied to all input text within its enclosing `voice` element. To reset or change the duration setting again, you must use a new `voice` element with either the same voice or a different voice. 
+The expected audio length should be within 0.5 to 2 times the original audio. If the expected length exceeds the limit, the `mstts:audioduration` element will not control the length of the output audio as you expect. So before using this element, we recommend that you first estimate the length of the original audio based on your script text. To do this, you can refer to the [voice list](rest-text-to-speech.md#get-a-list-of-voices) and check the "WordsPerMinute" attribute of the voice being used. If the estimated length of the original audio exceeds the limit, it's best to adjust your script text to meet the limit before using this element. For example, if the estimated length of your original audio is around 10s and your expected length is 30s, you should first adjust your script to ensure that your original audio is no less than 15s and no more than 60s.
 
 Usage of the `mstts:audioduration` element's attributes are described in the following table.
 
@@ -196,12 +196,12 @@ Usage of the `mstts:audioduration` element's attributes are described in the fol
 
 The supported values for attributes of the `mstts:audioduration` element were [described previously](#control-audio-duration).
 
-In this example, `mstts:audioduration` is used to set the audio duration to 30s.
+In this example, the original audio is around 15s. The `mstts:audioduration` element is used to set the audio duration to 20s.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
-<mstts:audioduration value="30s"/>
+<mstts:audioduration value="20s"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
 </voice>
