@@ -19,7 +19,7 @@ If you're experiencing issues with your deployment, reinstalling the packet core
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- If your packet core instance is still handling requests from your UEs, we recommend performing the reinstall during a maintenance window to minimize the impact on your service.
+- If your packet core instance is still handling requests from your UEs, we recommend performing the reinstall during a maintenance window to minimize the impact on your service. The packet core reinstall will take approximately 45 minutes, but this time may vary between systems. You should allow up to two hours for the process to complete.
 
 ## View the packet core instance's installation status
 
@@ -38,7 +38,7 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
 ## Back up deployment information
 
-The following list contains data that will get lost over a packet core reinstall. Back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
+The following list contains the data that will be lost over a packet core reinstall. Back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
 
 1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
 1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.

@@ -79,9 +79,9 @@ This quickstart can be run on macOS, Windows, or Linux.
 
         ```javascript
         import os
-    
+
         import azure.functions as func
-                
+
         def main(req: func.HttpRequest) -> func.HttpResponse:
             f = open(os.path.dirname(os.path.realpath(__file__)) + '/../content/index.html')
             return func.HttpResponse(f.read(), mimetype='text/html')
@@ -128,14 +128,14 @@ This quickstart can be run on macOS, Windows, or Linux.
 
         ```python
         import azure.functions as func
-    
-        
+
+
         def main(req: func.HttpRequest, connectionInfo) -> func.HttpResponse:
             return func.HttpResponse(connectionInfo)
         ```
 
     3. Create a `broadcast` function to broadcast messages to all clients. In the sample, we use time trigger to broadcast messages periodically.
-    
+
         ```bash
         func new -n broadcast -t TimerTrigger
         # install requests
@@ -164,18 +164,18 @@ This quickstart can be run on macOS, Windows, or Linux.
           ]
         }
         ```
-    
+
         Open *broadcast/\__init\__.py* and copy the following code:
-    
+
         ```python
         import requests
         import json
-        
+
         import azure.functions as func
-        
+
         etag = ''
         start_count = 0
-        
+
         def main(myTimer: func.TimerRequest, signalRMessages: func.Out[str]) -> None:
             global etag
             global start_count
@@ -183,11 +183,11 @@ This quickstart can be run on macOS, Windows, or Linux.
             res = requests.get('https://api.github.com/repos/azure/azure-signalr', headers=headers)
             if res.headers.get('ETag'):
                 etag = res.headers.get('ETag')
-        
+
             if res.status_code == 200:
                 jres = res.json()
                 start_count = jres['stargazers_count']
-            
+
             signalRMessages.set(json.dumps({
                 'target': 'newMessage',
                 'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(start_count) ]
@@ -198,7 +198,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 
     ```html
     <html>
-    
+
     <body>
       <h1>Azure SignalR Serverless Sample</h1>
       <div id="messages"></div>
@@ -213,13 +213,18 @@ This quickstart can be run on macOS, Windows, or Linux.
           connection.on('newMessage', (message) => {
             document.getElementById("messages").innerHTML = message;
           });
-    
+
           connection.start()
             .catch(console.error);
       </script>
     </body>
-    
+
     </html>
+    ```
+
+1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+    ```bash
+    func settings add AzureWebJobsStorage "<storage-connection-string>"
     ```
 
 4. We're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
@@ -245,10 +250,6 @@ This quickstart can be run on macOS, Windows, or Linux.
     ```
 
     After the Azure Function is running locally, go to `http://localhost:7071/api/index` and you'll see the current star count. If you star or unstar in GitHub, you'll get a refreshed star count every few seconds.
-
-    > [!NOTE]
-    > SignalR binding needs Azure Storage, but you can use a local storage emulator when the function is running locally.
-    > You need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md) if you got an error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

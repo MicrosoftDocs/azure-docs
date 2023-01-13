@@ -6,18 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2022
+ms.date: 01/05/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: dawoo
+ms.reviewer: swethar
 
 ms.collection: M365-identity-device-management
 ---
 # Conditional Access for workload identities 
 
-Conditional Access policies have historically applied only to users when they access apps and services like SharePoint online or the Azure portal. We are now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability  Conditional Access for workload identities. 
+Conditional Access policies have historically applied only to users when they access apps and services like SharePoint online or the Azure portal. We're now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability Conditional Access for workload identities. 
 
 A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
@@ -28,7 +28,8 @@ A [workload identity](../develop/workload-identities-overview.md) is an identity
 These differences make workload identities harder to manage and put them at higher risk for compromise.
 
 > [!IMPORTANT]
-> Conditional Access policies can be scoped to service principals in Azure AD with Workload Identities Premium licenses. 
+> Workload Identities Premium licenses are required to create or modify Conditional Access policies scoped to service principals. 
+> In directories without appropriate licenses, Conditional Access policies created prior to the release of Workload Identities Premium will be available for deletion only. 
 
 > [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 
