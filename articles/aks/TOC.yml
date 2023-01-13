@@ -248,6 +248,8 @@
               href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use instance-level public IP addresses
+              href: use-node-public-ips.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
             - name: Start/stop node pools
@@ -390,8 +392,10 @@
           items:
             - name: Restrict and control cluster egress traffic
               href: limit-egress-traffic.md
-            - name: Use a user defined route for egress
+            - name: Configure outbound type for AKS
               href: egress-outboundtype.md
+            - name: Use a user defined route for egress
+              href: egress-udr.md
             - name: Managed NAT Gateway
               href: nat-gateway.md
             - name: Use an HTTP proxy
@@ -507,9 +511,11 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: How to use the Dapr extension
+            - name: Create the Dapr extension
               href: dapr.md
-            - name: Migrate from Dapr OSS
+            - name: Configure the Dapr extension
+              href: dapr-settings.md
+            - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md

@@ -108,7 +108,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Use these commands to create the resource:
 
