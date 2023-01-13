@@ -105,16 +105,16 @@ az aks create \
 >
 > If you do not specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
 >
-> The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `--az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
+> The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 ## Add a Windows node pool
-By default, an AKS cluster is created with a node pool that can run Linux containers. Use `--az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
+By default, an AKS cluster is created with a node pool that can run Linux containers. Use the the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
 AKS supports Windows Server 2019 and Windows Server 2022 node pools. For Kubernetes versions "1.25.0" and higher, Windows Server 2022 is the default operating system. For earlier versions, Windows Server 2019 will be the default operating system.
 
-Use `--az aks nodepool add` command to add a Windows nodepool:
+Use the `az aks nodepool add` command to add a Windows nodepool:
 
 ```azurecli
 az aks nodepool add \
@@ -125,12 +125,12 @@ az aks nodepool add \
     --node-count 1
 ```
 
-The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `--az aks create`. The OS SKU was not specified so the nodepool will be set to the default operating system based on the Kubernetes version of the cluster. 
+The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. The OS SKU was not specified so the nodepool will be set to the default operating system based on the Kubernetes version of the cluster. 
 
 
 ## Add a Windows Server 2019 node pool
 
-When creating a Windows node pool, the default operating system will be Windows Server 2019 for Kubernetes versions below "1.25.0". To use Windows Server 2019 nodes when not default, you will need to specify an OS SKU type of `--Windows2019`.
+When creating a Windows node pool, the default operating system will be Windows Server 2019 for Kubernetes versions below "1.25.0". To use Windows Server 2019 nodes when not default, you will need to specify an OS SKU type of `Windows2019`.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -142,16 +142,16 @@ az aks nodepool add \
     --node-count 1
 ```
 
-The above command creates a new Windows Server 2019 node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `--az aks create`. 
+The above command creates a new Windows Server 2019 node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. 
 
 ## Add a Windows Server 2022 node pool
 
-When creating a Windows node pool, the default operating system will be Windows Server 2022 for Kubernetes versions "1.25.0" and higher. To use Windows Server 2022 nodes when not default, you will need to specify an OS SKU type of `--Windows2022`.
+When creating a Windows node pool, the default operating system will be Windows Server 2022 for Kubernetes versions "1.25.0" and higher. To use Windows Server 2022 nodes when not default, you will need to specify an OS SKU type of `Windows2022`.
 
 > [!NOTE]
 > Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
 
-Use `--az aks nodepool add` command to add a Windows Server 2022 node pool:
+Use `az aks nodepool add` command to add a Windows Server 2022 node pool:
 
 ```azurecli
 az aks nodepool add \
