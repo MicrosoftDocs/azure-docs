@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot MedTech service error messages and conditions - Azure Health Data Services
-description: This article helps users troubleshoot MedTech service errors messages and conditions.
+title: Troubleshoot MedTech service errors - Azure Health Data Services
+description: This article assists troubleshooting and resolving MedTech service errors.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 12/15/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
-# Troubleshoot MedTech service error messages and conditions
+# Troubleshoot MedTech service errors
 
-This article provides steps for troubleshooting and fixing MedTech service error messages and conditions.
+This article provides assistance troubleshooting and fixing MedTech service errors.
 
 > [!TIP]
 > Having access to metrics and logs are essential tools for assisting you in troubleshooting and assessing the overall performance of your MedTech service. Check out these MedTech service articles to learn more about how to enable, configure, and use these monitoring features:
@@ -26,11 +26,11 @@ This article provides steps for troubleshooting and fixing MedTech service error
 > [!NOTE]
 > When you open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the MedTech service, include [copies of your device and FHIR destination mappings](how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
-## Error messages and conditions
+## Errors and fixes
 
 ### The operation being performed by the MedTech service
 
-This property represents the operation being performed by the MedTech service when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
+This property represents the operation being performed by the MedTech service when the error has occurred. An operation generally represents the data flow stage while processing a device message. Here's a list of possible values for this property.
 
 > [!NOTE]
 > For information about the different stages of data flow in the MedTech service, see [The MedTech service data flow](data-flow.md).
@@ -45,7 +45,7 @@ This property represents the operation being performed by the MedTech service wh
 
 #### The severity of the error
 
-This property represents the severity of the occurred error. Below is a list of possible values for this property.
+This property represents the severity of the occurred error. Here's a list of possible values for this property.
 
 |Severity|Description|
 |---------------|-----------|
@@ -55,7 +55,7 @@ This property represents the severity of the occurred error. Below is a list of 
 
 #### The type of error
 
-This property signifies a category for a given error, which it basically represents a logical grouping for similar types of errors. Below is a list of possible values for this property.
+This property signifies a category for a given error, which it basically represents a logical grouping for similar types of errors. Here's a list of possible values for this property.
 
 |Error type|Description|
 |----------|-----------|
@@ -69,7 +69,7 @@ This property signifies a category for a given error, which it basically represe
 
 #### The name of the error
 
-This property provides the name for a specific error. Below is the list of all error names with their description and associated error type(s), severity, and data flow stage(s).
+This property provides the name for a specific error. Here's the list of all error names with their description and associated error type(s), severity, and data flow stage(s).
 
 |Error name|Description|Error type(s)|Error severity|Data flow stage(s)|
 |----------|-----------|-------------|--------------|------------------|
@@ -120,9 +120,9 @@ This property provides the name for a specific error. Below is the list of all e
 
 In this article, you learned how to troubleshoot MedTech service error messages and conditions. 
 
-To learn how to troubleshoot the MedTech service device and FHIR destination mappings, see
+To learn about the MedTech service frequently asked question (FAQs), see
 
 > [!div class="nextstepaction"]
-> [Troubleshoot the MedTech service device and FHIR destination mappings](troubleshoot-mappings.md)
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
