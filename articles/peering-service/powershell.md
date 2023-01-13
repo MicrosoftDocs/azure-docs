@@ -37,7 +37,7 @@ Use the Azure PowerShell module to register and manage Peering Service. You can 
 
 - A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
-## Register a subscription with the resource provider and feature flag
+## Register your subscription with the resource provider and feature flag
 
 Before you proceed to the steps of creating Peering Service, register your subscription with the resource provider and feature flag using [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) and [Register-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature):
 
