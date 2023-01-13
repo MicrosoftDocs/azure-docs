@@ -41,3 +41,5 @@ For successful creation of a Qumulo service, custom role-based access control (R
   - Microsoft.Network/virtualNetworks/subnets/join/action
 
 ## Next steps
+
+- [Manage Azure Native Qumulo Scalable File Service Preview](qumulo-how-to-manage.md)
