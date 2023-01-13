@@ -187,6 +187,7 @@ The following sample code shows you how to send a message to a queue. Open your 
     ```python
     asyncio.run(run())
     print("Done sending messages")
+    print("-----------------------")
     ```
 
 ### [Connection string](#tab/connection-string)
@@ -276,6 +277,7 @@ The following sample code shows you how to send a message to a queue. Open your 
     ```python
     asyncio.run(run())
     print("Done sending messages")
+    print("-----------------------")
     ```
 
 ---
@@ -330,7 +332,6 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
     ```python
     asyncio.run(run())
-    print("Done receiving messages")
     ```
 
 ### [Connection string](#tab/connection-string)
@@ -369,21 +370,27 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
     ```python
     asyncio.run(run())
-    print("Done receiving messages")
     ```
 
 ---
 
 ## Run the app
 
-Run *send.py* followed by *recv.py* to send and receive messages from the queue. You should see the following output: 
+Open a command prompt that has Python in its path, and then run the code to send and receive messages from the queue.
+
+```shell
+python send.py
+python recv.py
+```
+
+You should see the following output: 
 
 ```console
 Sent a single message
 Sent a list of 5 messages
 Sent a batch of 10 messages
 Done sending messages
-
+-----------------------
 Received: Single Message
 Received: Message in list
 Received: Message in list
