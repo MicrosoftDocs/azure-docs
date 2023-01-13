@@ -290,7 +290,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Passwordless](#tab/passwordless)
 
-1. Similar to the send sample, add import statements, define constants that you should replace with your own values, and define a credential.
+1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
 
     ```python
     import asyncio
