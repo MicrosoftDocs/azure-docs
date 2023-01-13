@@ -11,7 +11,7 @@ ms.date: 12/12/2022
 
 # Microsoft Purview accounts architectures and best practices  
 
-To enable Microsoft Purview governance solutions, like Microsoft Purview Data Map and Data Catalog, in your environment, you'll deploy a Microsoft Purview (formerly Azure Purview) account in the Azure portal. You'll use this account to centrally manage data governance across your data estate, spanning both cloud and on-premises environments. To use Microsoft Purview as your centralized data governance solution, you may need to deploy one or more Microsoft Purview accounts inside your Azure subscription. We recommend keeping the number of Microsoft Purview instances as minimum, however, in some cases more Microsoft Purview instances are needed to fulfill business security and compliance requirements.
+To enable [Microsoft Purview governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions), like Microsoft Purview Data Map and Data Catalog, in your environment, [you'll deploy a Microsoft Purview (formerly Azure Purview) account in the Azure portal](create-microsoft-purview-portal.md). You'll use this account to centrally manage data governance across your data estate, spanning both cloud and on-premises environments. To use Microsoft Purview as your centralized data governance solution, you may need to deploy one or more Microsoft Purview accounts inside your Azure subscription. We recommend keeping the number of Microsoft Purview instances as minimum, however, in some cases more Microsoft Purview instances are needed to fulfill business security and compliance requirements.
 
 ## Single Microsoft Purview account
 

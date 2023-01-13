@@ -3,7 +3,7 @@ title: Supported operating systems, container engines - Azure IoT Edge for Linux
 description: Learn which operating systems can run Azure IoT Edge for Linux on Windows
 author: PatAltimore
 ms.author: fcabrera
-ms.date: 03/15/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -77,7 +77,7 @@ The following table lists the components included in each release. Each release 
 | Release | IoT Edge | CBL-Mariner | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
 | **1.1 LTS** | 1.1 | 2.0 | - |
-| **Continuous Release** | 1.3 | 2.0 | 3.12.3 | 
+| **Continuous Release** | 1.3 | 2.0 | 3.12.3 |
 | **1.4 LTS** | 1.4 | 2.0 | 3.12.3 |
 
 

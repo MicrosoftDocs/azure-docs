@@ -65,7 +65,7 @@ This table summarizes support for the cache storage account used by Site Recover
 **Setting** | **Support** | **Details**
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is recommended because GPv1 does not support ZRS (Zonal Redundant Storage). 
-Premium storage | Supported | Use Premium Block Blob storage accounts to get High Churn support (in Public Preview). For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
+Premium storage | Supported | Use Premium Block Blob storage accounts to get High Churn support (in Public Preview). For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
@@ -284,7 +284,7 @@ Managed disk - standard | Supported in Azure regions in which Azure Site Recover
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
 Disk subscription limits | Up to 3000 protected disks per Subscription | Ensure that the Source or Target subscription does not have more than 3000 Azure Site Recovery-protected Disks (Both Data and OS).
 Standard SSD | Supported |
-Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
+Redundancy | LRS, ZRS, and GRS are supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 NVMe storage interface | Not supported
@@ -306,7 +306,7 @@ DRBD | Disks that are part of a DRBD setup are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Not supported | 
+ZRS | Supported | 
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
@@ -344,7 +344,7 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 
 
 >[!Note]
->High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
+>High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 
 ## Replicated machines - networking
 

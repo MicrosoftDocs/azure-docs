@@ -6,6 +6,8 @@
     href: about-iot-develop.md
   - name: Which SDK should I use?
     href: about-iot-sdks.md
+  - name: Get started with IoT device development
+    href: about-getting-started-device-development.md
 - name: Quickstarts
   expanded: true
   items:
@@ -19,8 +21,12 @@
       items:
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+      - name: STMicroelectronics L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l4s5i-iot-hub.md
       - name: STMicroelectronics L475E-IOT01A
         href: quickstart-devkit-stm-b-l475e-iot-hub.md
+      - name: NXP MIMXRT1060-EVK
+        href: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166-iot-hub.md
     - name: FreeRTOS development
@@ -47,8 +53,6 @@
       href: tutorial-migrate-device-to-module.md
 - name: Concepts
   items:
-  - name: Connection options for device developers
-    href: concepts-overview-connection-options.md
   - name: C SDK and Embedded C SDK usage scenarios
     href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
@@ -140,7 +144,7 @@
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
-      href: /dotnet/api/overview/azure/iot/management
+      href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
     - name: Java (Device)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)

@@ -49,7 +49,7 @@ First, register the web API in your Azure AD tenant and add a scope by following
 
 > [!Note]
 > The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
-This quickstart will be deprecated in the near future and will be updated to use .NET 6.0. 
+This quickstart will be deprecated in the near future and will be updated to use .NET 6.0.
 
 ## Step 3: Configure the ASP.NET Core project
 
@@ -90,7 +90,7 @@ To update this code sample to target ASP.NET Core 6.0, follow these steps:
    <TargetFramework>netcoreapp6.0</TargetFramework>
    ```
 
-This step will ensure that the sample is targeting .NET 6.0.
+This step will ensure that the sample is targeting the .NET Core 6.0 framework.
 
 ### Step 5: Run the sample
 

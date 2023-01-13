@@ -211,6 +211,8 @@ Use the following query to make a recommendation for the optimal pricing tier ba
 // Set these parameters before running query
 // For pay-as-you-go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
 // You can see your per-node costs in your Azure usage and charge data. For more information, see https://learn.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage.  
+let workspaceHasSecurityCenter = true;
+let daysToEvaluate = 7;
 let PerNodePrice = 15.; // Monthly price per monitored node
 let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter the pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)

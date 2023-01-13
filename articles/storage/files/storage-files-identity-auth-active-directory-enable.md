@@ -7,6 +7,7 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 11/28/2022
 ms.author: kendownie
+recommendations: false
 ---
 
 # Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares

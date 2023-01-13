@@ -174,7 +174,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Change Logs
-05/25/2022 - **Schema Discovery** feature enabled on this app.
+* 05/25/2022 - **Schema Discovery** feature enabled on this app.
+* 12/22/2022 - The source attribute of **addresses[type eq "work"].formatted** ha been changed to **Join("", [streetAddress], IIF(IsPresent([city]),", ",""), [city], IIF(IsPresent([state]),", ",""), [state], IIF(IsPresent([postalCode])," ",""), [postalCode]) --> addresses[type eq "work"].formatted**.
 
 ## More resources
 

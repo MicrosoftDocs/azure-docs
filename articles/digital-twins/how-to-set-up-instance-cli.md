@@ -56,12 +56,12 @@ Use the CLI command below for your chosen type of managed identity.
 
 #### System-assigned identity command
 
-To create an Azure Digital Twins instance with *system-assigned identity* enabled, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+To create an Azure Digital Twins instance with *system-assigned identity* enabled, you can add an `--mi-system-assigned` parameter to the `az dt create` command that's used to create the instance. (For more information about the creation command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
-To create an instance with a system-assigned identity, add the  `--assign-identity` parameter like this:
+To create an instance with a system-assigned identity, add the  `--mi-system-assigned` parameter like this:
 
 ```azurecli-interactive
-az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --mi-system-assigned
 ```
 
 #### User-assigned identity command
@@ -130,16 +130,16 @@ Use the CLI commands below for your chosen type of managed identity.
 
 ### System-assigned identity commands
 
-The command to enable a *system-assigned* identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system-assigned identity](#system-assigned-identity-command). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--assign-identity` parameter.
+The command to enable a *system-assigned* identity for an existing instance is the same `az dt create` command that's used to [create a new instance with a system-assigned identity](#system-assigned-identity-command). Instead of providing a new name of an instance to create, you can provide the name of an instance that already exists. Then, make sure to add the `--mi-system-assigned` parameter.
 
 ```azurecli-interactive
-az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --mi-system-assigned
 ```
 
-To disable system-assigned identity on an instance where it's currently enabled, use the following command to set `--assign-identity` to `false`.
+To disable system-assigned identity on an instance where it's currently enabled, use the following command to set `--mi-system-assigned` to `false`.
 
 ```azurecli-interactive
-az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity false
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --mi-system-assigned false
 ```
 
 ### User-assigned identity commands
