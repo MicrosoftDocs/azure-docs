@@ -1,6 +1,6 @@
 ---
-title: Create Azure Peering Service connection - Azure portal
-description: Learn how to create, configure, and delete an Azure Peering Service connection using the Azure portal
+title: Create, change, or delete a Peering Service connection - Azure portal
+description: Learn how to create, change, or delete a Peering Service connection using the Azure portal
 services: peering-service
 author: halkazwini
 ms.service: peering-service
@@ -11,7 +11,7 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Create Peering Service connection using the Azure portal
+# Create, change, or delete a Peering Service connection using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](azure-portal.md)
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure subscription
 
-- A connectivity provider. For more information, see [Azure peering service partners](./location-partners.md).
+- A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
 ## Sign in to Azure
 
@@ -61,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 1. On the **Configuration** page, select your **Country** and **State/Province** where the Peering Service must be enabled. 
 
-1. Select the **Provider** that you're using to enable the Peering Service.
+1. Select the **Provider** that you're using to enable the Peering Service. For more information, see [Peering Service partners](./location-partners.md)
 
 1. Select the **provider primary peering location** closest to your network location. This is the peering service location between Microsoft and the Partner.
 
