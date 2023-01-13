@@ -122,7 +122,7 @@ If the `gracePeriod` expires before a consecutive health status is reported by t
 
 ## Unknown state 
 
-This state only applies to Rich Health States. The *Unknown* state is only reported for *http* or *https* probes and occurs in the following scenarios: 
+This state only applies to Rich Health States. The *Unknown* state is only reported for "http" or "https" probes and occurs in the following scenarios: 
 - When a non-2xx status code is returned by the application  
 - When the probe request times out  
 - When the application endpoint is unreachable or incorrectly configured 
@@ -141,7 +141,7 @@ The following table shows the health status interpretation for [Rolling Upgrades
 |unknown | Unhealthy | Yes |
 
 
-## Extension schema
+## Extension schema for Binary health states
 
 The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp", "http" or "https" request with an associated port or request path respectively.
 
@@ -169,8 +169,8 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 ### Property values
 
-| Name | Value / Example | Data Type
-| ---- | ---- | ---- 
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- | 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
@@ -178,11 +178,60 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 ### Settings
 
-| Name | Value / Example | Data Type
-| ---- | ---- | ----
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- |
 | protocol | `http` or `https` or `tcp` | string |
 | port | Optional when protocol is `http` or `https`, mandatory when protocol is `tcp` | int |
 | requestPath | Mandatory when protocol is `http` or `https`, not allowed when protocol is `tcp` | string |
+
+
+## Extension schema for Rich health states
+
+The following JSON shows the schema for the Rich health states extension. The extension requires at a minimum either a "http" or "https" request with an associated port or request path respectively. "tcp" probes are also supported, but will not be able to set the `ApplicationHealthState` through the probe response body and will not have access to the *Unknown* state.
+
+```json
+{
+  "type": "extensions",
+  "name": "HealthExtension",
+  "apiVersion": "2018-10-01",
+  "location": "<location>",  
+  "properties": {
+    "publisher": "Microsoft.ManagedServices",
+    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+    "autoUpgradeMinorVersion": true,
+    "typeHandlerVersion": "2.0",
+    "settings": {
+      "protocol": "<protocol>",
+      "port": "<port>",
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": "5.0",
+      "numberOfProbes": "1.0",
+      "gracePeriod": "600"
+    }
+  }
+}  
+```
+
+### Property values
+
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- |
+| apiVersion | `2018-10-01` | date |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| typeHandlerVersion | `2.0` | int |
+
+### Settings
+
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- |
+| protocol | `http` or `https` or `tcp` | string |
+| port | Optional when protocol is `http` or `https`, mandatory when protocol is `tcp` | int |
+| requestPath | Mandatory when protocol is `http` or `https`, not allowed when protocol is `tcp` | string |
+| intervalInSeconds | Optional, default is 5 seconds | int (in seconds) |
+| numberOfProbes | Optional, default is 1 | int |
+| gracePeriod | Optional, default = `intervalInSeconds` * `numberOfProbes`; maximum grace period is 7200 seconds | int (in seconds) |
+
 
 ## Deploy the Application Health extension
 There are multiple ways of deploying the Application Health extension to your scale sets as detailed in the examples below.
