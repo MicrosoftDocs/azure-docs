@@ -132,8 +132,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 >[!IMPORTANT]
 >Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
->
->When creating the request, you should note if you intend to use large volumes in a cross-region replication relationship. <!-- need more info here -->
 
 Once your capacity quota has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
 

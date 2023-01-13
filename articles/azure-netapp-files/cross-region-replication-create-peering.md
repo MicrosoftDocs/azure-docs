@@ -25,8 +25,7 @@ Azure NetApp Files replication does not currently support multiple subscriptions
 
 Before you begin, ensure that you have reviewed the [requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).  
 
->[!IMPORTANT]
->Additional configuration is required before creating a cross-region replication relationship with a large volume. For more information, refer to [Large volume configuration for cross-region replication](cross-region-replication-requirements-considerations.md#large-volume-configuration).
+
 
 ## Locate the source volume resource ID  
 
