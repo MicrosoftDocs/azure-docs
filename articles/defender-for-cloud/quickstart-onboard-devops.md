@@ -24,6 +24,7 @@ API calls performed by Defender for Cloud count against the [Azure DevOps Global
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+- To use all advanced security capabilities provided by Azure DevOps Connector in Defender for DevOps, [configure the MSDO Azure DevOps extension](azure-devops-extension.md).
 
 ## Availability
 
@@ -110,7 +111,5 @@ For information on how to correct this issue, check out the [DevOps trouble shoo
 
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
-
-Learn how to [configure the MSDO Azure DevOps extension](azure-devops-extension.md).
 
 Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.
