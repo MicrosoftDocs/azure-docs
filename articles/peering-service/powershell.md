@@ -37,7 +37,7 @@ Use the Azure PowerShell module to register and manage Peering Service. You can 
 
 - A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
-### Register a subscription with the resource provider and feature flag
+## Register a subscription with the resource provider and feature flag
 
 Before you proceed to the steps of creating Peering Service, register your subscription with the resource provider and feature flag using [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) and [Register-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature):
 
@@ -48,7 +48,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
 ```
 
-### Fetch the location and service provider 
+## List Peering Service locations and service providers 
 
 Use [Get-AzPeeringServiceCountry](/powershell/module/az.peering/get-azpeeringservicecountry) to list the countries where Peering Service is available and [Get-AzPeeringServiceLocation](/powershell/module/az.peering/get-azpeeringservicelocation) to list the available metro locations in each country where you can get the Peering Service: 
 
@@ -65,7 +65,7 @@ Use [Get-AzPeeringServiceProvider](/powershell/module/az.peering/get-azpeeringse
 Get-AzPeeringServiceProvider
 ```
 
-### Create a Peering Service connection
+## Create a Peering Service connection
 
 Create a Peering Service connection using [New-AzPeeringService](/powershell/module/az.peering/new-azpeeringservice):
 
@@ -73,7 +73,7 @@ Create a Peering Service connection using [New-AzPeeringService](/powershell/mod
 New-AzPeeringService -ResourceGroupName myResourceGroup -Name myPeeringService -PeeringLocation Virginia -PeeringServiceProvider Contoso
 ```
 
-### Add the Peering Service prefix
+## Add the Peering Service prefix
 
 Use [New-AzPeeringServicePrefix](/powershell/module/az.peering/new-azpeeringserviceprefix) to add the prefix provided to you by the connectivity provider:
 
@@ -81,7 +81,7 @@ Use [New-AzPeeringServicePrefix](/powershell/module/az.peering/new-azpeeringserv
 New-AzPeeringServicePrefix -ResourceGroupName myResourceGroup -PeeringServiceName myPeeringService -Name myPrefix -prefix 240.0.0.0/32 -ServiceKey 00000000-0000-0000-0000-000000000000
 ```
 
-### List all the Peering Services connections
+## List all the Peering Services connections
 
 To view the list of all Peering Services, use [Get-AzPeeringService](/powershell/module/az.peering/get-azpeeringservice):
 
@@ -89,7 +89,7 @@ To view the list of all Peering Services, use [Get-AzPeeringService](/powershell
 Get-AzPeeringService | Format-Table Name, PeeringServiceLocation, PeeringServiceProvider, Location
 ```
 
-### List all the Peering Service prefixes
+## List all the Peering Service prefixes
 
 To view the list of all Peering Service prefixes, use [Get-AzPeeringServicePrefix](/powershell/module/az.peering/get-azpeeringserviceprefix):
 
@@ -97,7 +97,7 @@ To view the list of all Peering Service prefixes, use [Get-AzPeeringServicePrefi
 Get-AzPeeringServicePrefix -PeeringServiceName myPeeringService -ResourceGroupName myResourceGroup
 ```
 
-### Remove the Peering Service prefix
+## Remove the Peering Service prefix
 
 To remove the Peering Service prefix, use [Remove-AzPeeringServicePrefix](/powershell/module/az.peering/remove-azpeeringserviceprefix):
 
