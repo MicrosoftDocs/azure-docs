@@ -77,12 +77,16 @@ This section walks you through the steps of creating a S2S VPN connection with a
 
 See [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md) for more detailed step-by-step instructions for creating a S2S VPN connection.
 
-### <a name="before"></a>Before you begin
+### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway resources
 
-* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
+If you use Azure Cloud Shell, you automatically connect to your account.
 
-### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
+If you use PowerShell from your computer, open your PowerShell console and connect to your account. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md). Use the following sample to help you connect:
+
+```PowerShell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <YourSubscriptionName>
+```
 
 #### 1. Declare your variables
 
@@ -110,70 +114,67 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### 2. Connect to your subscription and create a new resource group
-
-If you use Azure Cloud Shell, you automatically connect to your account.
-
-If you use PowerShell from your computer, open your PowerShell console and connect to your account. Use the following sample to help you connect:
-
-```PowerShell
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName <YourSubscriptionName>
-```
-
-For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
-
-Then, create your resource group:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name $RG1 -Location $Location1
-```
-
-#### 3. Create the virtual network, VPN gateway, and local network gateway
+#### 2. Create the virtual network, VPN gateway, and local network gateway
 
 The following samples create the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails.
 
-Declare variables.
+1. Create a resource group:
 
-```azurepowershell-interactive
-$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
-$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
-```
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name $RG1 -Location $Location1
+   ```
 
-Create the VNet.
+1. Create TestVNet1.
 
-```azurepowershell-interactive
-New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11 -Subnet $fesub1,$besub1,$gwsub1
-```
+   Declare variables.
 
-Declare variables.
+   ```azurepowershell-interactive
+   $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+   $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   ```
 
-```azurepowershell-interactive
-$gw1pip1    = New-AzPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
-$vnet1      = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-$subnet1    = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-$gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
-```
+   Create the VNet.
 
-Create the virtual network gateway.
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11 -Subnet $fesub1,$besub1,$gwsub1
+   ```
 
-```azurepowershell-interactive
-New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
-```
+1. Create the virtual network gateway. This can take about 45 minutes to complete. During this time, if you are using Azure Cloud Shell, your connection may time out.
 
-Create the local network gateway. You may need to declare the following variables again, depending on whether your Azure Cloud Shell timed out.
+   Declare variables.
 
-Variables:
+   ```azurepowershell-interactive
+   $gw1pip1 = New-AzPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+   $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+   $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+   $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
+   ```
 
-```azurepowershell-interactive
-variables
-```
+   Create VNetGW1
 
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
+   ```
 
-```azurepowershell-interactive
-New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
-```
+1. Create the local network gateway. You may need to declare the following variables again.
+
+   Declare variables.
+
+   ```azurepowershell-interactive
+   $RG1           = "TestRG1"
+   $Location1     = "EastUS"
+   $LNGName6      = "Site6"
+   $LNGPrefix61   = "10.61.0.0/16"
+   $LNGPrefix62   = "10.62.0.0/16"
+   $LNGIP6        = "131.107.72.22"
+   ```
+
+   Create local network gateway Site6.
+
+   ```azurepowershell-interactive
+   New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
+   ```
 
 ### <a name="s2sconnection"></a>Step 2 - Create a S2S VPN connection with an IPsec/IKE policy
 
