@@ -247,7 +247,7 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
 Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
 
 ### Get the YAML file
-1.	Download or grep the file named container-azm-ms-agentconfig.yaml from [github][github].
+1.	Download or grep the file named container-azm-ms-agentconfig.yaml from [GitHub][github].
 2.	Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`. 
 3.	Save the file.
 
