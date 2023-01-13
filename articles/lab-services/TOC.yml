@@ -196,11 +196,7 @@
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: Enable nested virtualization on a template VM
-      items:
-      - name: Enable nested virtualization on a template VM using the UI
-        href: how-to-enable-nested-virtualization-template-vm-ui.md 
-      - name: Enable nested virtualization on a template VM using a script
-        href: how-to-enable-nested-virtualization-template-vm-using-script.md
+      href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
     - name: Create and manage schedules
