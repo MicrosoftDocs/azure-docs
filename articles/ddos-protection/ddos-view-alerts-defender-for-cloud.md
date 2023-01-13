@@ -1,11 +1,11 @@
 ---
 title: 'View Azure DDoS Protection alerts in Microsoft Defender for Cloud'
-description: Learn how to view and configure DDoS protection alerts for Azure DDoS Protection.
+description: Learn how to view DDoS protection alerts in Microsoft Defender for Cloud.
 services: ddos-protection
 documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: How-To
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
@@ -26,7 +26,7 @@ To view the alerts, open **Defender for Cloud** in the Azure portal and select *
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Microsoft Defender for Cloud**. Select **Microsoft Defender for Cloud** in the search results.
-1. Under *General* in the side tab, select **Security alerts**. To filter the alerts list, select any of the relevant filters. You can optionally add further filters with the **Add filter** option.
+1. Under *General* in the side tab, select **Security alerts**. To filter the alerts list, select your subscription, or any of the relevant filters. You can optionally add filters with the **Add filter** option.
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-security-alerts.png" alt-text="Screenshot of Security alert in Microsoft Defender for Cloud.":::
  
