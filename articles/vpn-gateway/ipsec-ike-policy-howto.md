@@ -13,26 +13,9 @@ ms.author: cherylmc
 ---
 # Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet: Azure portal
 
-This article walks you through the steps to configure a custom IPsec/IKE policy for VPN Gateway Site-to-Site VPN or VNet-to-VNet connections using the Azure portal. The following sections help you create and configure an IPsec/IKE policy, and apply the policy to a new or existing connection.
-
-## <a name="about"></a>About IPsec and IKE policy parameters for VPN Gateway
-
-IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements.
-
-This article provides instructions to create and configure an IPsec/IKE policy, and apply it to a new or existing VPN gateway connection.
-
-### Considerations
-
-* IPsec/IKE policy only works on the following gateway SKUs:
-  * ***VpnGw1~5 and VpnGw1AZ~5AZ***
-  * ***Standard*** and ***HighPerformance***
-* You can only specify ***one*** policy combination for a given connection.
-* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
-* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
-
 ## <a name ="workflow"></a>Workflow
 
-This section outlines the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
+The following steps show the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
 
 1. Create a virtual network and a VPN gateway.
 1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection.
@@ -43,19 +26,32 @@ The instructions in this article help you set up and configure IPsec/IKE policie
 
 :::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy." border="false" lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
-## Supported cryptographic algorithms & key strengths
+## <a name="about"></a>About policy parameters
 
-### Algorithms and keys
+IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements.
+
+### Considerations
+
+* IPsec/IKE policy only works on the following gateway SKUs:
+  * ***VpnGw1~5 and VpnGw1AZ~5AZ***
+  * ***Standard*** and ***HighPerformance***
+* You can only specify ***one*** policy combination for a given connection.
+* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
+* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
+
+### Supported cryptographic algorithms & key strengths
+
+#### Algorithms and keys
 
 The following table lists the supported configurable cryptographic algorithms and key strengths.
 
 [!INCLUDE [Algorithm and keys table](../../includes/vpn-gateway-ipsec-ike-algorithm-include.md)]
 
-#### Important requirements
+##### Important requirements
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
 
-### Diffie-Hellman Groups
+#### Diffie-Hellman Groups
 
 The following table lists the corresponding Diffie-Hellman Groups supported by the custom policy:
 
