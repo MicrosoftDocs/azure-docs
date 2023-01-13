@@ -17,7 +17,7 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## January 12, 2023
+## January 13, 2023
 
 ### Image tag
 
@@ -32,7 +32,8 @@ New for this release:
    - Kafka separate mode - Description of this change and all customer and developer impacts are enumerated in the linked feature.
 
 - Arc-SQL MI
-   - Time series functions are available. (Add link to functions)l
+   - Time series functions are available.
+
 ## December 13, 2022
 
 ### Image tag
