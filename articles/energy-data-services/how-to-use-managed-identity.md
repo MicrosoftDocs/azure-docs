@@ -1,6 +1,6 @@
 ---
-title: Use managed identity for Microsoft Energy Data Services	
-description: Learn how to use managed identity to access Microsoft Energy Data Services from other Azure services. 
+title: Use Managed Identity for Microsoft Energy Data Services on Azure	
+description: Learn how to use Managed Identity to access Microsoft Energy Data Services from other Azure services. 
 author: sandeepchads
 ms.author: sancha
 ms.service: energy-data-services	
@@ -45,7 +45,7 @@ Before you begin, make sure:
 There are five important steps to configure Azure Functions to access Microsoft Energy Data Services.
 
 
-## Step 1: Retrieve the Object ID of system or user-assigned identity that wants to access the Microsoft Energy Data Services APIs.
+### Step 1: Retrieve the Object ID of system or user-assigned identity that wants to access the Microsoft Energy Data Services APIs.
 
 1.	You can get the *Object ID* of system assigned identity associated with Azure Functions by navigating to *Identity* screen of the Azure Function. 
 
@@ -55,7 +55,7 @@ There are five important steps to configure Azure Functions to access Microsoft 
   
 [![Screenshot of object id for user assigned identity.](media/how-to-use-managed-identity/2-object-id-user-assigned-identity.png)](media/how-to-use-managed-identity/2-object-id-user-assigned-identity.png#lightbox)
 
-## Step 2. Retrieve the *Application ID* of system or user-assigned identity using the Object ID.
+### Step 2. Retrieve the *Application ID* of system or user-assigned identity using the Object ID.
 
 1.	Navigate to *Azure Active Directory (Azure AD)* in Azure
 2.	Navigate to *Enterprise Application* tab.
@@ -64,7 +64,7 @@ There are five important steps to configure Azure Functions to access Microsoft 
  
 [![Screenshot of Application Id for user assigned identity.](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png)](media/how-to-use-managed-identity/3-object-id-application-id-user-assigned-identity.png#lightbox)
 
-## Step 3: Add the user assigned managed identity to Azure Functions
+### Step 3: Add the user assigned managed identity to Azure Functions
 
 1.	Sign in to the Azure portal.
 2.	In the Azure portal, navigate to your Azure Function.
@@ -74,7 +74,7 @@ There are five important steps to configure Azure Functions to access Microsoft 
  
 [![Screenshot of adding user assigned identity to Azure Function.](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png)](media/how-to-use-managed-identity/4-user-assigned-identity-azure-function.png#lightbox)
 
-## Step 4: Add the Application ID to entitlement groups to access Microsoft Energy Data Services APIs
+### Step 4: Add the application ID to entitlement groups to access Microsoft Energy Data Services APIs
 Next, you need to add this Application ID to appropriate groups using the entitlement service to access Microsoft Energy Data Services APIs. You need to perform the following actions: 
 
 1.	Find the tenant-id, client-id, client-secret, Microsoft Energy Data Services url, and data partition-id and generate the [access token](how-to-manage-users.md#prerequisites). You should have the following information handy with you:
@@ -97,7 +97,8 @@ Next, you need to add this Application ID to appropriate groups using the entitl
 > In the below commands use the Application ID of the managed identity and not the Object Id of the managed identity in the below command. 
 
 * Adding Application ID of the managed identity to users@[partition ID].dataservices.energy
-Run the following CURL command on Azure bash:
+
+3. Run the following CURL command on Azure bash:
 
 ```bash
  curl --location --request POST 'https://<microsoft energy data services uri>/api/entitlements/v2/groups/users@ <data-partition-id>.dataservices.energy/members' \
@@ -119,7 +120,8 @@ Sample response:
 ```
 * Adding Application ID of the managed identity to users.datalake.editors@[partition ID].dataservices.energy
 
-Run the following CURL command on Azure bash:
+5. Run the following CURL command on Azure bash:
+
 ```bash
  curl --location --request POST 'https://<microsoft energy data services uri>/api/entitlements/v2/groups/ users.datalake.editors@ <data-partition-id>.dataservices.energy/members' \
     --header 'data-partition-id: <data-partition-id>' \
@@ -139,7 +141,7 @@ Sample response:
     }
 ```
 
-## Step 5: Generate token for accessing Microsoft Energy Data Services from Azure Function
+### Step 5: Generate token for accessing Microsoft Energy Data Services from Azure Function
 
 Now Azure Functions is ready to access Microsoft Energy Data Services APIs.  
 
