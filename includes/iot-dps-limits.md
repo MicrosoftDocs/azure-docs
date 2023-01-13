@@ -33,7 +33,7 @@ The Device Provisioning Service has the following rate limits.
 
 | Rate | Per-unit value | Adjustable? |
 | --- | --- | --- |
-| Operations | 200/min/service | Yes |
-| Device registrations | 200/min/service | Yes |
+| Operations | 1,000/min/service | Yes |
+| Device registrations | 1,000/min/service | Yes |
 | Device polling operation | 5/10 sec/device | No |
 

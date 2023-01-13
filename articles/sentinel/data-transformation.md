@@ -32,7 +32,13 @@ You can filter at the record (row) level, by specifying criteria for which recor
 - Help to reduce costs, as you reduce storage requirements
 - Improve performance, as fewer query-time adjustments are needed
 
-Ingestion-time data transformation supports [multiple-workspace scenarios](extend-sentinel-across-workspaces-tenants.md). You would create separate DCRs for each workspace.
+Ingestion-time data transformation supports [multiple-workspace scenarios](extend-sentinel-across-workspaces-tenants.md).
+
+### Normalization
+
+Ingest-time transformation also allows you to normalize logs when ingested into built-in or customer ASIM normalized tables. Using ingest-time normalization improves normalized queries performance.
+
+For more information on ingest-time normalization using transformations, refer to [Ingest-time normalization](normalization-ingest-time.md).
 
 ### Enrichment and tagging
 
@@ -93,7 +99,8 @@ Only the following tables are currently supported for custom log ingestion:
 - [**SecurityEvent**](/azure/azure-monitor/reference/tables/securityevent)
 - [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
-- **ASIMDnsActivityLog**
+- [**ASimDnsActivityLog**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs)
+- [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs)
 
 ## Known issues
 

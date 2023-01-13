@@ -1,5 +1,5 @@
 ---
-title: Create and manage a catalog of resources in entitlement management - Microsoft Entra
+title: Create and manage a catalog of resources in entitlement management - Azure AD
 description: Learn how to create a new container of resources and access packages in entitlement management.
 services: active-directory
 documentationCenter: ''

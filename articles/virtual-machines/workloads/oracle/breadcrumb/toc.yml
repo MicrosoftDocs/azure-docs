@@ -8,7 +8,7 @@
     items:
     - name: Workloads
       tocHref: /azure/virtual-machines/workloads/
-      topicHref: /azure/virtual-machines/workloads/index
+      topicHref: /azure/virtual-machines/
       items: 
       - name: Oracle
         tocHref: /azure/developer/java/migration/

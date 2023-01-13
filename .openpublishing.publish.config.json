@@ -387,6 +387,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-mavaisma-r-azureml",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "mavaisma-r-azureml",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-v2samplesreorg",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "v2samplesreorg",
@@ -749,7 +755,7 @@
     {
       "path_to_root": "azure-spring-apps-reference-architecture",
       "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
-      "branch": "main",
+      "branch": "reference-architecture",
       "branch_mapping": {}
     },
     {
@@ -920,6 +926,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.api-management.json",
     ".openpublishing.redirection.azure-attestation.json",
     ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",

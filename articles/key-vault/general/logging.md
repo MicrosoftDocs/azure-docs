@@ -122,6 +122,11 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/keys/get-deleted-keys) |
 | **KeyNearExpiryEventGridNotification** |Key near expiry event published |
 | **KeyExpiredEventGridNotification** |Key expired event published |
+| **KeyRotate** |[Rotate key](/rest/api/keyvault/keys/rotate-key) |
+| **KeyRotateIfDue** |Scheduled automated key rotation operation based on defined rotation policy |
+| **KeyRotationPolicyGet** |[Get Key Rotation Policy](/rest/api/keyvault/keys/get-key-rotation-policy) |
+| **KeyRotationPolicySet** |[Update Key Rotation Policy](/rest/api/keyvault/keys/update-key-rotation-policy) |
+
 
 # [Secrets](#tab/Secrets)
 

@@ -4,8 +4,8 @@ description: Learn how to set backup configurations and restore a server in Azur
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.date: 06/24/2022
@@ -23,7 +23,7 @@ To complete this how-to guide:
 
 - You need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -77,7 +77,7 @@ To add custom DNS servers, modify the downloaded profile XML file and add the **
 
 	<dnsservers>
 		<dnsserver>x.x.x.x</dnsserver>
-        <dnsserver>y.y.y.y</dnsserver>
+        	<dnsserver>y.y.y.y</dnsserver>
 	</dnsservers>
     
 </clientconfig>
@@ -122,6 +122,10 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
   </clientconfig>
   </azvpnprofile>
   ```
+  
+> [!NOTE]
+> - The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
+> - A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
 
 ### Add custom routes
 
@@ -135,6 +139,9 @@ You can add custom routes. Modify the downloaded profile XML file and add the **
 		<route>
 			<destination>x.x.x.x</destination><mask>24</mask>
 		</route>
+		<route>
+    			<destination>y.y.y.y</destination><mask>24</mask>
+    		</route>
 	</includeroutes>
     
 </clientconfig>
@@ -153,6 +160,9 @@ You block (exclude) routes. Modify the downloaded profile XML file and add the *
 		<route>
 			<destination>x.x.x.x</destination><mask>24</mask>
 		</route>
+		<route>
+    			<destination>y.y.y.y</destination><mask>24</mask>
+    		</route>
 	</excluderoutes>
     
 </clientconfig>
@@ -160,8 +170,8 @@ You block (exclude) routes. Modify the downloaded profile XML file and add the *
 ```
 
 > [!NOTE]
-> - The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
-> - Duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+> - To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
+> - If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
 >
 
 ## Next steps

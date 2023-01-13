@@ -12,18 +12,39 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 12/20/2022
+ms.date: 01/19/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## December 2022
+## January 2023
 
 * [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md#2-tib-capacity-pool) (Preview)
 
     Azure NetApp Files now supports capacity pool sizes starting at 2 TiB.
+
+## December 2022
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 
+    
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases in Linux environments. 
+
+    AzAcSnap 7 is being released with the following fixes and improvements: 
+    * Shortening of snapshot names
+    * Restore (`-c restore`) improvements
+    * Test (`-c test`) improvements 
+    * Validation improvements 
+    * Timeout improvements 
+    * Azure Backup integration improvements 
+    * Features moved to GA (generally available):
+        None
+    * The following features are now in preview: 
+        * Preliminary support for [Azure NetApp Files backup](backup-introduction.md)
+        * [IBM Db2 database](https://www.ibm.com/products/db2) support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
 
 * [Cross-zone replication](create-cross-zone-replication.md) (Preview)
 
