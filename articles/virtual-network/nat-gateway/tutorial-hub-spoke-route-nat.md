@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Create a NAT gateway
 
-All outbound internet traffic will traverse the NAT gateway egress to the internet. Use the examples below to create a NAT gateway for the hub and spoke network.
+All outbound internet traffic will traverse the NAT gateway to the internet. Use the examples below to create a NAT gateway for the hub and spoke network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -206,7 +206,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 10. In **Assignment** in **ipconfig1** select **Static**.
 
-11. In **IP address** enter **10.1.253.10.
+11. In **IP address** enter **10.1.253.10**.
 
 12. Select **Save**.
 
@@ -252,61 +252,62 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
 8. Enter the following information at the prompt of the virtual machine to enable IP forwarding:
 
-```bash
-sudo vim /etc/sysctl.conf
-``` 
+    ```bash
+    sudo vim /etc/sysctl.conf
+    ``` 
 
 9. In the Vim editor, remove the **`#`** from the line **`net.ipv4.ip_forward=1`**:
 
-Press the **Insert** key.
+    Press the **Insert** key.
 
-```bash
-# Uncomment the next line to enable packet forwarding for IPv4
-net.ipv4.ip_forward=1
-```
+    ```bash
+    # Uncomment the next line to enable packet forwarding for IPv4
+    net.ipv4.ip_forward=1
+    ```
 
-Press the **Esc** key.
+    Press the **Esc** key.
 
-Enter **`:wq`** and press **Enter**.
+    Enter **`:wq`** and press **Enter**.
 
 10. To enable internal NAT in the virtual machine enter the following information:
 
-```bash
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-sudo apt-get update
-sudo apt install iptables-persistent
-```
+    ```bash
+    sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    sudo apt-get update
+    sudo apt install iptables-persistent
+    ```
 
-Select **Yes** twice.
+    Select **Yes** twice.
 
-```bash
-sudo su
-iptables-save > /etc/iptables/rules.v4
-exit
-```
+    ```bash
+    sudo su
+    iptables-save > /etc/iptables/rules.v4
+    exit
+    ```
 
 11. Use Vim to edit the configuration with the following information:
 
-```bash
-sudo vim /etc/rc.local
-```
+    ```bash
+    sudo vim /etc/rc.local
+    ```
 
-Press the **Insert** key.
+    Press the **Insert** key.
 
-Add the following line to the configuration file:
-```bash
-/sbin/iptables-restore < /etc/iptables/rules.v4
-```
+    Add the following line to the configuration file:
+    
+    ```bash
+    /sbin/iptables-restore < /etc/iptables/rules.v4
+    ```
 
-Press the **Esc** key.
+    Press the **Esc** key.
 
-Enter **`:wq`** and press **Enter**.
+    Enter **`:wq`** and press **Enter**.
 
 12. Reboot the virtual machine:
 
-```bash
-sudo reboot
-```
+    ```bash
+    sudo reboot
+    ```
 
 ## Create hub network route table
 
@@ -415,7 +416,7 @@ A virtual network peering is used to connect the hub to spoke 1 and spoke 1 to t
 
 2. Select **myVNet-Hub**.
 
-3. Select **Peerings** in **Settings.
+3. Select **Peerings** in **Settings**.
 
 4. Select **+ Add**.
 
@@ -769,9 +770,9 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 10. Use the following example to install IIS. IIS will be used later to test inter-spoke routing.
 
-```powershell
-Install-WindowsFeature Web-Server
-```
+    ```powershell
+    Install-WindowsFeature Web-Server
+    ```
 
 11. Leave the bastion connection open to **myVM-Spoke-1**.
 
@@ -801,9 +802,9 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 10. Use the following example to install IIS. IIS will be used later to test inter-spoke routing.
 
-```powershell
-Install-WindowsFeature Web-Server
-```
+    ```powershell
+    Install-WindowsFeature Web-Server
+    ```
 
 11. Leave the bastion connection open to **myVM-Spoke-2**.
 
@@ -811,7 +812,7 @@ Install-WindowsFeature Web-Server
 
 Traffic from spoke 1 to spoke 2 and spoke 2 to spoke 1 will route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
 
-## Test routing from spoke 1 to spoke 2
+### Test routing from spoke 1 to spoke 2
 
 Use Microsoft Edge to connect to the web server on **myVM-Spoke-2** you installed in the previous steps.
 
@@ -859,11 +860,6 @@ If you're not going to continue to use this application, delete the created reso
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to use a Azure Gateway Load Balancer for highly available network virtual appliances:
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [Gateway Load Balancer](/azure/load-balancer/gateway-overview)
