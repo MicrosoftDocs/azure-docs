@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/03/2023
+ms.date: 01/13/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -44,9 +44,7 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-* If you have not created an API Management service instance yet, see [Create an API Management service instance][Create an API Management service instance].
+* If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 
 ### Prerequisites for key vault integration
 

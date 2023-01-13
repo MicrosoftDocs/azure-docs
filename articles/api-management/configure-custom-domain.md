@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 01/13/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -58,7 +58,7 @@ There are several API Management endpoints to which you can assign a custom doma
 
 API Management supports custom TLS certificates or certificates imported from Azure Key Vault. You can also enable a free, managed certificate.
 
-> [!WARNING
+> [!WARNING]
 > If you require certificate pinning, please use a custom domain name and either a custom or Key Vault certificate, not the default certificate or the free, managed certificate. We don't recommend taking a hard dependency on a certificate that you don't manage.
 
 # [Custom](#tab/custom)
