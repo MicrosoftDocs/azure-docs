@@ -37,7 +37,7 @@ To step through this how-to guide you need:
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="Screenshot of search results":::
 
 7. Change the parameter values you would like to adjust. All changes you make in a session are highlighted in purple. Once you have changed the values, you can select **Save**. Or you can **Discard** your changes.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png" alt-text="Screenshot of save or discard changes":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard.png" alt-text="Screenshot of save or discard changes":::
 
 8. List all the parameters that are modified from their _default_ value. 
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/8-modified-parameter-tab.png" alt-text="Screenshot of modified parameter tab":::
