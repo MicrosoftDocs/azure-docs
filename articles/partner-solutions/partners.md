@@ -18,12 +18,12 @@ Azure Native ISV Services is available through Azure Marketplace.
 ## Observability
 
 |Partner  |Description  |
-|---|---------|
+|---------|-------------|
 |[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large-scale applications. |
 |[Elastic](elastic/overview.md) | Software as a service (SaaS) application for building modern search experiences and for maximizing visibility into the health, performance, and security of your infrastructure, applications, and data.  |
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
 |[Dynatrace](dynatrace/dynatrace-overview.md)   | Monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
-|[New Relic Preview](new-relic/new-relic-overview.md)    |   A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
+|[New Relic Preview](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   |
 
 ## Data and storage
 
