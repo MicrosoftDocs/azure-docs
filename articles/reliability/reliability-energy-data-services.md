@@ -82,4 +82,4 @@ During a zone-wide outage, no action is required during zone recovery. Customer 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview.md)
+> [Resiliency in Azure](availability-zones-overview.md))
