@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **+ Create**.
 
-1. In **Create a peering service connection**, enter or select the following information in the **Basics** tab:
+1. In **Create a peering service connection**, enter or select the following information on the **Basics** page:
 
     | Setting | Value |
     | ------- | ----- |
@@ -53,7 +53,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     :::image type="content" source="./media/azure-portal/peering-service-basics.png" alt-text="Screenshot of the Basics tab of Create a peering service connection in Azure portal.":::
 
     > [!NOTE]
-    > Once a Peering Service resource is created under a certain subscription and resource group, it cannot be moved to another resource group or subscription.
+    > Once a Peering Service resource is created under a certain subscription and resource group, it cannot be moved to another subscription or resource group.
  
 1. Select **Next: Configuration**.
 
