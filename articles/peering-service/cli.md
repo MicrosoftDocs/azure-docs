@@ -1,39 +1,31 @@
 ---
-title: Register a Peering Service Preview connection by using the Azure CLI 
-description: Learn how to register a Peering Service connection by using the Azure CLI
+title: Create, change, or delete a Peering Service connection - Azure CLI 
+description: Learn how to create, change, or delete a Peering Service connection using the Azure CLI
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/2/2020
+ms.date: 01/12/2023
 ms.author: halkazwini
+ms.custom: template-how-to, engagement-fy23
 ---
 
-# Register a Peering Service connection by using the Azure CLI
+# Create, change, or delete a Peering Service connection using the Azure CLI
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using the Azure CLI.
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-- This article requires version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
+In this article, you'll learn how to create, change, and delete a Peering Service connection using the Azure CLI.
 
 ## Prerequisites 
 
-You must have the following:
+- An Azure subscription.
 
-### Azure account
-
-You must have a valid and active Microsoft Azure account. This account is required to set up the Peering Service connection. Peering Service is a resource within Azure subscriptions.
-
-### Connectivity provider
-
-You can work with an internet service provider or internet exchange partner to obtain Peering Service to connect your network with the Microsoft network.
-
-Make sure that the connectivity providers are partnered with Microsoft.
+- A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade). If using Azure Cloud Shell, the latest version is already installed.
 
 ### 1. Select your subscription
 
@@ -49,14 +41,13 @@ If you don't already have a resource group, you must create one before you regis
 az group create -n MyResourceGroup -l "West US"
 ```
 
-### 2. Register your subscription with the resource provider and feature flag
+## Register your subscription with the resource provider and feature flag
 
 Before you proceed to the steps of registering the Peering Service connection by using the Azure CLI, register your subscription with the resource provider and feature flag by using the Azure CLI. The Azure CLI commands are specified here:
 
 ```azurecli-interactive
-
 az feature register --namespace Microsoft.Peering --name AllowPeeringService
-
+az provider register --name Microsoft.Peering
 ```
 
 ### 3. Register the Peering Service connection

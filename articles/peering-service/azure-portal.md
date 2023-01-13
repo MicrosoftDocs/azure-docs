@@ -6,7 +6,7 @@ author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
 ms.workload: Infrastructure-services
-ms.date: 01/12/2023
+ms.date: 01/13/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -18,9 +18,9 @@ ms.custom: template-how-to, engagement-fy23
 > * [PowerShell](powershell.md)
 > * [Azure CLI](cli.md)
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft public cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
+Azure Peering Service is a networking service that enhances connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you'll learn how to create, change, and delete a Peering Service connection by using the Azure portal.
+In this article, you'll learn how to create, change, and delete a Peering Service connection using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
