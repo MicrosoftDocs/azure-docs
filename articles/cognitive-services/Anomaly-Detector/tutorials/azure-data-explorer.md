@@ -24,7 +24,7 @@ The [Anomaly Detector API](/azure/cognitive-services/anomaly-detector/overview-m
 
 ### Function 1: series_uv_anomalies_fl()
 
-The function **[series_uv_anomalies_fl()](/azure/data-explorer/kusto/functions-library/series-uv-anomalies-fl?tabs=adhoc)** detects anomalies in time series by calling the [Univariate Anomaly Detection API](/azure/cognitive-services/anomaly-detector/overview). The function accepts a limited set of time series as numerical dynamic arrays and the required anomaly detection sensitivity level. Each time series is converted into the required JSON (JavaScript Object Notation) format and posts it to the Anomaly Detector service endpoint. The service response has dynamic arrays of high/low/all anomalies, the modeled baseline time series, its normal high/low boundaries (a value above or below the high/low boundary is an anomaly) and the detected seasonality.
+The function **[series_uv_anomalies_fl()](/azure/data-explorer/kusto/functions-library/series-uv-anomalies-fl?tabs=adhoc)** detects anomalies in time series by calling the [Univariate Anomaly Detection API](../overview.md). The function accepts a limited set of time series as numerical dynamic arrays and the required anomaly detection sensitivity level. Each time series is converted into the required JSON (JavaScript Object Notation) format and posts it to the Anomaly Detector service endpoint. The service response has dynamic arrays of high/low/all anomalies, the modeled baseline time series, its normal high/low boundaries (a value above or below the high/low boundary is an anomaly) and the detected seasonality.
 
 ### Function 2: series_uv_change_points_fl()
 
