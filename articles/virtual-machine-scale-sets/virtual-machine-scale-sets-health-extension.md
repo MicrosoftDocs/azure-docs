@@ -59,8 +59,66 @@ You should use **Rich Health States** if:
 - You would like to use custom logic to identify and mark unhealthy instances 
 - You would like to set an *initializing* grace period for newly created instances to settle into a steady health state before making the instance eligible for rolling upgrade or instance repairs.
 
+## Binary health states
 
+Binary health state reporting contains two health states, *Healthy* and *Unhealthy*. The following tables provide a brief description for how the health states are configured. 
 
+**HTTP/HTTPS Protocol**
+| Protocol | Health state | Description |
+| -------- | ------------ | ----------- |
+| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a 2xx response code. |
+| http/https | Unhealthy | The instance will be marked as *Unhealthy* if a 2xx response code is not received from the application. |
+
+**TCP Protocol**
+| Protocol | Health state | Description |
+| -------- | ------------ | ----------- |
+| TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
+| TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
+
+Some scenarios that may result in an *Unhealthy* state include: 
+- When the application endpoint returns a non-2xx status code 
+- When there's no application endpoint configured inside the virtual machine instances to provide application health status 
+- When the application endpoint is incorrectly configured 
+- When the application endpoint isn't reachable 
+
+## Rich health states 
+
+Rich health states reporting contains four health states, *Initializing*, *Healthy*, *Unhealthy*, and *Unknown*. The following tables provide a brief description for how each health state is configured. 
+
+**HTTP/HTTPS Protocol**
+| Protocol | Health state | Description |
+| -------- | ------------ | ----------- |
+| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with the following: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Healthy"}` |
+| http/https | Unhealthy | To send a *Unhealthy* signal, the application is expected to return a probe response with the following: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Unhealthy"}` |
+| http/https | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more details, see [link to “Initializing” state section]. |
+| http/https | Unknown | An *Unknown* state may occur in the following scenarios: when a non-2xx status code is returned by the application, when the probe request times out, when the application endpoint is unreachable or incorrectly configured, when a missing or invalid value is provided for `ApplicationHealthState` in the response body, or when the grace period expires. For more details, see [link to “Unknown” state section]. |
+
+**TCP Protocol**
+| Protocol | Health state | Description |
+| -------- | ------------ | ----------- |
+| TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
+| TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
+| TCP | Unhealthy | The instance automatically enters an *Initializing* state at extension start time. For more details, see [link to “Initializing” state section]. | 
+
+## Initializing state
+
+This state only applies to Rich Health States. The *Initializing* state only occurs once at extension start time and can be configured by the extension settings `gracePeriod` and `numberOfProbes`.  
+
+At extension startup, the application health will remain in the *Initializing* state until one of two scenarios occur: 
+- The same health state (*Healthy* or *Unhealthy*) is reported a consecutive number of times as configured through *numberOfProbes*
+- The `gracePeriod` expires 
+
+If the same health state (*Healthy* or *Unhealthy*) is reported consecutively, the application health will transition out of the *Initializing* state and into the reported health state (*Healthy* or *Unhealthy*). 
+
+### Example
+
+If `numberOfProbes` = 3, that would mean:
+- To transition from *Initializing* to *Healthy* state: Application health extension must receive three consecutive *Healthy* signals via HTTP/HTTPS or TCP protocol 
+- To transition from *Initializing* to *Unhealthy* state: Application health extension must receive three consecutive *Unhealthy* signals via HTTP/HTTPS or TCP protocol  
+
+If the `gracePeriod` expires before a consecutive health status is reported by the application, the instance health will be determined as follows: 
+- HTTP/HTTPS protocol: The application health will transition from *Initializing* to *Unknown*  
+- TCP protocol: The application health will transition from *Initializing* to *Unhealthy* 
 
 ## Extension schema
 
