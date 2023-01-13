@@ -1,13 +1,17 @@
 ---
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
-ms.topic: conceptual
-ms.date: 07/09/2021
+ms.topic: how-to
+ms.date: 01/13/2023
+author: jyothisuri
+ms.author: jsuri
+ms.service: backup
+ms.custom: engagement-fy23
 ---
 
 # Back up Hyper-V virtual machines with Azure Backup Server
 
-This article explains how to back up Hyper-V virtual machines using Microsoft Azure Backup Server (MABS).
+This article describes how to back up and restore Hyper-V virtual machines using Microsoft Azure Backup Server (MABS).
 
 ## Supported scenarios
 
@@ -23,13 +27,14 @@ MABS can do a host or guest-level backup of Hyper-V VMs. At the host level, the 
 
 Both methods have pros and cons:
 
-- Host-level backups are flexible because they work regardless of the type of OS running on the guest machines and don't require the installation of the MABS protection agent on each VM. If you deploy host level backup, you can recover an entire virtual machine, or files and folders (item-level recovery).
+| Host-level backups | Guest-level backup |
+| --- | --- |
+| - These backups are flexible because they work regardless of the type of OS running on the guest machines and don't require the installation of the MABS protection agent on each VM. <br><br> - If you deploy host level backup, you can recover an entire virtual machine, or files and folders (item-level recovery). |
+| - This backup is useful if you want to protect specific workloads running on a virtual machine. <br><br> - At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file. |
 
-- Guest-level backup is useful if you want to protect specific workloads running on a virtual machine. At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file.
+## How the backup process works?
 
-## How the backup process works
-
-MABS performs backup with VSS as follows. The steps in this description are numbered to help with clarity.
+MABS performs backup with VSS as follows:
 
 1. The MABS block-based synchronization engine makes an initial copy of the protected virtual machine and ensures that the copy of the virtual machine is complete and consistent.
 
@@ -57,13 +62,15 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
 |Prerequisite|Details|
 |------------|-------|
-|MABS prerequisites|- If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to have the Hyper-V role enabled on the MABS server (the Hyper-V role gets installed by default during the installation of MABS). If you only want to recover the virtual machine and not item-level, then the role isn't required.<br />-   You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger clusters.<br />-   MABS excludes the page file from incremental backups to improve virtual machine backup performance.<br />-   MABS can back up a Hyper-V server or cluster in the same domain as the MABS server, or in a child or trusted domain. If you want to back up Hyper-V in a workgroup or an untrusted domain, you'll need to set up authentication. For a single Hyper-V server, you can use NTLM or certificate authentication. For a cluster, you can use certificate authentication only.<br />-   Using host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.<br />   -You can back up VMs stored on deduplicated volumes.|
-|Hyper-V VM prerequisites|-   The version of Integration Components that's running on the virtual machine should be the same as the version of the Hyper-V host. <br />-   For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow Hyper-V enough room for differencing disks (AVHD's) during backup. The space must be at least equal to the calculation **Initial disk size\*Churn rate\*Backup** window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation.<br />-   To back up virtual machines located on Hyper-V host servers running Windows Server 2012 R2, the virtual machine should have a SCSI controller specified, even if it's not connected to anything. (In Windows Server 2012 R2 backup, the Hyper-V host mounts a new VHD in the VM and then later dismounts it. Only the SCSI controller can support this and therefore is required for online backup of the virtual machine.  Without this setting, event ID 10103 will be issued when you try to back up the virtual machine.)|
+|MABS prerequisites|- If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to have the Hyper-V role enabled on the MABS server (the Hyper-V role gets installed by default during the installation of MABS). If you only want to recover the virtual machine and not item-level, then the role isn't required.<br />-   You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger clusters.<br />-   MABS excludes the page file from incremental backups to improve virtual machine backup performance.<br />-   MABS can back up a Hyper-V server or cluster in the same domain as the MABS server, or in a child or trusted domain. If you want to back up Hyper-V in a workgroup or an untrusted domain, you'll need to set up authentication. For a single Hyper-V server, you can use NTLM or certificate authentication. For a cluster, you can use certificate authentication only.<br />-   Using the host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.<br />   -You can back up VMs stored on deduplicated volumes.|
+|Hyper-V VM prerequisites|-   The version of Integration Components that's running on the virtual machine should be the same as the version of the Hyper-V host. <br />-   For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow Hyper-V enough room for differencing disks (AVHDs) during backup. The space must be at least equal to the calculation **Initial disk size\*Churn rate\*Backup** window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation.<br />-   To back up virtual machines located on Hyper-V host servers running Windows Server 2012 R2, the virtual machine should have a SCSI controller specified, even if it's not connected to anything. (In Windows Server 2012 R2 backup, the Hyper-V host mounts a new VHD in the VM and then later dismounts it. Only the SCSI controller can support this and therefore is required for online backup of the virtual machine.  Without this setting, event ID 10103 will be issued when you try to back up the virtual machine.)|
 |Linux prerequisites|-   You can back up Linux virtual machines using MABS. Only file-consistent snapshots are supported.|
 |Back up VMs with CSV storage|-   For CSV storage, install the Volume Shadow Copy Services (VSS) hardware provider on the Hyper-V server. Contact your storage area network (SAN) vendor for the VSS hardware provider.<br />-   If a single node shuts down unexpectedly in a CSV cluster, MABS will perform a consistency check against the virtual machines that were running on that node.<br />-   If you need to restart a Hyper-V server that has BitLocker Drive Encryption enabled on the CSV cluster, you must run a consistency check for Hyper-V virtual machines.|
 |Back up VMs with SMB storage|-   Turn on auto-mount on the server that's running Hyper-V to enable virtual machine protection.<br />   -   Disable TCP Chimney Offload.<br />-   Ensure that all Hyper-V machine$ accounts have full permissions on the specific remote SMB file shares.<br />-   Ensure that the file path for all virtual machine components during recovery to alternate location is fewer than 260 characters. If not, recovery might succeed, but Hyper-V won't be able to mount the virtual machine.<br />-   The following scenarios aren't supported:<br />     Deployments where some components of the virtual machine are on local volumes and some components are on remote volumes; an IPv4 or IPv6 address for storage location file server, and recovery of a virtual machine to a computer that uses remote SMB shares.<br />-   You'll need to enable the File Server VSS Agent service on each SMB server - Add it in **Add roles and features** > **Select server roles** > **File and Storage Services** > **File Services** > **File Service** > **File Server VSS Agent Service**.|
 
 ## Back up virtual machines
+
+To back up a virtual machine, follow these steps:
 
 1. Set up your [MABS server](backup-azure-microsoft-azure-backup.md) and [your storage](backup-mabs-add-storage.md). When setting up your storage, use these storage capacity guidelines.
    - Average virtual machine size - 100 GB
@@ -99,7 +106,7 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
 If MABS is running on Windows Server 2012 R2 or greater, then you can back up replica virtual machines. This is useful for several reasons:
 
-**Reduces the impact of backups on the running workload** - Taking a backup of a virtual machine incurs some overhead as a snapshot is created. By offloading the backup process to a secondary remote site, the running workload is no longer affected by the backup operation. This is applicable only to deployments where the backup copy is stored on a remote site. For example, you might take daily backups and store data locally to ensure quick restore times, but take monthly or quarterly backups from replica virtual machines stored remotely for long-term retention.
+**Reduces the impact of backups on the running workload** - Taking a backup of a virtual machine incurs some overhead as a snapshot is created. Once the backup process gets offloaded to a secondary remote site, the running workload is no longer affected by the backup operation. This is applicable only to deployments where the backup copy is stored on a remote site. For example, you might take daily backups and store data locally to ensure quick restore times, but take monthly or quarterly backups from replica virtual machines stored remotely for long-term retention.
 
 **Saves bandwidth** - In a typical remote branch office/headquarters deployment you need an appropriate amount of provisioned bandwidth to transfer backup data between sites. If you create a replication and failover strategy, in addition to your data backup strategy, you can reduce the amount of redundant data sent over the network. By backing up the replica virtual machine data rather than the primary, you save the overhead of sending the backed-up data over the network.
 
@@ -117,9 +124,11 @@ A replica virtual machine is turned off until a failover is initiated, and VSS c
 
 - Migration or failover of the replica virtual machine is in progress
 
-## Recover backed up virtual machines
+## Recover backed-up virtual machines
 
-When you can recover a backed up virtual machine, you use the Recovery wizard to select the virtual machine and the specific recovery point. To open the Recovery Wizard and recover a virtual machine:
+When you can recover a backed up virtual machine, you use the Recovery wizard to select the virtual machine and the specific recovery point.
+
+To open the Recovery Wizard and recover a virtual machine, follow these steps:
 
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
@@ -143,7 +152,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 5. In **Specify Recovery Options** configure the recovery options and select **Next**:
 
-    - If you are recovering a VM over low bandwidth, select **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
+    - If you're recovering a VM over low bandwidth, select **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
     - Select **Enable SAN based recovery using hardware snapshots** if you've configured your network.
     - Select **Send an e-mail when the recovery completes** and then provide the email addresses, if you want email notifications sent once the recovery process completes.
 
@@ -153,14 +162,16 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 ## Restore an individual file from a Hyper-V VM 
 
-You can restore individual files from a protected Hyper-V VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process. To recover an individual file or select files from a Windows Server VM: 
+You can restore individual files from a protected Hyper-V VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process.
+
+To recover an individual file or select files from a Windows Server VM, follow these steps:
 
 >[!Note]
 >Restoring an individual file from a Hyper-V VM is available only for Windows VM and Disk Recovery Points. 
 
 1. In the MABS Administrator Console, select **Recovery** view. 
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a Hyper-V VM or folder, the **Recovery points for** pane displays the available recovery points. 
+1. On the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a Hyper-V VM or folder, the **Recovery points for** pane displays the available recovery points. 
 
     !["Recovery points for" pane to recover files from Hyper-v VM](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk.png)
 
