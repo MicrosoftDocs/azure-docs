@@ -28,7 +28,7 @@ The Open-source component versions associated with HDInsight 4.0 are listed in t
 | Apache Phoenix         | 5             |
 | Apache Spark           | 2.4.4         |
 | Apache Livy            | 0.5           |
-| Apache Kafka           | 2.1.1, 2.4.1  |
+| Apache Kafka           | 2.1.1         |
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
 

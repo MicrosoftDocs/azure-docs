@@ -90,7 +90,7 @@ In both snippets, data is read from Kafka and written to file. The differences b
 
 The streaming operation also uses `awaitTermination(30000)`, which stops the stream after 30,000 ms.
 
-To use Structured Streaming with Kafka, your project must have a dependency on the `org.apache.spark : spark-sql-kafka-0-10_2.11` package. The version of this package should match the version of Spark on HDInsight. For Spark 2.2.0 (available in HDInsight 3.6), you can find the dependency information for different project types at [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
+To use Structured Streaming with Kafka, your project must have a dependency on the `org.apache.spark : spark-sql-kafka-0-10_2.11` package. The version of this package should match the version of Spark on HDInsight. For Spark 2.4 (available in HDInsight 4.0), you can find the dependency information for different project types at [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
 For the Jupyter Notebook used with this tutorial, the following cell loads this package dependency:
 
@@ -125,12 +125,12 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
 
     This template creates the following resources:
 
-   * A Kafka on HDInsight 3.6 cluster.
-   * A Spark 2.2.0 on HDInsight 3.6 cluster.
+   * A Kafka on HDInsight 4.0 or 5.0 cluster.
+   * A Spark 2.4 or 3.1 on HDInsight 4.0 or 5.0 cluster.
    * An Azure Virtual Network, which contains the HDInsight clusters.
 
      > [!IMPORTANT]  
-     > The structured streaming notebook used in this tutorial requires Spark 2.2.0 on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+     > The structured streaming notebook used in this tutorial requires Spark 2.4 or 3.1 on HDInsight 4.0 or 5.0. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Customized template** section:
 
