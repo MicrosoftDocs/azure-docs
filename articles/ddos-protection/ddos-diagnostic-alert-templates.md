@@ -5,7 +5,7 @@ services: ddos-protection
 documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: How-To
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
@@ -53,10 +53,10 @@ In order to use these alert templates, you'll first need a Log Analytics Workspa
 1. In the search box at the top of the portal, enter **myLogAnalyticsWorkspace**. Select **myLogAnalyticsWorkspace** in the search results.
 1. Under *Monitoring* in the side tab, select **Diagnostic settings**, then select **+ Add diagnostic setting**.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace-settings.png" alt-text="Screenshot of log analytics workspace diagnostic settings.":::
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace-settings.png" alt-text="Screenshot of locating log analytics workspace diagnostic setting.":::
 
 1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**, then enter the following information.
-:::image type="content" source="./media/manage-ddos-protection/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic settings.":::
+:::image type="content" source="./media/manage-ddos-protection/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic setting.":::
 
     | Setting | Value |
     |--|--|
