@@ -21,7 +21,7 @@ Scheduling a task is useful for scenarios like the following:
 * Run a container workload for scheduled maintenance operations. For example, run a containerized app to remove unneeded images from your registry.
 * Run a set of tests on a production image during the workday as part of your live-site monitoring.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## About scheduling a task
 

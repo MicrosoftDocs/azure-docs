@@ -220,11 +220,19 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 }
 ```
 
-### Azure PowerShell for Windows VMs
-Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating or updating a VM.
+### Azure PowerShell when creating a Windows VM
+Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating a VM.
 
 ```azurepowershell-interactive
 Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+```
+### Azure PowerShell when updating a Windows VM
+Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet to enable automatic VM guest patching on an existing VM.
+
+```azurepowershell-interactive
+Get-AzVM -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential
+Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
+Update-AzVM -VM $VirtualMachine
 ```
 
 ### Azure CLI for Windows VMs
