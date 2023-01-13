@@ -11,9 +11,9 @@ ms.author: mattmcinnes
 ms.reviewer: cynthn
 ---
 
-# What's new for Azure Shared Image Gallery
+# What's new for Azure Compute Gallery
 
-This article describes what's new for Shared Image Gallery in Azure.
+This article describes what's new for Compute Gallery in Azure.
 
 ## Updates:
 
