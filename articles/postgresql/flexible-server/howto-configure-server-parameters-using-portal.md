@@ -40,7 +40,7 @@ To step through this how-to guide you need:
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons_updt.png" alt-text="Save or Discard changes":::
 
 8. List all the parameters that are modified from their _default_ value. 
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/8-modified_tab_updt.png" alt-text="Reset all to default":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/8-modified_tab_updt.png" alt-text="Modified Parameter Tab":::
 
 9. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button_updt.png" alt-text="Reset all to default":::
