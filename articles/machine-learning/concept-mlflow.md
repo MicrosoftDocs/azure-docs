@@ -70,7 +70,7 @@ To learn more about how to manage models by using the MLflow API in Azure Machin
 
 ## Model deployment with MLflow
 
-You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) and take advantage of the improved experience when you use this type of models. Azure Machine Learning supports deploying MLflow models to both real-time and batch endpoints without having to indicate and environment or an scoring script. Deployment is supported using either MLflow SDK, Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or the [Azure Machine Learning studio](https://ml.azure.com) portal.
+You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md) and take advantage of the improved experience when you use this type of models. Azure Machine Learning supports deploying MLflow models to both real-time and batch endpoints without having to indicate and environment or a scoring script. Deployment is supported using either MLflow SDK, Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or the [Azure Machine Learning studio](https://ml.azure.com) portal.
 
 Learn more at [Guidelines for deploying MLflow models](how-to-deploy-mlflow-models.md).
 
