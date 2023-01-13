@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](/azure/security/fundamentals/trusted-hardware-identity-management) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID).  The default TCB baseline from THIM might lag the latest baseline offered by Intel. This is to prevent any attestation failure scenarios for ACC customers who require more time for patching platform software (PSW) updates.
 
-The custom TCB baseline enforcement feature in Azure Attestation will empower you to perform SGX attestation against a desired TCB baseline.
+The custom TCB baseline enforcement feature in Azure Attestation will empower you to perform SGX attestation against a desired TCB baseline.It is recommended for [Azure Confidential Computing](/azure/confidential-computing/overview) (ACC) customers to install the latest PSW version supported by Intel and configure their SGX attestation policy with the latest TCB baseline supported in Azure.
 
 ## Why use custom TCB baseline enforcement feature?
 
@@ -25,7 +25,7 @@ We recommend Azure Attestation users to use the custom TCB baseline enforcement 
 
 **To perform platform software (PSW) updates at your own cadence** – Customers who prefer to update PSW at their own cadence, can use custom baseline enforcement feature to perform SGX attestation against the older TCB baseline, until the PSW updates are rolled out
 
-## Default TCB baseline used by Azure Attestation when no custom TCB baseline is configured by users
+## Default TCB baseline currently referred by Azure Attestation when no custom TCB baseline is configured by users
 
 ```
 TCB identifier: “azuredefault”
@@ -109,7 +109,6 @@ c:[type=="x-ms-attestation-type"] => issue(type="tee", value=c.value);
 ```
 
 ## Key considerations:
-- It is always recommended to install the latest PSW version supported by Intel and configure attestation policy with the latest TCB identifier available in Azure
 - If the PSW version of ACC node is lower than the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will fail
 - If the PSW version of ACC node is greater than or equal to the minimum PSW version of the TCB baseline configured in SGX attestation policy, attestation scenarios will pass
 - For customers who do not configure a custom TCB baseline in attestation policy, attestation will be performed against the Azure default TCB baseline
