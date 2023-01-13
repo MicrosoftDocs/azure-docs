@@ -79,7 +79,7 @@ The example shown in this article to describe deployment uses following system i
   > [!NOTE]
   >
   > For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
-  > DB files like /hana/data and /hana/log are not supported on NFS on Azure Files.
+  > Database filesystem like /hana/data and /hana/log are not supported on NFS on Azure Files.
 * To install additional application servers on separate VMs, you can either use NFS shares or local managed disk for instance directory filesystem. If you're installing additional application servers for SAP J2EE system, `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
 * Refer [NFS on Azure Files consideration](high-availability-guide-rhel-nfs-azure-files.md#important-considerations-for-nfs-on-azure-files-shares) and [Azure NetApp Files consideration](high-availability-guide-rhel-netapp-files.md#important-considerations), as same consideration applies for this setup as well.
 
@@ -139,13 +139,11 @@ Once you've Installed, configured and set-up the **HANA Cluster**, follow the st
 
 Based on your storage, follow the steps described in below guides to configure `SAPInstance` resource for SAP ASCS/SCS and SAP ERS instance in the cluster.
 
-* NFS on Azure Files - [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files#prepare-for-sap-netweaver-installation)
+* NFS on Azure Files - [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md#prepare-for-sap-netweaver-installation)
 * Azure NetApp Files - [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation)
-
-Follow the steps in [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with NFS on Azure Files](high-availability-guide-rhel-nfs-azure-files.md) or [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](high-availability-guide-rhel-netapp-files.md) to install, configure and set up SAP ASCS and ERS instance.  Use the above steps for the Load Balancer set-up for SAP ASCS and ERS.
 
 ## Test the cluster setup
 
 Thoroughly test your pacemaker cluster.
 * [Execute the typical Netweaver failover tests](high-availability-guide-rhel.md#test-the-cluster-setup).
-* [Execute the typical HANA DB Failover tests](sap-hana-high-availability-rhel#test-the-cluster-setup).
+* [Execute the typical HANA DB failover tests](sap-hana-high-availability-rhel#test-the-cluster-setup).
