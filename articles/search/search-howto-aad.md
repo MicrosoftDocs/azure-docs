@@ -11,7 +11,7 @@ ms.date: 1/05/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize access to a search apps using Azure Active Directory
+# Authorize access to a search app using Azure Active Directory
 
 > [!IMPORTANT]
 > Role-based access control for data plane operations, such as creating or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview. For more information on preview limitations, see [RBAC preview limitations](search-security-rbac.md#preview-limitations).
