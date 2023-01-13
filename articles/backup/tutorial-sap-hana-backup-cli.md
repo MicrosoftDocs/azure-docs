@@ -24,7 +24,7 @@ This document assumes that you already have an SAP HANA database installed on an
 
 Check out the [scenarios that we currently support](./sap-hana-backup-support-matrix.md#scenario-support) for SAP HANA.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
