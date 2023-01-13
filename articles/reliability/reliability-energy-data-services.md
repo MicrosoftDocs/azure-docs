@@ -4,7 +4,6 @@ description: Find out about reliability in Microsoft Energy Data Services
 author: bharathim 
 ms.author: anaharris
 ms.topic: conceptual
-ms.custom: subject-reliability
 ms.service: energy-data-services
 ms.custom: subject-reliability, references_regions
 ms.date: 01/13/2023
