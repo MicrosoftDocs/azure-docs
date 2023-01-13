@@ -146,4 +146,4 @@ Based on your storage, follow the steps described in below guides to configure `
 
 Thoroughly test your pacemaker cluster.
 * [Execute the typical Netweaver failover tests](high-availability-guide-rhel.md#test-the-cluster-setup).
-* [Execute the typical HANA DB failover tests](sap-hana-high-availability-rhel#test-the-cluster-setup).
+* [Execute the typical HANA DB failover tests](sap-hana-high-availability-rhel.md#test-the-cluster-setup).
