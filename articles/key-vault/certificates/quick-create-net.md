@@ -26,7 +26,7 @@ For more information about Key Vault and certificates, see:
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
+* [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
