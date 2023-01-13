@@ -245,11 +245,11 @@ The Azure DevOps setup is successfully finished.
 
 4. The first run of the pipeline will require you to grant access to the repositories you created. Click **View** 
 
-   ![Screenshot of ADO Pipeline permissions](./media/how-to-setup-mlops-azureml/ado-pipeline-permissions.png)
+    ![Screenshot of ADO Pipeline permissions](./media/how-to-setup-mlops-azureml/ado-pipeline-permissions.png)
 
 5.  Click **Permit** for all repositories waiting for review
 
-   ![Screenshot of ADO Pipeline permissionsReview](./media/how-to-setup-mlops-azureml/ado-pipeline-permissionsPermit.png)
+    ![Screenshot of ADO Pipeline permissionsReview](./media/how-to-setup-mlops-azureml/ado-pipeline-permissionsPermit.png)
 
 6. The pipeline will run the following actions:
    - Your project repository will be populated with the files needed to create the Azure Machine Learning project and resources. 
@@ -297,9 +297,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![Screenshot of ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
-1. Select your repository your create and populated in the sparse checkout in the previous step. 
-   
-   ![Screenshot of ADO Pipeline page on select step](./media/how-to-setup-mlops-azureml/ADO-run2.png)
+1. Select the repository that you cloned in from the previous section `mlopsv2demo`
    
 1. Select **Existing Azure Pipeline YAML File**
    
@@ -319,8 +317,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    ![Screenshot of ADO script for deployment](./media/how-to-setup-mlops-azureml/ADO-run5.png)
    
    Now the Operationalizing Loop of the MLOps Architecture is deployed.
-   
-   ![Screenshot of ADO deployment page](./media/how-to-setup-mlops-azureml/ADO-run-infra-pipeline.png)
 
 > [!NOTE]
 > The **Unable move and reuse existing repository to required location** warnings may be ignored.
@@ -340,8 +336,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    ![Screenshot of ADO Where's your code](./media/how-to-setup-mlops-azureml/ado-wheresyourcode.png)
    
    4. Select the repository that you cloned in from the previous section `mlopsv2demo`
-   
-   ![Screenshot of ADO Pipeline page on select step](./media/how-to-setup-mlops-azureml/ADO-run2.png)
    
    5. Select **Existing Azure Pipeline YAML File**
    
@@ -406,8 +400,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    4. Select the repository that you cloned in from the previous section `mlopsv2demo`
    
-   ![Screenshot of ADO Pipeline page on select step](./media/how-to-setup-mlops-azureml/ADO-run2.png)
-   
    5. Select **Existing Azure Pipeline YAML File**
    
    ![Screenshot of ADO Pipeline page on configure step](./media/how-to-setup-mlops-azureml/ADO-run3.png)
@@ -425,7 +417,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    ![Screenshot of ADO Pipeline existing YAML step](./media/how-to-setup-mlops-azureml/ADO-run10.png)
    
-   7. Before running the pipeline, the repository location for the mlops-templates will need to be updated. Modify the **resources** section of the pipeline the snippet below. 
+   7. Before running the pipeline, the repository location for the **mlops-templates** will need to be updated. Modify the **resources** section of the pipeline the snippet below. 
 
    ``` yaml
        resources:
