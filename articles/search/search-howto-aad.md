@@ -1,13 +1,13 @@
 ---
-title: Authorize search app requests using Azure AD
+title: Configure search apps for Azure AD
 titleSuffix: Azure Cognitive Search
-description: Acquire a token from Azure AD to authorize search requests to an app built on Azure Cognitive Search.
+description: Acquire a token from Azure Active Directory to authorize search requests to an app built on Azure Cognitive Search.
 
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 1/05/2022
+ms.date: 01/13/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -147,7 +147,7 @@ The following instructions reference an existing C# sample to demonstrate the co
 
 User-assigned managed identities work only in Azure environments. If you run this code locally, `DefaultAzureCredential` will fall back to authenticating with your credentials. Make sure you've also given yourself the required access to the search service if you plan to run the code locally. 
 
-1. Make sure you have role assignments to run all of the operations in the quickstart sample. To both create and query an index, you'll need "Search Index Data Reader" and "Search Index Data Contributor".
+1. Verify your account has role assignments to run all of the operations in the quickstart sample. To both create and query an index, you'll need "Search Index Data Reader" and "Search Index Data Contributor".
 
 1. Go to **Tools** > **Options** > **Azure Service Authentication** to choose your Azure sign-on account.
 
