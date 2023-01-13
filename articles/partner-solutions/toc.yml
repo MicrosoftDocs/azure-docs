@@ -22,5 +22,3 @@ items:
     href: ./nginx/index.yml
   - name: Azure Native Qumolo Service Preview
     href: ./qumulo/index.yml
-#  - name: Azure Native New Relic Service Preview
-#    href: ./new-relic/index.yml
