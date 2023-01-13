@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
-title: Azure Native New Relic Service
+title: Azure Native New Relic Service Preview
 summary: Azure Native New Relic Service provides a native integrated experience for monitoring where you can create and manage New Relic accounts.
 
 metadata:
-  title: Azure Native New Relic Service documentation
+  title: Azure Native New Relic Service Preview documentation
   description: Azure Native New Relic Service offers a monitoring solution for your Azure workloads by using a streamlined workflow.
   ms.topic: landing-page
   author: flang-msft
   ms.author: franlanglois
-  ms.date: 01/16/2022
+  ms.date: 01/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,13 +23,13 @@ landingContent:
             url: new-relic-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Complete the prerequisites for New Relic
+          - text: Complete the prerequisites
             url: new-relic-how-to-configure-prereqs.md
-          - text: Manage the New Relic resource by using the portal
+          - text: Manage a resource by using the portal
             url: new-relic-how-to-manage.md
 
   # Card
-  - title: Create a New Relic resource
+  - title: Create an Azure Native New Relic Service resource
     linkLists:
       - linkListType: quickstart
         links:
@@ -39,7 +39,7 @@ landingContent:
             url: new-relic-link-to-existing.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot Azure Native New Relic Service
+          - text: Troubleshoot a resource
             url: new-relic-troubleshoot.md
 
   # Card

@@ -68,8 +68,8 @@ productDirectory:
     #     - url: ./qumulo/qumulo-overview.md
     #       text: Adopt a cloud-native file system that's enterprise ready, highly scalable, highly performant, and simple to use.
   # Card 
-    - title: New Relic
+    - title: New Relic Preview
       imageSrc: ./media/index/new-relic.svg
       links:
         - url: ./new-relic/new-relic-overview.md
-          text: Get full-stack observability for application performance management, infrastructure monitoring, log management, error tracking, and real-user monitoring.
+          text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.

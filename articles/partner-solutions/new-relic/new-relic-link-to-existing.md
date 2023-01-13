@@ -1,10 +1,10 @@
 ---
-title: Link Azure Native New Relic Service to an existing account
+title: Link Azure Native New Relic Service Preview to an existing account
 description: Learn how to link to an existing New Relic account.
 
 ms.topic: quickstart
 ms.custom: template-quickstart
-ms.date: 12/31/2022
+ms.date: 01/16/2023
 ---
 
 
@@ -13,15 +13,15 @@ ms.date: 12/31/2022
 In this quickstart, you link an Azure subscription to an existing New Relic account. You can then monitor the linked Azure subscription and the resources in that subscription by using the New Relic account.
 
 > [!NOTE]
-> You can link New Relic accounts that you previously created by using Azure Native New Relic Service.
+> You can link New Relic accounts that you previously created by using Azure Native New Relic Service Preview.
 
-When you use Azure Native New Relic Service in the Azure portal for linking, and both the organization and the account at New Relic were created through the Azure Native New Relic Service, your billing and monitoring for the following entities are tracked in the portal.
+When you use Azure Native New Relic Service Preview in the Azure portal for linking, and both the organization and the account at New Relic were created through the Azure Native New Relic Service, your billing and monitoring for the following entities are tracked in the portal.
 
 :::image type="content" source="media/new-relic-link-to-existing/new-relic-subscription.png" alt-text="Diagram that shows Azure subscriptions related to an Azure account.":::
 
 
-- **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
-- **New Relic account**: When you choose to link an existing account on New Relic software as a service (SaaS), a New Relic resource is created in Azure. 
+- **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account on Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
+- **New Relic account**: When you choose to link an existing account on New Relic software as a service (SaaS), a New Relic resource is created on Azure. 
 - **New Relic organization**: The New Relic organization on New Relic SaaS is used for user management and billing.
 - **Azure Marketplace SaaS resource**: The SaaS resource is used for billing. The SaaS resource typically resides in a different Azure subscription from where the New Relic account was created.
 
@@ -34,7 +34,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 
 1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and then select the **Marketplace** result under **Services**.
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-search-markeplace.png" alt-text="Screenshot that shows the word Marketplace typed in a search box.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-search.png" alt-text="Screenshot that shows the word Marketplace typed in a search box.":::
 
 1. In Azure Marketplace, search for **new relic**.   
 
@@ -44,43 +44,43 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
 
 ## Link to an existing New Relic account
 
-1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Link an existing New Relic resource** option. 
+1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. When you complete this process, you create a New Relic resource on Azure that links to an existing New Relic account.
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-link-or-existing.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
-   
-1. The process creates a New Relic resource in Azure and links it to a new Relic account. A form to create the New Relic resource appears on the **Basics** tab.
+    For this example, use the **Link an existing New Relic resource** option and select **Create**. 
 
-    :::image type="content" source="media/new-relic-link-to-existing/new-relic-basics.png" alt-text="Screenshot that shows the tab for basic information about linking an existing New Relic account.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-create.png" alt-text="Screenshot that shows two options for creating a New Relic resource on Azure.":::
 
-   Provide the following values:
+1. A form to create the New Relic resource appears on the **Basics** tab. Select an existing in account in **New Relic account**.
 
-   |Property |  Description |
-   |---|---|
-   | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription will be linked to the New Relic account for monitoring purposes.|
-   | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
-   | **Resource name**  | Specify a name for the New Relic resource.|
-   | **Region**  | Select the Azure region where the New Relic resource should be created.|
-   | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
+    :::image type="content" source="media/new-relic-link-to-existing/new-relic-account.png" alt-text="Screenshot that shows the tab for basic information about linking an existing New Relic account.":::
 
-1. When the New Relic account that you selected has a parent New Relic organization that you created by using Azure Native New Relic Service, the New Relic billing details appear for your reference.
+1. Provide the following values:
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-basics.png" alt-text="Screenshot that shows the Basics tab with New Relic account details.":::
+    |Property |  Description |
+    |---|---|
+    | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription will be linked to the New Relic account for monitoring purposes.|
+    | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
+    | **Resource name**  | Specify a name for the New Relic resource.|
+    | **Region**  | Select the Azure region where the New Relic resource should be created.|
+    | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
-   The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
-    
+1. After you select a New Relic account, the New Relic billing details appear for your reference. The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
+
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
+
 1. Select **Next**.
 
 ## Configure metrics and logs
 
-Your next step is to configure metrics and logs on the **Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
+Your next step is to configure metrics and logs on the **Metrics + Logs** tab. When you're linking an existing New Relic account, you can set up automatic log forwarding for two types of logs:
 
-- **Subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane). The logs also include updates on service-health events. 
+- **Send subscription activity logs**: These logs provide insight into the operations on your resources at the [control plane](/azure-resource-manager/management/control-plane-and-data-plane). The logs also include updates on service-health events. 
 
   Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
 
 - **Azure resource logs**: These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-:::image type="content" source="media/new-relic-link-to-existing/new-relic-logs.png" alt-text="Screenshot that shows the tab for logs, with actions to complete.":::
+:::image type="content" source="media/new-relic-link-to-existing/new-relic-metrics.png" alt-text="Screenshot that shows the tab for metrics and logs, with actions to complete.":::
 
 1. To send Azure resource logs to New Relic, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor resource log categories](/azure-monitor/essentials/resource-logs-categories).
 
@@ -94,7 +94,7 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
 
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource and link an existing New Relic account to it.
-
+``
 1. After you finish configuring metrics and logs, select **Next**.
 
 ## Add tags
