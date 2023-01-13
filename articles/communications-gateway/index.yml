@@ -32,7 +32,7 @@ landingContent:
           - text: Emergency calling with Azure Communications Gateway
             url: emergency-calling.md
 
-  # Card            
+  # Card
   - title: Learn how to deploy Azure Communications Gateway
     linkLists:
       - linkListType: concept
@@ -47,3 +47,13 @@ landingContent:
             url: deploy.md
           - text: Prepare for live traffic
             url: prepare-for-live-traffic.md
+
+  # Card
+  - title: Manage Azure Communications Gateway
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Get support or request changes
+            url: request-changes.md
+          - text: Plan and manage costs
+            url: plan-and-manage-costs.md
