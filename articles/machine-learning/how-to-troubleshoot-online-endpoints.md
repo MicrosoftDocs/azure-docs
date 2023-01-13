@@ -424,7 +424,7 @@ You can also check if the blobs are present in the workspace storage account.
 
   #### [Studio](#tab/studio)
 
-  You can't see logs from the storage initializer. Use the Azure CLI or Python SDK (see each tab for details). 
+  You can't see logs from the storage initializer in the studio. Use the Azure CLI or Python SDK (see each tab for details). 
 
   ---
 
