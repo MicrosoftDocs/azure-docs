@@ -115,10 +115,10 @@ Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
 Example:
-`runs:/$RUN_ID/model/`
+`runs:/<run-id>/model/`
 
 ```cli
-az ml model create --name my-model --version 1 --path runs:/$RUN_ID/model/ --type mlflow_model
+az ml model create --name my-model --version 1 --path runs:/<run-id>/model/ --type mlflow_model
 ```
 
 ### azureml job
@@ -129,18 +129,18 @@ Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-  * This is equivalent to `runs:/$RUN_ID/model/`.
+- Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
+  * This is equivalent to `runs:/<run-id>/model/`.
   * *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-- From a named output directory: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
 - From a specific file or folder path within the named output directory:
-  * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
-  * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+  * `azureml://jobs/<run-id>/outputs/trained-model/paths/cifar.pt`
+  * `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
 
 Saving model from a named output:
 
 ```cli
-az ml model create --name my-model --version 1 --path azureml://jobs/$RUN_ID/outputs/trained-model
+az ml model create --name my-model --version 1 --path azureml://jobs/<run-id>/outputs/trained-model
 ```
 
 For a complete example, see the [CLI reference](/cli/azure/ml/model).
@@ -176,14 +176,14 @@ Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
 
 Example:
-`runs:/$RUN_ID/model/`
+`runs:/<run-id>/model/`
 
 ```python
 from azure.ai.ml.entities import Model
 from azure.ai.ml.constants import ModelType
 
 run_model = Model(
-    path="runs:/$RUN_ID/model/"
+    path="runs:/<run-id>/model/"
     name="run-model-example",
     description="Model created from run.",
     type=ModelType.MLFLOW
@@ -200,13 +200,13 @@ Format:
 `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`
 
 Examples:
-- Default artifact location: `azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/`
-  * This is equivalent to `runs:/$RUN_ID/model/`.
+- Default artifact location: `azureml://jobs/<run-id>/outputs/artifacts/paths/model/`
+  * This is equivalent to `runs:/<run-id>/model/`.
   * *artifacts* is the reserved keyword to refer to the output that represents the default artifact location.
-- From a named output directory: `azureml://jobs/$RUN_ID/outputs/trained-model`
+- From a named output directory: `azureml://jobs/<run-id>/outputs/trained-model`
 - From a specific file or folder path within the named output directory:
-  * `azureml://jobs/$RUN_ID/outputs/trained-model/paths/cifar.pt`
-  * `azureml://jobs/$RUN_ID/outputs/checkpoints/paths/model/`
+  * `azureml://jobs/<run-id>/outputs/trained-model/paths/cifar.pt`
+  * `azureml://jobs/<run-id>/outputs/checkpoints/paths/model/`
 
 Saving model from a named output:
 

@@ -505,9 +505,11 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: How to use the Dapr extension
+            - name: Create the Dapr extension
               href: dapr.md
-            - name: Migrate from Dapr OSS
+            - name: Configure the Dapr extension
+              href: dapr-settings.md
+            - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md
