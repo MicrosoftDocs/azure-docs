@@ -65,7 +65,7 @@ Note down the following, which you'll use in the code below:
 
 ## Use pip to install packages
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
