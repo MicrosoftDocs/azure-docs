@@ -235,7 +235,7 @@ export const EnvironmentChecksComponent = (props: {
   // Run call readiness checks when component mounts
   const callClient = useCallClient();
   useEffect(() => {
-    const runCallReadinessChecks = async (): Promise<void> => {
+    const runEnvironmentChecks = async (): Promise<void> => {
 
       // First we will get the environment information from the calling SDK.
       const environmentInfo = await checkEnvironmentSupport(callClient);
@@ -260,7 +260,7 @@ export const EnvironmentChecksComponent = (props: {
       }
     };
 
-    runCallReadinessChecks();
+    runEnvironmentChecks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
