@@ -13,18 +13,18 @@ ms.author: cynthn
 
 Before you begin an in-place upgrade:
 
-1. Review the upgrade requirements for the target operating system:
+- Review the upgrade requirements for the target operating system:
 
    - Upgrade options for Windows Server 2019
 
    - Upgrade options for Windows Server 2022
 
-1. Verify the operating system disk has enough [free space to perform the in-place upgrade](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements). If additional space is needed [follow these steps](/azure/virtual-machines/windows/expand-os-disk) to expand the operating system disk attached to the VM.  
+- Verify the operating system disk has enough [free space to perform the in-place upgrade](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements). If additional space is needed [follow these steps](/azure/virtual-machines/windows/expand-os-disk) to expand the operating system disk attached to the VM.  
 
-1. Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
+- Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed. 
 
 ## Windows versions not yet supported for in-place system upgrades
-For the following versions, consider using the work around in the next section:
+For the following versions, consider using the work-around in the next section:
 
 - Windows Server 2012 R2 Datacenter
 - Windows Server 2012 R2 Standard
@@ -32,12 +32,12 @@ For the following versions, consider using the work around in the next section:
 - Windows Server 2012 Standard
 - Windows Server 2008 R2 Datacenter
 - Windows Server 2008 R2 Standard
-### Workaround
+### Work-around
 To work around this issue, create an Azure VM that's running a supported version. And then either migrate the workload (Method 1, preferred), or download and upgrade the VHD of the VM (Method 2).
-To prevent data loss, back up the Windows 10 VM by using [Azure Backup](../backup/backup-overview.md). Or use a third-party backup solution from [Azure Marketplace Backup & Recovery](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=Backup).
+To prevent data loss, back up the Windows 10 VM by using [Azure Backup](../backup/backup-overview.md). Or use a third-party backup solution from [Azure Marketplace Backup & Recovery](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=Backup+&exp=ubp8).
 #### Method 1: Deploy a newer system and migrate the workload
 
-Create an Azure VM that runs a supported version of the operating system, and then migrate the workload. To do so, you will use Windows Server migration tools. For instructions to migrate Windows Server roles and features, see [Install, use, and remove Windows Server migration tools](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012).
+Create an Azure VM that runs a supported version of the operating system, and then migrate the workload. To do so, you'll use Windows Server migration tools. For instructions to migrate Windows Server roles and features, see [Install, use, and remove Windows Server migration tools](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012).
 
 
 #### Method 2: Download and upgrade the VHD
@@ -72,15 +72,14 @@ To perform an in-place upgrade the upgrade media must be attached to the VM as a
 
 | Parameter | Definition |
 |---|---|
-| resourceGroup | Name of the resource group where the upgrade media Managed Disk will be created. The named resource group will be created if it does not exist. |
+| resourceGroup | Name of the resource group where the upgrade media Managed Disk will be created. The named resource group will be created if it doesn't exist. |
 | location | Azure region where the upgrade media Managed Disk will be created. This must be the same region as the VM to be upgraded. |
 | zone | Azure zone in the selected region where the upgrade media Managed Disk will be created. This must be the same zone as the VM to be upgraded. For regional VMs (non-zonal) the zone parameter should be "". |
 | diskName | Name of the Managed Disk that will contain the upgrade media |
 | sku | Windows Server upgrade media version. This must be either:  `server2022Upgrade` or `server2019Upgrade` |
-|  | 
 
-## Script contents 
- New:
+### Script contents
+
 ```azurepowershell-interactive
 #
 # Customer specific parameters 
