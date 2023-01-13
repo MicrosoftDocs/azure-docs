@@ -6,7 +6,7 @@ ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 7/22/2022
 ms.author: patricka
 ---
 

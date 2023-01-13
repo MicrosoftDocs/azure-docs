@@ -192,7 +192,7 @@ The following tag is an example of the format:
 For all the supported locales and corresponding voices of the neural text-to-speech container, see [Neural text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
 
 > [!IMPORTANT]
-> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=stt-tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 # [Speech language identification](#tab/lid)
 

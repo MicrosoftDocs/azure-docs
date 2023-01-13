@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 01/10/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
@@ -147,7 +147,7 @@ Refer to our [design for high performance](premium-storage-performance.md) artic
 
 ## Next steps
 
-If you'd like a video going into more detail on managed disks, check out: [Better Azure VM Resiliency with Managed Disks).
+If you'd like a video going into more detail on managed disks, check out: [Better Azure VM Resiliency with Managed Disks](/shows/azure/managed-disks-azure-resiliency).
 
 Learn more about the individual disk types Azure offers, which type is a good fit for your needs, and learn about their performance targets in our article on disk types.
 

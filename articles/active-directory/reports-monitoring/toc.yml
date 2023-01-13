@@ -95,10 +95,6 @@ items:
       href: concept-sign-in-diagnostics-scenarios.md
     - name: Troubleshoot sign-in errors for a user
       href: howto-troubleshoot-sign-in-errors.md
-    - name: Missing audit data
-      href: troubleshoot-missing-audit-data.md
-    - name: Missing data in download
-      href: troubleshoot-missing-data-download.md
     - name: Cannot access Graph APIs for reporting
       href: troubleshoot-graph-api.md
     - name: Audit data on verified domain change
