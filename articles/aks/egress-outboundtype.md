@@ -72,9 +72,10 @@ For more information, see [configuring cluster egress via user-defined routing](
 
 Changing the outbound type after cluster creation will deploy or remove resources as required to put the cluster into the new egress configuration.
 
+Migration is only supported between `loadBalancer`, `managedNATGateway` (if using a managed virtual network), and `userDefinedNATGateway` (if using a custom virtual network).
+
 > [!WARNING]
-> - Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, they will need to be updated to match the new egress IP address.
-> - Changing to the `userDefinedRouting` egress type may require changing how incoming load balancer traffic flows, as egress traffic will now flow via the user-defined route instead of back via the load balancer, leading to asymmetric routing and dropped traffic. For more information, see the [user-defined routing documentation](egress-udr.md).
+> Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, they will need to be updated to match the new egress IP address.
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -94,18 +95,18 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-### Register the 'AKS-OutBoundTypeMigrationPreviewReregistering' feature flag
+### Register the 'AKS-OutBoundTypeMigrationPreview' feature flag
 
-Register the `AKS-OutBoundTypeMigrationPreviewReregistering` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AKS-OutBoundTypeMigrationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreviewReregistering"
+az feature register --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
 ```
 
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreviewReregistering"
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-OutBoundTypeMigrationPreview"
 ```
 
 When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
@@ -119,7 +120,7 @@ az provider register --namespace Microsoft.ContainerService
 Run the following command to change a cluster's outbound configuration:
 
 ```azurecli-interactive
-az aks update -g <resourceGroup> -n <clusterName> --outbound-type <loadBalancer|managedNATGateway|userAssignedNATGateway|userDefinedRouting>
+az aks update -g <resourceGroup> -n <clusterName> --outbound-type <loadBalancer|managedNATGateway|userAssignedNATGateway>
 ```
 
 ## Next steps
