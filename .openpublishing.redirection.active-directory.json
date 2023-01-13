@@ -4382,6 +4382,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-access-api-with-certificates.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-graph-api.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-reporting-api.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/customize-branding.md",
       "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
       "redirect_document_id": false
