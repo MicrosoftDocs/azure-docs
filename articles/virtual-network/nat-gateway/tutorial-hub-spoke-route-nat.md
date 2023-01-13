@@ -13,8 +13,12 @@ ms.custom: template-tutorial
 
 # Tutorial: Use a NAT gateway with a hub and spoke network
 
-[Add your introductory paragraph]
+A hub and spoke network is one of the building blocks of a highly available multiple location network infrastructure. The most common deployment of a hub and spoke network is done with the intention of routing all inter-spoke and outbound internet traffic through the central hub. The purpose is to inspect all of the traffic traversing the network with a Network Virtual Appliance (NVA) for security scanning and packet inspection.
 
+For outbound traffic to the internet the network virtual appliance would typically have one network interface with an assigned public IP address. The NVA after inspecting the outbound traffic forwards the traffic out the public interface and to the internet. Azure Virtual Network NAT eliminates the need for the public IP address assigned to the NVA. Associating a NAT gateway with the public subnet of the NVA changes the routing for the public interface to route all outbound internet traffic through the NAT gateway. The elimination of the public IP address increases security and allows for the scaling of outbound source network address translation (SNAT) with multiple public IP addresses and or public IP prefixes.
+
+> [!IMPORTANT]
+> The NVA used in this article is for demonstration purposes only and is simulated with an Ubuntu virtual machine. The solution doesn't include a load balancer for high availability of the NVA deployment. Replace the Ubuntu virtual machine in this article with an NVA of your choice. Consult the vendor of the chosen NVA for routing and configuration instructions. A load balancer and availability zones is recommended for a highly available NVA infrastructure.
 
 In this tutorial, you learn how to:
 
@@ -24,12 +28,15 @@ In this tutorial, you learn how to:
 > * Create a simulated Network Virtual Appliance (NVA).
 > * Force all traffic from the spokes through the hub.
 > * Force all internet traffic in the hub and the spokes out the NAT gateway.
+> * Test the NAT gateway and inter-spoke routing.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a NAT gateway
+
+All outbound internet traffic will traverse the NAT gateway egress to the internet. Use the examples below to create a NAT gateway for the hub and spoke network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,15 +69,9 @@ In this tutorial, you learn how to:
 
 10. Select **Create**.
 
-### Obtain NAT gateway public IP address
-
-1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
-
-2. Select **myPublic-NAT**.
-
-3. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
-
 ## Create hub virtual network
+
+The hub virtual network is the central network of the solution. The hub network contains the NVA appliance and a public and private subnet. The NAT gateway is assigned to the public subnet during the creation of the virtual network. An Azure Bastion host is configured as part of the example below. The bastion host is used to securely connect to the NVA virtual machine and the test virtual machines deployed in the spokes later in the article.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -137,6 +138,8 @@ It will take a few minutes for the bastion host to deploy. When the virtual netw
 
 ## Create simulated NVA virtual machine
 
+The simulated NVA will act as a virtual appliance to route all traffic between the spokes and hub and traffic outbound to the internet. A Ubuntu virtual machine is used for the simulated NVA. Use the following example below to create the simulated NVA and configure the network interfaces.
+
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **+ Create** then **Azure virtual machine**.
@@ -180,6 +183,8 @@ It will take a few minutes for the bastion host to deploy. When the virtual netw
 7. Select **Create**.
 
 ### Configure virtual machine network interfaces
+
+The IP configuration of the primary network interface of the virtual machine is set to dynamic by default. Use the following example to change the primary network interface IP configuration to static and add a secondary network interface for the private interface of the NVA.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -228,6 +233,8 @@ It will take a few minutes for the bastion host to deploy. When the virtual netw
 17. Select **Create**.
 
 ### Configure virtual machine software
+
+The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu virtual machine. Connect to the NVA virtual machine with Azure Bastion to configure IP tables and the routing configuration.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -303,6 +310,8 @@ sudo reboot
 
 ## Create hub network route table
 
+Route tables are used to overwrite Azure's default routing. Create a route table to force all traffic within the hub private subnet through the simulated NVA.
+
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
 2. Select **+ Create**.
@@ -358,6 +367,8 @@ sudo reboot
 
 ## Create spoke 1 virtual network
 
+Create an additional virtual network in a different region for the first spoke of the hub and spoke network.
+
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 2. Select **+ Create**.
@@ -398,6 +409,8 @@ sudo reboot
 
 ## Create peering between hub and spoke 1
 
+A virtual network peering is used to connect the hub to spoke 1 and spoke 1 to the hub. Use the following example to create a two-way network peering between the hub and spoke 1.
+
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 2. Select **myVNet-Hub**.
@@ -429,6 +442,8 @@ sudo reboot
 7. Select **Refresh** and verify **Peering status** is **Connected**.
 
 ## Create spoke 1 network route table
+
+Create a route table to force all inter-interspoke and internet egress traffic through the simulated NVA in the hub virtual network.
 
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
@@ -485,6 +500,8 @@ sudo reboot
 
 ## Create spoke 1 test virtual machine
 
+A Windows Server 2022 virtual machine is used to test the outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network. Use the following example to create a Windows Server 2022 virtual machine.
+
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **+ Create** then **Azure virtual machine**.
@@ -532,6 +549,8 @@ sudo reboot
 
 ## Create spoke 2 virtual network
 
+Create the second virtual network for the second spoke of the hub and spoke network. 
+
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 2. Select **+ Create**.
@@ -572,6 +591,8 @@ sudo reboot
 
 ## Create peering between hub and spoke 2
 
+Create a two-way virtual network peer between the hub and spoke 2.
+
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 2. Select **myVNet-Hub**.
@@ -603,6 +624,8 @@ sudo reboot
 7. Select **Refresh** and verify **Peering status** is **Connected**.
 
 ## Create spoke 2 network route table
+
+Create a route table to force all outbound internet and inter-spoke traffic through the simulated NVA in the hub virtual network.
 
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
@@ -659,6 +682,8 @@ sudo reboot
 
 ## Create spoke 2 test virtual machine
 
+Create a Windows Server 2022 virtual machine for the test virtual machine in spoke 2.
+
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **+ Create** then **Azure virtual machine**.
@@ -704,9 +729,13 @@ sudo reboot
 
 7. Select **Create**.
 
-## Test outbound via NAT gateway
+## Test NAT gateway
+
+You'll connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
 
 ### Obtain NAT gateway public IP address
+
+Obtain the NAT gateway public IP address for verification of the steps later in the article.
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
@@ -715,6 +744,8 @@ sudo reboot
 3. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
 
 ### Test NAT gateway from spoke 1
+
+Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to https://whatsmyip.com to verify the functionality of the NAT gateway.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -746,6 +777,8 @@ Install-WindowsFeature Web-Server
 
 ### Test NAT gateway from spoke 2
 
+Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to https://whatsmyip.com to verify the functionality of the NAT gateway.
+
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **myVM-Spoke-2**.
@@ -774,7 +807,13 @@ Install-WindowsFeature Web-Server
 
 11. Leave the bastion connection open to **myVM-Spoke-2**.
 
-### Test routing from spoke 1 to spoke 2
+## Test routing between spoke 1 and spoke 2
+
+Traffic from spoke 1 to spoke 2 and spoke 2 to spoke 1 will route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
+
+## Test routing from spoke 1 to spoke 2
+
+Use Microsoft Edge to connect to the web server on **myVM-Spoke-2** you installed in the previous steps.
 
 1. Return to the open bastion connection to **myVM-Spoke-1**.
 
@@ -789,6 +828,8 @@ Install-WindowsFeature Web-Server
 5. Close the bastion connection to **myVM-Spoke-1**.
 
 ### Test routing from spoke 2 to spoke 1
+
+Use Microsoft Edge to connect to the web server on **myVM-Spoke-1** you installed in the previous steps.
 
 1. Return to the open bastion connection to **myVM-Spoke-2**.
 
