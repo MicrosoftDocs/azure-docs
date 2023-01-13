@@ -36,10 +36,10 @@ There are fundamentally four layers to a virtual machine that require monitoring
 | Virtual machine host | The host virtual machine in Azure. Azure Monitor has no access to the host in other clouds but must rely on information collected from the guest operating system. The host can be useful for tracking activity such as configuration changes, and basic alerting such as processor utilization and whether the machine is running. |
 | Guest operating system | The operating system running on the virtual machine, which is some version of either Windows or Linux. A significant amount of monitoring data is available from the guest operating system, such as performance data and events. You must install Azure Monitor agent to retrieve this telemetry. |
 | Workloads | Workloads running in the guest operating system that support your business applications. These will typically generate performance data and events similar to the operating system that you can retrieve. You must install Azure Monitor agent to retrieve this telemetry. |
-| Application | The business application that depends on your virtual machines. This will typically be monitored by APplication insights. |
+| Application | The business application that depends on your virtual machines. This will typically be monitored by Application insights. |
 
 ## Configuration steps
-The following table lists the steps in configuration. Each one links to the an article with the detailed description of that configuration step.
+The following table lists the different steps for configuration of VM monitoring. Each one links to an article with the detailed description of that configuration step.
 
 | Step | Description |
 |:---|:---|
