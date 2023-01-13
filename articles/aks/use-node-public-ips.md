@@ -60,7 +60,7 @@ az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-pu
 
 You can locate the public IPs for your nodes in various ways:
 
-* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
+* Use the Azure CLI command [`az vmss list-instance-public-ips`][az-list-ips].
 * Use [PowerShell or Bash commands][vmss-commands]. 
 * You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
 
@@ -136,7 +136,7 @@ az aks nodepool add --cluster-name <clusterName> -n <nodepoolName> -l <location>
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
-If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](/azure/virtual-network/network-security-groups-overview#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the nodepool parameters.
+If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](/azure/virtual-network/network-security-groups-overview#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
 
 ### Host port specification format
 
@@ -225,7 +225,7 @@ az aks nodepool update \
 
 ## Automatically assign host ports for pod workloads (PREVIEW)
 
-When using public IPs on nodes, host ports can be utilized to allow pods to directly receive traffic without having to configure a load balancer service. This is especially useful in scenarios like gaming, where the ephemeral nature of the node IP and port is not a problem because a matchmaker service at a well-known hostname can provide the correct host and port to use at connection time. However, because only one process on a host can be listening on the same port, using applications with host ports can lead to problems with scheduling. To avoid this issue, AKS provides the ability to have the system dynamically assign an available port at scheduling time, preventing conflicts.
+When public IPs are configured on nodes, host ports can be utilized to allow pods to directly receive traffic without having to configure a load balancer service. This is especially useful in scenarios like gaming, where the ephemeral nature of the node IP and port is not a problem because a matchmaker service at a well-known hostname can provide the correct host and port to use at connection time. However, because only one process on a host can be listening on the same port, using applications with host ports can lead to problems with scheduling. To avoid this issue, AKS provides the ability to have the system dynamically assign an available port at scheduling time, preventing conflicts.
 
 > [!WARNING]
 > Pod host port traffic will be blocked by the default NSG rules in place on the cluster. This feature should be combined with allowing host ports on the node pool to allow traffic to flow.
@@ -262,7 +262,7 @@ Triggering host port auto assignment is done by deploying a workload without any
 
 Ports will be assigned from the range `40000-59999` and will be unique across the cluster. The assigned ports will also be added to environment variables inside the pod so that the application can determine what ports were assigned.
 
-Here is an example echoserver deployment, showing the mapping of host ports for ports 8080 and 8443:
+Here is an example `echoserver` deployment, showing the mapping of host ports for ports 8080 and 8443:
 
 ```yml
 apiVersion: apps/v1

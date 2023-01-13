@@ -28,7 +28,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature isn't supported with Basic SKU load balancers.
-* The AKS cluster must use virtual machine scale sets for the nodes.
+* The AKS cluster must use Virtual Machine Scale Sets for the nodes.
 * You can't change the VM size of a node pool after you create it.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 * All node pools must reside in the same virtual network.
@@ -210,7 +210,7 @@ The commands in this section explain how to upgrade a single specific node pool.
 > [!NOTE]
 > The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
-Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. To see the available upgrades use [az aks get-upgrades][az-aks-get-upgrades]
+Since there are two node pools in this example, we must use [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] to upgrade a node pool. To see the available upgrades use [`az aks get-upgrades`][az-aks-get-upgrades]
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
@@ -498,9 +498,9 @@ When creating a node pool, you can add taints, labels, or tags to that node pool
 > [!IMPORTANT]
 > Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, labels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
 
-### Setting nodepool taints
+### Setting node pool taints
 
-To create a node pool with a taint, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
+To create a node pool with a taint, use [`az aks nodepool add`][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -601,11 +601,11 @@ Events:
 
 Only pods that have this toleration applied can be scheduled on nodes in *taintnp*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
 
-### Setting nodepool labels
+### Setting node pool labels
 
 For more information on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
-### Setting nodepool Azure tags
+### Setting node pool Azure tags
 
 For more information on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
@@ -692,7 +692,7 @@ Edit these values as need to update, add, or delete node pools as needed:
 }
 ```
 
-Deploy this template using the [az deployment group create][az-deployment-group-create] command, as shown in the following example. You're prompted for the existing AKS cluster name and location:
+Deploy this template using the [`az deployment group create`][az-deployment-group-create] command, as shown in the following example. You're prompted for the existing AKS cluster name and location:
 
 ```azurecli-interactive
 az deployment group create \
@@ -725,13 +725,13 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
 
-To delete the GPU-based node pool, use the [az aks nodepool delete][az-aks-nodepool-delete] command as shown in following example:
+To delete the GPU-based node pool, use the [`az aks nodepool delete`][az-aks-nodepool-delete] command as shown in following example:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-To delete the cluster itself, use the [az group delete][az-group-delete] command to delete the AKS resource group:
+To delete the cluster itself, use the [`az group delete`][az-group-delete] command to delete the AKS resource group:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

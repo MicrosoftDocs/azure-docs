@@ -23,7 +23,7 @@ This article covers the various types of outbound connectivity that are availabl
 
 ## Overview of outbound types in AKS
 
-An AKS cluster can be configured with 3 different categories of outbound type: load balancer, NAT gateway, or user-defined routing.
+An AKS cluster can be configured with three different categories of outbound type: load balancer, NAT gateway, or user-defined routing.
 
 > [!IMPORTANT]
 > Outbound type impacts only the egress traffic of your cluster. For more information, see [setting up ingress controllers](ingress-basic.md).
@@ -44,18 +44,18 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 ![Diagram shows ingress I P and egress I P, where the ingress I P directs traffic to a load balancer, which directs traffic to and from an internal cluster and other traffic to the egress I P, which directs traffic to the Internet, M C R, Azure required services, and the A K S Control Plane.](media/egress-outboundtype/outboundtype-lb.png)
 
-Refer to the documentation on [using a standard load balancer in AKS](load-balancer-standard.md) for more information.
+For more information, see [using a standard load balancer in AKS](load-balancer-standard.md) for more information.
 
 ### Outbound type of `managedNatGateway` or `userAssignedNatGateway`
 
 If `managedNatGateway` or `userAssignedNatGateway` are selected for `outboundType`, AKS relies on [Azure Networking NAT gateway](/azure/virtual-network/nat-gateway/manage-nat-gateway) for cluster egress. 
 
 - `managedNatGateway` is used when using managed virtual networks, and tells AKS to provision a NAT gateway and attach it to the cluster subnet.
-- `userAssignedNatGateway` is used when using bring-your-own virtual networking, and requires that a NAT gateway be provisioned before cluster creation.
+- `userAssignedNatGateway` is used when using bring-your-own virtual networking, and requires that a NAT gateway has been provisioned before cluster creation.
 
 NAT gateway has significantly improved handling of SNAT ports when compared to Standard Load Balancer.
 
-Refer to the documentation on [using NAT Gateway with AKS](nat-gateway.md) for more information.
+For more information, see [using NAT Gateway with AKS](nat-gateway.md) for more information.
 
 ### Outbound type of userDefinedRouting
 
@@ -66,7 +66,7 @@ If `userDefinedRouting` is set, AKS won't automatically configure egress paths. 
 
 The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when not using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
 
-Refer to the documentation on [configuring cluster egress via user-defined routing](egress-udr.md) for more information.
+For more information, see [configuring cluster egress via user-defined routing](egress-udr.md) for more information.
 
 ## Updating `outboundType` after cluster creation (PREVIEW)
 
@@ -74,7 +74,7 @@ Changing the outbound type after cluster creation will deploy or remove resource
 
 > [!WARNING]
 > - Changing the outbound type on a cluster is disruptive to network connectivity and will result in a change of the cluster's egress IP address. If any firewall rules have been configured to restrict traffic from the cluster, they will need to be updated to match the new egress IP address.
-> - Changing to the `userDefinedRouting` egress type may require changing how incoming load balancer traffic flows, as egress traffic will now flow via the user-defined route instead of back via the load balancer, leading to asymmetric routing and dropped traffic. See the [UDR documentation](egress-udr.md) for more details.
+> - Changing to the `userDefinedRouting` egress type may require changing how incoming load balancer traffic flows, as egress traffic will now flow via the user-defined route instead of back via the load balancer, leading to asymmetric routing and dropped traffic. For more information, see the [user-defined routing documentation](egress-udr.md).
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
