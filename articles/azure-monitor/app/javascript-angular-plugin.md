@@ -5,7 +5,7 @@ services: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 01/10/2023
 ms.devlang: javascript
 ms.reviewer: mmcc
 ---
