@@ -28,7 +28,6 @@ For complete release version information, see [Version log](version-log.md#janua
 New for this release:
 
 - Arc data services:
-<!--Make sure to include link to JumpStart Issue/PR-->
    - Kafka separate mode - Description of this change and all customer and developer impacts are enumerated in the linked feature.
 
 - Arc-SQL MI
