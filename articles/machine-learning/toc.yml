@@ -648,13 +648,13 @@
               href: how-to-log-mlflow-models.md
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-        - name: ML lifecycle
+        - name: Manage
           items:
             - name: Manage models with MLflow
               href: how-to-manage-models-mlflow.md
             - name: Manage experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-        - name: Deployment
+        - name: Deploy & consume models
           items:
             - name: Guidelines for deploying MLflow models
               displayName: mlflow models deployment plugin
