@@ -36,4 +36,4 @@ If you're experiencing failures with Microsoft Energy Data Services APIs, you ma
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Reliability in Azure](availability-zones-overview.md))
+> [Reliability in Azure](availability-zones-overview.md)
