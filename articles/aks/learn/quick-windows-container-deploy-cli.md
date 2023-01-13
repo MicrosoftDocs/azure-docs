@@ -110,7 +110,7 @@ az aks create \
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 ## Add a Windows node pool
-By default, an AKS cluster is created with a node pool that can run Linux containers. Use the the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
+By default, an AKS cluster is created with a node pool that can run Linux containers. Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
 AKS supports Windows Server 2019 and Windows Server 2022 node pools. For Kubernetes versions "1.25.0" and higher, Windows Server 2022 is the default operating system. For earlier versions, Windows Server 2019 will be the default operating system.
 
