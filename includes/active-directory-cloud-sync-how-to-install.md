@@ -52,7 +52,7 @@ ms.custom: include file
 
     ![Screenshot that shows how to add an Active Directory domain.](./media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-add-domain.png)
 
-    Sign in with your Active Directory domain administrator account.  The domain administrator account shouldn't have password change requirements. If the password expires or changes, you'll need to reconfigure the agent with the new credentials. This operation will add your on-premises directory. Select **OK**, then select **Next** to continue. 
+    Sign in with your Active Directory domain administrator account.  The domain administrator account shouldn't have password change requirements. If the password expires or changes, you'll need to reconfigure the agent with the new credentials. This operation will add your on-premises directory. Select **OK**, and then select **Next** to continue. 
 
     ![Screenshot that shows how to enter the domain admin credentials.](./media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-sign-in-to-active-directory.png)
 
