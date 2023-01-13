@@ -334,7 +334,7 @@ For logic app client authentication, upload the client private key certificate t
 
 1. If the uploaded certificate doesn't appear in the private key certificates list, on the toolbar, select **Refresh**.
 
-1. When you create a connection using the MQ built-in connector, in the connection information box, select **TLS**. For the **Client Cert Thumbprint** property, enter the previously copied thumbprint value for the client private key certificate.
+1. When you create a connection using the MQ built-in connector, in the connection information box, select **Use TLS**. For the **Client Cert Thumbprint** property, enter the previously copied thumbprint value for the client private key certificate.
 
    ![Screenshot showing Standard logic app workflow designer, MQ built-in connection box with 'Use TLS' option selected and the 'Client Cert Thumbprint' property with private key certificate thumbprint entered.](media/connectors-create-api-mq/client-private-key-certificate-thumbprint.png)
 
