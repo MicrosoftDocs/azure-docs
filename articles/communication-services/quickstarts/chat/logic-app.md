@@ -1,8 +1,8 @@
 ---
-title: Quickstart - Send chat message in Power Automate with Azure Communication Services
+title: Send a chat message in Power Automate
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, learn how to send a chat message in Azure Logic Apps workflows by using the Azure Communication Services Chat connector.
-author: sanchezjuan
+author: jjsanchezms
 manager: chpalm
 services: azure-communication-services
 ms.author: sanchezjuan
@@ -12,9 +12,9 @@ ms.service: azure-communication-services
 ms.custom: mode-other
 ---
 
-# Quickstart: Send chat message in Power Automate with Azure Communication Services
+# Quickstart: Send a chat message in Power Automate
 
-You can create automated workflows that can send chat messages by using the Azure Communication Services Chat connector. This quickstart shows you how to create a chat, add a participant, send a message, and list messages in an existing workflow.
+You can create automated workflows that send chat messages by using the Azure Communication Services Chat connector. This quickstart shows you how to create a chat, add a participant, send a message, and list messages in an existing workflow.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ To add a new step in your workflow by using the Communication Services Identity 
 
 1. Select the access token that was generated in the preceding section, and then add a chat thread topic description. Add the created user and enter a name for the participant.  
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-chat-thread-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Create chat thread action input fields.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-create-chat-thread-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Create chat thread action dialog.":::
 
 ## Send a message
 
@@ -78,7 +78,7 @@ To add a new step in your workflow by using the Communication Services Identity 
 
 1. Enter the access token, thread ID, content, and name.
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-send-chat-message-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action input fields.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-send-chat-message-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action dialog.":::
 
 ## List chat thread messages
 
@@ -92,7 +92,7 @@ To verify that you sent a message correctly:
 
 1. Enter the access token and thread ID.
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action input.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action dialog.":::
 
 ## Test your logic app
 
@@ -100,7 +100,7 @@ To manually start your workflow, on the designer toolbar, select **Run**. The wo
 
 Now, select **List chat thread messages**. In the action outputs, check for the message that was sent.
 
-:::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages-output.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action output.":::
+:::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages-output.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action results.":::
 
 ## Clean up resources
 
