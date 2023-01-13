@@ -45,7 +45,7 @@ When you need to take on a group membership or ownership, you can request activa
 
 1. Depending on the group’s setting, justification for activation may be required. If required, provide it in the **Reason** box.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-7.png" alt-text="Provide justification in the Reason box." lightbox="media/pim-for-groups/pim-group-7.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-7.png" alt-text="Provide a justification in the Reason box." lightbox="media/pim-for-groups/pim-group-7.png":::
 
 1.	Select **Activate**.
 
@@ -61,7 +61,7 @@ You can view the status of your pending requests to activate. It is specifically
 
 1. Review list of requests.
 
-    :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Provide justification in the Reason box." lightbox="media/pim-for-groups/pim-group-8.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Review the list of requests." lightbox="media/pim-for-groups/pim-group-8.png":::
 
 
 ## Cancel a pending request
@@ -70,7 +70,7 @@ You can view the status of your pending requests to activate. It is specifically
 
 1. Select **Azure AD Privileged Identity Management -> My requests -> Groups (Preview)**. 
 
-    :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Provide justification in the Reason box." lightbox="media/pim-for-groups/pim-group-8.png":::
+    :::image type="content" source="media/pim-for-groups/pim-group-8.png" alt-text="Select the request you want to cancel." lightbox="media/pim-for-groups/pim-group-8.png":::
 
 1. For the request that you want to cancel, select **Cancel**.
 

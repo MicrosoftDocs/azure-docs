@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management (PIM) for Groups - Azure Active Directory
+title: Privileged Identity Management (PIM) for Groups (preview) - Azure Active Directory
 description: How to manage Azure AD Privileged Identity Management (PIM) for Groups.
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev or IT admin, I want to manage group assignments in PIM, so that I can grant eligibility for elevation to a role assigned via group membership
 ---
 
-# Privileged Identity Management (PIM) for Groups
+# Privileged Identity Management (PIM) for Groups (preview)
 
 With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to variety of scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, or other application roles, 3rd party applications.
 
@@ -37,15 +37,15 @@ With PIM for Groups you can use policies similar to ones you use in PIM for Azur
 
 With Azure Active Directory (Azure AD), part of Microsoft Entra, you can assign a cloud Azure AD security group or Microsoft 365 group to an Azure AD role. This is possible only with groups that are created as role-assignable.
 
-To learn more about Azure AD role-assignable groups, see [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible). 
+To learn more about Azure AD role-assignable groups, see [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md). 
 
 Role-assignable groups benefit from extra protections comparing to non-role-assignable groups:
 -	For role-assignable groups, only the Global Administrator, Privileged Role Administrator, or the group Owner can manage the group. Also, no other users can change the credentials of the users who are (active) members of the group. This feature helps prevent an admin from elevating to a higher privileged role without going through a request and approval procedure.
 -	For non-role-assignable groups, various Azure AD roles can manage group – that includes Exchange Administrators, Groups Administrators, User Administrators, etc. Also, various roles Azure AD roles can change the credentials of the users who are (active) members of the group – that includes Authentication Administrators, Helpdesk Administrators, User Administrators, etc.
 
-To learn more about Azure AD built-in roles and their permissions, see [Azure AD built-in roles](../roles/permissions-reference).
+To learn more about Azure AD built-in roles and their permissions, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
-One Azure AD tenant can have up to 500 role-assignable groups. To learn more about Azure AD service limits and restrictions, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions).
+One Azure AD tenant can have up to 500 role-assignable groups. To learn more about Azure AD service limits and restrictions, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 Azure AD role-assignable group feature is not part of Azure AD Privileged Identity Management (Azure AD PIM). It requires Azure AD Premium P1 or P2 license.
 
