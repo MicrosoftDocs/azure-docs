@@ -120,7 +120,7 @@ From the command shell, install the Azure Key Vault secret client library for .N
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
-For this quickstart, you'll also need to install the Azure SDK client library for Azure Identity:
+For this quickstart, you'll also need to install the Azure Identity client library:
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -201,7 +201,7 @@ await client.PurgeDeletedSecretAsync("mySecret");
 
 ## Sample code
 
-Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
+Modify the .NET console app to interact with the Key Vault by completing the following steps:
 
 1. Replace the code in *Program.cs* with the following code:
 
