@@ -150,7 +150,7 @@ DNS_LABEL="demo-aks-ingress"
 NAMESPACE="ingress-basic"
 STATIC_IP=<STATIC_IP>
 
-helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
   --set controller.service.loadBalancerIP=$STATIC_IP
@@ -163,7 +163,7 @@ $DnsLabel = "demo-aks-ingress"
 $Namespace = "ingress-basic"
 $StaticIP = "<STATIC_IP>"
 
-helm upgrade nginx-ingress ingress-nginx/ingress-nginx `
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
   --namespace $Namespace `
   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
   --set controller.service.loadBalancerIP=$StaticIP
