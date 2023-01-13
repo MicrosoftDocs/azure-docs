@@ -263,9 +263,9 @@ az network vnet subnet update
     --route-table $SERVICE_RUNTIME_ROUTE_TABLE_NAME
 ```
 
-### Add a role for an Azure Spring Apps relying party
+### Add a role for an Azure Spring Apps resource provider
 
-The following example shows how to add a role for an Azure Spring Apps relying party:
+The following example shows how to add a role for an Azure Spring Apps resource provider(You do not need to understand this concept and e8de9221-a19c-4c81-b814-fd37c6caf9d2 is suitable for all users):
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
