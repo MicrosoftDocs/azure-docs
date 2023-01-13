@@ -2,10 +2,8 @@
 title: Partner services
 description: Learn about services  offered by partners on Azure. 
 
-ms.author: franlanglois
 ms.topic: conceptual
-ms.date: 01/11/2023
-
+ms.date: 01/18/2023
 
 ---
 
