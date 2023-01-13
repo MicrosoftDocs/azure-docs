@@ -1,14 +1,14 @@
 ---
-title: Send or receive events from Azure Event Hubs using .NET (latest)
-description: This article provides a walkthrough to create a .NET Core application that sends/receives events to/from Azure Event Hubs by using the latest Azure.Messaging.EventHubs package.
+title: 'Quickstart: Send or receive events using .NET'
+description: A quickstart to create a .NET Core application that sends/receives events to/from Azure Event Hubs by using the Azure.Messaging.EventHubs package.
 ms.topic: quickstart
 ms.date: 02/28/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet
 ---
 
-# Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
-This quickstart shows how to send events to and receive events from an event hub using the **Azure.Messaging.EventHubs** .NET library. 
+# Quickstart: Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
+In this quickstart, you will learn how to send events to and receive events from an event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!NOTE]
 > You can find all .NET samples for Event Hubs in our [.NET SDK repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/). 
@@ -401,10 +401,18 @@ Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
 
+## Clean up resources
+Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 
 
-## Next steps
-This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of events to an event hub and then receiving them. For more samples on other and advanced scenarios, check out the following samples on GitHub. 
+## Samples
+This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of events to an event hub and then receiving them. For more samples, select the following links. 
 
 - [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Event processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
 - [Azure role-based access control (Azure RBAC) sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+## Next steps
+See the following tutorial: 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](event-hubs-tutorial-visualize-anomalies.md)

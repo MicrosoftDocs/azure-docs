@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/03/2023
+ms.date: 01/06/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,17 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version |
 |---------|----------------|
-| Public  | 10.7.10        |
-| Beta    | 10.8.0         |
+| Public  | 10.8.0         |
+| Beta    | N/A            |
+
+## Updates for Version 10.8.0
+
+*Date published: December 14, 2022*
+
+In this release, we've made the following changes:
+
+- Fixed a few bugs, cleaned up some underlying code, and made changes to prepare for future updates.
+- Added a button to the General Preferences dialog that allows you to clear stored PC thumbnails.
 
 ## Updates for Version 10.7.10
 

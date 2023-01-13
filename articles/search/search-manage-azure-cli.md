@@ -3,12 +3,12 @@ title: Azure CLI scripts using the az search module
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-author: DerekLegenzoff
-ms.author: delegenz
+author: mattmsft
+ms.author: magottei
 ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 01/05/2023
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI

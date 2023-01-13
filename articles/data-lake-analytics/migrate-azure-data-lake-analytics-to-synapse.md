@@ -1,8 +1,6 @@
 ---
 title: Migrate Azure Data Lake Analytics to Azure Synapse Analytics.
 description: This article describes how to migrate from Azure Data Lake Analytics to Azure Synapse Analytics.
-author: lingluo0531
-ms.author: lingluo
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: migrate-azure-data-lake-analytics-to-synapse
