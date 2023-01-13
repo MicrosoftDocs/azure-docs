@@ -37,7 +37,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 
 - [Python 3.7](https://www.python.org/downloads/) or higher.
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 To use this quickstart with your own Azure account:
 * Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
