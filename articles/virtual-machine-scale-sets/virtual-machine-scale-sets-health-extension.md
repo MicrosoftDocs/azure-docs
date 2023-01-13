@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 11/22/2022
+ms.date: 01/10/2023
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -15,14 +15,19 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [Automatic OS-Image Upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [Automatic VM Guest Patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using [Automatic Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
-This article describes how you can use the Application Health extension to monitor the health of your applications deployed on Virtual Machine Scale Sets.
+This article describes how you can use the two types of Application Health extension, **Binary Health States** or **Rich Health States**, to monitor the health of your applications deployed on Virtual Machine Scale Sets.
 
 ## Prerequisites
+
 This article assumes that you are familiar with:
 -	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
 -	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) Virtual Machine Scale Sets
 
+> [!IMPORTANT]
+> Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy*.
+
 ## When to use the Application Health extension
+
 The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
 
 As the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview.md)) can’t be used.
