@@ -267,7 +267,7 @@ You might choose this option if you need to:
 To enable this option:
 
 1. Configure ingestion private endpoint for your Microsoft Purview account.
-1. Set **Public network access** to **Disabled for ingestion only (Preview)** on your [Microsoft Purview account](catalog.firewall.md).
+1. Set **Public network access** to **Disabled for ingestion only (Preview)** on your [Microsoft Purview account](catalog-firewall.md).
 
 ### Integration runtime options 
 
