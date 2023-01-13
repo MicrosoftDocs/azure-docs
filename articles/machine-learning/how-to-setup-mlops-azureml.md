@@ -24,7 +24,10 @@ Azure Machine Learning allows you to integration with [Azure DevOps pipeline](/a
 * Deployment of machine learning models as public or private web services
 * Monitoring deployed machine learning models (such as for performance analysis)
 
-In this article, you learn about using Azure Machine Learning to setup an end-to-end MLOps pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. you are going to be using the [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly set up an MLOps project in AzureML.
+In this article, you learn about using Azure Machine Learning to setup an end-to-end MLOps pipeline which runs a linear regression to predict taxi fares in NYC. The pipeline is made up of components, each serving  different functions, which can be registered with the workspace, versioned, and reused with various inputs and outputs. you are going to be using the [recommended Azure architecture for MLOps](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) to quickly set up an MLOps project in AzureML.
+
+> [!TIP]
+> We recommend you understand some of the [recommended Azure architectures](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) for MLOps before implementing any solution. You will need to pick the best architecture for your given Machine learning project
 
 ## Prerequisites
 
@@ -202,7 +205,7 @@ The Azure DevOps setup is successfully finished.
 ### Sparse checkout of MLOps v2 repo
 
 > [!TIP]
-> Make sure you understand the [Architectural Patterns](https://github.com/Azure/mlops-v2#-pattern-architectures-key-concepts) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you will use the [classical ML project type](https://github.com/Azure/mlops-v2/blob/main/documentation/architecturepattern/AzureML_CML_Architecture.png).
+> Make sure you understand the [Architectural Patterns](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2) of the solution accelerator before you checkout the MLOps v2 repo and deploy the infrastructure. In examples you will use the [classical ML project type](/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2#classical-machine-learning-architecture).
 
 1. Open the Pipelines section and create a new pipeline
 
@@ -308,8 +311,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
     - For a terraform scenario choose: `infrastructure/pipelines/tf-ado-deploy-infra.yml`, then select **Continue**. 
     - For a bicep scenario choose: `infrastructure/pipelines/bicep-ado-deploy-infra.yml`, then select **Continue**.
    
-   ![Screenshot of Select Infrastructure Pipeline](./media/how-to-setup-mlops-azureml/ado-select-pipeline-yaml-file.png)
-   
 1. Run the pipeline. This will take a few minutes to finish. The pipeline should create the following artifacts:
    * Resource Group for your Workspace including Storage Account, Container Registry, Application Insights, Keyvault and the Azure Machine Learning Workspace itself.
    * In the workspace there's also a compute cluster created.
@@ -343,8 +344,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
    6. Select `main` as a branch and choose `/mlops/devops-pipelines/deploy-model-training-pipeline.yml`, then select **Continue**.  
 
-   ![Screenshot of ADO existing YAML script](./media/how-to-setup-mlops-azureml/ADO-run9.png)
-
    7. Before running the pipeline, the repository location for the mlops-templates will need to be updated. Modify the **resources** section of the pipeline the snippet below. 
 
    ``` yaml
@@ -359,7 +358,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    8. Save and Run the pipeline
    
 > [!NOTE]
-> At this point, the infrastructure is configured and the Inner Loop of the MLOps Architecture is deployed. you are ready to move to our trained model to production.      
+> At this point, the infrastructure is configured and the Prototyping Loop of the MLOps Architecture is deployed. you are ready to move to our trained model to production.      
 
 ## Moving to production environment and deploying model 
          
@@ -414,8 +413,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
          - Managed Online Endpoint `/mlops/devops-pipelines/deploy-batch-endpoint-pipeline.yml`
       
       Then select **Continue**.  
-   
-   ![Screenshot of ADO Pipeline existing YAML step](./media/how-to-setup-mlops-azureml/ADO-run10.png)
    
    7. Before running the pipeline, the repository location for the **mlops-templates** will need to be updated. Modify the **resources** section of the pipeline the snippet below. 
 
