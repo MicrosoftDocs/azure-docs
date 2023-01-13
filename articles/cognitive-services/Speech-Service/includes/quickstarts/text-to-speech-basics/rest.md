@@ -18,9 +18,6 @@ ms.author: eur
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Synthesize to a file
 
 At a command prompt, run the following cURL command. Optionally you can rename `output.mp3` to another output filename.
@@ -42,9 +39,6 @@ curl --location --request POST "https://${SPEECH_REGION}.tts.speech.microsoft.co
 > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 The provided text should be output to an audio file named output.mp3.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-file-output" target="_target">I ran into an issue</a>
 
 > [!WARNING]
 > There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
