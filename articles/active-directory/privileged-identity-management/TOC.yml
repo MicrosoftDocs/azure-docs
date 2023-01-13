@@ -30,6 +30,12 @@
     href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
+  - name: Bring under management
+    items:
+    - name: Azure resources
+      href: pim-resource-roles-discover-resources.md
+    - name: Groups
+      href: groups-discover-groups.md
   - name: Assign
     items:
     - name: Azure AD roles
@@ -46,12 +52,6 @@
       href: pim-resource-roles-activate-your-roles.md
     - name: Groups
       href: groups-activate-roles.md 
-  - name: Bring under management
-    items:
-    - name: Azure resources
-      href: pim-resource-roles-discover-resources.md
-    - name: Groups
-      href: groups-discover-groups.md
   - name: Approve
     items:
     - name: Azure AD roles
