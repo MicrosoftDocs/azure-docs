@@ -13,6 +13,8 @@ ms.author: cherylmc
 ---
 # Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet: Azure portal
 
+This article walks you through the steps to configure IPsec/IKE policy for VPN Gateway Site-to-Site VPN or VNet-to-VNet connections using the Azure portal. The following sections help you create and configure an IPsec/IKE policy, and apply the policy to a new or existing connection.
+
 ## <a name ="workflow"></a>Workflow
 
 The following steps show the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
@@ -28,9 +30,7 @@ The instructions in this article help you set up and configure IPsec/IKE policie
 
 ## About policy parameters
 
-IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements.
-
-### Considerations
+IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements. Be aware of the following considerations:
 
 * IPsec/IKE policy only works on the following gateway SKUs:
   * ***VpnGw1~5 and VpnGw1AZ~5AZ***
@@ -39,9 +39,7 @@ IPsec and IKE protocol standard supports a wide range of cryptographic algorithm
 * You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
 * Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
 
-### Supported cryptographic algorithms & key strengths
-
-#### Algorithms and keys
+### Supported algorithms and key strengths
 
 The following table lists the supported configurable cryptographic algorithms and key strengths.
 
@@ -49,7 +47,7 @@ The following table lists the supported configurable cryptographic algorithms an
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
 
-#### Diffie-Hellman groups
+### Diffie-Hellman groups
 
 The following table lists the corresponding Diffie-Hellman groups supported by the custom policy:
 
