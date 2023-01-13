@@ -70,7 +70,7 @@ In order to use these alert templates, you'll first need a Log Analytics Workspa
 1. Select **Save**.
 
 For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
-### Azure Monitor alert rule
+### Create Azure Monitor alert rule
 
 The Azure Monitor alert rule template will run a query against the diagnostic logs to detect when an active DDoS mitigation is occurring. The alert indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
 
@@ -98,7 +98,7 @@ The Azure Monitor alert rule template will run a query against the diagnostic lo
 1. Select **Review + create** and then select **Create** after validation passes.
 
 
-### Azure Monitor diagnostic logging alert rule with Logic App
+### Create Azure Monitor diagnostic logging alert rule with Logic App
 
 This DDoS Mitigation Alert Enrichment template deploys the necessary components of an enriched DDoS mitigation alert: Azure Monitor alert rule, action group, and Logic App. The result of the process is an email alert with details about the IP address under attack, including information about the resource associated with the IP. The owner of the resource is added as a recipient of the email, along with the security team. A basic application availability test is also performed and the results are included in the email alert.
 #### Deploy the template 
