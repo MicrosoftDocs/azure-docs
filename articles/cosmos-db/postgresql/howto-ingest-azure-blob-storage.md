@@ -32,7 +32,7 @@ SELECT * FROM create_extension('azure_storage');
 
 > [!IMPORTANT]
 >
-> The azure_storage extension is available only on Azure Cosmos DB for
+> The pg_azure_storage extension is available only on Azure Cosmos DB for
 > PostgreSQL clusters running PostgreSQL 13 and above.
 
 We've prepared a public demonstration dataset for this article. To use your own
