@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 10/13/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.reviewer: mal
 

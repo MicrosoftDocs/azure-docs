@@ -77,7 +77,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 > [!NOTE]
 > The minimum value in the table above is strictly enforced by the AKS service. You can not set a maxPods value lower than the minimum shown as doing so can prevent the cluster from starting.
 
-* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [`az aks create`][az-aks-create] command. The maximum value is 250.
 * **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
 * **Azure portal**: Change the `Max pods per node` field in the node pool settings when creating a cluster or adding a new node pool.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Use the [az aks create][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
+Use the [`az aks create`][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
 
 ```azurecli-interactive
 az aks create \
@@ -164,7 +164,6 @@ A drawback with the traditional CNI is the exhaustion of pod IP addresses as the
 
 The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
 
-* Only linux node clusters and node pools are supported.
 * AKS Engine and DIY clusters are not supported.
 * Azure CLI version `2.37.0` or later.
 
@@ -248,7 +247,7 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
 Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
 
 ### Get the YAML file
-1.	Download or grep the file named container-azm-ms-agentconfig.yaml from [github][github].
+1.	Download or grep the file named container-azm-ms-agentconfig.yaml from [GitHub][github].
 2.	Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`. 
 3.	Save the file.
 
