@@ -33,7 +33,7 @@ Use the Azure PowerShell module to register and manage Peering Service. You can 
 
 ## Prerequisites
 
-- An Azure subscription
+- An Azure subscription.
 
 - A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
