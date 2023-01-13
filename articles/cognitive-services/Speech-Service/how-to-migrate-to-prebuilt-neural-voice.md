@@ -30,9 +30,9 @@ The prebuilt neural voice provides more natural sounding speech output, and thus
 ## Action required
 
 > [!TIP]
-> Even without an Azure account, you can listen to voice samples at this [Azure website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
+> Even without an Azure account, you can listen to voice samples at the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery) and determine the right voice for your business needs.
 
-1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure and listen to the neural voice [samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) at the bottom of that page to determine the right voice for your business needs.
+1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure.
 2. To make the change, [follow the sample code](speech-synthesis-markup-voice.md#voice-element) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Use neural voices for your speech synthesis request, on cloud or on prem. For on-premises container, use the [neural voice containers](../containers/container-image-tags.md) and follow the [instructions](speech-container-howto.md).
 
 ## Standard voice details (deprecated)

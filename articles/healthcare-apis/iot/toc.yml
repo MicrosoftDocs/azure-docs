@@ -71,13 +71,11 @@ items:
       href: how-to-configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
-  - name: Troubleshoot and problem solve
+  - name: Troubleshoot
     expanded: false
     items:
-    - name: Errors and conditions
-      href: troubleshoot-error-messages-and-conditions.md
-    - name: Device and FHIR destination mappings
-      href: troubleshoot-mappings.md
+    - name: Errors
+      href: troubleshoot-errors.md
 - name: Concepts
   expanded: false
   items:
