@@ -101,4 +101,4 @@ Three charges are related to the use of the gateway-required virtual network int
 
 ## Troubleshooting
 
-[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
+See [virtual network integration troubleshooting guide](/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps) for more information on this topic.
