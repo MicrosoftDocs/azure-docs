@@ -23,20 +23,33 @@ If you also want to move your Azure Stack Edge (ASE) resources, see TODO:link.
 - Choose a name for your new resource group in the target region. This must be different to the source region's resource group name.
 - Decide whether you want the deployment in the source region to remain fully operational during and after the region move.
 
+## Plan a maintenance window
+
+Depending on the resources you want to move and whether you want the deployment in the source region to remain fully operational during and after the region move, you may need to plan for a service outage.
+
+If you're moving your Arc cluster, we recommend performing the move during a maintenance window to minimize the impact on your service. You should allow up to two hours for the process to complete. <!-- TODO: check outage time advice -->
+
+
+## Back up deployment information
+
+The following list contains the data that will be lost over the region move. Back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance.
+
+1. If you want to keep using the same credentials when signing in to [distributed tracing](distributed-tracing.md), save a copy of the current password to a secure location.
+1. If you want to keep using the same credentials when signing in to the [packet core dashboards](packet-core-dashboards.md), save a copy of the current password to a secure location.
+1. Any customizations made to the packet core dashboards won't be carried over the region move. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.
+1. Most UEs will automatically re-register and recreate any sessions after the region move completes. If you have any special devices that require manual operations to recover from a packet core outage, gather a list of these UEs and their recovery steps.
+1. For security reasons, your SIM configuration won't be carried over a region move. Refer to [Collect the required information for your SIMs](provision-sims-azure-portal.md#collect-the-required-information-for-your-sims) to take a backup of all the information you'll need to recreate your SIMs.
+
 ## Prepare to move your resources
 
-### Back up and delete SIMs
+### Remove SIMs and custom location
 
-For security reasons, Azure Private 5G Core will never return the SIM credentials provided to the service as part of SIM creation. Therefore, it's not possible to export the SIM configuration in the same way as other Azure resources, and you'll need to delete your SIMs to avoid errors before performing an Azure region move.
+Only follow this step if you don't need your deployment to stay online in the original region.
 
-1. Refer to [Collect the required information for your SIMs](provision-sims-azure-portal.md#collect-the-required-information-for-your-sims) to take a backup of all the information you'll need to recreate your SIMs. You can view all your SIMs and SIM groups by following [View existing SIMs](manage-existing-sims.md#view-existing-sims). <!-- TODO: steps to view SIMs and static IP configuration -->
-1. If you don't need your deployment to stay operational during or after the region move, follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
+Before moving your resources, you'll need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. 
 
-### Disable custom location
-
-Before moving your resources, you'll need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. Only follow this step if you don't need your deployment to stay online in the original region.
-
-1. For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the changes below. You can ignore the sections about attaching and modifying data networks.
+1. Follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
+1. For each site that you want to move, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the changes below. You can ignore the sections about attaching and modifying data networks.
 
     1. In *Modify the packet core configuration*, make a note of the custom location value in the **Custom ARC location** field.
     1. Set the **Custom ARC location** field to **None**.
@@ -64,7 +77,10 @@ You'll need to customize your template to ensure all your resources are correctl
 1. Open the *template.json* file you downloaded in [Generate template](#generate-template).
 1. Find every instance of the original region's code name and replace it with the target region you're moving your deployment to. This involves updating the **location** parameter for every resource. See TODO:link for instructions on how to obtain the target region's code name.
 1. Find every instance of the original region's resource group name and replace it with the target region's resource group name you defined in [Prerequisites](#prerequisites).
-1. If you decided in TODO to disable the custom location and delete SIMs via the template, ... <!-- TODO -->
+1. If you skipped [Remove SIMs and custom location](#remove-sims-and-custom-location) because you need your deployment to stay online in the original region:
+    1. Remove all the SIM resources.
+    1. Remove the custom location entry.
+1. Remove any other resources you don't want to move to the target region.
 
 ### Deploy template
 
