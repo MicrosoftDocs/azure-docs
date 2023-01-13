@@ -120,7 +120,7 @@ The hub virtual network is the central network of the solution. The hub network 
 
 13. Select **Next: Security**.
 
-14. In the Security tab in BastionHost,** select **Enable**.
+14. In the **Security** tab in **BastionHost**, select **Enable**.
 
 15. Enter or select the following information:
 
@@ -402,11 +402,9 @@ Create another virtual network in a different region for the first spoke of the 
 
 9. Select **Add**.
 
-10. Select **+ Add subnet**.
+10. Select **Review + create**.
 
-11. Select **Review + create**.
-
-12. Select **Create**.
+11. Select **Create**.
 
 ## Create peering between hub and spoke one
 
@@ -584,11 +582,9 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 9. Select **Add**.
 
-10. Select **+ Add subnet**.
+10. Select **Review + create**.
 
-11. Select **Review + create**.
-
-12. Select **Create**.
+11. Select **Create**.
 
 ## Create peering between hub and spoke two
 
@@ -598,7 +594,7 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 2. Select **myVNet-Hub**.
 
-3. Select **Peerings** in **Settings.
+3. Select **Peerings** in **Settings**.
 
 4. Select **+ Add**.
 
@@ -808,7 +804,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 11. Leave the bastion connection open to **myVM-Spoke-2**.
 
-## Test routing between spoke one and spoke two
+## Test routing between the spokes
 
 Traffic from spoke one to spoke two and spoke two to spoke one will route through the simulated NVA in the hub virtual network. Use the following examples to verify the routing between spokes of the hub and spoke network.
 
