@@ -17,7 +17,9 @@ The following sections describe the information you'll need to collect and the d
 
 You must have signed an Operator Connect agreement with Microsoft. For more information, see [Operator Connect](https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect).
 
-You must ensure you've two or more numbers that you own which are globally routable. Your onboarding team will require these numbers to configure test lines.
+You'll need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communication Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you'll need to arrange an onboarding partner yourself.
+
+You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team will require these numbers to configure test lines.
 
 - **Manual** test lines will be used by Microsoft staff to make test calls during integration testing.
 - **Automated** test lines will be assigned to Teams test suites for validation testing.
@@ -167,7 +169,7 @@ This step must be performed on your Operator Tenant. It will give the Applicatio
 
 ## 5. Create a network design
 
-Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You're required to have two Azure Regions with cross-connect functionality.
+Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You must have two Azure Regions with cross-connect functionality. For more details on the resiliency design for Azure Communications Gateway, see [Resiliency in Azure Communications Gateway](resiliency.md).
 
 To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner).
     :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
@@ -203,7 +205,7 @@ If you believe tagging would be useful for your organization, design your naming
 
 ## 9. Get access to Azure Communications Gateway for your Azure subscription
 
-Access to Azure Communications Gateway is restricted. Once you have completed the steps above, contact your onboarding team and ask them to enable your subscription. If you don't already have an onboarding team, contact azcog-enablement@microsoft.com with your Azure subscription ID and contact details.
+Access to Azure Communications Gateway is restricted. When you've completed the other steps in this article, contact your onboarding team and ask them to enable your subscription. If you don't already have an onboarding team, contact azcog-enablement@microsoft.com with your Azure subscription ID and contact details.
 
 ## Next steps
 

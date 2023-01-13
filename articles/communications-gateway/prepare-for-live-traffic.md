@@ -19,7 +19,7 @@ Before you can launch your Operator Connect or Teams Phone Mobile service, you a
 In this article, you learn about the steps you and your onboarding team must take.
 
 > [!TIP]
-> In many cases, your onboarding team is from Microsoft.
+> In many cases, your onboarding team is from Microsoft, provided through the [Basic Integration Included Benefit](onboarding.md) or through a separate arrangement.
 
 ## Prerequisites
 
@@ -37,8 +37,9 @@ In some parts of this article, the steps you must take depend on whether your de
 
 ## 1. Connect Azure Communications Gateway to your networks
 
+1. Configure your infrastructure to meet the call routing requirements described in [Resiliency in Azure Communications Gateway](resiliency.md).
 1. Configure your network devices to send and receive traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs).
-1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through the Microsoft Azure Peering Service (MAPS) for Voice.
+1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice).
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
     - With MAPS, BFD must bring up the BGP peer for each Private Network Interface (PNI).

@@ -16,9 +16,16 @@ items:
     href: prepare-for-live-traffic.md
 - name: Concepts
   items:
+  - name: Onboarding onto Microsoft Operator Connect and Microsoft Teams Phone Mobile 
+    href: onboarding.md
   - name: Interoperability with Microsoft Operator Connect and Teams Phone Mobile
     href: interoperability.md
+  - name: Resiliency and redundancy
+    href: resiliency.md
+  - name: Emergency calling
+    href: emergency-calling.md
 - name: How-to guides
   items:
   - name: Plan and manage costs
     href: plan-and-manage-costs.md
+  

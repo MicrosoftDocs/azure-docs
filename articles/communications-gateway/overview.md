@@ -40,7 +40,7 @@ Traffic from all enterprises shares a single SIP trunk, using a multi-tenant for
 
 Azure Communications Gateway supports the SIP and RTP requirements for Teams Certified SBCs. It can transform call flows to suit your network with minimal disruption to existing infrastructure. Its voice features include:
 
-- **Optional direct peering to Emergency Routing Service Providers (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead.
+- **Optional direct peering to Emergency Routing Service Providers (US only)** - If your network can't transmit Emergency location information in PIDF-LO (Presence Information Data Format Location Object) SIP bodies, Azure Communications Gateway can connect directly to your chosen Teams-certified Emergency Routing Service Provider (ERSP) instead. See [Emergency calling with Azure Communications Gateway](emergency-calling.md).
 - **Voice interworking** - Azure Communications Gateway can resolve interoperability issues between your network and Microsoft Teams. Its position on the edge of your network reduces disruption to your networks, especially in complex scenarios like Teams Phone Mobile where Teams Phone System is the call control element. Azure Communications Gateway includes powerful interworking features, for example:
 
   - 100rel and early media inter-working
@@ -80,5 +80,6 @@ The API mediation function is designed to map between CRM and BSS systems in you
 
 ## Next steps
 
-- [Learn how Azure Communications Gateway fits into your network](interoperability.md)
-- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
+- [Learn how Azure Communications Gateway fits into your network](interoperability.md).
+- [Learn about onboarding to Microsoft Teams and Azure Communication Gateway's Basic Integration Included Benefit](onboarding.md).
+- [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
