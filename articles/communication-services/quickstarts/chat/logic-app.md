@@ -72,7 +72,7 @@ To add a new step in your workflow by using the Communication Services Identity 
 
 1. Add a new action.
 
-1. In the **Choose an operation** search box, enter **Communication Services Chat**. In the list of actions, select **Send a Chat message to chat thread**.
+1. In the **Choose an operation** search box, enter **Communication Services Chat**. In the list of actions, select **Send message to chat thread**.
 
     :::image type="content" source="./media/logic-app/azure-communications-services-connector-send-chat-message.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action.":::
 
@@ -82,7 +82,7 @@ To add a new step in your workflow by using the Communication Services Identity 
 
 ## List chat thread messages
 
-To verify you have correctly sent a message, we will add one more action to list the chat thread messages:
+To verify that you sent a message correctly:
 
 1. Add a new action.
 
@@ -96,7 +96,7 @@ To verify you have correctly sent a message, we will add one more action to list
 
 ## Test your logic app
 
-To manually start your workflow, on the designer toolbar, select **Run**. The workflow should create a user, issue an access token for that user, and then remove the token and delete the user. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
+To manually start your workflow, on the designer toolbar, select **Run**. The workflow creates a user, issues an access token for that user, and then removes the token and deletes the user. For more information, review [How to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 Now, select **List chat thread messages**. In the action outputs, check for the message that was sent.
 
@@ -104,14 +104,14 @@ Now, select **List chat thread messages**. In the action outputs, check for the 
 
 ## Clean up resources
 
-To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [how to clean up Communication Services resources](../create-communication-resource.md#clean-up-resources).
+To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [How to clean up Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
 To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
 
 ## Next steps
 
-In this quickstart, you learned how to create a user, create a chat thread, and send a message by using the Azure Communication Services Identity and Azure Communication Services Chat connectors. To learn more, review [Azure Communication Services Chat Connector](/connectors/acschat/).
+In this quickstart, you learned how to create a user, create a chat thread, and send a message by using the Communication Services Identity and Communication Services Chat connectors. To learn more, review [Communication Services Chat connector](/connectors/acschat/).
 
-To learn more about access tokens, review [Create and manage Azure Communication Services users and access tokens](../chat/logic-app.md).
+Learn how to [create and manage Communication Services users and access tokens](../chat/logic-app.md).
 
-To learn more about how to send an email, review [Send email message in Power Automate with Azure Communication Services](../email/logic-app.md).
+Learn how to [send an email message in Power Automate by using Communication Services](../email/logic-app.md).

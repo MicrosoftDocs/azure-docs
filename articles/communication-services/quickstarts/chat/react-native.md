@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 In this quickstart, you set up the packages in the Azure Communication Services Chat JavaScript SDK to support chat in your React Native app. The steps described in the quickstart are supported for Azure Communication Services JavaScript Chat SDK 1.1.1 and later.
 
-## Set up the the chat packages to work with React Native
+## Set up the chat packages to work with React Native
 
 Currently, Communication Services chat packages are available as Node packages. Because not all Node modules are compatible with React Native, the modules require a React Native port to work.
 
