@@ -997,7 +997,7 @@ Alternatively, use a different version of Python that is compatible with the pac
 * See Python [end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
 **Resources**
-* [Python documentation by version] (https://aka.ms/azureml/environment/python-versions)
+* [Python documentation by version](https://aka.ms/azureml/environment/python-versions)
 
 ### Conda bare redirection
 <!--issueDescription-->
@@ -1019,7 +1019,7 @@ conda install -y "pip<=20.1.1"
 ### *Pip issues during build*
 ### Failed to install packages
 <!--issueDescription-->
-This issue can happen when your image build fails during python package installation.
+This issue can happen when your image build fails during Python package installation.
 
 **Potential causes:**
 * There are many issues that could cause this error
@@ -1035,7 +1035,7 @@ This issue can happen when your image build fails during python package installa
 Review your Build log for more information on your image build failure 
 
 Leave feedback for the AzureML team to analyze the error you're experiencing
-* Issue template (https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
+* [File a problem or suggestion](https://github.com/Azure/azureml-assets/issues/new?assignees=&labels=environmentLogs&template=environmentLogsFeedback.yml)
 
 ### Can't uninstall package
 <!--issueDescription-->
