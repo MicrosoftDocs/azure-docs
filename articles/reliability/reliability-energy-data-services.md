@@ -2,17 +2,16 @@
 title: Reliability in Azure Microsoft Energy Data Services
 description: Find out about reliability in Microsoft Energy Data Services
 author: bharathim 
-ms.author: anaharris-ms
+ms.author: anaharris
 ms.topic: conceptual
 ms.custom: subject-reliability
-ms.prod: non-product-specific
+ms.service: energy-data-services
 ms.custom: subject-reliability, references_regions
 ms.date: 01/13/2023
 ---
 
 
 # What is reliability in Microsoft Energy Data Services?
-
 
 This article describes reliability support in Microsoft Energy Data Services, and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](../reliability/overview.md).
 
