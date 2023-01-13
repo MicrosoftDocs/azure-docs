@@ -92,13 +92,11 @@ Note down the following, which you'll use in the code below:
 
 ## Send messages to a queue
 
-The following sample code shows you how to send a message to a queue. 
+The following sample code shows you how to send a message to a queue. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *send.py*, and add the following code into it.
 
 ### [Passwordless](#tab/passwordless)
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-
-1. Add the following import statements.
+1. Add import statements.
 
     ```python
     import asyncio
@@ -106,7 +104,7 @@ The following sample code shows you how to send a message to a queue.
     from azure.servicebus import ServiceBusMessage
     from azure.identity.aio import DefaultAzureCredential
     ```
-1. Add the following constants and define a credential.
+1. Add constants and define a credential.
 
     ```python
     FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
@@ -184,7 +182,7 @@ The following sample code shows you how to send a message to a queue.
             await credential.close()
     ```
 
-1. Call the `run` method and print message.
+1. Call the `run` method and print a message.
 
     ```python
     asyncio.run(run())
@@ -193,9 +191,7 @@ The following sample code shows you how to send a message to a queue.
 
 ### [Connection string](#tab/connection-string)
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-
-1. Add the following import statements.
+1. Add import statements.
 
     ```python
     import asyncio
@@ -203,7 +199,7 @@ The following sample code shows you how to send a message to a queue.
     from azure.servicebus import ServiceBusMessage
     ```
 
-1. Add the following constants. 
+1. Add constants. 
 
     ```python
     NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
@@ -275,7 +271,7 @@ The following sample code shows you how to send a message to a queue.
                 await send_batch_message(sender)
     ```
 
-1. Call the `run` method and print message.
+1. Call the `run` method and print a message.
 
     ```python
     asyncio.run(run())
@@ -285,18 +281,98 @@ The following sample code shows you how to send a message to a queue.
 ---
 
 ## Receive messages from a queue
-Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds. 
 
-```python
-with servicebus_client:
-    # get the Queue Receiver object for the queue
-    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
-    with receiver:
-        for msg in receiver:
-            print("Received: " + str(msg))
-            # complete the message so that the message is removed from the queue
-            receiver.complete_message(msg)
-```
+The following sample code shows you how to receive messages from a queue. The code shown receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
+
+Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code into it.
+
+### [Passwordless](#tab/passwordless)
+
+1. Similar to the send sample, add import statements, define constants that you should replace with your own values, and define a credential.
+
+    ```python
+    import asyncio
+    
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.identity.aio import DefaultAzureCredential
+    
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    QUEUE_NAME = "QUEUE_NAME"
+    
+    credential = DefaultAzureCredential()
+    ```
+
+1. Create a Service Bus client and then a queue receiver object to receive messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Queue Receiver object for the queue
+                receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the queue
+                        await receiver.complete_message(msg)
+    
+        # Close credential when no longer needed.
+            await credential.close()
+    ```
+
+1. Call the `run` method and print a message.
+
+    ```python
+    asyncio.run(run())
+    print("Done receiving messages")
+    ```
+
+### [Connection string](#tab/connection-string)
+
+1. Similar to the send sample, add import statements and define constants that you should replace with your own values.
+
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
+    QUEUE_NAME = "QUEUE_NAME"
+    ```
+
+1. Create a Service Bus client and then a queue receiver object to receive messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient.from_connection_string(
+            conn_str=NAMESPACE_CONNECTION_STR,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Queue Receiver object for the queue
+                receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the queue
+                        await receiver.complete_message(msg)
+    ```
+
+1. Call the `run` method and print a message.
+
+    ```python
+    asyncio.run(run())
+    print("Done receiving messages")
+    ```
+
+---
 
 ## Full code
 
@@ -386,6 +462,7 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 
 
 ## Next steps
+
 See the following documentation and samples: 
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
