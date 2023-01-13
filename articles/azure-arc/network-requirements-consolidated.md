@@ -11,7 +11,7 @@ This article lists the endpoints, ports, and protocols required for Azure Arc-en
 
 [!INCLUDE [network-requirement-principles](includes/network-requirement-principles.md)]
 
-## Arc-enabled Kubernetes endpoints
+## Azure Arc-enabled Kubernetes endpoints
 
 Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernetes based Arc offerings, including:
 
