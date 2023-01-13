@@ -120,6 +120,27 @@ If the `gracePeriod` expires before a consecutive health status is reported by t
 - HTTP/HTTPS protocol: The application health will transition from *Initializing* to *Unknown*  
 - TCP protocol: The application health will transition from *Initializing* to *Unhealthy* 
 
+## Unknown state 
+
+This state only applies to Rich Health States. The *Unknown* state is only reported for *http* or *https* probes and occurs in the following scenarios: 
+- When a non-2xx status code is returned by the application  
+- When the probe request times out  
+- When the application endpoint is unreachable or incorrectly configured 
+- When a missing or invalid value is provided for `ApplicationHealthState` in the response body 
+- When the grace period expires  
+
+An instance in an *Unknown* state is treated similar to an *Unhealthy* instance. If enabled, instance repairs will be carried out on an *Unknown* instance while rolling upgrades will be paused until the instance falls back into a *Healthy* state.
+
+The following table shows the health status interpretation for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) and [Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md): 
+
+| Health state | Rolling Upgrade interpretation | Instance Repairs trigger |
+| ------------ | ------------------------------ | ------------------------ |
+| Initializing | Wait for the state to be in *Healthy*, *Unhealthy*, or *Unknown* | No |
+| Healthy | Healthy | No |
+| Unhealthy | Unhealthy | Yes |
+|unknown | Unhealthy | Yes |
+
+
 ## Extension schema
 
 The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp", "http" or "https" request with an associated port or request path respectively.
