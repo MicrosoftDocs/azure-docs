@@ -203,7 +203,7 @@ The following sample code shows you how to send a message to a queue. Open your 
 1. Add constants. 
 
     ```python
-    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STR"
     QUEUE_NAME = "QUEUE_NAME"
     ```
 
