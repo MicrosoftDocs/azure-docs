@@ -661,7 +661,7 @@
               href: how-to-deploy-mlflow-models.md
             - name: Using MLflow models for no-code deployment
               href: how-to-log-mlflow-models.md
-           - name: Online inference
+            - name: Online inference
               items:
                 - name: Deploy MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-endpoints.md
@@ -673,7 +673,7 @@
                   href: how-to-mlflow-batch.md
                 - name: Deploy and run MLflow models in Spark jobs
                   href: how-to-deploy-mlflow-model-spark-jobs.md
-    - name: Manage the ML lifecycle
+    - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Setup MLOps with AzureML and Azure DevOps
           href: how-to-setup-mlops-azureml.md
