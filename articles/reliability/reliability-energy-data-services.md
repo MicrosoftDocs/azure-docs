@@ -30,7 +30,7 @@ The Microsoft Energy Data Services Preview supports availability zones in the fo
 | East US          | West Europe          |               |                    |                |
 
 ### Zone down experience
-During a zone-wide outage, no action is required during zone recovery. There may be a brief degradation of performance, until the service self-heals and re-balances underlying capacity to adjust to healthy zones. 
+During a zone-wide outage, no action is required during zone recovery. There may be a brief degradation of performance until the service self-heals and re-balances underlying capacity to adjust to healthy zones. 
 
 If you're experiencing failures with Microsoft Energy Data Services APIs, you may need to implement a retry mechanism for 5XX errors.
 
