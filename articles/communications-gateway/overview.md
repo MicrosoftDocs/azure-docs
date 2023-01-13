@@ -36,6 +36,9 @@ The sites in your network must have cross-connects between them. You must also s
 
 Traffic from all enterprises shares a single SIP trunk, using a multi-tenant format. This multi-tenant format ensures the solution is suitable for both the SMB and Enterprise markets.
 
+> [!IMPORTANT]
+> Azure Communications Gateway doesn't store/process any data outside of the Azure Regions where you deploy it.
+
 ## Voice features
 
 Azure Communications Gateway supports the SIP and RTP requirements for Teams Certified SBCs. It can transform call flows to suit your network with minimal disruption to existing infrastructure. Its voice features include:
