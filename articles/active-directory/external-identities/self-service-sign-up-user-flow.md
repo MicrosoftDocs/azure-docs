@@ -5,18 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 01/06/2023
 
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.custom: "it-pro"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to set up user flows that allow a user to sign up for an app and create a new guest account. 
+
 ---
 
 # Add a self-service sign-up user flow to an app
 
-For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the identity providers you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
+For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the [identity providers](identity-providers.md) you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
 
 > [!NOTE]
 > You can associate user flows with apps built by your organization. User flows can't be used for Microsoft apps, like SharePoint or Teams.
@@ -25,12 +28,12 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and Email One-time Passcode. For more information, see these articles:
+Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
 
-- [Microsoft Account identity provider](microsoft-account.md)
-- [Email one-time passcode authentication](one-time-passcode.md)
-- [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Add Google to your list of social identity providers](google-federation.md)
+- [Add Facebook to your list of social identity providers](facebook-federation.md)
+- [Add Microsoft account as an identity provider](microsoft-account.md)
+- [Email one-time passcode authentication](one-time-passcode.md)
 
 ### Define custom attributes (optional)
 
@@ -45,8 +48,9 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
-3. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
-4. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
+1. Under **Manage** in the left menu, select **Users**.
+1. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
+1. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
 
    ![Enable guest self-service sign-up](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Select **Save**.
