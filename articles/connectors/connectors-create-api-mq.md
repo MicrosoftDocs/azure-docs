@@ -40,15 +40,13 @@ The MQ connector has different versions, based on [logic app type and host envir
 
   * The MQ managed connector, available in both Consumption and Standard logic app workflows, supports only server authentication with TLS (SSL) encryption, not client authentication. So, the connector doesn't send a client certificate.
 
-    * Authentication
+    * Azure-hosted MQ server scenarios
 
-      * Azure-hosted MQ server scenarios
+      The MQ server must provide a server certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-        The MQ server must provide a server certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
+    * On-premises MQ server scenarios using the on-premises data gateway
 
-      * On-premises MQ server scenarios using the on-premises data gateway
-
-        To use a non-publicly trusted server certificate, such as a self-signed or private CA certificate, you must upload the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer where the on-premises data gateway installation is running. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
+      To use a non-publicly trusted server certificate, such as a self-signed or private CA certificate, you must upload the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer where the on-premises data gateway installation is running. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
 
   * The MQ built-in connector, available only in Standard logic app workflows, supports TSL (SSL) encryption for one-way server authentication and two-way client-server authentication.
 
@@ -93,7 +91,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
   * To use a trigger from the MQ built-in connector, make sure that you start with a blank workflow.
 
-* TLS (SSL) encryption 
+* Authentication and TLS (SSL) encryption
 
   * To use the MQ built-in connector with TLS (SSL) encryption in a Standard logic app workflow, you must first add the certificates that you want to use for server authentication or client-server authentication.
 
