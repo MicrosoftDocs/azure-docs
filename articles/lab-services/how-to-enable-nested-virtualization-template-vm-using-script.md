@@ -1,18 +1,28 @@
 ---
-title: Enable nested virtualization on a template VM in Azure Lab Services (Script) | Microsoft Docs
-description: Learn how to create a template VM with multiple VMs inside by using a script.  In other words, enable nested virtualization on a template VM in Azure Lab Services. 
+title: Enable nested virtualization on a template VM
+titleSuffix: Azure Lab Services
+description: Learn how to enable nested virtualization on a template VM in Azure Lab Services by using a script. Nested virtualization enables you to create a lab with multiple VMs inside it.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 01/13/2023
 ---
 
-# Enable nested virtualization on a template virtual machine in Azure Lab Services using a script
+# Enable nested virtualization on a template virtual machine in Azure Lab Services by using a script
 
-Nested virtualization enables you to create a multi-VM environment inside a lab's template virtual machine. Publishing the template will provide each user in the lab with a virtual machine set up with multiple VMs within it.  For more information about nested virtualization and Azure Lab Services, see [Enable nested virtualization on a template virtual machine in Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
+Nested virtualization enables you to create a multi-VM environment inside a lab's template virtual machine. Publishing the template will provide each user in the lab with a virtual machine set up with multiple VMs within it. For more information about nested virtualization and Azure Lab Services, see [Enable nested virtualization on a template virtual machine in Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
-The steps in this article focus on setting up nested virtualization for Windows Server 2016, Windows Server 2019, or Windows 10. You will use a script to set up template machine with Hyper-V.  The following steps will guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/LabServices/tree/main/ClassTypes/PowerShell/HyperV).
+The steps in this article focus on setting up nested virtualization for Windows Server 2016, Windows Server 2019, or Windows 10. You will use a script to set up a template VM with Hyper-V. The following steps will guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/LabServices/tree/main/ClassTypes/PowerShell/HyperV).
 
 >[!IMPORTANT]
->Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab.  Nested virtualization will not work otherwise.  
+>Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab. Nested virtualization will not work otherwise. 
+
+## Prerequisites
+
+- A lab plan and one or more labs. Learn how to [Set up a lab plan](tutorial-setup-lab-plan.md) and [Set up a lab](tutorial-setup-lab.md).
+- Permission to edit the lab. Learn how to [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
 
 ## Run script
 
@@ -40,7 +50,7 @@ The steps in this article focus on setting up nested virtualization for Windows 
 
 ## Conclusion
 
-Now your template machine is ready to create Hyper-V virtual machines. See [Create a Virtual Machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions on how to create Hyper-V virtual machines. Also, see [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.  
+Now your template machine is ready to create Hyper-V virtual machines. See [Create a Virtual Machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions on how to create Hyper-V virtual machines. Also, see [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software. 
 
 ## Next steps
 
