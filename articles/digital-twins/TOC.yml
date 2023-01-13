@@ -119,6 +119,8 @@
       href: how-to-ingest-iot-hub-data.md
     - name: Automanage devices with DPS
       href: how-to-provision-using-device-provisioning-service.md
+  - name: Integrate with Power Platform
+    href: how-to-use-power-platform-connector.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
@@ -197,8 +199,6 @@
         href: reference-query-operators.md
       - name: Reserved keywords
         href: reference-query-reserved.md
-  - name: Azure Digital Twins Power Platform connector
-    href: 
 - name: Resources
   items:
   - name: Digital Twins service limits
