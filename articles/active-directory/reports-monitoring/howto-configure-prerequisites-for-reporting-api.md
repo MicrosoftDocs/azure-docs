@@ -73,7 +73,7 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
 
     ![Screenshot shows the Reporting API Application API permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-grant-consent.png)
 
-## Access the reporting API through Microsoft Graph
+## Access reports using Microsoft Graph Explorer
 
 Once you have the app registration configured, you can run activity log queries in Microsoft Graph.
 
@@ -85,7 +85,7 @@ Once you have the app registration configured, you can run activity log queries 
 
     ![Screenshot of an activity log GET query in Microsoft Graph.](./media/howto-configure-prerequisites-for-reporting-api/graph-sample-get-query.png)
 
-## Access the reporting API through PowerShell
+## Access reports using Microsoft Graph PowerShell
 
 To use PowerShell to access the Azure AD reporting API, you'll need to gather a few configuration settings. These settings were created as a part of the [app registration process](#register-an-azure-ad-application).
 
@@ -107,10 +107,6 @@ Next you'll authenticate with the configuration settings you just gathered. Open
 Connect-MgGraph -ClientID YOUR_APP_ID -TenantId YOUR_TENANT_ID -CertificateName YOUR_CERT_SUBJECT ## Or -CertificateThumbprint instead of -CertificateName
 ```
 
-### API endpoints and Microsoft Graph PowerShell cmdlets
-
-To get started, use the following endpoints and cmdlets.
-
 Microsoft Graph PowerShell cmdlets:
 
 - **Audit logs:** `Get-MgAuditLogDirectoryAudit`
@@ -118,17 +114,15 @@ Microsoft Graph PowerShell cmdlets:
 - **Provisioning logs:** `Get-MgAuditLogProvisioning`
 - Explore the full list of [reporting-related Microsoft Graph PowerShell cmdlets](/powershell/module/microsoft.graph.reports).
 
-Microsoft Graph API endpoints:
-- **Audit logs:** `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
-- **Sign-in logs:** `https://graph.microsoft.com/v1.0/auditLogs/signIns`
-
 Programmatic access APIs:
 - **Security detections:** [Identity Protection risk detections API](/graph/api/resources/identityprotection-root)
 - **Tenant provisioning events:** [Provisioning logs API](/graph/api/resources/provisioningobjectsummary)
 
 ### Troubleshoot errors in Azure Active Directory reporting API
 
-**500 HTTP internal server error while accessing Microsoft Graph V2 endpoint**: We don't currently support the Microsoft Graph v2 endpoint - make sure to access the activity logs using the Microsoft Graph v1 endpoint.
+**500 HTTP internal server error while accessing Microsoft Graph beta endpoint**: We don't currently support the Microsoft Graph beta endpoint - make sure to access the activity logs using the Microsoft Graph v1.0 endpoint.
+- GET `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
+- GET `https://graph.microsoft.com/v1.0/auditLogs/signIns`
 
 **Error: Neither tenant is B2C or tenant doesn't have premium license**: Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
 
