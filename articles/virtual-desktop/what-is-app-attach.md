@@ -27,6 +27,8 @@ You can deliver apps in Azure Virtual Desktop through one of the following metho
 
 ## What does MSIX app attach do?
 
+In an Azure Virtual Desktop deployment, MSIX app attach delivers apps within [MSIX containers](/windows/msix/msix-container). These containers create separation between user data, the OS, and apps, increasing security and ensuring easier troubleshooting if something goes wrong. App attach removes the need for repackaging apps when delivering applications dynamically, which increases the speed of deployments and reduces the time it takes for users to sign in to their remote sessions. 
+
 In a Azure Virtual Desktop deployment, MSIX app attach can:
 
 - Create separation between user data, the OS, and apps by using [MSIX containers](/windows/msix/msix-container).
