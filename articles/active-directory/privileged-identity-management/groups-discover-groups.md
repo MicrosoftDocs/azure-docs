@@ -24,7 +24,7 @@ In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privi
 
 Before you will start, you need an Azure AD Security group or Microsoft 365 group. To learn more about group management in Azure AD, see [Manage Azure Active Directory groups and group membership](../fundamentals/how-to-manage-groups).
 
-Dynamic groups and groups synchronized from on-prem environment can not be managed in PIM for Groups.
+Dynamic groups and groups synchronized from on-premises environment can not be managed in PIM for Groups.
 
 You should either be a group Owner, have Global Administrator role, or Privileged Role Administrator role to bring the group under management with PIM.
 
