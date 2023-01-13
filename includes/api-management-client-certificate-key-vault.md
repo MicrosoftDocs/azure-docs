@@ -45,7 +45,7 @@ To add a key vault certificate to API Management:
 
 
 
-    :::image type="content" source="../articles/api-management/media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Add key vault certificate":::
+    :::image type="content" source="../articles/api-management/media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Screenshot of adding a key vault certificate to API Management in the portal.":::
     
 1. Select **Save**.
 
@@ -61,7 +61,7 @@ To upload a client certificate to API Management:
 1. Browse to select the certificate .pfx file, and enter its password.
 1. Select **Add**.
 
-    :::image type="content" source="../articles/api-management/media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
+    :::image type="content" source="../articles/api-management/media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Screenshot of uploading a client certificate to API Management in the portal.":::
 
 
 1. Select **Save**.
