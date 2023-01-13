@@ -21,7 +21,7 @@ The Web PubSub service supports two reliable subprotocols `json.reliable.webpubs
 
 ## Initialization
 
-To use reliable subprotocols, you must set the subprotocol when constructing Websocket connections. In JavaScript, you can use the following command:
+To use reliable subprotocols, you must set the subprotocol when constructing Websocket connections. In JavaScript, you can use the following code:
 
 - Use Json reliable subprotocol
 
@@ -39,7 +39,7 @@ To use reliable subprotocols, you must set the subprotocol when constructing Web
 
 Reconnection is the basis of achieving reliability and must be implemented when using the `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1` protocols.
 
-Websocket connections rely on TCP.  When the connection doesn't drop, messages are lossless and delivered in order. When connections drop, reconnection is enabled by using the connection status information, including group and message information kept by the Web PubSub service. 
+Websocket connections rely on TCP.  When the connection doesn't drop, messages are lossless and delivered in order.  To prevent message loss over dropped connections, the Web PubSub service retains the connection status information, including group and message information.  This information is used to restore the client on reconnection
 
 When the client reconnects to the service using reliable subprotocols, the client will receive a `Connected` message containing the  `connectionId` and `reconnectionToken`. The `connectionId` identifies the session of the connection in the service.
 
@@ -52,7 +52,7 @@ When the client reconnects to the service using reliable subprotocols, the clien
 }
 ```
 
-Once the WebSocket connection drops, the client should try to reconnect with the same `connectionId` to keep the restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, reconnection should make a websocket connect request directly to the service with the service uri, `connection_id`, and `reconnection_token`:
+Once the WebSocket connection drops, the client should try to reconnect with the same `connectionId` to keep the restore the same session. Clients don't need to negotiate with the server and obtain the `access_token`. Instead, reconnection should make a websocket connect request directly to the service with the service host name, `connection_id`, and `reconnection_token`:
 
 ```text
 wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&awps_reconnection_token=<reconnection_token>
