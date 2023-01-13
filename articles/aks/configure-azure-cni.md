@@ -77,7 +77,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 > [!NOTE]
 > The minimum value in the table above is strictly enforced by the AKS service. You can not set a maxPods value lower than the minimum shown as doing so can prevent the cluster from starting.
 
-* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [`az aks create`][az-aks-create] command. The maximum value is 250.
 * **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
 * **Azure portal**: Change the `Max pods per node` field in the node pool settings when creating a cluster or adding a new node pool.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Use the [az aks create][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
+Use the [`az aks create`][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
 
 ```azurecli-interactive
 az aks create \
