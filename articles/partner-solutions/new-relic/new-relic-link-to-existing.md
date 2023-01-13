@@ -20,8 +20,8 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 :::image type="content" source="media/new-relic-link-to-existing/new-relic-subscription.png" alt-text="Diagram that shows Azure subscriptions related to an Azure account.":::
 
 
-- **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
-- **New Relic account**: When you choose to link an existing account on New Relic software as a service (SaaS), a New Relic resource is created in Azure. 
+- **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account on Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
+- **New Relic account**: When you choose to link an existing account on New Relic software as a service (SaaS), a New Relic resource is created on Azure. 
 - **New Relic organization**: The New Relic organization on New Relic SaaS is used for user management and billing.
 - **Azure Marketplace SaaS resource**: The SaaS resource is used for billing. The SaaS resource typically resides in a different Azure subscription from where the New Relic account was created.
 
@@ -48,7 +48,7 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
     For this example, use the **Link an existing New Relic resource** option and select **Create**. 
 
-   :::image type="content" source="media/new-relic-link-to-existing/new-relic-create.png" alt-text="Screenshot that shows two options for creating a New Relic resource in Azure.":::
+   :::image type="content" source="media/new-relic-link-to-existing/new-relic-create.png" alt-text="Screenshot that shows two options for creating a New Relic resource on Azure.":::
 
 1. A form to create the New Relic resource appears on the **Basics** tab. Select an existing in account in **New Relic account**.
 

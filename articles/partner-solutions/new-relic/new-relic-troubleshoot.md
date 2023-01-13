@@ -31,7 +31,7 @@ A purchase can also fail because an Enterprise Agreement (EA) subscription doesn
 
 To set up Azure Native New Relic Service, you must have owner access on the Azure subscription. Ensure that you have the appropriate access before you start the setup.
 
-To find the New Relic offering in Azure and set up the service, you must first register the `NewRelic.Observability` resource provider in your Azure subscription. To register the resource provider by using the Azure portal, follow the guidance in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types). 
+To find the New Relic offering on Azure and set up the service, you must first register the `NewRelic.Observability` resource provider in your Azure subscription. To register the resource provider by using the Azure portal, follow the guidance in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types). 
 To register the resource provider from a command line, enter `az provider register --namespace NewRelic.Observability --subscription <subscription-id>`.
 
 ### Logs aren't being sent to New Relic

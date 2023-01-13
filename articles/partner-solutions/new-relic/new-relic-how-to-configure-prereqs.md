@@ -8,7 +8,7 @@ ms.date: 01/16/2023
 
 # Configure pre-deployment for Azure Native New Relic Service Preview
 
-This article describes the prerequisites that you must complete in your Azure subscription before you create your first New Relic resource in Azure Preview.
+This article describes the prerequisites that you must complete in your Azure subscription before you create your first New Relic resource on Azure.
 
 ## Access control
 

@@ -14,7 +14,7 @@ When you use the integrated New Relic experience in the Azure portal by using Az
 
 :::image type="content" source="media/new-relic-create/new-relic-subscription.png" alt-text="Conceptual diagram that shows the relationship between Azure and New Relic.":::
 
-- **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account in Azure. The resource is created in the Azure subscription and resource group that you select during the creation process or linking process.
+- **New Relic resource in Azure**: By using the New Relic resource, you can manage the New Relic account on Azure. The resource is created in the Azure subscription and resource group that you select during the creation process or linking process.
 - **New Relic organization**: The New Relic organization on New Relic software as a service (SaaS) is used for user management and billing.
 - **New Relic account**: The New Relic account on New Relic SaaS is used to store and process telemetry data.
 - **Azure Marketplace SaaS resource**: When you set up a new account and organization on New Relic by using Azure Native New Relic Service, the SaaS resource is created automatically, based on the plan that you select from the Azure New Relic offer in Azure Marketplace. This resource is used for billing.
@@ -39,7 +39,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. Select **Subscribe**.
 
-## Create a New Relic resource in Azure
+## Create a New Relic resource on Azure
 
 1. When you're creating a New Relic resource, you have two options. One creates a New Relic account, and the other links an Azure subscription to an existing New Relic account. For this example, select **Create** under the **Create a New Relic resource** option.
 
@@ -56,7 +56,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    |  **Subscription**   |  Select the Azure subscription that you want to use for creating the New Relic resource. You must have owner access.|
    |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
    |  **Resource name**  |Specify a name for the New Relic resource. This name will be the friendly name of the New Relic account.|
-   |  **Region**         |Select the region where the New Relic resource in Azure and the New Relic account will be created.|
+   |  **Region**         |Select the region where the New Relic resource on Azure and the New Relic account will be created.|
 
 1. When you're choosing the organization under which to create the New Relic account, you have two options: create a new organization, or select an existing organization to link the newly created account.
 
