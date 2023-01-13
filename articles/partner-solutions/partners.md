@@ -16,7 +16,7 @@ Azure Native ISV Services are available through the Marketplace.
 ## Observability
 
 |Partner  |Description  |
-|---|---------|
+|---------|-------------|
 |[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. |
 |[Elastic](elastic/overview.md) | Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.  |
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
@@ -25,12 +25,12 @@ Azure Native ISV Services are available through the Marketplace.
 ## Data and storage
 
 |Partner  |Description  |
-|---|---------|
+|---------|-------------|
 | [Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md)    | Fully managed event streaming platform powered by Apache Kafka. |
 | [Azure Native Qumulo Scalable File Service Preview](qumulo/qumulo-overview.md)   |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  |
 
 ## Networking and security
 
 |Partner  |Description  |
-|---|---------|
+|---------|-------------|
 |[NGINXaaS ](nginx/nginx-overview.md)   | Use NGINXaaS as a reverse proxy within your Azure environment. |
