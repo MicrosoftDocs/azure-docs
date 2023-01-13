@@ -162,7 +162,7 @@ Notice that the SMART on FHIR app launcher updates the **Launch URL** informatio
 
 Now that you've learned about enabling SMART on FHIR functionality, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.
 
->[!div class="nextstepaction"]
->[FHIR search examples](search-samples.md)
+[!div class="nextstepaction"]
+[FHIR search examples](search-samples.md)
      
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
