@@ -66,7 +66,7 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
    > [!NOTE]
-   > If you're using a locally installed version of the Azure CLI, ensure that you are using version 2.44.O or later. 
+   > If you're using a locally installed version of the Azure CLI, ensure that you are using version 2.44.0 or later. 
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of storage account which contains the append or page blobs.
 
