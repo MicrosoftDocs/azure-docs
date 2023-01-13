@@ -351,7 +351,7 @@ In this article, we first define names of the online endpoint and deployment.
 You'll define the endpoint name and the deployment name in the AzureML studio at the same time that you create them. To deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace).
-- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned (or downloaded) earlier.
+- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. The scoring script is in the `azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py` file from the repo you cloned (or downloaded) earlier.
 - An environment in which the model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
