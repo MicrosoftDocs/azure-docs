@@ -355,21 +355,24 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 >[!IMPORTANT]
 > You don't have to convert all domains at the same time. You might choose to start with a test domain on your production tenant or start with your domain that has the lowest number of users.
 
-**Complete the conversion by using the Azure AD PowerShell module:**
+**Complete the conversion by using the Microsoft Graph PowerShell SDK:**
 
 1. In PowerShell, sign in to Azure AD by using a Global Administrator account.
+   ```powershell
+    Connect-MGGraph -Scopes "Domain.ReadWrite.All", "Directory.AccessAsUser.All"
+    ```
 
 2. To convert the first domain, run the following command:
    ```powershell
-    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
+    Update-MgDomain -DomainId <domain name> -AuthenticationType "Managed"
     ```
-    See [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication)
+    See [Update-MgDomain](https://learn.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0)
 
 3. In the Azure AD portal, select **Azure Active Directory > Azure AD Connect**.
 
 4. Verify that the domain has been converted to managed by running the following command:
     ```powershell
-    Get-MsolDomain -DomainName <domain name>
+    Get-MgDomainFederationConfiguration -DomainId yourdomain.com
     ```
 ## Complete your migration
 
@@ -442,6 +445,10 @@ For more information, see –
 If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
 
 If you don't use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
+
+### Remove AD FS
+
+For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](https://learn.microsoft.com/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
 
 ## Next steps
 
