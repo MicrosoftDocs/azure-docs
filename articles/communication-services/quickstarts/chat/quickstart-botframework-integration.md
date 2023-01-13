@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.custom: mode-other
 ---
 
-# Add a bot to your chat app
+# Quickstart: Add a bot to your chat app
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
