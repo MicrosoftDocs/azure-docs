@@ -183,8 +183,7 @@ cd azureml-examples/cli/endpoints/online/model-1
 1. Select your workspace, if it isn't already open.
 1. On the left, select **Notebooks**.
 1. Select **Open terminal**.
-    
-    :::image type="content" source="media/how-to-deploy-online-endpoints/create-new-terminal.png" alt-text="Screenshot: create a new terminal in AzureML studio."::: -->
+ -->
 
 ### Download files from the sample repository
 
@@ -776,9 +775,19 @@ Use the studio to create a managed online endpoint directly in your browser. Whe
 
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="A screenshot for creating managed online endpoint from the Endpoints tab.":::
 
+This opens up a window where you can specify details about your endpoint.
+
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" lightbox="media/how-to-create-managed-online-endpoint-studio/online-endpoint-wizard.png" alt-text="A screenshot of a managed online endpoint create wizard.":::
 
-You can also create a managed online endpoint from the **Models** page in the studio. This is also an easy way to add a model to an existing managed online deployment.
+> [!NOTE]
+> * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+> * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and AzureML token-based authentication. A `key` doesn't expire, but an AzureML token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+> * Optionally, you can add a description and tags to your endpoint.
+
+1. Use the **Next** button at the bottom of the window to move through the pages as you provide more specifications to create the endpoint and deployment. 
+1. When you get to the *Review* page, use the **Create** button to create the endpoint and deployment.
+
+Alternatively, you can create a managed online endpoint from the **Models** page in the studio. This method also provides an easy way to add a model to an existing managed online deployment.
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Models** page.
