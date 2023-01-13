@@ -29,7 +29,7 @@ IoT data that you generate from radio-frequency identification (RFID) tags, beac
 
 The application template that you'll create focuses on device connectivity, and it helps you configure and manage the RFID and Bluetooth low energy (BLE) reader devices.
 
-# Smart inventory-management architecture
+## Smart inventory-management architecture
 
 :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-architecture.png" alt-text="Diagram that shows the smart inventory-management application architecture." border="false":::
 
