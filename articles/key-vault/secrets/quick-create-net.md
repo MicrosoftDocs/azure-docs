@@ -27,9 +27,8 @@ For more information about Key Vault and secrets, see:
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
-* [Azure CLI](/cli/azure/install-azure-cli)
-* [Azure PowerShell](/powershell/azure/install-az-ps)
-* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+* A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
 This quickstart is using `dotnet` and Azure CLI or Azure PowerShell.
 
