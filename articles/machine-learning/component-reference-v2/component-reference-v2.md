@@ -21,4 +21,4 @@ ms.date: 11/09/2020
 
 ## Next steps
 
-* [Tutorial: Build a model in designer to predict auto prices](../tutorial-designer-automobile-price-train-score.md)
+
