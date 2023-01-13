@@ -9,6 +9,8 @@ ms.date: 08/30/2019
 
 Azure Data Lake provides the [U-SQL](data-lake-analytics-u-sql-get-started.md) language. U-SQL combines declarative SQL with imperative C# to process data at any scale. In this document, you learn how to create test cases for U-SQL and extended C# user-defined operator (UDO) code.
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 ## Test U-SQL scripts
 
 The U-SQL script is compiled and optimized for executable code to run in Azure or on your local computer. The compilation and optimization process treats the entire U-SQL script as a whole. You can't do a traditional unit test for every statement. However, by using the U-SQL test SDK and the local run SDK, you can do script-level tests.
