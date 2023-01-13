@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to enable diagnostic settings for the MedTech service
 
-In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs and metrics to different destinations (for example: to an [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) or an [Azure storage account](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, backup, or troubleshooting of your MedTech service.
+In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs and metrics to different destinations (for example: to an [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) or an [Azure storage account](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, backup, or troubleshooting of your MedTech service.
 
 ## Create a diagnostic setting for the MedTech service
 
@@ -118,7 +118,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
    :::image type="content" source="media/how-to-enable-diagnostic-settings/clean-query-result-post-error-fix.png" alt-text="Screenshot of query after fixing error." lightbox="media/how-to-enable-diagnostic-settings/clean-query-result-post-error-fix.png":::
 
 > [!TIP]
-> To learn about how to use the Log Analytics workspace, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
+> To learn about how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 >
 > To learn about how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot the MedTech service error messages and conditions](troubleshoot-error-messages-and-conditions.md).
 
