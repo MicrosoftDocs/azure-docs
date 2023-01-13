@@ -16,21 +16,6 @@ ms.custom: devx-track-azurepowershell
 
 This article walks you through the steps to configure a custom IPsec/IKE policy for VPN Gateway Site-to-Site VPN or VNet-to-VNet connections using PowerShell.
 
-## About IPsec and IKE policy parameters for VPN Gateway
-
-IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.
-
-This article provides instructions to create and configure an IPsec/IKE policy and apply to a new or existing connection:
-
-### Considerations
-
-* IPsec/IKE policy only works on the following gateway SKUs:
-  * ***VpnGw1~5 and VpnGw1AZ~5AZ***
-  * ***Standard*** and ***HighPerformance***
-* You can only specify ***one*** policy combination for a given connection.
-* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
-* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
-
 ## Workflow
 
 This section outlines the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
@@ -44,6 +29,19 @@ This section outlines the workflow to create and update IPsec/IKE policy on a S2
 The instructions in this article help you set up and configure IPsec/IKE policies as shown in the diagram:
 
 :::image type="content" source="./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png" alt-text="Diagram showing IPsec/IKE policy architecture." border="false":::
+
+## About IPsec and IKE policy parameters for VPN Gateway
+
+IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.
+
+### Considerations
+
+* IPsec/IKE policy only works on the following gateway SKUs:
+  * ***VpnGw1~5 and VpnGw1AZ~5AZ***
+  * ***Standard*** and ***HighPerformance***
+* You can only specify ***one*** policy combination for a given connection.
+* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
+* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
 
 ## Supported cryptographic algorithms & key strengths
 
@@ -79,7 +77,7 @@ See [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway resources
 
-If you use Azure Cloud Shell, you automatically connect to your account.
+If you use Azure Cloud Shell, you automatically connect to your account and don't need to run the following command.
 
 If you use PowerShell from your computer, open your PowerShell console and connect to your account. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md). Use the following sample to help you connect:
 
@@ -90,7 +88,7 @@ Select-AzSubscription -SubscriptionName <YourSubscriptionName>
 
 #### 1. Declare your variables
 
-For this exercise, we start by declaring our variables. Be sure to replace the values with your own when configuring for production.
+For this exercise, we start by declaring variables. Be sure to replace the values with your own when configuring for production.
 
 ```azurepowershell-interactive
 $RG1           = "TestRG1"
@@ -151,7 +149,7 @@ The following samples create the virtual network, TestVNet1, with three subnets,
    $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
    ```
 
-   Create VNetGW1
+   Create VNetGW1.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
@@ -221,8 +219,6 @@ See [Create a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) for more 
 ### Step 1 - Create the second virtual network and VPN gateway
 
 #### 1. Declare your variables
-
-Be sure to replace the values with the ones that you want to use for your configuration.
 
 ```azurepowershell-interactive
 $RG2          = "TestPolicyRG2"
