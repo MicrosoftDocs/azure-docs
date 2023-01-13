@@ -32,9 +32,6 @@ GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-0
 
 Replace `<location>` with the region.
 
-> [!IMPORTANT]
-> To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
-
 ### [Azure Government](#tab/azure-government)
 
 > [!IMPORTANT]
@@ -65,6 +62,6 @@ Within these commands, the region must be specified for the `<location>` placeho
 #### [Azure China](#tab/azure-china)
 
 > [!NOTE]
-> Azure Arc Kubernetes is not available in Azure China regions at this time.
+> Azure Arc-enabled Kubernetes is not available in Azure China regions at this time.
 
 ---
