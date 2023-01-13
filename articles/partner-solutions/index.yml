@@ -62,7 +62,7 @@ productDirectory:
         - url: ./nginx/nginx-overview.md
           text: Delivers secure and high performance applications using familiar and trusted load balancing solutions.
   # Card 7
-    - title: Qumulo
+    - title: Qumulo Preview
       imageSrc: ./media/index/qumulo.svg
       links:
         - url: ./qumulo/qumulo-overview.md

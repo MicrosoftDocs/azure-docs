@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot Azure Native Qumulo Scalable File Service
+title: Troubleshoot Azure Native Qumulo Scalable File Service Preview
 description: This article provides information about troubleshooting Azure Native Qumulo Scalable File Service.
 
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 01/18/2023
 
 ---
 
-# Troubleshoot Azure Native Qumulo Scalable File Service
+# Troubleshoot Azure Native Qumulo Scalable File Service Preview
 
-This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service.
+This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service Preview.
 
 Try the troubleshooting information in this article first. If that doesn't work, you can use one of the following methods to open a request form for Qumulo support:
 

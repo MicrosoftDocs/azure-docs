@@ -1,18 +1,18 @@
 ---
-title: Azure Native Qumulo Scalable File Service overview
-description: Learn about what Azure Native Qumulo Service offers you.
-ms.topic: overview
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+title: Azure Native Qumulo Scalable File Service Preview overview
+description: Learn about what Azure Native Qumulo Scalable File Service offers you.
 
-ms.date: 01/11/2023
+ms.topic: overview
+ms.custom: template-overview
+ms.date: 01/18/2023
 
 ---
 
-# What is Azure Native Qumulo Scalable File Service?
+# What is Azure Native Qumulo Scalable File Service Preview?
 
 Qumulo is an industry leader in distributed file system and object storage. Qumulo provides a scalable, performant, and simple-to-use cloud-native file system that can support a wide variety of data workloads. The file system uses standard file-sharing protocols, such as NFS, SMB, FTP, and S3.
 
-The Azure Native Qumulo Scalable File Service offering in Azure Marketplace enables you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider `Qumulo.Storage/fileSystem`. Qumulo manages the service while giving you full admin rights to configure details like file system shares, exports, quotas, snapshots, and Active Directory users.
+The Azure Native Qumulo Scalable File Service offering on Azure Marketplace enables you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider `Qumulo.Storage/fileSystem`. Qumulo manages the service while giving you full admin rights to configure details like file system shares, exports, quotas, snapshots, and Active Directory users.
 
 > [!NOTE]
 > Azure Native Qumulo Scalable File Service stores and processes data only in the region where the service was deployed. No data is stored outside that region.

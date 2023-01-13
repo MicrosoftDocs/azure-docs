@@ -10,17 +10,17 @@ items:
   items:
   - name: Apache Kafka on Confluent Cloud
     href: ./apache-kafka-confluent-cloud/index.yml
-  - name: Datadog
+  - name: Datadog - An Azure Native ISV Service.
     href: ./datadog/index.yml
   - name: Elastic
     href: ./elastic/index.yml
   - name: Logz.io
     href: ./logzio/index.yml
-  - name: Dynatrace for Azure
+  - name: Azure Native Dynatrace Service
     href: ./dynatrace/index.yml
-  - name: NGINX for Azure (preview)
+  - name: NGINXaaS
     href: ./nginx/index.yml
-  - name: Azure Native Qumolo Service (preview)
+  - name: Azure Native Qumolo Service Preview
     href: ./qumulo/index.yml
-#  - name: Azure Native New Relic Service (preview)
+#  - name: Azure Native New Relic Service Preview
 #    href: ./new-relic/index.yml
