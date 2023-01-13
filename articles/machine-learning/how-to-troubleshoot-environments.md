@@ -970,14 +970,14 @@ This issue can happen when the conda command isn't recognized during conda envir
 **Troubleshooting steps**
 
 Ensure that you have a conda installation step in your Dockerfile before trying to execute any conda commands
-* [List of conda installers](https://docs.conda.io/en/latest/miniconda.html)
+* Review this [list of conda installers](https://docs.conda.io/en/latest/miniconda.html) to determine what you need for your scenario
 
 If you've tried installing conda and are experiencing this issue, ensure that you've added conda to your path
-* [Example](https://stackoverflow.com/questions/58269375/how-to-install-packages-with-miniconda-in-dockerfile)
+* Review this [example](https://stackoverflow.com/questions/58269375/how-to-install-packages-with-miniconda-in-dockerfile) for guidance
 * Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
 
 **Resources**
-* [conda repository](https://repo.anaconda.com/miniconda/)
+* All available conda distributions are found in the [conda repository](https://repo.anaconda.com/miniconda/)
 
 ### Incompatible Python version
 <!--issueDescription-->
