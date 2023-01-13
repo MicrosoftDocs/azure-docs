@@ -54,11 +54,11 @@ We recommend you become a verified publisher, so customers know you're the trust
 
 ## Enable single sign-on for IT admins
 
-There are several ways to enable SSO for IT administrators to your solution. See, [Plan a single sign-on deployment, SSO options](/azure/active-directory/manage-apps/plan-sso-deployment#single-sign-on-options).
+There are several ways to enable SSO for IT administrators to your solution. See, [Plan a single sign-on deployment, SSO options](./plan-sso-deployment.md#single-sign-on-options).
 
 Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Azure AD issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
 
-If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](/azure/active-directory/develop/active-directory-saml-protocol-reference).
+If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md).
 
 You can use one of the following SAML approaches:
 
@@ -537,7 +537,7 @@ https://login.microsoftonline.com/{Tenant_ID}/federationmetadata/2007-06/federat
 
 ### Assign users and groups
 
-After you publish the application to Azure AD, you can assign the app to users and groups to ensure it appears on the My Apps portal. This assignment is on the service principal object generated when you created the application. See, [My Apps portal overview](/azure/active-directory/manage-apps/myapps-overview).
+After you publish the application to Azure AD, you can assign the app to users and groups to ensure it appears on the My Apps portal. This assignment is on the service principal object generated when you created the application. See, [My Apps portal overview](./myapps-overview.md).
 
 Get `AppRole` instances the application might have associated with it. It's common for SaaS applications to have various `AppRole` instances associated with them. Typically, for custom applications, there's one default `AppRole` instance. Get the `AppRole` instance ID you want to assign:
 

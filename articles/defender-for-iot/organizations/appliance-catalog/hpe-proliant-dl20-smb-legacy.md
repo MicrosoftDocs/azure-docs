@@ -9,7 +9,8 @@ ms.topic: reference
 
 This article describes the **HPE ProLiant DL20 Gen10** appliance for OT sensors for monitoring production lines.
 
-Legacy appliances are certified but are not currently offered as pre-configured appliances.
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 | Appliance characteristic |Details |
 |---------|---------|
