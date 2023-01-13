@@ -35,7 +35,7 @@ In this article, you learn about using Azure Machine Learning to setup an end-to
 - An [organization](/azure/devops/organizations/accounts/create-organization) in Azure DevOps.
 - [Azure DevOps project](how-to-devops-machine-learning.md) that will host the source repositories and pipelines.
 - The [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) if you are using Azure DevOps + Terraform to spin up infrastructure
-- [Git bash](https://git-scm.com/download/win), [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or another terminal on your local machine.
+- [Git bash](https://git-scm.com/download/win), [WSL](/windows/wsl/install) or another terminal on your local machine.
 
 > [!NOTE]
 >
@@ -188,14 +188,14 @@ The Azure DevOps setup is successfully finished.
 
 8.  Under the Repos section, click **Repositories**. Select the repository you created in **Step 6.** Select the **Security** tab
 
-9. Under the User permissions section, select the **<projectname> Build Service** user. Change the permission **Contribute** permission to **Allow** and the **Create branch** permission to **Allow**.
+9. Under the User permissions section, select the **mlopsv2 Build Service** user. Change the permission **Contribute** permission to **Allow** and the **Create branch** permission to **Allow**.
    ![Screenshot of ADO permissions](./media/how-to-setup-mlops-azureml/ado-permissions-repo.png)
 
 10. Open the **Pipelines** section in the left hand navigation pane and click on the 3 vertical dots next to the **Create Pipelines** button. Select **Manage Security**
 
    ![Screenshot of Pipeline security](./media/how-to-setup-mlops-azureml/ado-open-pipelinesSecurity.png)
 
-11. Select the **<projectname> Build Service** account for your project under the Users section. Change the permission **Edit build pipeline** to **Allow**
+11. Select the **mlopsv2 Build Service** account for your project under the Users section. Change the permission **Edit build pipeline** to **Allow**
 
    ![Screenshot of Add security](./media/how-to-setup-mlops-azureml/ado-add-pipelinesSecurity.png)
 
@@ -435,8 +435,6 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
              name: mlops-templates 
              ref: main
    ```
-
-   8. Save and Run the pipeline
    
    9. Batch/Online endpoint names need to be unique, so please change **[your endpoint-name]** to another unique name and then select **Run**.
 
