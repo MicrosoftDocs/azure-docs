@@ -26,7 +26,7 @@ The instructions in this article help you set up and configure IPsec/IKE policie
 
 :::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy." border="false" lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
-## <a name="about"></a>About policy parameters
+## About policy parameters
 
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements.
 
@@ -51,11 +51,11 @@ The following table lists the supported configurable cryptographic algorithms an
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
 
-#### Diffie-Hellman Groups
+#### Diffie-Hellman groups
 
-The following table lists the corresponding Diffie-Hellman Groups supported by the custom policy:
+The following table lists the corresponding Diffie-Hellman groups supported by the custom policy:
 
-[!INCLUDE [Diffie-Hellman Groups](../../includes/vpn-gateway-ipsec-ike-diffie-hellman-include.md)]
+[!INCLUDE [Diffie-Hellman groups](../../includes/vpn-gateway-ipsec-ike-diffie-hellman-include.md)]
 
 Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
 
