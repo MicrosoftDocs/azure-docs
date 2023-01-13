@@ -224,7 +224,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
     kubectl create -f pvc-blobfuse.yaml
     ```
 
-## Use the persistence volume
+## Use the persistent volume
 
 The following YAML creates a pod that uses the persistent volume or persistent volume claim named **pvc-blob** created earlier, to mount the Azure Blob storage at the `/mnt/blob' path.
 
