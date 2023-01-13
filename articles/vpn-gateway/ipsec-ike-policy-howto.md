@@ -17,29 +17,20 @@ This article walks you through the steps to configure IPsec/IKE policy for VPN G
 
 ## <a name ="workflow"></a>Workflow
 
-The following steps show the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
+The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following diagram.
+
+:::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy." border="false" lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
 1. Create a virtual network and a VPN gateway.
 1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection.
 1. Create a connection (IPsec or VNet2VNet).
 1. Configure/update/remove the IPsec/IKE policy on the connection resources.
 
-The instructions in this article help you set up and configure IPsec/IKE policies as shown in the diagram:
+## Policy parameters
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram shows IPsec/IKE policy." border="false" lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
+[!INCLUDE [IPsec policy parameters](../../includes/vpn-gateway-ipsec-policy-parameters-include.md)]
 
-## About policy parameters
-
-IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements. Be aware of the following considerations:
-
-* IPsec/IKE policy only works on the following gateway SKUs:
-  * ***VpnGw1~5 and VpnGw1AZ~5AZ***
-  * ***Standard*** and ***HighPerformance***
-* You can only specify ***one*** policy combination for a given connection.
-* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
-* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
-
-### Supported algorithms and key strengths
+### Cryptographic algorithms & key strengths
 
 The following table lists the supported configurable cryptographic algorithms and key strengths.
 

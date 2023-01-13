@@ -18,34 +18,21 @@ This article walks you through the steps to configure a custom IPsec/IKE policy 
 
 ## Workflow
 
-This section outlines the workflow to create and update IPsec/IKE policy on a S2S VPN or VNet-to-VNet connection:
-
-1. Create a virtual network and a VPN gateway
-1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection
-1. Create an IPsec/IKE policy with selected algorithms and parameters
-1. Create a connection (IPsec or VNet2VNet) with the IPsec/IKE policy
-1. Add/update/remove an IPsec/IKE policy for an existing connection
-
-The instructions in this article help you set up and configure IPsec/IKE policies as shown in the diagram:
+The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following diagram.
 
 :::image type="content" source="./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png" alt-text="Diagram showing IPsec/IKE policy architecture." border="false":::
 
-## About policy parameters
+1. Create a virtual network and a VPN gateway.
+1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection.
+1. Create an IPsec/IKE policy with selected algorithms and parameters.
+1. Create a connection (IPsec or VNet2VNet) with the IPsec/IKE policy.
+1. Add/update/remove an IPsec/IKE policy for an existing connection.
 
-IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensure cross-premises and VNet-to-VNet connectivity to satisfy your compliance or security requirements.
+## Policy parameters
 
-### Considerations
+[!INCLUDE [IPsec policy parameters](../../includes/vpn-gateway-ipsec-policy-parameters-include.md)]
 
-* IPsec/IKE policy only works on the following gateway SKUs:
-  * ***VpnGw1~5 and VpnGw1AZ~5AZ***
-  * ***Standard*** and ***HighPerformance***
-* You can only specify ***one*** policy combination for a given connection.
-* You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification isn't allowed.
-* Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections can't establish if the policies are incompatible.
-
-### Supported cryptographic algorithms & key strengths
-
-#### Algorithms and keys
+### Cryptographic algorithms & key strengths
 
 The following table lists the supported configurable cryptographic algorithms and key strengths.
 
@@ -61,10 +48,6 @@ The following table lists the corresponding Diffie-Hellman groups supported by t
 
 Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
 
-## Before you begin
-
-You can run the steps for this exercise using Azure Cloud Shell in your browser. If you want to use PowerShell directly from your computer instead, install the Azure Resource Manager PowerShell cmdlets. For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/).
-
 ## <a name ="crossprem"></a>Create an S2S VPN connection with IPsec/IKE policy
 
 This section walks you through the steps of creating a S2S VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the diagram:
@@ -72,6 +55,8 @@ This section walks you through the steps of creating a S2S VPN connection with a
 :::image type="content" source="./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png" alt-text="Diagram showing policy architecture." border="false":::
 
 See [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md) for more detailed step-by-step instructions for creating a S2S VPN connection.
+
+You can run the steps for this exercise using Azure Cloud Shell in your browser. If you want to use PowerShell directly from your computer instead, install the Azure Resource Manager PowerShell cmdlets. For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway resources
 
@@ -86,7 +71,7 @@ Select-AzSubscription -SubscriptionName <YourSubscriptionName>
 
 #### 1. Declare your variables
 
-For this exercise, we start by declaring variables. Be sure to replace the values with your own when configuring for production.
+For this exercise, we start by declaring variables. You can replace the variables with your own before running the commands.
 
 ```azurepowershell-interactive
 $RG1           = "TestRG1"
