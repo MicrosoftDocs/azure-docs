@@ -151,7 +151,7 @@ When creating a Windows node pool, the default operating system will be Windows 
 > [!NOTE]
 > Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
 
-Use `az aks nodepool add` command to add a Windows Server 2022 node pool:
+Use the `az aks nodepool add` command to add a Windows Server 2022 node pool:
 
 ```azurecli
 az aks nodepool add \
