@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 08/31/2022
+ms.date: 01/13/2023
 ms.author: erd
 ms.custom: devx-track-terraform
 ---
