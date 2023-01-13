@@ -133,6 +133,14 @@ To submit the job, run the following commands in a terminal window:
     az ml job create -f job.yml  --workspace-name $CI_WORKSPACE --resource-group $CI_RESOURCE_GROUP
     ```
 
+Once you've submitted the job, you can check the status in studio:
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Select your workspace if it isn't already loaded.
+1. On the left navigation, select **Jobs**.
+1. Select the **Experiment name** that you used to train your model.
+1. Select the **Display name** of the job to view details and artifacts of the job, including metrics, images, child jobs, outputs, logs, and code used in the job.  
+
 ## Next steps
 
 [How to deploy an R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md)
