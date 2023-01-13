@@ -13,13 +13,15 @@ ms.custom: template-concept
 
 *Platform metrics* are measurements over time collected from Azure resources and stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or query the Azure Monitor REST API for metrics to analyze with third-party monitoring tools.
 
-Azure Private 5G Core platform metrics are collected per site and allow you to monitor key statistics relating to your deployment. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
+Azure Private 5G Core platform metrics are collected per site and allow you to monitor key statistics relating to your deployment. For more information on which mobile network metrics are available, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported). 
+
+Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
 Platform metrics are available for monitoring and retrieval for up to 92 days. If you want to store your data for longer, you can export them using the Azure portal or the Azure Monitor REST API. Once exported, metrics can be saved to a storage account that allows longer data retention. See [Azure Storage](/azure/storage/) for some examples of storage accounts you can use.
 
 If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal). You can export metrics to a set of [destinations](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) by following [Export metrics using the Azure portal](#export-metrics-using-the-azure-portal).
 
-If you want to retrieve metrics for analysis using your tool of choice or for longer storage periods, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api). Note that not all metrics displayed in the Azure portal are available via the Azure Monitor REST API.
+If you want to retrieve metrics for analysis using your tool of choice or for longer storage periods, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api).
 
 ## Visualize metrics using the Azure portal
 
@@ -65,9 +67,7 @@ As an example, you can export the platform metrics to data storage and processin
 > [!NOTE]
 > Exporting metrics to another application for analysis or storage may incur extra costs. Check the pricing information for the applications you want to use.
 
-Not all metrics displayed in the Azure portal are available via the Azure Monitor REST API. For more information on which mobile network metrics are available, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
-
-You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).
+See [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported) for the mobile network metrics available for retrieval. You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
 ## Next steps
 
