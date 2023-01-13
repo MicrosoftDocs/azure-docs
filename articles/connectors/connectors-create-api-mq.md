@@ -38,25 +38,27 @@ The MQ connector has different versions, based on [logic app type and host envir
 
 * Authentication and TLS (SSL) encryption
 
-  * The MQ managed connector supports only server authentication with TLS (SSL) encryption, not client authentication. So, the connector doesn't send a client certificate.
+  * The MQ managed connector, available in both Consumption and Standard logic app workflows, supports only server authentication with TLS (SSL) encryption, not client authentication. So, the connector doesn't send a client certificate.
 
     * Authentication
 
-      For Azure-hosted MQ server scenarios, the MQ server must provide a server certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
+      In Azure-hosted MQ server scenarios, the MQ server must provide a server certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-      For on-premises MQ server scenarios with the on-premises data gateway, to use a non-publicly trusted server certificate, such as a self-signed or private CA certificate, you must upload the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer where the on-premises data gateway installation is running. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
+      In on-premises MQ server scenarios using the on-premises data gateway, if you want to use a non-publicly trusted server certificate, such as a self-signed or private CA certificate, you must upload the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer where the on-premises data gateway installation is running. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
 
-    * Cipher specifications
-
-      The MQ server requires that you define the cipher specification for use with connections with TLS (SSL) encryption. This cipher specification must match the cipher suites that are supported, chosen, and used by the Windows operating system where the MQ server runs. For more information, see [Connection and authentication problems](#connection-problems).
-
-  * The MQ built-in connector, available only for Standard logic app workflows, supports TSL (SSL) encryption for one-way server authentication and two-way client-server authentication.
+  * The MQ built-in connector, available only in Standard logic app workflows, supports TSL (SSL) encryption for one-way server authentication and two-way client-server authentication.
 
     Standard logic app workflows use Azure App Service as the platform for handling certificates. App Service lets you add only private key certificates to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) in an isolated ASE. The MQ built-in connector requires these private key certificates to validate incoming MQ server certificates that aren't publicly trusted, for example, self-signed, private CA, and so on. For more information, see [Certificates and the App Service Environment](../app-service/environment/overview-certificates.md).
 
     For server authentication, you can add a public key certificate to use as the MQ server certificate. The connector validates such certificates against the private key certificates in the Trusted Root CA Store using standard .NET SSL stream validation.
 
     For client authentication, all App Service plans support adding a certificate to the local certificates store that App Service-hosted logic apps can use to send a client certificate. You can add a private key certificate to use as the client certificate and then specify the certificate's thumbprint value in the connection details for the MQ built-in connector.
+
+    For more information, see [Set up authentication with TLS (SSL) encryption](#set-up-authentication).
+
+* Cipher specifications
+
+  The MQ server requires that you define the cipher specification for use with connections with TLS (SSL) encryption. This cipher specification must match the cipher suites that are supported, chosen, and used by the Windows operating system where the MQ server runs. For more information, see [Connection and authentication problems](#connection-problems).
 
 * The MQ connector doesn't support segmented messages.
 
@@ -87,7 +89,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
   * If you're using the on-premises data gateway, your logic app resource must use the same location as your gateway resource in Azure.
 
-* If you have a Standard logic app workflow and want to use the MQ built-in connector with TLS (SSL) encryption, you must first add the certificates that you want to use for server authentication or client-server authentication.
+* To use the MQ built-in connector with TLS (SSL) encryption in a Standard logic app workflow, you must first add the certificates that you want to use for server authentication or client-server authentication.
 
   | Authentication | Requirements |
   |----------------|--------------|
@@ -95,6 +97,12 @@ For more information, review the [MQ managed connector reference](/connectors/mq
   | Client-server <br>(two-way) | **Publicly trusted CA certificate**: Standard logic app workflow can run in single-tenant Azure Logic Apps with any WS*-based App Service plan. <br><br>**Non-publicly trusted certificate, such as private CA, self-signed, and so on**: Standard logic app workflow must run in an App Service Environment v3 (ASE v3 with a Windows plan only). <br><br>**Recommendation**: Upgrade to MQ server 9.0 or later. On your MQ server, make sure to set up the server-connection channel with the correct cipher specification that matches the one available on your client computer, for example, **ANY_TLS12_OR_HIGHER**. |
 
   For more information, see [Set up authentication with TLS (SSL) encryption](#set-up-authentication).
+
+* To use the MQ managed, Azure-hosted connector with TLS (SSL) encryption in either a Consumption or Standard logic app workflow, review the following authentication requirements:
+
+  In Azure-hosted MQ server scenarios, the MQ server must provide a server certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
+
+  In on-premises MQ server scenarios using the on-premises data gateway, if you want to use a non-publicly trusted server certificate, such as a self-signed or private CA certificate, you must upload the certificate to the [Trusted Root Certification Authorities (CA) Store](/windows-hardware/drivers/install/trusted-root-certification-authorities-certificate-store) on the local computer where the on-premises data gateway installation is running. For this task, you can use [Windows Certificate Manager (certmgr.exe)](/dotnet/framework/tools/certmgr-exe-certificate-manager-tool).
 
 <a name="add-trigger"></a>
 
