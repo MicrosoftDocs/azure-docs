@@ -1144,7 +1144,7 @@ for image_idx, class_idx in zip(image_wise_preds[0], image_wise_preds[1]):
     print('image: {}, class_index: {}, class_name: {}'.format(image_files[image_idx], class_idx, classes[class_idx]))
 ```
 
-For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported architectures in AutoML.
+For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported model architectures in AutoML.
 
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)

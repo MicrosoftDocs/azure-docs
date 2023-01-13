@@ -137,7 +137,7 @@ This compute is used later while creating the task specific `automl` job.
 
 ## Experiment setup
 
-You can use an Experiment to track your model training runs.
+You can use an Experiment to track your model training jobs.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -309,7 +309,7 @@ You can create data inputs from training and validation MLTable with the followi
 
 ## Configure your object detection experiment
 
-To configure automated ML runs for image-related tasks, create a task specific AutoML job.
+To configure automated ML jobs for image-related tasks, create a task specific AutoML job.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -407,7 +407,7 @@ The following code defines the search space in preparation for the hyperparamete
 
 For the tuning settings, use random sampling to pick samples from this parameter space by using the `random` sampling_algorithm. The job limits configured above, tells automated ML to try a total of 10 trials with these different samples, running two trials at a time on our compute target, which was set up using four nodes. The more parameters the search space has, the more trials you need to find optimal models.
 
-The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
+The Bandit early termination policy is also used. This policy terminates poor performing trials; that is, those trials that are not within 20% slack of the best performing trial, which significantly saves compute resources.
 
 # [Azure CLI](#tab/cli)
 
@@ -482,9 +482,9 @@ When you've configured your AutoML Job to the desired settings, you can submit t
 
 ---
 
-When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one.
+When doing a hyperparameter sweep, it can be useful to visualize the different trials that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child jobs' tab in the UI of the main automl_image_job from above, which is the HyperDrive parent job. Then you can go into the 'Child jobs' tab of this one.
 
-Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
+Alternatively, here below you can see directly the HyperDrive parent job and navigate to its 'Child jobs' tab:
 
 # [Azure CLI](#tab/cli)
 
@@ -506,9 +506,9 @@ hd_job
 
 ## Register and deploy model
 
-Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  
+Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  
 
-### Get the best run
+### Get the best trial
 
 
 # [Azure CLI](#tab/cli)
