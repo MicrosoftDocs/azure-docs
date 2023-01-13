@@ -85,4 +85,6 @@ The Apache Spark advisor displays the advices, including info, warning and error
 
 ## Next steps
 
-For more information on monitoring pipeline runs, see the [Monitor pipeline runs using Synapse Studio](how-to-monitor-pipeline-runs.md) article.
+For more information on monitoring Apache Spark applications, see the [Monitor Apache Spark applications using Synapse Studio](apache-spark-applications.md) article.
+
+For more information to create a notebook, see the [How to use Synapse notebooks](../spark/apache-spark-development-using-notebooks.md)
