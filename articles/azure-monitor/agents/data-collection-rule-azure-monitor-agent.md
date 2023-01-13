@@ -18,13 +18,15 @@ To complete this procedure, you need:
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations, as described in the next section
+- Associate the data collection rule to specific virtual machines.
 
 ## Create a data collection rule
 
 You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
 
 > [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 ### [Portal](#tab/portal)
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
