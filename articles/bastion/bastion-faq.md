@@ -39,7 +39,7 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 * blob.core.windows.net
 * core.windows.net
 * vaultcore.windows.net
-* vault.azure.com
+* vault.azure.net
 * azure.com
 
 You may use a private DNS zone ending with one of the names listed above (ex: privatelink.blob.core.windows.net).
@@ -174,6 +174,10 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
 Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
+
+### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
+
+Yes, existing sessions on the target Bastion resource will disconnect during maintenance on the Bastion resource. 
 
 ## <a name="peering"></a>VNet peering FAQs
 

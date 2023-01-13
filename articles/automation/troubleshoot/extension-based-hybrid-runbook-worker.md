@@ -72,8 +72,8 @@ You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails 
 You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
 
 ### Resolution
-Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](https://learn.microsoft.com/azure/azure-arc/servers/onboard-portal)
-for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](../../azure-arc/servers/onboard-portal.md)
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](../../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
@@ -87,9 +87,9 @@ User-assigned managed identity of the VM is enabled, but system-assigned managed
 ### Resolution
 Follow the steps listed below:
 
-1. [Enable](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) System-assigned managed identity of the VM. 
+1. [Enable](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) System-assigned managed identity of the VM. 
 2. [Delete](../extension-based-hybrid-runbook-worker-install.md#delete-a-hybrid-runbook-worker) the Hybrid Worker extension installed on the VM. 
-3. [Re-install]() the Hybrid Worker extension on the VM. 
+3. Re-install the Hybrid Worker extension on the VM. 
 
 
 ### Scenario: Installation process of Hybrid Worker extension on Windows VM gets stuck
@@ -122,7 +122,7 @@ Sometimes the uninstallation process might get stuck.
 #### Resolution
 1. Open PowerShell console 
 1. Go to Hybrid Worker extension installation folder 
-   Cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>" 
+   Cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version\>" 
 1. Disable Hybrid Worker extension: `.\bin\disable.cmd`
 1. Uninstall Hybrid Worker extension: `.\bin\uninstall.ps1`
 1. Remove registry entry, if present: *HKLM:/Software/Microsoft/Azure/HybridWorker* 
@@ -139,7 +139,7 @@ Sometimes the uninstallation process might get stuck.
 
 #### Resolution
 1. Go to folder: `rm -r /home/hweautomation/state`
-1. Go to Hybrid Worker extension installation folder */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/*
+1. Go to Hybrid Worker extension installation folder */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-\<version\>/*
 1. Go to above folder and run command `rm mrseq`
 1. Install Hybrid Worker Extension: *"installCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -i"*
 1. Enable Hybrid Worker extension: *"enableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -e"*
@@ -156,7 +156,7 @@ Sometimes the uninstallation process might get stuck.
 Follow the steps mentioned below to completely uninstall Hybrid Worker extension: 
 
 1. Go to Hybrid Worker Extension installation folder:  
-  */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/*
+  */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-\<version\>/*
 1. Disable the extension: `"disableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -d" `
 1. Uninstall the extension: `"uninstallCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -u"`
  

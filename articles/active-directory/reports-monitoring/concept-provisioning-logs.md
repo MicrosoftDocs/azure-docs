@@ -42,7 +42,7 @@ To view the provisioning logs, your tenant must have an Azure AD Premium license
 
 Application owners can view logs for their own applications. The following roles are required to view provisioning logs:
 
-- Report Reader
+- Reports Reader
 - Security Reader
 - Security Operator
 - Security Administrator

@@ -2,9 +2,9 @@
 title: Performance and scalability checklist for Queue Storage
 titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Queue Storage in developing high-performance applications.
-author: tamram
+author: pauljewellmsft
 services: storage
-ms.author: tamram
+ms.author: pauljewell
 ms.date: 10/10/2019
 ms.topic: overview
 ms.service: storage

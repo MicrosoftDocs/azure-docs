@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: kendownie
 ms.subservice: files
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Develop for Azure Files with Python

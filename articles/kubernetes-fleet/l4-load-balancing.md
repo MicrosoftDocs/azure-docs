@@ -165,6 +165,21 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     KUBECONFIG=aks-member-1 kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
     ```
 
+    > [!NOTE]
+    > To expose the service via the internal IP instead of public one, add the annotation to the MultiClusterService:
+    >  
+    > ```yaml
+    > apiVersion: networking.fleet.azure.com/v1alpha1
+    > kind: MultiClusterService
+    > metadata:
+    >   name: kuard
+    >   namespace: kuard-demo
+    >   annotations:
+    >      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    >   ...
+    > ```
+
+
     Output will look similar to the following example:
 
     ```console

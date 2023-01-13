@@ -1,12 +1,12 @@
 ---
-title: Logs Ingestion API in Azure Monitor (preview)
+title: Logs Ingestion API in Azure Monitor
 description: Send data to a Log Analytics workspace by using a REST API.
 ms.topic: conceptual
 ms.date: 06/27/2022
 
 ---
 
-# Logs Ingestion API in Azure Monitor (preview)
+# Logs Ingestion API in Azure Monitor
 
 The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. By using this API, you can send data from almost any source to [supported built-in tables](#supported-tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
@@ -47,7 +47,7 @@ The Logs Ingestion API can send data to the following built-in tables. Other tab
 
 ## Authentication
 
-Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-logs-ingestion-portal.md).
+Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs](tutorial-logs-ingestion-portal.md).
 
 ## Source data
 
@@ -72,7 +72,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 ```
 
 > [!NOTE]
-> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from DCR](tutorial-logs-ingestion-portal.md#collect-information-from-dcr).
+> You can retrieve the immutable ID from the JSON view of the DCR. For more information, see [Collect information from the DCR](tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
 
 ### Headers
 
@@ -85,11 +85,11 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 
 ### Body
 
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Additionally, it is important to ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
 
 ## Sample call
 
-For sample data and an API call using the Logs Ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-logs-ingestion-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-logs-ingestion-api.md).
+For sample data and an API call using the Logs Ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal](tutorial-logs-ingestion-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-logs-ingestion-api.md).
 
 ## Limits and restrictions
 

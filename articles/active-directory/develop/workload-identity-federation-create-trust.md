@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/31/2022
+ms.date: 12/13/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalid, udayh, vakarand
@@ -26,6 +26,8 @@ You can then configure an external software workload to exchange a token from th
 In this article, you learn how to create, list, and delete federated identity credentials on an application in Azure AD.
 
 ## Important considerations and restrictions
+
+To create, update, or delete a federated identity credential, the account performing the action must have the [Application Administrator](../roles/permissions-reference.md#application-administrator), [Application Developer](../roles/permissions-reference.md#application-developer), [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator), or Application Owner role.  The [microsoft.directory/applications/credentials/update permission](../roles/custom-available-permissions.md#microsoftdirectoryapplicationscredentialsupdate) is required to update a federated identity credential.
 
 [!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
 

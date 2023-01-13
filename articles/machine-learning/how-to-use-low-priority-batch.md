@@ -34,7 +34,9 @@ Azure Machine Learning Batch Deployments provides several capabilities that make
 
 ## Considerations and use cases
 
-Many batch workloads are a good fit for low priority VMs. However, this may introduce further execution delays when deallocation of VMs occurs. If there is flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated at expenses of running with a lower cost.
+Many batch workloads are a good fit for low priority VMs. Although this may introduce further execution delays when deallocation of VMs occurs, the potential drops in capacity can be tolerated at expenses of running with a lower cost if there is flexibility in the time jobs have to complete. 
+
+Since batch endpoints distribute the work at the mini-batch level, deallocation only impacts those mini-batches that are currently being processed and not finished on the affected node. 
 
 ## Creating batch deployments with low priority VMs
 
@@ -45,7 +47,7 @@ Batch deployment jobs consume low priority VMs by running on Azure Machine Learn
 
 You can create a low priority Azure Machine Learning compute cluster as follows:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    Create a compute definition `YAML` like the following one:
    
@@ -63,11 +65,11 @@ You can create a low priority Azure Machine Learning compute cluster as follows:
    
    Create the compute using the following command:
    
-   ```bash
+   ```azurecli
    az ml compute create -f low-pri-cluster.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new compute cluster with low priority VMs where to create the deployment, use the following script:
    
@@ -88,7 +90,7 @@ You can create a low priority Azure Machine Learning compute cluster as follows:
    
 Once you have the new compute created, you can create or update your deployment to use the new cluster:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create or update a deployment under the new compute cluster, create a `YAML` configuration like the following:
    
@@ -114,11 +116,11 @@ Once you have the new compute created, you can create or update your deployment 
    
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    az ml batch-endpoint create -f endpoint.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create or update a deployment under the new compute cluster, use the following script:
    
