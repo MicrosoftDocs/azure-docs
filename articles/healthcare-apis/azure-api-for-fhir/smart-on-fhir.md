@@ -27,7 +27,7 @@ Below tutorials describe steps to enable SMART on FHIR applications with FHIR Se
 - [Register public client application in Azure AD](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the applicationId for client application.
 
-## SMART on FHIR using samples (preferred approach)
+## SMART on FHIR using samples 
 As a prerequisite, ensure you have access to Azure Subscription of FHIR service, to create resources and add role assignments.
 
 ### Step 1: Set up FHIR SMART user role 
