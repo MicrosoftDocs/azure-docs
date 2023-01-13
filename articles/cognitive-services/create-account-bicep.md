@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 04/29/2022
+ms.date: 01/13/2023
 ms.author: aahi
 ms.custom: subject-armqs, mode-arm
 ---
