@@ -921,15 +921,9 @@ This issue can happen when a Docker image fails to be stored (pushed) to a conta
 * Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
 
-**Troubleshooting steps**
-
-If you suspect that the path name to your container registry is incorrect
-* For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
-* See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
+**Troubleshooting steps**  
+You could retry the environment build if you suspect this is a transient issue with the workspace's ACR.  
 
 If your container registry is behind a virtual network or is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
 * Configure the container registry by using the service endpoint (public access) from the portal and retry
 * After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
-
-If you haven't provided credentials for a private registry you're trying to push to, or the provided credentials are incorrect
-* Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
