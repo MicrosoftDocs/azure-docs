@@ -115,6 +115,11 @@ In this article you learn how to secure the following training compute resources
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 
+## Required public internet access
+
+[!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
+
+For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
 ## Compute instance/cluster with public IP
 
