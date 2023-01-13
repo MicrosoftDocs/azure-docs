@@ -31,7 +31,7 @@ Azure Native New Relic Service provides the following capabilities:
 
 ## New Relic links
 
-For more help with using Azure Native New Relic Service, see the [New Relic documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native).
+For more help with using Azure Native New Relic Service, see the [New Relic documentation](https://docs.newrelic.com/).
 
 ## Next steps
 
