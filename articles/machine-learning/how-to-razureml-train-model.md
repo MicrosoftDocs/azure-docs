@@ -133,7 +133,7 @@ To submit the job, run the following commands in a terminal window:
     az ml job create -f job.yml  --workspace-name $CI_WORKSPACE --resource-group $CI_RESOURCE_GROUP
     ```
 
-Once you've submitted the job, you can check the status in studio:
+Once you've submitted the job, you can check the status and results in studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 1. Select your workspace if it isn't already loaded.
