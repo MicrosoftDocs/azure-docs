@@ -49,6 +49,10 @@ Service Connector runs multiple tasks while creating or updating service connect
 
 If a step fails during this process, Service Connector rolls back all previous steps to keep the initial settings in the source and target instances.
 
+## Service Connector resource provider
+
+[!INCLUDE [Service Connector MicrosoftServiceLinker](../../includes/service-connector-service-linker.md)]
+
 ## Connection configurations
 
 Connection configurations are set in the source service.

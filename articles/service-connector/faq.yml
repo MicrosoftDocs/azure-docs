@@ -13,8 +13,9 @@ summary: This article answers frequently asked questions about Service Connector
 sections:
   - name: Ignored
     questions:
-      - question: What is `MicrosoftServiceLinker` and why is it registered in my subscriptions?
-        answer: Service Linker is the name of Service Connector's resource provider. When a user opens the Service Connector tab in the Azure Portal, the Service Linker resource provider gets automatically registered in all of the user's subscriptions. Enabling Service Connector on all subscriptions lets users connect services for free across subscriptions. The user who generated the registration is listed as the initiator of the registration event.
+      - question: What is MicrosoftServiceLinker and why is it registered in my subscriptions?
+        answer: |
+         [!INCLUDE [Service Connector MicrosoftServiceLinker](../../includes/service-connector-service-linker.md)]
 
 additionalContent: |
     ## Next steps
