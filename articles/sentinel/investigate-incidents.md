@@ -96,7 +96,7 @@ Microsoft Sentinel offers a complete, full-featured incident investigation and c
 
 As you're setting up to investigate an incident, assemble the things you'll need to direct your workflow. You'll find the following tools on a button bar at the top of the incident page, right below the title.
 
-:::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of incident details page, featuring the overview tab." lightbox="media/investigate-incidents/incident-details-overview.png":::
+:::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of the button bar on the incident details page.":::
 
 1.  Select **Tasks (Preview)** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
 
@@ -144,6 +144,8 @@ The **Overview** tab contains the following widgets, each of which represents an
 ### Incident timeline
 
 The **Incident timeline** widget shows you the timeline of alerts and [bookmarks](bookmarks.md) in the incident, which can help you reconstruct the timeline of attacker activity. 
+
+You can search the list of alerts and bookmarks, or filter the list by severity, tactics, or content type (alert or bookmark), to help you find the item you want to pursue.
 
 The initial display of the timeline immediately tells you several important things about each item in it, whether alert or bookmark:
 
@@ -202,6 +204,51 @@ Incident similarity is recalculated every time you enter the incident details pa
 
 ### Explore the incident's entities
 
+The **Entities** widget shows you all the [entities](entities.md) that have been identified in the alerts in the incident. These are the objects that played a role in the incident, whether they be users, devices, addresses, files, or [any other types](./entities-reference.md). 
+
+You can search the list of entities in the entities widget, or filter the list by entity type, to help you find an entity.
+
+:::image type="content" source="media/investigate-incidents/entity-actions-from-overview.png" alt-text="Screenshot of the actions you can take on an entity from the overview tab.":::
+
+If you already know that a particular entity is a known indicator of compromise, select the three dots on the entity's row and choose **Add to TI (Preview)** to [add the entity to your threat intelligence](add-entity-to-threat-intelligence.md). (This option is available for [supported entity types](incident-investigation.md#view-entities).)
+
+If you want to [trigger an automatic response sequence for a particular entity](respond-threats-during-investigation.md), select the three dots and choose **Run playbook (Preview)**. (This option is available for [supported entity types](incident-investigation.md#view-entities).)
+
+Select an entity to see its full details. When you select an entity, you will move from the **Overview tab** to the **Entities tab**, another part of the incident details page.
+
+#### Entities tab
+
+The **Entities tab** shows a list of all the entities in the incident.
+
+:::image type="content" source="media/investigate-incidents/entities-tab.png" alt-text="Screenshot of entities tab in incident details page.":::
+
+Like the entities widget, this list can also be searched and filtered by entity type. Searches and filters applied in one list won't apply to the other.
+
+Select a row in the list for that entity's information to be displayed in a side panel to the right.
+
+If the entity name appears as a link, selecting the entity's name will redirect you to the full [entity page](entity-pages.md), outside the incident investigation page. To display just the side panel without leaving the incident, select the row in the list where the entity appears, but don't select its name.
+
+You can take the same actions here that you can take from the widget on the overview page. Select the three dots in the row of the entity to either run a playbook or add the entity to your threat intelligence.
+
+You can also take these actions by selecting the button next to **View full details** at the bottom of the side panel. The button will read either **Add to TI (Preview)**, **Run playbook (Preview)**, or **Entity actions**&mdash;in which case a menu will appear with the other two choices.
+
+The **View full details** button itself will redirect you to the entity's full entity page.
+
+The side panel features three cards:
+
+- **Info** contains basic information about the entity. For a user account entity this might be things like the username, domain name, security identifier (SID), organizational information, security information, and more.
+
+- **Timeline** contains a list of the alerts, [bookmarks](bookmarks.md), and [anomalies](soc-ml-anomalies.md) that feature this entity, and also activities the entity has performed, as collected from logs in which the entity appears. All alerts featuring this entity will be in this list, *whether or not* the alerts belong to this incident.
+
+    Alerts that are not part of the incident will be displayed differently: the shield icon will be grayed out, the severity color band will be a dotted line instead of a solid line, and there will be a button with a plus sign on the right side of the alert's row.
+
+    :::image type="content" source="media/investigate-incidents/entity-timeline.png" alt-text="Screenshot of entity timeline in entities tab.":::
+
+    Select the plus sign to [add the alert to this incident](relate-alerts-to-incidents.md). When the alert is added to the incident, all the alert's other entities (that weren't already part of the incident) are also added to it. Now you can further expand your investigation by looking at *those* entities' timelines for related alerts.
+
+    This timeline is limited to alerts and activities over the prior seven days. To go further back, pivot to the timeline in the full entity page, whose time frame is customizable.
+
+- **Insights** contains results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources. These insights are the same ones that appear on the full [entity page](entity-pages.md), but over a limited time frame: starting from 24 hours before the earliest alert in the incident, and ending with the time of the latest alert.
 
 
 ## Comment on incidents

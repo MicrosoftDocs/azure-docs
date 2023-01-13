@@ -15,9 +15,9 @@ This article is part of a series dedicated to helping you navigate and investiga
 
 Here is the full list of articles in the series:
 1. [Introduction to incident investigation in Microsoft Sentinel](incident-investigation.md)
-1. Navigate and triage incidents in Microsoft Sentinel (You are here)
+1. **Navigate and triage incidents in Microsoft Sentinel (You are here)**
 1. [Determine your workflow with incident tasks](work-with-tasks.md)
-1. [Open an in-depth investigation of an incident - meet the incident details page](investigate-in-depth.md)
+1. [Get an overview of your incident - meet the incident details page](incident-overview.md)
 1. Find and study similar incidents to understand context and learn lessons
 1. Get insights into the entities in your incident and their activities
 1. [Focus your investigation by relating alerts to your incident](relate-alerts-to-incidents.md)

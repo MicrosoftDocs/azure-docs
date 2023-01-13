@@ -17,7 +17,7 @@ Here is the full list of articles in the series:
 1. [Introduction to incident investigation in Microsoft Sentinel](incident-investigation.md)
 1. [Navigate and triage incidents in Microsoft Sentinel](navigate-triage-incidents.md)
 1. [Determine your workflow with incident tasks](work-with-tasks.md)
-1. Open an in-depth investigation of an incident - meet the incident details page (You are here)
+1. **Get an overview of your incident - meet the incident details page (You are here)**
 1. Find and study similar incidents to understand context and learn lessons
 1. Get insights into the entities in your incident and their activities
 1. [Focus your investigation by relating alerts to your incident](relate-alerts-to-incidents.md)
@@ -51,7 +51,7 @@ Microsoft Sentinel offers a complete, full-featured incident investigation and c
 
 As you're setting up to investigate an incident, assemble the things you'll need to direct your workflow. You'll find the following tools on a button bar at the top of the incident page, right below the title.
 
-:::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of incident details page, featuring the overview tab." lightbox="media/investigate-incidents/incident-details-overview.png":::
+:::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of the button bar on the incident details page.":::
 
 1.  Select **Tasks (Preview)** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
 

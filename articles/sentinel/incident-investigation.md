@@ -55,7 +55,7 @@ Learn more about what you can do wit
 
 You’ll also want to see who the major players are in this story. Usernames, hostnames, IP addresses, file names, and other types of entities can all be “persons of interest” in your investigation. Microsoft Sentinel finds them all for you and displays them front and center in the **Entities** widget, alongside the timeline. Selecting an entity from this widget will pivot you to that entity's listing in the **Entities tab** on the same **incident page**.
 
-The **Entities tab** contains a list of all the entities in the incident. When an entity in the list is selected, a side panel opens containing a display based on the [entity page](entity-pages.md). The side panel contains three tabs:
+The **Entities tab** contains a list of all the entities in the incident. When an entity in the list is selected, a side panel opens containing a display based on the [entity page](entity-pages.md). The side panel contains three cards:
 - **Info** contains basic information about the entity. For a user account entity this might be things like the username, domain name, security identifier (SID), organizational information, security information, and more.
 - **Timeline** contains a list of the alerts that feature this entity and activities the entity has done, as collected from logs in which the entity appears.
 - **Insights** contains results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
