@@ -17,7 +17,6 @@ In this tutorial, you learn how to customize the dashboard in your Azure IoT Cen
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
-
 > * Customize image tiles on the dashboard
 > * Arrange tiles to modify the layout
 > * Add telemetry tiles to display conditions
