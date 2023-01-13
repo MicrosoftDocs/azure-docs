@@ -6,7 +6,7 @@ ms.author: terrylan
 ms.service: security
 ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 12/30/2021
+ms.date: 01/13/2023
 ---
 
 # Cloud feature availability for commercial and US Government customers
