@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 A hub and spoke network is one of the building blocks of a highly available multiple location network infrastructure. The most common deployment of a hub and spoke network is done with the intention of routing all inter-spoke and outbound internet traffic through the central hub. The purpose is to inspect all of the traffic traversing the network with a Network Virtual Appliance (NVA) for security scanning and packet inspection.
 
-For outbound traffic to the internet the network virtual appliance would typically have one network interface with an assigned public IP address. The NVA after inspecting the outbound traffic forwards the traffic out the public interface and to the internet. Azure Virtual Network NAT eliminates the need for the public IP address assigned to the NVA. Associating a NAT gateway with the public subnet of the NVA changes the routing for the public interface to route all outbound internet traffic through the NAT gateway. The elimination of the public IP address increases security and allows for the scaling of outbound source network address translation (SNAT) with multiple public IP addresses and or public IP prefixes.
+For outbound traffic to the internet, the network virtual appliance would typically have one network interface with an assigned public IP address. The NVA after inspecting the outbound traffic forwards the traffic out the public interface and to the internet. Azure Virtual Network NAT eliminates the need for the public IP address assigned to the NVA. Associating a NAT gateway with the public subnet of the NVA changes the routing for the public interface to route all outbound internet traffic through the NAT gateway. The elimination of the public IP address increases security and allows for the scaling of outbound source network address translation (SNAT) with multiple public IP addresses and or public IP prefixes.
 
 > [!IMPORTANT]
 > The NVA used in this article is for demonstration purposes only and is simulated with an Ubuntu virtual machine. The solution doesn't include a load balancer for high availability of the NVA deployment. Replace the Ubuntu virtual machine in this article with an NVA of your choice. Consult the vendor of the chosen NVA for routing and configuration instructions. A load balancer and availability zones is recommended for a highly available NVA infrastructure.
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Create a NAT gateway
 
-All outbound internet traffic will traverse the NAT gateway to the internet. Use the examples below to create a NAT gateway for the hub and spoke network.
+All outbound internet traffic will traverse the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -71,7 +71,7 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
 
 ## Create hub virtual network
 
-The hub virtual network is the central network of the solution. The hub network contains the NVA appliance and a public and private subnet. The NAT gateway is assigned to the public subnet during the creation of the virtual network. An Azure Bastion host is configured as part of the example below. The bastion host is used to securely connect to the NVA virtual machine and the test virtual machines deployed in the spokes later in the article.
+The hub virtual network is the central network of the solution. The hub network contains the NVA appliance and a public and private subnet. The NAT gateway is assigned to the public subnet during the creation of the virtual network. An Azure Bastion host is configured as part of the following example. The bastion host is used to securely connect to the NVA virtual machine and the test virtual machines deployed in the spokes later in the article.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -120,7 +120,7 @@ The hub virtual network is the central network of the solution. The hub network 
 
 13. Select **Next: Security**.
 
-14. In the **Security** tab in **BastionHost** select **Enable**.
+14. In the Security tab in BastionHost,** select **Enable**.
 
 15. Enter or select the following information:
 
@@ -134,11 +134,11 @@ The hub virtual network is the central network of the solution. The hub network 
 
 17. Select **Create**.
 
-It will take a few minutes for the bastion host to deploy. When the virtual network is created as part of the deployment you can proceed to the next steps.
+It will take a few minutes for the bastion host to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
 
 ## Create simulated NVA virtual machine
 
-The simulated NVA will act as a virtual appliance to route all traffic between the spokes and hub and traffic outbound to the internet. A Ubuntu virtual machine is used for the simulated NVA. Use the following example below to create the simulated NVA and configure the network interfaces.
+The simulated NVA will act as a virtual appliance to route all traffic between the spokes and hub and traffic outbound to the internet. An Ubuntu virtual machine is used for the simulated NVA. Use the following example to create the simulated NVA and configure the network interfaces.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -163,13 +163,13 @@ The simulated NVA will act as a virtual appliance to route all traffic between t
     | Authentication type | Select **Password**. |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
 4. Select **Next: Disks** then **Next: Networking**.
 
-5. In the **Networking** tab enter or select the following information:
+5. In the Networking tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -196,7 +196,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 5. In **Networking** select the network interface name next to **Network Interface:**. The interface name is the virtual machine name and random numbers and letters. In this example, the interface name is **myvm-nva271**. 
 
-6. In the network interface properties select **IP configurations** in **Settings**.
+6. In the network interface properties, select **IP configurations** in **Settings**.
 
 7. In **IP forwarding** select **Enabled**.
 
@@ -269,7 +269,7 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
     Enter **`:wq`** and press **Enter**.
 
-10. To enable internal NAT in the virtual machine enter the following information:
+10. Enter the following information to enable internal NAT in the virtual machine:
 
     ```bash
     sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -366,9 +366,9 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
 15. Select **OK**.
 
-## Create spoke 1 virtual network
+## Create spoke one virtual network
 
-Create an additional virtual network in a different region for the first spoke of the hub and spoke network.
+Create another virtual network in a different region for the first spoke of the hub and spoke network.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -442,7 +442,7 @@ A virtual network peering is used to connect the hub to spoke 1 and spoke 1 to t
 
 7. Select **Refresh** and verify **Peering status** is **Connected**.
 
-## Create spoke 1 network route table
+## Create spoke one network route table
 
 Create a route table to force all inter-interspoke and internet egress traffic through the simulated NVA in the hub virtual network.
 
@@ -499,7 +499,7 @@ Create a route table to force all inter-interspoke and internet egress traffic t
 
 15. Select **OK**.
 
-## Create spoke 1 test virtual machine
+## Create spoke one test virtual machine
 
 A Windows Server 2022 virtual machine is used to test the outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network. Use the following example to create a Windows Server 2022 virtual machine.
 
@@ -526,13 +526,13 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
     | Authentication type | Select **Password**. |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
 4. Select **Next: Disks** then **Next: Networking**.
 
-5. In the **Networking** tab enter or select the following information:
+5. In the Networking tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -548,7 +548,7 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 7. Select **Create**.
 
-## Create spoke 2 virtual network
+## Create the second spoke virtual network
 
 Create the second virtual network for the second spoke of the hub and spoke network. 
 
@@ -624,7 +624,7 @@ Create a two-way virtual network peer between the hub and spoke 2.
 
 7. Select **Refresh** and verify **Peering status** is **Connected**.
 
-## Create spoke 2 network route table
+## Create spoke two network route table
 
 Create a route table to force all outbound internet and inter-spoke traffic through the simulated NVA in the hub virtual network.
 
@@ -681,7 +681,7 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 15. Select **OK**.
 
-## Create spoke 2 test virtual machine
+## Create spoke two test virtual machine
 
 Create a Windows Server 2022 virtual machine for the test virtual machine in spoke 2.
 
@@ -708,13 +708,13 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
     | Authentication type | Select **Password**. |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
 4. Select **Next: Disks** then **Next: Networking**.
 
-5. In the **Networking** tab enter or select the following information:
+5. In the Networking tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -760,7 +760,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 6. Open **Microsoft Edge** when the desktop finishes loading.
 
-7. In the address bar enter **https://whatsmyip.com**.
+7. In the address bar, enter **https://whatsmyip.com**.
 
 8. Verify the outbound IP address displayed is the same as the IP of the NAT gateway you obtained previously.
 
@@ -792,7 +792,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 6. Open **Microsoft Edge** when the desktop finishes loading.
 
-7. In the address bar enter **https://whatsmyip.com**.
+7. In the address bar, enter **https://whatsmyip.com**.
 
 8. Verify the outbound IP address displayed is the same as the IP of the NAT gateway you obtained previously.
 
@@ -820,7 +820,7 @@ Use Microsoft Edge to connect to the web server on **myVM-Spoke-2** you installe
 
 2. Open **Microsoft Edge** if it's not open.
 
-3. In the address bar enter **10.3.0.4**.
+3. In the address bar, enter **10.3.0.4**.
 
 4. Verify the default IIS page is displayed from **myVM-Spoke-2**.
 
@@ -836,7 +836,7 @@ Use Microsoft Edge to connect to the web server on **myVM-Spoke-1** you installe
 
 2. Open **Microsoft Edge** if it's not open.
 
-3. In the address bar enter **10.2.0.4**.
+3. In the address bar, enter **10.2.0.4**.
 
 4. Verify the default IIS page is displayed from **myVM-Spoke-1**.
 
@@ -860,6 +860,6 @@ If you're not going to continue to use this application, delete the created reso
 
 ## Next steps
 
-Advance to the next article to learn how to use a Azure Gateway Load Balancer for highly available network virtual appliances:
+Advance to the next article to learn how to use an Azure Gateway Load Balancer for highly available network virtual appliances:
 > [!div class="nextstepaction"]
 > [Gateway Load Balancer](/azure/load-balancer/gateway-overview)
