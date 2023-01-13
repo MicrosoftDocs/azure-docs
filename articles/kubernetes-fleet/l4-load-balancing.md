@@ -43,7 +43,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_1} --file aks-member-1
     ```
 
-[!INCLUDE [preview features note](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [preview features note](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy a sample workload to demo clusters
 
