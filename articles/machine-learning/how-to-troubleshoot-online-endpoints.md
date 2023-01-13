@@ -247,7 +247,7 @@ Try to delete some unused endpoints in this subscription.
 
 #### Role assignment quota
 
-When you are creating a managed online endpoint, role assignment is required for the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to access workspace resources. If you've reached the [role assignment limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
+When you are creating a managed online endpoint, role assignment is required for the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to access workspace resources. If you've reached the [role assignment limit](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
 
 #### Kubernetes quota
 
