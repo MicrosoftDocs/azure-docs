@@ -1,6 +1,6 @@
 ---
-title: 'Create, change, or delete a Peering Service connection - Azure PowerShell'
-description: Learn how to create, change, or delete an Azure Peering Service connection using PowerShell.
+title: Create or change a Peering Service connection - Azure PowerShell
+description: Learn how to create or change a Peering Service connection using PowerShell.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
@@ -10,7 +10,7 @@ ms.author: halkazwini
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
-# Create, change, or delete a Peering Service connection using PowerShell
+# Create or change a Peering Service connection using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](azure-portal.md)
@@ -19,7 +19,7 @@ ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 
 Azure Peering Service is a networking service that enhances connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-In this article, you'll learn how to create, change, or delete a Peering Service connection using PowerShell.
+In this article, you'll learn how to create and change a Peering Service connection using PowerShell.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,11 +35,11 @@ Use the Azure PowerShell module to register and manage Peering Service. You can 
 
 - An Azure subscription
 
-- A connectivity provider. For more information, see [Azure peering service partners](./location-partners.md).
+- A connectivity provider. For more information, see [Peering Service partners](./location-partners.md).
 
 ### Register a subscription with the resource provider and feature flag
 
-Before you proceed to the steps of creating Peering Service, register your subscription with the resource provider and feature flag using [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) [Register-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature):
+Before you proceed to the steps of creating Peering Service, register your subscription with the resource provider and feature flag using [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) and [Register-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature):
 
 ```azurepowershell-interactive
 # Register Microsoft.Peering provider.
@@ -55,7 +55,7 @@ Use [Get-AzPeeringServiceCountry](/powershell/module/az.peering/get-azpeeringser
 ```azurepowershell-interactive
 # List the countries available for Peering Service.
 Get-AzPeeringServiceCountry 
-# Gets a list of metro locations serviced by country
+# List metro locations serviced in a country
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
