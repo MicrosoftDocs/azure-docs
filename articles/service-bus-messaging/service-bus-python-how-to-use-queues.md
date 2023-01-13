@@ -379,8 +379,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 Open a command prompt that has Python in its path, and then run the code to send and receive messages from the queue.
 
 ```shell
-python send.py
-python recv.py
+python send.py; python recv.py
 ```
 
 You should see the following output: 
