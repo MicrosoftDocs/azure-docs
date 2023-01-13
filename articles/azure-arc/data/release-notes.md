@@ -23,7 +23,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 `v1.15.0_2023-01-10`
 
-For complete release version information, see [Version log](version-log.md#january-12-2023).
+For complete release version information, see [Version log](version-log.md#january-13-2023).
 
 New for this release:
 
