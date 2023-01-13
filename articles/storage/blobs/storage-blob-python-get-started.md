@@ -34,8 +34,6 @@ To learn more about each of these authorization mechanisms, see [Authorize acces
 
 ## [Azure AD](#tab/azure-ad)
 
-To authorize with Azure AD, you'll need to use a security principal. Which type of security principal you need depends on where your application runs. Use this table as a guide.
-
 To authorize with Azure AD, you'll need to use a [security principal](/azure/active-directory/develop/app-objects-and-service-principals). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
 | Where the application runs | Security principal | Guidance |
