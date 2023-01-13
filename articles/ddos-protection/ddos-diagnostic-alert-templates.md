@@ -37,31 +37,33 @@ In order to use these alert templates, you'll first need a Log Analytics Workspa
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
 1. Select **+ Create** on the navigation bar.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace.png" alt-text="Screenshot of configuring a log analytics workspace.":::
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace-create.png" alt-text="Screenshot of creating a log analytics workspace.":::
 
 1. On the *Create Log Analytics workspace* page, enter the following information.
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace.png" alt-text="Screenshot of configuring a log analytics workspace.":::
 
     | Setting | Value |
     |--|--|
     | Subscription | Select your Azure subscription. |   
-    | Resource Group | Select your Resource group. | 
+    | Resource Group | Select your resource group.	 | 
     | Name | Enter **myLogAnalyticsWorkspace**. |
     | Region | Select **East US**. |
     
 1. Select **Review + create** and then select **Create** after validation passes.
 1. In the search box at the top of the portal, enter **myLogAnalyticsWorkspace**. Select **myLogAnalyticsWorkspace** in the search results.
-1. Under *Monitoring* in the side tab, select **Diagnostic settings. 
+1. Under *Monitoring* in the side tab, select **Diagnostic settings**, then select **+ Add diagnostic setting**.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic settings.":::
+    :::image type="content" source="./media/manage-ddos-protection/ddos-protection-log-analytics-workspace-settings.png" alt-text="Screenshot of log analytics workspace diagnostic settings.":::
 
-1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**.
-1. Enter the following information.
+1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**, then enter the following information.
+:::image type="content" source="./media/manage-ddos-protection/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic settings.":::
 
     | Setting | Value |
     |--|--|
     | Diagnostic setting name | Enter **myDiagnosticSettings**. |
-    | Logs | Select **allLogs**. |
-    | Metrics | Select **AllMetrics**. |
+    |**Logs**| Select **allLogs** and **audit**.|
+    |**Metrics**| Select **AllMetrics**. |
+    |**Destination details**| Select **Send to Log Analytics workspace**.|
     | Subscription | Select your Azure subscription. |   
     | Log Analytics Workspace | Select **myLogAnalyticsWorkspace**. | 
     
@@ -79,9 +81,8 @@ The Azure Monitor alert rule template will run a query against the diagnostic lo
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAlert%2520-%2520DDOS%2520Mitigation%2520started%2520azure%2520monitor%2520alert%2FDDoSMitigationStarted.json)
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template.":::
-
 1. On the *Custom deployment* page, under *Project details*, enter the following information. 
+:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert.png" alt-text="Screenshot of Azure Monitor alert rule template.":::
 
     | Setting | Value |
     |--|--|
@@ -105,10 +106,9 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
 1.  Select **Deploy to Azure** to sign in to Azure and open the template. 
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAutomation%2520-%2520DDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
-
-    :::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template.":::
     
 1. On the *Custom deployment* page, under *Project details*, enter the following information. 
+:::image type="content" source="./media/manage-ddos-protection/ddos-deploy-alert-logic-app.png" alt-text="Screenshot of DDoS Mitigation Alert Enrichment template.":::
 
     | Setting | Value |
     |--|--|
@@ -129,11 +129,10 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 
     :::image type="content" source="./media/manage-ddos-protection/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page.":::
 
-1. Select **Alert rules**. 
+1. Select **Alert rules**, then in the Alert rules page, select your subscription.
 
      :::image type="content" source="./media/manage-ddos-protection/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page.":::
 
-1. In the Alert rules page, select your subscription.
 1. Select the alerts created in this tutorial, then select **Delete**. 
 
 ## Next steps
