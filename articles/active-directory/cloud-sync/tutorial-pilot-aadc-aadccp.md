@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Pilot cloud sync for an existing synced AD forest
+# Pilot cloud sync for an existing synced Active Directory forest
 
 This tutorial walks you through piloting cloud sync for a test Active Directory forest that's already synced by using Azure Active Directory (Azure AD) Connect sync.
 
