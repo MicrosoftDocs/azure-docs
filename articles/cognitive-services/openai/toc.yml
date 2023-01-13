@@ -40,6 +40,8 @@ items:
       href: ./how-to/managed-identity.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
+    - name: Encryption of data at rest
+      href: encrypt-data-at-rest.md
     - name: Business continuity & disaster recovery (BCDR)
       href: ./how-to/business-continuity-disaster-recovery.md
 - name: Tutorials
@@ -70,8 +72,6 @@ items:
   items: 
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
-    - name: Encryption of data at rest
-      href: encrypt-data-at-rest.md
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use

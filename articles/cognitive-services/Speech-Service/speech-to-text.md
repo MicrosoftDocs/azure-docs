@@ -21,14 +21,13 @@ In this overview, you learn about the benefits and capabilities of the speech-to
 Speech-to-text, also known as speech recognition, enables real-time or offline transcription of audio streams into text. For a full list of available speech-to-text languages, see [Language and voice support for the Speech service](language-support.md?tabs=stt).
 
 > [!NOTE]
-> Microsoft uses the same recognition technology for Cortana and Office products.
+> Microsoft uses the same recognition technology for Windows and Office products.
 
 ## Get started
 
 To get started, try the [speech-to-text quickstart](get-started-speech-to-text.md). Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md).
 
 In depth samples are available in the [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/csspeech/samples) repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the [Microsoft/cognitive-services-speech-sdk-go](https://github.com/Microsoft/cognitive-services-speech-sdk-go) repository on GitHub.
-
 
 ## Batch transcription
 

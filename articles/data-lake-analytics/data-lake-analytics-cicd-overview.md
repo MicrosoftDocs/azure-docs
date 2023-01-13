@@ -1,9 +1,6 @@
 ---
 title: How to set up a CI/CD pipeline for Azure Data Lake Analytics
 description: Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.
-author: liudan66
-ms.author: liud
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018 
