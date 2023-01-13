@@ -50,7 +50,7 @@ To configure directory settings to disable automatic writeback of newly created 
 To disable writeback of all Microsoft 365 groups that were created before these modifications, use one of the folowing methods:
 
 - Portal: Use the [Microsoft Entra admin portal](../enterprise-users/groups-write-back-portal.md).
-- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0). For example: 
+- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
   
   ```PowerShell
     #Import-module
@@ -68,7 +68,7 @@ To disable writeback of all Microsoft 365 groups that were created before these 
     {
         Update-MgGroup -GroupId $group.id -WritebackConfiguration @{isEnabled=$false}
     }
-> We recomend using Microsoft Graph PowerShell SDK with [Windows PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3)
+> We recomend using Microsoft Graph PowerShell SDK with [Windows PowerShell 7](/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.3&preserve-view=true)
   
 - Microsoft Graph Explorer: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
