@@ -170,10 +170,10 @@ The following JSON shows the schema for the Application Health extension. The ex
     "typeHandlerVersion": "1.0",
     "settings": {
       "protocol": "<protocol>",
-      "port": "<port>",
+      "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": "5.0",
-      "numberOfProbes": "1.0"
+      "intervalInSeconds": 5.0,
+      "numberOfProbes": 1.0
     }
   }
 }  
@@ -186,7 +186,7 @@ The following JSON shows the schema for the Application Health extension. The ex
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
-| typeHandlerVersion | `1.0` | int |
+| typeHandlerVersion | `1.0` | string |
 
 ### Settings
 
@@ -214,11 +214,11 @@ The following JSON shows the schema for the Rich Health States extension. The ex
     "typeHandlerVersion": "2.0",
     "settings": {
       "protocol": "<protocol>",
-      "port": "<port>",
+      "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": "5.0",
-      "numberOfProbes": "1.0",
-      "gracePeriod": "600"
+      "intervalInSeconds": 5.0,
+      "numberOfProbes": 1.0,
+      "gracePeriod": 600
     }
   }
 }  
@@ -231,7 +231,7 @@ The following JSON shows the schema for the Rich Health States extension. The ex
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
-| typeHandlerVersion | `2.0` | int |
+| typeHandlerVersion | `2.0` | string |
 
 ### Settings
 
@@ -270,13 +270,25 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
     "typeHandlerVersion": "1.0",
     "settings": {
       "protocol": "<protocol>",
-      "port": "<port>",
+      "port": <port>,
       "requestPath": "</requestPath>"
     }
   }
 }
 ```
 Use `PATCH` to edit an already deployed extension.
+
+**Upgrade the VMs to install the extension.**
+
+```
+POST on `/subscriptions/<subscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/< myScaleSet >/manualupgrade?api-version=2022-08-01`
+```
+
+```json
+{
+  "instanceIds": ["*"]
+}
+```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -315,6 +327,11 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
 Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
+  
+# Upgrade instances to install the extension
+Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
+  -VMScaleSetName $vmScaleSetName `
+  -InstanceId '*'
 ```
 
 # [Azure CLI 2.0](#tab/azure-cli)
@@ -343,6 +360,14 @@ The extension.json file content.
   "requestPath": "</requestPath>"
 }
 ```
+**Upgrade the VMs to install the extension.**
+
+```azurecli-interactive
+az vmss update-instances \
+  --resource-group <myVMScaleSetResourceGroup> \
+  --name <myVMScaleSet> \
+  --instance-ids "*"
+```
 ---
 
 
@@ -368,11 +393,11 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
     "typeHandlerVersion": "2.0",
     "settings": {
       "protocol": "<protocol>",
-      "port": "<port>",
+      "port": <port>,
       "requestPath": "</requestPath>",
-      "intervalInSeconds": "<intervalInSeconds>",
-      "numberOfProbes": "<numberOfProbes>",
-      "gracePeriod": "<gracePeriod>"
+      "intervalInSeconds": <intervalInSeconds>,
+      "numberOfProbes": <numberOfProbes>,
+      "gracePeriod": <gracePeriod>
     }
   }
 }
@@ -457,9 +482,9 @@ The extension.json file content.
 ```json
 {
   "protocol": "<protocol>",
-  "port": "<port>",
+  "port": <port>,
   "requestPath": "</requestPath>",
-  "gracePeriod": "<healthExtensionGracePeriod>"
+  "gracePeriod": <healthExtensionGracePeriod>
 }
 ```
 **Upgrade the VMs to install the extension.**
