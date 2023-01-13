@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 01/10/2023
+ms.date: 01/13/2023
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -45,7 +45,7 @@ Application Health Extensions has two options available: **Binary Health States*
 | Identifying “Unhealthy” Instances | Instances will automatically fall into *Unhealthy* state if a *Healthy* signal is not received from the application. An *Unhealthy* instance can indicate either an issue with the extension configuration (e.g. unreachable endpoint) or an issue with the application (e.g. non-2xx status code). | Instances will only go into an *Unhealthy* state if the application emits an *Unhealthy* probe response. Users are responsible for implementing custom logic to identify and flag instances with *Unhealthy* applications<sup>2</sup>. Instances with incorrect extension settings (e.g. unreachable endpoint) or invalid health probe responses will fall under the *Unknown* state<sup>2</sup>. |
 | *Initializing* state for newly created instances | *Initializing* state is not available. Newly created instances may take some time before settling into a steady state. | *Initializing* state allows newly created instances to settle into a steady health state before making the instance eligible for rolling upgrades or instance repair operations. |
 | HTTP/HTTPS protocol | Supported | Supported |
-| TCP protocol | Supported | Limited Support – *Unknown* state is unavailable on TCP protocol. See [Link to Rich Health States > TCP protocol table] for health state behaviors on TCP. |
+| TCP protocol | Supported | Limited Support – *Unknown* state is unavailable on TCP protocol. See [Rich Health States protocol table](#rich-health-states) for health state behaviors on TCP. |
 
 <sup>1</sup> The *Unknown* state is unavailable on TCP protocol. 
 <sup>2</sup> Only applicable for HTTP/HTTPS protocol. TCP protocol will follow the same process of identifying *Unhealthy* instances as in Binary Health States. 
@@ -90,15 +90,15 @@ Rich health states reporting contains four health states, *Initializing*, *Healt
 | -------- | ------------ | ----------- |
 | http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with the following: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Healthy"}` |
 | http/https | Unhealthy | To send a *Unhealthy* signal, the application is expected to return a probe response with the following: **Probe Response Code**: Status 2xx, Probe Response Body: `{"ApplicationHealthState": "Unhealthy"}` |
-| http/https | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more details, see [link to “Initializing” state section]. |
-| http/https | Unknown | An *Unknown* state may occur in the following scenarios: when a non-2xx status code is returned by the application, when the probe request times out, when the application endpoint is unreachable or incorrectly configured, when a missing or invalid value is provided for `ApplicationHealthState` in the response body, or when the grace period expires. For more details, see [link to “Unknown” state section]. |
+| http/https | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more details, see [Initializing state](#initializing-state). |
+| http/https | Unknown | An *Unknown* state may occur in the following scenarios: when a non-2xx status code is returned by the application, when the probe request times out, when the application endpoint is unreachable or incorrectly configured, when a missing or invalid value is provided for `ApplicationHealthState` in the response body, or when the grace period expires. For more details, see [Unknown state](#unknown-state). |
 
 **TCP Protocol**
 | Protocol | Health state | Description |
 | -------- | ------------ | ----------- |
 | TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
 | TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
-| TCP | Unhealthy | The instance automatically enters an *Initializing* state at extension start time. For more details, see [link to “Initializing” state section]. | 
+| TCP | Unhealthy | The instance automatically enters an *Initializing* state at extension start time. For more details, see [Initializing state](#initializing-state). | 
 
 ## Initializing state
 
@@ -236,9 +236,13 @@ The following JSON shows the schema for the Rich health states extension. The ex
 ## Deploy the Application Health extension
 There are multiple ways of deploying the Application Health extension to your scale sets as detailed in the examples below.
 
-### REST API
+### Binary health states
+
+# [REST API](#tab/rest-api)
 
 The following example adds the Application Health extension (with name myHealthExtension) to the extensionProfile in the scale set model of a Windows-based scale set.
+
+You can also use this example to change an existing extension from Rich Health State to Binary Health by making a PATCH call instead of a PUT.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -262,11 +266,13 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 ```
 Use `PATCH` to edit an already deployed extension.
 
-### Azure PowerShell
+# [Azure PowerShell](#tab/azure-powershell)
 
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
+
+To change an existing extension from Rich Health States to Binary Health, use [Update-AzVmssExtension](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) instead of `Add-AzVmssExtension` at *Add the Application Health extension to the scale set model* step below.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -299,12 +305,13 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -VirtualMachineScaleSet $vmScaleSet
 ```
 
-
-### Azure CLI 2.0
+# [Azure CLI 2.0](#tab/azure-cli)
 
 Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
+
+You can also use this example to change an existing extension from Rich Health States to Binary Health.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -324,6 +331,135 @@ The extension.json file content.
   "requestPath": "</requestPath>"
 }
 ```
+---
+
+
+### Rich Health States
+
+# [REST API](#tab/rest-api)
+
+The following example adds the **Application Health - Rich States** extension (with name `myHealthExtension`) to the `extensionProfile` in the scale set model of a Windows-based scale set.
+
+You can also use this example to upgrade an existing extension from Binary to Rich Health States by making a PATCH call instead of a PUT.
+
+```
+PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
+```
+
+```json
+{
+  "name": "myHealthExtension",
+  "properties": {
+    "publisher": "Microsoft.ManagedServices",
+    "type": "ApplicationHealthWindows",
+    "autoUpgradeMinorVersion": true,
+    "typeHandlerVersion": "2.0",
+    "settings": {
+      "protocol": "<protocol>",
+      "port": "<port>",
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": "<intervalInSeconds>",
+      "numberOfProbes": "<numberOfProbes>",
+      "gracePeriod": "<gracePeriod>"
+    }
+  }
+}
+```
+Use `PATCH` to edit an already deployed extension.
+
+**Upgrade the VMs to install the extension.**
+
+```
+POST on `/subscriptions/<subscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/< myScaleSet >/manualupgrade?api-version=2022-08-01`
+```
+
+```json
+{
+  "instanceIds": ["*"]
+}
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
+
+The following example adds the **Application Health - Rich States** extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
+
+To upgrade an existing extension from Binary to Rich Health States, use [Update-AzVmssExtension](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) instead of `Add-AzVmssExtension` at *Add the Application Health extension to the scale set model* step below.
+
+```azurepowershell-interactive
+# Define the scale set variables
+$vmScaleSetName = "myVMScaleSet"
+$vmScaleSetResourceGroup = "myVMScaleSetResourceGroup"
+
+# Define the Application Health extension properties
+$publicConfig = @{"protocol" = "http"; "port" = 80; "requestPath" = "/healthEndpoint"; "gracePeriod" = 600};
+$extensionName = "myHealthExtension"
+$extensionType = "ApplicationHealthWindows"
+$publisher = "Microsoft.ManagedServices"
+
+# Get the scale set object
+$vmScaleSet = Get-AzVmss `
+  -ResourceGroupName $vmScaleSetResourceGroup `
+  -VMScaleSetName $vmScaleSetName
+
+# Add the Application Health extension to the scale set model
+Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
+  -Name $extensionName `
+  -Publisher $publisher `
+  -Setting $publicConfig `
+  -Type $extensionType `
+  -TypeHandlerVersion "2.0" `
+  -AutoUpgradeMinorVersion $True
+
+# Update the scale set
+Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
+  -Name $vmScaleSetName `
+  -VirtualMachineScaleSet $vmScaleSet
+
+# Upgrade instances to install the extension
+Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
+  -VMScaleSetName $vmScaleSetName `
+  -InstanceId '*'
+```
+
+# [Azure CLI 2.0](#tab/azure-cli)
+
+Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
+
+The following example adds the **Application Health - Rich States** extension to the scale set model of a Linux-based scale set.
+
+You can also use this example to upgrade an existing extension from Binary to Rich Health States.
+
+```azurecli-interactive
+az vmss extension set \
+  --name ApplicationHealthLinux \
+  --publisher Microsoft.ManagedServices \
+  --version 2.0 \
+  --resource-group <myVMScaleSetResourceGroup> \
+  --vmss-name <myVMScaleSet> \
+  --settings ./extension.json
+```
+The extension.json file content.
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": "<port>",
+  "requestPath": "</requestPath>",
+  "gracePeriod": "<healthExtensionGracePeriod>"
+}
+```
+**Upgrade the VMs to install the extension.**
+
+```azurecli-interactive
+az vmss update-instances \
+  --resource-group <myVMScaleSetResourceGroup> \
+  --name <myVMScaleSet> \
+  --instance-ids "*"
+```
+
+---
 
 
 ## Troubleshoot
