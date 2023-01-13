@@ -64,7 +64,7 @@ To customize the image tile that displays a brand image on the dashboard:
 
 1. Select **Image**. A window opens where you can upload a custom image or, optionally, specify a URL for the image.
 
-1. Select **Update**
+1. Select **Update**.
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png" alt-text="Screenshot that shows the in-store analytics application dashboard brand image tile." lightbox="media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png":::
 
@@ -90,7 +90,7 @@ A key step in customizing a dashboard is to rearrange the tiles to create a usef
 
 Azure IoT Central simplifies the application builder task of creating a dashboard. By using the dashboard edit mode, you can quickly add, move, resize, and delete tiles. 
 
-The **In-store analytics - checkout* application template also simplifies the task of creating a dashboard. The template provides a working dashboard layout, with sensors connected, and tiles that display checkout line counts and environmental conditions.
+The *In-store analytics - checkout* application template also simplifies the task of creating a dashboard. The template provides a working dashboard layout, with sensors connected, and tiles that display checkout line counts and environmental conditions.
 
 In this section, you rearrange the dashboard tiles in the *In-store analytics - checkout* application template to create a custom layout.
 
