@@ -21,18 +21,22 @@ When you migrate data to Azure Blob Storage, try to choose the most appropriate 
 
 If you change tiers, you'll pay the cost of writing to the initial tier, and then pay the cost of writing to the second tier. If you change tiers by using a lifecycle management policy, then you'll incur the cost of listing operations and policies will require a day to take effect and a day to complete execution.
 
-To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various the percentage of capacity that workloads and applications read in a month. 
+To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various read percentages. 
 
 > [!div class="mx-imgBorder"]
 > ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/access-tiers-best-practices/read-pattern-access-tiers.png)
 
-For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). For offline data movement to the desired tier, see [Azure Data Box](/products/databox/).
+- For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). 
+
+- For offline data movement to the desired tier, see [Azure Data Box](/products/databox/).
 
 ## Move data into the most cost-efficient access tiers
 
 After data is uploaded, you should periodically analyze your containers and blobs to understand how they are stored, organized, and used in production. Then, use lifecycle management policies to move data to the most cost-efficient tiers. For example, data that has not been accessed for more than 30 days might be more cost efficient if placed into the cool tier. Consider archiving data that has not been accessed for over 180 days. 
 
-To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking). Analyze use patterns by using tools such as Azure Synapse or Azure Databricks. To learn about how to analyze your data, see [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md). To learn about ways to analyze individual containers in your storage account. See these articles:
+To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking). Analyze use patterns by using tools such as Azure Synapse or Azure Databricks. To learn about ways to analyze your data, see any of these articles:
+
+- [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 
 - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
 
@@ -46,7 +50,7 @@ For information about how to convert append and page blobs to block blobs, see [
 
 ## Pack small files before moving data to cooler tiers
 
-To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Each read or write operation incurs a cost. Fewer files reduces the number of operations required to transfer data. You can use [this worksheet](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx) to analyze the impact of packing files and determine whether the overhead involved in packing and unpacking files is worth the savings.
+Each read or write operation incurs a cost. To reduce the cost of reading and writing data, consider packing small files into larger ones by using file formats such as TAR or ZIP. Fewer files reduces the number of operations required to transfer data. You can use [this worksheet](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx) to analyze the impact of packing files and determine whether the overhead involved in packing and unpacking files is worth the savings.
 
 The following chart shows the relative impact of packing files for the cool tier. The read cost assumes a monthly read percentage of 30%.
 
