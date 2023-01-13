@@ -5,7 +5,7 @@ services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/13/2022
 ms.author: halkazwini 
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
@@ -81,15 +81,15 @@ Use [New-AzPeeringServicePrefix](/powershell/module/az.peering/new-azpeeringserv
 New-AzPeeringServicePrefix -ResourceGroupName myResourceGroup -PeeringServiceName myPeeringService -Name myPrefix -prefix 240.0.0.0/32 -ServiceKey 00000000-0000-0000-0000-000000000000
 ```
 
-## List all the Peering Services connections
+## List all Peering Services connections
 
-To view the list of all Peering Services, use [Get-AzPeeringService](/powershell/module/az.peering/get-azpeeringservice):
+To view the list of all Peering Service connections, use [Get-AzPeeringService](/powershell/module/az.peering/get-azpeeringservice):
 
 ```azurepowershell-interactive
 Get-AzPeeringService | Format-Table Name, PeeringServiceLocation, PeeringServiceProvider, Location
 ```
 
-## List all the Peering Service prefixes
+## List all Peering Service prefixes
 
 To view the list of all Peering Service prefixes, use [Get-AzPeeringServicePrefix](/powershell/module/az.peering/get-azpeeringserviceprefix):
 
