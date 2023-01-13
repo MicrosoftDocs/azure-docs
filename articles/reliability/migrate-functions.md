@@ -8,8 +8,8 @@ ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: thalme
 ms.custom: references_regions
+
 ---
-<!--#Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
 
 # Migrate your function app to a zone-redundant plan
 
