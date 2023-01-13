@@ -25,7 +25,7 @@ This article gives you an overview of this workbook.
 
 ## Description
 
-![Workbook category](./media/workbook-risk-analysis/workbook-category.png)
+![Screenshot of workbook thumbnail.](./media/workbook-legacy-authentication/sign-ins-legacy-auth.png)
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication refers to basic authentication, which was once a widely used industry-standard method for passing user name and password information through a client to an identity provider.
 
