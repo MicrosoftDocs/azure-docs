@@ -1,5 +1,5 @@
 ---
-title: Create Azure Peering Service Connection - Azure portal
+title: Create Azure Peering Service connection - Azure portal
 description: Learn how to create, configure, and delete an Azure Peering Service connection using the Azure portal
 services: peering-service
 author: halkazwini
@@ -11,7 +11,7 @@ ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Create Peering Service Connection using the Azure portal
+# Create Peering Service connection using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](azure-portal.md)
