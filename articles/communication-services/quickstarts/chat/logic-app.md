@@ -92,7 +92,7 @@ To verify that you sent a message correctly:
 
 1. Enter the access token and thread ID.
 
-    :::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector Send chat message action dialog.":::
+    :::image type="content" source="./media/logic-app/azure-communications-services-connector-list-chat-messages-input.png" alt-text="Screenshot that shows the Azure Communication Services Chat connector List chat messages action dialog.":::
 
 ## Test your logic app
 
