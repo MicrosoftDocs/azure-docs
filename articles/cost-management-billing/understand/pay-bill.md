@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 01/04/2023
 ms.author: banders
 ---
 
@@ -82,7 +82,6 @@ There are a few countries that don't allow the use of debit cards, however in ge
 
 - Hong Kong and Brazil only support credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
-
 
 ### Check or wire transfer
 
@@ -256,8 +255,8 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.
 1. In the left menu, select **Invoices** under **Billing**.
-1. If any of your invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
-1. In the Pay now window, select **Select a payment method** to choose an existing credit card or add a new one.
+1. If any of your eligible invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
+1. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
 1. After you select a payment method, select **Pay now**.
 
 The invoice status shows *paid* within 24 hours.
@@ -265,6 +264,8 @@ The invoice status shows *paid* within 24 hours.
 ## Pay now might be unavailable
 
 If you have a Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
+
+Based on the default payment method and invoice amount, the **Pay now** option might be unavailable. Check your invoice for payment instructions.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

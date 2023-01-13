@@ -65,16 +65,9 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there might be network related issues and lags that are causing this error. Wait for the process to complete.  
 
 
-- **Message**: `Migration for Database <DatabaseName> failed with error 'Full backup <URL of backup in Azure Storage container> is missing checksum. Provide full backup with checksum.'.`
-
-- **Cause**: The database backups haven't been taken with checksum enabled.
-
-- **Recommendation**: See [Enable or disable backup checksums during backup or restore (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server) for taking backups with checksum enabled.  
-
-
 - **Message**: `Migration for Database <Database Name> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3234 Logical file <Name> isn't part of database <Database GUID>. Use RESTORE FILELISTONLY to list the logical file names. RESTORE DATABASE is terminating abnormally.'.`
 
-- **Cause**: You've specified a logical file name that isn't in the database backup.
+- **Cause**: You've specified a logical file name that isn't in the database backup. Another potential cause of this error is an incorrect storage account container name.
 
 - **Recommendation**: Run RESTORE FILELISTONLY to check the logical file names in your backup. For more information about RESTORE FILELISTONLY, see [RESTORE Statements - FILELISTONLY (Transact-SQL)](/sql/t-sql/statements/restore-statements-filelistonly-transact-sql).
 
@@ -212,7 +205,7 @@ Migrations that were completed before early December 2022 may be missing migrati
 ## Azure SQL Database Migration limitations
 
 The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (ADF) pipelines for data movement and thus abides by ADF limitations. A corresponding ADF is created when a database migration service is also created. Thus factory limits apply per service.
- The machine where the SHIR is installed acts as the compute for migration. Make sure this machine can handle the cpu and memory load of the data copy. To learn more, review [SHIR recommendations](/azure/data-factory/create-self-hosted-integration-runtime). 
+ The machine where the SHIR is installed acts as the compute for migration. Make sure this machine can handle the cpu and memory load of the data copy. To learn more, review [SHIR recommendations](../data-factory/create-self-hosted-integration-runtime.md). 
 - 100,000 table per database limit. 
 - 10,000 concurrent database migrations per service. 
 - Migration speed heavily depends on the target Azure SQL Database SKU and the self-hosted Integration Runtime host. 

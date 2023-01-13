@@ -28,7 +28,7 @@ landingContent:
           - text: What is Event Hubs?
             url: event-hubs-about.md
           - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md
+            url: azure-event-hubs-kafka-overview.md
           - text: What is Event Hubs Capture?
             url: event-hubs-capture-overview.md            
           - text: What is Event Hubs Premium?            
@@ -80,7 +80,7 @@ landingContent:
       - linkListType: overview      
         links:
           - text: What is Event Hubs for Apache Kafka?
-            url: event-hubs-for-kafka-ecosystem-overview.md    
+            url: azure-event-hubs-kafka-overview.md    
       - linkListType: quickstart
         links:
           - text: Stream into Event Hubs for Apache Kafka
