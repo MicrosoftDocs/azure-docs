@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/04/2023
+ms.date: 01/12/2023
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
@@ -41,10 +41,10 @@ Using key vault certificates is recommended because it helps improve API Managem
 * You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
 
     If you use a self-signed certificate:
-    * [Install a CA root certificate](api-management-howto-ca-certificates.md) in your API Management instance. 
+    * Install trusted root and intermediate [CA certificates](api-management-howto-ca-certificates.md) in your API Management instance. 
     
         > [!NOTE]
-        > CA root certificates for certificate validation are not supported in the Consumption tier.
+        > CA certificates for certificate validation are not supported in the Consumption tier.
     * [Disable certificate chain validation](#disable-certificate-chain-validation-for-self-signed-certificates)
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]

@@ -15,9 +15,9 @@ ms.custom: engagement-fy23
 
 # How to secure APIs using client certificate authentication in API Management
 
-API Management provides the capability to secure access to APIs (i.e., client to API Management) using client certificates and mutual TLS authentication. You can validate certificates presented by the connecting client and check certificate properties against desired values using policy expressions.
+API Management provides the capability to secure access to APIs (that is, client to API Management) using client certificates and mutual TLS authentication. You can validate certificates presented by the connecting client and check certificate properties against desired values using policy expressions.
 
-For information about securing access to the backend service of an API using client certificates (i.e., API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).
+For information about securing access to the backend service of an API using client certificates (that is, API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md).
 
 For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
 
@@ -39,10 +39,10 @@ Using key vault certificates is recommended because it helps improve API Managem
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 * You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
 
-    If you use a self-signed certificate, also [install a CA root certificate](api-management-howto-ca-certificates.md) in your API Management instance.
+    If you use a self-signed certificate, also install trusted root and intermeidate [CA certificates](api-management-howto-ca-certificates.md) in your API Management instance.
     
     > [!NOTE]
-    > CA root certificates for certificate validation are not supported in the Consumption tier.
+    > CA certificates for certificate validation are not supported in the Consumption tier.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 
@@ -50,7 +50,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ### Developer, Basic, Standard, or Premium tier
 
-To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tie,s you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
+To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
