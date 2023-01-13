@@ -13,9 +13,9 @@ ms.date: 06/14/2022
 
 # Tutorial: Create and deploy an in-store analytics application template
 
-For many retailers, environmental conditions are a key way to differentiate their stores from those of their competitors. The best retailers make every effort to maintain pleasant conditions within their stores for the comfort of their customers.
+For many retailers, environmental conditions are a key way to differentiate their stores from their competitors' stores. The most successful retailers make every effort to maintain pleasant conditions within their stores for the comfort of their customers.
 
-To build an end-to-end solution, you can use the IoT Central _in-store analytics checkout_ application template. This template lets you digitally connect to and monitor a retail store's environment through a variety of sensor devices. These devices generate telemetry that retailers can convert into business insights to help reduce operating costs and create a great experience for their customers.
+To build an end-to-end solution, you can use the IoT Central _in-store analytics checkout_ application template. This template lets you digitally connect to and monitor a store's environment through various sensor devices. These devices generate telemetry that retailers can convert into business insights to help reduce operating costs and create a great experience for their customers.
 
 The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard:
 
@@ -23,7 +23,7 @@ The application template comes with a set of device templates and uses a set of 
 
 As shown in the preceding application architecture diagram, you can use the application template to:
 
-* **1**. Connect a variety of IoT sensors to an IoT Central application instance.
+* **1**. Connect various IoT sensors to an IoT Central application instance.
 
    An IoT solution starts with a set of sensors that capture meaningful signals from within a retail store environment. The sensors are represented by the various icons at the far left of the architecture diagram.
 
@@ -39,7 +39,7 @@ As shown in the preceding application architecture diagram, you can use the appl
 
 * **4**. Transform the environmental conditions within the stores into insights that the store team can use to improve the customer experience.
 
-   The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure platform as a service (PaaS) services that can perform data manipulation and enrich these insights before landing them in a business application.
+   You can configure an Azure IoT Central application within a solution to export raw or aggregated insights to a set of Azure platform as a service (PaaS) services. PAAS services can perform data manipulation and enrich these insights before landing them in a business application.
 
 * **5**. Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
 
@@ -248,7 +248,7 @@ To create a rule:
 
 1. For **Device template**, select the RuuviTag device template. 
 
-   The rule you define will apply to all sensors, based on that template. Optionally, you could create a filter that would apply the rule to only a defined subset of the sensors.
+   The rule that you define applies to all sensors, based on that template. Optionally, you could create a filter that would apply the rule to only a defined subset of the sensors.
 
 1. For **Telemetry**, select **RelativeHumidity**. It's the device capability that you customized in an earlier step.
 
