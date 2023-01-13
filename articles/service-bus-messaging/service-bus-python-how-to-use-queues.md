@@ -342,7 +342,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
     import asyncio
     from azure.servicebus.aio import ServiceBusClient
 
-    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STR"
     QUEUE_NAME = "QUEUE_NAME"
     ```
 
