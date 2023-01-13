@@ -108,4 +108,4 @@ Azure Communications Gateway provides metrics that you can use to monitor the ov
 
 ## Next steps
 
-- Learn about [planning and managing costs for Azure Communications Gateway](plan-and-manage-costs.md).
+- Learn about [requesting changes to Azure Communications Gateway](request-changes.md).
