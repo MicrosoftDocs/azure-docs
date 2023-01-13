@@ -128,9 +128,8 @@ The following sample code shows you how to send a message to a queue.
 
     ```python
     async def send_single_message(sender):
-        # create a Service Bus message
+        # Create a Service Bus message and send it to the queue
         message = ServiceBusMessage("Single Message")
-        # send the message to the queue
         await sender.send_messages(message)
         print("Sent a single message")
     ```
@@ -141,31 +140,32 @@ The following sample code shows you how to send a message to a queue.
 
     ```python
     async def send_a_list_of_messages(sender):
-        # create a list of messages
+        # Create a list of messages and send it to the queue
         messages = [ServiceBusMessage("Message in list") for _ in range(5)]
-        # send the list of messages to the queue
         await sender.send_messages(messages)
         print("Sent a list of 5 messages")
-        ```
+    ```
+
 1. Add a method to send a batch of messages.
 
     ```python
     async def send_batch_message(sender):
-        # create a batch of messages
+        # Create a batch of messages
         async with sender:
             batch_message = await sender.create_message_batch()
             for _ in range(10):
                 try:
-                    # add a message to the batch
+                    # Add a message to the batch
                     batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
                 except ValueError:
                     # ServiceBusMessageBatch object reaches max_size.
                     # New ServiceBusMessageBatch object can be created here to send more data.
                     break
-            # send the batch of messages to the queue
+            # Send the batch of messages to the queue
             await sender.send_messages(batch_message)
         print("Sent a batch of 10 messages")
-        ```
+    ```
+
 1. Create a Service Bus client and then a queue sender object to send messages.
 
     ```python
@@ -174,14 +174,14 @@ The following sample code shows you how to send a message to a queue.
         async with ServiceBusClient.from_connection_string(
             conn_str=NAMESPACE_CONNECTION_STR,
             logging_enable=True) as servicebus_client:
-            # get a Queue Sender object to send messages to the queue
+            # Get a Queue Sender object to send messages to the queue
             sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
             async with sender:
-                # send one message
+                # Send one message
                 await send_single_message(sender)
-                # send a list of messages
+                # Send a list of messages
                 await send_a_list_of_messages(sender)
-                # send a batch of messages
+                # Send a batch of messages
                 await send_batch_message(sender)
     ```
 
