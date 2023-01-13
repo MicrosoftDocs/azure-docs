@@ -35,35 +35,12 @@ The file has two sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Authentication** | 1. Generate deployment credentials. |
 |**Deploy** | 1. Deploy the database. |
 
 ## Generate deployment credentials
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
-
-Replace the placeholders `server-name` with the name of your PostgreSQL server hosted on Azure. Replace the `subscription-id` and `resource-group` with the subscription ID and resource group connected to your PostgreSQL server.
-
-```azurecli-interactive
-   az ad sp create-for-rbac --name {server-name} --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                            --sdk-auth
-```
-
-The output is a JSON object with the role assignment credentials that provide access to your database similar to below. Copy this output JSON object for later.
-
-```output
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
-```
-
-> [!IMPORTANT]
-> It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific server and not the entire resource group.
+[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ## Copy the PostgreSQL connection string
 
@@ -81,23 +58,7 @@ You will use the connection string as a GitHub secret.
 
 ## Configure the GitHub secrets
 
-1. In [GitHub](https://github.com/), browse your repository.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
-
-    When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
-
-    ```yaml
-    - uses: azure/login@v1
-    with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-   ```
-
-1. Select **New secret** again.
-
-1. Paste the connection string value into the secret's value field. Give the secret the name `AZURE_POSTGRESQL_CONNECTION_STRING`.
+[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add your workflow
 
@@ -112,21 +73,23 @@ You will use the connection string as a GitHub secret.
 
     on:
     push:
-        branches: [ master ]
+        branches: [ main ]
     pull_request:
-        branches: [ master ]
+        branches: [ main ]
     ```
 
-1. Rename your workflow `PostgreSQL for GitHub Actions` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
+1. Rename your workflow `PostgreSQL for GitHub Actions` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the GitHub secret(s) you created earlier.
+
+    # [Service principal](#tab/userlevel)
 
     ```yaml
     name: PostgreSQL for GitHub Actions
 
     on:
     push:
-        branches: [ master ]
+        branches: [ main ]
     pull_request:
-        branches: [ master ]
+        branches: [ main ]
 
     jobs:
     build:
@@ -137,6 +100,29 @@ You will use the connection string as a GitHub secret.
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
+    # [OpenID Connect](#tab/openid)
+
+    ```yaml
+    name: PostgreSQL for GitHub Actions
+
+    on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - uses: azure/login@v1
+        with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    ```
+    ---
 
 2. Use the Azure PostgreSQL Deploy action to connect to your PostgreSQL instance. Replace `POSTGRESQL_SERVER_NAME` with the name of your server. You should have a PostgreSQL data file named `data.sql` at the root level of your repository.
 
@@ -150,14 +136,16 @@ You will use the connection string as a GitHub secret.
 
 3. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
+    # [Service principal](#tab/userlevel)
+
     ```yaml
    name: PostgreSQL for GitHub Actions
 
     on:
     push:
-        branches: [ master ]
+        branches: [ main ]
     pull_request:
-        branches: [ master ]
+        branches: [ main ]
 
 
     jobs:
@@ -167,7 +155,7 @@ You will use the connection string as a GitHub secret.
         - uses: actions/checkout@v1
         - uses: azure/login@v1
         with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+            client-id: ${{ secrets.AZURE_CREDENTIALS }}
 
     - uses: azure/postgresql@v1
       with:
@@ -180,6 +168,43 @@ You will use the connection string as a GitHub secret.
       run: |
          az logout
     ```
+
+    # [OpenID Connect](#tab/openid)
+
+    ```yaml
+   name: PostgreSQL for GitHub Actions
+
+    on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+
+    jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - uses: azure/login@v1
+        with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    - uses: azure/postgresql@v1
+      with:
+        server-name: POSTGRESQL_SERVER_NAME
+        connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
+        sql-file: './data.sql'
+
+        # Azure logout
+    - name: logout
+      run: |
+         az logout
+    ```
+    ---
+
 
 ## Review your deployment
 

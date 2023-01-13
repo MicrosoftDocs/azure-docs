@@ -36,7 +36,7 @@ ms.custom: template-how-to
 
   - If you're manually entering provisioning values, you'll need the name of the SIM policy.
 
-  - If you're using a JSON file, you'll need the full resource ID of the SIM policy.
+  - If you're using a JSON file, you'll need the full resource ID of the SIM policy. You can collect this by navigating to the SIM Policy resource, selecting **JSON View** and copying the contents of the **Resource ID** field.
 
 ## Collect the required information for your SIMs
 
@@ -85,7 +85,7 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
 
 You'll now begin the SIM provisioning process through the Azure portal.
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::

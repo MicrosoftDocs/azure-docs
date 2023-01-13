@@ -31,41 +31,6 @@ Azure Cosmos DB is a fast and flexible distributed database that scales seamless
 So if you're asking "How can I improve my database performance?" consider the following options:
 
 ## Networking
-
-* **Connection mode: Use Direct mode**
-
-Java SDK default connection mode is direct. You can configure the connection mode in the client builder using the *directMode()* or *gatewayMode()* methods, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (*DirectConnectionConfig* for *directMode()*,  *GatewayConnectionConfig* for *gatewayMode()*.). To learn more about different connectivity options, see the [connectivity modes](sdk-connection-modes.md) article.
-
-# [Async](#tab/api-async)
-
-Java SDK V4 (Maven com.azure::azure-cosmos) Async API
-
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientConnectionModeAsync)]
-
-# [Sync](#tab/api-sync)
-
-Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
-
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientConnectionModeSync)]
-
---- 
-
-The *directMode()* method has an additional override, for the following reason. Control plane operations such as database and container CRUD *always* utilize Gateway mode; when the user has configured Direct mode for data plane operations, control plane operations use default Gateway mode settings. This suits most users. However, users who want Direct mode for data plane operations as well as tunability of control plane Gateway mode parameters can use the following *directMode()* override:
-
-# [Async](#tab/api-async)
-
-Java SDK V4 (Maven com.azure::azure-cosmos) Async API
-
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceClientDirectOverrideAsync)]
-
-# [Sync](#tab/api-sync)
-
-Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
-
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientDirectOverrideSync)]
-
---- 
-
 <a name="collocate-clients"></a>
 * **Collocate clients in same Azure region for performance**
 <a id="same-region"></a>
@@ -86,6 +51,10 @@ Without accelerated networking, IO that transits between your Azure VM and other
 Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager.
 
 Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions for more details.
+
+## Tuning direct and gateway connection configuration
+
+For optimizing direct and gateway mode connection configurations, see how to [tune connection configurations for java sdk v4](tune-connection-configurations-java-sdk-v4.md).
 
 ## SDK usage
 * **Install the most recent SDK**
@@ -131,35 +100,6 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceClientSync)]
 
  --- 
-
-* **Tuning ConnectionPolicy**
-
-By default, Direct mode Azure Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance.
-
-In Azure Cosmos DB Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
-
-* ***Overview of Direct mode***
-<a id="direct-connection"></a>
-
-:::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode architecture" border="false":::
-
-The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The diagram above shows how Direct mode routes client requests to replicas in the Azure Cosmos DB backend. The Direct mode architecture allocates up to 130 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
-
-* ***Configuration options for Direct mode***
-
-If non-default Direct mode behavior is desired, create a *DirectConnectionConfig* instance and customize its properties, then pass the customized property instance to the *directMode()* method in the Azure Cosmos DB client builder.
-
-These configuration settings control the behavior of the underlying Direct mode architecture discussed above.
-
-As a first step, use the following recommended configuration settings below. These *DirectConnectionConfig* options are advanced configuration settings which can affect SDK performance in unexpected ways; we recommend users avoid modifying them unless they feel very comfortable in understanding the tradeoffs and it is absolutely necessary. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
-
-| Configuration option       | Default   |
-| :------------------:       | :-----:   |
-| idleConnectionTimeout      | "PT0"     |
-| maxConnectionsPerEndpoint  | "130"     |
-| connectTimeout             | "PT5S"    |
-| idleEndpointTimeout        | "PT1H"    |
-| maxRequestsPerConnection   | "30"      |
 
 * **Scale out your client-workload**
 
@@ -263,6 +203,7 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
 The latter is supported but will add latency to your application; the SDK must parse the item and extract the partition key.
 
+
 ## Query operations
 
 For query operations see the [performance tips for queries](performance-tips-query-sdk.md?pivots=programming-language-java).
@@ -319,7 +260,7 @@ x-ms-retry-after-ms :100
 
 The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
-If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client may not suffice; in this case, the client throws a *CosmosClientException* with status code 429 to the application. The default retry count can be changed by using setRetryOptions on the ConnectionPolicy instance. By default, the *CosmosClientException* with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
+If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client may not suffice; in this case, the client throws a *CosmosClientException* with status code 429 to the application. The default retry count can be changed by using `setMaxRetryAttemptsOnThrottledRequests()` on the `ThrottlingRetryOptions` instance. By default, the *CosmosClientException* with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
 
 While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](../request-units.md).
 

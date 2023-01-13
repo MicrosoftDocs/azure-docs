@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 09/13/2022
+  ms.date: 10/19/2022
   ms.author: greglin
   ms.custom: references_regions
 title: Frequently asked questions about Application Gateway
@@ -74,6 +74,8 @@ sections:
           $publicIP.IdleTimeoutInMinutes = "15"
           Set-AzPublicIpAddress -PublicIpAddress $publicIP
           ```
+
+          For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is non-configurable.
  
       - question: Can I rename my Application Gateway resource?
         answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
@@ -402,7 +404,7 @@ sections:
           
           As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
           
-          To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://misissued.com/#revoked). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
+          To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate that has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
           
           For Application Gateway specific information, see below -
           

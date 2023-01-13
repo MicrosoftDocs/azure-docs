@@ -4,7 +4,7 @@ description: Learn how to set up labs to teach engineering classes with Autodesk
 author: nicolela
 ms.topic: how-to
 ms.date: 02/02/2022
-ms.author: nicolela
+ms.service: lab-services
 ---
 
 # Set up labs for Autodesk

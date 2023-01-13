@@ -5,8 +5,9 @@ description: Learn how Azure Machine Learning pipelines ingest data, and how to 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.author: larryfr
-author: blackmist
+ms.author: keli19
+author: likebupt
+ms.reviewer: lagayhar
 ms.date: 08/18/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
@@ -227,8 +228,10 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 If you'd like to make your `OutputFileDatasetConfig` available for longer than the duration of your experiment, register it to your workspace to share and reuse across experiments.
 
 ```python
-step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
-                                                         description = 'files from step1`)
+step1_output_ds = step1_output_data.register_on_complete(
+    name='processed_data', 
+    description = 'files from step1'
+)
 ```
 
 ## Delete `OutputFileDatasetConfig` contents when no longer needed

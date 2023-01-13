@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 10/21/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -44,7 +44,7 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
     :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
-## Mount an NFS share
+## Mount an NFS share using the Azure portal
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
@@ -54,9 +54,19 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
 You have now mounted your NFS share.
 
+## Mount an NFS share using /etc/fstab
+
+If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. Replace `YourStorageAccountName` and `FileShareName` with your information.
+
+```bash
+<YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,sec=sys 0 0
+```
+
+For more information, enter the command `man fstab` from the Linux command line.
+
 ### Validate connectivity
 
-If your mount failed, it's possible that your private endpoint was not set up correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
+If your mount failed, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
 ## Next steps
 

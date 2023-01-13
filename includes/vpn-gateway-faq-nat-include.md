@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/07/2022
+ ms.date: 10/19/2022
  ms.author: cherylmc
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
@@ -16,6 +16,10 @@ No, NAT is supported on **IPsec** cross-premises connections only.
 ### How many NAT rules can I use on a VPN gateway?
 
 You can create up to 100 NAT rules (Ingress and Egress rules combined) on a VPN gateway.
+
+### Can I use / in a NAT rule name?
+
+No. You will receive an error.
 
 ### Is NAT applied to all connections on a VPN gateway?
 
@@ -35,7 +39,8 @@ Yes, you can use BGP with NAT. Here are some important considerations:
 
 * Select **Enable BGP Route Translation** on the NAT Rules configuration page to ensure the learned routes and advertised routes are translated to post-NAT address prefixes (External Mappings) based on the NAT rules associated with the connections. You need to ensure the on-premises BGP routers advertise the exact prefixes as defined in the IngressSNAT rules.
 
-* If the on-premises VPN router uses APIPA (169.254.x.x) as the BGP speaker/peer IP, use the APIPA address directly in the **BGP peer IP address** field of the local network gateway. If the on-premises VPN router uses regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure the IngressSNAT rule will translate the BGP peer IP to a unique, non-overlapped address and put the post-NAT address in the **BGP peer IP address** field of the local network gateway.
+* If the on-premises VPN router uses regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure the IngressSNAT rule will translate the BGP peer IP to a unique, non-overlapped address and put the post-NAT address in the **BGP peer IP address** field of the local network gateway. 
+* NAT isn't supported with BGP APIPA addresses.
 
 ### Do I need to create the matching DNAT rules for the SNAT rule?
 

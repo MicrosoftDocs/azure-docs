@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 12/06/2022
 ms.author: radeltch
 
 ---
@@ -45,6 +45,10 @@ ms.author: radeltch
 [template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
+
+
+> [!NOTE]
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
@@ -141,19 +145,19 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
             1. Click OK
          1. IP address 10.0.0.5 for NW2
             * Repeat the steps above for NW2
-      1. Create the backend pools
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
-            1. Open the load balancer, select backend pools, and click Add
-            1. Enter the name of the new backend pool (for example **nw-backend**)
-            1. Select Virtual Network
-            1. Click Add a virtual machine
-            1. Select the virtual machines of the NFS cluster and their IP addresses.
-            1. Click Add.
+      1. Create a single back-end pool: 
+         1. Open the load balancer, select **Backend pools**, and then select **Add**.
+         1. Enter the name of the new back-end pool (for example, **nw-backend**).
+         2. Select **NIC** for Backend Pool Configuration. 
+         1. Select **Add a virtual machine**.
+         1. Select the virtual machines of the cluster.
+         1. Select **Add**.     
+         2. Select **Save**.   
       1. Create the health probes
          1. Port 61000 for NW1
             1. Open the load balancer, select health probes, and click Add
             1. Enter the name of the new health probe (for example **nw1-hp**)
-            1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
+            1. Select TCP as protocol, port 610**00**, keep Interval 5  
             1. Click OK
          1. Port 61001 for NW2
             * Repeat the steps above to create a health probe for NW2
@@ -161,50 +165,11 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw-backend** and **nw1-hp**)
+         2. Increase idle timeout to 30 minutes
          1. Select **HA Ports**.
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2
-1. Alternatively, ***only if***  your scenario requires basic load balancer, follow these instructions follow these configuration steps instead to create basic load balancer:
-   1. Create the frontend IP addresses
-      1. IP address 10.0.0.4 for NW1
-         1. Open the load balancer, select frontend IP pool, and click Add
-         1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
-         1. Click OK
-      1. IP address 10.0.0.5 for NW2
-         * Repeat the steps above for NW2
-   1. Create the backend pools
-      1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
-         1. Open the load balancer, select backend pools, and click Add
-         1. Enter the name of the new backend pool (for example **nw-backend**)
-         1. Click Add a virtual machine
-         1. Select the Availability Set you created earlier
-         1. Select the virtual machines of the NFS cluster
-         1. Click OK
-   1. Create the health probes
-      1. Port 61000 for NW1
-         1. Open the load balancer, select health probes, and click Add
-         1. Enter the name of the new health probe (for example **nw1-hp**)
-         1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
-         1. Click OK
-      1. Port 61001 for NW2
-         * Repeat the steps above to create a health probe for NW2
-   1. Load balancing rules
-      1. 2049 TCP for NW1
-         1. Open the load balancer, select load balancing rules and click Add
-         1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
-         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**)
-         1. Keep protocol **TCP**, enter port **2049**
-         1. Increase idle timeout to 30 minutes
-         1. **Make sure to enable Floating IP**
-         1. Click OK
-      1. 2049 UDP for NW1
-         * Repeat the steps above for port 2049 and UDP for NW1
-      1. 2049 TCP for NW2
-         * Repeat the steps above for port 2049 and TCP for NW2
-      1. 2049 UDP for NW2
-         * Repeat the steps above for port 2049 and UDP for NW2
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
@@ -318,8 +283,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    }
    common {
         handlers {
-             fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
-             after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
+             fence-peer "/usr/lib/drbd/crm-fence-peer.9.sh";
+             after-resync-target "/usr/lib/drbd/crm-unfence-peer.9.sh";
              split-brain "/usr/lib/drbd/notify-split-brain.sh root";
              pri-lost-after-sb "/usr/lib/drbd/notify-pri-lost-after-sb.sh; /usr/lib/drbd/notify-emergency-reboot.sh; echo b > /proc/sysrq-trigger ; reboot -f";
         }
@@ -362,6 +327,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         disk {
              on-io-error       detach;
         }
+        net {
+            fencing  resource-and-stonith;  
+        }
         on <b>prod-nfs-0</b> {
              address   <b>10.0.0.6:7790</b>;
              device    /dev/drbd<b>0</b>;
@@ -386,6 +354,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         protocol     C;
         disk {
              on-io-error       detach;
+        }
+        net {
+            fencing  resource-and-stonith;  
         }
         on <b>prod-nfs-0</b> {
              address   <b>10.0.0.6:7791</b>;
@@ -512,7 +483,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive vip_<b>NW1</b>_nfs IPaddr2 \
      params ip=<b>10.0.0.4</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
+   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -554,7 +526,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive vip_<b>NW2</b>_nfs IPaddr2 \
      params ip=<b>10.0.0.5</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
+   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b> \
+     op monitor timeout=20s interval=10
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs

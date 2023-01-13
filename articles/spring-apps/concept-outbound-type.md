@@ -1,15 +1,18 @@
 ---
-title:  Customize Azure Spring Cloud egress with a user-defined route
-description: Learn how to customize Azure Spring Cloud egress with a user-defined route.
+title:  Customize Azure Spring Apps egress with a user-defined route
+description: Learn how to customize Azure Spring Apps egress with a user-defined route.
 author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
-ms.date: 09/25/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 10/20/2022
+ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 
-# Customize Azure Spring Cloud egress with a user-defined route
+# Customize Azure Spring Apps egress with a user-defined route
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -27,7 +30,7 @@ By default, Azure Spring Apps provisions a Standard SKU Load Balancer that you c
 
 ## Limitations
 
-- You can only define `OutboundType` when you create a new Azure Spring Apps service instance, and you can't updated it afterwards. `OutboundType` works only with a VNet instance.
+- You can only define `OutboundType` when you create a new Azure Spring Apps service instance, and you can't updated it afterwards. `OutboundType` works only with a virtual network.
 - Setting `outboundType` to `UserDefinedRouting` requires a user-defined route with valid outbound connectivity for your instance.
 - Setting `outboundType` to `UserDefinedRouting` implies that the ingress source IP routed to the load-balancer may not match the instance's outgoing egress destination address.
 
@@ -47,7 +50,7 @@ The default `outboundType` value is `loadBalancer`. If `outboundType` is set to 
 If `outboundType` is set to `userDefinedRouting`, Azure Spring Apps won't automatically configure egress paths. You must set up egress paths yourself. You could still find two load balancers in your resource group. They're only used for internal traffic and won't expose any public IP. You must prepare two route tables associated with two subnets: one to service the runtime and another for the user app.
 
 > [!IMPORTANT]
-> An `outboundType` of `userDefinedRouting` requires a route for `0.0.0.0/0` and the next hop destination of a network virtual appliance in the route table. For more information, see [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
+> An `outboundType` of `userDefinedRouting` requires a route for `0.0.0.0/0` and the next hop destination of a network virtual appliance in the route table. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## See also
 

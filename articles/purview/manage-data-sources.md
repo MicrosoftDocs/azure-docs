@@ -1,8 +1,8 @@
 ---
 title: How to manage multicloud data sources
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Microsoft Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -72,7 +72,7 @@ To create a hierarchy of collections, assign higher-level collections as a paren
 
 ## Next steps
 
-Learn how to register and scan various data sources:
+Learn how to discover and govern various data sources:
 
 * [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
 * [Power BI tenant](register-scan-power-bi-tenant.md)

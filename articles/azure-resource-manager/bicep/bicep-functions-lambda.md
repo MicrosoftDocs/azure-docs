@@ -213,8 +213,8 @@ var dogs = [
   }
 ]
 var ages = map(dogs, dog => dog.age)
-output totalAge int = reduce(ages, 0, (cur, prev) => cur + prev)
-output totalAgeAdd1 int = reduce(ages, 1, (cur, prev) => cur + prev)
+output totalAge int = reduce(ages, 0, (cur, next) => cur + next)
+output totalAgeAdd1 int = reduce(ages, 1, (cur, next) => cur + next)
 ```
 
 The output from the preceding example is:

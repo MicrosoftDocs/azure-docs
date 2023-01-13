@@ -45,7 +45,6 @@ The creation of federated identity credentials is available on user-assigned man
 - Brazil Southeast
 - East Asia
 - Southeast Asia
-- Switzerland West
 - South Africa West
 - Qatar Central
 - Australia Central
@@ -190,10 +189,10 @@ The following table describes limits on requests to the user-assigned managed id
 
 | Operation         | Requests-per-second per Azure AD tenant    | Requests-per-second per subscription    | Requests-per-second per resource    |
 |-------------------|----------------|----------------|----------------|
-| [Create or update](/rest/api/managedidentity/user-assigned-identities/create-or-update) requests | 10 | 2 | 0.25 |
-| [Get](/rest/api/managedidentity/user-assigned-identities/get) requests | 30 | 10 | 0.5 |
-| [List by resource group](/rest/api/managedidentity/user-assigned-identities/list-by-resource-group) or [List by subscription](/rest/api/managedidentity/user-assigned-identities/list-by-subscription) requests | 15 | 5 | 0.25 |
-| [Delete](/rest/api/managedidentity/user-assigned-identities/delete) requests | 10 | 2 | 0.25 |
+| [Create or update](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/create-or-update) requests | 10 | 2 | 0.25 |
+| [Get](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/get) requests | 30 | 10 | 0.5 |
+| [List by resource group](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/list-by-resource-group) or [List by subscription](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/list-by-subscription) requests | 15 | 5 | 0.25 |
+| [Delete](/rest/api/managedidentity/2022-01-31-preview/user-assigned-identities/delete) requests | 10 | 2 | 0.25 |
 
 ## Errors
 

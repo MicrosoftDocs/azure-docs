@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 11/16/2022
 ms.custom: cliv1, sdkv1, event-tier1-build-2022
 ---
 

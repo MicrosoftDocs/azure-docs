@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/authentication/how-to-mfa-microsoft-managed.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-authentication-default-enablement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/authentication/concept-certificate-based-authentication-mobile.md",
       "redirect_url": "/azure/active-directory/authentication/concept-certificate-based-authentication-mobile-ios",
       "redirect_document_id": false
@@ -41,8 +46,63 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/otsuka-shokai-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/netsuite-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/lifecycle-workflows-developer-reference.md",
+      "redirect_url": "/graph/api/resources/identitygovernance-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-offboard-custom-workflow-graph.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-offboard-custom-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-scheduled-leaver-graph.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-scheduled-leaver",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/set-employee-leave-date-time.md",
+      "redirect_url": "/graph/tutorial-lifecycle-workflows-set-employeeleavedatetime",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/keylight-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/navex-irm-keylight-lockpath-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/headerf5-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
     {
@@ -77,7 +137,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -1862,7 +1922,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/azure-ad-endpoint-comparison.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+      "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
     {
@@ -1892,8 +1952,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-add-user-without-invite.md",
-      "redirect_url": "/azure/active-directory/b2b/add-user-without-invite",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-allow-deny-list.md",
@@ -3398,17 +3458,17 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-permissions.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-scopes.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/v1-permissions-and-consent.md",
-      "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
       "redirect_document_id": false
     },
     {
@@ -3858,8 +3918,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-user-without-invite.md",
-      "redirect_url": "/azure/active-directory/external-identities/add-user-without-invite",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/allow-deny-list.md",
@@ -4039,7 +4099,7 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/redemption-experience.md",
       "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/self-service-portal.md",
@@ -4300,6 +4360,26 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-find-activity-reports.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-access-activity-logs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-data-download.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/workbook-legacy authentication.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/workbook-legacy-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-audit-data.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/customize-branding.md",
@@ -5500,6 +5580,21 @@
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-connectivity-ports-how-to.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/consent-framework.md",
+      "redirect_url": "/azure/active-directory/develop/application-consent-experience",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/v2-permissions-and-consent.md",
+      "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/consent-and-permissions-overview.md",
+      "redirect_url": "/azure/active-directory/manage-apps/user-admin-consent-overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-enable.md",
@@ -10862,6 +10957,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-install-use-log-analytics-views.md",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-create-azure-portal.md",
       "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-groups",
       "redirect_document_id": false
@@ -10898,7 +10998,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/fundamentals/keep-me-signed-in.md",
-      "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal",
       "redirect_document_id": false
     },
     {

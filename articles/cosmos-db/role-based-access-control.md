@@ -45,6 +45,9 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 > [!TIP]
 > Custom roles that need to access data stored within Azure Cosmos DB or use Data Explorer in the Azure portal must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action.
 
+> [!NOTE]
+> Custom role assignments may not always be visible in the Azure portal.
+
 ## <a id="prevent-sdk-changes"></a>Preventing changes from the Azure Cosmos DB SDKs
 
 The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos DB SDK). This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos DB accounts, databases, containers, and throughput. The operations involving reading and writing data to Azure Cosmos DB containers themselves are not impacted.

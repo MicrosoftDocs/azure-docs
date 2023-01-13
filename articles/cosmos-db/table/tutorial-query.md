@@ -32,11 +32,11 @@ The queries in this article use the following sample `People` table:
 
 See [Querying Tables and Entities](/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the API for Table.
 
-For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB for Table](introduction.md) and [Develop with the API for Table in .NET](tutorial-develop-table-dotnet.md).
+For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB for Table](introduction.md) and [Develop with the API for Table in .NET](quickstart-dotnet.md).
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [five-minute quickstart](quickstart-dotnet.md) or the [developer tutorial](tutorial-develop-table-dotnet.md) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [five-minute quickstart](quickstart-dotnet.md) to create an account and populate your database.
 
 ## Query on PartitionKey and RowKey
 

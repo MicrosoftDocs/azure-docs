@@ -14,7 +14,7 @@ ms.date: 09/22/2022
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
+This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.  To understand how to estimate pricing for any scenario, not just the examples here, refer to the article [Plan and manage costs for Azure Data Factory](plan-manage-costs.md).
 
 For more details about pricing in Azure Data Factory, refer to the [Data Pipeline Pricing and FAQ](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 
@@ -29,6 +29,7 @@ The prices used in these examples below are hypothetical and are not intended to
 - [Transform data in blob store with mapping data flows](pricing-examples-transform-mapping-data-flows.md)
 - [Data integration in Azure Data Factory Managed VNET](pricing-examples-data-integration-managed-vnet.md)
 - [Pricing example: Get delta data from SAP ECC via SAP CDC in mapping data flows](pricing-examples-get-delta-data-from-sap-ecc.md)
+
 
 ## Next steps
 Now that you understand the pricing for Azure Data Factory, you can get started!

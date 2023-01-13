@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/29/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -116,7 +116,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 - The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
 - The **displayName** claim is required and cannot be an empty string.
 
-## Azure AD technical provider operations
+## Azure AD technical profile operations
 
 ### Read
 

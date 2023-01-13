@@ -7,7 +7,7 @@ ms.custom: references_regions, ignite-2022
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 07/14/2022
+ms.date: 10/30/2022
 ---
 
 # Isolation guidelines for Impact Level 5 workloads

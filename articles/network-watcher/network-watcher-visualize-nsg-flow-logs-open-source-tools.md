@@ -4,13 +4,14 @@ titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: harsha-cs
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: damendo
+ms.date: 09/15/2022
+ms.author: harshacs
+ms.custom: engagement-fy23
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools

@@ -35,6 +35,9 @@ To reduce the configuration administrative effort, you should first consider the
 > [!IMPORTANT]
 > Configuring selective password hash synchronization directly influences password writeback. Password changes or password resets that are initiated in Azure Active Directory write back to on-premises Active Directory only if the user is in scope for password hash synchronization.
 
+> [!IMPORTANT]
+> Selective password hash synchronization is supported in 1.6.2.4 or later. If you are using a version lower than that, please upgrade to the latest version.
+
 ### The adminDescription attribute
 
 Both scenarios rely on setting the adminDescription attribute of users to a specific value.  This allows the rules to be applied and is what makes selective PHS work.

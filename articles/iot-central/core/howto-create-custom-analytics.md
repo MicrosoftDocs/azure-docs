@@ -26,7 +26,7 @@ In this how-to guide, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Run the Script
 
@@ -108,7 +108,7 @@ Use the URL output by the script to navigate to the IoT Central application it c
     | Host name | The event hub namespace host name, it's the value you assigned to `eventhubnamespace` in the earlier script  |
     | Event Hub | The event hub name, it's the value you assigned to `eventhub` in the earlier script  |
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination." lightbox="media/howto-create-custom-analytics/data-export-1.png":::
 
 1. Select **Save**.
 
@@ -127,7 +127,7 @@ To create the export definition:
 
 1. Select **Save**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition.":::
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition." lightbox="media/howto-create-custom-analytics/data-export-2.png":::
 
 Wait until the export status is **Healthy** on the **Data export** page before you continue.
 

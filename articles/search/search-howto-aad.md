@@ -3,15 +3,15 @@ title: Authorize search app requests using Azure AD
 titleSuffix: Azure Cognitive Search
 description: Acquire a token from Azure AD to authorize search requests to an app built on Azure Cognitive Search.
 
-author: dereklegenzoff
-ms.author: delegenz
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 7/20/2022
+ms.date: 1/05/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize access to a search apps using Azure Active Directory
+# Authorize access to a search app using Azure Active Directory
 
 > [!IMPORTANT]
 > Role-based access control for data plane operations, such as creating or querying an index, is currently in public preview and available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). This functionality is only available in public cloud regions and may impact the latency of your operations while the functionality is in preview. For more information on preview limitations, see [RBAC preview limitations](search-security-rbac.md#preview-limitations).

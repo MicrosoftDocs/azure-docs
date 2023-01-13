@@ -131,7 +131,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     
     ```
 
-* SDK v2. [Full sample link](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
+* SDK v2. [Full sample link](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
 
     ```python
     # import required libraries
@@ -155,7 +155,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     cluster_name = "cpu-cluster"
     print(ml_client.compute.get(cluster_name))
     
-    # Import components that are defined with python function
+    # Import components that are defined with Python function
     with open("src/components.py") as fin:
         print(fin.read())
     
@@ -173,7 +173,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     # define a pipeline with component
     @pipeline(default_compute=cluster_name)
     def pipeline_with_python_function_components(input_data, test_data, learning_rate):
-        """E2E dummy train-score-eval pipeline with components defined via python function components"""
+        """E2E dummy train-score-eval pipeline with components defined via Python function components"""
     
         # Call component obj as function: apply given inputs & parameters to create a node in pipeline
         train_with_sample_data = train_model(
@@ -215,8 +215,8 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[azureml.pipeline.core.Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.dsl.pipeline]/python/api/azure-ai-ml/azure.ai.ml.dsl#azure-ai-ml-dsl-pipeline)|
-|[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)|[Output]/python/api/azure-ai-ml/azure.ai.ml.output|
+|[azureml.pipeline.core.Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.dsl.pipeline](/python/api/azure-ai-ml/azure.ai.ml.dsl#azure-ai-ml-dsl-pipeline)|
+|[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)|[Output](/python/api/azure-ai-ml/azure.ai.ml.output)|
 |[dataset as_mount](/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#azureml-data-filedataset-as-mount&preserve-view=true)|[Input](/python/api/azure-ai-ml/azure.ai.ml.input)|
 
 ## Step and job/component type mapping
@@ -244,7 +244,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 For more information, see the documentation here:
 
 * [steps in SDK v1](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
-* [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)](how-to-create-component-pipeline-python.md)
-* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
+* [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md)
+* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
 * [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)
 * [`mldesigner`](https://pypi.org/project/mldesigner/)

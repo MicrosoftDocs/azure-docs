@@ -9,14 +9,16 @@ ms.custom: ignite-2022
 
 # Discover misconfigurations in Infrastructure as Code (IaC)
 
-Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, extra support is located in the YAML configuration that can be used to run a specific tool, or several of the tools. For example, setting up the action or extension to run Infrastructure as Code (IaC) scanning only. This can help reduce pipeline run time.
+Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, you can configure the YAML configuration file to run a single tool or multiple tools. For example, you can set up the action or extension to run Infrastructure as Code (IaC) scanning tools only. This can help reduce pipeline run time.
 
 ## Prerequisites
 
-- [Configure Microsoft Security DevOps GitHub action](github-action.md).
-- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Configure Microsoft Security DevOps for GitHub and/or Azure DevOps based on your source code management system:
+  - [Microsoft Security DevOps GitHub action](github-action.md)
+  - [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Ensure you have an IaC template in your repository.
 
-## View the results of the IaC scan in GitHub 
+## Configure IaC scanning and view the results in GitHub
 
 1. Sign in to [GitHub](https://www.github.com). 
 
@@ -43,19 +45,19 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/commit-change.png" alt-text="Screenshot that shows where to select commit change on the githib page.":::
 
-1. (Optional) Skip this step if you already have an IaC template in your repository.
+1. (Optional) Add an IaC template to your repository. Skip if you already have an IaC template in your repository.
 
-    Follow this link to [Install an IaC template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux).
+    For example, [commit an IaC template to deploy a basic Linux web application](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux) to your repository.
 
     1. Select `azuredeploy.json`.
     
-        :::image type="content" source="media/tutorial-iac-vulnerabilities/deploy-json.png" alt-text="Screenshot that shows where the deploy.json file is located.":::
+        :::image type="content" source="media/tutorial-iac-vulnerabilities/deploy-json.png" alt-text="Screenshot that shows where the azuredeploy.json file is located.":::
 
     1. Select **Raw**
     
     1. Copy all the information in the file.
 
-        ```Bash
+        ```json
         {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -144,25 +146,26 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/file-added.png" alt-text="Screenshot that shows that the new file you created has been added to your repository.":::
 
-1. Select **Actions**. 
 
-1. Select the workflow to see the results.
+1. Confirm the Microsoft Security DevOps scan completed:
+    1. Select **Actions**. 
+    2. Select the workflow to see the results.
 
-1. Navigate in the results to the scan results section.
+1. Navigate to **Security** > **Code scanning alerts** to view the results of the scan (filter by tool as needed to see just the IaC findings).
 
-1. Navigate to **Security** > **Code scanning alerts** to view the results of the scan.
-
-## View the results of the IaC scan in Azure DevOps
+## Configure IaC scanning and view the results in Azure DevOps
 
 **To view the results of the IaC scan in Azure DevOps**
 
-1. Sign in to [Azure DevOps](https://dev.azure.com/)
+1. Sign in to [Azure DevOps](https://dev.azure.com/).
 
-1. Navigate to **Pipeline**.
+1. Select the desired project
 
-1. Locate the pipeline with MSDO Azure DevOps Extension is configured.
+1. Select **Pipeline**.
 
-1. Select **Edit**.
+1. Select the pipeline where the Microsoft Security DevOps Azure DevOps Extension is configured.
+
+1. **Edit** the pipeline configuration YAML file adding the following lines:
 
 1. Add the following lines to the YAML file
 
@@ -175,20 +178,29 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 1.  Select **Save**.
 
-1.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
+1. (Optional) Add an IaC template to your repository. Skip if you already have an IaC template in your repository.
+
+1.  Select **Save** to commit directly to the main branch or Create a new branch for this commit.
 
 1.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan.
 
 1. Select any result to see the details.
 
-## Remediate PowerShell based rules:
+## View details and remediation information on IaC rules included with Microsoft Security DevOps
+
+### PowerShell-based rules
 
 Information about the PowerShell-based rules included by our integration with [PSRule for Azure](https://aka.ms/ps-rule-azure/rules). The tool will only evaluate the rules under the [Security pillar](https://azure.github.io/PSRule.Rules.Azure/en/rules/module/#security) unless the option `--include-non-security-rules` is used.
 
 > [!NOTE]
-> Severity levels are scaled from 1 to 3. Where 1 = High, 2 = Medium, 3 = Low.
+> PowerShell-based rules are included by our integration with [PSRule for Azure](https://aka.ms/ps-rule-azure/rules). The tool will evaluate all rules under the [Security pillar](https://azure.github.io/PSRule.Rules.Azure/en/rules/module/#security).
 
 ### JSON-Based Rules:
+
+JSON-based rules for ARM templates and bicep files are provided by [Template-Analyzer](https://github.com/Azure/template-analyzer#template-best-practice-analyzer-bpa).  Below are details on template-analyzer's rules and remediation details.
+
+> [!NOTE]
+> Severity levels are scaled from 1 to 3. Where 1 = High, 2 = Medium, 3 = Low.
 
 #### TA-000001: Diagnostic logs in App Services should be enabled
 
@@ -200,7 +212,7 @@ Audits the enabling of diagnostic logs on the app. This enables you to recreate 
 
 #### TA-000002: Remote debugging should be turned off for API Apps
 
-Remote debugging requires inbound ports to be opened on an API app. These ports become easy targets for compromise from various internet based attacks. If you no longer need to use remote debugging, it should be turned off.
+Remote debugging requires inbound ports to be opened on an API app. These ports become easy targets for compromise from various internet-based attacks. If you no longer need to use remote debugging, it should be turned off.
 
 **Recommendation**: To disable remote debugging, in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), remove the *remoteDebuggingEnabled* property or update its value to `false`.
 
@@ -210,7 +222,7 @@ Remote debugging requires inbound ports to be opened on an API app. These ports 
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps) in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -218,7 +230,7 @@ Enable FTPS enforcement for enhanced security.
 
 API apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https) in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -226,7 +238,7 @@ API apps should require HTTPS to ensure connections are made to the expected ser
 
 API apps should require the latest TLS version.
 
-**Recommendation**: To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+**Recommendation**: To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions) in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -248,7 +260,7 @@ For enhanced authentication security, use a managed identity. On Azure, managed 
 
 #### TA-000008: Remote debugging should be turned off for Function Apps
 
-Remote debugging requires inbound ports to be opened on a function app. These ports become easy targets for compromise from various internet based attacks. If you no longer need to use remote debugging, it should be turned off.
+Remote debugging requires inbound ports to be opened on a function app. These ports become easy targets for compromise from various internet-based attacks. If you no longer need to use remote debugging, it should be turned off.
 
 **Recommendation**: To disable remote debugging, in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), remove the *remoteDebuggingEnabled* property or update its value to `false`.
 
@@ -296,7 +308,7 @@ For enhanced authentication security, use a managed identity. On Azure, managed 
 
 #### TA-000014: Remote debugging should be turned off for Web Applications
 
-Remote debugging requires inbound ports to be opened on a web application. These ports become easy targets for compromise from various internet based attacks. If you no longer need to use remote debugging, it should be turned off.
+Remote debugging requires inbound ports to be opened on a web application. These ports become easy targets for compromise from various internet-based attacks. If you no longer need to use remote debugging, it should be turned off.
 
 **Recommendation**: To disable remote debugging, in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), remove the *remoteDebuggingEnabled* property or update its value to `false`.
 
@@ -417,7 +429,7 @@ Set the data retention for your SQL Server's auditing to storage account destina
 
 #### TA-000029: Azure API Management APIs should use encrypted protocols only
 
-Set the protocols property to only include HTTPs.
+Set the protocols property to only include HTTPS.
 
 **Recommendation**: To use encrypted protocols only, add (or update) the *protocols* property in the [Microsoft.ApiManagement/service/apis resource properties](/azure/templates/microsoft.apimanagement/service/apis?tabs=json), to only include HTTPS. Allowing any additional protocols (for example, HTTP, WS) is insecure.
 
@@ -427,7 +439,7 @@ Set the protocols property to only include HTTPs.
 
 - Learn more about the [Template Best Practice Analyzer](https://github.com/Azure/template-analyzer).
 
-In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for only Infrastructure as Code misconfigurations.
+In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for Infrastructure as Code (IaC) security misconfigurations and how to view the results.
 
 ## Next steps
 

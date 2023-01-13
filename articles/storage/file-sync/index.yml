@@ -39,7 +39,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Create/use file shares - Windows
-            url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+            url: ../files/storage-files-quick-create-use-windows.md?toc=/azure/storage/filesync/toc.json
           - text: Manage your server with Azure File Sync
             url: file-sync-server-registration.md
       - linkListType: tutorial
@@ -53,9 +53,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Files Windows troubleshooting
-            url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+            url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=/azure/storage/filesync/toc.json
           - text: Azure Files performance troubleshooting
-            url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+            url: ../files/storage-troubleshooting-files-performance.md?toc=/azure/storage/filesync/toc.json
           - text: Azure File Sync troubleshooting
             url: file-sync-troubleshoot.md
 

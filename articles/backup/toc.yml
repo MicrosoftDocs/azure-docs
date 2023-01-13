@@ -61,7 +61,7 @@
   - name: Resiliency
     items:
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-recovery-services-vault.md
+      href: ../availability-zones/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Support matrices
     items:
     - name: Azure Backup support matrix
@@ -118,6 +118,8 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Backup center
+    href: backup-center-overview.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: About HANA database backup
@@ -162,8 +164,6 @@
         href: backup-vault-overview.md
   - name: Backup center
     items:
-    - name: Overview
-      href: backup-center-overview.md
     - name: Monitor and Operate
       href: backup-center-monitor-operate.md
     - name: Obtain insights
@@ -172,8 +172,6 @@
       href: backup-center-govern-environment.md
     - name: Perform actions
       href: backup-center-actions.md
-    - name: Community resources
-      href: backup-center-community.md
   - name: Azure VM backup
     items:
     - name: Overview
@@ -381,7 +379,7 @@
     - name: From the Azure portal
       items:
       - name: Backup
-        href: backup-afs.md
+        href: backup-azure-files.md
       - name: Restore
         href: restore-afs.md
       - name: Manage
@@ -613,7 +611,9 @@
     - name: Ransomware protection
       items:
       - name: Overview
-        href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
+        href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Integrate with Microsoft Defender's ransomware alerts
+        href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
       - name: FAQ-Protection against Ransomware
         href: protect-backups-from-ransomware-faq.yml
     - name: Security for hybrid backups

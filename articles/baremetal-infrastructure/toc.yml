@@ -14,6 +14,8 @@
   
   - name: SAP HANA on Azure (Large Instances)
     items:
+    - name: Overview
+      href: ../virtual-machines/workloads/sap/hana-overview-architecture.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext&2fcontext
     - name: Certification
       href: ../virtual-machines/workloads/sap/hana-certification.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
     - name: Available SKUs for HLI

@@ -75,7 +75,7 @@ protected override void OnActivityResult(int requestCode,
 To support System WebView, the *AndroidManifest.xml* file should contain the following values:
 
 ```xml
-<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
+<activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize" android:exported="true">
   <intent-filter>
     <action android:name="android.intent.action.VIEW" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -96,7 +96,7 @@ Alternatively, [create the activity in code](/xamarin/android/platform/android-m
 Here's an example of a class that represents the values of the XML file:
 
 ```csharp
-  [Activity]
+  [Activity(Exported = true)]
   [IntentFilter(new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
         DataHost = "auth",

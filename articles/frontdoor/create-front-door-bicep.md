@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Front Door Standard/Premium using Bicep'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Bicep.
 services: front-door
-author: schaffererin
-ms.author: v-eschaffer
+author: duongau
+ms.author: duau
 ms.date: 07/08/2022
 ms.topic: quickstart
 ms.service: frontdoor
