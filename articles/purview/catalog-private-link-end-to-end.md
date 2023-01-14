@@ -189,7 +189,7 @@ To cut off access to the Microsoft Purview account completely from the public in
 
 1. Go to the **Firewall** tab, and ensure that the toggle is set to **Disable from all networks**.
 
-   :::image type="content" source="media/catalog-private-link/private-firewall-private.png" alt-text="Screenshot that shows private endpoint firewall settings.":::
+   :::image type="content" source="media/catalog-private-link/purview-firewall-private.png" alt-text="Screenshot that shows private endpoint firewall settings.":::
 
 ## Next steps
 
