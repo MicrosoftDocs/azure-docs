@@ -8,7 +8,7 @@ author: mgoedtel
 
 ---
 
-# Use an Azure AD workload identity (preview) on Azure Kubernetes Service (AKS)
+# Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)
 
 Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level][use-azure-ad-pod-identity], which has been a preview feature. This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities][azure-ad-workload-identity] (preview), which integrate with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod-managed identity:
 
