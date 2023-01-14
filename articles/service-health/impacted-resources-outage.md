@@ -7,9 +7,9 @@ ms.date: 12/16/2022
 
 # Resource impact from Azure outages
 
-[Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/) helps customers view any health events that affect their subscriptions and tenants. In the Azure portal, the **Service Issues** pane for **Service Health** shows any ongoing problems in Azure services that are affecting your resources. You can understand when each problem began, and what services and regions are affected. 
+[Azure Service Health](https://azure.microsoft.com/get-started/azure-portal/service-health/) helps customers view any health events that affect their subscriptions and tenants. In the Azure portal, the **Service Issues** pane in **Service Health** shows any ongoing problems in Azure services that are affecting your resources. You can understand when each problem began, and what services and regions are affected. 
 
-Previously, the **Potential Impact** tab on the **Service Issues** pane displayed the details of an incident. It showed any resources under a subscriptions that an outage might affect, along with a signal from [Azure Resource Health](../service-health/resource-health-overview.md) to help you evaluate impact.
+Previously, the **Potential Impact** tab on the **Service Issues** pane displayed the details of an incident. It showed any resources under a subscription that an outage might affect, along with a signal from [Azure Resource Health](../service-health/resource-health-overview.md) to help you evaluate impact.
 
 In support of the experience of viewing affected resources, Service Health has enabled a new feature to:
 
@@ -21,9 +21,9 @@ In support of the experience of viewing affected resources, Service Health has e
 This article details what Service Health communicates and where you can view information about your affected resources.
 
 >[!Note]
->This feature will be rolled out in phases. Initially, only selected subscription-level customers will get the experience. The rollout will gradually expand to 100 percent of subscription customers. This capability will go live for tenant-level customers in the future.
+>This feature will be rolled out in phases. Initially, only selected subscription-level customers will get the experience. The rollout will gradually expand to 100 percent of subscription customers. It will go live for tenant-level customers in the future.
 
-## Affected resources for outages on the Service Health portal
+## View affected resources
 
 In the Azure portal, the **Impacted Resources** tab under **Service Health** > **Service Issues** displays resources that are or might be affected by an outage. The following example of the **Impacted Resources** tab shows an incident with confirmed and potentially affected resources.
 
@@ -60,7 +60,7 @@ To export the list of affected resources to an Excel file, select the **Export t
 
 ## Access affected resources programmatically via an API
 
-You can get information about outage-affected resources programmatically by using the Events API. For details on how to access this data, see the [API documentation](https://learn.microsoft.com/rest/api/resourcehealth/2022-05-01/impacted-resources/list-by-subscription-id-and-event-id?tabs=HTTP). 
+You can get information about outage-affected resources programmatically by using the Events API. For details on how to access this data, see the [API documentation](/rest/api/resourcehealth/2022-05-01/impacted-resources/list-by-subscription-id-and-event-id?tabs=HTTP). 
 
 ## Next steps
 -  [Introduction to the Azure Service Health dashboard](service-health-overview.md)
