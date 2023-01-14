@@ -185,7 +185,7 @@ Follow the steps in [Create and manage a self-hosted integration runtime](manage
 
 To cut off access to the Microsoft Purview account completely from the public internet, follow these steps. This setting applies to both private endpoint and ingestion private endpoint connections.
 
-1. Go to the Microsoft Purview account from the Azure portal, and under **Settings** > **Networking**, select **Private endpoint connections**.
+1. From the [Azure portal](https://portal.azure.com), go to the Microsoft Purview account, and under **Settings**, select **Networking**.
 
 1. Go to the **Firewall** tab, and ensure that the toggle is set to **Disable from all networks**.
 
