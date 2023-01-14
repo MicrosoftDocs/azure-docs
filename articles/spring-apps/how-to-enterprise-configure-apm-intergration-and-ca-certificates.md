@@ -1,12 +1,12 @@
 ---
 title: How to configure APM integration and CA certificates
-titleSuffix: Azure Spring Apps Enterprise Tier
+titleSuffix: Azure Spring Apps Enterprise tier
 description: How to configure APM integration and CA certificates
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 12/23/2022
+ms.date: 01/13/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -24,9 +24,11 @@ This article shows you how to configure APM integration and CA certificates in A
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 ## Supported Scenarios - APM and CA Certificates Integration
+
 Azure Spring Apps Enterprise tier uses buildpack bindings to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other Cloud Native Buildpack like [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates).
 
 Currently, below APM types and CA certificates are supported:
+
 - [ApplicationInsights](#use-application-insights)
 - [Dynatrace](#use-dynatrace)
 - [AppDynamics](#use-appdynamics)
@@ -36,43 +38,47 @@ Currently, below APM types and CA certificates are supported:
 
 CA Certificates is supported for all language family buildpacks, but not all support APMs. The following table shows the binding types that are supported by Tanzu language family buildpacks.
 
-|Buildpack|ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
-|---------|-------------------|--------|-----------|---------|----------|
-|Java  | ✅|✅|✅|✅|✅|
-|Dotnet|❌|❌|❌|✅|❌|
-|Go    |❌|❌|❌|✅|❌|
-|Python|❌|❌|❌|❌|❌|
-|NodeJS|❌|✅|✅|✅|✅|
-|[WebServers](how-to-enterprise-deploy-static-file.md)|❌|❌|❌|✅|❌|
+| Buildpack                                             | ApplicationInsights | NewRelic | AppDynamics | Dynatrace | ElasticAPM |
+|-------------------------------------------------------|---------------------|----------|-------------|-----------|------------|
+| Java                                                  | ✅                  | ✅      | ✅          | ✅       | ✅         |
+| Dotnet                                                | ❌                  | ❌      | ❌          | ✅       | ❌         |
+| Go                                                    | ❌                  | ❌      | ❌          | ✅       | ❌         |
+| Python                                                | ❌                  | ❌      | ❌          | ❌       | ❌         |
+| NodeJS                                                | ❌                  | ✅      | ✅          | ✅       | ✅         |
+| [WebServers](how-to-enterprise-deploy-static-file.md) | ❌                  | ❌      | ❌          | ✅       | ❌         |
 
 ### Use Application Insights
 
-| Supported Language | Required environment variables | Other environment variables| 
-|-------|------|------|
-| Java | 1. connection-string (Upper case key or use "_" to replace "-" is also acceptable) <br> 2. sampling-percentage | [Application Insights Overview](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net)
+| Supported language | Required environment variables                                                                                 | Other environment variables                                                                                         |
+|--------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Java               | 1. connection-string (Upper case key or use "_" to replace "-" is also acceptable) <br> 2. sampling-percentage | [Application Insights Overview](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) |
 
 ### Use Dynatrace
-| Supported Language | Required environment variables | Other environment variables| 
-|-------|------|------|
-| Java<br> Dotnet<br> Go<br> NodeJS<br> WebServers<br> | 1. api-url OR environment-id (used in build step) <br>  2. api-token (used in build step) <br> 3. TENANT <br> 4. TENANTTOKEN <br> 5. CONNECTION_POINT | [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar)
-  
+
+| Supported language                                   | Required environment variables                                                                                                                       | Other environment variables                                                                             |
+|------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Java<br> Dotnet<br> Go<br> NodeJS<br> WebServers<br> | 1. api-url OR environment-id (used in build step) <br> 2. api-token (used in build step) <br> 3. TENANT <br> 4. TENANTTOKEN <br> 5. CONNECTION_POINT | [Dynatrace Environment Variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar) |
 
 ### Use New Relic
-| Supported Language | Required environment variables | Other environment variables| 
+
+| Supported Language | Required environment variables | Other environment variables|
 |-------|------|------|
 | Java <br> NodeJS<br> | 1. license_key <br> 2. app_name <br>| [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 
 ### Use ElasticAPM
-| Supported Language | Required environment variables | Other environment variables| 
+
+| Supported Language | Required environment variables | Other environment variables|
 |-------|------|------|
 | Java <br> NodeJS<br> | 1. service_name<br> 2. application_packages <br> 3. server_url | [Elastic Environment Variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
 ### Use AppDynamics
-| Supported Language | Required environment variables | Other environment variables| 
+
+| Supported Language | Required environment variables | Other environment variables|
 |-------|------|------|
 | Java <br> NodeJS<br> |1. agent_application_name <br> 2. agent_tier_name <br> 3. agent_node_name <br> 4. agent_account_name <br> 5. agent_account_access_key <br> 6. controller_host_name <br> 7. controller_ssl_enabled <br> 8. controller_port <br> | [AppDynamics Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
-### Use CA Certificates
+### Use CA certificates
+
 CA Certificates uses [ca-certificate buildpack](https://github.com/paketo-buildpacks/ca-certificates) to support providing CA certificates to the system truststore at build and runtime.
 
 In Azure Spring Apps Enterprise tier, the CA certificates will use the `public key certificates` in `TLS/SSL settings`
@@ -83,8 +89,8 @@ It can be configured in `Edit binding` page. The `succeeded` certificates are sh
 
 :::image type="content" source="media/how-to-enterprise-build-service/ca-certificates-buildpack-binding.png" alt-text="Screenshot of Azure portal showing edit CA Certificates buildpack binding." lightbox="media/how-to-enterprise-build-service/ca-certificates-buildpack-binding.png":::
 
-
 ## Manage APM integration and CA certificates in Azure Spring Apps
+
 In context here, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against CA Certificates type. For APM integration, please follow above per APM instructions to configure necessary environment variables or secrets.
 
 To edit buildpack bindings for the builder, select **Edit**. After a builder is bound to the buildpack bindings, the buildpack bindings are enabled for an app deployed with the builder.
@@ -96,7 +102,7 @@ To edit buildpack bindings for the builder, select **Edit**. After a builder is 
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 ### View buildpack bindings using the Azure portal
 
