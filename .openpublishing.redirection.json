@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-php.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-ruby.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-afs.md",
             "redirect_url": "/azure/backup/backup-azure-files",
             "redirect_document_id": false
