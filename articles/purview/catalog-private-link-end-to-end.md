@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 01/13/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account to access purview account and scan data sources from restricted network.
 ---
 
@@ -187,9 +187,9 @@ To cut off access to the Microsoft Purview account completely from the public in
 
 1. Go to the Microsoft Purview account from the Azure portal, and under **Settings** > **Networking**, select **Private endpoint connections**.
 
-1. Go to the **Firewall** tab, and ensure that the toggle is set to **Deny**.
+1. Go to the **Firewall** tab, and ensure that the toggle is set to **Disable from all networks**.
 
-   :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Screenshot that shows private endpoint firewall settings.":::
+   :::image type="content" source="media/catalog-private-link/private-firewall-private.png" alt-text="Screenshot that shows private endpoint firewall settings.":::
 
 ## Next steps
 
