@@ -96,6 +96,10 @@ Setting up SAML/WS-Fed IdP federation doesn’t change the authentication method
 
 Currently, the Azure AD SAML/WS-Fed federation feature doesn't support sending a signed authentication token to the SAML identity provider.
 
+**What permissions does a user need to configure SAML/Ws-Fed Identity provider?**
+
+The user needs to be *Global Administrator* or *External Identity Provider Admin* to be able to configure a SAML/Ws-Fed Identity provider.
+
 ## Step 1: Determine if the partner needs to update their DNS text records
 
 Depending on the partner's IdP, the partner might need to update their DNS records to enable federation with you. Use the following steps to determine if DNS updates are needed.
