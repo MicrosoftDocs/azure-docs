@@ -1,7 +1,7 @@
 ---
-title: Use Docker containers in disconnected environments
+title: Use Translator Docker containers in disconnected environments
 titleSuffix: Azure Cognitive Services
-description: Learn how to run Azure Cognitive Services Docker containers disconnected from the internet.
+description: Learn how to run Azure Cognitive Services Translator containers in disconnected environments.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 01/13/2023
 ms.author: lajanuar
 ---
 
-# Use Docker containers in disconnected environments
+# Use Translator containers in disconnected environments
 
 * Containers enable you to run Translator APIs in your own environment, and are great for your specific security and data governance requirements.
 * Disconnected containers enable you to use several of these APIs disconnected from the internet.
@@ -106,30 +106,30 @@ The following example shows the formatting of the `docker run` command you'll us
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
-**Example Docker pull command**
+    **Example Docker pull command**
 
-```dockerfile
+    ```docker
 
-docker run --rm -it -p 5000:5000
+    docker run --rm -it -p 5000:5000
 
--v {MODEL_MOUNT_PATH} \
+    -v {MODEL_MOUNT_PATH} \
 
--v {LICENSE_MOUNT_PATH} \
+    -v {LICENSE_MOUNT_PATH} \
 
-Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
+    Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 
--e DownloadLicense=true \
+    -e DownloadLicense=true \
 
--e eula=accept \
+    -e eula=accept \
 
--e billing={ENDPOINT_URI} \
+    -e billing={ENDPOINT_URI} \
 
--e apikey={API_KEY} \
+    -e apikey={API_KEY} \
 
--e Languages={LANGUAGES_LIST}
+    -e Languages={LANGUAGES_LIST}
 
-[image]
-```
+    [image]
+    ```
 
 ### Translation models and container configuration
 
@@ -148,39 +148,39 @@ Wherever the container is run, the license file must be mounted to the container
 
 Placeholder | Value | Format|
 |-------------|-------|---|
-| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation ` |
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation` |
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `16g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
-| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/translator/license:/path/to/license/directory ` |
+| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/translator/license:/path/to/license/directory` |
 |`{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | /host/translator/models:/usr/local/models|
-|`{MODELS_DIRECTORY_LIST} `|List of comma separated directories each having a machine translation model. | /usr/local/models/enu_esn_generalnn_2022240501,/usr/local/models/esn_enu_generalnn_2022240501 |
+|`{MODELS_DIRECTORY_LIST}`|List of comma separated directories each having a machine translation model. | /usr/local/models/enu_esn_generalnn_2022240501,/usr/local/models/esn_enu_generalnn_2022240501 |
 | `{OUTPUT_PATH}` | The output path for logging [usage records](#usage-records). | `/host/output:/path/to/output/directory` |
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
 |`{TRANSLATOR_CONFIG_JSON}`| Translator system configuration file used by container internally.| /usr/local/models/Config/5a72fa7c-394b-45db-8c06-ecdfc98c0832 |
 
-  ```docker
+    ```docker
 
-   docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
+        docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
 
-  -v {MODEL_MOUNT_PATH} \
+    -v {MODEL_MOUNT_PATH} \
 
-  -v {LICENSE_MOUNT_PATH} \
+    -v {LICENSE_MOUNT_PATH} \
 
-  -v {OUTPUT_MOUNT_PATH} \
+    -v {OUTPUT_MOUNT_PATH} \
 
-  Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
+    Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 
-  Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
+    Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
 
-  -e MODELS={MODELS_DIRECTORY_LIST} \
+    -e MODELS={MODELS_DIRECTORY_LIST} \
 
-  -e TRANSLATORSYSTEMCONFIG={TRANSLATOR_CONFIG_JSON} \
+    -e TRANSLATORSYSTEMCONFIG={TRANSLATOR_CONFIG_JSON} \
 
-  -e eula=accept \
+    -e eula=accept \
 
-  [image]
-  ```
+    [image]
+    ```
 
 That's it! You've learned how to create and run disconnected containers for Translator Service.
 
@@ -196,9 +196,9 @@ When operating Docker containers in a disconnected environment, the container wi
 
 When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the following example, replacing `{OUTPUT_PATH}` with the path where the logs will be stored:
 
-```Docker
-docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
-```
+    ```docker
+    docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
+    ```
 
 ### Get records using the container endpoints
 
@@ -208,49 +208,49 @@ The container provides two endpoints for returning records about its usage.
 
 The following endpoint will provide a report summarizing all of the usage collected in the mounted billing record directory.
 
-```HTTP
-https://<service>/records/usage-logs/
-```
+    ```HTTP
+    https://<service>/records/usage-logs/
+    ```
 
 for example: `http://localhost:5000/records/usage-logs`.
 
 It will return JSON similar to this example:
 
-```json
-{
-  "apiType": "noop",
-  "serviceName": "noop",
-  "meters": [
+    ```json
     {
-      "name": "string",
-      "quantity": 256345435
+    "apiType": "noop",
+    "serviceName": "noop",
+    "meters": [
+    {
+        "name": "string",
+        "quantity": 256345435
     }
-  ]
-}
-```
+    ]
+    }
+    ```
 
 #### Get records for a specific month
 
 The following endpoint will provide a report summarizing usage over a specific month and year.
 
-```HTTP
-https://<service>/records/usage-logs/{MONTH}/{YEAR}
-```
+    ```HTTP
+    https://<service>/records/usage-logs/{MONTH}/{YEAR}
+    ```
 
 it will return a JSON response similar to this example:
 
-```json
-{
-  "apiType": "string",
-  "serviceName": "string",
-  "meters": [
+    ```json
     {
-      "name": "string",
-      "quantity": 56097
+      "apiType": "string",
+      "serviceName": "string",
+      "meters": [
+        {
+          "name": "string",
+          "quantity": 56097
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 ## Purchase a different commitment plan for disconnected containers
 
