@@ -13,11 +13,15 @@ ms.author: patricka
 
 [!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
-This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
+This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, which includes installing IoT Edge.
 
-Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
+Each device that connects to an [IoT hub](/azure/iot-hub/) has a device ID that's used to track [cloud-to-device](/azure/iot-hub/iot-hub-devguide-c2d-guidance) or [device-to-cloud](/azure/iot-hub/iot-hub-devguide-d2c-guidance) communications. You configure a device with its connection information, which includes: 
 
-The steps in this article walk through a process called manual provisioning, where you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
+* IoT hub hostname
+* Device ID
+* Authentication details to connect to IoT Hub
+
+The steps in this article walk through a process called *manual provisioning*, where you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
 
 * **Symmetric keys**: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
 
@@ -38,13 +42,26 @@ This article covers using symmetric keys as your authentication method. If you w
 
 ## Prerequisites
 
-This article covers registering your IoT Edge device and installing IoT Edge on it. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
+This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on it. Make sure you have the device management tool of your choice and device requirements before you register and install your device.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
 
 <!-- Device requirements H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](includes/iot-edge-prerequisites-device-requirements-linux.md)]
+
+<!-- Azure IoT extensions for Visual Studio Code-->
+### Visual Studio Code extensions
+
+If you are using Visual Studio Code, there are helpful Azure IoT extensions that will make the device creation and management process easier.
+
+Install both the Azure IoT Edge and Azure IoT Hub extensions:
+
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+
+* [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+
+<!-- Prerequisites end -->
 
 <!-- Register your device and View provisioning information H2s and content -->
 [!INCLUDE [iot-edge-register-device-symmetric.md](includes/iot-edge-register-device-symmetric.md)]
