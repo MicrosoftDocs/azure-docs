@@ -66,7 +66,7 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 | [TimeZone][java timezone readme] | [azure-maps-TimeZone][java timezone package] | [TimeZone samples][java timezone sample] |
 | [Elevation][java elevation readme] | [azure-maps-Elevation][java elevation package] | [Elevation samples][java elevation sample] |
 
-<!--For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).-->
+For more information, see the [Java SDK Developers Guide](how-to-dev-guide-java-sdk.md).
 
 <!--  C# SDK Developers Guide  --->
 [Rest API]: /rest/api/maps/
