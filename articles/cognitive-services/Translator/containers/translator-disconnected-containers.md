@@ -75,14 +75,14 @@ After you have a license file, download the Docker container you have approval t
 
 |Docker pull command | Value |Format|
 |----------|-------|------|
-|&bullet; **docker pull [image]**</br>&bullet; **docker pull [image]:latest**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest |
+|&bullet; **`docker pull [image]**</br>&bullet; **docker pull [image]:latest`**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation: latest |
 |||
-|&bullet; **docker pull [image]:version** | A specific container image |mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64 |
+|&bullet; **`docker pull [image]:version`** | A specific container image |mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64 |
 
   **Example Docker pull command**
 
 ```docker
-    docker pull mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 ```
 
 ## Configure the container to run in a disconnected environment
