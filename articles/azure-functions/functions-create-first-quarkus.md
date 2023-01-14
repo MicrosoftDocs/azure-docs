@@ -1,142 +1,68 @@
 ---
-title: Bring Serverless Java Apps with Quarkus into Azure Functions
-description: Bring Serverless Java Apps with Quarkus into Azure Functions
-ms.assetid: 065d2ae3-bb34-4e07-b9c4-d0ee93742a33
+title: Deploy Serverless Java Apps with Quarkus on Azure Functions
+description: Deploy Serverless Java Apps with Quarkus on Azure Functions
 ms.author: edburns
-ms.topic: tutorial
-ms.date: 09/14/2022
+ms.service: azure-functions
+ms.topic: how-to
+ms.date: 01/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functions
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functions, devx-track-javaee-quarkus-functions
 ---
 
-# Tutorial: Bring Serverless Java Apps with Quarkus into Azure Function
+# Deploy Serverless Java Apps with Quarkus on Azure Functions
 
-This tutorial walks you through the process of developing, building, and deploying serverless Java apps with Quarkus on Azure Function. 
-When you are finished, you will run serverless [Quarkus](https://quarkus.io) applications on [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) as well as continuing to monitor the applications on Azure.
-
-![Quarkus application storing data in PostgreSQL](./media/functions-quarkus-tutorial/quarkus-crud-running-locally.png)
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a Serverless Function project on Quarkus
-> * Make a Portable Serverless Functions with Quarkus Funqy
-> * Test the Serverless Function locally
-> * Deploy the Serverless App to Azure Function
-> * Access and Monitor the Serverless Function on Azure
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this article, you'll develop, build, and deploy a serverless Java app with Quarkus on Azure Functions. This article uses Quarkus Funqy and its built-in support for Azure Functions HTTP trigger for Java. Using Quarkus with Azure Functions gives you the power of the Quarkus programming model with the scale and flexibility of Azure Functions. When you're finished, you'll run serverless [Quarkus](https://quarkus.io) applications on Azure Functions and continuing to monitor the application on Azure.
 
 ## Prerequisites
 
 * [Azure CLI](/cli/azure/overview), installed on your own computer. 
 * [An Azure Account](https://azure.microsoft.com/)
-* [Java JDK 11+](/azure/developer/java/fundamentals/java-support-on-azure) with JAVA_HOME configured appropriately
+* [Java JDK 17](/azure/developer/java/fundamentals/java-support-on-azure) with JAVA_HOME configured appropriately. This article was written with Java 17 in mind, but Azure functions and Quarkus support older versions of Java as well.
 * [Apache Maven 3.8.1+](https://maven.apache.org)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a Serverless Function project on Quarkus
+## A first look at the sample application
 
-1. Create the Azure Maven project for your Quarkus application using our Maven Archetype. Run the following `Maven` command on your local terminal.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/quarkus-azure).
 
-    ```bash
-    mvn archetype:generate \
-        -DarchetypeGroupId=io.quarkus \
-        -DarchetypeArtifactId=quarkus-azure-functions-http-archetype \
-        -DgroupId=org.acme \
-        -DartifactId=quarkus-azure-function \
-        -DarchetypeVersion=2.12.0.Final
-    ```
+Explore the sample function. Open the file *functions-quarkus/src/main/java/io/quarkus/GreetingFunction.java*. The `@Funq` annotation makes your method (e.g. `funqyHello`) a serverless function. Azure Functions Java has its own set of Azure-specific annotations, but these annotations are not necessary when using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information on the Azure Functions Java annotations, see [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
 
-    The output should end up with `BUILD SUCCES`.
+```java
+@Funq
+public String funqyHello() {
+    return "hello funqy";
+}
+```
 
-    ```output
-    ...
-    [INFO] Parameter: function, Value: quarkus
-    [INFO] Parameter: artifactId, Value: quarkus-azure-function
-    [INFO] Parameter: appRegion, Value: westus
-    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Project created from Archetype in dir: /Users/danieloh/Downloads/demo/quarkus-azure-function
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    ...
-    ```
+Unless you specify otherwise, the function's name is taken to be same as the method name. You can also define the function name with a parameter to the annotation, as shown here.
 
-2. Open the `quarkus-azure-function` project using your preferred Integrated development environment (IDE) tool (e.g. _Visual Studio Code_).
+```java
+@Funq("alternateName")
+public String funqyHello() {
+    return "hello funqy";
+}
+```
 
-    Templates for Azure Functions deployment descriptors (`host.json`, `function.json`) are generated in the `azure-config` directory. 
-
-    * `function.json` - Define the function information such as entryPoint, bindings method (e.g. _GET_, _POST_), and protocol type (e.g. _http_)
-    * `host.json` - Define the function host version (e.g. _2.0_)
-    * `local.settings.json` - Set the encryption and function worker runtime (e.g. _java_)
-    
-## Make a Portable Serverless Functions with Quarkus Funqy
-
-1. Remove the unused extensions because you will use *Quarkus Funqy* extension in this tutorial because the generated sample project includes the *RESTEasy Reactive*, *Undertow*, *Reactive Routes*, and *Funqy HTTP* extensions. 
-
-    `Quarkus Funqy` aims to provide a portable _Java API_ for developers to write serverless functions deployable to multiple serverless platforms such as _AWS Lambda_, _Azure Functions_, _Google Cloud Functions_, and _Knative on Kubernetes_. Because Funqy is an abstraction to span multiple different cloud providers and protocols it has to be a very simple API and thus, might not have all the features you are used to in other remote abstractions.
-
-    Move to the working directory where you generated the project. Run the following commands on your local terminal.
-
-    ```bash
-    cd quarkus-azure-function
-
-    mvn quarkus:remove-extension -Dextensions="quarkus-resteasy,quarkus-undertow,quarkus-reactive-routes"
-    ```
-
-    > [!IMPORTANT]
-    > You must include the `quarkus-azure-functions-http` extension as this is a generic bridge between the *Azure Functions runtime* and the *HTTP* framework you are writing your microservices in.
-
-    Make sure if the following `funqy-http` and `azure-functions-http` extensions (_Maven dependencies_) exist in the `pom.xml`.
-
-    ```xml
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-funqy-http</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-azure-functions-http</artifactId>
-    </dependency>
-    ```
-
-2. Delete the unused resources to process the functions because you have already removed the unused extensions.
-
-    * `GreetingResource.java` - JAX-RS processing
-    * `GreetingServlet.java` - UnderTow Servlet processing
-    * `GreetingVertx.java` - Vert.x Reactive processing
-
-    Run the following command on your local terminal.
-
-    ```bash
-    rm -rf src/main/java/io/quarkus/GreetingResource.java src/main/java/io/quarkus/GreetingServlet.java src/main/java/io/quarkus/GreetingVertx.java
-    ```
-
-3. Explore the function what it looks like. Open the `GreetingFunction.java` file in the *src/main/java/io/quarkus* directory.
-
-    The Funqy API is dead simple. The `@Funq` annotation makes your method (e.g. _funqyHello_) a serverless function. 
-    
-    The function's name is same as the method's name by default. You can also define the function name using an input parameter (e.g. _funqyHello("myfunction")_).
-
-    ```java
-    @Funq
-    public String funqyHello() {
-        return "hello funqy";
-    }
-    ```
+The name is important: the name becomes a part of the REST URI to invoke the function, as shown later in the article.
 
 ## Test the Serverless Function locally
 
-1. Run the following _Maven_ command to run `Quarkus Dev mode` on your local terminal that enable live reload with background compilation, which means that when you modify your Java files and/or your resource files and refresh your browser, these changes will automatically take effect. This works too for resource files like the configuration property file. 
+Use `mvn` to run `Quarkus Dev mode` on your local terminal. Running Quarkus in this way enables live reload with background compilation. When you modify your Java files and/or your resource files and refresh your browser, these changes will automatically take effect.
 
-    Refreshing the browser triggers a scan of the workspace, and if any changes are detected, the Java files are recompiled and the application is redeployed; your request is then serviced by the redeployed application. If there are any issues with compilation or deployment an error page will let you know.
+A browser refresh triggers a scan of the workspace. If any changes are detected, the Java files are recompiled and the application is redeployed. Your redeployed application services the request. If there are any issues with compilation or deployment an error page will let you know.
 
-    This will also listen for a debugger on port `5005`. If you want to wait for the debugger to attach before running you can pass `-Dsuspend` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
+Quarkus dev mode listens for a debugger on port `5005`. If you want to wait for the debugger to attach before running you can pass `-Dsuspend` on the command line. When you don’t want the debugger at all, use `-Ddebug=false`.
+
+Replace `yourResourceGroupName` with a resource group name. Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. The resourceGroup is not necessary for this part of the instructions, but it's required later. For simplicity, the maven project requires the property be defined.
+
+1. Invoke Quarkus dev mode.
 
     ```bash
-    mvn quarkus:dev
+    cd functions-azure
+    mvn -DskipTests -DresourceGroup=<yourResourceGroupName> quarkus:dev
     ```
 
-    The output should should look like this.
+    The output should look like this.
 
     ```output
     ...
@@ -144,30 +70,34 @@ In this tutorial, you learn how to:
     -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
     --\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
     INFO  [io.quarkus] (Quarkus Main Thread) quarkus-azure-function 1.0-SNAPSHOT on JVM (powered by Quarkus xx.xx.xx.) started in 1.290s. Listening on: http://localhost:8080
-
+    
     INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
     INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, funqy-http, smallrye-context-propagation, vertx]
-
+    
     --
     Tests paused
     Press [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] for more options>
     ```
 
-2. Access the function using the `CURL` command on your local terminal.
+1. Access the function using the `CURL` command on your local terminal.
 
     ```bash
     curl localhost:8080/api/funqyHello
     ```
 
-    The output should should look like this.
+    The output should look like this.
 
     ```output
     "hello funqy"
     ```
 
-3. Add a new function using dependency injection (DI). Quarkus DI solution is based on the [Contexts and Dependency Injection for Java 2.0 specification](http://docs.jboss.org/cdi/spec/2.0/cdi-spec.html).
+### Add Dependency injection to function
 
-    Create a `GreetingService.java` file in the *src/main/java/io/quarkus* directory. Replace the below code into the class.
+Dependency injection in Quarkus is provided by the open standard technology Jakarta EE Contexts and Dependency Injection (CDI). For a high level overview on injection in general, and CDI in specific, see the [Jakarta EE tutorial](https://eclipse-ee4j.github.io/jakartaee-tutorial/#injection).
+
+1. Add a new function that uses dependency injection
+
+    Create a *GreetingService.java* file in the *functions-quarkus/src/main/java/io/quarkus* directory. Make the source code of the file be the following.
 
     ```java
     package io.quarkus;
@@ -178,7 +108,7 @@ In this tutorial, you learn how to:
     public class GreetingService {
 
         public String greeting(String name) {
-            return "Welcome to build Serverless Java with Quarkus into Azure Function, " + name;
+            return "Welcome to build Serverless Java with Quarkus on Azure Functions, " + name;
         }
         
     }
@@ -186,10 +116,9 @@ In this tutorial, you learn how to:
 
     Save the file.
 
-    This is an injectable bean that implements a `greeting()` method returning a string _"Welcome..."_ message with a parameter (_name_).
+    `GreetingService` is an injectable bean that implements a `greeting()` method returning a string `Welcome...` message with a parameter `name`.
 
-
-4. Open the existing `GreetingFunction.java` file in the *src/main/java/io/quarkus* directory. Replace the class with the below code to add a new field (*gService*) and method (*greeting*).
+1. Open the existing the *functions-quarkus/src/main/java/io/quarkus/GreetingFunction.java* file. Replace the class with the below code to add a new field `gService` and method `greeting`.
 
     ```java
     package io.quarkus;
@@ -217,7 +146,7 @@ In this tutorial, you learn how to:
 
     Save the file.
 
-5. Access the new function (*greeting*) using the `CURL` command on your local terminal.
+1. Access the new function `greeting` using the `CURL` command on your local terminal.
 
     ```bash
     curl -d '"Dan"' -X POST localhost:8080/api/greeting
@@ -226,28 +155,27 @@ In this tutorial, you learn how to:
     The output should should look like this.
 
     ```output
-    "Welcome to build Serverless Java with Quarkus into Azure Function, Dan"
+    "Welcome to build Serverless Java with Quarkus on Azure Functions, Dan"
     ```
 
     > [!IMPORTANT]
-    > `Live Coding` (also referred to as dev mode) allows you to run the app and make changes on the fly. Quarkus will automatically re-compile and reload the app when changes are made. This is a powerful and efficient style of developing that you will use throughout the tutorial.
+    > `Live Coding` (also referred to as dev mode) allows you to run the app and make changes on the fly. Quarkus will automatically re-compile and reload the app when changes are made. This is a powerful and efficient style of developing that you'll use throughout the tutorial.
 
-    Before moving forward to the next step, stop the _Quarkus Dev Mode_ by pressing `CTRL-C`.
+    Before moving forward to the next step, stop Quarkus Dev Mode by pressing `CTRL-C`.
 
-## Deploy the Serverless App to Azure Function
+## Deploy the Serverless App to Azure Functions
 
-1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. If you haven't already, sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and follow the on-screen directions.
 
     ```azurecli
     az login
     ```
 
-    A web browser has been opened at https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize automatically.
+    > [!NOTE]
+    > If you've multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
+    > Continue the process in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
 
-    > [!IMPORTANT]
-    > Continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
-
-    Once you logged in the Azure portal successfully, the output on your local terminal should look like this.
+    Once you've signed in successfully, the output on your local terminal should look similar to the following.
 
     ```output
     xxxxxxx-xxxxx-xxxx-xxxxx-xxxxxxxxx 'Microsoft'
@@ -258,40 +186,35 @@ In this tutorial, you learn how to:
             "id": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
             "isDefault": true,
             "managedByTenants": [],
-            "name": "Visual Studio Enterprise",
+            "name": "Contoso account services",
             "state": "Enabled",
             "tenantId": "xxxxxxx-xxxx-xxxx-xxxxx-xxxxxxxxxx",
             "user": {
-            "name": "doh@redhat.com",
-            "type": "user"
-            }
-        },
-        {
-            "cloudName": "AzureCloud",
-            "homeTenantId": "xxxxxxx-xxxx-xxxx-xxxxx-xxxxxxxxxx",
-            "id": xxxxxxx-xxxx-xxxx-xxxxx-xxxxxxxxxx",
-            "isDefault": false,
-            "managedByTenants": [],
-            "name": "Visual Studio Enterprise",
-            "state": "Enabled",
-            "tenantId": "xxxxxxx-xxxx-xxxx-xxxxx-xxxxxxxxxx",
-            "user": {
-            "name": "doh@redhat.com",
+            "name": "user@contoso.com",
             "type": "user"
             }
         }
     ]
     ```
 
-2. Build and deploy the functions to Azure
+1. Build and deploy the functions to Azure
 
-    The `pom.xml` you generated in the previous step pulls in the `azure-functions-maven-plugin`. Running maven install generates config files and a staging directory required by the `azure-functions-maven-plugin`. Run the following `Maven` command on your local terminal.
+    The *pom.xml* you generated in the previous step uses the `azure-functions-maven-plugin`. Running `mvn install` generates config files and a staging directory required by the `azure-functions-maven-plugin`. For `yourResourceGroupName`, use the value you used previously.
 
     ```bash
-    mvn clean install -DskipTests azure-functions:deploy
+    mvn clean install -DskipTests -DtenantId=<your tenantId from shown previously> -DresourceGroup=<yourResourceGroupName> azure-functions:deploy
     ```
 
-    The output should end up with `BUILD SUCCESS`. 
+1. During deployment, sign in to Azure.  The `azure-functions-maven-plugin` is configured to prompt for Azure sign in each time the project is deployed. Examine the build output. During the build, you'll see output similar to the following.
+
+    ```output
+    [INFO] Auth type: DEVICE_CODE
+    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AXCWTLGMP to authenticate.
+    ```
+
+    Do as the output says and authenticate to Azure using the browser and provided device code. Many other authentication and configuration options are available. The complete reference documentation for `azure-functions-maven-plugin` is available at [Azure Functions: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+1. After authenticating, the build should continue and complete. The output should include `BUILD SUCCESS` near the end.
 
     ```output
     Successfully deployed the artifact to https://quarkus-demo-123451234.azurewebsites.net
@@ -304,23 +227,27 @@ In this tutorial, you learn how to:
     [INFO] 	 quarkus : https://quarkus-azure-functions-http-archetype-20220629204040017.azurewebsites.net/api/{*path}
     ```
 
+   It will take a while for the deployment to complete. In the meantime, let's explore Azure Functions in the portal.
+
 ## Access and Monitor the Serverless Function on Azure
-    
-1. Go to `Function App` in the Azure portal. You will see the deployed Quarkus function (e.g. _quarkus-azure-functions-http-archetype-20220629204040017_).
 
-    ![Fucntion App](./media/functions-quarkus-tutorial/azure-function-app.png)
+Sign in to the Portal and ensure you've selected the same tenant and subscription used in the Azure CLI. You can visit the portal at [https://aka.ms/publicportal](https://aka.ms/publicportal).
 
-    When you click on the `function name`, you will see the function app's detail information such as *Location*, *Subscription*, *URL*, *Metrics*, and *App Service Plan*.
+1. Type `Function App` in the search bar at the top of the Azure portal and press Enter. Your function should be deployed and show up with the name `<yourResourceGroupName>-function-quarkus`.
 
-2. In the detail page, click on the `URL`.
+    :::image type="content" source="media/functions-create-first-quarkus/azure-function-app.png" alt-text="The function app in the portal":::
 
-    ![Fucntion App Detail](./media/functions-quarkus-tutorial/azure-function-app-detail.png)
+    Select the `function name`. you'll see the function app's detail information such as **Location**, **Subscription**, **URL**, **Metrics**, and **App Service Plan**.
 
-    Then, you will see if your function is `up` and `running` now. 
+1. In the detail page, select the `URL`.
 
-    ![Fucntion App Ready](./media/functions-quarkus-tutorial/azure-function-app-ready.png)
+    :::image type="content" source="media/functions-create-first-quarkus/azure-function-app-detail.png" alt-text="The function app detail page in the portal":::
 
-3. Invoke the `greeting` function using `CURL` command on your local terminal.
+    Then, you'll see if your function is "up and running" now.
+
+    :::image type="content" source="media/functions-create-first-quarkus/azure-function-app-ready.png" alt-text="The function welcome page":::
+
+1. Invoke the `greeting` function using `CURL` command on your local terminal.
 
     > [!IMPORTANT]
     > Replace `YOUR_HTTP_TRIGGER_URL` with your own function URL that you find in Azure portal or output.
@@ -329,10 +256,10 @@ In this tutorial, you learn how to:
     curl -d '"Dan on Azure"' -X POST https://YOUR_HTTP_TRIGGER_URL/api/greeting
     ```
 
-    The output should look like this.
+    The output should look similar to the following.
 
     ```output
-    "Welcome to build Serverless Java with Quarkus into Azure Function, Dan on Azure"
+    "Welcome to build Serverless Java with Quarkus on Azure Functions, Dan on Azure"
     ```
 
     You can also access the other function (`funqyHello`).
@@ -341,30 +268,48 @@ In this tutorial, you learn how to:
     curl https://YOUR_HTTP_TRIGGER_URL/api/funqyHello
     ```
 
-    The output should be the same as you've got locally.
+    The output should be the same as you observed above.
 
     ```output
     "hello funqy"
     ```
 
+    If you want to exercise the basic metrics capability in the Azure portal, try invoking the function within a shell for loop, as shown here.
+
+    ```bash
+    for i in {1..100}; do curl -d '"Dan on Azure"' -X POST https://YOUR_HTTP_TRIGGER_URL/api/greeting; done
+    ```
+
+    After a while, you'll see some metrics data in the portal, as shown next.
+
+    :::image type="content" source="media/functions-create-first-quarkus/portal-metrics.png" alt-text="Function metrics in the portal":::
+
+    Now that you've opened your Azure function in the portal, here are some more features accessible from the portal.
+
+    * Monitor the performance of your Azure function. For more information, see [Monitoring Azure Functions](/azure/azure-functions/monitor-functions).
+    * Explore telemetry. For more information, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data).
+    * Set up logging. For more information, see [Enable streaming execution logs in Azure Functions](/azure/azure-functions/streaming-logs).
+
 ## Clean up resources
 
-If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell or on your local terminal:
+If you don't need these resources, you can delete them by running the following command in the Cloud Shell or on your local terminal:
 
 ```azurecli
-az group delete --name java-functions-group --yes
+az group delete --name <yourResourceGroupName> --yes
 ```
-
-<a name="next"></a>
 
 ## Next steps
 
-[Azure for Java Developers](/java/azure/)
-[Quarkus](https://quarkus.io), 
-[Getting Started with Quarkus](https://quarkus.io/get-started/), and
-[App Service Linux](overview.md).
+In this guide, you learned how to:
+> [!div class="checklist"]
+>
+> * Run Quarkus dev mode
+> * Deploy a Funqy app to Azure functions using the `azure-functions-maven-plugin`
+> * Examine the performance of the function in the portal
 
-Learn more about running Java apps on App Service on Linux in the developer guide.
+To learn more about Azure Functions and Quarkus, see the following articles and references.
 
-> [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+* [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java)
+* [Quickstart: Create a Java function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-java)
+* [Azure Functions documentation](/azure/azure-functions/)
+* [Quarkus guide to deploying on Azure](https://quarkus.io/guides/deploying-to-azure-cloud)

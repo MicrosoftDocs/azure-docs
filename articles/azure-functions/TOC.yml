@@ -80,8 +80,6 @@
           href: functions-add-output-binding-storage-queue-cli.md
 - name: Tutorials
   items:
-    - name: Functions with Quarkus
-      href: functions-quarkus-tutorial.md
     - name: Functions with Logic Apps
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
@@ -328,12 +326,14 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
-                - name: Java using Gradle
-                  href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
                   href: functions-create-maven-eclipse.md
+                - name: Java using Gradle
+                  href: functions-create-first-java-gradle.md
                 - name: Java using IntelliJ IDEA
                   href: functions-create-maven-intellij.md
+                - name: Java with Quarkus
+                  href: functions-create-first-quarkus.md
                 - name: Kotlin using Maven
                   href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ

@@ -72,8 +72,6 @@ landingContent:
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
       - linkListType: tutorial
         links:
-          - text: Functions with Quarkus
-            url: functions-quarkus-tutorial.md
           - text: Functions with Logic Apps
             url: functions-twitter-email.md
           - text: Develop Python functions with VS Code
