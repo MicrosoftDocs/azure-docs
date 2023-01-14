@@ -67,10 +67,10 @@ On your Linux VM, install the following packages: *sssd sssd-tools sssd-ldap ope
 yum install -y sssd sssd-tools sssd-ldap openldap-clients
 ```
 
-After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
+Upon successful installation of the *sssd* tools, perform a simple LDAP search. You can use the following example as a guideline, adapt it to your needs:
 
 ```console
-ldapsearch -H ldaps://contoso.com -x \
+ldapsearch -H ldaps://DC1.contoso.com -x \ #The name of any Domain Controller in your forest#
         -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
         -b CN=Users,DC=contoso,DC=com
 ```
