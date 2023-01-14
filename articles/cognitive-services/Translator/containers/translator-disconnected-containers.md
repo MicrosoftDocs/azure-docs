@@ -71,19 +71,19 @@ Both the endpoint URL and API key are needed when you first run the container, t
 
 ## Download a Docker container with `docker pull`
 
-    After you have a license file, download the Docker container you have approval to run in a disconnected environment. For example:
+After you have a license file, download the Docker container you have approval to run in a disconnected environment. For example:
 
-    |Docker pull command | Value |Format|
-    |----------|-------|------|
-    |&bullet; **docker pull [image]**</br>&bullet; **docker pull [image]:latest**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest |
-    |||
-    |&bullet; **docker pull [image]:version** | A specific container image |mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64 |
+|Docker pull command | Value |Format|
+|----------|-------|------|
+|&bullet; **docker pull [image]**</br>&bullet; **docker pull [image]:latest**|The latest container image.|&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation</br>  </br>&bullet; mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest |
+|||
+|&bullet; **docker pull [image]:version** | A specific container image |mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64 |
 
-    **Example Docker pull command**
+  **Example Docker pull command**
 
-    ```docker
-      docker pull mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
-    ```
+```docker
+    docker pull mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
+```
 
 ## Configure the container to run in a disconnected environment
 
@@ -106,39 +106,39 @@ The following example shows the formatting of the `docker run` command you'll us
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
-    **Example Docker pull command**
+  **Example Docker pull command**
 
-    ```docker
+```docker
 
-    docker run --rm -it -p 5000:5000
+docker run --rm -it -p 5000:5000
 
-    -v {MODEL_MOUNT_PATH} \
+-v {MODEL_MOUNT_PATH} \
 
-    -v {LICENSE_MOUNT_PATH} \
+-v {LICENSE_MOUNT_PATH} \
 
-    Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 
-    -e DownloadLicense=true \
+-e DownloadLicense=true \
 
-    -e eula=accept \
+-e eula=accept \
 
-    -e billing={ENDPOINT_URI} \
+-e billing={ENDPOINT_URI} \
 
-    -e apikey={API_KEY} \
+-e apikey={API_KEY} \
 
-    -e Languages={LANGUAGES_LIST}
+-e Languages={LANGUAGES_LIST}
 
-    [image]
-    ```
+[image]
+```
 
 ### Translation models and container configuration
 
 After you've [configured the container](#configure-the-container-to-run-in-a-disconnected-environment), the values for the downloaded translation models and container configuration will be generated and displayed in the container output. For example:
 
-    ```bash
-      -e MODELS= usr/local/models/model1/, usr/local/models/model2/
-      -e TRANSLATORSYSTEMCONFIG=/usr/local/models/Config/5a72fa7c-394b-45db-8c06-ecdfc98c0832
-    ```
+```bash
+    -e MODELS= usr/local/models/model1/, usr/local/models/model2/
+    -e TRANSLATORSYSTEMCONFIG=/usr/local/models/Config/5a72fa7c-394b-45db-8c06-ecdfc98c0832
+```
 
 ## Run the container in a disconnected environment
 
@@ -159,28 +159,28 @@ Placeholder | Value | Format|
 | `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
 |`{TRANSLATOR_CONFIG_JSON}`| Translator system configuration file used by container internally.| /usr/local/models/Config/5a72fa7c-394b-45db-8c06-ecdfc98c0832 |
 
-    ```docker
+```docker
 
-        docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \
 
-    -v {MODEL_MOUNT_PATH} \
+-v {MODEL_MOUNT_PATH} \
 
-    -v {LICENSE_MOUNT_PATH} \
+-v {LICENSE_MOUNT_PATH} \
 
-    -v {OUTPUT_MOUNT_PATH} \
+-v {OUTPUT_MOUNT_PATH} \
 
-    Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
 
-    Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY} \
 
-    -e MODELS={MODELS_DIRECTORY_LIST} \
+-e MODELS={MODELS_DIRECTORY_LIST} \
 
-    -e TRANSLATORSYSTEMCONFIG={TRANSLATOR_CONFIG_JSON} \
+-e TRANSLATORSYSTEMCONFIG={TRANSLATOR_CONFIG_JSON} \
 
-    -e eula=accept \
+-e eula=accept \
 
-    [image]
-    ```
+[image]
+```
 
 That's it! You've learned how to create and run disconnected containers for Translator Service.
 
@@ -196,9 +196,9 @@ When operating Docker containers in a disconnected environment, the container wi
 
 When run in a disconnected environment, an output mount must be available to the container to store usage logs. For example, you would include `-v /host/output:{OUTPUT_PATH}` and `Mounts:Output={OUTPUT_PATH}` in the following example, replacing `{OUTPUT_PATH}` with the path where the logs will be stored:
 
-    ```docker
-    docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
-    ```
+```docker
+docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
+```
 
 ### Get records using the container endpoints
 
@@ -208,49 +208,49 @@ The container provides two endpoints for returning records about its usage.
 
 The following endpoint will provide a report summarizing all of the usage collected in the mounted billing record directory.
 
-    ```HTTP
-    https://<service>/records/usage-logs/
-    ```
+```HTTP
+https://<service>/records/usage-logs/
+```
 
 for example: `http://localhost:5000/records/usage-logs`.
 
 It will return JSON similar to this example:
 
-    ```json
-    {
-    "apiType": "noop",
-    "serviceName": "noop",
-    "meters": [
-    {
-        "name": "string",
-        "quantity": 256345435
+```json
+{
+"apiType": "noop",
+"serviceName": "noop",
+"meters": [
+{
+    "name": "string",
+    "quantity": 256345435
     }
-    ]
-    }
-    ```
+  ]
+}
+```
 
 #### Get records for a specific month
 
 The following endpoint will provide a report summarizing usage over a specific month and year.
 
-    ```HTTP
-    https://<service>/records/usage-logs/{MONTH}/{YEAR}
-    ```
+```HTTP
+https://<service>/records/usage-logs/{MONTH}/{YEAR}
+```
 
 it will return a JSON response similar to this example:
 
-    ```json
+```json
+{
+    "apiType": "string",
+    "serviceName": "string",
+    "meters": [
     {
-      "apiType": "string",
-      "serviceName": "string",
-      "meters": [
-        {
-          "name": "string",
-          "quantity": 56097
-        }
-      ]
+        "name": "string",
+        "quantity": 56097
     }
-    ```
+  ]
+}
+```
 
 ## Purchase a different commitment plan for disconnected containers
 
