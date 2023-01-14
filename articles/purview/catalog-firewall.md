@@ -74,7 +74,7 @@ To configure Microsoft Purview firewall follow these steps:
 
 4. Select **Save**.
 
-  :::image type="content" source="media/catalog-private-link/purview-firewall-save.png" alt-text="Screenshot showing the purview account firewall page, selecting save in the Azure portal":::
+    :::image type="content" source="media/catalog-private-link/purview-firewall-save.png" alt-text="Screenshot showing the purview account firewall page, selecting save in the Azure portal":::
 
 ## Next steps
 
