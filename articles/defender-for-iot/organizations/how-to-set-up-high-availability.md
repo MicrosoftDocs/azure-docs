@@ -39,7 +39,7 @@ Sign back in to the primary appliance after redirection.
 
 ## Prerequisites
 
-Before you perform the procedures in this article, verify that you've met the following prerequisites
+Before you perform the procedures in this article, verify that you've met the following prerequisites:
 
 - Make sure that you have an [on-premises management console installed](/ot-deploy/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
 
@@ -48,7 +48,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
 - Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two OT network sensors connected, and scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
-- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md) <!--shereen has a PR on this coming-->
+- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md).
 
 - Make sure that your organizational security policy grants you access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
@@ -60,7 +60,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
 ## Create the primary and secondary pair
 
-1. Power on both the primary and secondary on-premises managemnt console appliances.
+1. Power on both the primary and secondary on-premises management console appliances.
 
 1. **On the secondary appliance**: Use the following steps to copy the connection string to your clipboard:
 
@@ -68,9 +68,9 @@ Before you perform the procedures in this article, verify that you've met the fo
 
     1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
-    1.  The connection string is comprised of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
+    1.  The connection string is composed of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 
-    :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy the second part pf the connection string to use in the following command.":::
+        :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy each part of the connection string to use in the following command.":::
 
 1. **On the primary appliance**: Use the following steps to connect the secondary appliance to the primary via CLI:
 
@@ -93,7 +93,7 @@ Before you perform the procedures in this article, verify that you've met the fo
         ```bash
         sudo cyberx-management-trusted-hosts-apply
         ```
-    1. Verify that the certificate is installed correctly. Run:
+    1. Verify that the certificate is installed correctly on the primary. Run:
 
         ```bash
         cyberx-management-trusted-hosts-list
@@ -101,10 +101,8 @@ Before you perform the procedures in this article, verify that you've met the fo
 
         > [!IMPORTANT] Do not run this step with sudo.
 
-1. Allow the connection between the primary and secondary appliances' backup and restore process.
+1. Allow the connection between the primary and secondary appliances' backup and restore process:
 
-  > [!IMPORTANT] Do not run the commands in this step with sudo.
-  
     - **On the primary appliance**, run:
     
         ```bash
@@ -117,13 +115,11 @@ Before you perform the procedures in this article, verify that you've met the fo
         cyberx-management-deploy-ssh-key <primary appliance IP address>
         ```
 
-1. Verify that the changes have been applied on the secondary appliance. On the secondary appliance, run: 
+1. Verify that the changes have been applied on the secondary appliance. **On the secondary appliance**, run: 
     
     ```bash
     cyberx-management-trusted-hosts-list
     ```
-
-    > [!IMPORTANT] Do not run the commands in this step with sudo.
 
 ### Track high availability activity
 
@@ -131,14 +127,14 @@ The core application logs can be exported to the Defender for IoT support team t
 
 **To access the core logs**:
 
-1. Sign into the on-premises management console <!--primary or secondary?--> and select **System Settings** > **Export**. For more information, see <!--i know we have this information elsewhere - didn't you just update it recently? w the backup and restore process?-->
+1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 
 ## Update the on-premises management console with high availability
 
 To update an on-premises management console that has high availability configured, you'll need to:
 
-1. Disconnect the high availability from both the primary and secondary appliances. 
-1. Update the appliances to the new version. 
+1. Disconnect the high availability from both the primary and secondary appliances.
+1. Update the appliances to the new version.
 1. Reconfigure the high availability back onto both appliances.
 
 Perform the update in the following order. Make sure each step is complete before you begin a new step.
