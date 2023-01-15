@@ -9,8 +9,8 @@ ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 11/18/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: engagement-fy23
 
