@@ -1,9 +1,10 @@
 ---
 author: cephalin
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
+ms.subservice: web-apps
 ---
 > [!NOTE]
 > You can use Azure DNS to configure a custom DNS name for Azure App Service. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../articles/dns/dns-custom-domain.md#app-service-web-apps).

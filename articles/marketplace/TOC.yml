@@ -32,7 +32,9 @@
     - name: Manage groups
       href: manage-groups.md
     - name: Add and manage Azure AD applications
-      href: manage-aad-apps.md  
+      href: manage-aad-apps.md
+    - name: Update marketplace owner
+      href: update-marketplace-owner.md
 - name: Concepts
   items: 
   - name: Listing options
@@ -213,8 +215,10 @@
           href: azure-container-plan-technical-configuration.md
         - name: Plan technical configuration for Kubernetes applications
           href: azure-container-plan-technical-configuration-kubernetes.md
-        - name: Container certification troubleshooting
-          href: azure-container-certification-faq.yml
+    - name: Container certification troubleshooting
+      href: azure-container-certification-faq.yml
+    - name: Kubernetes application publishing troubleshooting
+      href: azure-container-troubleshoot.md
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
@@ -741,5 +745,3 @@
     href: /partner-center/reference-architecture-diagram?context=/azure/marketplace/context/context
   - name: Customer documentation
     href: /marketplace/
-  - name: Azure Blob
-    href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md

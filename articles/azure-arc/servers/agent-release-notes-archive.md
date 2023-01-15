@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 10/11/2022
+ms.date: 11/18/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,22 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.19 - June 2022
+
+### Known issues
+
+- Agents configured to use private endpoints will incorrectly try to download extensions from a public endpoint. [Upgrade the agent](manage-agent.md#upgrade-the-agent) to version 1.20 or later to restore correct functionality.
+- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
+
+### New features
+
+- When installed on a Google Compute Engine virtual machine, the agent will now detect and report Google Cloud metadata in the "detected properties" of the Azure Arc-enabled servers resource. [Learn more](agent-overview.md#instance-metadata) about the new metadata.
+
+### Fixed
+
+- An issue that could cause the extension manager to hang during extension installation, update, and removal operations has been resolved.
+- Improved support for TLS 1.3
 
 ## Version 1.18 - May 2022
 

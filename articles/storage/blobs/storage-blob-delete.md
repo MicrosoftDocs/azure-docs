@@ -1,5 +1,6 @@
 ---
-title: Delete and restore a blob with .NET - Azure Storage
+title: Delete and restore a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
 author: pauljewellmsft

@@ -1,5 +1,6 @@
 ---
-title: Upload a blob using .NET - Azure Storage
+title: Upload a blob using .NET
+titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
 author: pauljewellmsft
@@ -17,7 +18,7 @@ ms.custom: devx-track-csharp, devguide-csharp
 You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
 
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with .NET](storage-blob-container-create.md). 
+> Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. You can create a container in a storage account using methods from [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) or [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient). To learn how to create a container in your storage account, see [Create a container in Azure Storage with .NET](storage-blob-container-create.md).
 
 To upload a blob by using a file path, a stream, a binary object or a text string, use either of the following methods:
 

@@ -1,21 +1,21 @@
 ---
-title: Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
-description: Step-by-step guide on how data owners can configure access to Arc-enabled SQL servers through Microsoft Purview access policies.
+title: Provision access by data owner for Azure Arc-enabled SQL Server (preview)
+description: Step-by-step guide on how data owners can configure access to Azure Arc-enabled SQL Servers through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 11/23/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
-# Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
+# Provision access by data owner for Azure Arc-enabled SQL Server (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 [Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
 
-This guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to SQL Server on Azure Arc-enabled servers. The following actions are currently enabled: *Read*. This action is only supported for policies at server level. *Modify* is not supported at this point.
+This guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to Azure Arc-enabled SQL Server. The following actions are currently enabled: *Read*. This action is only supported for policies at server level. *Modify* is not supported at this point.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -40,15 +40,17 @@ Register each data source with Microsoft Purview to later define access policies
 
 1. Enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Arc-enabled SQL server. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Arc-enabled SQL server and the App Registration changes in the future.
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Azure Arc-enabled SQL Server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Azure Arc-enabled SQL Server and the App Registration changes in the future.
 
 1. Select **Register** or **Apply** at the bottom
 
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
 
+## Enable policies in Azure Arc-enabled SQL Server
+[!INCLUDE [Access policies Arc enabled SQL Server configuration](./includes/access-policies-configuration-arc-sql-server.md)]
 
-## Create and publish a data owner policy
+## Create and publish a Data owner policy
 
 Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-policies-data-owner-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example:
 
@@ -114,7 +116,7 @@ SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 
 ### Policy action mapping
 
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in SQL Server on Azure Arc-enabled servers.
+This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure Arc-enabled SQL Server.
 
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|

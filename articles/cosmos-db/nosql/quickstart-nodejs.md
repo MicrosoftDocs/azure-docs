@@ -24,6 +24,13 @@ Get started with the Azure Cosmos DB client library for JavaScript to create dat
 
 ## Prerequisites
 
+- An Azure account with an active subscription.
+  - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
+- [Node.js 10 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+
+### Prerequisite check
+
 - In a terminal or command window, run ``node --version`` to check that the Node.js version is one of the current long term support (LTS) versions.
 - Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
@@ -32,6 +39,9 @@ Get started with the Azure Cosmos DB client library for JavaScript to create dat
 This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for JavaScript to manage resources.
 
 ### Create an Azure Cosmos DB account
+
+> [!TIP]
+> No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required. If you create an account using the free trial, you can safely skip ahead to the [Create a new JavaScript project](#create-a-new-javascript-project) section.
 
 [!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](includes/create-resources.md)]
 

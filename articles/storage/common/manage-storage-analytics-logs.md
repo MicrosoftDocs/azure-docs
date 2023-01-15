@@ -8,6 +8,7 @@ ms.date: 09/30/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: monitoring, devx-track-azurepowershell
 ---
 

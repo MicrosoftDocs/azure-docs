@@ -118,7 +118,7 @@ ASP.NET **Core/Worker service apps**
 > [!NOTE]
 > Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) or [WorkerService](worker-service.md#add-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
+For apps written by using [ASP.NET Core](asp-net-core.md#add-telemetry-processors) or [WorkerService](worker-service.md#add-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -305,7 +305,7 @@ ASP.NET **Core/Worker service apps: Load your initializer**
 > [!NOTE]
 > Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) or [WorkerService](worker-service.md#add-telemetry-initializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. Accomplish this step in the `Startup.ConfigureServices` method.
+For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) or [WorkerService](worker-service.md#add-telemetry-initializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. Accomplish this step in the `Startup.ConfigureServices` method.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -336,7 +336,7 @@ cfg: { // Application Insights Configuration
 </script>
 ```
 
-For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
 
 You can add as many initializers as you like. They're called in the order that they're added.
 
@@ -480,7 +480,7 @@ public void Initialize(ITelemetry telemetry)
 }
 ```
 
-#### Control the client IP address used for gelocation mappings
+#### Control the client IP address used for geolocation mappings
 
 The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
 

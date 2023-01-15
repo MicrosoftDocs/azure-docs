@@ -17,6 +17,62 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## January 13, 2023
+
+### Image tag
+
+`v1.15.0_2023-01-10`
+
+For complete release version information, see [Version log](version-log.md#january-13-2023).
+
+New for this release:
+
+- Arc data services:
+   - Kafka separate mode - Description of this change and all customer and developer impacts are enumerated in the linked feature.
+
+- Arc-SQL MI
+   - Time series functions are available.
+
+## December 13, 2022
+
+### Image tag
+
+`v1.14.0_2022-12-13`
+
+For complete release version information, see [Version log](version-log.md#december-13-2022).
+
+New for this release:
+
+- Platform support
+  - Add support for K3s
+
+- Arc data controller.
+  - Added defaults on HA supervisor pod to support resource quotas.
+  - Update Grafana to version 9.
+
+- Arc-enabled PostgreSQL server
+  - Switch to Ubuntu based images.
+
+- Bug fixes and optimizations in the following areas:
+  - Arc enabling SQL Server onboarding.
+  - Fixed confusing error messages when DBMail is configured.
+
+## November 8, 2022
+
+### Image tag
+
+`v1.13.0_2022-11-08`
+
+For complete release version information, see [Version log](version-log.md#november-8-2022).
+
+New for this release:
+
+- Arc-enabled PostgreSQL server
+  - Add support for automated backups
+
+- `arcdata` Azure CLI extension
+  - CLI support for automated backups: Setting the `--storage-class-backups` parameter for the create command will enable automated backups
+
 ## October 11, 2022
 
 ### Image tag

@@ -65,62 +65,69 @@ Strong consistency offers a linearizability guarantee. Linearizability refers to
 
 ### Bounded staleness consistency
 
-In bounded staleness consistency, the reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
+For single-region write accounts with two or more regions, data is replicated from the primary region to all secondary (read-only) regions. For multi-region write accounts with two or more regions, data is replicated from the region it was originally written in to all other writable regions. In both scenarios, while not common, there may occasionally be a replication lag from one region to another.
+
+In bounded staleness consistency, data between any two regions will not lag by more than "K" versions (that is, "updates") of an item or by "T" time intervals, whichever is reached first. In other words, when you choose bounded staleness, the maximum "staleness" of the data in any region can be configured in two ways:
 
 - The number of versions (*K*) of the item
 - The time interval (*T*) reads might lag behind the writes
 
-For a single region account, the minimum value of *K* and *T* is 10 write operations or 5 seconds. For multi-region accounts the minimum value of *K* and *T* is 100,000 write operations or 300 seconds.
+Bounded Staleness is beneficial primarily to single-region write accounts with two or more regions. If the data lag in a region (determined per physical partition) exceeds the configured staleness value, writes for that partition will be throttled until staleness is back within the configured upper bound.
 
-Bounded staleness offers total global order outside of the "staleness window." When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency. As the staleness window approaches for either time or updates, whichever is closer, the service will throttle new writes to allow replication to catch up and honor the consistency guarantee.
+For a single-region account, Bounded Staleness provides the same write consistency guarantees as Session and Eventual Consistency with data being replicated to a local majority (three replicas in a four replica set) in the single region. 
 
-Inside the staleness window, Bounded Staleness provides the following consistency guarantees:
+> [!IMPORTANT]
+> With Bounded Staleness consistency, staleness checks are made only across regions and not within a region. Within a given region, data is always replicated to a local majority (three replicas in a four replica set) regardless of the consistency level.
 
-- Consistency for clients in the same region for an account with single write region = [Strong](#strong-consistency)
-- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to different regions for an account with multiple write regions = [Eventual](#eventual-consistency)
+Reads when using Bounded Staleness will return the latest data available in that region by reading from two available replicas in that region. Since writes within a region always replicate to a local majority (3 out of 4 replicas), consulting two replicas will return the most up to date data available in that region.
 
-  Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
+> [!IMPORTANT]
+> With Bounded Staleness consistency, reads issued against a non-primary region may not necessarily return the most recent version of the data globally, but are guaranteed to return the most recent version of the data in that region, which will be within the maximum staleness boundary globally.
+
+Bounded Staleness works best for globally distributed applications using a single-region write accounts with two or more regions, where near strong consistency across regions is desired. For multi-region write accounts with two or more regions, application servers should direct reads and writes to the same region in which the application servers are hosted. Thus, Bounded Staleness in a multi-write account is an anti-pattern as it would require a dependency on replication lag between regions, which should not matter if data is read from the same region it was written to.
+
+The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustration of bounded staleness consistency level":::
 
 ### Session consistency
 
-In session consistency, within a single client session reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. This assumes a single "writer" session or sharing the session token for multiple writers.
+In session consistency, within a single client session, reads are guaranteed to honor the read-your-writes, and write-follows-reads guarantees. This assumes a single “writer” session or sharing the session token for multiple writers.
 
-Clients outside of the session performing writes will see the following guarantees:
+Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four replica set) in the local region, with asynchronous replication to all other regions.
 
-- Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to multiple regions for an account with multiple write regions = [Eventual](#eventual-consistency)
-- Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = [Eventual](#eventual-consistency)
+After every write operation, the client receives an updated Session Token from the server. These tokens are cached by the client and sent to the server for read operations in a specified region. If the replica against which the read operation is issued contains data for the specified token (or a more recent token), the requested data is returned. If the replica does not contain data for that session, the client will retry the request against another replica in the region. If necessary, the client will retry the read against additional available regions until data for the specified session token is retrieved. 
 
-  Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
+> [!IMPORTANT]
+> In Session Consistency, the client’s usage of a session token guarantees that data corresponding to an older session will never be read. However, if the client is using an older session token and more recent updates have been made to the database, the more recent version of the data will be returned despite an older session token being used. The Session Token is used as a minimum version barrier but not as a specific (possibly historical) version of the data to be retrieved from the database.
+
+If the client did not initiate a write to a physical partition, it will not contain a session token in its cache and reads to that physical partition will behave as reads with Eventual Consistency. Similarly, if the client is re-created, its cache of session tokens will also be re-created. Here too, read operations will follow the same behavior as Eventual Consistency until subsequent write operations rebuild the client’s cache of session tokens.
+
+> [!IMPORTANT]
+> If Session Tokens are being passed from one client instance to another, the contents of the token should not be modified.
+
+  Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "East US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Illustration of session consistency level":::
 
 ### Consistent prefix consistency
 
-In consistent prefix, updates made as single document writes see eventual consistency. Updates made as a batch within a transaction, are returned consistent to the transaction in which they were committed. Write operations within a transaction of multiple documents are always visible together.
+Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four-replica set) in the local region, with asynchronous replication to all other regions.
 
-Assume two write operations are performed on documents Doc1 and Doc2, within transactions T1 and T2. When client does a read in any replica, the user will see either “Doc1 v1 and Doc2 v1” or “ Doc1 v2 and Doc2 v2”, but never “Doc1 v1 and Doc2 v2” or “Doc1 v2 and Doc2 v1” for the same read or query operation.
+In consistent prefix, updates made as single document writes see eventual consistency. 
+Updates made as a batch within a transaction, are returned consistent to the transaction in which they were committed. Write operations within a transaction of multiple documents are always visible together.
 
-Below are the consistency guarantees for Consistent Prefix within a transaction context (single document writes see eventual consistency):
+Assume two write operations are performed transactionally (all or nothing operations) on document Doc1 followed by document Doc2, within transactions T1 and T2. When client does a read in any replica, the user will see either “Doc1 v1 and Doc2 v1” or “Doc1 v2 and Doc2 v2” or neither document if the replica is lagging, but never “Doc1 v1 and Doc2 v2” or “Doc1 v2 and Doc2 v1” for the same read or query operation.
 
-- Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to a single region for an account with multiple write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to multiple regions for an account with multiple write region = [Eventual](#eventual-consistency)
-
-The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes:
+The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes for a transactional batch of writes:
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Illustration of consistent prefix":::
 
 ### Eventual consistency
 
-In eventual consistency, there's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
+Like all consistency levels weaker than Strong, writes are replicated to a minimum of three replicas (in a four replica set) in the local region, with asynchronous replication to all other regions.
+
+In Eventual consistency, the client will issue read requests against any one of the four replicas in the specified region. This replica may be lagging and could return stale or no data.
 
 Eventual consistency is the weakest form of consistency because a client may read the values that are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes, or non-threaded comments. The following graphic illustrates the eventual consistency with musical notes.
 

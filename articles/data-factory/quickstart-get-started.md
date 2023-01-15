@@ -20,15 +20,11 @@ Welcome to Azure Data Factory!  This getting started article will let you create
 ## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Video introduction
+## Video summary
 
-Select the button below to try it out!  
-
-[![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
-
+The following video provides a walkthrough of the sample:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE583aX]
-
 
 ## Try your first demo with one click
 In your first demo scenario you will use the [Copy activity](copy-activity-overview.md) in a data factory to copy an Azure blob named moviesDB2.csv from an input folder on an Azure Blob Storage to an output folder. In a real world scenario this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.

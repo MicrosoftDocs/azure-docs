@@ -84,15 +84,15 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | No |
-| **AzureSentinel** | Microsoft Sentinel. | Inbound | Yes | No |
+| **AzureSentinel** | Microsoft Sentinel. | Inbound | Yes | Yes |
 | **AzureSignalR** | Azure SignalR. | Outbound | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | No |
 | **AzureSphere** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
 | **AzureStack** | Azure Stack Bridge services. </br> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
 | **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>**Note**: This tag provides access to Windows Update metadata services. To successfully download updates, you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul> | Outbound | No | No |  
-| AzureWebPubSub | AzureWebPubSub | Both | Yes | No |
-| **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
+| **AzureWebPubSub** | AzureWebPubSub | Both | Yes | No |
+| **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | Yes | Yes |
 | **ChaosStudio** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | Yes | No |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Both | No | No |
 | **DataFactory**  | Azure Data Factory | Both | No | No |
@@ -103,7 +103,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **GatewayManager** | Management traffic for deployments dedicated to Azure VPN Gateway and Application Gateway. | Inbound | No | No |
 | **GuestAndHybridManagement** | Azure Automation and Guest Configuration. | Outbound | No | Yes |
 | **HDInsight** | Azure HDInsight. | Inbound | Yes | No |
-| **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>This service tag only applies where the traffic does not hit any other service tag.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
+| **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
 | **LogicApps** | Logic Apps. | Both | No | No |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | No |
 | **M365ManagementActivityApi** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Azure Active Directory activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | No |
@@ -111,6 +111,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. | Outbound | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
+|**MicrosoftDefenderForEndpoint** | Microsoft Defender for Endpoint | Both | No | Yes |
 | **PowerBI** | Power BI. | Both | No | No|
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. | Outbound | Yes | Yes |
 | **PowerPlatformPlex** | This tag represents the IP addresses used by the infrastructure to host Power Platform extension execution on behalf of the customer. | Inbound | Yes | Yes |

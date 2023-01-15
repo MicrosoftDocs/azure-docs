@@ -16,6 +16,8 @@
   items:
   - name: About Azure Arc resource bridge
     href: ./resource-bridge/overview.md
+  - name: Network requirements
+    href: ./resource-bridge/network-requirements.md
   - name: Security overview
     href: ./resource-bridge/security-overview.md
   - name: Troubleshoot

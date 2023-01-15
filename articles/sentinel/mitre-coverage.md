@@ -1,10 +1,10 @@
 ---
 title: View MITRE coverage for your organization from Microsoft Sentinel | Microsoft Docs
 description: Learn how to view coverage indicator in Microsoft Sentinel for MITRE tactics that are currently covered, and available to configure, for your organization.
-author: batamig
+author: austinmccollum
 ms.topic: how-to
 ms.date: 12/21/2021
-ms.author: bagol
+ms.author: austinmc
 ---
 
 # Understand security coverage by the MITRE ATT&CK® framework
@@ -87,4 +87,4 @@ Having a scheduled rule with MITRE techniques applied running regularly in your 
 For more information, see:
 
 - [MITRE | ATT&CK framework](https://attack.mitre.org/)
-- [MITRE ATT&CK for Industrial Control Systems](https://collaborate.mitre.org/attackics/index.php/Main_Page)
+- [MITRE ATT&CK for Industrial Control Systems](https://www.mitre.org/news-insights/news-release/mitre-releases-framework-cyber-attacks-industrial-control-systems)

@@ -12,12 +12,17 @@ ms.custom: include file
 ms.author: askaur
 ---
 
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_SimpleIvr).
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the resource connection string for this quickstart by navigating to your resource selecting 'Keys' from the left side menu.
-- [Acquire a phone number for your Communication Service resource](../../telephony/get-phone-number.md?pivots=programming-language-csharp). Note the phone number you acquired for use in this quickstart. 
-- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. .NET 6.0 or higher is recommended as this quickstart uses the minimal API feature. 
+- [Acquire a phone number for your Communication Service resource](../../telephony/get-phone-number.md?pivots=programming-language-csharp) or connect your carrier using [Azure direct routing](../../../concepts/telephony/direct-routing-infrastructure.md). Note the phone number you acquired or provisioned using Azure direct routing for use in this quickstart. 
+- The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. .NET 6.0 or higher is recommended as this quickstart uses the minimal API feature.
+- The latest version of Visual Studio 2022 (17.4.0 or higher)
 - An audio file for the message you want to play in the call. This audio should be accessible via a url. 
 
 ## Create a new C# application
@@ -34,16 +39,17 @@ In the console window of your operating system, use the `dotnet` command to crea
 2. Install the NuGet packages: [Azure.Communication.CallAutomation](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/) and [Azure.Messaging.EventGrid](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Messaging.EventGrid/versions/) to your project. 
 ```console 
 dotnet add <path-to-project> package Azure.Communication.CallAutomation --prerelease
-dotnet add <path-to-project> package Azure.Messaging.EventGrid --prerelease
+dotnet add <path-to-project> package Azure.Messaging.EventGrid
 ```
-## Set up a public URI for the local application 
+## Use Visual Studio Dev Tunnels for your webhook
 
-In this quick-start, you'll use [Ngrok tool](https://ngrok.com/) to project a public URI to the local port so that your local application can be visited by the internet. The public URI is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
+In this quick-start, you'll use the new [Visual Studio Dev Tunnels](/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-First, determine the port of the .NET application. Minimal API dynamically allocates a port for the project at the time of creation. Find out the http port in <PROJECT_ROOT>\Properties\launchSettings.json.
-:::image type="content" source="./../media/dotnet-application-port.jpg" alt-text="Screenshot of demo application's launchsetting.json file":::
+Note by default the dev tunnels are disabled in Visual Studio. To enable dev tunnels, please go to Tools, than Options and enable dev tunnels in Preview Features menu.
 
-Then, [install Ngrok](https://ngrok.com/download) and run Ngrok with the following command: `ngrok http <port>`. This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`, and it is your Ngrok Fully Qualified Domain Name(Ngrok_FQDN). Keep Ngrok running while following the rest of this quick-start.
+If you haven't already configured your workstation, be sure to follow the steps in [this guide](/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
+
+Set up your Event Grid subscription to receive the `IncomingCall` event by reading [this guide](../../../concepts/call-automation/incoming-call-notification.md).
 
 ## Update Program.cs
 
@@ -66,21 +72,23 @@ using System.Text.Json.Nodes;
 var builder = WebApplication.CreateBuilder(args);
 
 var client = new CallAutomationClient("<resource_connection_string"); //noted from pre-requisite step
-var callbackUriBase = "<public_url_generated_by_ngrok>";
-var mediaFileSource = new Uri("<link_to_media_file>");
+var tunnelUrl = builder.Configuration["VS_TUNNEL_URL"]; // Visual Studio Dev Tunnel's dynamic FQDN
+var mediaFileSource = new Uri("<link_to_media_file>"); //This URL should be public accessible and the file format should be WAV, 16KHz, Mono.
 var applicationPhoneNumber = "<phone_number_acquired_as_prerequisite>";
-var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in format of +1...
+var phoneNumberToAddToCall = "<phone_number_to_add_to_call>"; //in E.164 format starting +...
+
+Console.WriteLine($"Tunnel URL:{builder.Configuration["VS_TUNNEL_URL"]}"); // echo Tunnel URL to screen to configure Event Grid webhook
 
 var app = builder.Build();
+
 app.MapPost("/api/incomingCall", async (
     [FromBody] EventGridEvent[] eventGridEvents) =>
 {
     foreach (var eventGridEvent in eventGridEvents)
     {
-        // Handle system events
         if (eventGridEvent.TryGetSystemEventData(out object eventData))
         {
-            // Handle the subscription validation event.
+            // Handle the webhook subscription validation event.
             if (eventData is SubscriptionValidationEventData subscriptionValidationEventData)
             {
                 var responseData = new SubscriptionValidationResponse
@@ -93,7 +101,7 @@ app.MapPost("/api/incomingCall", async (
         var jsonObject = JsonNode.Parse(eventGridEvent.Data).AsObject();
         var callerId = (string)(jsonObject["from"]["rawId"]);
         var incomingCallContext = (string)jsonObject["incomingCallContext"];
-        var callbackUri = new Uri(callbackUriBase + $"/api/calls/{Guid.NewGuid()}?callerId={callerId}");
+        var callbackUri = new Uri(tunnelUrl + $"api/calls/{Guid.NewGuid()}?callerId={callerId}");
 
         AnswerCallResult answerCallResult = await client.AnswerCallAsync(incomingCallContext, callbackUri);
     }
@@ -141,8 +149,14 @@ app.MapPost("/api/calls/{contextId}", async (
 
 app.Run();
 ```
-Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](https://learn.microsoft.com/aspnet/core/security/app-secrets) for storing sensitive information like this.  
+Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](/aspnet/core/security/app-secrets) for storing sensitive information.
  
 ## Run the app
 
-Open Your_Project_Name.csproj file in your project with Visual Studio, and then select Run button or press F5 on your keyboard.
+Within Visual Studio select the Run button or press F5 on your keyboard. You should have a dynamic FQDN echoed to the screen as per the above `Console.WriteLine()` command above. Use this FQDN to now configure your Event Grid webhook subscription to receive the inbound call.
+
+## Configure Event Grid webhook subscription
+
+In order to receive the `IncomingCall` event for the inbound PSTN call, you must configure an Event Grid subscription as described in this [concepts guide](../../../concepts/call-automation/incoming-call-notification.md). The most important thing to remember is that an Event Grid webhook subscription must be validated against a working web server. Since you've started the project in the previous step, and you have a public FQDN, set the webhook address in your subscription to the Dev Tunnel obtained by Visual Studio plus the path to your POST endpoint (i.e. `https://<dev_tunnel_fqdn>/api/incomingCall`).
+
+Once your webhook subscription has been validated, it will show up in the portal and you're now ready to test your application by making an inbound call.

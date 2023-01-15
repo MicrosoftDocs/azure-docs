@@ -7,11 +7,11 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 11/22/2022
 ms.author: cherylmc
 
 ---
-# Configure an Azure VPN Client - Azure AD authentication - macOS
+# Configure the Azure VPN Client - Azure AD authentication - macOS
 
 This article helps you configure a VPN client for a computer running macOS 10.15 and later to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site connections, see [About Point-to-Site connections](point-to-site-about.md).
 
@@ -21,7 +21,7 @@ This article helps you configure a VPN client for a computer running macOS 10.15
 >
 
 For every computer that you want to connect to a VNet using a Point-to-Site VPN connection, you need to do the following:
- 
+
 * Download the Azure VPN Client to the computer.
 * Configure a client profile that contains the VPN settings. 
 
@@ -31,14 +31,18 @@ If you want to configure multiple computers, you can create a client profile on 
 
 Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
 
-## <a name="download"></a>To download the Azure VPN client
+## Download the Azure VPN Client
 
 1. Download the [Azure VPN Client](https://apps.apple.com/us/app/azure-vpn-client/id1553936137) from the Apple Store.
 1. Install the client on your computer.
 
-## <a name="import"></a>To import a connection profile
+## Generate VPN client profile configuration files
 
-1. Download and extract the profile files. For steps, see [Working with VPN client profile files](about-vpn-profile-download.md).
+1. To generate the VPN client profile configuration package, see [Working with P2S VPN client profile files](about-vpn-profile-download.md).
+1. Download and extract the VPN client profile configuration files.
+
+## Import VPN client profile configuration files
+
 1. On the Azure VPN Client page, select **Import**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-1.png" alt-text="Screenshot of Azure VPN Client import selection.":::
@@ -55,7 +59,7 @@ Before you can connect and authenticate using Azure AD, you must first configure
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-5.png" alt-text="Screenshot of Azure VPN Client connected status and disconnect button.":::
 
-## <a name="manual"></a>To create a connection manually
+## To create a connection manually
 
 1. Open the Azure VPN Client. Select **Add** to create a new connection.
 
@@ -87,9 +91,9 @@ Before you can connect and authenticate using Azure AD, you must first configure
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-5.png" alt-text="Screenshot of Azure VPN Client connected and disconnect button.":::
 
-## <a name="remove"></a>To remove a connection profile
+## To remove a VPN connection profile
 
-You can remove the VPN connection profile from your computer. 
+You can remove the VPN connection profile from your computer.
 
 1. Navigate to the Azure VPN Client.
 1. Select the VPN connection that you want to remove, click the dropdown, and select **Remove**.
@@ -98,118 +102,9 @@ You can remove the VPN connection profile from your computer.
 1. On the **Remove VPN connection?** box, click **Remove**.
    :::image type="content" source="media/openvpn-azure-ad-client-mac/remove-2.png" alt-text="Screenshot of removing.":::
 
-## FAQ
+## Optional Azure VPN Client configuration settings
 
-### How do I add DNS suffixes to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-    <dnssuffixes>
-          <dnssuffix>.mycorp.com</dnssuffix>
-          <dnssuffix>.xyz.com</dnssuffix>
-          <dnssuffix>.etc.net</dnssuffix>
-    </dnssuffixes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### How do I add custom DNS servers to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<dnsservers>
-		<dnsserver>x.x.x.x</dnsserver>
-        <dnsserver>y.y.y.y</dnsserver>
-	</dnsservers>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### <a name="split"></a>Can I configure split tunneling for the VPN client?
-
-Split tunneling is configured by default for the VPN client.
-
-### <a name="forced-tunnel"></a>How do I direct all traffic to the VPN tunnel (forced tunneling)?
-
-You can configure forced tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
-
-> [!NOTE]
-> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
->
-
-* **Advertise custom routes:** You can advertise custom routes 0.0.0.0/1 and 128.0.0.0/1. For more information, see [Advertise custom routes for P2S VPN clients](vpn-gateway-p2s-advertise-custom-routes.md).
-
-* **Profile XML:** You can modify the downloaded profile XML file to add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
-
-
-    ```
-    <azvpnprofile>
-    <clientconfig>
-          
-    	<includeroutes>
-    		<route>
-    			<destination>0.0.0.0</destination><mask>1</mask>
-    		</route>
-    		<route>
-    			<destination>128.0.0.0</destination><mask>1</mask>
-    		</route>
-    	</includeroutes>
-           
-    </clientconfig>
-    </azvpnprofile>
-    ```
-
-
-### How do I add custom routes to the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<includeroutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-	</includeroutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-### How do I block (exclude) routes from the VPN client?
-
-You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
-
-```
-<azvpnprofile>
-<clientconfig>
-
-	<excluderoutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-	</excluderoutes>
-    
-</clientconfig>
-</azvpnprofile>
-```
-
-> [!NOTE]
-> - The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
-> - Duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
->
+You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
 ## Next steps
 

@@ -70,7 +70,7 @@ This section explains how to install the Log Analytics agent on different types 
 ### Linux virtual machine on-premises or in another cloud
 
 - Use [Azure Arc-enabled servers](../../azure-arc/servers/overview.md) to deploy and manage the Log Analytics VM extension. Review the [deployment options](../../azure-arc/servers/concept-log-analytics-extension-deployment.md) to understand the different deployment methods available for the extension on machines registered with Azure Arc-enabled servers.
-- [Manually install](../vm/monitor-virtual-machine.md) the agent calling a wrapper-script hosted on GitHub.
+- [Manually install](../agents/agent-linux.md#install-the-agent) the agent calling a wrapper-script hosted on GitHub.
 - Integrate [System Center Operations Manager](./om-agents.md) with Azure Monitor to forward collected data from Windows computers reporting to a management group.
 
 ## Data collected

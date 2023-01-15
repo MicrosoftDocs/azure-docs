@@ -5,9 +5,9 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 11/21/2022
 ms.author: franlanglois 
-
+ms.custom: engagement-fy23
 ---
 
 # How to configure Azure Cache for Redis
@@ -185,12 +185,14 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `volatile-lru` - The default eviction policy.
-- `allkeys-lru`
-- `volatile-random`
-- `allkeys-random`
-- `volatile-ttl`
-- `noeviction`
+- `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set. 
+- `allkeys-lru`: Removes the least recently used key.
+- `volatile-random`: Removes a random key that has an expiration set.
+- `allkeys-random`: Removes a random key.
+- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
+- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
+- `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
+- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
@@ -543,6 +545,11 @@ Configuration and management of Azure Cache for Redis instances is managed by Mi
 - SHUTDOWN
 - SLAVEOF
 - SYNC
+
+For cache instances using active geo-replication, the following commands are also blocked to prevent accidental data loss:
+
+- FLUSHALL
+- FLUSHDB
 
 > [!IMPORTANT]
 > Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, some commands are disabled. The commands are listed above. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.

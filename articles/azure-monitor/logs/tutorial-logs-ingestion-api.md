@@ -6,7 +6,7 @@ ms.date: 07/15/2022
 ---
 
 # Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)
-The [Logs Ingestion API (preview)](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
+The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses Azure Resource Manager templates (ARM templates) to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
 
 > [!NOTE]
 > This tutorial uses ARM templates and a REST API to configure custom logs. For a similar tutorial using the Azure portal, see [Tutorial: Send data to Azure Monitor Logs using REST API (Azure portal)](tutorial-logs-ingestion-portal.md).
@@ -167,7 +167,7 @@ A [DCE](../essentials/data-collection-endpoint-overview.md) is required to accep
 
 1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the DCR and then provide values like a **Name** for the DCE. The **Location** should be the same location as the workspace. The **Region** will already be populated and will be used for the location of the DCE.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit custom deployment values.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-api/data-collection-endpoint-custom-deploy.png" lightbox="media/tutorial-logs-ingestion-api/data-collection-endpoint-custom-deploy.png" alt-text="Screenshot to edit custom deployment values.":::
 
 1. Select **Review + create** and then select **Create** after you review the details.
 

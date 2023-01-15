@@ -1,13 +1,10 @@
 ---
 title: "Inner Loop Developer Experience for Teams Adopting GitOps"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 06/18/2021
 ms.topic: conceptual
 author: sudivate
 ms.author: sudivate
-description: "This article provides a conceptual overview of Inner Loop Developer Experience for Teams Adopting GitOps "
-keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers, CI, CD, Azure DevOps, Inner loop, Dev Experience"
+description: "Learn how an established inner loop can enhance developer productivity and help in a seamless transition for teams adopting GitOps."
 ---
 # Inner Loop Developer Experience for teams adopting GitOps
 

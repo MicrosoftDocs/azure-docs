@@ -366,7 +366,7 @@
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
         "articles/site-recovery/*.md": "ankitaduttaMSFT",
-        "articles/stream-analytics/*.md": "sidramadoss",
+        "articles/stream-analytics/*.md": "ajetasin",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -571,7 +571,9 @@
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
       },
       "feedback_system": {
+        "articles/active-directory/**/*.md": "Standard",
         "articles/active-directory/user-help/*.md": "None",
+        "articles/active-directory-b2c/*.md": "Standard",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "None",
         "articles/cognitive-services/custom-decision-service/**/*.md": "None",
         "articles/cognitive-services/Emotion/**/*.md": "None",
@@ -743,7 +745,7 @@
         "articles/service-fabric/*.md": "sukanyas",
         "articles/service-health/*.md": "robb",
         "articles/site-recovery/*.md": "jsuri",
-        "articles/stream-analytics/*.md": "sidram",
+        "articles/stream-analytics/*.md": "ajetasi",
         "articles/terraform/**/*.md": "tarcher",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -937,8 +939,7 @@
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
-        "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
-        "articles/sentinel/**/*.md": "microsoft-sentinel"
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
