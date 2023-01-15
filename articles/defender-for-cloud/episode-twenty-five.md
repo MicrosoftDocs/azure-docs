@@ -1,14 +1,14 @@
 ---
-title: Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
+title: AWS ECR Coverage in Defender for Containers | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Enhancements in Defender for SQL Vulnerability Assessment
 ms.topic: reference
-ms.date: 01/05/2023
+ms.date: 01/15/2023
 ---
 
 # Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Catalin Esanu joins Yuri Diogenes to talk about the enhancements in Defender for SQL Vulnerability Assessment (VA) capability that were announced. Catalin explains how the new SQL VA Express changed to allow a frictionless onboarding experience and how it became easier to manage VA baselines. Catalin demonstrates how to enable this experience and how to customize the baseline with companion scripts.
+**Episode description**: In this episode of Defender for Cloud in the Field, Tomer Spivak joins Yuri Diogenes to talk about the new AWS ECR coverage in Defender for Containers. Tomer explains how Defender for Containers performs vulnerability assessment for ECR workloads in AWS and how to enable this capability. Tomer demonstrates the user experience in Defender for Cloud, showing the vulnerability findings in the dashboard and the onboarding process.
 <br>
 <br>
 <iframe src="https://aka.ms/docs/player?id=cbd8ace6-4602-4900-bb73-cf8986605639" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
@@ -38,4 +38,4 @@ ms.date: 01/05/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [AWS ECR Coverage in Defender for Containers](episode-twenty-five.md)
+> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
