@@ -53,7 +53,7 @@ When you deploy the AzureML extension, some related services will be deployed to
 |volcano-schedular |1  |N/A |**&check;**|50|500|128|512|
 
 
-Excluding the user deployments/pods, the **total minimum system resources requirements** are as follows:
+Excluding your own deployments/pods, the **total minimum system resources requirements** are as follows:
 
 |Scenario | Enabled Inference | Enabled Training | CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) | Node count | Recommended minimum VM size | Corresponding AKS VM SKU |
 |-- |-- |--|--|--|--|--|--|--|--|
@@ -117,7 +117,7 @@ Some logs about AzureML workloads in the cluster will be collected through exten
 |healthcheck	|--| 	The logs contain azureml namespace resource (AzureML extension) status to diagnose what make the extension not functional. |
 |inference-operator-controller-manager|	Manage the lifecycle of inference endpoints.	|The logs contain AzureML inference endpoint and deployment pod status in the cluster.|
 | metrics-controller-manager	| Manage the configuration for Prometheus.|Trace logs for status of uploading training job and inference  deployment metrics on CPU utilization and memory utilization.|
-| relayserver	| relayserver is only needed in arc-connected cluster and will not be installed in AKS cluster.| Relayserver works with Azure Relay to communicate with the cloud services.	The logs contain request level info from Azure relay.  |
+| relay server	| relay server is only needed in arc-connected cluster and will not be installed in AKS cluster.| Relay server works with Azure Relay to communicate with the cloud services.	The logs contain request level info from Azure relay.  |
  	
 
 ## AzureML jobs connect with custom data storage
@@ -228,7 +228,7 @@ This tutorial helps illustrate how to integrate the [Nginx Ingress Controller](h
 
 ### Expose services over HTTP
 
-In order to expose the azureml-fe we will using the following ingress resource:
+In order to expose the azureml-fe, we will use the following ingress resource:
 
 ```yaml
 # Nginx Ingress Controller example
@@ -396,7 +396,7 @@ More information about how to use ARM template can be found from [ARM template d
 | Date | Version |Version description |
 |---|---|---|
 | Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
-| Nov 29, 2022 | 1.1.16 |Add instance type validation by new *crd*. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |
+| Nov 29, 2022 | 1.1.16 |Add instance type validation by new CRD. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |
 | Sep 13, 2022 | 1.1.10 | Bug fixes.|
 | Aug 29, 2022 | 1.1.9 | Improved health check logic. Bug fixes.|
 | Jun 23, 2022 | 1.1.6 | Bug fixes. |
