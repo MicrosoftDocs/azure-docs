@@ -4,13 +4,16 @@ description: Learn how you can save money and modernize your storage infrastruct
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/18/2022
+ms.date: 01/12/2023
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # Comparing the costs of StorSimple to Azure File Sync
-StorSimple is a discontinued physical and virtual appliance product offered by Microsoft to help customers manage their on-premises storage footprint by tiering data to Azure. The [StorSimple 8000 series appliance](/lifecycle/products/azure-storsimple-8000-series) and the [StorSimple 1200 series appliance](/lifecycle/products/azure-storsimple-1200-series) will reach their end of life on December 31, 2022. It is imperative that you begin planning and executing your migration from StorSimple now.
+StorSimple is a discontinued physical and virtual appliance product offered by Microsoft to help customers manage their on-premises storage footprint by tiering data to Azure. 
+
+> [!NOTE]
+> The StorSimple Service (including the StorSimple Device Manager for 8000 and 1200 series and StorSimple Data Manager) has reached the end of support. The end of support for StorSimple was published in 2019 on the [Microsoft LifeCycle Policy](/lifecycle/products/?terms=storsimple) and [Azure Communications](https://azure.microsoft.com/updates/storsimpleeol/) pages. Additional notifications were sent via email and posted on the Azure portal and in the [StorSimple overview](../../storsimple/storsimple-overview.md). Contact [Microsoft Support](https://azure.microsoft.com/support/create-ticket/) for additional details.
 
 For most use cases of StorSimple, Azure File Sync is the recommended migration target for file shares being used with StorSimple. Azure File Sync supports similar capabilities to StorSimple, such as the ability to tier to the cloud. However, it provides additional features that StorSimple does not have, such as:
 
