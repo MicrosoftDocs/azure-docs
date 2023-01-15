@@ -505,6 +505,8 @@
       href: manage/troubleshoot-sign-in-issue.md
     - name: Can't create multiple subscriptions
       href: manage/create-multiple-subscriptions-error.md
+    - name: Not available due to conflict error
+      href: manage/troubleshoot-not-available-conflict.md
     - name: Enterprise cost view disabled
       href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Troubleshoot Azure EA portal access

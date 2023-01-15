@@ -1,11 +1,11 @@
 ---
-title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI - Azure Health Data Services
-description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or Azure CLI
+title: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/27/2022
+ms.date: 1/5/2023
 ms.author: jasteppe
 ---
 
@@ -49,7 +49,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    Connect-AzAccount
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
 
    ```azurepowershell
    Set-AzContext <AzureSubscriptionId>
@@ -107,7 +107,7 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    az login
    ```
 
-2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](/azure/azure-portal/get-subscription-tenant-id).
+2. Set your Azure subscription deployment context using your subscription ID. To learn how to get your subscription ID, see [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md).
 
    ```azurecli
    az account set <AzureSubscriptionId>
@@ -163,7 +163,7 @@ When deployment is completed, the following resources and access roles are creat
 
   - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](/azure/event-hubs/authorize-access-shared-access-signature).
+  - An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md).
 
 - A Health Data Services workspace.
 
@@ -215,15 +215,9 @@ For example: `az group delete --resource-group ArmTestDeployment`
 
 In this quickstart, you learned how to use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using an ARM template. 
 
-To learn about the different deployment methods for the MedTech service, see
+To learn about other methods for deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service using an Azure Resource Manager template](deploy-new-button.md)
-
-> [!div class="nextstepaction"]
-> [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

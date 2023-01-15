@@ -4,7 +4,7 @@ description: Use automatic deployments in Azure IoT Edge to manage groups of dev
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/18/2021
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

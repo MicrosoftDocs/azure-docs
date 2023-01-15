@@ -2,11 +2,11 @@
 title: Move resources across regions using PowerShell in Azure Resource Mover
 description: Learn how to move resources across regions using PowerShell in Azure Resource Mover.
 manager: evansma
-author: rayne-wiselman
+author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: tutorial
 ms.date: 10/04/2021
-ms.author: raynew 
+ms.author: ankitadutta 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover with PowerShell
 ---
@@ -70,7 +70,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Sign in to your Azure subscription with the Connect-AzAccount cmdlet:
 
 ```azurepowershell-interactive
-Connect-AzAccount – Subscription "<subscription-id>"
+Connect-AzAccount –Subscription "<subscription-id>"
 ```
 
 ## Set up the move collection

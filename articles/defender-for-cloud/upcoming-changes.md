@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 12/27/2022
+ms.date: 12/28/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -22,14 +22,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | January 2023 |
 | [The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-will-be-changed) | January 2023 |
 
-### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
-
-**Estimated date for change: January 2023**
-
-The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
-
-We recommend that you use the recommendation to remediate vulnerabilities in your containers so that the recommendation won't impact your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
-
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
 **Estimated date for change: January 2023**
@@ -41,6 +33,30 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 | Recommendation | Description | Severity |
 |--|--|--|
 | Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
+
+### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
+
+**Estimated date for change: January 2023**
+
+The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
+
+The Defender for SQL vulnerability assessment email report will still be available and existing email configurations won't change after the policy is deprecated.
+
+### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
+
+**Estimated date for change: January 2023**
+
+The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
+
+We recommend that you use the recommendation to remediate vulnerabilities in your containers so that the recommendation won't impact your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
+
+### The built-in policy \[Preview]: Private endpoint should be configured for Key Vault is set to be deprecated
+
+**Estimated date for change: January 2023**
+
+The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) is set to be deprecated and will be replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
+
+The related [policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7c1b1214-f927-48bf-8882-84f0af6588b1) will also be replaced by this new policy in all standards displayed in the regulatory compliance dashboard.
 
 ### The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed
 

@@ -47,7 +47,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     ```bash
     pip install mlflow azureml-mlflow
     ```
-* If you are doing remote tracking (tracking experiments running outside Azure Machine Learning), configure MLflow to track experiments using Azure Machine Learning. See [Setup your tracking environment](how-to-use-mlflow-cli-runs.md?#set-up-tracking-environment) for more details.
+* If you are doing remote tracking (tracking experiments running outside Azure Machine Learning), configure MLflow to track experiments using Azure Machine Learning. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
 
 ## Getting started
 
