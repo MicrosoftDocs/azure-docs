@@ -60,9 +60,12 @@ Before you perform the procedures in this article, verify that you've met the fo
 
 ## Create the primary and secondary pair
 
+  > [!IMPORTANT]
+> Run commands with sudo only where indicated. If not indicated, do not run with sudo.
+
 1. Power on both the primary and secondary on-premises management console appliances.
 
-1. **On the secondary appliance**: Use the following steps to copy the connection string to your clipboard:
+1. **On the secondary appliance**, use the following steps to copy the connection string to your clipboard:
 
     1. Sign in to the secondary on-premises management console, and select **System Settings** on the left.
 
@@ -72,10 +75,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
         :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy each part of the connection string to use in the following command.":::
 
-> [!IMPORTANT]
-> Run commands with sudo only where indicated. If not indicated, do not run with sudo.
-
-1. **On the primary appliance**: Use the following steps to connect the secondary appliance to the primary via CLI:
+1. **On the primary appliance**, use the following steps to connect the secondary appliance to the primary via CLI:
 
     1. Sign in to the primary on-premises management console via SSH to access the CLI, and then run:
 
