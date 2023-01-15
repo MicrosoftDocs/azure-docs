@@ -1,7 +1,7 @@
 
 ---
 title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
-description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, and Azure Active Directory, and Microsoft Defender for Cloud, and Microsoft recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
+description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, Azure Active Directory, Microsoft Defender for Cloud, and Microsoft Defender for IoT and Microsoft recommendations to secure your system against systemic-identity compromises.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -19,7 +19,7 @@ ms.author: bagol
 
 # Recovering from systemic identity compromise
 
-This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Nobelium](https://aka.ms/solorigate) attack of December 2020.
+This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization.
 
 The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
 
@@ -236,7 +236,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Sentinel](../../sentinel/overview.md).
+- **Ensure that your organization has extended detection and response (XDR) and security information and event management (SIEM) solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender), [Microsoft Sentinel](../../sentinel/overview.md), and [Microsoft Defender for IoT](../../defender-for-iot/organizations).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
@@ -249,14 +249,6 @@ We recommend the following actions to ensure identity-related security posture:
 - **[Consider migrating to Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)** for your authentication policy.
 
 - **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](../../active-directory/conditional-access/block-legacy-authentication.md).
-
-    > [!NOTE]
-    > The Exchange Team is planning to [disable Basic Authentication for the EAS, EWS, POP, IMAP, and RPS protocols](https://developer.microsoft.com/en-us/office/blogs/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) in the second half of 2021.
-    >
-    > As a point of clarity, Security Defaults and Authentication Policies are separate but provide complementary features.
-    >
-    > We recommend that customers use Authentication Policies to turn off Basic Authentication for a subset of Exchange Online protocols or to gradually turn off Basic Authentication across a large organization.
-    >
 
 - **Treat your ADFS infrastructure and AD Connect infrastructure as a Tier 0 asset**.
 
@@ -272,13 +264,7 @@ We recommend the following actions to ensure identity-related security posture:
 
 - If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group-Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
 
-- **Ensure Verbose logging is enabled on your ADFS systems**. For example, run the following commands:
-
-    ```powershell
-    Set-AdfsProperties -AuditLevel verbose
-    Restart-Service -Name adfssrv
-    Auditpol.exe /set /subcategory:”Application Generated” /failure:enable /success:enable
-    ```
+- **Ensure Verbose logging is enabled on your ADFS systems**.
 
 ## Remediate and retain administrative control
 
@@ -310,96 +296,17 @@ If your organization decides *not* to [remove trust](#remove-trust-on-your-curre
 
 Rotating the token-signing certificate a single time still allows the previous token-signing certificate to work. Continuing to allow previous certificates to work is a built-in functionality for normal certificate rotations, which permits a grace period for organizations to update any relying party trusts before the certificate expires.
 
-If there was an attack, you don't want the attacker to retain access at all. Make sure to use the following steps to ensure that the attacker doesn't maintain the ability to forge tokens for your domain.
+If there was an attack, you don't want the attacker to retain access at all. Make sure that the attacker doesn't retain the ability to forge tokens for your domain.
 
-> [!CAUTION]
-> The last step in this procedure logs users out of their phones, current webmail sessions, and any other items that are using the associated tokens and refresh tokens.
->
+For more information, see:
 
-> [!TIP]
-> Performing these steps in your ADFS environment creates both a primary and secondary certificate, and automatically promotes the secondary certificate to primary after a default period of 5 days.
->
-> If you have Relying Party Trusts, this may have effects 5 days after the initial ADFS environment change, and should be accounted for in your plan. You can also resolve this by replacing the primary certificate a third time, using the **Urgent** flag again, and removing the secondary certificate or turning off automatic certificate rotation.
->
-
-**To fully rotate the token-signing certificate, and prevent new token forging by an attacker**
-
-1. Check to make sure that your **AutoCertificateRollover** parameter is set to **True**:
-
-    ``` powershell
-    Get-AdfsProperties | FL AutoCert*, Certificate*
-    ```
-    If **AutoCertificateRollover** isn't set to **True**, set the value as follows:
-
-    ``` powershell
-    Set-ADFSProperties -AutoCertificateRollover $true
-    ```
-
-1. Connect to the Microsoft Online Service:
-
-    ``` powershell
-    Connect-MsolService
-    ```
-
-1. Run the following command and make a note of your on-premises and cloud token signing certificate thumbprint and expiration dates:
-
-    ``` powershell
-    Get-MsolFederationProperty -DomainName <domain>
-    ```
-
-    For example:
-
-    ```powershell
-    ...
-    [Not Before]
-        12/9/2020 7:57:13 PM
-
-    [Not After]
-        12/9/2021 7:57:13 PM
-
-    [Thumbprint]
-        3UD1JG5MEFHSBW7HEPF6D98EI8AHNTY22XPQWJFK6
-    ```
-
-1. Replace the primary token signing certificate using the **Urgent** switch. This command causes ADFS to replace the primary certificate immediately, without making it a secondary certificate:
-
-    ```powershell
-    Update-AdfsCertificate -CertificateType Token-Signing -Urgent
-    ```
-
-1. Create a secondary Token Signing certificate, without the **Urgent** switch. This command allows for two on-premises token signing certificates before synching with Azure Cloud.
-
-    ```powershell
-    Update-AdfsCertificate -CertificateType Token-Signing
-    ```
-
-1. Update the cloud environment with both the primary and secondary certificates on-premises to immediately remove the cloud published token signing certificate.
-
-    ```powershell
-    Update-MsolFederatedDomain -DomainName <domain>
-    ```
-
-    > [!IMPORTANT]
-    > If this step is not performed using this method, the old token signing certificate may still be able to authenticate users.
-
-1. To ensure that these steps have been performed correctly, verify that the certificate displayed before in step 3 is now removed:
-
-    ```powershell
-    Get-MsolFederationProperty -DomainName <domain>
-    ```
-
-1. Revoke your refresh tokens via PowerShell, to prevent access with the old tokens. 
-
-    For more information, see:
-
-    - [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-    - [Revoke-AzureADUserAllRefreshToken PowerShell docs](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
-
+- [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
+- [Revoke-AzureADUserAllRefreshToken PowerShell docs](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
 
 ### Replace your ADFS servers
 
-If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, you'll need to remove the existing ADFS from your environment, and then build a new one. 
+If, instead of rotating your SAML token-signing certificate, you decide to replace the ADFS servers with clean systems, you'll need to remove the existing ADFS from your environment, and then build a new one. 
 
 For more information, see [Remove a configuration](../../active-directory/cloud-sync/how-to-configure.md#remove-a-configuration). 
 
