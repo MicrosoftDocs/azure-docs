@@ -13,15 +13,15 @@ ms.date: 01/15/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=cbd8ace6-4602-4900-bb73-cf8986605639" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:23](/shows/mdc-in-the-field/defender-sql-enhancements#time=01m23s) - Architecture change in SQL VA
-- [05:30](/shows/mdc-in-the-field/defender-sql-enhancements#time=05m30s) - Enabling SQL VA Express
-- [06:25](/shows/mdc-in-the-field/defender-sql-enhancements#time=06m25s) -  Performance considerations
-- [08:49](/shows/mdc-in-the-field/defender-sql-enhancements#time=08m49s) - Other additions to SQL VA Express
-- [12:56](/shows/mdc-in-the-field/defender-sql-enhancements#time=12m56s) - Demonstration
+- [00:00](/shows/mdc-in-the-field/defender-sql-enhancements#time=00m00s) - Intro
+- [01:44](/shows/mdc-in-the-field/defender-sql-enhancements#time=01m44s) - Introducing AWS ECR Coverage
+- [03:38](/shows/mdc-in-the-field/defender-sql-enhancements#time=03m38s) -  How new repos or images are discovered after the initial assessment
+- [04:22](/shows/mdc-in-the-field/defender-sql-enhancements#time=04m22s) - Scanning frequency
+- [07:33](/shows/mdc-in-the-field/defender-sql-enhancements#time=07m33s) - Demonstration
 
 
 ## Recommended resources
-  - [Learn more](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-express-configuration-for-vulnerability-assessment-in/ba-p/3695390) about Defender for SQL Vulnerability Assessment (VA).
+  - [Learn more](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic) about AWS ECR Coverage in Defender for Containers.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
