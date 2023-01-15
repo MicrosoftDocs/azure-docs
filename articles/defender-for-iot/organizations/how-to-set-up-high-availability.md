@@ -72,6 +72,9 @@ Before you perform the procedures in this article, verify that you've met the fo
 
         :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy each part of the connection string to use in the following command.":::
 
+> [!IMPORTANT]
+> Run commands with sudo only where indicated. If not indicated, do not run with sudo.
+
 1. **On the primary appliance**: Use the following steps to connect the secondary appliance to the primary via CLI:
 
     1. Sign in to the primary on-premises management console via SSH to access the CLI, and then run:
@@ -98,8 +101,6 @@ Before you perform the procedures in this article, verify that you've met the fo
         ```bash
         cyberx-management-trusted-hosts-list
         ```
-
-        > [!IMPORTANT] Do not run this step with sudo.
 
 1. Allow the connection between the primary and secondary appliances' backup and restore process:
 
