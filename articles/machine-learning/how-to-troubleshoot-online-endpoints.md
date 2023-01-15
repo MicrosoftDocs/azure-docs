@@ -63,6 +63,10 @@ ml_client.begin_create_or_update(online_deployment, local=True)
 
 * `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
+## [Studio](#tab/studio)
+
+The studio doesn't support local endpoints/deployments. See the Azure CLI or Python tabs for steps to perform deployment locally.
+
 ---
 
 As a part of local deployment the following steps take place:
@@ -91,11 +95,15 @@ To debug conda installation problems, try the following:
 
 ## Get container logs
 
-You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
+You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information you get depends on the provisioning status of the deployment. If the specified container is up and running, you'll see its console output; otherwise, you'll get a message to try again later.
+
+There are two types of containers that you can get the logs from:
+- Inference server: Logs include the console log (from [the inference server](how-to-inference-server-http.md)) which contains the output of print/logging functions from your scoring script (`score.py` code). 
+- Storage initializer: Logs contain information on whether code and model data were successfully downloaded to the container. The container will run before the inference server container starts to run.
 
 # [Azure CLI](#tab/cli)
 
-To see log output from container, use the following CLI command:
+To see log output from a container, use the following CLI command:
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
@@ -115,13 +123,12 @@ To see information about how to set these parameters, and if current values are 
 az ml online-deployment get-logs -h
 ```
 
-By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+By default the logs are pulled from the inference server. 
 
 > [!NOTE]
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
-
-You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by passing `–-container storage-initializer`. 
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
@@ -138,18 +145,34 @@ ml_client.online_deployments.get_logs(
 To see information about how to set these parameters, see
 [reference for get-logs](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
 
-By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+By default the logs are pulled from the inference server.
 
 > [!NOTE]
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
-You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. 
 
 ```python
 ml_client.online_deployments.get_logs(
     name="<deployment-name>", endpoint_name="<endpoint-name>", lines=100, container_type="storage-initializer"
 )
 ```
+
+# [Studio](#tab/studio)
+
+To see log output from a container, use the **Endpoints** in the studio:
+
+1. In the left navigation bar, select Endpoints.
+1. (Optional) Create a filter on compute type to show only managed compute types.
+1. Select an endpoint's name to view the endpoint's details page.
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
+
+:::image type="content" source="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" lightbox="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
+
+The logs are pulled from the inference server. 
+
+To get logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). 
 
 ---
 
@@ -285,6 +308,16 @@ ml_client.online_deployments.get_logs(
 )
 ```
 
+#### [Studio](#tab/studio)
+
+Use the **Endpoints** in the studio:
+
+1. In the left navigation bar, select **Endpoints**.
+1. (Optional) Create a filter on compute type to show only managed compute types.
+1. Select an endpoint name to view the endpoint's details page.
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
+
 ---
 
 ### ERROR: OutOfCapacity
@@ -337,27 +370,33 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model
 
-It is possible that the user model can't be found. Check [container logs](#get-container-logs) to get more details.
+It is possible that the user's model can't be found. Check [container logs](#get-container-logs) to get more details.
 
-Make sure the model is registered to the same workspace as the deployment. Use the `show` command or equivalent Python method to show details for a model in a workspace. 
-
-- For example: 
+Make sure the model is registered to the same workspace as the deployment. To show details for a model in a workspace: 
   
-  #### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
-  ```azurecli
-  az ml model show --name <model-name> --version <version>
-  ```
- 
-  #### [Python SDK](#tab/python)
+```azurecli
+az ml model show --name <model-name> --version <version>
+```
 
-  ```python
-  ml_client.models.get(name="<model-name>", version=<version>)
-  ```
-  ---
+#### [Python SDK](#tab/python)
 
-  > [!WARNING]
-  > You must specify either version or label to get the model information.
+```python
+ml_client.models.get(name="<model-name>", version=<version>)
+```
+
+#### [Studio](#tab/studio)
+
+See the **Models** page in the studio:
+
+1. In the left navigation bar, select Models.
+1. Select a model's name to view the model's details page.
+
+---
+
+> [!WARNING]
+> You must specify either version or label to get the model's information.
 
 You can also check if the blobs are present in the workspace storage account.
 
@@ -383,7 +422,11 @@ You can also check if the blobs are present in the workspace storage account.
   )
   ```
 
+  #### [Studio](#tab/studio)
 
+  You can't see logs from the storage initializer in the studio. Use the Azure CLI or Python SDK (see each tab for details). 
+
+  ---
 
 #### Resource requests greater than limits
 
@@ -522,26 +565,26 @@ When you access online endpoints with REST requests, the returned status codes a
 
 Below are common error codes when consuming managed online endpoints with REST requests:
 
-| Status code| Reason phrase |	Why this code might get returned |
-| --- | --- | --- |
-| 200 | OK | Your model executed successfully, within your latency bound. |
-| 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
-| 404 | Not found | The endpoint doesn't have any valid deployment with positive weight. |
-| 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-prevent-503-status-codes). |
-| 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
-| 500 | Internal server error | AzureML-provisioned infrastructure is failing. |
+| Status code | Reason phrase             | Why this code might get returned                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 200         | OK                        | Your model executed successfully, within your latency bound.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 401         | Unauthorized              | You don't have permission to do the requested action, such as score, or your token is expired.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 404         | Not found                 | The endpoint doesn't have any valid deployment with positive weight.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 408         | Request timeout           | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 424         | Model Error               | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information.                                                                                                                                                                                                                                                                                                                                                          |
+| 429         | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-prevent-503-status-codes). |
+| 429         | Rate-limiting             | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 500         | Internal server error     | AzureML-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 Below are common error codes when consuming Kubernetes online endpoints with REST requests:
 
-| Status code| Reason phrase |	Why this code might get returned |
-| --- | --- | --- |
-| 409 | Conflict error | When an operation is already in progress, any new operation on that same online endpoint will respond with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it will throw an error. |
-| 502 | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file. |
-| 503 | Receive large spikes in requests per second | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.|
-| 504 | Request has timed out | A 504 status code indicates that the request has timed out. The default timeout is 1 minute. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
-| 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
+| Status code | Reason phrase                                                                 | Why this code might get returned                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 409         | Conflict error                                                                | When an operation is already in progress, any new operation on that same online endpoint will respond with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it will throw an error.                                                                                                                             |
+| 502         | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file.                                                                                                                                                                   |
+| 503         | Receive large spikes in requests per second                                   | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.                                    |
+| 504         | Request has timed out                                                         | A 504 status code indicates that the request has timed out. The default timeout is 1 minute. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
+| 500         | Internal server error                                                         | Azure ML-provisioned infrastructure is failing.                                                                                                                                                                                                                                                                                                                                                        |
 
 
 ### How to prevent 503 status codes
@@ -606,9 +649,10 @@ instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance
 Online endpoints (v2) currently do not support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS) natively. If your web application tries to invoke the endpoint without proper handling of the CORS preflight requests, you'll see the following error message: 
 
 ```
-Access to fetch at 'https://{your-endpoinnt-name}.{your-region}.inference.ml.azure.com/score' from origin http://{your-url} has been blocked by CORS policy: Response to preflight request doesn't pass access control check. No 'Access-control-allow-origin' header is present on the request resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with the CORS disabled.
+Access to fetch at 'https://{your-endpoint-name}.{your-region}.inference.ml.azure.com/score' from origin http://{your-url} has been blocked by CORS policy: Response to preflight request doesn't pass access control check. No 'Access-control-allow-origin' header is present on the request resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with the CORS disabled.
 ```
 We recommend that you use Azure Functions, Azure Application Gateway, or any service as an interim layer to handle CORS preflight requests.
+
 ## Common network isolation issues
 
 [!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]

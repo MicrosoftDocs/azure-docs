@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 11/24/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 
 
