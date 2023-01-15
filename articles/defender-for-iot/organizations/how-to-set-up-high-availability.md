@@ -73,7 +73,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
     1.  The connection string is composed of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 
-        :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy each part of the connection string to use in the following command.":::
+        :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Copy each part of the connection string to use in the following command." lightbox="media/how-to-set-up-high-availability/copy-connection-string-second-part.png":::
 
 1. **On the primary appliance**, use the following steps to connect the secondary appliance to the primary via CLI:
 
@@ -154,7 +154,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
-        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance.":::
+        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance." lightbox="media/how-to-set-up-high-availability/update-high-availability-domain.jpg":::
 
     1. Remove the secondary domain from the list of trusted hosts. Run:
     
