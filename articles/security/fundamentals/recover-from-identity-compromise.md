@@ -1,14 +1,14 @@
-
 ---
+
 title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
 description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, Azure Active Directory, Microsoft Defender for Cloud, and Microsoft Defender for IoT and Microsoft recommendations to secure your system against systemic-identity compromises.
-services: sentinel
+services: security
 documentationcenter: na
 author: batamig
-manager: rkarlin
+manager: raynew
 editor: ''
 
-ms.service: microsoft-sentinel
+ms.service: security
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
