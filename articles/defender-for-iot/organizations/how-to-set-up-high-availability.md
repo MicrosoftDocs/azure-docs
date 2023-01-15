@@ -46,7 +46,7 @@ Before you perform the procedures in this article, verify that you've met the fo
     - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
     - You must be able to access to both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
 
-- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two OT network sensors connected, and scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
+- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console) and visible in the console UI, and scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
 - Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md).
 
