@@ -15,7 +15,7 @@ Azure Front Door provides different logging to help you track, monitor, and debu
 
 * Access logs have detailed information about every request that AFD receives and help you analyze and monitor access patterns, and debug issues. 
 * Activity logs provide visibility into the operations done on Azure resources.  
-* Health probe logs provides the logs for every failed probe to your origin. 
+* Health probe logs provide the logs for every failed probe to your origin. 
 * Web Application Firewall (WAF) logs provide detailed information of requests that gets logged through either detection or prevention mode of an Azure Front Door endpoint. A custom domain that gets configured with WAF can also be viewed through these logs. For more information on WAF logs, see [Azure Web Application Firewall monitoring and logging](../../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
 
 Access logs, health probe logs and WAF logs aren't enabled by default. Use the steps below to enable logging. Activity log entries are collected by default, and you can view them in the Azure portal. Logs can have delays up to a few minutes. 

@@ -41,11 +41,11 @@ You can enable compression in the following ways:
 
 1. Within the endpoint, select the **route** you want to enable compression on.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Front Door manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of the Front Door manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
 
 1. Ensure **Enable caching** is checked, then select the checkbox for **Enable compression**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in Front Door manager.":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screenshot of Front Door Manager showing the 'Enable compression' radio button.":::   
 
 1. Select **Update** to save the configuration.
 
@@ -55,11 +55,11 @@ You can enable compression in the following ways:
 
 1. Select the three dots next to the **route** that has compression *Disabled*. Then select **Configure route**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Screen of enable compression on the optimization page." lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
+   :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Screenshot of the Optimizations page." lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
 
 1. Ensure **Enable caching** is checked, then select the checkbox for **Enable compression**.
 
-     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screen shot of enabling compression in the optimizations page."::: 
+     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screenshot of the Optimizations page showing the 'Enable compression' radio button."::: 
 
 1. Click **Update**.
 
