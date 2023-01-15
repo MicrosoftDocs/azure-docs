@@ -52,11 +52,11 @@ To set up a Log Analytics workspace for data collection:
 
 1. Configure your Log Analytics workspace, including:
     1. [Pricing tier](../logs/change-pricing-tier.md).
+    1. If you are eligible, based on pricing tier, [link your Log Analytics workspace to a dedicated cluster](../logs/availability-zones.md) to take advantage of advanced capabilities.
     1. [Daily cap](../logs/daily-cap.md).
     1. [Data retention](../logs/data-retention-archive.md).
     1. [Network isolation](../logs/private-link-security.md).
     1. [Access control](../logs/manage-access.md).
-    1. Link the workspace to a [dedicated cluster with an availability zone](../logs/availability-zones.md) to protect your data from data center failures.
 
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
     1. [Define each table's log data plan](../logs/basic-logs-configure.md). 
