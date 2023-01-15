@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 In this tutorial, you’ll learn how to integrate a NAT gateway with an Azure Firewall in a hub and spoke network
 
-Azure Firewall provides [2,496 SNAT ports per public IP address](/azure/firewall/integrate-with-nat-gateway) configured per backend virtual machine scale set instance. You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
+Azure Firewall provides [2,496 SNAT ports per public IP address](/azure/firewall/integrate-with-nat-gateway) configured per backend Virtual Machine Scale Set instance. You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
 
 NAT gateway can be integrated with Azure Firewall by configuring NAT gateway directly to the Azure Firewall subnet in order to provide a more scalable method of outbound connectivity. For production deployments, a hub and spoke network is recommended, where the firewall is in its own virtual network. The workload servers are peered virtual networks in the same region as the hub virtual network where the firewall resides. In this architectural setup, NAT gateway can provide outbound connectivity from the hub virtual network for all spoke virtual networks peered.
 
@@ -142,6 +142,8 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
 
 ## Create spoke virtual network
 
+The spoke virtual network contains the test virtual machine used to test the routing of the internet traffic to the NAT gateway. Use the following example to create the spoke network.
+
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 2. Select **+ Create**.
@@ -180,7 +182,7 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
 
 ## Create peering between the hub and spoke
 
-A virtual network peering is used to connect the hub to spoke one and spoke one to the hub. Use the following example to create a two-way network peering between the hub and spoke one.
+A virtual network peering is used to connect the hub to the spoke and the spoke to the hub. Use the following example to create a two-way network peering between the hub and spoke.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -215,6 +217,8 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 ## Create spoke one network route table
 
 ### Obtain private IP address of firewall
+
+The private IP address of the firewall is needed for the Route Table created later in this article. Use the following example to obtain the firewall private IP address.
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall** in the search results.
 
@@ -280,6 +284,8 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 15. Select **OK**.
 
 ## Configure firewall
+
+Traffic from the spoke through the hub must be allowed through and firewall policy and a network rule. Use the following example to create the firewall policy and network rule.
 
 ### Create firewall policy
 
@@ -432,7 +438,7 @@ If you're not going to continue to use this application, delete the created reso
 
 ## Next steps
 
-Advance to the next article to learn how to integrate a NAT gateway with a Azure Load Balancer:
+Advance to the next article to learn how to integrate a NAT gateway with an Azure Load Balancer:
 > [!div class="nextstepaction"]
 > [Integrate NAT gateway with an internal load balancer - Azure portal](tutorial-nat-gateway-load-balancer-internal-portal.md)
 
