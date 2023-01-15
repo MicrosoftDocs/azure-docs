@@ -11,7 +11,7 @@ ms.topic: include
 
 This procedure describes how to install iLO software remotely from a virtual drive.
 
-Before installing the sensor software with iLO, we recommend changing the iLO idle connection timeout setting to **infinite**, as the installation might take longer than the 30 minutes it is set to by default, depending on your network connection and sensor location.
+Before installing the sensor software with iLO, we recommend changing the iLO idle connection timeout setting to **infinite**, as the installation might take longer than the 30 minutes it is set to by default, depending on your network connection and if the sensor is in a remote location.
 
 **To change the iLO idle connection timeout settings**:
 
