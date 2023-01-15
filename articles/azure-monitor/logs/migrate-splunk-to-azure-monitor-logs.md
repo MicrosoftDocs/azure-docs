@@ -91,7 +91,9 @@ For information on migrating Splunk SIEM artifacts, including detection rules an
 To ingest data from your Splunk deployment:
 
 1. Export your historical data from Splunk, using one of the [Splunk export methods](https://docs.splunk.com/Documentation/Splunk/8.2.5/Search/Exportsearchresults). The output format should be CSV.
-1. Ingest the data you export from Splunk using Azure Monitor's [Log ingestion API](../logs/logs-ingestion-api-overview.md).
+1. Use Azure Monitor Agent to collect the data you export from Splunk, as described in [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md).
+
+    Alternatively, you can [collect custom log data directly with the Logs Ingestion API](../logs/tutorial-logs-ingestion-api.md). 
 
 :::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 
