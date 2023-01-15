@@ -414,7 +414,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 8. Verify the outbound IP address displayed is the same as the IP of the NAT gateway you obtained previously.
 
-    :::image type="content" source="./media/tutorial-hub-spoke-route-nat-firewall/outbound-ip-address.png" alt-text="Screenshot of outbound IP address.":::
+    :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/outbound-ip-address.png" alt-text="Screenshot of outbound IP address.":::
 
 ## Clean up resources
 
@@ -432,7 +432,7 @@ If you're not going to continue to use this application, delete the created reso
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to integrate a NAT gateway with a Azure Load Balancer:
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+> [Integrate NAT gateway with an internal load balancer - Azure portal](tutorial-nat-gateway-load-balancer-internal-portal.md)
 
