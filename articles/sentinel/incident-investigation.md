@@ -43,17 +43,41 @@ First things first: As an analyst, the most basic question you want to answer is
 
 Learn more about what you can do from the [incident timeline](investigate-incidents.md#incident-timeline).
 
-### Learn from experience
+### Learn from similar incidents
 
-If anything you’ve seen so far in your incident looks familiar, there may be good reason. Microsoft Sentinel stays one step ahead of you by showing you the incidents most similar to the open one, so that you can spot concurrent incidents that may be part of a larger attack strategy, use similar incidents as reference points for your current investigation, or identify owners of past similar incidents to benefit from their knowledge. The **Similar incidents** widget shows you the 20 most similar incidents, based on common elements including entities, the source analytics rule, and alert details. From this widget you can jump directly to any of these incidents' full details pages, while keeping the connection to the current incident intact.
+If anything you’ve seen so far in your incident looks familiar, there may be good reason. Microsoft Sentinel stays one step ahead of you by showing you the incidents most similar to the open one. The **Similar incidents** widget shows you the most relevant information about incidents deemed to be similar, including their last updated date and time, last owner, last status (including, if they are closed, the reason they were closed), and the reason for the similarity.
 
-The **Similar incidents** widget shows you the most relevant information about the similar incidents, including their last updated date and time, last owner, last status (including, if they are closed, the reason they were closed), and the reason for the similarity.
+This can benefit your investigation in several ways:
 
-Learn more about what you can do wit
+- Spot concurrent incidents that may be part of a larger attack strategy.
+- Use similar incidents as reference points for your current investigation&mdash;see how they were dealt with.
+- Identify owners of past similar incidents to benefit from their knowledge.
+
+The widget shows you the 20 most similar incidents. Microsoft Sentinel decides which incidents are similar based on common elements including entities, the source analytics rule, and alert details. From this widget you can jump directly to any of these incidents' full details pages, while keeping the connection to the current incident intact.
+
+Learn more about what you can do with [similar incidents](investigate-incidents.md#similar-incidents-preview).
+
+### Examine top insights
+
+Next, having the broad outlines of what happened (or is still happening), and having a better understanding of the context, you’ll be curious about what interesting information Microsoft Sentinel has already found out for you. It automatically asks the big questions about the entities in your incident and shows the top answers in the **Top insights** widget, visible on the right side of the incident details page. This widget shows a collection of insights based on both machine-learning analysis and the curation of top teams of security experts.
+
+These are the same insights that appear on [entity pages](entity-pages.md#entity-insights), but in this context, insights for all the entities in the incident are presented together, giving you a more complete picture of what's happening.
+
+Here are some examples of the questions answered in the **Top entities** widget:
+
+- Is the entity on any watchlists?
+- Is the entity on any threat intelligence lists?
+- Did any unusually rare actions occur on this host entity?
+- Did the user entity sign into Azure in an anomalous way?
+- Were any unusual actions taken on this user account entity? And by whom?
+- Are there vulnerabilities on this host entity? ***(is this really one of them? -YL)***
+- Have there been an unusually high number of security events on this host entity?
+
+Most of these insights contain links to more information. These links open the Logs panel in-context, where you'll see the source query for that insight along with its results. 
 
 ### View entities
 
-You’ll also want to see who the major players are in this story. Usernames, hostnames, IP addresses, file names, and other types of entities can all be “persons of interest” in your investigation. Microsoft Sentinel finds them all for you and displays them front and center in the **Entities** widget, alongside the timeline. Selecting an entity from this widget will pivot you to that entity's listing in the **Entities tab** on the same **incident page**.
+Now that you have some context and some basic questions answered, you’ll want to get some more depth on the major players are in this story. Usernames, hostnames, IP addresses, file names, and other types of entities can all be “persons of interest” in your investigation. Microsoft Sentinel finds them all for you and displays them front and center in the **Entities** widget, alongside the timeline. Selecting an entity from this widget will pivot you to that entity's listing in the **Entities tab** on the same **incident page**.
 
 The **Entities tab** contains a list of all the entities in the incident. When an entity in the list is selected, a side panel opens containing a display based on the [entity page](entity-pages.md). The side panel contains three cards:
 - **Info** contains basic information about the entity. For a user account entity this might be things like the username, domain name, security identifier (SID), organizational information, security information, and more.
@@ -80,56 +104,14 @@ Each of these actions is currently supported for certain entity types and not fo
 
 \* For entities for which either or both of these two actions are available, you can take those actions right from the **Entities** widget in the **Overview tab**, never leaving the incident page.
 
-### Examine top insights
-
-Next, having the broad outlines of what happened (or is still happening), and knowing who and what is involved, you’ll be curious about what interesting information can be learned but might be difficult to find out. Microsoft Sentinel automatically surfaces the most important information in your incident in the **Top insights** widget, visible on the right side of the incident details page. This widget shows a collection of insights based on both machine-learning analysis and the curation of top teams of security experts.
-
-Most of these insights contain links to more information. These links open the Logs panel in-context, where you'll see the source query for that insight along with its results. 
-
 ### Explore logs
 
-Now you’ll want to get down into the details to know *what exactly happened?* You can drill down into the individual alerts contained in the incident, viewing the original query results. These results are displayed in the Logs (log analytics) screen that appears here as a panel extension of the incident details page, so you don’t leave the context of the investigation. 
+Now you’ll want to get down into the details to know *what exactly happened?* From almost any of the places mentioned above, you can drill down into the individual alerts, entities, insights, and other items contained in the incident, viewing the original query and its results. These results are displayed in the Logs (log analytics) screen that appears here as a panel extension of the incident details page, so you don’t leave the context of the investigation. 
 
 ### Keep your records in order
 
-Finally, in the interests of transparency, accountability, and continuity, you’ll want a record of all the actions that have been taken on the incident – whether by automated processes or by people. The incident **activity log** shows you all of these activities. You can also see any comments that have been made and add your own.
+Finally, in the interests of transparency, accountability, and continuity, you’ll want a record of all the actions that have been taken on the incident – whether by automated processes or by people. The incident **activity log** shows you all of these activities. You can also see any comments that have been made and add your own. The activity log is constantly auto-refreshing, even while open, so you can see changes to it in real time.
 
-## Take actions to remediate threats
-
-No less important than being able to carry out all of your investigative activity from a single interface is the ability to act quickly to remediate threats while remaining in the investigation context. From each of the areas described above, you can take direct actions to stop attackers before they do (more) damage.
-
-### Incident page
-
-
-### Details pane
-
-
-
-### Overview tab
-
-
-
-#### Timeline widget
-
-
-
-#### Entities widget
-
-
-
-#### Top insights widget
-
-
-
-#### Similar incidents widget
-
-
-
-### Entities tab
-
-
-
-#### Entity details pane
 
 ## Next steps
 

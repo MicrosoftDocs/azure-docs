@@ -39,7 +39,7 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     The **Incidents** page gives you basic information about all of your open incidents.
 
-    - Across the top of the screen you have the counts of open incidents, whether new or active, and the counts of open incidents by severity. You also have the **banner** with actions you can take outside of a specific incident - either on the grid as a whole, or on multiple selected incidents.
+    - Across the top of the screen you have the counts of open incidents, whether new or active, and the counts of open incidents by severity. You also have the **banner** with actions you can take outside of a specific incident&mdash;either on the grid as a whole, or on multiple selected incidents.
 
     - In the central pane, you have the **incident grid**, a list of incidents as filtered by the filtering controls at the top of the list, and a search bar to find specific incidents.
 
@@ -132,7 +132,7 @@ The **Overview** tab contains the following widgets, each of which represents an
 
     [Learn more about the **Similar incidents** widget below](#similar-incidents-preview).
 
-- The **Entities** widget shows you all the [entities](entities.md) that have been identified in the alerts. These are the objects that played a role in the incident, whether they be users, devices, addresses, files, or [any other types](./entities-reference.md). Select an entity to see its full details (which will be displayed in the **Entities tab** - see below).
+- The **Entities** widget shows you all the [entities](entities.md) that have been identified in the alerts. These are the objects that played a role in the incident, whether they be users, devices, addresses, files, or [any other types](./entities-reference.md). Select an entity to see its full details (which will be displayed in the **Entities tab**&mdash;see below).
 
     [Learn more about the **Entities** widget below](#entities-widget).
 
@@ -164,10 +164,6 @@ Select an individual alert or bookmark to see its full details&mdash;its severit
 
 :::image type="content" source="media/investigate-incidents/alert-details.png" alt-text="Screenshot of the details of an alert displayed in the incident details page.":::
 
-### Focus your investigation
-
-Learn how you can broaden or narrow the scope of your investigation by either [adding alerts to your incidents or removing alerts from incidents](relate-alerts-to-incidents.md).
-
 ### Similar incidents (preview)
 
 As a security operations analyst, when investigating an incident you'll want to pay attention to its larger context. For example, you'll want to see if other incidents like this have happened before or are happening now.
@@ -181,6 +177,10 @@ As a security operations analyst, when investigating an incident you'll want to 
 The **similar incidents** widget in the incident details page, now in preview, presents up to 20 other incidents that are the most similar to the current one. Similarity is calculated by internal Microsoft Sentinel algorithms, and the incidents are sorted and displayed in descending order of similarity.
 
 :::image type="content" source="media/investigate-incidents/similar-incidents.png" alt-text="Screenshot of the similar incidents display." lightbox="media/investigate-incidents/similar-incidents.png":::
+
+> [!NOTE]
+>
+> Some columns in the similar incidents widget can't currently be resized, so it might be difficult to read some of the contents. However, you can hover over any partial text to reveal the whole text, so you'll be able to access all the information.
 
 #### Similarity calculation
 
@@ -201,6 +201,36 @@ The reasons an incident appears in the similar incidents list are displayed in t
 Incident similarity is calculated based on data from the 14 days prior to the last activity in the incident, that being the end time of the most recent alert in the incident.
 
 Incident similarity is recalculated every time you enter the incident details page, so the results may vary between sessions if new incidents were created or updated.
+
+### Top insights
+
+Next, having the broad outlines of what happened (or is still happening), and knowing who and what is involved, you’ll be curious about what interesting information can be learned but might be difficult to find out. Microsoft Sentinel automatically surfaces the most important information in your incident in the **Top insights** widget, visible on the right side of the incident details page. This widget shows a collection of insights based on both machine-learning analysis and the curation of top teams of security experts.
+
+Most of these insights contain links to more information. These links open the Logs panel in-context, where you'll see the source query for that insight along with its results. 
+
+Finally, in the Top insights widget, you'll see a collection of results of queries defined by Microsoft security researchers that provide valuable and contextual security information on all the entities in the incident, based on data from a collection of sources.
+
+- Each insight Not each insight, most, but not all (‘WatchlistInsightsAccount’ and ‘WatchlistInsightsHost’ don’t have additional query link), has a link to an LA query. The query and results open in context.
+
+- Only insights with results will show here (unlike the insights in the entities tab and entity page).
+
+- Insights are currently the same as entity insights (just selected ones, as you will see in the FR). They are not aggregated, but for each entity separately (4 entities, 3 top insights with results, 12 insights).
+
+- Time frame for top insights: 24 hours prior to the first alert until the last alert (stated in the panel).
+
+Top insights list:
+1.	Actions by account.
+2.	Actions on account.
+3.	UEBA insights.
+4.	Threat indicators related to user.
+5.	Watchlist insights (Preview).
+6.	Anomalously high number of a security event.
+7.	Watchlist insights (Preview).
+8.	Windows sign-in activity.
+9.	IP address remote connections.
+10.	IP address remote connections with TI match.
+
+
 
 ### Explore the incident's entities
 
@@ -250,28 +280,50 @@ The side panel features three cards:
 
 - **Insights** contains results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources. These insights are the same ones that appear on the full [entity page](entity-pages.md), but over a limited time frame: starting from 24 hours before the earliest alert in the incident, and ending with the time of the latest alert.
 
+### Focus your investigation
 
-## Comment on incidents
+Learn how you can broaden or narrow the scope of your investigation by either [adding alerts to your incidents or removing alerts from incidents](relate-alerts-to-incidents.md).
 
-As a security operations analyst, when investigating an incident you will want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration amongst coworkers. Microsoft Sentinel gives you a rich commenting environment to help you accomplish this.
 
-Another important thing that you can do with comments is enrich your incidents automatically. When you run a playbook on an incident that fetches relevant information from external sources (say, checking a file for malware at VirusTotal), you can have the playbook place the external source's response - along with any other information you define - in the incident's comments.
 
-Comments are simple to use. You access them through the **Comments** tab on the incident details page.
+## Audit and comment on incidents
+
+When investigating an incident, you'll want to thoroughly document the steps you take, both to ensure accurate reporting to management and to enable seamless cooperation and collaboration amongst coworkers. You'll also want to clearly see records of any actions taken on the incident by others, including by automated processes. Microsoft Sentinel gives you the **Activity log**, a rich audit and commenting environment, to help you accomplish this.
+
+You can also enrich your incidents automatically with comments. For example, when you run a playbook on an incident that fetches relevant information from external sources (say, checking a file for malware at VirusTotal), you can have the playbook place the external source's response&mdash;along with any other information you define&mdash;in the incident's comments.
+
+The activity log auto-refreshes, even while open, so that you can always see changes in real time.
+
+To view the log of activities and comments, or to add your own comments:
+
+1. Select **Activity log** at the top of the incident details page.
+1. If you want to add a comment, enter it in the rich text editor at the bottom of the **Incident activity log** panel.
+1. Select **Comment** to submit the comment. You'll now see your comment at the top of the log.
+
 
 :::image type="content" source="media/investigate-incidents/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
 
-### Frequently asked questions
+### Considerations for comments
 
-There are several considerations to take into account when using incident comments. The following list of questions points to these considerations.
+The following are several considerations to take into account when using incident comments.
 
-#### What kinds of input are supported?
+**Supported input:**
 
 - **Text:** Comments in Microsoft Sentinel support text inputs in plain text, basic HTML, and Markdown. You can also paste copied text, HTML, and Markdown into the comment window.
 
+- **Links:** Links must be in the form of HTML anchor tags, and they must have the parameter `target="_blank"`. Example:
+
+    ```html
+    <a href="https://www.url.com" target="_blank">link text</a>
+    ```
+
+    > [!NOTE]
+    >
+    > If you have playbooks that create comments in incidents, links in those comments must now conform to this template as well, due to a change in the format of comments.
+
 - **Images:** You can insert links to images in comments and the images will be displayed inline, but the images must already be hosted in a publicly accessible location such as Dropbox, OneDrive, Google Drive and the like. Images can't be uploaded directly to comments.
 
-#### Is there a size limit on comments?
+**Size limit:**
 
 - **Per comment:** A single comment can contain up to **30,000 characters**. 
 
@@ -282,15 +334,15 @@ There are several considerations to take into account when using incident commen
     >
     > The actual incident records in the incidents database will not be affected.
 
-#### Who can edit or delete comments?
+**Who can edit or delete:**
 
 - **Editing:** Only the author of a comment has permission to edit it.
 
 - **Deleting:** Only users with the [Microsoft Sentinel Contributor](roles.md) role have permission to delete comments. Even the comment's author must have this role in order to delete it.
 
-## Use the investigation graph to deep dive
+## Investigate incidents visually using the investigation graph
 
-The investigation graph enables analysts to ask the right questions for each investigation. The investigation graph helps you understand the scope, and identify the root cause, of a potential security threat by correlating relevant data with any involved entity. You can dive deeper and investigate any entity presented in the graph by selecting it and choosing between different expansion options.  
+If you prefer a visual, graphical representation of alerts, entities, and the connections between them in your investigation, you can accomplish many of the things discussed above with the classic investigation graph as well. The downside of the graph is that you'll end up having to switch contexts a great deal more.
   
 The investigation graph provides you with:
 
@@ -310,7 +362,7 @@ To use the investigation graph:
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
    >
-   > - Microsoft Sentinel currently supports investigation of **incidents up to 30 days old**.
+   > - The investigation graph currently supports investigation of **incidents up to 30 days old**.
 
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
@@ -343,10 +395,10 @@ To use the investigation graph:
 
 Once you have resolved a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you will be asked to classify the incident by specifying the reason you are closing it. This step is mandatory. Click **Select classification** and choose one of the following from the drop-down list:
 
-- True Positive - suspicious activity
-- Benign Positive - suspicious but expected
-- False Positive - incorrect alert logic
-- False Positive - incorrect data
+- True Positive &ndash; suspicious activity
+- Benign Positive &ndash; suspicious but expected
+- False Positive &ndash; incorrect alert logic
+- False Positive &ndash; incorrect data
 - Undetermined
 
 :::image type="content" source="media/investigate-incidents/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
