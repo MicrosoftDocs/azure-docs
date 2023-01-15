@@ -13,16 +13,13 @@ ms.date: 11/22/2022
 
 # Migrate from Splunk to Azure Monitor Logs
 
-This article explains how to plan your migration from Splunk to Azure Monitor Logs for logging and log data analysis, including:  
+Azure Monitor Logs is a cloud-based managed monitoring and observability service that provides many advantages in terms of cost management, scalability, flexibility and integration. The service is designed to handle very large amounts of data and can scale to meet the needs of organizations of all sizes.
 
-> [!div class="checklist"]
-> * Introduction to key concepts 
-> * Set up a Log Analytics workspace
-> * Migrate Splunk artifacts to Azure Monitor
-> * Ingest historical data
-> * Collect data
-> * Test and operationalize your Azure Monitor deployment
+Azure Monitor Logs collects data from a wide variety of sources, including Windows Event logs, Syslog, and custom logs, to provide a unified view of all Azure and non-Azure resources. Native integration to Azure services, such as Azure Security Center and Azure Sentinel, and built-in machine learning capabilities, help you identify patterns and anomalies in log data, troubleshoot and perform root cause analysis, and respond to incidents.
 
+This article explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis.
+
+For information on migrating your Security Information and Event Management deployment from Splunk SIEM to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
 ## Introduction to key concepts
 
 |Concept |Description|
