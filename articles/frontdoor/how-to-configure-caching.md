@@ -29,7 +29,7 @@ To create an Azure Front Door profile and endpoint, see [Create an Azure Front D
 
 1. Select **Enable caching**.
 
-1. Specify the query string caching behavior. For more information, see [Caching with Azure Front Door](front-door-caching.md).
+1. Specify the query string caching behavior. For more information, see [Caching with Azure Front Door](front-door-caching.md#query-string-behavior).
 
 1. Optionally, select **Enable compression** for Front Door to compress responses to the client.
 

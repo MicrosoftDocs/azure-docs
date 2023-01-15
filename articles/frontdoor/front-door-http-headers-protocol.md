@@ -15,7 +15,7 @@ ms.author: duau
 
 This article outlines the protocol that Front Door supports with parts of the call path (see image). In the following sections, you'll find information about HTTP headers supported by Front Door.
 
-:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Azure Front Door HTTP headers protocol":::
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Diagram showing client making request to Front Door, which is forwarded to the backend. The response is sent from Front Door to the client." border="false":::
 
 > [!IMPORTANT]
 > Front Door doesn't certify any HTTP headers that aren't documented here.
