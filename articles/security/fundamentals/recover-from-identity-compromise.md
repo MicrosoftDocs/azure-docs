@@ -1,3 +1,4 @@
+
 ---
 title: Use Microsoft and Azure security resources to help recover from systemic identity compromise | Microsoft Docs
 description: Learn how to use Microsoft and Azure security resources, such as Microsoft 365 Defender, Microsoft Sentinel, and Azure Active Directory, and Microsoft Defender for Cloud, and Microsoft recommendations to secure your system against systemic-identity compromises similar to the Nobelium attack (Solorigate) of December 2020.
@@ -11,7 +12,7 @@ ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 01/15/2023
 ms.author: bagol
 
 ---
@@ -87,6 +88,7 @@ Check for updates in the following Microsoft security products, and implement an
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Defender for Cloud Apps ](/cloud-app-security/)
+- [Microsoft Defender for IoT](/defender-for-iot/organizations)
 
 Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
 
@@ -95,6 +97,8 @@ Therefore, we recommend also taking the following actions:
 - Make sure that you've applied the [Microsoft cloud security benchmark](/security/benchmark/azure), and are monitoring compliance via [Microsoft Defender for Cloud](../../security-center/index.yml).
 
 - Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft Purview Data Connectors in [Microsoft Sentinel](../../sentinel/understand-threat-intelligence.md).
+
+- Make sure that any extended detection and response tools, such as [Microsoft Defender for IoT](/azure/defender-for-iot/organizations/how-to-work-with-threat-intelligence-packages), are using the most recent threat intelligence data.
 
 For more information, see Microsoft's security documentation:
 
@@ -170,10 +174,20 @@ For example, Microsoft security services may have specific resources and guidanc
 
 Microsoft Sentinel has many built-in resources to help in your investigation, such as hunting workbooks and analytics rules that can help detect attacks in relevant areas of your environment.
 
-For more information, see:
+Use Microsoft Sentinel's content hub to install extended security solutions and data connectors that stream content from other services in your environment. For more information, see:
 
 - [Visualize and analyze your environment](../../sentinel/get-visibility.md)
-- [Detect threats out of the box](../../sentinel/detect-threats-built-in.md).
+- [Detect threats out of the box](../../sentinel/detect-threats-built-in.md)
+- [Discover and deploy out-of-the-box solutions](/azure/sentinel/sentinel-solutions-deploy)
+
+### Monitoring with Microsoft Defender for IoT
+
+If your environment also includes Operational Technology (OT) resources, you may have devices that use specialized protocols, which prioritize operational challenges over security.
+
+Deploy Microsoft Defender for IoT to monitor and secure those devices, especially any that aren't protected by traditional security monitoring systems. Install Defender for IoT network sensors at specific points of interest in your environment to detect threats in ongoing network activity using agentless monitoring and dynamic threat intelligence.
+
+For more information, see [Get started with OT network security monitoring](/azure/defender-for-iot/organizations/getting-started).
+
 
 ### Monitoring with Microsoft 365 Defender
 
