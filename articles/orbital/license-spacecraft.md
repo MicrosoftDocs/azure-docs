@@ -63,7 +63,7 @@ Once the licenses are in place, the spacecraft object will be updated by Azure O
 ## FAQ
 
 Q. Are third party ground stations such as KSAT included in this process?
-A. No, the process on this page applies to Microsoft sites only. For more information, see (to add link to third party page).
+A. No, the process on this page applies to Microsoft sites only. For more information, see [Integrate partner network ground stations](./partner-network-integration.md).
 
 ## Next steps
 - [Integrate partner network ground stations](./partner-network-integration.md)
