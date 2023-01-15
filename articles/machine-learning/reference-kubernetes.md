@@ -103,7 +103,6 @@ For AzureML extension deployment on ARO or OCP cluster, grant privileged access 
 > * `{EXTENSION-NAME}`: is the extension name specified with the `az k8s-extension create --name` CLI command. 
 >* `{KUBERNETES-COMPUTE-NAMESPACE}`: is the namespace of the Kubernetes compute specified when attaching the compute to the Azure Machine Learning workspace. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if `KUBERNETES-COMPUTE-NAMESPACE` is `default`.
 
-<<<<<<< HEAD
 ## Collected log details
 
 Some logs about AzureML workloads in the cluster will be collected through extension components, such as status, metrics, life cycle, etc. The following list shows all the log details collected, including the type of logs collected and where they were sent to or stored.
@@ -120,8 +119,6 @@ Some logs about AzureML workloads in the cluster will be collected through exten
 | metrics-controller-manager	| Manage the configuration for Prometheus.|Trace logs for status of uploading training job and inference  deployment metrics on CPU utilization and memory utilization.|
 | relayserver	| relayserver is only needed in arc-connected cluster and will not be installed in AKS cluster.| Relayserver works with Azure Relay to communicate with the cloud services.	The logs contain request level info from Azure relay.  |
  	
-=======
->>>>>>> d6e95b9b9b73a9b3fc7cef21e7d2f4cf6c7974f1
 
 ## AzureML jobs connect with custom data storage
 
@@ -221,7 +218,7 @@ This tutorial helps illustrate how to integrate the [Nginx Ingress Controller](h
 
 ### Prerequisites
 
-- [Deploy the AzureML extension](../machine-learning/how-to-deploy-kubernetes-extension.md) with `inferenceRouterServiceType=ClusterIP` and `allowInsecureConnections=True`, so that the Nginx Ingress Conroller can handle TLS termination by itself instead of handing it over to [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) when service is exposed over HTTPS.
+- [Deploy the AzureML extension](../machine-learning/how-to-deploy-kubernetes-extension.md) with `inferenceRouterServiceType=ClusterIP` and `allowInsecureConnections=True`, so that the Nginx Ingress Controller can handle TLS termination by itself instead of handing it over to [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) when service is exposed over HTTPS.
 - For integrating with **Nginx Ingress Controller**, you will need a Kubernetes cluster setup with Nginx Ingress Controller.
   - [**Create a basic controller**](../aks/ingress-basic.md): If you are starting from scratch, refer to these instructions.
 - For integrating with **Azure Application Gateway**, you will need a Kubernetes cluster setup with Azure Application Gateway Ingress Controller.
@@ -398,12 +395,12 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
-| Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bugfixes|
-| Nov 29, 2022 | 1.1.16 |Add instance type validation by new crd. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bugfixes and improvements. |
-| Sep 13, 2022 | 1.1.10 | Bugfixes.|
-| Aug 29, 2022 | 1.1.9 | Improved health check logic. Bugfixes.|
-| Jun 23, 2022 | 1.1.6 | Bugfixes. |
-| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference azureml-fe to v2. Updated to use Volcano as training job scheduler. Bugfixes. |
+| Dec 27, 2022 | 1.1.17 | Move the Fluent-bit from DaemonSet to sidecars. Add MDC support. Refine error messages. Support cluster mode (windows, linux) jobs. Bug fixes|
+| Nov 29, 2022 | 1.1.16 |Add instance type validation by new *crd*. Support Tolerance. Shorten SVC Name. Workload Core hour. Multiple Bug fixes and improvements. |
+| Sep 13, 2022 | 1.1.10 | Bug fixes.|
+| Aug 29, 2022 | 1.1.9 | Improved health check logic. Bug fixes.|
+| Jun 23, 2022 | 1.1.6 | Bug fixes. |
+| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference azureml-fe to v2. Updated to use Volcano as training job scheduler. Bug fixes. |
 | Oct 14, 2021 | 1.0.37 | PV/PVC volume mount support in AMLArc training job. |
 | Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explainability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster auto scaling support. Arc agent and ML extension deployment from on premises container registry.|
 | August 24, 2021 | 1.0.28 | Compute instance type is supported in job YAML. Assign Managed Identity to AMLArc compute.|
