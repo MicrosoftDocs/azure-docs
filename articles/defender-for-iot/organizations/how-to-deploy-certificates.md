@@ -47,27 +47,27 @@ Create SSL/TLS certificates by first downloading a security certificate from the
 
 ### Export an SSL/TLS certificate
 
-1. Use a certificate management platform to create the following types of SSL/TLS certificate files:
+Use a certificate management platform to create the following types of SSL/TLS certificate files:
 
-    | File type  | Description  |
-    |---------|---------|
-    | **.crt – certificate container file** | A `.pem`, or `.der` file, with a different extension for support in Windows Explorer.|
-    | **.key – Private key file** | A key file is in the same format as a `.pem` file, with a different extension for support in Windows Explorer.|
-    | **.pem – certificate container file (optional)** | Optional. A text file with a Base64-encoding of the certificate text, and a plain-text header and footer to mark the beginning and end of the certificate. |
+| File type  | Description  |
+|---------|---------|
+| **.crt – certificate container file** | A `.pem`, or `.der` file, with a different extension for support in Windows Explorer.|
+| **.key – Private key file** | A key file is in the same format as a `.pem` file, with a different extension for support in Windows Explorer.|
+| **.pem – certificate container file (optional)** | Optional. A text file with a Base64-encoding of the certificate text, and a plain-text header and footer to mark the beginning and end of the certificate. |
 
-    For example:
+For example:
 
-    1. Open the downloaded certificate file and select the **Details** tab > **Copy to file** to run the **Certificate Export Wizard**.
+1. Open the downloaded certificate file and select the **Details** tab > **Copy to file** to run the **Certificate Export Wizard**.
 
-    1. In the **Certificate Export Wizard**, select **Next** > **DER encoded binary X.509 (.CER)** > and then select **Next** again.
+1. In the **Certificate Export Wizard**, select **Next** > **DER encoded binary X.509 (.CER)** > and then select **Next** again.
 
-    1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
+1. In the **File to Export** screen, select **Browse**, choose a location to store the certificate, and then select **Next**.
 
-    1. Select **Finish** to export the certificate.
+1. Select **Finish** to export the certificate.
 
-    > [!NOTE]
-    > You may need to convert existing files types to supported types.
-    > For more information, see [Convert existing files to supported files](#convert-existing-files-to-supported-files).
+> [!NOTE]
+> You may need to convert existing files types to supported types.
+> For more information, see [Convert existing files to supported files](#convert-existing-files-to-supported-files).
 
 ### Verify certificate file parameter requirements
 

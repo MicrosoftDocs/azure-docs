@@ -46,11 +46,11 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 ## Manage certificates
 
-Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, **Adin** users are prompted to provide an SSL/TLS certificate.
+When you first [install an on-premises management console](ot-deploy/install-software-on-premises-management-console.md), a local, self-signed certificate is generated and used to access the on-premises management console's UI. When signing into the on-premises management console for the first time, **Admin** users are prompted to provide an SSL/TLS certificate.
 
-If your certificate has expired, make sure to create a new one and upload it to your sensor.
+If your certificate has expired, make sure to create a new one and upload it to your on-premises management console.
 
-For more information, see [Create SSL/TLS certificates](how-to-deploy-certificates.md#create-ssltls-certificates).
+For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
 
 Following on-premises management console installation, a local self-signed certificate is generated and used to access the web application. When logging in to the on-premises management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate.
 
