@@ -50,8 +50,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
 </speak>
 ```
 
-Some examples of contents that are allowed in each element are described in the following list:
-- `effect`: This element is used within the `voice` element. 
+Some examples of contents that are allowed in each element are described in the following list: 
 - `audio`: The body of the `audio` element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `bookmark`: This element can't contain text or any other elements.
 - `break`: This element can't contain text or any other elements.
