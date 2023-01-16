@@ -82,7 +82,7 @@ If you don't have the Defender for Endpoint integration enabled in Defender for 
 
 All Defender for Server customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
 
-Learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are going to be deprecated.
 
