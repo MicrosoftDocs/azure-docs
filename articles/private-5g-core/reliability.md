@@ -11,11 +11,11 @@ ms.date: 01/31/2022
 
 # Reliability for Azure Private 5G Core
 
-This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For an overview of reliability in Azure, see [Azure reliability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview.md).
+This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview.md).
 
 ## Availability zone support
 
-The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Availability zone service and regional support](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
+The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Availability zone service and regional support](/azure/reliability/availability-zones-service-support). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
 
 No further work is required to configure or manage availability zones. Failover between availability zones is automatic.
 
@@ -69,69 +69,82 @@ Azure Private 5G Core resources deployed in the failed region will become read-o
 
 The packet core running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
-#### Set up disaster recovery and outage detection
+### Single-region geography disaster recovery
 
-[FMC 21-Dec-2022] ***Should this come after the single region DR bit below as it is relevant to both?
+In a single region geography, disaster recovery of the Azure resources is your responsibility. The Azure resources will not be available through the ARM API or portal if the region fails. The packet will continue running at the edge in the event of region failure and network connectivity will be unaffected.
 
-This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required for customers in multi-region geographies who wish to be able to modify their resources and customers in single-region geographies who want to be able to view and monitor their resources in the event of a region failure. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend you only use this procedure if you have a business-critical reason to be able to manage resources while the Azure region is down.
+If you have a requirement to view, manage or monitor the Azure resources during a region failure then you should follow the instructions in [Set up disaster recovery and outage detection](#set-up-disaster-recovery-and-outage-detection) to set up your own backup deployment. This must be in a different geography to your primary deployment.
 
-In advance of a DR event, you must back up your resource configuration to another region that supports Azure Private 5G Core. When the region failure occurs, you can redeploy the 5G core using the resources in your backup region.
+### Set up disaster recovery and outage detection
+
+This section describes what action you can take to ensure you have a fully active management plane for the Azure Private 5G Core service in the event of a region failure. This is required:
+
+- in multi-region geographies, if you want be able to modify your resources
+- in single-region geographies, if you want to be able to view and monitor your resources in the event of a region failure. 
+
+Note that this will cause an outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend you only use this procedure if you have a business-critical reason to manage resources while the Azure region is down.
+
+In advance of a disaster recovery event, you must back up your resource configuration to another region that supports Azure Private 5G Core. When the region failure occurs, you can redeploy the packet core using the resources in your backup region.
 
 ##### Preparation
 
-There are two types of Azure Private 5G Core configuration data that need to be backed up for DR, mobile network configuration and SIM credentials. It is recommended that you update the SIM credentials in the backup region every time you add new SIMs to the primary region. It is recommended that you back up the mobile network configuration at least once a week, or more often if you are making frequent or large changes to the configuration e.g. creating a new site.
+There are two types of Azure Private 5G Core configuration data that need to be backed up for disaster recovery: mobile network configuration and SIM credentials. We recommend that you:
 
-Mobile network configuration
-Follow the instructions in (link to article describing moving resources between regions https://dev.azure.com/msazuredev/AzureForOperators/_workitems/edit/74859) to export your Azure Private 5G Core resource configuration and upload it in the new region. It is recommended that you use a new resource group for your backup configuration, to clearly separate it from the active configuration. You must give the resources new names to distinguish them from the resources in your primary region. This new region is currently a passive backup so to avoid conflicts you must not link the packet core configuration to your edge hardware yet. Instead, store the values currently in the packetCoreControlPlanes.platform field for every packet core in a safe location that can be accessed by whoever will perform the recovery procedure (e.g. storage account, internal document).
+- update the SIM credentials in the backup region every time you add new SIMs to the primary region
+- back up the mobile network configuration at least once a week, or more often if you are making frequent or large changes to the configuration such as creating a new site.
 
-SIM data
-For security reasons, Azure Private 5G Core will never return the SIM credentials that are provided to the service as part of SIM creation. Therefore it is not possible to export the SIM configuration in the same way as other Azure resources. We advise that whenever new SIMs are added to the primary service, the same SIMs are also added to the backup service by repeating the [Provision new SIMs](https://learn.microsoft.com/en-us/azure/private-5g-core/provision-sims-azure-portal) process for the backup mobile network.
+**Mobile network configuration**
+Follow the instructions in [Move resources to a different region](/azure/private-5g-core/region-move) to export your Azure Private 5G Core resource configuration and upload it to the new region. We recommend that you use a new resource group for your backup configuration to clearly separate it from the active configuration. You must give the resources new names to distinguish them from the resources in your primary region. This new region is a passive backup, so to avoid conflicts you must not link the packet core configuration to your edge hardware yet. Instead, store the values from the packetCoreControlPlanes.platform field for every packet core in a safe location that can be accessed by whoever will perform the recovery procedure (such as a storage account referenced by internal documentation).
 
-Other resources
-Your Azure Private 5G Core deployment may make use of Azure Key Vaults for storing [SIM encryption keys](https://learn.microsoft.com/en-us/azure/private-5g-core/security#customer-managed-key-encryption-at-rest) or HTTPS certificates for [local monitoring](https://learn.microsoft.com/en-us/azure/private-5g-core/security#access-to-local-monitoring-tools). You must follow the [key vault documentation](https://learn.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance) to ensure that your keys and certificates will be available in the backup region.
+**SIM data**
+For security reasons, Azure Private 5G Core will never return the SIM credentials that are provided to the service as part of SIM creation. Therefore it is not possible to export the SIM configuration in the same way as other Azure resources. We recommend that whenever new SIMs are added to the primary service, the same SIMs are also added to the backup service by repeating the [Provision new SIMs](/azure/private-5g-core/provision-sims-azure-portal) process for the backup mobile network.
+
+**Other resources**
+Your Azure Private 5G Core deployment may make use of Azure Key Vaults for storing [SIM encryption keys](/azure/private-5g-core/security#customer-managed-key-encryption-at-rest) or HTTPS certificates for [local monitoring](/azure/private-5g-core/security#access-to-local-monitoring-tools). You must follow the [key vault documentation](/azure/key-vault/general/disaster-recovery-guidance) to ensure that your keys and certificates will be available in the backup region.
 
 ##### Recovery
-In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (@@ instructions are in the region move article). If all the resources are not present then you should stop here and not follow the rest of this procedure, as you may not be able to recover 5G service at the edge site without the resource configuration.
+In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (@@ instructions are in the region move article). If all the resources are not present,stop here and not follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
 
-The recovery process is split into three stages for each packet core - disconnect the edge device from the failed region, connect the edge device to the backup region and then re-install and validate the installation. You must repeat this process for every packet core in your mobile network. It is recommended that you only perform this procedure for packet cores where you have a business critical need to manage the Azure Private 5G Core deployment through Azure during the region failure, as the procedure will cause a network outage for each packet core lasting several hours.
+The recovery process is split into three stages for each packet core:
 
-Disconnect the edge device from the failed region
+1. Disconnect the edge device from the failed region
+1. Connect the edge device to the backup region
+1. Re-install and validate the installation.
+
+You must repeat this process for every packet core in your mobile network. It is recommended that you only perform this procedure for packet cores where you have a business-critical need to manage the Azure Private 5G Core deployment through Azure during the region failure because the procedure will cause a network outage lasting several hours for each packet core.
+
+**Disconnect the edge device from the failed region**
 (@@FMC instructions on resetting the ASE to remove the ARC connection, following up with ASE team as nothing in public docs)
 
-Connect the edge device to the new region
+**Connect the edge device to the new region**
 Re-run the installation script provided by your trials engineer to redeploy the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your ASE device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you will get a new custom location ID for the cluster, which you should note down.
 
-Reinstall and Validation
-Take a copy of the packetCoreControlPlanes.platform values you stored in Preparation and update the packetCoreControlPlane.platform.customLocation field with the custom location ID you noted above. Ensure that packetCoreControlPlane.platform.azureStackEdgeDevice matches the ID of the ASE you want to install the packet core on. Now follow ("modify a packet core" how-to) to update the backup packet core with the platform values. This will trigger a packet core deployment onto the edge device.
+**Reinstall and validation**
+Take a copy of the packetCoreControlPlanes.platform values you stored in [Preparation](#preparation) and update the packetCoreControlPlane.platform.customLocation field with the custom location ID you noted above. Ensure that packetCoreControlPlane.platform.azureStackEdgeDevice matches the ID of the ASE you want to install the packet core on. Now follow [Modify a packet core](/azure/private-5g-core/modify-packet-core) to update the backup packet core with the platform values. This will trigger a packet core deployment onto the edge device.
+
 You should follow your normal process for validating a new site install to confirm that UE connectivity has been restored and all network functionality is operational. In particular, you should confirm that the site dashboards in the Azure portal show UE registrations and that data is flowing through the data plane.
 
 ##### Failed region restored
 
-When the failed region recovers, you should ensure the configuration in the two regions is in sync by performing a backup from the active backup region to the recovered primary region, following the steps in Preparation above.
+When the failed region recovers, you should ensure the configuration in the two regions is in sync by performing a backup from the active backup region to the recovered primary region, following the steps in [Preparation](#preparation).
 
-You must also tidy up any orphaned resources in the recovered region that have not been destroyed by the preceding steps.
+You must also check for and remove any resources in the recovered region that have not been destroyed by the preceding steps:
 
-- For each ASE that you moved to the backup region (following the steps in Recovery) you must find and delete the old ARC cluster resource. The ID of this resource is in the packetCoreControlPlane.platform.customLocation field from the values you backed up in Preparation. The state of this resource will be "disconnected" because the corresponding kubernetes cluster was deleted as part of the recovery process.
-- For each packet core that you moved to the backup region (following the steps in Recovery) you must find and delete any NFM objects in the recovered region. These will be listed in the same resource group as the packet core control plane resources and the "Region" value will match the recovered region.
+- For each ASE that you moved to the backup region (following the steps in [Recovery](#recovery)) you must find and delete the old ARC cluster resource. The ID of this resource is in the packetCoreControlPlane.platform.customLocation field from the values you backed up in [Preparation](#preparation). The state of this resource will be "disconnected" because the corresponding Kubernetes cluster was deleted as part of the recovery process.
+- For each packet core that you moved to the backup region (following the steps in [Recovery](#recovery)) you must find and delete any NFM objects in the recovered region. These will be listed in the same resource group as the packet core control plane resources and the "Region" value will match the recovered region.
 
-You then have two choices for ongoing management.
+You then have two choices for ongoing management:
 
 1. Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
-2. Make the recovered region the new active primary region by following the recovery procedure above to switch back to the recovered region.
+1. Make the recovered region the new active primary region by following the recovery procedure to switch back to the recovered region.
 
 ##### Testing
 
-If you want to test your DR plans then you can follow the recovery procedure for a single packet core at any time. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend only doing this with non-production packet core deployments or at a time when an outage will not adversely affect your business.
-
-### Single-region geography disaster recovery
-
-[FMC 21-Dec-2022] In a single region geography, DR of the Azure resources is the customer's responsibility and the Azure resources will not be available through the ARM API or portal if the region fails. The 5G Core will continue running at the edge in the event of region failure and network connectivity will be unaffected.
-
-If you have a requirement to view, manage or monitor the Azure resources during a region failure then you should follow the instructions in (link to appropriate section) to set up your own backup deployment. This will be in a different geography to your primary deployment.
+If you want to test your disaster recovery plans, you can follow the recovery procedure for a single packet core at any time. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend only doing this with non-production packet core deployments or at a time when an outage will not adversely affect your business.
 
 ### Capacity and proactive disaster recovery resiliency
 
-[FMC 22-Dec-2022] proactive disaster recovery is the backup deployment setup, described above. There are no capacity concerns for Azure Private 5G Core so people don't need to pre-allocate resources or similar. I think this means we can remove this section?
+<!--> [FMC 22-Dec-2022] proactive disaster recovery is the backup deployment setup, described above. There are no capacity concerns for Azure Private 5G Core so people don't need to pre-allocate resources or similar. I think this means we can remove this section? <-->
 
 ## Additional guidance
 TODO: Add your additional guidance
