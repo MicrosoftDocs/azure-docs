@@ -1,11 +1,11 @@
 ---
 title: Partner services
 description: Learn about services  offered by partners on Azure. 
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 01/17/2023
 
 
 ---
@@ -20,7 +20,7 @@ Azure Native ISV Services are available through the Marketplace.
 
 |Partner  |Description  |
 |---|---------|
-|[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. |
+|[Datadog - An Azure Native ISV Service](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. |
 |[Elastic](elastic/overview.md) | Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.  |
 |[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
 |[Azure Native Dynatrace Service](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
@@ -35,4 +35,4 @@ Azure Native ISV Services are available through the Marketplace.
 
 |Partner  |Description  |
 |---|---------|
-|[NGINXaaS ](nginx/nginx-overview.md)   | Use NGINXaaS as a reverse proxy within your Azure environment. |
+|[NGINXaaS - Azure Native ISV Service](nginx/nginx-overview.md) | Use NGINXaaS as a reverse proxy within your Azure environment. |
