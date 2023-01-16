@@ -75,7 +75,7 @@ When a log alert rule is created, the query is validated for correct syntax. But
 
 - Rules were created via the API, and validation was skipped by the user.
 - The query [runs on multiple resources](../logs/cross-workspace-query.md), and one or more of the resources was deleted or moved.
-- The [query fails](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because:
+- The [query fails](../logs/api/errors.md) because:
     - The logging solution wasn't [deployed to the workspace](../insights/solutions.md#install-a-monitoring-solution), so tables aren't created.
     - Data stopped flowing to a table in the query for more than 30 days.
     - [Custom logs tables](../agents/data-sources-custom-logs.md) aren't yet created, because the data flow hasn't started.

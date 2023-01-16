@@ -54,7 +54,7 @@ For example, suppose your requests include this header:
 My-Header: 1=1
 ```
 
-The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** request attribute, and select the header name (`My-Header`) with the value that should be ignored.
+The value of the header (`1=1`) might be detected as an attack by the WAF. But if you know this is a legitimate value for your scenario, you can configure an exclusion for the *value* of the header. To do so, you use the **RequestHeaderValues** match variable, the operator **contains**, and the selector (`My-Header`).
 
 > [!NOTE]
 > Request attributes by key and values are only available in CRS 3.2 or newer and Bot Manager 1.0 or newer.

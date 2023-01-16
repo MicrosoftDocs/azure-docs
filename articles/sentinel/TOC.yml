@@ -30,13 +30,13 @@
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
-    href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
-      href: /azure/defender-for-iot/organizations/iot-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: /azure/defender-for-iot/organizations/iot-advanced-threat-monitoring?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -95,20 +95,20 @@
       href: entities.md
     - name: Ingestion-time data transformation
       href: data-transformation.md
-    - name: Write queries with Kusto Query Language
-      items:
-      - name: Overview
-        href: kusto-overview.md
-      - name: Query best practices
-        href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: SQL to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Splunk to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: KQL quick reference
-        href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Other KQL resources
-        href: kusto-resources.md      
+  - name: Write queries with Kusto Query Language
+    items:
+    - name: Overview
+      href: kusto-overview.md
+    - name: Query best practices
+      href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: SQL to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Splunk to KQL cheat sheet
+      href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: KQL quick reference
+      href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Other KQL resources
+      href: kusto-resources.md      
   - name: Normalize data
     items:
     - name: ASIM overview
@@ -117,6 +117,8 @@
       href: normalization-about-schemas.md
     - name: ASIM parsers
       href: normalization-parsers-overview.md
+    - name: Ingest-time normalization
+      href: normalization-ingest-time.md
   - name: Integrate threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -264,6 +266,8 @@
         href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
+      - name: Microsoft Purview Information Protection
+        href: connect-microsoft-purview.md
       - name: Microsoft Sentinel Data Collector API
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
@@ -418,6 +422,8 @@
       href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
+    - name: Configure advanced security for playbooks
+      href: define-playbook-access-restrictions.md
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
     - name: Create and perform advanced incident tasks using playbooks
@@ -480,7 +486,9 @@
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
       - name: Configure SAP audit log monitoring rules
-        href: sap/configure-audit-log-rules.md 
+        href: sap/configure-audit-log-rules.md
+      - name: Select SAP ingestion profile
+        href: sap/select-ingestion-profiles.md 
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -550,7 +558,7 @@
         - name: ASIM DHCP schema
           href: dhcp-normalization-schema.md
         - name: ASIM file event schema
-          href: file-event-normalization-schema.md
+          href: normalization-schema-file-event.md
         - name: ASIM network session schema
           href: network-normalization-schema.md
         - name: ASIM process event schema
@@ -575,6 +583,8 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Microsoft Purview Information Protection reference
+      href: microsoft-purview-record-types-activities.md
     - name: Microsoft 365 Defender connector data type support
       href: microsoft-365-defender-cloud-support.md
   - name: Detection and analysis references

@@ -267,6 +267,7 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
 
+
 1. To link the private DNS zone to your virtual network, follow these steps: 
 
    
