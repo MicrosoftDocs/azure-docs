@@ -73,7 +73,7 @@ The updated name will be reflected on Azure Resource Graph (ARG), Secure Score C
 
 **Estimated date for change: April 2023**
 
-The security alert quality improvement process for Defender for Servers will be removing some alerts for Windows and Linux servers. Instead, the removed alerts will be sourced from Defender for Endpoint.  
+The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts will now be sourced from and covered by Defender for Endpoint threat alerts.  
 
 All security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
 
