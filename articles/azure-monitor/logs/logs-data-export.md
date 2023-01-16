@@ -34,7 +34,7 @@ Log Analytics workspace data export continuously exports data that's sent to you
 
 ## Limitations
 
-- Custom logs created via [HTTP Data Collector API](./data-collector-api.md), or 'dataSources' API won't be supported in export. Custom log created using [data collection rule](./logs-ingestion-api-overview.md) can be exported.
+- Custom logs created via [HTTP Data Collector API](./data-collector-api.md), or 'dataSources' API won't be supported in export. This includes text logs consumed by MMA. Custom log created using [data collection rule](./logs-ingestion-api-overview.md) can be exported, including text based logs.
 - We are support more tables in data export gradually, but currently limited to those specified in the [supported tables](#supported-tables) section.
 - You can define up to 10 enabled rules in your workspace, each can include multiple tables. You can create more rules in workspace in disabled state. 
 - Destinations must be in the same region as the Log Analytics workspace.
