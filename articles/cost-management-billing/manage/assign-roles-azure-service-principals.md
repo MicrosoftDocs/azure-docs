@@ -24,8 +24,6 @@ Before you begin, ensure that you're familiar with the following articles:
 - [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps)
 - [How to call REST APIs with Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-**Note:** While granting 
-
 ## Create and authenticate your service principal
 
 To automate EA actions by using an SPN, you need to create an Azure Active Directory (Azure AD) application. It can authenticate in an automated manner.
