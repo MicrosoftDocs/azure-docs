@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 * The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, transformers.
-* An Azure OpenAI Service resource with **text-search-curie-doc-001** and **text-search-curie-query-001** models deployed. These models are currently only available in [certain regions](/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability).  If you don't have a resource the process is documented in our [resource deployment guide](../how-to/create-resource.md).
+* An Azure OpenAI Service resource with **text-search-curie-doc-001** and **text-search-curie-query-001** models deployed. These models are currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process is documented in our [resource deployment guide](../how-to/create-resource.md).
 
 > [!NOTE]
 > If you have never worked with the Hugging Face transformers library it has its own specific [prerequisites](https://huggingface.co/docs/transformers/installation) that are required before you can successfully run `pip install transformers`.
@@ -387,6 +387,10 @@ res["summary"][9]
 ```
 
 Using this approach, you can use embeddings as a search mechanism across documents in a knowledge base. The user can then take the top search result and use it for their downstream task, which prompted their initial query.
+
+## Video
+
+There is video walkthrough of this tutorial including the pre-requisite steps which can viewed on this [community YouTube post](https://www.youtube.com/watch?v=PSLO-yM6eFY).
 
 ## Clean up resources
 

@@ -20,7 +20,7 @@ For generic SAP on Azure design considerations, visit [Introduction to an SAP ad
 
 ## Control Plane planning
 
-You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](./automation-configure-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
