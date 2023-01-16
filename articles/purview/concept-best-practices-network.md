@@ -262,7 +262,7 @@ You might choose this option if you need to:
 
 - Scan all data sources using ingestion private endpoint. 
 - Managed resources must be configured to disable public network.
-- Enable access to Microsoft Purview governnace portal through public network.  
+- Enable access to Microsoft Purview governance portal through public network.  
 
 To enable this option:
 
