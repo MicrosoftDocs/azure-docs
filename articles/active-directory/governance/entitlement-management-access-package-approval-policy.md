@@ -149,14 +149,14 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 1. Select **Add alternate approvers** and select the alternate approver(s) from the list.
 
-    ![Access package - Policy - Add Alternate Approvers](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+    ![Access package - Policy - Add Alternate Approvers](https://user-images.githubusercontent.com/7531329/212585624-8c442e5e-662e-456d-90f2-425e89a53d3e.png)
 
     If you select Manager as approver for the First Approver, you'll have an extra option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time out after at least four days. If the request time-out is less or equal than three, there isn't enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
-
+    Requests can only be forwarded to alternate approvers a day after the request has been initiated. To use alternate approval, the request time-out needs to be at least 4 days.
+    
 ## Enable requests
 
 1. If you want the access package to be made immediately available for users in the request policy to request, move the Enable toggle to **Yes**.
