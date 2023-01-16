@@ -156,20 +156,26 @@ from msrestazure.azure_active_directory import MSIAuthentication
 
 def main(req: func.HttpRequest) -> str:
     logging.info('Python HTTP trigger function processed a request.')
-    print('Python HTTP trigger function processed a request')
 
-    creds = MSIAuthentication(resource="<clientId>")
+    //To Authenticate using Managed Identity, we need to pass the Microsoft Energy Data Services Application ID as the resource.     
+    //If we want to use a user-assigned identity, we should also include the   
+    //Client ID as an additional parameter.
+    //Managed Identity using System Assigned Identity:  MSIAuthentication(resource)
+    //Managed Identity using user Assigned Identity: MSIAuthentication(client_id, resource)
+
+    creds = MSIAuthentication(client_id="<client_id_of_managed_identity>”, resource="<meds_app_id>")
     url = "https://<meds-uri>/api/entitlements/v2/groups"
     payload = {}
-    print('creds is', creds)
+    // Passing data partition ID of Microsoft Energy Data Services in headers along with the token received using MI.
     headers = {
         'data-partition-id': '<data partition id>',
         'Authorization': 'Bearer ' + creds.token["access_token"]
     }
     response = requests.request("GET", url, headers=headers, data=payload, verify=False)
-    logging.info("Got a response")
     return response.text
+
 ```
+
 You should get the following successful response from Azure Function:
 
 [![Screenshot of success message from Azure Function.](media/how-to-use-managed-identity/5-azure-function-success.png)](media/how-to-use-managed-identity/5-azure-function-success.png#lightbox)
@@ -180,4 +186,4 @@ With the following steps completed, you're now able to use Azure Functions to ac
 <!-- Add a context sentence for the following links -->
 To learn more about Lockbox in Microsoft Energy Data Services
 > [!div class="nextstepaction"]
-> [Lockbox in Microsoft Energy Data Services](how-to-use-managed-identity.md)
+> [Lockbox in Microsoft Energy Data Services](how-to-create-lockbox.md)
