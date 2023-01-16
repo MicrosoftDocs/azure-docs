@@ -37,20 +37,20 @@ To configure Microsoft Purview firewall follow these steps:
 
 - **Enabled from all networks**
 
-  :::image type="content" source="media/catalog-private-link/purview-firewall-public.png" alt-text="Screenshot showing the purview account firewall page, selecting public network in the Azure portal":::
+  :::image type="content" source="media/catalog-private-link/purview-firewall-public.png" alt-text="Screenshot showing the purview account firewall page, selecting public network in the Azure portal.":::
 
   By choosing this option:
 
   - All public network access into your Microsoft Purview account is allowed. 
   - Public network access is set to _Enabled from all networks_ on your Microsoft Purview account's Managed storage account. 
-  - Public network access is set to _All networks_ on your Microsoft Purview account's Managed Event Hub, if it's used. 
+  - Public network access is set to _All networks_ on your Microsoft Purview account's Managed Event Hubs, if it's used. 
 
   > [!NOTE]
   > Even though the network access is enaled through public internet, to gain access to Microsoft Purview governance portal, users must be first authenticated and authorized. 
 
 - **Disabled for ingestion only (Preview)**
 
-  :::image type="content" source="media/catalog-private-link/purview-firewall-ingestion.png" alt-text="Screenshot showing the purview account firewall page, selecting ingestion only in the Azure portal":::
+  :::image type="content" source="media/catalog-private-link/purview-firewall-ingestion.png" alt-text="Screenshot showing the purview account firewall page, selecting ingestion only in the Azure portal.":::
 
   > [!NOTE]
   > Currently, this option is available in public preview.
@@ -63,18 +63,18 @@ To configure Microsoft Purview firewall follow these steps:
   
 - **Disabled from all networks**
 
-  :::image type="content" source="media/catalog-private-link/purview-firewall-private.png" alt-text="Screenshot showing the purview account firewall page, selecting private network in the Azure portal":::
+  :::image type="content" source="media/catalog-private-link/purview-firewall-private.png" alt-text="Screenshot showing the purview account firewall page, selecting private network in the Azure portal.":::
 
   By choosing this option:
   
   - All public network access into your Microsoft Purview account is disabled. 
   - All network access to your Microsoft Purview account through APIs or Microsoft Purview governance portal including traffic to run scans is allowed only through private network using private endpoints. For more information, see [Connect to your Microsoft Purview and scan data sources privately and securely](catalog-private-link-end-to-end.md).
   - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed storage account. 
-  - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed Event Hub, if it's used. 
+  - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed Event Hubs, if it's used. 
 
 5. Select **Save**.
 
-    :::image type="content" source="media/catalog-private-link/purview-firewall-save.png" alt-text="Screenshot showing the purview account firewall page, selecting save in the Azure portal":::
+    :::image type="content" source="media/catalog-private-link/purview-firewall-save.png" alt-text="Screenshot showing the purview account firewall page, selecting save in the Azure portal.":::
 
 ## Next steps
 

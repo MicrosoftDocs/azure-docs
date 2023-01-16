@@ -271,11 +271,11 @@ To enable this option:
 
 ### Integration runtime options 
 
-Follow recommnedation for option 2.
+Follow recommendation for option 2.
 
 ### Authentication options  
 
-Follow recommnedation for option 2.
+Follow recommendation for option 2.
 
 ## Self-hosted integration runtime network and proxy recommendations
 
