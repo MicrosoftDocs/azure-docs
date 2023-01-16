@@ -324,7 +324,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 <sup><a name="footnote1"></a>1</sup>: **Preview for non-AKS clusters**: This alert is generally available for AKS clusters, but it is in preview for other environments, such as Azure Arc, EKS and GKE.
 
-<sup><a name="footnote2"></a>2</sup>: **Limitations on GKE clusters**: GKE uses a Kuberenetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, is not supported for GKE clusters.
+<sup><a name="footnote2"></a>2</sup>: **Limitations on GKE clusters**: GKE uses a Kubernetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, is not supported for GKE clusters.
 
 <sup><a name="footnote3"></a>3</sup>: This alert is supported on Windows nodes/containers.
 
@@ -686,7 +686,7 @@ VM.Windows_CommandLineStartingAllExe | Detected suspicious command line used to 
 VM.Windows_DisablingAndDeletingIISLogFiles | Detected actions indicative of disabling and deleting IIS log files | Medium
 VM.Windows_DownloadUsingCertutil | Suspicious download using Certutil detected | Medium
 VM.Windows_EchoOverPipeOnLocalhost | Detected suspicious named pipe communications | High
-VM.Windows_EchoToConstructPowerShellScript | Dynamic PS script construction | Medium 
+VM.Windows_EchoToConstructPowerShellScript | Dynamic PowerShell script construction | Medium 
 VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable using built-in certutil.exe tool | Medium
 VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
 VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium
@@ -703,7 +703,7 @@ VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets 
 VM.Windows_RansomwareIndication | Ransomware indicators detected | High
 VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
 VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
-VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detcted  Medium
+VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detected  Medium
 VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
 VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
 VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
@@ -720,7 +720,7 @@ VM_MaliciousSQLActivity | Malicious SQL activity | High
 VM_ProcessWithDoubleExtensionExecution | Suspicious double extension file executed | High
 VM_RegistryPersistencyKey | Windows registry persistence method detected | Low
 VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity <br/> Executable found running from a suspicious location | High
-VM_SuspectExecutablePath | Executable found running from a suspicious location <br/> Detected anomoalous mix of uppercase and lowercase characters in command line |  Informational <br/>  <br/> Medium <br/> |
+VM_SuspectExecutablePath | Executable found running from a suspicious location <br/> Detected anomalous mix of uppercase and lowercase characters in command line |  Informational <br/>  <br/> Medium <br/> |
 VM_SuspectPhp | Suspicious PHP execution detected | Medium
 VM_SuspiciousCommandLineExecution | Suspicious command execution | High
 VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium
