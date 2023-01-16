@@ -41,6 +41,11 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](https
 
 
 ## SMART on FHIR proxy
+<details>
+                <summary> Click to expand! </summary>
+
+> [!NOTE]
+> This is another option to using "SMART on FHIR using AHDS Samples OSS" mentioned above. SMART on FHIR Proxy option only enables EHR launch sequence.
 ### Step 1: Set admin consent for your client application
 
 To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
@@ -151,5 +156,13 @@ The SMART on FHIR proxy uses this information to populate fields in the token re
 These fields are meant to provide guidance to the app, but they don't convey any security information. A SMART on FHIR application can ignore them.
 
 Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page. Select **Launch** to start the sample app.
+</details>
+     
+## Next steps
 
+Now that you've learned about enabling SMART on FHIR functionality, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.
+
+>[!div class="nextstepaction"]
+>[FHIR search examples](search-samples.md)
+     
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
