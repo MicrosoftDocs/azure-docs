@@ -84,7 +84,7 @@ All Defender for Server customers, have full access to the Defender for Endpoint
 
 You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
-You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are going to be deprecated.
+You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are set to be deprecated.
 
 
 ## Next steps
