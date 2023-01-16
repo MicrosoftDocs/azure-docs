@@ -57,8 +57,11 @@ To set up SNMP monitoring:
         | **Username** | Enter a unique username. <br><br> The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters with no spaces. <br><br> The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Password** | Enter a case-sensitive authentication password. <br><br> The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters. <br><br> The password for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Auth Type** | Select **MD5** or **SHA-1**. |
-        | **Encryption** | Select **DES** (56-bit key size) <sup>[1](#1)</sup> or **AES** (AES 128 bits supported) <sup>[2](#2)</sup>. <br><br> - <a name="1"></a><sup>1</sup> RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3). <br> - <a name="2"></a><sup>2</sup> RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model. |
+        | **Encryption** | Select **DES** (56-bit key size) <sup>[1](#1)</sup> or **AES** (AES 128 bits supported) <sup>[2](#2)</sup>. |
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters. |
+
+        <a name="1"></a><sup>1</sup> RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3).
+        <a name="2"></a><sup>2</sup> RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model.
 
 1. When you're done adding servers, select **Save**.
 
