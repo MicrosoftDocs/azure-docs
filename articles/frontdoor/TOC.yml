@@ -147,8 +147,12 @@
         href: endpoint.md
       - name: Origin
         href: origin.md?pivots=front-door-standard-premium
-      - name: Wildcard domain
-        href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
+      - name: Domains
+        items:
+        - name: Overview
+          href: domain.md
+        - name: Wildcard domains
+          href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
       - name: Health probes
         href: health-probes.md
       - name: Rules Engine

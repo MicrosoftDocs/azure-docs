@@ -80,23 +80,7 @@ A custom domain is configured on the **Domains** page of the Front Door profile.
 
     :::image type="content" source="../media/how-to-add-custom-domain/provisioned-approved-status.png" alt-text="Screenshot of provisioned and approved status.":::
 
-### Domain validation state
-
-| Domain validation state | Description and actions |
-|--|--|
-| Approved | This status means the domain has been successfully validated. |
-| Internal error | If you see this error, retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
-| Pending | A domain goes to pending state once the DNS TXT record challenge is generated. Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
-| Pending re-validation | This status occurs when the managed certificate is less than 45 days from expiring. If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation**, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
-| Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record challenge is issued, the state will change to **Pending**. |
-| Rejected | This  when the certificate provider/authority rejects the issuance for the managed certificate, for example, when the domain is invalid. Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then select **Add** to add the TXT record in the DNS provider. |
-| Submitting | When a new custom domain is added and being created, the validation state becomes Submitting. |
-| Timeout | The domain validation state will change from *Pending* to *Timeout* if the TXT record isn't added to your DNS provider within seven days. You'll also see a *Timeout* state if an invalid DNS TXT record has been added. Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add the TXT record to the DNS provider. |
-
-> [!NOTE]
-> 1. The default TTL for TXT record is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
-> 2. If the **Regenerate** button doesn't work, delete and recreate the domain.
-> 3. If the domain state doesn't reflect as expected, select the **Refresh** button.
+For more infromation about domain validation states, see [Domains in Azure Front Door](../domain.md#domain-validation).
 
 ## Associate the custom domain to your Front Door endpoint
 
