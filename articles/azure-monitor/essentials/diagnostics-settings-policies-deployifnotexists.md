@@ -17,12 +17,11 @@ The policies enable resource logging of a category group for the resource to an 
 
 ## Use cases 
 
-Azure Defender for Cloud and Azure Security Benchmark need a AuditIfNotExists policy to audit at least one diagnostic setting, forwarding the logs to a Log Analytics Workspace for each resource. Additionally, forwarding resource logs to a Log Analytics Workspace is needed to use Azure Sentinel as your main SIEM and to enable security investigations.
+* Azure Defender for Cloud and Azure Security Benchmark need a AuditIfNotExists policy to audit at least one diagnostic setting, forwarding the logs to a Log Analytics Workspace for each resource. Additionally, forwarding resource logs to a Log Analytics Workspace is needed to use Azure Sentinel as your main SIEM and to enable security investigations.
 
-Assign policies to send resource logs to Event Hubs for third-party SIEM systems enabling continuous security operations.  
+* Assign policies to send resource logs to Event Hubs for third-party SIEM systems enabling continuous security operations.  
 
-Assign policies to send resource logs to storage accounts for the fulfillment of regulatory compliance. 
-
+* Assign policies to send resource logs to storage accounts for the fulfillment of regulatory compliance. 
 
 
 ## Common parameters
@@ -35,6 +34,14 @@ The following table describes the common parameters for each set of policies.
 |diagnosticSettingName|Diagnostic Setting Name||setByPolicy-LogAnalytics|
 |categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
 
+## Log Analytics policy parameters
+ This policy deploys a diagnostic setting using a category group to route logs to a Log Analytics workspace.
+
+|Parameter| Description| Valid Values|Default|
+|---|---|---|---|
+|resourceLocationList|Resource Location List to send logs to nearby Log Analytics. <br>"*" selects all locations|Supported locations|\*|
+|logAnalytics|Log Analytics Workspace|||
+
 ## Event Hubs policy parameters
 
 This policy deploys a diagnostic setting using a category group to route logs to an Event Hub.
@@ -45,13 +52,6 @@ This policy deploys a diagnostic setting using a category group to route logs to
 |eventHubAuthorizationRuleId|Event Hub Authorization Rule ID. The authorization rule is at event hub namespace level. For example, /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
 |eventHubName|Event Hub Name||Monitoring|
 
-## Log Analytics policy parameters
- This policy deploys a diagnostic setting using a category group to route logs to a Log Analytics workspace.
-
-|Parameter| Description| Valid Values|Default|
-|---|---|---|---|
-|resourceLocationList|Resource Location List to send logs to nearby Log Analytics. <br>"*" selects all locations|Supported locations|\*
-|logAnalytics|Log Analytics Workspace|||
 
 ## Storage Accounts policy parameters
 Enable resource logging of a category group for the resource to Storage. Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur. This policy deploys a diagnostic setting using a category group to route logs to a Storage Account.
