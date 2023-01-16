@@ -6,13 +6,19 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/22/2023
+ms.date: 01/16/2023
 ms.author: jodowns
 ---
 
 # Domains in Azure Front Door
 
-In Azure Front Door, a *domain* is a representation of a custom domain name that you use to receive your application's traffic.
+In Azure Front Door, a *domain* represents a custom domain name that Front Door uses to receive your application's traffic.
+
+## Domain types
+
+- Subdomains.
+- Root/apex domains.
+- Wildcard domains. For information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
 
 ## DNS records
 
@@ -33,23 +39,19 @@ In Azure Front Door, a *domain* is a representation of a custom domain name that
 
 | Domain validation state | Description and actions |
 |--|--|
-| Approved | The domain has been successfully validated. |
-| Internal error | Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
+| Submitting | The custom domain is being created. Please wait until the domain resource is ready. |
 | Pending | The DNS TXT record challenge has been generated. Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record has been updated with the DNS provider, select **Regenerate** to refresh the TXT record then add the TXT record to your DNS provider again. |
 | Pending re-validation | The managed certificate is less than 45 days from expiring. If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain is pointed to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
 | Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record challenge is issued, the state will change to **Pending**. |
+| Approved | The domain has been successfully validated. |
 | Rejected | The certificate provider/authority has rejected the issuance for the managed certificate. For example, the domain name might be invalid. Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page, as shown in the screenshots below this table. Then select **Add** to add the TXT record in the DNS provider. |
-| Submitting | The custom domain is being created. |
 | Timeout | The TXT record wasn't added to your DNS provider within seven days, or an invalid DNS TXT record was added. Select the **Timeout** link and then select **Regenerate** on the *Validate the custom domain* page. Then select **Add** to add the TXT record to the DNS provider. |
+| Internal error | Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
 
 > [!NOTE]
-> 1. The default TTL for TXT records is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
-> 2. If the **Regenerate** button doesn't work, delete and recreate the domain.
-> 3. If the domain state doesn't reflect as expected, select the **Refresh** button.
-
-## Wildcard domains
-
-For information about using wildcard domains with Azure Front Door, see [Wildcard domains](./front-door-wildcard-domain.md).
+> - The default TTL for TXT records is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
+> - If the **Regenerate** button doesn't work, delete and recreate the domain.
+> - If the domain state doesn't reflect as expected, select the **Refresh** button.
 
 ## Root/apex domains
 - Root/apex domains
@@ -60,3 +62,8 @@ For information about using wildcard domains with Azure Front Door, see [Wildcar
 - BYO TLS certificates
 
 ## WAF policies
+TODO
+
+## Next steps
+
+TODO
