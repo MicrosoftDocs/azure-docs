@@ -1,9 +1,9 @@
 ---
-title: AWS ECR Coverage in Defender for Containers | Defender for Cloud in the field
+title: AWS ECR coverage in Defender for Containers | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
-description: Learn about Enhancements in Defender for SQL Vulnerability Assessment
+description: Learn about AWS ECR coverage in Defender for Containers
 ms.topic: reference
-ms.date: 01/15/2023
+ms.date: 01/16/2023
 ---
 
 # Enhancements in Defender for SQL vulnerability assessment | Defender for Cloud in the field
@@ -11,17 +11,17 @@ ms.date: 01/15/2023
 **Episode description**: In this episode of Defender for Cloud in the Field, Tomer Spivak joins Yuri Diogenes to talk about the new AWS ECR coverage in Defender for Containers. Tomer explains how Defender for Containers performs vulnerability assessment for ECR workloads in AWS and how to enable this capability. Tomer demonstrates the user experience in Defender for Cloud, showing the vulnerability findings in the dashboard and the onboarding process.
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=cbd8ace6-4602-4900-bb73-cf8986605639" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://aka.ms/docs/player?id=919f847f-4b19-4440-aede-a0917e1d7019" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [00:00](/shows/mdc-in-the-field/defender-sql-enhancements#time=00m00s) - Intro
-- [01:44](/shows/mdc-in-the-field/defender-sql-enhancements#time=01m44s) - Introducing AWS ECR Coverage
+- [01:44](/shows/mdc-in-the-field/defender-sql-enhancements#time=01m44s) - Introducing AWS ECR coverage
 - [03:38](/shows/mdc-in-the-field/defender-sql-enhancements#time=03m38s) -  How new repos or images are discovered after the initial assessment
 - [04:22](/shows/mdc-in-the-field/defender-sql-enhancements#time=04m22s) - Scanning frequency
 - [07:33](/shows/mdc-in-the-field/defender-sql-enhancements#time=07m33s) - Demonstration
 
 
 ## Recommended resources
-  - [Learn more](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic) about AWS ECR Coverage in Defender for Containers.
+  - [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic) about AWS ECR Coverage in Defender for Containers.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)

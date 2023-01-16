@@ -651,7 +651,7 @@
       href: episode-twenty-three.md
     - name: Enhancements in Defender for SQL Vulnerability Assessment
       href: episode-twenty-four.md
-    - name: AWS ECR Coverage in Defender for Containers
+    - name: AWS ECR coverage in Defender for Containers
       href: episode-twenty-five.md
   - name: Manage user data
     href: privacy.md
