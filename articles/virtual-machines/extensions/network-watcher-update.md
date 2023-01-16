@@ -6,7 +6,7 @@ author: shijaiswal
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 11/28/2022
+ms.date: 01/16/2023
 ms.author: v-ksreedevan 
 ms.custom: devx-track-azurepowershell
 
