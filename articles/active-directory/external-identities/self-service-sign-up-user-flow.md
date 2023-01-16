@@ -11,6 +11,10 @@ ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.custom: "it-pro"
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to set up user flows that allow a user to sign up for an app and create a new guest account. 
+
 ---
 
 # Add a self-service sign-up user flow to an app
@@ -23,6 +27,8 @@ For applications you build, you can create user flows that allow a user to sign 
 ## Before you begin
 
 ### Add identity providers (optional)
+
+Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
@@ -46,6 +52,8 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 1. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
 1. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
 
+:::image type="content" source="media/self-service-sign-up-user-flow/enable-self-service-sign-up.png" alt-text="Screenshot of the enable guest self-service sign up toggle.":::
+
 5. Select **Save**.
 ## Create the user flow for self-service sign-up
 
@@ -58,6 +66,7 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
 :::image type="content" source="media/self-service-sign-up-user-flow/new-user-flow.png" alt-text="Screenshot of the new user flow button.":::
 
+5. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
 6. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
 7. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
 8. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
