@@ -22,7 +22,7 @@ NAT gateway can be integrated with Azure Firewall by configuring NAT gateway dir
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a hub virtual network with an Azure Firewall and Azure Bastion
+> * Create a hub virtual network and deploy an Azure Firewall and Azure Bastion during deployment
 > * Create a NAT gateway and associate it with the firewall subnet in the hub virtual network
 > * Create a spoke virtual network
 > * Create a virtual network peering
