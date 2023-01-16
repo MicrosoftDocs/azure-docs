@@ -157,16 +157,16 @@ from msrestazure.azure_active_directory import MSIAuthentication
 def main(req: func.HttpRequest) -> str:
     logging.info('Python HTTP trigger function processed a request.')
 
-    //To Authenticate using MI, we need to pass the MEDS APP_ID as the resource.     
+    //To Authenticate using Manaded Identity, we need to pass the Microsoft Energy Data Services Application ID as the resource.     
     //If we want to use a user-assigned identity, we should also include the   
-    //client ID as an additional parameter.
-    //MI using System Assigned Identity:  MSIAuthentication(resource)
-    //MI using user Assigned Identity: MSIAuthentication(client_id, resource)
+    //Client ID as an additional parameter.
+    //Managed Identity using System Assigned Identity:  MSIAuthentication(resource)
+    //Managed Identity using user Assigned Identity: MSIAuthentication(client_id, resource)
 
     creds = MSIAuthentication(client_id="<client_id_of_managed_identity>”, resource="<meds_app_id>")
     url = "https://<meds-uri>/api/entitlements/v2/groups"
     payload = {}
-    // Passing data partition id of MEDS in headers along with the token received using MI.
+    // Passing data partition ID of Microsoft Energy Data Services in headers along with the token received using MI.
     headers = {
         'data-partition-id': '<data partition id>',
         'Authorization': 'Bearer ' + creds.token["access_token"]
