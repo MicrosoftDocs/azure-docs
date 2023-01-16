@@ -11,7 +11,7 @@ ms.reviewer: lualderm
 
 # Built-in DeployIfNotExists policies for Azure Monitor
 
-A set of built-in policies and initiatives exists to provide a way to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage accounts. All policies have the default `effect` set to `DeployIfNotExists`.
+A set of built-in policies and initiatives exists to provide a way to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. All policies have the default `effect` set to `DeployIfNotExists`.
 
 The policies enable resource logging of a category group for the resource to an Event Hub, Log Analytics workspace or Storage Account. Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
 
@@ -65,39 +65,39 @@ Enable resource logging of a category group for the resource to Storage. Resourc
 
 Built-in DeployIfNotExists policies exist for Log analytics, Event Hubs and Storage Accounts for the following resources:
 
-	•   "microsoft.agfoodplatform/farmbeats",
-	•   "microsoft.apimanagement/service",
-	•   "microsoft.appconfiguration/configurationstores",
-	•   "microsoft.attestation/attestationproviders",
-	•   "microsoft.automation/automationaccounts",
-	•   "microsoft.avs/privateclouds",
-	•   "microsoft.cache/redis",
-	•   "microsoft.cdn/profiles",
-	•   "microsoft.cognitiveservices/accounts",
-	•   "microsoft.containerregistry/registries",
-	•   "microsoft.devices/iothubs",
-	•   "microsoft.eventgrid/topics",
-	•   "microsoft.eventgrid/domains",
-	•   "microsoft.eventgrid/partnernamespaces",
-	•   "microsoft.eventhub/namespaces",
-	•   "microsoft.keyvault/vaults",
-	•   "microsoft.keyvault/managedhsms",
-	•   "microsoft.machinelearningservices/workspaces",
-	•   "microsoft.media/mediaservices",
-	•   "microsoft.media/videoanalyzers",
-	•   "microsoft.netapp/netappaccounts/capacitypools/volumes",
-	•   "microsoft.network/publicipaddresses",
-	•   "microsoft.network/virtualnetworkgateways",
-	•   "microsoft.network/p2svpngateways",
-	•   "microsoft.network/frontdoors",
-	•   "microsoft.network/bastionhosts",
-	•   "microsoft.operationalinsights/workspaces",
-	•   "microsoft.purview/accounts",
-	•   "microsoft.servicebus/namespaces",
-	•   "microsoft.signalrservice/signalr",
-	•   "microsoft.signalrservice/webpubsub",
-	•   "microsoft.sql/servers/databases",
-	•   "microsoft.sql/managedinstances"
+* microsoft.agfoodplatform/farmbeats
+* microsoft.apimanagement/service
+* microsoft.appconfiguration/configurationstores
+* microsoft.attestation/attestationproviders
+* microsoft.automation/automationaccounts
+* microsoft.avs/privateclouds
+* microsoft.cache/redis
+* microsoft.cdn/profiles
+* microsoft.cognitiveservices/accounts
+* microsoft.containerregistry/registries
+* microsoft.devices/iothubs
+* microsoft.eventgrid/topics
+* microsoft.eventgrid/domains
+* microsoft.eventgrid/partnernamespaces
+* microsoft.eventhub/namespaces
+* microsoft.keyvault/vaults
+* microsoft.keyvault/managedhsms
+* microsoft.machinelearningservices/workspaces
+* microsoft.media/mediaservices
+* microsoft.media/videoanalyzers
+* microsoft.netapp/netappaccounts/capacitypools/volumes
+* microsoft.network/publicipaddresses
+* microsoft.network/virtualnetworkgateways
+* microsoft.network/p2svpngateways
+* microsoft.network/frontdoors
+* microsoft.network/bastionhosts
+* microsoft.operationalinsights/workspaces
+* microsoft.purview/accounts
+* microsoft.servicebus/namespaces
+* microsoft.signalrservice/signalr
+* microsoft.signalrservice/webpubsub
+* microsoft.sql/servers/databases
+* microsoft.sql/managedinstances
 
 ## Next Steps
 
