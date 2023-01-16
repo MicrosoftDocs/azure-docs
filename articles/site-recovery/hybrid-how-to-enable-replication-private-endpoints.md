@@ -38,7 +38,7 @@ then create private endpoints in the bypass network. You can choose any form of 
 **Before you start, note the following:**
 
 - Private links are supported in Site Recovery 9.35 and later.
-- You can create private endpoints only for new Recovery Services vaults that don't have any items registered to them. So you must create private endpoints before any items are added to the vault. See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for pricing information.
+- You can create private endpoints only for new Recovery Services vaults that don't have any items registered to them. Therefore, you must create private endpoints before any items are added to the vault. See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for pricing information.
 - When you create a private endpoint for a vault, the vault is locked down. It can be accessed only from networks that have private endpoints.
 - Azure Active Directory doesn't currently support private endpoints. So you need to allow outbound access from the secured Azure virtual network to IPs and fully qualified domain names that are required for Azure Active Directory to work in a region. As applicable, you can also use network security group tag "Azure Active Directory" and Azure Firewall tags to allow access to Azure Active Directory.
 - Five IP addresses are required in the bypass network where you create your private endpoint. When you create a private endpoint for the vault, Site Recovery creates five private links for access to its microservices.
@@ -49,7 +49,7 @@ then create private endpoints in the bypass network. You can choose any form of 
 
 ### URLs to be allowed
 
-When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allowlist. If proxy-based configuration is used then make sure that the proxy resolves any CNAME records received while looking up the URLs.
+When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allowlist. If proxy-based configuration is used, make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
   |  **URL**                  |     **Details**                            |
   | ------------------------- | -------------------------------------------|
@@ -100,7 +100,7 @@ To protect the machines in the on-premises source network, you'll need one priva
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Search the Azure Marketplace for *Private link*.
-1. Select **Private Link** from the search results, and in the Backup and Site Recovery page, click **Create**.
+1. Select **Private Link** from the search results, and in the Backup and Site Recovery page, select **Create**.
     
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/marketplace.png" alt-text="Screenshot that shows searching the Azure portal for Private Link Center.":::
 
@@ -267,10 +267,9 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
 
-1. Link the private DNS zone to your virtual network.
+1. To link the private DNS zone to your virtual network, follow these steps: 
 
-   You now need to link the private DNS zone that you created to the bypass.
-
+   
    1. Go to the private DNS zone that you created in the previous step and then go to **Virtual
       network links** in the left pane. Select **Add**.
 
@@ -304,5 +303,5 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
 
 Now that you've enabled private endpoints for your virtual machine replication, see these other articles for additional and related information:
 
-- [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
-- [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
+- [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md).
+- [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md).

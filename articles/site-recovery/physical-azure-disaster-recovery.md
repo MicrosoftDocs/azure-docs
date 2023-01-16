@@ -3,7 +3,7 @@ title: Set up disaster recovery of physical on-premises servers with Azure Site 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/29/2022
+ms.date: 01/16/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -88,16 +88,6 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
-## Select a protection goal
-
-Select what to replicate, and to replicate it to.
-
-1. In the [Azure portal](https://portal.azure.com), search **Recovery Services vaults** and select the vault. 
-2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-3. In **Protection goal**, select **To Azure** > **Not virtualized/Other**.
-
-To set up the source environment, set up the configuration server, register it in the vault, and discover VMs.
-
 ## Prepare Infrastructure
 
 It is important to prepare the infrastructure before you set up disaster recovery of physical VMware machines to Azure.
@@ -163,6 +153,8 @@ On the **Target settings** tab, do the following:
 1. Under **Subscription**, select the Azure subscription you want to use.
 2. Under **Post-failover deployment model**, specify the target deployment model.
     Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+    > ![!NOTE]
+    > Only Resource Manager deployment model should be selected, as Classic deployment model will be deprecated by 01, March, 2023.
 1. Select **Next**
 
     :::image type="content" source="./media/physical-azure-disaster-recovery/target-settings.png" alt-text="Screenshot of the target setting page.":::
@@ -180,7 +172,7 @@ Under **Replication policy** tab, do the following:
 3.	In the **Create and associate policy** page, do the following:
     1. **Name** - specify a policy name.
     1. **Source type** - select **VMware / Physical machines**.
-    1. **Target type** - select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
+    1. **Target type** - select the subscription and the resource group in which you want to create the Azure VMs after failover. 
     1. **RPO threshold in mins** - specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit..
     1. **Retention period (in days)** - specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
     1. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. 
