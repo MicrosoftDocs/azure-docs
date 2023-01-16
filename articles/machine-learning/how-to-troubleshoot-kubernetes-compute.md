@@ -173,7 +173,7 @@ Cannot found Kubernetes cluster.
 This error should occur when the system cannot find the AKS/Arc-Kubernetes cluster.
 
 You can check the following items to troubleshoot the issue:
-* First, check the cluster resource ID in the Azure Portal to verify whether Kubernetes cluster resource still exists and is running normally.
+* First, check the cluster resource ID in the Azure portal to verify whether Kubernetes cluster resource still exists and is running normally.
 * If the cluster exists and is running, then you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
 
 > [!TIP]

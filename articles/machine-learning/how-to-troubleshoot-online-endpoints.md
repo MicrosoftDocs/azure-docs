@@ -450,7 +450,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
     - A failure in the `init()` method.
 - If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](#deploy-locally) instead.
 - Readiness or liveness probes aren't set up correctly.
-- There's an error in the environment setup of the container, such as a missing dependency.
+- There's an error in the environment set up of the container, such as a missing dependency.
 - When you face `TypeError: register() takes 3 positional arguments but 4 were given` error, the error may be caused by the dependency between flask v2 and `azureml-inference-server-http`. See [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup) for more details.
 
 ### ERROR: ResourceNotFound
@@ -524,7 +524,7 @@ Below is a list of reasons you might run into this error when creating/updating 
 * Role assignment has not yet been completed. In this case, please wait for a few seconds and try again later. 
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
-  * If you are using a private AKS cluster, it is necessary to setup private endpoints for ACR, storage account, workspace in the AKS vnet. 
+  * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
 
 ### ERROR: EndpointNotFound
 
