@@ -20,9 +20,9 @@ This article will guide you through how to configure the permissions required fo
 
 ## Prerequisites
 
-Familiarize yourself with the Azure user roles relevant to Azure Communications Gateway by reading [Classic subscription administrator roles, Azure roles, and Azure AD roles](https://learn.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
+Familiarize yourself with the Azure user roles relevant to Azure Communications Gateway by reading [Classic subscription administrator roles, Azure roles, and Azure AD roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-A list of all available defined Azure roles is available in [Azure built-in roles](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles).
+A list of all available defined Azure roles is available in [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## 1. Understand the user roles required for Azure Communications Gateway
 
@@ -42,7 +42,7 @@ You need to use the Azure portal to configure user roles.
 
 ### 2.1 Prepare to assign a user role
 
-1. Read through [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps) and ensure that you:
+1. Read through [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) and ensure that you:
     - Know who needs access.
     - Know the appropriate user role or roles to assign them.
     - Are signed in with a user that is assigned a role that has role assignments write permission, such as **Owner** or **User Access Administrator** for the subscription.
@@ -50,7 +50,7 @@ You need to use the Azure portal to configure user roles.
 
 ### 2.2 Assign a user role
 
-1. Follow the steps in [Assign a user role using the Azure portal](azure/role-based-access-control/role-assignments-portal) to assign the permissions you determined in [1. Understand the user roles required for Azure Communications Gateway](#1-understand-the-user-roles-required-for-azure-communications-gateway).
+1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.md) to assign the permissions you determined in [1. Understand the user roles required for Azure Communications Gateway](#1-understand-the-user-roles-required-for-azure-communications-gateway).
 1. If you're managing access to the API Bridge Number Management Portal, follow [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) to assign **Reader** and **Writer** permissions for the Project Synergy application.
 
 ## Next steps
