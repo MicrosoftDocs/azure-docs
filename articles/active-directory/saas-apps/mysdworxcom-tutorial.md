@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with my.sdworx.com
 
-In this article, you'll learn how to integrate my.sdworx.com with Azure Active Directory (Azure AD). my.sdworx.com is a SD Worx portal. When you integrate my.sdworx.com with Azure AD, you can:
+In this article, you'll learn how to integrate my.sdworx.com with Azure Active Directory (Azure AD). my.sdworx.com is an SD Worx portal. When you integrate my.sdworx.com with Azure AD, you can:
 
 * Control in Azure AD who has access to my.sdworx.com.
 * Enable your users to be automatically signed-in to my.sdworx.com with their Azure AD accounts.
