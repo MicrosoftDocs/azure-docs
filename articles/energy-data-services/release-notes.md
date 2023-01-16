@@ -41,7 +41,7 @@ Most operations, support, and troubleshooting performed by Microsoft personnel d
 
 <hr width=100%>
 
-## October 20, 2022
+## October 2022
 
 ### Support for Private Links
 
