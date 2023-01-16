@@ -61,6 +61,7 @@ To set up SNMP monitoring:
         | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters. |
 
         <a name="1"></a><sup>1</sup> RFC3414 User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3).
+
         <a name="2"></a><sup>2</sup> RFC3826 The Advanced Encryption Standard (AES) Cipher Algorithm in the SNMP User-based Security Model.
 
 1. When you're done adding servers, select **Save**.
