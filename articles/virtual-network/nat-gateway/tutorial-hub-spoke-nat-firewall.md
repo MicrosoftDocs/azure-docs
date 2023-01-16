@@ -292,7 +292,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 ### Create firewall policy
 
-1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall** in the search results.
+1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
 2. Select **myFirewall**.
 
@@ -431,9 +431,9 @@ If you're not going to continue to use this application, delete the created reso
 
 1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
-2. Select **myResourceGroup**.
+2. Select **TutorialNATHubSpokeFW-rg**.
 
-3. In the **Overview** of **myResourceGroup**, select **Delete resource group**.
+3. In the **Overview** of **TutorialNATHubSpokeFW-rg**, select **Delete resource group**.
 
 4. In **TYPE THE RESOURCE GROUP NAME:**, enter **TutorialNATHubSpokeFW-rg**.
 
