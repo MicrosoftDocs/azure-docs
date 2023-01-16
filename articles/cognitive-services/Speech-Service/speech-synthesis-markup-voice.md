@@ -24,11 +24,14 @@ At least one `voice` element must be specified within each SSML [speak](speech-s
 
 You can include multiple `voice` elements in a single SSML document. Each `voice` element can specify a different voice. You can also use the same voice multiple times with different settings, such as when you [change the silence duration](speech-synthesis-markup-structure.md#add-silence) between sentences.
 
+Regarding the `effect` attribute of the `voice` element, it is an audio effect processor. This attribute is used to enhance the auditory quality of the synthesized speech output from various device. In a practical environment, the audience's auditory experience may be degraded due to the distortion of playback from various devices in different scenarios. For example, the synthesized speech from car speaker may sound dull and muffled due to environmental factors such as speaker response, room reverberation, and background noise. The driver usually has to turn up the volume to hear more clearly. In such a case, the `effect` processor can make the sound clearer by compensating the distortion of playback without any manual operation. 
+
 Usage of the `voice` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
+| `effect` |A voice-specific effect processor. You can choose a specific value according to the corresponding scenarios. The following values are supported:<br/><ul><li>`eq_car` – Optimize the auditory experience when providing high-fidelity speech in the car scenarios, such as small cars, buses, and other enclosed small/medium vehicles.</li><li>`eq_telecomhp8k` – Optimize the auditory experience in telecom or telephone scenarios. This feature is only designed for narrowband speech (sampling rate = 8kHz). If the sample rate of the output speech is not 8kHz, the auditory quality of the output speech isn't guaranteed even with this attribute. We recommend that you convert the sample rate of the output speech to 8kHz to get a better result with this attribute in telecom scenarios. </li></ul><br/>If the value is missing or invalid, the `effect` attribute will be ignored and the service will use the default neutral speech.|  Optional |
 
 ### Voice examples
 
@@ -72,6 +75,18 @@ This example uses a custom voice named "my-custom-voice".
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="my-custom-voice">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
+#### Audio effect example
+
+You use the `effect` attribute to optimize the auditory experience for different voices. The following SSML example uses the `effect` attribute with the configuration in car scenarios.
+    
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural" effect="eq_car">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -437,33 +452,6 @@ The supported values for attributes of the `mstts:backgroundaudio` element were 
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
     <voice name="en-US-JennyNeural">
         The text provided in this document will be spoken over the background audio.
-    </voice>
-</speak>
-```
-
-## Audio effect
-
-The `effect` element is an effect processor that is used to enhance the auditory quality of the synthesized speech output from various device. In a practical environment, the audience's auditory experience may be degraded due to the distortion of playback from various devices in different scenarios. For example, the synthesized speech from car speaker may sound dull and muffled due to environmental factors such as speaker response, room reverberation, and background noise. The driver usually has to turn up the volume to hear more clearly. In such a case, the `effect` processor can make the sound clearer by compensating the distortion of playback without any manual operation.
-
-You can configure the `effect` element's attributes within the `voice` element to optimize the auditory experience of synthesized speech. For example, if you are in a car scenario, you can use the value `eq_car` to make the synthesized speech from the car speaker clearer. 
-
-
-Usage of the `effect` element's attributes are described in the following table.
-
-| Attribute | Description | Required or optional |
-| ---------- | ---------- | ---------- |
-| `effect` |A voice-specific effect processor. You can choose a specific value according to the corresponding scenarios. The following values are supported:<br/><ul><li>`eq_car` – Optimize the auditory experience when providing high-fidelity speech in the car scenarios, such as small cars, buses, and other enclosed small/medium vehicles.</li><li>`eq_telecomhp8k` – Optimize the auditory experience in telecom or telephone scenarios. This feature is only designed for narrowband speech (sampling rate = 8kHz). If the sample rate of the output speech is not 8kHz, the auditory quality of the output speech isn't guaranteed even with this attribute. We recommend that you convert the sample rate of the output speech to 8kHz to get a better result with this attribute in telecom scenarios. </li></ul><br/>If the value is missing or invalid, the `effect` element will be ignored and the service will use the default neutral speech.| Required |
-
-### Audio effect examples
-
-The supported values for attributes of the `effect` element were [described previously](#audio-effect).
-
-You use the `effect` element within the `voice` element to optimize the auditory experience for different voices. The following SSML example uses the `effect` element with the configuration in car scenarios.
-    
-```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural" effect="eq_car">
-        This is the text that is spoken.
     </voice>
 </speak>
 ```
