@@ -85,19 +85,19 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-1. Compose a list of the AAD Groups you want the Descartes Application use for the Role-based configuration. A list of User Roles Descartes application modules can be found at https://www.gln.com/docs/Descartes_Application_User_Roles.pdf. You can find the Azure Active Direction Group GUIDs please download the Groups from your AAD Portal Groups.
+1. Compose a list of the Azure AD Groups you want the Descartes Application use for the Role-based configuration. A list of User Roles Descartes application modules can be found at https://www.gln.com/docs/Descartes_Application_User_Roles.pdf. You can find the Azure Active Direction Group GUIDs please download the Groups from your Azure AD Portal Groups.
 
     ![Screenshot shows the AAD Portal Groups.](media/descartes-tutorial/copy-groups.png "Groups")
 
-You can load this CSV file in Excel. Please select the groups that you want map to the Descartes application roles by list the id in the first column and associating it with the Descartes Application User Role.
+You can load this CSV file in Excel. Please select the groups that you want map to the Descartes application roles by list the ID in the first column and associating it with the Descartes Application User Role.
 
 ## Configure Descartes SSO
 
-To configure single sign-on on **Descartes** side, you need to email the following values to the [Descartes support team](mailto:servicedesk@descartes.com). Please use the subject AAD SSO Setup request as the subject.
+To configure single sign-on on **Descartes** side, you need to email the following values to the [Descartes support team](mailto:servicedesk@descartes.com). Please use the subject Azure AD SSO Setup request as the subject.
 
 1. The preferred identity domain suffix (often the same as the E-mail domain suffix).
 1. The App Federation Metadata URL.
-1.	A list with the AAD Group GUIDs for users entitled to use the Descartes application. 
+1.	A list with the Azure AD Group GUIDs for users entitled to use the Descartes application. 
 
 Descartes will use the information in the E-mail to have the SAML SSO connection set properly on the application side.
 
@@ -109,7 +109,7 @@ An example of such a request below:
 
 In this section, a user called B.Simon is created in Descartes. Descartes supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Descartes, a new one is commonly created after authentication.
 
-Descartes application use domain qualified usernames for your AAD integrated users. The domain qualified usernames consist of the SAML claim subject and will always end with the domain suffix. Descartes recommends to select your companies E-mail domain suffix all users in the domain have in common as the identity domain suffix (example B.Simon@contoso.com). 
+Descartes application use domain qualified usernames for your Azure AD integrated users. The domain qualified usernames consist of the SAML claim subject and will always end with the domain suffix. Descartes recommends selecting your companies E-mail domain suffix all users in the domain have in common as the identity domain suffix (example B.Simon@contoso.com). 
 
 ## Test SSO 
 
@@ -119,7 +119,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Descartes Sign-on URL where you can initiate the login flow. Alternatively you can use a 'deep link' URL into a specific module of the Descartes application, and you will be redirected to a page to provide your domain qualified username which will lead you to your Azure AD login dialog.
 
-* Go to Descartes application  direct access URL provided and initiate the login flow by specifying your domain qualified username (B.Simon@contoso.com) in the application login window. This will redirect the user automatically to Azure AD.
+* Go to Descartes application direct access URL provided and initiate the login flow by specifying your domain qualified username (B.Simon@contoso.com) in the application login window. This will redirect the user automatically to Azure AD.
 
 #### IDP initiated:
 
