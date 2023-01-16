@@ -365,6 +365,8 @@
         - name: Troubleshoot Kubernetes compute
           displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
           href: how-to-troubleshoot-kubernetes-compute.md
+        - name: Reference for configuring Kubernetes cluster
+          href: reference-kubernetes.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -858,8 +860,6 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Kubernetes cluster configuration
-      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
