@@ -57,7 +57,7 @@ MABS performs backup with VSS as follows:
 
 ## Backup prerequisites
 
-These are the prerequisites for backing up Hyper-V virtual machines with MABS:
+The following table lists the prerequisites to back up Hyper-V virtual machines with MABS:
 
 |Prerequisite|Details|
 |------------|-------|
