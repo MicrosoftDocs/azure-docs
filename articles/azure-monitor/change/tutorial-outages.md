@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 12/15/2022
+ms.date: 01/11/2023
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -109,6 +109,20 @@ Since the connection string is a secret value, we hide it on the overview page f
 The change details pane also shows important information, including who made the change. 
 
 Now that you've discovered the web app in-guest change and understand next steps, you can proceed with troubleshooting the issue. 
+
+## Virtual network changes
+
+Knowing what changed in your application's networking resources is critical due to their effect on connectivity, availability, and performance. Change Analysis supports all network resource changes and captures those changes immediately. Networking changes include:
+
+- Firewalls created or edited
+- Network critical changes (for example, blocking port 22 for TCP connections)
+- Load balancer changes
+- Virtual network changes
+
+The sample application includes a virtual network to make sure the application remains secure. Via the Azure portal, you can view and assess the network changes captured by Change Analysis. 
+
+:::image type="content" source="./media/change-analysis/networking-changes.png" alt-text="Screenshot of Change Analysis capturing networking changes.":::
+
 
 ## Next steps
 
