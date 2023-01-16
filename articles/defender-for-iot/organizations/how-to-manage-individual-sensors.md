@@ -483,7 +483,7 @@ Clearing data deletes all detected or learned data on the sensor. After clearing
 
 1. In the confirmation dialog box, select **Yes** to confirm that you do want to clear all data from the sensor and reset it. For example:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/clear-system-data.png" alt-text="Screenshot of clearing system data on the support page in the sensor console." lightbox="media/how-to-manage-individual-sensors/clear-system-data.png":::
 
 A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 
