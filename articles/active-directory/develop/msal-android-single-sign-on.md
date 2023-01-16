@@ -13,7 +13,6 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: henrymbugua
-ms.reviewer: marsma
 ---
 
 # Enable cross-app SSO on Android using MSAL
@@ -28,8 +27,8 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 This how-to assumes you know how to:
 
-- Provision your app using the Azure portal. For more information on this topic, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
-- Integrate your application with the [Microsoft Authentication Library for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
+- Provision your app using the Azure portal. For more information about app provision, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
+- Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## Methods for single sign-on
 
@@ -39,13 +38,13 @@ There are two ways for applications using MSAL for Android to achieve SSO:
 * Through the [system browser](#sso-through-system-browser)
 
 
-   It is recommended to use a broker application for benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
+   It's recommended to use a broker application for benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
 
 ## SSO through brokered authentication
 
-We recommend that you use one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
+We recommend that you use one of Microsoft's authentication brokers to participate in device-wide SSO and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
-- Device single sign-on
+- Device SSO
 - Conditional Access for:
   - Intune App Protection
   - Device Registration (Workplace Join)
@@ -74,7 +73,7 @@ If a device doesn't already have a broker app installed, MSAL instructs the user
 
 #### When a broker is installed
 
-When a broker is installed on a device, all subsequent interactive token requests (calls to `acquireToken()`) are handled by the broker rather than locally by MSAL. Any SSO state previously available to MSAL is not available to the broker. As a result, the user will need to authenticate again, or select an account from the existing list of accounts known to the device.
+When a broker is installed on a device, all subsequent interactive token requests (calls to `acquireToken()`) are handled by the broker rather than locally by MSAL. Any SSO state previously available to MSAL isn't available to the broker. As a result, the user will need to authenticate again, or select an account from the existing list of accounts known to the device.
 
 Installing a broker doesn't require the user to sign in again. Only when the user needs to resolve an `MsalUiRequiredException` will the next request go to the broker. `MsalUiRequiredException` can be thrown for several reasons, and needs to be resolved interactively. For example:
 
@@ -86,7 +85,7 @@ Installing a broker doesn't require the user to sign in again. Only when the use
 
 #### When a broker is uninstalled
 
-If there is only one broker hosting app installed, and it is removed, then the user will need to sign in again. Uninstalling the active broker removes the account and associated tokens from the device.
+If there's only one broker hosting app installed, and it's removed, then the user will need to sign in again. Uninstalling the active broker removes the account and associated tokens from the device.
 
 If Intune Company Portal is installed and is operating as the active broker, and Microsoft Authenticator is also installed, then if the Intune Company Portal (active broker) is uninstalled the user will need to sign in again. Once they sign in again, the Microsoft Authenticator app  becomes the active broker.
 
@@ -114,8 +113,12 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with *keytool*, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select your Android app in **App registrations**.
-1. Select **Authentication** > **Add a platform** > **Android**.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you registered your application.
+1. Search for and select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**.
+1. In **App registrations**, select your application.
+1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.
 
@@ -157,7 +160,7 @@ You can remove the account from settings if you want to repeat the test.
 
 ## SSO through system browser
 
-Android applications have the option to use the WebView, system browser, or Chrome Custom Tabs for authentication user experience. If the application is not using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO.
+Android applications have the option to use the WebView, system browser, or Chrome Custom Tabs for authentication user experience. If the application isn't using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO.
 
 ### Authorization agents
 
@@ -173,7 +176,7 @@ By default, applications integrated with MSAL use the system browser's Custom Ta
 
 If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a single sign-on experience across the device or between native apps and web apps.
 
-If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have a SSO experience across applications if the they have an active sign-in with one of the apps.
+If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have a SSO experience across applications if they have an active sign-in with one of the apps.
 
 ### WebView
 
