@@ -69,7 +69,7 @@ Note the following, which you'll use in the code below:
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages by running: 
+1. Install the following packages: 
 
     ```shell
     pip install azure-servicebus
@@ -81,11 +81,10 @@ Note the following, which you'll use in the code below:
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages by running: 
+1. Install the following package: 
 
     ```bash
     pip install azure-servicebus
-    pip install aiohttp
     ```
 
 ---
