@@ -48,7 +48,7 @@ To use this quickstart with your own Azure account:
 
 ### [Connection string](#tab/connection-string)
 
-Note down the following, which you'll use in the code below:
+Note the following, which you'll use in the code below:
 * Service Bus namespace **connection string** 
 * Service Bus namespace **queue** you created
 
