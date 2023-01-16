@@ -53,7 +53,7 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 | microsoft-defender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64Mi <br> <br>cpu: 60m | No |
 | microsoft-defender-publisher-ds-* | kube-system | [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers backend service where the data will be processed for and analyzed. | N/A | memory: 200Mi  <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/limit-egress-traffic.md#microsoft-defender-for-containers) |
 
-\* resource limits aren't configurable, learn more about [Kubernetes' resources limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)
+\* Resource limits aren't configurable; Learn more about [Kubernetes resources limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)
 
 ## [**On-premises / IaaS (Arc)**](#tab/defender-for-container-arch-arc)
 
