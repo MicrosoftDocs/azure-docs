@@ -402,7 +402,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 3. Make note of value in **IP address**. The example used in this article is **20.225.88.213**.
 
-### Test NAT gateway from spoke one
+### Test NAT gateway from spoke
 
 Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to https://whatsmyip.com to verify the functionality of the NAT gateway.
 
