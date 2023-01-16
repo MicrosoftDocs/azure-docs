@@ -25,7 +25,7 @@ You can click on export from the Business case to export it in an .xlsx file. If
     1. Click on 'Reset' next to 'Performance history duration date range is outdated.' warning. You could also choose to change any other setting
     1. Click on 'Save'
 
-This would recalcualte the business case with teh updated assumptions and will enable the export gesture.
+This would recalculate the business case with the updated assumptions and will enable the export gesture.
 
 ### What is the difference between an assessment and a business case?
 

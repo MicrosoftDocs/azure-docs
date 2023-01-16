@@ -81,7 +81,7 @@ It covers cost components for on-premises and Azure, savings, and insights to un
 
 This section contains the cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
 - Azure VM:
-    - **Estimated cost by savings options**: This card includes compute cost for Azure VMs. It is recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings to maximize savings.
+    - **Estimated cost by savings options**: This card includes compute cost for Azure VMs. It is recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings.
     - **Recommended VM family**: This card covers the VM sizes recommended. The ones marked Unknown are the VMs that have some readiness issues and no SKUs could be found for them.
     - **Recommended storage type**: This card covers the storage cost distribution across different recommended storage types.
 - SQL Server on Azure VM:
