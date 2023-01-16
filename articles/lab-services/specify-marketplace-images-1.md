@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 
 # Specify Marketplace images available to lab creators in a lab account
 
-[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+[!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account.
 
