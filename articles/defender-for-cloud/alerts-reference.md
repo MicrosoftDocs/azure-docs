@@ -658,7 +658,7 @@ VM_TimerServiceDisabled | Attempt to stop apt-daily-upgrade.timer service detect
 VM_TimestampTampering | Suspicious file timestamp modification | Low
 VM_Webshell | Possible malicious web shell detected | Medium
 
-### Deprecated Alerts for Windows
+### Windows alerts to be deprecated
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|
