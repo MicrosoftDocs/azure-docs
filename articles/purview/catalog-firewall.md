@@ -72,7 +72,7 @@ To configure Microsoft Purview firewall follow these steps:
   - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed storage account. 
   - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed Event Hub, if it's used. 
 
-4. Select **Save**.
+5. Select **Save**.
 
     :::image type="content" source="media/catalog-private-link/purview-firewall-save.png" alt-text="Screenshot showing the purview account firewall page, selecting save in the Azure portal":::
 
