@@ -7,8 +7,8 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
 ms.date: 01/09/2023
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management

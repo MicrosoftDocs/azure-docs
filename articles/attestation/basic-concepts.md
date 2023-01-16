@@ -26,34 +26,6 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 
 Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
 
-### Regional shared provider
-
-Azure Attestation provides a regional shared provider in every available region. Customers can choose to use the regional shared provider for attestation, or create their own providers with custom policies. The shared providers are accessible by any Azure AD user and the policy associated with it cannot be altered.
-
-| Region | Attest Uri | 
-|--|--|
-| East US | `https://sharedeus.eus.attest.azure.net` | 
-| West US | `https://sharedwus.wus.attest.azure.net` | 
-| UK South | `https://shareduks.uks.attest.azure.net` | 
-| UK West| `https://sharedukw.ukw.attest.azure.net	` | 
-| Canada East | `https://sharedcae.cae.attest.azure.net` | 
-| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
-| North Europe | `https://sharedneu.neu.attest.azure.net` | 
-| West Europe| `https://sharedweu.weu.attest.azure.net` | 
-| US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| Central US | `https://sharedcus.cus.attest.azure.net` |
-| North Central US | `https://sharedncus.ncus.attest.azure.net` | 
-| South Central US | `https://sharedscus.scus.attest.azure.net` | 
-| Australia East | `https://sharedeau.eau.attest.azure.net` | 
-| Australia SouthEast | `https://sharedsau.sau.attest.azure.net` |
-| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
-| Japan East | `https://sharedjpe.jpe.attest.azure.net` |
-| Switzerland North | `https://sharedswn.swn.attest.azure.net` |
-| US Gov Virginia | `https://sharedugv.ugv.attest.azure.us` | 
-| US Gov Arizona | `https://shareduga.uga.attest.azure.us` | 
-| Central US EUAP | `https://sharedcuse.cuse.attest.azure.net` |
-| East US2 EUAP | `https://sharedeus2e.eus2e.attest.azure.net` |
-
 ## Attestation request
 
 Attestation request is a serialized JSON object sent by client application to attestation provider. 
