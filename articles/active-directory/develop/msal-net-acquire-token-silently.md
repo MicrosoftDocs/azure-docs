@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 01/16/2023
 ms.author: dmwendia
 ms.reviewer: saeeda
-ms.custom: devx-track-csharp, aaddev
+ms.custom: devx-track-csharp, aaddev, engagement-fy23
 #Customer intent: As an application developer, I want to learn how how to use the AcquireTokenSilent method so I can acquire tokens from the cache.
 ---
 
 # Get a token from the token cache using MSAL.NET
 
-When you acquire an access token using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should try to fetch it from the cache first.
+When you acquire an access token using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should attempt to fetch it from the cache first.
 
 You can monitor the source of the tokens by inspecting the `AuthenticationResult.AuthenticationResultMetadata.TokenSource` property
 
@@ -26,13 +26,13 @@ You can monitor the source of the tokens by inspecting the `AuthenticationResult
 
 ASP.NET Core and ASP.NET Classic websites should integrate with [Microsoft.Identity.Web](microsoft-identity-web.md), a wrapper for MSAL.NET. Memory token caching or distributed token caching can be configured as described in [token cache serialization](msal-net-token-cache-serialization.md?tabs=aspnetcore). 
 
-Web APIs on ASP.NET Core should use Microsoft.Identity.Web. Web APIs on ASP.NET classic, use MSAL directly, by calling `AcquireTokenOnBehalfOf` and should configure memory or distributed caching. For more information, see [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md?tabs=aspnet). There is no need to call `AcquireTokenSilent` API. There is no API to clear the cache. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
+Web APIs on ASP.NET Core should use Microsoft.Identity.Web. Web APIs on ASP.NET classic, use MSAL directly, by calling `AcquireTokenOnBehalfOf` and should configure memory or distributed caching. For more information, see [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md?tabs=aspnet). There is no reason to call the `AcquireTokenSilent` API as there is no API to clear the cache. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
 
 ## Web service / Daemon apps 
 
 Applications which request tokens for an app identity, with no user involved, by calling `AcquiretTokenForClient` can either rely on MSAL's internal caching, define their own memory token caching or distributed token caching. For instructions and more information, see [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md?tabs=aspnet). 
 
-Since no user is involved, there is no need to call `AcquireTokenSilent` API. `AcquireTokenForClient` will look in the cache on its own. There is no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
+Since no user is involved, there is no reason to call `AcquireTokenSilent` API. `AcquireTokenForClient` will look in the cache on its own as there is no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
 
 ## Desktop, command-line, and mobile applications
 
@@ -42,7 +42,7 @@ For authentication flows that require a user interaction, MSAL caches the access
 
 The recommended pattern is to call the `AcquireTokenSilent` method first.  If `AcquireTokenSilent` fails, then acquire a token using other methods.
 
-In the following example, the application first attempts to acquire a token from the token cache.  If a `MsalUiRequiredException` exception is thrown, the application acquires a token interactively. 
+In the following example, the application first attempts to acquire a token from the token cache. If a `MsalUiRequiredException` exception is thrown, the application acquires a token interactively. 
 
 ```csharp
 var accounts = await app.GetAccountsAsync();
@@ -84,7 +84,7 @@ if (result != null)
 
 ### Clearing the cache
 
-In public client applications, clearing the cache is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.
+In public client applications, clearing the cache is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser.
 
 ```csharp
 var accounts = (await app.GetAccountsAsync()).ToList();
