@@ -28,7 +28,7 @@ landingContent:
           - text: Interoperability of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
             url: interoperability.md
           - text: Reliability in Azure Communications Gateway
-            url: reliability.md
+            url: ../reliability/reliability-communications-gateway.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
           - text: Emergency calling with Azure Communications Gateway
             url: emergency-calling.md
 
