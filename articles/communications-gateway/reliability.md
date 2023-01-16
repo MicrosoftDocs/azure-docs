@@ -1,6 +1,6 @@
 ---
-title: Resiliency in Azure Communications Gateway 
-description: Find out about reliability in Azure Communications Gateway 
+title: Reliability in Azure Communications Gateway
+description: Find out about reliability in Azure Communications Gateway
 author: nslack
 ms.author: nickslack
 ms.service: communications-gateway
@@ -15,9 +15,9 @@ Azure Communication Gateway ensures your service is reliable by using Azure redu
 
 ## Azure Communications Gateway's redundancy model
 
-Each Azure Communications Gateway deployment consists of three separate regions, a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+Each Azure Communications Gateway deployment consists of three separate regions, a Management Region and two Service Regions. This article describes the two different region types and their distinct redundancy models. It covers both regional reliability with availability zones and cross-region reliability with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-:::image type="complex" source="media/resiliency/azure-communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
+:::image type="complex" source="media/reliability/azure-communications-gateway-management-and-service-regions.png" alt-text="Diagram of two service regions, a management region and two operator sites.":::
     Diagram showing two operator sites and the Azure regions for Azure Communications Gateway. Azure Communications Gateway has two service regions and one management region. The service regions connect to the management region and to the operator sites. The management region can be co-located with a service region.
 :::image-end:::
 
@@ -50,7 +50,7 @@ It's expected that your network consists of two geographically redundant sites. 
 
 The details of this hunting behavior but will be specific to your network. You must agree them with your onboarding team during your integration project.
 
-:::image type="complex" source="media/resiliency/azure-communications-gateway-service-region-redundancy.png" alt-text="Diagram of two operator sites and two service regions. Both service regions connect to both sites, with primary and secondary routes.":::
+:::image type="complex" source="media/reliability/azure-communications-gateway-service-region-redundancy.png" alt-text="Diagram of two operator sites and two service regions. Both service regions connect to both sites, with primary and secondary routes.":::
     Diagram of two operator sites (operator site A and operator site B) and two service regions (service region A and service region B). Operator site A has a primary route to service region A and a secondary route to service region B. Operator site B has a primary route to service region B and a secondary route to service region A.
 :::image-end:::
 
@@ -112,7 +112,7 @@ Management regions can be co-located with service regions. We recommend choosing
 
 ## Service-level agreements
 
-The resiliency design described in this document is implemented by Microsoft and isn't configurable. For more information on the Azure Communications Gateway service-level agreements (SLAs), see the Azure Communications Gateway SLA.
+The reliability design described in this document is implemented by Microsoft and isn't configurable. For more information on the Azure Communications Gateway service-level agreements (SLAs), see the Azure Communications Gateway SLA.
 
 ## Next steps
 

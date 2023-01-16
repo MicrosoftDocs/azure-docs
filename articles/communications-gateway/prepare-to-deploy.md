@@ -169,7 +169,7 @@ This step must be performed on your Operator Tenant. It will give the Applicatio
 
 ## 5. Create a network design
 
-Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You must have two Azure Regions with cross-connect functionality. For more details on the resiliency design for Azure Communications Gateway, see [Resiliency in Azure Communications Gateway](resiliency.md).
+Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You must have two Azure Regions with cross-connect functionality. For more details on the reliability design for Azure Communications Gateway, see [Reliability in Azure Communications Gateway](reliability.md).
 
 To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner).
     :::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram of an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::

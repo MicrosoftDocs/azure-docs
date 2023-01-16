@@ -31,7 +31,7 @@ If you're eligible, we'll assign the following people as your onboarding team.
 To be eligible for the BIIB, you must first deploy an Azure Communications Gateway resource. In addition:
 
 - You must be launching Microsoft Teams Operator Connect (not Teams Phone Mobile).
-- Your network must be capable of meeting the [resiliency requirements for Azure Communications Gateway](resiliency.md).
+- Your network must be capable of meeting the [reliability requirements for Azure Communications Gateway](reliability.md).
 - You must not request any interworking options that aren't listed in the [interoperability description](interoperability.md).
 - You must not require any API customization as part of the API Bridge feature (if you choose to deploy the API Bridge).
 
@@ -85,6 +85,6 @@ If you're not eligible for the Basic Integration Included Benefit because you're
 
 ## Next steps
 
-- [Review the resiliency requirements for Azure Communications Gateway](resiliency.md).
+- [Review the reliability requirements for Azure Communications Gateway](reliability.md).
 - [Review the interoperability function of Azure Communications Gateway](interoperability.md).
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
