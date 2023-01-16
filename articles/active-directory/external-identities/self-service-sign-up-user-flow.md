@@ -52,7 +52,7 @@ Before you can add a self-service sign-up user flow to your applications, you ne
 1. Select **User settings**, and then under **External users**, select **Manage external collaboration settings**.
 1. Set the **Enable guest self-service sign up via user flows** toggle to **Yes**.
 
-:::image type="content" source="media/self-service-sign-up-user-flow/enable-self-service-sign-up.png" alt-text="Screenshot of the enable guest self-service sign up toggle.":::
+   :::image type="content" source="media/self-service-sign-up-user-flow/enable-self-service-sign-up.png" alt-text="Screenshot of the enable guest self-service sign up toggle.":::
 
 5. Select **Save**.
 ## Create the user flow for self-service sign-up
@@ -64,17 +64,17 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select **New user flow**.
 
-:::image type="content" source="media/self-service-sign-up-user-flow/new-user-flow.png" alt-text="Screenshot of the new user flow button.":::
+   :::image type="content" source="media/self-service-sign-up-user-flow/new-user-flow.png" alt-text="Screenshot of the new user flow button.":::
 
 5. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
 6. On the **Create** page, enter a **Name** for the user flow. The name is automatically prefixed with **B2X_1_**.
 7. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
 8. Under **User attributes**, choose the attributes you want to collect from the user. For more attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
-:::image type="content" source="media/self-service-sign-up-user-flow/create-user-flow.png" alt-text="Screenshot of the new user flow creation page. ":::
+   :::image type="content" source="media/self-service-sign-up-user-flow/create-user-flow.png" alt-text="Screenshot of the new user flow creation page. ":::
 
-> [!NOTE]
-> You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
+   > [!NOTE]
+   > You can only collect attributes when a user signs up for the first time. After a user signs up, they will no longer be prompted to collect attribute information, even if you change the user flow.
 
 8. Select **Create**.
 9. The new user flow appears in the **User flows** list. If necessary, refresh the page.
@@ -102,7 +102,7 @@ Now you'll associate applications with the user flow to enable sign-up for those
 6. In the left menu, under **Use**, select **Applications**.
 7. Select **Add application**.
 
-:::image type="content" source="media/self-service-sign-up-user-flow/assign-app-to-user-flow.png" alt-text="Screenshot of adding an application to the user flow.":::
+   :::image type="content" source="media/self-service-sign-up-user-flow/assign-app-to-user-flow.png" alt-text="Screenshot of adding an application to the user flow.":::
 
 8. Select the application from the list. Or use the search box to find the application, and then select it.
 9. Click **Select**.
