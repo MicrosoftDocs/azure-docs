@@ -1,5 +1,5 @@
 ---
-title: Use Managed Identity for Microsoft Energy Data Services on Azure	
+title: Use managed identities for Microsoft Energy Data Services on Azure	
 description: Learn how to use Managed Identity to access Microsoft Energy Data Services from other Azure services. 
 author: sandeepchads
 ms.author: sancha
@@ -120,7 +120,7 @@ Sample response:
 ```
 * Adding Application ID of the managed identity to users.datalake.editors@[partition ID].dataservices.energy
 
-5. Run the following CURL command on Azure bash:
+4. Run the following CURL command on Azure bash:
 
 ```bash
  curl --location --request POST 'https://<microsoft energy data services uri>/api/entitlements/v2/groups/ users.datalake.editors@ <data-partition-id>.dataservices.energy/members' \
