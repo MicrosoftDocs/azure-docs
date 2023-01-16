@@ -79,6 +79,36 @@ To create the data collection rule in the Azure portal:
 > [!NOTE]
 > It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
 
+
+### Sample log queries
+
+- **Count the IIS log entries by URL for the host www.contoso.com.**
+    
+    ```kusto
+    W3CIISLog 
+    | where csHost=="www.contoso.com" 
+    | summarize count() by csUriStem
+    ```
+
+- **Review the total bytes received by each IIS machine.**
+
+    ```kusto
+    W3CIISLog 
+    | summarize sum(csBytes) by Computer
+    ```
+
+
+## Sample alert rule
+
+- **Create an alert rule on any record with a return status of 500.**
+    
+    ```kusto
+    W3CIISLog 
+    | where scStatus==500
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+
 ## Troubleshoot
 Use the following steps to troubleshoot collection of IIS logs. 
 

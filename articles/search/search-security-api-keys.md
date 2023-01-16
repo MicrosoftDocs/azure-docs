@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/14/2023
 ---
 
 # Connect to Cognitive Search using key authentication
@@ -47,21 +47,30 @@ Best practices for using hard-coded keys in source files include:
 
 ### [**Portal**](#tab/portal-use)
 
+Key authentication is built in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
+
 In Cognitive Search, most tasks can be performed in Azure portal, including object creation, indexing through the Import data wizard, and queries through Search explorer.
 
-Authentication is built in so no action is required. By default, the portal uses API keys to authenticate the request automatically. However, if you [disable API keys](search-security-rbac.md#disable-api-key-authentication) and set up role assignments, the portal uses role assignments instead.
-
 ### [**PowerShell**](#tab/azure-ps-use)
+
+Set API keys in the request header using the following syntax:
+
+```azurepowershell
+$headers = @{
+'api-key' = '<YOUR-ADMIN-OR-QUERY-API-KEY>'
+'Content-Type' = 'application/json' 
+'Accept' = 'application/json' }
+```
 
 A script example showing API key usage for various operations can be found at [Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs](search-get-started-powershell.md).
 
 ### [**REST API**](#tab/rest-use)
 
-+ Admin keys are only specified in HTTP request headers. You can't place an admin API key in a URL. See [Connect to Azure Cognitive Search using REST APIs](search-get-started-rest.md#connect-to-azure-cognitive-search) for an example that specifies an admin API key on a REST call.
+Set an admin key in the request header using the syntax `api-key` equal to your key. Admin keys are used for most operations, including create, delete, and update. Admin keys are also used on requests issued to the search service itself, such as listing objects or requesting service statistics. see [Connect to Azure Cognitive Search using REST APIs](search-get-started-rest.md#connect-to-azure-cognitive-search) for a more detailed example.
 
-+ Query keys are also specified in an HTTP request header for search, suggestion, or lookup operation that use POST.
+:::image type="content" source="media/search-security-api-keys/rest-headers.png" alt-text="Screenshot of the Headers section of a request in Postman." border="true":::
 
-  Alternatively, you can pass a query key  as a parameter on a URL if you're using GET: `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`
+Query keys are used for search, suggestion, or lookup operations that target the `index/docs` collection. For POST, set `api-key` in the request header. Or, put the key on the URI for a GET: `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`
 
 ### [**C#**](#tab/dotnet-use)
 
@@ -101,7 +110,7 @@ You can view and manage API keys in the [Azure portal](https://portal.azure.com)
 
 ### [**PowerShell**](#tab/azure-ps-find)
 
-1. Install the Az.Search module:
+1. Install the `Az.Search` module:
 
    ```azurepowershell
    Install-Module Az.Search
