@@ -40,18 +40,18 @@ When you finally migrate your custom DNS name from the old site to the App Servi
 
 ## 2. Create the DNS records
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-    Add a TXT record for domain verification. The hostname for the TXT record depends on the type of DNS record type you want to map. See the following table (`@` typically represents the root domain):
+Add a TXT record for domain verification. The hostname for the TXT record depends on the type of DNS record type you want to map. See the following table (`@` typically represents the root domain):
 
-    | DNS record example | TXT Host | TXT Value |
-    | - | - | - |
-    | \@ (root) | _asuid_ | Domain verification ID shown in the **Custom domains** management page. |
-    | www (sub) | _asuid.www_ | Domain verification ID shown in the **Custom domains** management page. |
-    | \* (wildcard) | _asuid_ | Domain verification ID shown in the **Custom domains** management page. |
-    
-    > [!NOTE]
-    > Wildcard `*` records won't validate subdomains with an existing CNAME's record. You may need to explicitly create a TXT record for each subdomain.
+| DNS record example | TXT Host | TXT Value |
+| - | - | - |
+| \@ (root) | _asuid_ | Domain verification ID shown in the **Custom domains** management page. |
+| www (sub) | _asuid.www_ | Domain verification ID shown in the **Custom domains** management page. |
+| \* (wildcard) | _asuid_ | Domain verification ID shown in the **Custom domains** management page. |
+
+> [!NOTE]
+> Wildcard `*` records won't validate subdomains with an existing CNAME's record. You may need to explicitly create a TXT record for each subdomain.
     
 ## 3. Enable the domain for your app
 

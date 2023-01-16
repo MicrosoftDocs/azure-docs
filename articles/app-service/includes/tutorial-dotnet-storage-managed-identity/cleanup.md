@@ -31,4 +31,4 @@ In this tutorial, you learned how to:
 > [App Service accesses Microsoft Graph on behalf of the user](../../scenario-secure-app-access-microsoft-graph-as-user.md)
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)

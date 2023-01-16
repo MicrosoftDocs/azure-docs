@@ -8,7 +8,7 @@ ms.subservice: web-apps
 ---
 1. Sign in to the website of your domain provider.
 
-    You can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
+    You can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](../articles/dns/dns-delegate-domain-azure-dns.md).
 
 1. Find the page for managing DNS records. 
 
