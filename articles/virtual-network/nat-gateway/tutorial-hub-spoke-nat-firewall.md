@@ -443,5 +443,5 @@ If you're not going to continue to use this application, delete the created reso
 
 Advance to the next article to learn how to integrate a NAT gateway with an Azure Load Balancer:
 > [!div class="nextstepaction"]
-> [Integrate NAT gateway with an internal load balancer - Azure portal](tutorial-nat-gateway-load-balancer-internal-portal.md)
+> [Integrate NAT gateway with an internal load balancer](tutorial-nat-gateway-load-balancer-internal-portal.md)
 
