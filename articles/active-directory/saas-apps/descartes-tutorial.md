@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/16/2023
 ms.author: jeedes
 
 ---
@@ -64,7 +64,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. If you want to configure **SP** initiated SSO, then perform the following step:
 
-    In the **Sign on URL** textbox, type the URL:
+    In the **Relay State** textbox, type the URL:
     `https://auth.gln.com/Welcome`
 
 1. Descartes application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
@@ -81,21 +81,35 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     | assignedRoles | user.assignedroles |
     | Group | user.groups |
 
-1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![Screenshot shows how to edit SAML Signing Certificate.](common/edit-certificate.png "Certificate")
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-1. In the **SAML Signing Certificate** section, copy the **Thumbprint Value** and save it on your computer.
+1. Compose a list of the AAD Groups you want the Descartes Application use for the Role-based configuration. A list of User Roles Descartes application modules can be found at https://www.gln.com/docs/Descartes_Application_User_Roles.pdf. You can find the Azure Active Direction Group GUIDs please download the Groups from your AAD Portal Groups.
 
-    ![Screenshot shows how to copy Thumbprint value.](common/copy-thumbprint.png "Values")
-    
+    ![Screenshot shows the AAD Portal Groups.](media/descartes-tutorial/copy-groups.png "Groups")
+
+You can load this CSV file in Excel. Please select the groups that you want map to the Descartes application roles by list the id in the first column and associating it with the Descartes Application User Role.
+
 ## Configure Descartes SSO
 
-To configure single sign-on on **Descartes** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [Descartes support team](mailto:servicedesk@descartes.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Descartes** side, you need to email the following values to the [Descartes support team](mailto:servicedesk@descartes.com). Please use the subject AAD SSO Setup request as the subject.
+
+1. The preferred identity domain suffix (often the same as the E-mail domain suffix).
+1. The App Federation Metadata URL.
+1.	A list with the AAD Group GUIDs for users entitled to use the Descartes application. 
+
+Descartes will use the information in the E-mail to have the SAML SSO connection set properly on the application side.
+
+An example of such a request below:
+
+![Screenshot shows the example of the request.](media/descartes-tutorial/example.png "Request")
 
 ### Create Descartes test user
 
-In this section, a user called B.Simon is created in Descartes. Descartes supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Descartes, a new one is created after authentication.
+In this section, a user called B.Simon is created in Descartes. Descartes supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Descartes, a new one is commonly created after authentication.
+
+Descartes application use domain qualified usernames for your AAD integrated users. The domain qualified usernames consist of the SAML claim subject and will always end with the domain suffix. Descartes recommends to select your companies E-mail domain suffix all users in the domain have in common as the identity domain suffix (example B.Simon@contoso.com). 
 
 ## Test SSO 
 
@@ -103,15 +117,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Descartes Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Descartes Sign-on URL where you can initiate the login flow. Alternatively you can use a 'deep link' URL into a specific module of the Descartes application, and you will be redirected to a page to provide your domain qualified username which will lead you to your Azure AD login dialog.
 
-* Go to Descartes Sign-on URL directly and initiate the login flow from there.
+* Go to Descartes application  direct access URL provided and initiate the login flow by specifying your domain qualified username (B.Simon@contoso.com) in the application login window. This will redirect the user automatically to Azure AD.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Descartes for which you set up the SSO. 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Descartes application menu for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Descartes tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Descartes for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can also use Microsoft My Apps to test the application in any mode. When you click the Descartes tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Descartes for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
