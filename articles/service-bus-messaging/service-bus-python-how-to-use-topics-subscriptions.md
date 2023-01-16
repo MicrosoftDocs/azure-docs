@@ -93,6 +93,14 @@ Note down the following, which you'll use in the code below:
 
 ## Send messages to a topic
 
+The following sample code shows you how to send a batch of messages to a Service Bus topic. See code comments for details. 
+
+### [Passwordless](#tab/passwordless)
+
+TBD
+
+### [Connection string](#tab/connection-string)
+
 1. Add the following import statement. 
 
     ```python
@@ -169,8 +177,11 @@ Note down the following, which you'll use in the code below:
     print("Done sending messages")
     print("-----------------------")
     ```
- 
+
+---
+
 ## Receive messages from a subscription
+
 Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds. 
 
 ```python
