@@ -583,11 +583,11 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 > [!NOTE]
 > For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
-## Defender for Servers deprecated security alerts
+## Defender for Servers alerts to be deprecated
 
 The following tables include the Defender for Servers security alerts to be deprecated in April, 2023. Learn more about [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
 
-### Deprecated Alerts for Linux
+### Linux alerts to be deprecated
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|
@@ -658,7 +658,7 @@ VM_TimerServiceDisabled | Attempt to stop apt-daily-upgrade.timer service detect
 VM_TimestampTampering | Suspicious file timestamp modification | Low
 VM_Webshell | Possible malicious web shell detected | Medium
 
-### Deprecated Alerts for Windows
+### Windows alerts to be deprecated
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|

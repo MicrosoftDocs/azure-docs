@@ -73,17 +73,18 @@ The updated name will be reflected on Azure Resource Graph (ARG), Secure Score C
 
 **Estimated date for change: April 2023**
 
-The security alert quality improvement process for Defender for Servers will be removing some alerts for Windows and Linux servers. Instead, the removed alerts will be sourced from Defender for Endpoint.  
+The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts will now be sourced from and covered by Defender for Endpoint threat alerts.  
 
-All security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
 
-If you already have the Defender for Endpoint integration enabled, no action is required on your part. In April 2023 you may experience a decrease in your alerts volume.
+If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
 
-If you don't already have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no extra cost.  
+If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. 
 
-Learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+All Defender for Server customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
 
-You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are going to be deprecated.
+You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+
+You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are set to be deprecated.
 
 
 ## Next steps
