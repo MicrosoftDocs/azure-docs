@@ -24,6 +24,8 @@ items:
     href: resiliency.md
   - name: Emergency calling
     href: emergency-calling.md
+  - name: Limits, quotas and restrictions
+    href: limits.md
 - name: How-to guides
   items:
   - name: Plan and manage costs
