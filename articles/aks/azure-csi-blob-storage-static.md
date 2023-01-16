@@ -109,7 +109,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
           protocol: nfs
     ```
     > [!NOTE]
-    > While the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/master/pkg/apis/core/types.go#L303-L306) **capacity** attribute is mandatory, this value isn't used by the Azure Blob storage CSI driver because you can flexibly write data until you reach your storage account's capacity limit. The value of the `capacity` attribute is used only for size matching between *PersistentVolumes* and *PersistenVolumeClaims*. We recommend using a fictitious high value. The pod sees a mounted volume with a fictitious size of 5 Petabytes.
+    > While the [Kubernetes API](https://github.com/kubernetes/kubernetes/blob/release-1.26/pkg/apis/core/types.go#L303-L306) **capacity** attribute is mandatory, this value isn't used by the Azure Blob storage CSI driver because you can flexibly write data until you reach your storage account's capacity limit. The value of the `capacity` attribute is used only for size matching between *PersistentVolumes* and *PersistenVolumeClaims*. We recommend using a fictitious high value. The pod sees a mounted volume with a fictitious size of 5 Petabytes.
 
 2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
