@@ -288,9 +288,23 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
+1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
+
 ```python
 TBD
 ```
+
+2. Create a Service Bus client and then a subscription receiver object to receive messages.
+
+```python
+TBD
+```
+
+3. Call the `run` method.
+
+    ```python
+    asyncio.run(run())
+    ```
 
 ### [Connection string](#tab/connection-string)
 
