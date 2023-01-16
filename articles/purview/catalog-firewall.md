@@ -59,7 +59,7 @@ To configure Microsoft Purview firewall follow these steps:
   - Public network access to your Microsoft Purview account through API and Microsoft Purview governance portal is allowed.
   - All public network traffic for ingestion is disabled. In this case, you must configure a private endpoint for ingestion before setting up any scans. For more information, see [Use private endpoints for your Microsoft Purview account](catalog-private-link.md).
   - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed storage account. 
-  - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed Event Hub, if it's used. 
+  - Public network access is set to _Disabled_ on your Microsoft Purview account's Managed Event Hubs, if it's used. 
   
 - **Disabled from all networks**
 
