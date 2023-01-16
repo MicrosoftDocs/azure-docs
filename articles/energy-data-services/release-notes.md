@@ -54,12 +54,11 @@ Microsoft Energy Data Services Preview supports customer managed encryption keys
 <hr width=100%>
 
 
-## Microsoft Energy Data Services Preview Release
+## September 2022
 
+### Key Announcement: Preview Release
 
-### Key Announcement
-
-Microsoft Energy Data Services is now available in public preview. 
+Microsoft Energy Data Services is now available in public preview. Information on latest releases, bug fixes, & deprecated functionality for Microsoft Energy Data Services Preview will be updated monthly. Keep tracking this page. 
 
 Microsoft Energy Data Services is developed in alignment with the emerging requirements of the OSDU™ Technical Standard, Version 1.0. and is currently aligned with Mercury Release(R3), [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes).
 
