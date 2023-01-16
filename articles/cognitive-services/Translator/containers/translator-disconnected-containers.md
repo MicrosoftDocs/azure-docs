@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 # Use Translator containers in disconnected environments
 
- Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Translator disconnected containers are offered through a commitment tier pricing model offered at a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee at a predictable total cost based on the needs of your workload.
+ Azure Cognitive Services Translator containers allow you to use Translator Service APIs with the benefits of containerization. Translator disconnected containers are offered through commitment tier pricing offered at a discounted rate compared to pay-as-you-go pricing. With commitment tier pricing, you can commit to using Translator Service features for a fixed fee, at a predictable total cost, based on the needs of your workload.
 
 ## Get started
 
@@ -29,7 +29,7 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 ## Request access to use containers in disconnected environments
 
-Complete and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the containers disconnected from the internet.
+Complete and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the containers disconnected from the Internet.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -258,13 +258,13 @@ This usage-logs endpoint will return a JSON response similar to this example:
 }
 ```
 
-## Purchase a different commitment plan for disconnected containers
+### Purchase a different commitment plan for disconnected containers
 
 Commitment plans for disconnected containers have a calendar year commitment period. When you purchase a plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase more unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
 
 You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
 
-## End a commitment plan
+### End a commitment plan
 
  If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You'll be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You'll have until midnight (UTC) on the last day of the year to end a commitment plan for disconnected containers. If you do so, you won't be charged for the following year.
 
