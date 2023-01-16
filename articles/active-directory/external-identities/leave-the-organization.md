@@ -10,8 +10,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 12/16/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan 
+author: csmulligan 
 manager: celestedg
 
 ms.collection: engagement-fy23, M365-identity-device-management
@@ -77,7 +77,10 @@ In these cases, you can select **Leave**, but then you'll see a message saying y
 
 ## More information for administrators
 
-Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed. The  **External user leave settings** is available only, if you've [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. 
+Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
+
+> [!IMPORTANT]
+> You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the Azure Active Directory service.
 
