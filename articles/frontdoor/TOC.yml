@@ -169,6 +169,8 @@
         href: private-link.md
       - name: Understand billing
         href: billing.md
+      - name: Logs and metrics
+        href: logs-metrics.md
       - name: Best practices
         href: best-practices.md
       - name: Scenarios
