@@ -24,7 +24,7 @@ In this tutorial, you complete the following steps:
 1. Create a Service Bus namespace, using the Azure portal.
 2. Create a Service Bus topic, using the Azure portal.
 3. Create a Service Bus subscription to that topic, using the Azure portal.
-4. Write a Python application to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package to: 
+4. Write a Python application to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to: 
     * Send a set of messages to the topic.
     * Receive those messages from the subscription.
 
@@ -35,8 +35,7 @@ In this tutorial, you complete the following steps:
 ## Prerequisites
 
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
-- Python 3.7 or higher, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+- Python 3.7 or higher, with the [Azure Python SDK][/azure/developer/python/sdk/azure-sdk-overview] package installed.
 
 ### [Passwordless](#tab/passwordless)
 
