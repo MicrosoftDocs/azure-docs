@@ -1,10 +1,10 @@
 ---
-title: Create reports using workbooks.
+title: Create reports using workbooks in update management center (preview)..
 description: This article describes how to create and manage workbooks for VM insights.
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/27/2022
+ms.date: 01/16/2023
 ms.topic: how-to
 ---
 

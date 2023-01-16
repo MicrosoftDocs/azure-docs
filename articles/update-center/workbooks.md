@@ -2,7 +2,7 @@
 title: An overview of Workbooks
 description: This article provides information on how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports.
 ms.service: update-management-center
-ms.date: 12/27/2022
+ms.date: 01/16/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -25,7 +25,7 @@ Workbooks help you to create visual reports that help in data analysis. This art
 
 The gallery lists all the saved workbooks and templates for your workspace. You can easily organize, sort, and manage workbooks of all types.
 
-   :::image type="content" source="./media/workbooks/workbooks-gallery.png" alt-text="Screenshot of workbooks gallery":::
+   :::image type="content" source="./media/workbooks/workbooks-gallery.png" alt-text="Screenshot of workbooks gallery.":::
 
 - It comprises of the following four tabs that help you organize workbook types:
 
