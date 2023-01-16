@@ -75,7 +75,6 @@ The updated name will be reflected on Azure Resource Graph (ARG), Secure Score C
 
 The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts will now be sourced from and covered by Defender for Endpoint threat alerts.  
 
-
 If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
 
 If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. 
@@ -84,7 +83,7 @@ All Defender for Server customers, have full access to the Defender for Endpoint
 
 You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
 
-You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-deprecated-security-alerts) that are set to be deprecated.
+You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
 
 
 ## Next steps
