@@ -36,7 +36,11 @@ Additionally, if you're manually creating your own instance of the [Azure Cosmos
 
 The Azure function fails with the following error message: "Either the source collection 'collection-name' (in database 'database-name') or the lease collection 'collection2-name' (in database 'database2-name') doesn't exist. Both collections must exist before the listener starts. To automatically create the lease collection, set 'CreateLeaseCollectionIfNotExists' to 'true'."
 
-This error means that either one or both of the Azure Cosmos DB containers that are required for the trigger to work don't exist or aren't reachable to the Azure function. The error text itself will tell you which Azure Cosmos DB database and container the trigger is looking for, based on your configuration.
+This error means that one or both of the Azure Cosmos DB containers that are required for the trigger to work either:
+* Don't exist, or
+* Aren't reachable to the Azure function. 
+
+The error text itself tells you which Azure Cosmos DB database and container the trigger is looking for, based on your configuration.
 
 To resolve this issue:
 
@@ -98,7 +102,7 @@ This scenario can have multiple causes. Consider trying any or all of the follow
 
 * Are the changes that are happening in your Azure Cosmos DB container continuous or sporadic?
 
-   If they're sporadic, there could be some delay between the changes being stored and the Azure function that's picking them up. This is because internally, when the trigger checks for changes in your Azure Cosmos DB container and finds none pending to be read, the trigger will sleep for a configurable amount of time (5 seconds, by default) before it checks for new changes, to avoid high request unit (RU) consumption. You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger. The value is expected to be in milliseconds.
+   If they're sporadic, there could be some delay between the changes being stored and the Azure function that's picking them up. This is because when the trigger checks internally for changes in your Azure Cosmos DB container and finds no changes waiting to be read, the trigger sleeps for a configurable amount of time (5 seconds, by default) before it checks for new changes. It does this to avoid high request unit (RU) consumption. You can configure the sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger. The value is expected to be in milliseconds.
 
 * Your Azure Cosmos DB container might be [rate-limited](../request-units.md).
 
@@ -112,26 +116,26 @@ The concept of a *change* is an operation on a document. The most common scenari
 
 * The account is using the *eventual consistency* model. While it's consuming the change feed at an eventual consistency level, there could be duplicate events in-between subsequent change feed read operations. That is, the *last* event of one read operation might appear as the *first* event of the next.
 
-* The document is being updated. The change feed can contain multiple operations for the same documents. If that document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](../change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If the properties don't match, these are different changes over the same document.
+* The document is being updated. The change feed can contain multiple operations for the same documents. If the document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](../change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If the properties don't match, the changes are different.
 
 * If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key (two documents can have the same `id` but a different partition key).
 
 ### Some changes are missing in your trigger
 
-If you find that some of the changes that happened in your Azure Cosmos DB container aren't being picked up by the Azure function, or some changes are missing at the destination when you're copying them, try the solutions in this section.
+You might find that some of the changes that occurred in your Azure Cosmos DB container aren't being picked up by the Azure function. Or some changes are missing at the destination when you're copying them. If so, try the solutions in this section.
 
 * When your Azure function receives the changes, it often processes them and could, optionally, send the result to another destination. When you're investigating missing changes, make sure that you measure which changes are being received at the ingestion point (that is, when the Azure function starts), not at the destination.
 
 * If some changes are missing on the destination, this could mean that some error is happening during the Azure function execution after the changes were received.
 
-   In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes. This will help you detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). Alternatively, you can configure Azure Functions [retry policies](../../azure-functions/functions-bindings-error-pages.md#retries).
+   In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes. Adding it will help you detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). Alternatively, you can configure Azure Functions [retry policies](../../azure-functions/functions-bindings-error-pages.md#retries).
 
     > [!NOTE]
     > The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during the code execution. This means that the reason that the changes didn't arrive at the destination might be because you've failed to process them.
 
 * If the destination is another Azure Cosmos DB container and you're performing upsert operations to copy the items, verify that the partition key definition on both the monitored and destination container are the same. Upsert operations could be saving multiple source items as one at the destination because of this configuration difference.
 
-* If you find that some changes weren't received at all by your trigger, the most common scenario is that another Azure function is running. It could be that another Azure function is deployed in Azure or an Azure function is running locally on a developer's machine that has exactly the same configuration (that is, the same monitored and lease containers), and this Azure function is stealing a subset of the changes that you would expect your Azure function to process.
+* If you find that the trigger didn't receive some changes, the most common scenario is that another Azure function is running. The other function might be deployed in Azure or a function might be running locally on a developer's machine with exactly the same configuration (that is, the same monitored and lease containers). If so, this function might be stealing a subset of the changes that you would expect your Azure function to process.
 
 Additionally, the scenario can be validated, if you know how many Azure function app instances you have running. If you inspect your leases container and count the number of lease items within it, the distinct values of the `Owner` property in them should be equal to the number of instances of your function app. If there are more owners than known Azure function app instances, it means that these extra owners are the ones "stealing" the changes.
 
