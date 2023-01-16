@@ -4,7 +4,7 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 02/16/2022
+ms.date: 01/16/2023
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
@@ -18,16 +18,79 @@ ms.custom: devx-track-python, mode-api
 > * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 
-This article shows you how to use Python to send messages a Service Bus topic and receive messages from a subscription to the topic. 
+
+In this tutorial, you complete the following steps: 
+
+1. Create a Service Bus namespace, using the Azure portal.
+2. Create a Service Bus topic, using the Azure portal.
+3. Create a Service Bus subscription to that topic, using the Azure portal.
+4. Write a Python application to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package to: 
+    * Send a set of messages to the topic.
+    * Receive those messages from the subscription.
 
 > [!NOTE]
-> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples).
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built Python samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
 
 
 ## Prerequisites
-- An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
-- Python 3.5 or higher, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+- Python 3.7 or higher, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+
+### [Passwordless](#tab/passwordless)
+
+To use this quickstart with your own Azure account, you need:
+* Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
+* Sign in with your Azure account at the terminal or command prompt with `az login`. 
+* Use the same account when you add the appropriate role to your resource.
+* Run the code in the same terminal or command prompt.
+* Note down your **topic** name and **subscription** for your Service Bus namespace. You'll need that in the code.  
+
+### [Connection string](#tab/connection-string)
+
+Note down the following, which you'll use in the code below:
+* Service Bus namespace **connection string** 
+* Service Bus namespace **topic** name you created
+* Service Bus namespace **subscription** 
+
+---
+
+>[!NOTE]
+> This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-topic-subscription-portal](./includes/service-bus-create-topic-subscription-portal.md)]
+
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
+## Use pip to install packages
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
+
+1. Install the following packages by running: 
+
+    ```shell
+    pip install azure-servicebus
+    pip install azure-identity
+    pip install aiohttp
+    ```
+
+### [Connection string](#tab/connection-string)
+
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
+
+1. Install the following packages by running: 
+
+    ```bash
+    pip install azure-servicebus
+    pip install aiohttp
+    ```
+
+---
 
 ## Send messages to a topic
 
