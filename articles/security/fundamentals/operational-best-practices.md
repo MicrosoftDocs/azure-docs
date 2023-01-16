@@ -6,8 +6,7 @@ description: This article provides a set of operational best practices for prote
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: tomsh
+manager: rkarlin
 
 ms.assetid:
 ms.service: security
@@ -15,7 +14,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 01/16/2023
 ms.author: terrylan
 
 ---
