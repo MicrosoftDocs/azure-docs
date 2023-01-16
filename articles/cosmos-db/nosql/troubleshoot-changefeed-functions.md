@@ -114,22 +114,22 @@ The concept of a *change* is an operation on a document. The most common scenari
 
 * The document is being updated. The change feed can contain multiple operations for the same documents. If that document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](../change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If the properties don't match, these are different changes over the same document.
 
-* If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key (two documents can have the same `id` but different a partition key).
+* If you're identifying documents only by `id`, remember that the unique identifier for a document is the `id` and its partition key (two documents can have the same `id` but a different partition key).
 
 ### Some changes are missing in your trigger
 
-If you find that some of the changes that happened in your Azure Cosmos DB container aren't being picked up by the Azure function, or some changes are missing in the destination when you're copying them, try the solutions in this section.
+If you find that some of the changes that happened in your Azure Cosmos DB container aren't being picked up by the Azure function, or some changes are missing at the destination when you're copying them, try the solutions in this section.
 
-* When your Azure function receives the changes, it often processes them and could, optionally, send the result to another destination. When you're investigating missing changes, make sure that you measure which changes are being received at the ingestion point (that is, when the Azure function starts), not in the destination.
+* When your Azure function receives the changes, it often processes them and could, optionally, send the result to another destination. When you're investigating missing changes, make sure that you measure which changes are being received at the ingestion point (that is, when the Azure function starts), not at the destination.
 
 * If some changes are missing on the destination, this could mean that some error is happening during the Azure function execution after the changes were received.
 
    In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes. This will help you detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). Alternatively, you can configure Azure Functions [retry policies](../../azure-functions/functions-bindings-error-pages.md#retries).
 
     > [!NOTE]
-    > The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during the code execution. This means that the reason that the changes didn't arrive in the destination might be because you've failed to process them.
+    > The Azure Functions trigger for Azure Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during the code execution. This means that the reason that the changes didn't arrive at the destination might be because you've failed to process them.
 
-* If the destination is another Azure Cosmos DB container and you're performing upsert operations to copy the items, verify that the partition key definition on both the monitored and destination container are the same. Upsert operations could be saving multiple source items as one in the destination because of this configuration difference.
+* If the destination is another Azure Cosmos DB container and you're performing upsert operations to copy the items, verify that the partition key definition on both the monitored and destination container are the same. Upsert operations could be saving multiple source items as one at the destination because of this configuration difference.
 
 * If you find that some changes weren't received at all by your trigger, the most common scenario is that another Azure function is running. It could be that another Azure function is deployed in Azure or an Azure function is running locally on a developer's machine that has exactly the same configuration (that is, the same monitored and lease containers), and this Azure function is stealing a subset of the changes that you would expect your Azure function to process.
 
@@ -149,11 +149,11 @@ To reprocess all the items in a container from the beginning:
 
 1. Restart the Azure function. It will now read and process all changes from the beginning. 
 
-   Setting [StartFromBeginning](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) to `true` tells the Azure function to start reading changes from the beginning of the history of the collection instead of the current time. 
+Setting [StartFromBeginning](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) to `true` tells the Azure function to start reading changes from the beginning of the history of the collection instead of the current time. 
    
-   This solution works only when there are no already-created leases (that is, documents in the leases collection). 
+This solution works only when there are no already-created leases (that is, documents in the leases collection). 
    
-   Setting this property to `true` has no effect when there are leases already created. In this scenario, when a function is stopped and restarted, it begins reading from the last checkpoint, as defined in the leases collection.  
+Setting this property to `true` has no effect when there are leases already created. In this scenario, when a function is stopped and restarted, it begins reading from the last checkpoint, as defined in the leases collection.  
 
 ### Error: Binding can be done only with IReadOnlyList\<Document> or JArray
 
