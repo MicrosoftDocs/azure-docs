@@ -2,7 +2,7 @@
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 01/16/2023
 author: jyothisuri
 ms.author: jsuri
 ms.service: backup
@@ -29,8 +29,7 @@ Both methods have pros and cons:
 
 | Host-level backups | Guest-level backup |
 | --- | --- |
-| - These backups are flexible because they work regardless of the type of OS running on the guest machines and don't require the installation of the MABS protection agent on each VM. <br><br> - If you deploy host level backup, you can recover an entire virtual machine, or files and folders (item-level recovery). |
-| - This backup is useful if you want to protect specific workloads running on a virtual machine. <br><br> - At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file. |
+| - These backups are flexible because they work regardless of the type of OS running on the guest machines and don't require the installation of the MABS protection agent on each VM. <br><br> - If you deploy host level backup, you can recover an entire virtual machine, or files and folders (item-level recovery). | - This backup is useful if you want to protect specific workloads running on a virtual machine. <br><br> - At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file. |
 
 ## How the backup process works?
 
