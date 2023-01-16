@@ -336,7 +336,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Connection string](#tab/connection-string)
 
-1. Similar to the send sample, add import statements and define constants that you should replace with your own values.
+1. Similar to the send sample, add `import` statements and define constants that you should replace with your own values.
 
     ```python
     import asyncio
