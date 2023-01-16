@@ -48,7 +48,7 @@ To use this quickstart with your own Azure account:
 
 ### [Connection string](#tab/connection-string)
 
-Note down the following, which you'll use in the code below:
+Note the following, which you'll use in the code below:
 * Service Bus namespace **connection string** 
 * Service Bus namespace **queue** you created
 
@@ -69,7 +69,7 @@ Note down the following, which you'll use in the code below:
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages by running: 
+1. Install the following packages: 
 
     ```shell
     pip install azure-servicebus
@@ -81,11 +81,10 @@ Note down the following, which you'll use in the code below:
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages by running: 
+1. Install the following package: 
 
     ```bash
     pip install azure-servicebus
-    pip install aiohttp
     ```
 
 ---
@@ -328,7 +327,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
             await credential.close()
     ```
 
-1. Call the `run` method and print a message.
+1. Call the `run` method.
 
     ```python
     asyncio.run(run())
@@ -336,7 +335,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Connection string](#tab/connection-string)
 
-1. Similar to the send sample, add import statements and define constants that you should replace with your own values.
+1. Similar to the send sample, add `import` statements and define constants that you should replace with your own values.
 
     ```python
     import asyncio
@@ -366,7 +365,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
                         await receiver.complete_message(msg)
     ```
 
-1. Call the `run` method and print a message.
+1. Call the `run` method.
 
     ```python
     asyncio.run(run())
