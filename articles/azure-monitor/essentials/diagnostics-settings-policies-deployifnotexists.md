@@ -1,6 +1,6 @@
 ---
 title: Diagnostics settings policies for Azure Monitor
-description: Use Azure builtin DeployIfNotExists polices to create diagnostic settings in Azure Monitor with deploy if not exits defaults.
+description: Use Azure builtin policies to create diagnostic settings in Azure Monitor with deploy if not exits defaults.
 author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
@@ -11,9 +11,9 @@ ms.reviewer: lualderm
 
 # Built-in DeployIfNotExists policies for Azure Monitor
 
-A set of built in policies and initiatives exists to provide a simple way to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage accounts. All policies have the default `effect` set to `DeployIfNotExists`.
+A set of built-in policies and initiatives exists to provide a way to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage accounts. All policies have the default `effect` set to `DeployIfNotExists`.
 
-The policies enable resource logging of a category group for the resource to an Event Hub, Log Anlaytics workspace or Storage Account. Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
+The policies enable resource logging of a category group for the resource to an Event Hub, Log Analytics workspace or Storage Account. Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
 
 ## Use cases 
 
@@ -35,17 +35,17 @@ The following table describes the common parameters for each set of policies.
 |diagnosticSettingName|Diagnostic Setting Name||setByPolicy-LogAnalytics|
 |categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
 
-## Event Hubs policy paramateres
+## Event Hubs policy parameters
 
 This policy deploys a diagnostic setting using a category group to route logs to an Event Hub.
 
 |Parameter| Description| Valid Values|Default|
 |---|---|---|---|
-|resourceLocation|Resource Location must bethe same location as the Event Hub Namespace|Supported locations||
-|eventHubAuthorizationRuleId|Event Hub Authorization Rule Id. The authorization rule is at Event Hub namespace level. For example, /subscriptions/{subscription Id}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
+|resourceLocation|Resource Location must be the same location as the event hub Namespace|Supported locations||
+|eventHubAuthorizationRuleId|Event Hub Authorization Rule ID. The authorization rule is at event hub namespace level. For example, /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
 |eventHubName|Event Hub Name||Monitoring|
 
-## Log Analytics policy paramateres
+## Log Analytics policy parameters
  This policy deploys a diagnostic setting using a category group to route logs to a Log Analytics workspace.
 
 |Parameter| Description| Valid Values|Default|
@@ -53,15 +53,13 @@ This policy deploys a diagnostic setting using a category group to route logs to
 |resourceLocationList|Resource Location List to send logs to nearby Log Analytics. <br>"*" selects all locations|Supported locations|\*
 |logAnalytics|Log Analytics Workspace|||
 
-## Storage Accounts policy paramateres
+## Storage Accounts policy parameters
 Enable resource logging of a category group for the resource to Storage. Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur. This policy deploys a diagnostic setting using a category group to route logs to a Storage Account.
 
 |Parameter| Description| Valid Values|Default|
 |---|---|---|---|
 |resourceLocation|Resource Location must be in the same location as the Storage Account|Supported locations|
 |storageAccount|Storage Account resourceId|||
-
-
 
 ## Supported Resources
 
@@ -101,3 +99,9 @@ Built-in DeployIfNotExists policies exist for Log analytics, Event Hubs and Stor
 	•   "microsoft.sql/servers/databases",
 	•   "microsoft.sql/managedinstances"
 
+## Next Steps
+
+* [Create diagnostic settings at scale using Azure Policy](./diagnostic-settings-policy)
+* [Azure Policy built-in definitions for Azure Monitor](../policy-reference)
+* [Azure Policy Overview](../../governance/policy/overview)
+* [Azure Enterprise Policy as Code](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-enterprise-policy-as-code-a-new-approach/ba-p/3607843)
