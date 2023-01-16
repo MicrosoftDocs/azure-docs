@@ -4,14 +4,13 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using PowerShell.
 services: network-watcher
 documentationcenter: na
-author: damendo
-
+author: shijaiswal
 ms.service: network-watcher
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo 
+ms.author: shijaiswal
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -1,22 +1,23 @@
 ---
-title: Control access to Azure file shares - on-premises AD DS authentication
-description: Learn how to assign permissions to an Active Directory Domain Services identity that represents your Azure storage account. This allows you to control user access with identity-based authentication.
+title: Control access to Azure file shares by assigning share-level permissions
+description: Learn how to assign share-level permissions to an Azure Active Directory (Azure AD) identity that represents a hybrid user to control user access to Azure file shares with identity-based authentication.
 author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 12/07/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
+recommendations: false
 ---
 
-# Assign share-level permissions to an identity
+# Assign share-level permissions
 
 Once you've enabled an Active Directory (AD) source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Azure AD users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Full administrative control isn't supported with Active Directory Domain Services (AD DS) or Azure AD authentication.
+> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Full administrative control isn't supported with identity-based authentication.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -27,14 +28,16 @@ Once you've enabled an Active Directory (AD) source for your storage account, yo
 
 ## Which configuration should you use
 
+Share-level permissions on Azure file shares are configured for Azure Active Directory (Azure AD) users, groups, or service principals, while directory and file-level permissions are enforced using Windows access control lists (ACLs). You must assign share-level permissions to the Azure AD identity representing the same user, group, or service principal in your AD DS in order to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), aren't supported.
+
 Most users should assign share-level permissions to specific Azure AD users or groups, and then use Windows ACLs for granular access control at the directory and file level. This is the most stringent and secure configuration.
 
-There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) assigned to all authenticated identities:
+There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to allow contributor, elevated contributor, or reader access to all authenticated identities:
 
 - If you are unable to sync your on-premises AD DS to Azure AD, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Azure AD. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
     - Identities that are tied to an AD but aren't synching to Azure AD can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
 - The on-premises AD DS you're using is synched to a different Azure AD than the Azure AD the file share is deployed in.
-    - This is typical when you're managing multi-tenant environments. Using a default share-level permission allows you to bypass the requirement for an Azure AD hybrid identity. You can still use Windows ACLs on your files and directories for granular permission enforcement.
+    - This is typical when you're managing multi-tenant environments. Using a default share-level permission allows you to bypass the requirement for an Azure AD [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md). You can still use Windows ACLs on your files and directories for granular permission enforcement.
 - You prefer to enforce authentication only using Windows ACLs at the file and directory level.
 
 > [!NOTE]
@@ -55,14 +58,12 @@ The following table lists the share-level permissions and how they align with th
 If you intend to use a specific Azure AD user or group to access Azure file share resources, that identity must be a [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md) that exists in both on-premises AD DS and Azure AD. For example, say you have a user in your AD that is user1@onprem.contoso.com and you have synced to Azure AD as user1@contoso.com using Azure AD Connect sync or Azure AD Connect cloud sync. For this user to access Azure Files, you must assign the share-level permissions to user1@contoso.com. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
-> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard. To mitigate any unintended future impact, we highly recommend declaring actions and data actions explicitly as opposed to using the wildcard.
+> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard.
 
 In order for share-level permissions to work, you must:
 
 - Sync the users **and** the groups from your local AD to Azure AD using either the on-premises [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Azure Active Directory Admin Center.
 - Add AD synced groups to RBAC role so they can access your storage account.
-
-Share-level permissions must be assigned to the Azure AD identity representing the same user or group in your AD DS to support AD DS authentication to your Azure file share. Authentication and authorization against identities that only exist in Azure AD, such as Azure Managed Identities (MSIs), aren't supported with AD DS authentication.
 
 > [!TIP]
 > Optional: Customers who want to migrate SMB server share-level permissions to RBAC permissions can use the `Move-OnPremSharePermissionsToAzureFileShare` PowerShell cmdlet to migrate directory and file-level permissions from on-premises to Azure. This cmdlet evaluates the groups of a particular on-premises file share, then writes the appropriate users and groups to the Azure file share using the three RBAC roles. You provide the information for the on-premises share and the Azure file share when invoking the cmdlet.
@@ -168,4 +169,4 @@ You could also assign permissions to all authenticated Azure AD users and specif
 
 ## Next steps
 
-Now that you've assigned share-level permissions, you can [configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md).
+Now that you've assigned share-level permissions, you can [configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md). Remember that share-level permissions can take up to three hours to take effect. 

@@ -117,7 +117,7 @@ If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business s
 
 &#42; The private plan of the offer will only be available via the Azure portal.
 
-For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
+For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private plans in Microsoft commercial marketplace](private-plans.md).
 
 For detailed information about listing options supported by online stores, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). For more information about categories and subcategories, see [Categories and subcategories in the commercial marketplace](categories.md).
 

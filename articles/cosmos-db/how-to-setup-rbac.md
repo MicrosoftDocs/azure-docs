@@ -182,10 +182,9 @@ AssignableScopes : {/subscriptions/<mySubscriptionId>/resourceGroups/<myResource
 
 ### Using the Azure CLI
 
-Create a role named *MyReadOnlyRole* that only contains read actions:
+Create a role named *MyReadOnlyRole* that only contains read actions in a file named **role-definition-ro.json**:
 
 ```json
-// role-definition-ro.json
 {
     "RoleName": "MyReadOnlyRole",
     "Type": "CustomRole",
@@ -207,10 +206,9 @@ accountName='<myCosmosAccount>'
 az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
 ```
 
-Create a role named *MyReadWriteRole* that contains all actions:
+Create a role named *MyReadWriteRole* that contains all actions in a file named **role-definition-rw.json**:
 
 ```json
-// role-definition-rw.json
 {
     "RoleName": "MyReadWriteRole",
     "Type": "CustomRole",

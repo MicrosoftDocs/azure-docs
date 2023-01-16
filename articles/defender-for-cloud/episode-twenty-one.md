@@ -25,7 +25,7 @@ ms.date: 11/24/2022
 
 
 ## Recommended resources
-  - [Learn more](/azure/defender-for-cloud/regulatory-compliance-dashboard) about improving your regulatory compliance.
+  - [Learn more](./regulatory-compliance-dashboard.md) about improving your regulatory compliance.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
@@ -42,4 +42,4 @@ ms.date: 11/24/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender External Attack Surface Management (Defender EASM)](episode-twenty-two.md)

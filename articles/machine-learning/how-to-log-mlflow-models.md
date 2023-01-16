@@ -53,7 +53,7 @@ accuracy = accuracy_score(y_test, y_pred)
 ```
 
 > [!TIP]
-> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demonstrates how to log a model with preprocessing using pipelines.
+> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demonstrates how to log a model with preprocessing using pipelines.
 
 ## Logging models with a custom signature, environment or samples
 
@@ -160,7 +160,7 @@ class ModelWrapper(PythonModel):
 Then, a custom model can be logged in the run like this:
 
 ```python
-mport mlflow
+import mlflow
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
@@ -231,7 +231,7 @@ class ModelWrapper(PythonModel):
         
         self._encoder = pickle.loads(context.artifacts["encoder"])
         self._model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-        model.load_model(context.artifacts["model"])
+        self._model.load_model(context.artifacts["model"])
 
     def predict(self, context: PythonModelContext, data):
         return self._model.predict_proba(data)

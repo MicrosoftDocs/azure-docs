@@ -118,7 +118,7 @@ For more information about StorSimple Snapshot Manager, go to [What is StorSimpl
 We recommend that you use the following guidelines to help ensure that StorSimple passwords are strong and well-protected:
 
 * Change your passwords every three months. Changing the passwords is enforced annually.
-* Use strong passwords. For more information, go to [Create stronger passwords and protect them](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Use strong passwords. For more information, go to [Create stronger passwords and protect them](https://www.microsoft.com/security/blog/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.
 * Do not share passwords with anyone who is not authorized to access the StorSimple device.
 * Do not speak about a password in front of others or hint at the format of a password.
