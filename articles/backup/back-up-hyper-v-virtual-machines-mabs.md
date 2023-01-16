@@ -79,19 +79,19 @@ To back up a virtual machine, follow these steps:
 
 2. Set up the MABS protection agent on the Hyper-V server or Hyper-V cluster nodes.
 
-3. In  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
+3. On  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
 
 4. On the **Select Group Members** page, select the VMs you want to protect from the Hyper-V host servers on which they're located. We recommend you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
 
 5. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service.
 
-6. In **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
+6. On **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
 
     > [!NOTE]
     >
     >If you're protecting application workloads, recovery points are created in accordance with Synchronization frequency, provided the application supports incremental backups. If it doesn't, then MABS runs an express full backup, instead of an incremental backup, and creates recovery points in accordance with the express backup schedule.<br></br>The backup process doesn't back up the checkpoints associated with VMs.
 
-7. In the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
+7. On the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 
    **Total Data size** is the size of the data you want to back up, and **Disk space to be provisioned on MABS** is the space that MABS recommends for the protection group. MABS chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the **Disk allocation details**. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage MABS suggests you add to the volume, to continue with backups smoothly in the future.
 
@@ -129,9 +129,9 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 To open the Recovery Wizard and recover a virtual machine, follow these steps:
 
-1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
+1. On the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
-2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
+2. On the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
 
 3. From the **Actions** menu, select **Recover** to open the Recovery Wizard.
 
@@ -149,13 +149,13 @@ To open the Recovery Wizard and recover a virtual machine, follow these steps:
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 
-5. In **Specify Recovery Options** configure the recovery options and select **Next**:
+5. On **Specify Recovery Options** configure the recovery options and select **Next**:
 
     - If you're recovering a VM over low bandwidth, select **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
     - Select **Enable SAN based recovery using hardware snapshots** if you've configured your network.
     - Select **Send an e-mail when the recovery completes** and then provide the email addresses, if you want email notifications sent once the recovery process completes.
 
-6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, select **Back**. If you're satisfied with the settings, select **Recover** to start the recovery process.
+6. On the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, select **Back**. If you're satisfied with the settings, select **Recover** to start the recovery process.
 
 7. The **Recovery Status** screen provides information about the recovery job.
 
@@ -168,17 +168,17 @@ To recover an individual file or select files from a Windows Server VM, follow t
 >[!Note]
 >Restoring an individual file from a Hyper-V VM is available only for Windows VM and Disk Recovery Points. 
 
-1. In the MABS Administrator Console, select **Recovery** view. 
+1. On the MABS Administrator Console, select **Recovery** view. 
 
 1. On the **Browse** pane, browse or filter to find the VM you want to recover. Once you select a Hyper-V VM or folder, the **Recovery points for** pane displays the available recovery points. 
 
-    !["Recovery points for" pane to recover files from Hyper-v VM](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk.png)
+    ![Screenshot shows how to recover files from Hyper-v VM from the "Recovery points for" pane.](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk.png)
 
-1. In the **Recovery Points for** pane, use the calendar to select the date that contains the desired recovery point(s). Depending on how the backup policy has been configured, dates can have more than one recovery point. Once you've selected the day when the recovery point was taken, make sure you've chosen the correct **Recovery time**. If the selected date has multiple recovery points, choose your recovery point by selecting it in the Recovery time drop-down menu. Once you chose the recovery point, the list of recoverable items appears in the Path pane. 
+1. On the **Recovery Points for** pane, use the calendar to select the date that contains the desired recovery point(s). Depending on how the backup policy has been configured, dates can have more than one recovery point. Once you've selected the day when the recovery point was taken, make sure you've chosen the correct **Recovery time**. If the selected date has multiple recovery points, choose your recovery point by selecting it in the Recovery time drop-down menu. Once you chose the recovery point, the list of recoverable items appears in the Path pane. 
 
 1. To find the files you want to recover, in the **Path** pane, double-click the item in the Recoverable item column to open it. Select the file, files, or folders you want to recover. To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column.**Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the Up button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job. 
 
-    ![Review Recovery Selection in Hyper-v VM](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk-ilr-2.png) 
+    ![Screenshot shows how to review Recovery Selection in Hyper-v VM.](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk-ilr-2.png) 
 
 1. Once you've selected the item(s) for recovery, in the Administrator Console tool ribbon, select **Recover** to open the **Recovery Wizard**. In the Recovery Wizard, the **Review Recovery Selection** screen shows the selected items to be recovered. 
 
@@ -188,7 +188,7 @@ To recover an individual file or select files from a Windows Server VM, follow t
 
 1. On the **Specify Destination** screen, select **Browse** to find a network location for your files or folders. MABS creates a folder where all recovered items are copied. The folder name has the prefix, MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location (Destination, Destination path, and available space) are provided. 
 
-    ![Specify location to recover files from Hyper-v VM](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-specify-destination.png) 
+    ![Screenshot shows how to specify location to recover files from Hyper-v VM.](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-specify-destination.png) 
 
 1. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** aren't enabled. 
 
