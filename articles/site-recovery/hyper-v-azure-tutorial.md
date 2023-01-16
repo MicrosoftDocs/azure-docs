@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure by using Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/21/2022
+ms.date: 01/16/2023
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -139,7 +139,7 @@ You can track progress in the notifications. After the job finishes, the initial
 
 1.	In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. 
 2.	On the vault home page, select **Enable Site Recovery**.
-3.	Navigate to the bottom of the page, and select **Enable replication (Classic)** under the **Hyper-V machines to Azure** section.
+3.	Navigate to the bottom of the page, and select **Enable replication** under the **Hyper-V machines to Azure** section.
 1. Under **Source environment** tab, specify the **source location** and select **Next**.
    
     :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-source.png" alt-text="Screenshot of the source environment page.":::
