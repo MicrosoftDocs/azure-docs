@@ -46,7 +46,7 @@ You need to use the Azure portal to configure user roles.
     - Know who needs access.
     - Know the appropriate user role or roles to assign them.
     - Are signed in with a user that is assigned a role that has role assignments write permission, such as **Owner** or **User Access Administrator** for the subscription.
-1. If you're managing access to the API Bridge Number Management Portal, ensure you have a Global Administrator, Cloud Application Administrator or Application Administrator role for enterprise applications or other permissions that allow you to manage permissions for enterprise applications.
+1. If you're managing access to the API Bridge Number Management Portal, ensure that you're signed in with a user that can change permissions for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
 ### 2.2 Assign a user role
 
