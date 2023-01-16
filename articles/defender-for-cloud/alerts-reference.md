@@ -4,7 +4,7 @@ description: This article lists the security alerts visible in Microsoft Defende
 author: bmansheim
 ms.author: benmansheim
 ms.topic: reference
-ms.date: 01/11/2023
+ms.date: 01/16/2023
 ---
 
 # Security alerts - a reference guide
