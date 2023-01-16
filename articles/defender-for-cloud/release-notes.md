@@ -47,7 +47,7 @@ Defender for Cloud will now automatically delete Azure Arc machines when those m
 
 You can now enable the ability to perform a continuous export of alerts and recommendations as they're generated or define a schedule to send periodic snapshots of all of the new data, to an Event Hub as a trusted service that is protected by an Azure firewall. 
 
-Learn how to enable [continuos export to an Event Hub behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
+Learn how to enable [continuous export to an Event Hub behind an Azure firewall](continuous-export.md#continuously-export-to-an-event-hub-behind-a-firewall).
 
 ## December 2022
 
