@@ -17,7 +17,7 @@ ms.custom: include file
 |[Python](../articles/azure-functions/functions-reference-python.md#python-version)|N/A|GA (Python 3.7)| GA (Python 3.9, 3.8, 3.7)| GA (Python 3.9, 3.8, 3.7) <br/> Preview (3.10)|
 |[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript)<sup>2</sup> |N/A|GA| GA | GA |
 
-<sup>1</sup> Reached the end of life (EOL) on December 13, 2022. We highly recommend you [migrating your apps to version 4.x](migrate-version-3-version-4.md) for full support.  
+<sup>1</sup> Reached the end of life (EOL) on December 13, 2022. We highly recommend you [migrating your apps to version 4.x](../articles/azure-functions/migrate-version-3-version-4.md) for full support.  
 <sup>2</sup> Supported through transpiling to JavaScript.
 
 See the language-specific developer guide article for more details about supported language versions.   

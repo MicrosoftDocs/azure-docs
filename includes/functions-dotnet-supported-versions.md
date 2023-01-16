@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/8/2022
+ms.date: 01/16/2023
 ms.author: glenga
 ---
 
@@ -19,7 +19,6 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 | ---- | ---- | --- |
 | Functions 4.x | .NET 6.0 | .NET 6.0<br/>.NET 7.0 (GA)<sup>1</sup><br/>.NET Framework 4.8 (GA)<sup>1</sup> |
 | Functions 1.x | .NET Framework 4.8 | n/a |
-
 
 <sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download).    
 
