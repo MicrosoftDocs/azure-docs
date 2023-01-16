@@ -95,85 +95,162 @@ Note down the following, which you'll use in the code below:
 
 The following sample code shows you how to send a batch of messages to a Service Bus topic. See code comments for details. 
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
-TBD
+1. Add the following import statement.
+
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.servicebus import ServiceBusMessage
+    from azure.identity.aio import DefaultAzureCredential
+    ```
+
+2. Add the following constants. 
+
+    ```python
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    TOPIC_NAME = "TOPIC_NAME"
+    ```
+    
+    > [!IMPORTANT]
+    > - Replace `FULLY_QUALIFIED_NAMESPACE` with the fully qualified namespace for your Service Bus namespace.
+    > - Replace `TOPIC_NAME` with the name of the topic.
+
+3. Add a method to send a single message.
+
+    ```python
+    async def send_single_message(sender):
+        # Create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the topic
+        await sender.send_messages(message)
+        print("Sent a single message")
+    ```
+
+    The sender is a object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+
+4. Add a method to send a list of messages.
+
+    ```python
+    async def send_a_list_of_messages(sender):
+        # Create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the topic
+        await sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+
+5. Add a method to send a batch of messages.
+
+    ```python
+    async def send_batch_message(sender):
+        # Create a batch of messages
+        async with sender:
+            batch_message = await sender.create_message_batch()
+            for _ in range(10):
+                try:
+                    # Add a message to the batch
+                    batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+                except ValueError:
+                    # ServiceBusMessageBatch object reaches max_size.
+                    # New ServiceBusMessageBatch object can be created here to send more data.
+                    break
+            # Send the batch of messages to the topic
+            await sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+
+6. Create a Service Bus client and then a topic sender object to send messages.
+
+    ```Python
+    TBD
+    ```
 
 ### [Connection string](#tab/connection-string)
 
 1. Add the following import statement. 
 
     ```python
-    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.servicebus import ServiceBusMessage
     ```
+
 2. Add the following constants. 
 
     ```python
-    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
-    TOPIC_NAME = "<TOPIC NAME>"
-    SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STRING"
+    TOPIC_NAME = "TOPIC_NAME"
     ```
     
     > [!IMPORTANT]
-    > - Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your namespace.
-    > - Replace `<TOPIC NAME>` with the name of the topic.
-    > - Replace `<SUBSCRIPTION NAME>` with the name of the subscription to the topic. 
+    > - Replace `NAMESPACE_CONNECTION_STRING` with the connection string for your namespace.
+    > - Replace `TOPIC_NAME` with the name of the topic.
+
 3. Add a method to send a single message.
 
     ```python
-    def send_single_message(sender):
-        # create a Service Bus message
+    async def send_single_message(sender):
+        # Create a Service Bus message
         message = ServiceBusMessage("Single Message")
         # send the message to the topic
-        sender.send_messages(message)
+        await sender.send_messages(message)
         print("Sent a single message")
     ```
 
     The sender is a object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+
 4. Add a method to send a list of messages.
 
     ```python
-    def send_a_list_of_messages(sender):
-        # create a list of messages
+    async def send_a_list_of_messages(sender):
+        # Create a list of messages
         messages = [ServiceBusMessage("Message in list") for _ in range(5)]
         # send the list of messages to the topic
-        sender.send_messages(messages)
+        await sender.send_messages(messages)
         print("Sent a list of 5 messages")
     ```
+
 5. Add a method to send a batch of messages.
 
     ```python
-    def send_batch_message(sender):
-        # create a batch of messages
-        batch_message = sender.create_message_batch()
-        for _ in range(10):
-            try:
-                # add a message to the batch
-                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
-            except ValueError:
-                # ServiceBusMessageBatch object reaches max_size.
-                # New ServiceBusMessageBatch object can be created here to send more data.
-                break
-        # send the batch of messages to the topic
-        sender.send_messages(batch_message)
+    async def send_batch_message(sender):
+        # Create a batch of messages
+        async with sender:
+            batch_message = await sender.create_message_batch()
+            for _ in range(10):
+                try:
+                    # Add a message to the batch
+                    batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+                except ValueError:
+                    # ServiceBusMessageBatch object reaches max_size.
+                    # New ServiceBusMessageBatch object can be created here to send more data.
+                    break
+            # Send the batch of messages to the topic
+            await sender.send_messages(batch_message)
         print("Sent a batch of 10 messages")
     ```
+
 6. Create a Service Bus client and then a topic sender object to send messages.
 
     ```python
-    # create a Service Bus client using the connection string
-    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
-    with servicebus_client:
-        # get a Topic Sender object to send messages to the topic
-        sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
-        with sender:
-            # send one message        
-            send_single_message(sender)
-            # send a list of messages
-            send_a_list_of_messages(sender)
-            # send a batch of messages
-            send_batch_message(sender)
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient.from_connection_string(
+            conn_str=NAMESPACE_CONNECTION_STR,
+            logging_enable=True) as servicebus_client:
+            # Get a Topic Sender object to send messages to the topic
+            sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+            async with sender:
+                # Send one message
+                await send_single_message(sender)
+                # Send a list of messages
+                await send_a_list_of_messages(sender)
+                # Send a batch of messages
+                await send_batch_message(sender)
     
+    asyncio.run(run())
     print("Done sending messages")
     print("-----------------------")
     ```
@@ -182,7 +259,9 @@ TBD
 
 ## Receive messages from a subscription
 
-Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds. 
+Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
+
+
 
 ```python
 with servicebus_client:
