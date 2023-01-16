@@ -64,70 +64,53 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 ## 2. Create the DNS records
 
-1. Sign in to the website of your domain provider.
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-    You can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
+    Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
 
-1. Find the page for managing DNS records. 
+    # [A](#tab/a)
 
-    Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**.
-    
-    Often, you can find the DNS records page by viewing your account information and then looking for a link such as **My domains**. Go to that page, and then look for a link that's named something like **Zone file**, **DNS Records**, or **Advanced configuration**.
+    - For a root domain like `contoso.com`, create two records according to the following table:
 
-   The following screenshot is an example of a DNS records page:
+        | Record type | Host | Value | Comments |
+        | - | - | - |
+        | A | `@` | The app's IP address shown in the **Add custom domain** dialog. | The domain mapping itself (`@` typically represents the root domain). |
+        | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | For root domain, App Service accesses `asuid` TXT record to verify your ownership of the custom domain. |
 
-   ![Screenshot that shows an example DNS records page.](../../includes/media/app-service-web-access-dns-records-no-h/example-record-ui.png)
+        ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-1. Select **Add** or the appropriate widget to create a record. 
+    - To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
 
-1. Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
+        |Record type|Host|Value| Comments |
+        |--- |--- |--- |--- |
+        |A|\<subdomain\> (for example, www)|IP address shown in the **Add custom domain** dialog.||
+        |TXT|asuid.\<subdomain\> (for example, asuid.www)|The domain verification ID shown in the **Add custom domain** dialog.||
 
-# [A](#tab/a)
+        ![Screenshot that shows a DNS records subdomain page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
 
-- For a root domain like `contoso.com`, create two records according to the following table:
+    # [CNAME](#tab/cname)
+
+    For a subdomain like `www` in `www.contoso.com`, create two records according to the following table:
 
     | Record type | Host | Value | Comments |
     | - | - | - |
-    | A | `@` | The app's IP address shown in the **Add custom domain** dialog. | The domain mapping itself (`@` typically represents the root domain). |
-    | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | For root domain, App Service accesses `asuid` TXT record to verify your ownership of the custom domain. |
-    
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
-    
-- To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
+    | CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+    | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | The verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
-    |Record type|Host|Value| Comments |
-    |--- |--- |--- |--- |
-    |A|\<subdomain\> (for example, www)|IP address shown in the **Add custom domain** dialog.||
-    |TXT|asuid.\<subdomain\> (for example, asuid.www)|The domain verification ID shown in the **Add custom domain** dialog.||
+    ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-    ![Screenshot that shows a DNS records subdomain page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
-    
-# [CNAME](#tab/cname)
+    # [Wildcard (CNAME)](#tab/wildcard)
 
-For a subdomain like `www` in `www.contoso.com`, create two records according to the following table:
+    For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
 
-| Record type | Host | Value | Comments |
-| - | - | - |
-| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid.<subdomain>` (for example, `asuid.www`) | The verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
+    | Record type | Host | Value | Comments |
+    | - | - | - |
+    | CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+    | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
-![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
- 
-# [Wildcard (CNAME)](#tab/wildcard)
+    ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
-
-| Record type | Host | Value | Comments |
-| - | - | - |
-| CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
-
-![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
-    
------
-
-> [!NOTE]
-> For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
+    -----
 
 <a name="a" aria-hidden="true"></a>
 
