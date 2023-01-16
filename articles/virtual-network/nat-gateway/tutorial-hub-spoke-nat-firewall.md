@@ -216,7 +216,7 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 
 ## Create spoke network route table
 
-A route table will force all traffic leaving the spoke virtual network to the hub virtual network. The route table is setup with the private IP address of the Azure Firewall as the virtual appliance.
+A route table will force all traffic leaving the spoke virtual network to the hub virtual network. The route table is configured with the private IP address of the Azure Firewall as the virtual appliance.
 
 ### Obtain private IP address of firewall
 
