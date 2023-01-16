@@ -157,7 +157,7 @@ from msrestazure.azure_active_directory import MSIAuthentication
 def main(req: func.HttpRequest) -> str:
     logging.info('Python HTTP trigger function processed a request.')
 
-    //To Authenticate using Manaded Identity, we need to pass the Microsoft Energy Data Services Application ID as the resource.     
+    //To Authenticate using Managed Identity, we need to pass the Microsoft Energy Data Services Application ID as the resource.     
     //If we want to use a user-assigned identity, we should also include the   
     //Client ID as an additional parameter.
     //Managed Identity using System Assigned Identity:  MSIAuthentication(resource)
