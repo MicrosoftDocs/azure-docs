@@ -220,7 +220,18 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-SignalR trigger isn't currently supported for Java.
+```java
+@FunctionName("negotiate")
+public SignalRConnectionInfo negotiate(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST, HttpMethod.GET },
+            authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> req,
+        @SignalRConnectionInfoInput(name = "connectionInfo", hubName = "simplechat", userId = "{headers.x-ms-signalr-userid}") SignalRConnectionInfo connectionInfo) {
+    return connectionInfo;
+}
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"

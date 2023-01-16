@@ -482,7 +482,7 @@ public static Task AddToGroup(
 
 Specify `SignalRGroupActionType` to add or remove a member. The following example removes a user from a group.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions.cs" id="snippet_remove_from_group":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_remove_from_group":::
 
 # [C# Script](#tab/csharp-script)
 
