@@ -48,7 +48,7 @@ To use this quickstart with your own Azure account, you need:
 
 ### [Connection string](#tab/connection-string)
 
-Note down the following, which you'll use in the code below:
+Note the following, which you'll use this tutorial:
 * Service Bus namespace **connection string** 
 * Service Bus namespace **topic** name you created
 * Service Bus namespace **subscription** 
@@ -70,7 +70,7 @@ Note down the following, which you'll use in the code below:
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages by running: 
+1. Install packages:
 
     ```shell
     pip install azure-servicebus
@@ -82,11 +82,10 @@ Note down the following, which you'll use in the code below:
 
 1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
 
-1. Install the following packages by running: 
+1. Install package:
 
     ```bash
     pip install azure-servicebus
-    pip install aiohttp
     ```
 
 ---
@@ -108,11 +107,13 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
     from azure.identity.aio import DefaultAzureCredential
     ```
 
-2. Add the following constants. 
+2. Add the constants and define a credential.
 
     ```python
     FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
     TOPIC_NAME = "TOPIC_NAME"
+
+    credential = DefaultAzureCredential()
     ```
     
     > [!IMPORTANT]
@@ -130,7 +131,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
         print("Sent a single message")
     ```
 
-    The sender is a object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+    The sender is an object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
 
 4. Add a method to send a list of messages.
 
@@ -166,7 +167,27 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 6. Create a Service Bus client and then a topic sender object to send messages.
 
     ```Python
-    TBD
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+            # Get a Topic Sender object to send messages to the topic
+            sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+            async with sender:
+                # Send one message
+                await send_single_message(sender)
+                # Send a list of messages
+                await send_a_list_of_messages(sender)
+                # Send a batch of messages
+                await send_batch_message(sender)
+        # Close credential when no longer needed.
+            await credential.close()
+    
+    asyncio.run(run())
+    print("Done sending messages")
+    print("-----------------------")
     ```
 
 ### [Connection string](#tab/connection-string)
@@ -201,7 +222,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
         print("Sent a single message")
     ```
 
-    The sender is a object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+    The sender is an object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
 
 4. Add a method to send a list of messages.
 
