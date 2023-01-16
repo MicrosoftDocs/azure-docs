@@ -50,7 +50,7 @@ The hub virtual network contains the firewall subnet that is associated with the
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorialNATHubSpokeFW-rg**. |
+    | Resource group | Select **Create new**. </br> Enter **TutorialNATHubSpokeFW-rg**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myVNet-Hub**. |
     | Region | Select **South Central US**. |
