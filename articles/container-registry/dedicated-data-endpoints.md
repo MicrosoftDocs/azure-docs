@@ -80,34 +80,34 @@ To use the Azure CLI steps in this article, Azure CLI version 2.4.0 or later is 
 
 >* Run the [az acr update](/cli/azure/acr#az-acr-update) command to enable dedicated data endpoint.
 
-    ```azurecli-interactive
-    az acr update --name contoso --data-endpoint-enabled
-    ```
+```azurecli-interactive
+az acr update --name contoso --data-endpoint-enabled
+```
 
 >* Run the [az acr show](/cli/azure/acr#az-acr-show-endpoints) command to view the data endpoints, including regional endpoints for geo-replicated registries.
 
-    ```azurecli-interactive
-    az acr show-endpoints --name contoso
-    ```
+```azurecli-interactive
+az acr show-endpoints --name contoso
+```
 
 Sample output:
 
-    ```
-        {
-          "loginServer": "contoso.azurecr.io",
-          "dataEndpoints": [
-            {
-              "region": "eastus",
-              "endpoint": "contoso.eastus.data.azurecr.io",
-            },
-            {
-              "region": "westus",
-              "endpoint": "contoso.westus.data.azurecr.io",
-            }
-          ]
-        }
+```json
+{
+  "loginServer": "contoso.azurecr.io",
+  "dataEndpoints": [
+    {
+      "region": "eastus",
+      "endpoint": "contoso.eastus.data.azurecr.io",
+    },
+    {
+     "region": "westus",
+      "endpoint": "contoso.westus.data.azurecr.io",
+    }
+  ]
+}
      
-    ```
+```
 
 ## Next Steps
 
