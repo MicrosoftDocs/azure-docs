@@ -20,7 +20,7 @@ ms.custom: aaddev, has-adal-ref
 
 When a user authenticates, Azure Active Directory (Azure AD) sends the token to the app by using the redirect URI registered with the Azure AD application.
 
-The MSAL requires that the redirect URI be registered with the Azure AD app in a specific format. MSAL uses a default redirect URI, if you don't specify one. The format is `msauth.[Your_Bundle_Id]://auth`.
+The MSAL requires that the redirect URI is registered with the Azure AD app in a specific format. MSAL uses a default redirect URI, if you don't specify one. The format is `msauth.[Your_Bundle_Id]://auth`.
 
 The default redirect URI format works for most apps and scenarios, including brokered authentication and system web view. Use the default format whenever possible.
 
@@ -28,24 +28,24 @@ However, you may need to change the redirect URI for advanced scenarios, as desc
 
 ## Scenarios that require a different redirect URI
 
-### Cross-app single sign on (SSO)
+### Cross-app single sign-on (SSO)
 
-For the Microsoft identity platform to share tokens across apps, each app needs to have the same client ID or application ID. This is the unique identifier provided when you registered your app in the portal (not the application bundle ID that you register per app with Apple).
+For the Microsoft identity platform to share tokens across apps, each app needs to have the same client ID or application ID. The client ID is the unique identifier provided when you registered your app in the portal (not the application bundle ID that you register per app with Apple).
 
 The redirect URIs need to be different for each iOS app. This allows the Microsoft identity service to uniquely identify different apps that share an application ID. Each application can have multiple redirect URIs registered in the Azure portal. Each app in your suite will have a different redirect URI. For example:
 
 Given the following application registration in the Azure portal:
 
-- Client ID: `ABCDE-12345` (this is a single client ID)
+- Client ID: `ABCDE-12345`
 - RedirectUris: `msauth.com.contoso.app1://auth`, `msauth.com.contoso.app2://auth`, `msauth.com.contoso.app3://auth`
 
 App1 uses redirect `msauth.com.contoso.app1://auth`.\
 App2 uses `msauth.com.contoso.app2://auth`.\
 App3 uses `msauth.com.contoso.app3://auth`.
 
-### Migrating from ADAL to MSAL
+### Migrating from Microsoft Authentication Library to MSAL
 
-When migrating code that used the Azure Active Directory Authentication Library (ADAL) to MSAL, you may already have a redirect URI configured for your app. You can continue using the same redirect URI as long as your ADAL app was configured to support brokered scenarios and your redirect URI satisfies the MSAL redirect URI format requirements.
+When migrating code that used the Azure Active Directory Authentication Library (Microsoft Authentication Library) to MSAL, you may already have a redirect URI configured for your app. You can continue using the same redirect URI as long as your ADAL app was configured to support brokered scenarios and your redirect URI satisfies the MSAL redirect URI format requirements.
 
 ## MSAL redirect URI format requirements
 
@@ -53,7 +53,7 @@ When migrating code that used the Azure Active Directory Authentication Library 
 
   Where `<scheme>` is a unique string that identifies your app. It's primarily based on the Bundle Identifier of your application to guarantee uniqueness. For example, if your app's Bundle ID is `com.contoso.myapp`, your redirect URI would be in the form: `msauth.com.contoso.myapp://auth`.
 
-  If you're migrating from ADAL, your redirect URI will likely have this format: `<scheme>://[Your_Bundle_Id]`, where `scheme` is a unique string. This format will continue to work when you use MSAL.
+  If you're migrating from ADAL, your redirect URI will likely have this format: `<scheme>://[Your_Bundle_Id]`, where `scheme` is a unique string. The format will continue to work when you use MSAL.
 
 - `<scheme>` must be registered in your app's Info.plist under `CFBundleURLTypes > CFBundleURLSchemes`. In this example, Info.plist has been opened as source code:
 
