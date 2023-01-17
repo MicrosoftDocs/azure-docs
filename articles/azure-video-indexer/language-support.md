@@ -47,7 +47,7 @@ Some notes for the above values are:
 
 | **Language**   | **Code**       | **Supported source language** | **Language identification**  | **Customization** (language model)  |
 |:--------------:|:--------------:|:-----------------------------:|:----------------------------:|:-----------:|
-| Afrikaans                        | `af-ZA`      |   | ✔  |  |
+| Afrikaans                        | `af-ZA`      |   |   |  |
 | Arabic (Israel)                  | `ar-IL`      | ✔ |   | ✔ |
 | Arabic (Iraq)                    | `ar-IQ`      | ✔ | ✔ |   |
 | Arabic (Jordan)                  | `ar-JO`      | ✔ | ✔ | ✔ |
