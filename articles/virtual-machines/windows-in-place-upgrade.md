@@ -26,8 +26,6 @@ Before you begin an in-place upgrade:
 ## Windows versions not yet supported for in-place system upgrades
 For the following versions, consider using the work-around in the next section:
 
-- Windows Server 2012 R2 Datacenter
-- Windows Server 2012 R2 Standard
 - Windows Server 2012 Datacenter
 - Windows Server 2012 Standard
 - Windows Server 2008 R2 Datacenter
