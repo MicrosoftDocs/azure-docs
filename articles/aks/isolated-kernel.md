@@ -9,7 +9,7 @@ ms.date: 01/17/2023
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 
-Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview) to provide an isolation boundary between the container application, and the shared kernel and resources of the container host (for example CPU, memory, networking, etc.).
+Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview) that provides an isolation boundary between the container application, and the shared kernel and resources of the container host (for example CPU, memory, and networking).
 
 Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
@@ -35,7 +35,7 @@ This article helps you understand this new feature, and how to implement it.
 
 ## How it works
 
-To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. This provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that are not shared with other Kata Containers or namespace containers running on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Kernel isolation provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that aren't shared with other Kata Containers or namespace containers running on the same host.
 
 The solution architecture is based on the following components:
 
@@ -299,7 +299,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
           hostIPC: true
     ```
 
-2. Deploy the a Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *trusted-app.yaml* file:
+2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *trusted-app.yaml* file:
 
     ```bash
     kubectl apply -f trusted-app.yaml
@@ -361,7 +361,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
           hostIPC: true
     ```
 
-2. Deploy the a Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
+2. Deploy the Kubernetes DaemonSet by running the [kubectl apply][kubectl-apply] command and specify your *untrusted-app.yaml* file:
 
     ```bash
     kubectl apply -f untrusted-app.yaml
