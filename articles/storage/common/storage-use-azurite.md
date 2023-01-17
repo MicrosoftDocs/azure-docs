@@ -127,18 +127,15 @@ After you create the project, Azurite starts automatically. The output looks sim
 
 In Visual Studio 2022, create an **ASP.NET Core Web App** project. Then, open the **Connected Services** dialog box, select **Add a service dependency**, and then select **Storage Azurite emulator**.
 
-> [!div class="mx-imgBorder"]
-> ![Connected services dialog box in ASP.NET Core Web App project](media/storage-use-azurite/connected-service-storage-emulator.png)
+:::image type="content" source="./media/storage-use-azurite/azurite-asp-connect.png" alt-text="A screenshot showing how to add Azurite as a dependency to an ASP.NET project.":::
 
 In the **Configure Storage Azurite emulator** dialog box, set the **Connection string name** field to `StorageConnectionString`, and then select **Finish**.
 
-> [!div class="mx-imgBorder"]
-> ![Configure Storage Azurite emulator dialog box](media/storage-use-azurite/connection-string-for-azurite-emulator-configuration.png)
+:::image type="content" source="./media/storage-use-azurite/azurite-asp-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project.":::
 
 When the configuration completes, select **Close**. The Azurite emulator starts automatically.
 
-> [!div class="mx-imgBorder"]
-> ![Azurite command-line output in ASP.NET project](media/storage-use-azurite/output-window-asp-net-project.png) 
+:::image type="content" source="./media/storage-use-azurite/azurite-asp-output.png" alt-text="A screenshot showing output after connecting an ASP.NET project to the Azurite emulator.":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
