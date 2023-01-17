@@ -79,7 +79,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 |[Akamai Technologies](https://www.akamai.com/)|[Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md)|
 |[Citrix Systems, Inc.](https://www.citrix.com/)|[Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)|
 |[Datawiza](https://www.datawiza.com/)|[Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](datawiza-with-azure-ad.md)|
-|[F5, Inc.](https://www.f5.com/)|[Integrate F5 BIG-IP with Azure AD](/articles/active-directory/manage-apps/f5-aad-integration.md)</br>[Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)|
+|[F5, Inc.](https://www.f5.com/)|[Integrate F5 BIG-IP with Azure AD](f5-aad-integration.md)</br>[Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)|
 |[Progress Software Corporation, Progress Kemp](https://support.kemptechnologies.com/hc)|[Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)|
 |[Perimeter 81 Ltd.]()|[Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)|
 |[Silverfort](https://www.silverfort.com/)|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](silverfort-azure-ad-integration.md)|
