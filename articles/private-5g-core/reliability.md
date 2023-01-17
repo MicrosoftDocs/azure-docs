@@ -23,7 +23,7 @@ Azure Private 5G Core is currently available in the EastUS and WestEurope region
 
 ### SLA improvements
 
-There are no increased SLAs for Azure Private 5G Core. For more information, see [SLA summary for Azure services](https://azure.microsoft.com/en-us/support/legal/sla/summary/).
+There are no increased SLAs for Azure Private 5G Core. For more information, see [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/).
 
 ### Zone down experience
 
@@ -43,7 +43,7 @@ In single region (3+0) geographies there is no replication of data outside the r
 
 In either scenario, the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
-You can view all regions that support Azure Private 5G Core at https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/.
+You can view all regions that support Azure Private 5G Core at https://azure.microsoft.com/explore/global-infrastructure/products-by-region/.
 
 Current deployment plans:
 
