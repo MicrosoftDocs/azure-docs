@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 12/21/2022
+ms.date: 01/17/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -99,7 +99,7 @@ az webpubsub create --name $WebPubSubName -Location $Location --resource-group $
 
 ---
 
-Save the service's connection string.  The connection string is used to authorize client connections.
+Save the service's connection string.  The connection string is used by the service SDK to publish messages.
 
 >[!IMPORTANT]
 > In a production environment, you should securely store connection strings using Azure Key Vault.
@@ -154,7 +154,7 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## Publish messages using service SDK
 
-You will use the Azure Web PubSub SDK to publish a message to all the connected client.
+You will use the Azure Web PubSub SDK to publish a message to all connected clients.
 
 First, open another command shell.
 
