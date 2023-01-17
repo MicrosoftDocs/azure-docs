@@ -153,7 +153,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
     kubectl get pods 
     ```
     
-    **Example Reponse**
+    **Example Response**
     | Name | Ready | Status | Restarts | Age |
     |--|--|--|--|--|
     | Curl-w7nt8  | 0/1 | Completed | 0 | 72s |
