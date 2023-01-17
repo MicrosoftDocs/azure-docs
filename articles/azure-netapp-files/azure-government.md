@@ -47,7 +47,7 @@ You can follow [Azure NetApp Files](./index.yml) documentation for details about
 
 ## Azure CLI access
 
-You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to log in as you normally would with the `az login` command. After running the log-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
+You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to sign in as you normally would with the `az login` command. After running the sign-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
 
 ```azurecli 
 
