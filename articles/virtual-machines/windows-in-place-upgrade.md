@@ -190,10 +190,14 @@ To initiate the in-place upgrade the VM must be in the `Running` state. Once the
 
 | Upgrade from | Upgrade to |
 |---|---|
+| Windows Server 2012 R2 (Core)	| Windows Server 2019 |
+| Windows Server 2012 R2 | Windows Server 2019 (Desktop Experience) |
 | Windows Server 2016 (Core) | Windows Server 2019   -or-  Windows Server 2022 |
 | Windows Server 2016 (Desktop Experience) | Windows Server 2019 (Desktop Experience)  -or-  Windows Server 2022 (Desktop Experience) |
 | Windows Server 2019 (Core) | Windows Server 2022 |
 | Windows Server 2019 (Desktop Experience) | Windows Server 2022 (Desktop Experience) |
+
+
  
 
 During the upgrade process the VM will automatically disconnect from the RDP session. After the VM is disconnected from the RDP session the progress of the upgrade can be monitored through the [screenshot functionality available in the Azure portal](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine).
