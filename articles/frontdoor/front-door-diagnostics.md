@@ -57,7 +57,7 @@ The activity log and web application firewall log includes a *tracking reference
 
 Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md). Activity log entries are collected by default, and you can view them in the Azure portal.
 
-## Access log
+## <a name="access-log"></a>Access log
 
 Information about every request is logged into the access log. Each access log entry contains the information listed below.
 
