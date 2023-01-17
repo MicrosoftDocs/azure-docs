@@ -148,13 +148,13 @@ Each device requires the Certificate Authority (CA) certificate that is associat
     openssl s_client -showcerts -verify 5 -connect localhost:8085 < /dev/null | sudo awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".pem"; print >out}' && sudo cp cert2.pem cacert.crt.pem
     ```
 
-1. Certificates should be owned by the key service user **aziotcs**. Set the ownership to **aziotcs** for all the certificate files and set permissions.
+1. Certificates should be owned by the key service user **aziotcs**. Set the ownership to **aziotcs** for all the certificate files and set permissions. For more information about certificate ownership and permissions, see [Permission requirements](how-to-manage-device-certificates.md#permission-requirements).
 
    ```bash
    # Give aziotcs ownership to certificates
    sudo chown -R aziotcs:aziotcs /var/aziot/certs
    # Read and write for aziotcs, read-only for others
-   sudo chmod 644 /var/aziot/certs/*
+   sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
    ```
 
 ## Provision IoT Edge device using DPS

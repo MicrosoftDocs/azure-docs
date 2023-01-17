@@ -183,13 +183,43 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
     # Give aziotcs ownership to certificates
     # Read and write for aziotcs, read-only for others
     sudo chown -R aziotcs:aziotcs /var/aziot/certs
-    sudo chmod 644 /var/aziot/certs/*
+    sudo find /var/aziot/certs -type f -name "*.*" -exec chmod 644 {} \;
 
     # Give aziotks ownership to private keys
     # Read and write for aziotks, no permission for others
     sudo chown -R aziotks:aziotks /var/aziot/secrets
-    sudo chmod 600 /var/aziot/secrets/*
+    sudo find /var/aziot/secrets -type f -name "*.*" -exec chmod 600 {} \;
+
+    # Verify permissions of directories and files
+    sudo ls -Rla /var/aziot
     ```
+
+    The output of list with correct ownership and permission is similar to the following:
+
+    ```Output
+    azureUser@vm-h2hnm5j5uxk2a:/var/aziot$ sudo ls -Rla /var/aziot
+    /var/aziot:
+    total 16
+    drwxr-xr-x  4 root    root    4096 Dec 14 00:16 .
+    drwxr-xr-x 15 root    root    4096 Dec 14 00:15 ..
+    drw-r--r--  2 aziotcs aziotcs 4096 Jan 14 00:31 certs
+    drwx------  2 aziotks aziotks 4096 Jan 14 00:35 secrets
+    
+    /var/aziot/certs:
+    total 20
+    drw-r--r-- 2 aziotcs aziotcs 4096 Jan 14 00:31 .
+    drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
+    -rw-r--r-- 1 aziotcs aziotcs 1984 Jan 14 00:24 azure-iot-test-only.root.ca.cert.pem
+    -rw-r--r-- 1 aziotcs aziotcs 5887 Jan 14 00:27 iot-edge-device-ca-gateway-full-chain.cert.pem
+    
+    /var/aziot/secrets:
+    total 20
+    drwx------ 2 aziotks aziotks 4096 Jan 14 00:35 .
+    drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
+    -rw------- 1 aziotks aziotks 3326 Jan 14 00:29 azure-iot-test-only.root.ca.key.pem
+    -rw------- 1 aziotks aziotks 3243 Jan 14 00:28 iot-edge-device-ca-gateway.key.pem
+    ```
+    
 
 01. Install the **root CA certificate** on the parent IoT Edge device by updating the certificate store on the device using the platform-specific command.
 
@@ -381,8 +411,8 @@ To enable secure connections, every IoT Edge downstream device in a gateway scen
     sudo chmod 700 /var/aziot/secrets
 
     # Copy device full-chain certificate and private key into the correct directory
-    sudo cp iot-edge-device-ca-downstream-full-chain.cert.pem /var/aziot/certs
-    sudo cp iot-edge-device-ca-downstream.key.pem /var/aziot/secrets
+    sudo cp iot-device-downstream-full-chain.cert.pem /var/aziot/certs
+    sudo cp iot-device-downstream.key.pem /var/aziot/secrets
 
     ### Root certificate ###
 
@@ -476,8 +506,8 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
     ```toml
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream-full-chain.cert.pem"
-    pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
+    cert = "file:///var/aziot/certs/iot-device-downstream-full-chain.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-device-downstream.key.pem"
     ```
 
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.4. For example:
@@ -494,8 +524,8 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream-full-chain.cert.pem"
-    pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
+    cert = "file:///var/aziot/certs/iot-device-downstream-full-chain.cert.pem"
+    pk = "file:///var/aziot/secrets/iot-device-downstream.key.pem"
     ```
 
 01. Save and close the `config.toml` configuration file. For example if you're using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
