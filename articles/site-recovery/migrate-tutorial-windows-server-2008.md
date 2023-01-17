@@ -109,8 +109,8 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 
 ### Prepare your on-premises environment for migration
 
-- To migrate Windows Server 2008 virtual machines running on VMware, [setup the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
-- If the Configuration Server cannot be setup as a VMware virtual machine, [setup the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#source-settings).
+- To migrate Windows Server 2008 virtual machines running on VMware, [set up the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- If the Configuration Server cannot be set up as a VMware virtual machine, [set up the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#source-settings).
 
 ### Set up the target environment
 

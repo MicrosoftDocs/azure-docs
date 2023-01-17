@@ -1,6 +1,6 @@
 ---
 title: Move Azure VMs between government and public regions with Azure Site Recovery 
-description: Use Azure Site Recovery to move Azure VMs between Azure government and public regions.
+description: Use Azure Site Recovery to move Azure VMs between Azure Government and public regions.
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
@@ -40,7 +40,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-- Note that after you fail over to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
+- After you fail over to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
 
 ### Verify Azure account permissions
 
@@ -86,7 +86,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
 3. Ensure that you create a target resource for every component identified in the source networking layout. This is important to ensure that, post cutting over to the target region, your VMs have all the functionality and features that you had in the source.
 
     > [!NOTE]
-    > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM, or you can also pre-create a network and assign to the VM in the user flow for enable replication. But for any other resources, as mentioned below, you need to manually create them in the target region.
+    > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM, or you can also pre-create a network and assign to the VM in the user flow for enable replication. But for any other resources, you need to manually create them in the target region.
 
      Please refer to the following documents to create the most commonly used network resources relevant for you, based on the source VM configuration.
 
@@ -138,10 +138,10 @@ Make sure the machine can access these URLs based on your environment:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering is done.
 
-- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
-- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Azure AD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Azure AD, Backup, Replication, and Storage URLs.  
 
 #### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.

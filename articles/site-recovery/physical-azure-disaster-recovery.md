@@ -88,9 +88,9 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
-## Prepare Infrastructure
+## Prepare infrastructure
 
-It is important to prepare the infrastructure before you set up disaster recovery of physical VMware machines to Azure.
+it's important to prepare the infrastructure before you set up disaster recovery of physical VMware machines to Azure.
 
 ## Deployment planning
 
@@ -133,10 +133,10 @@ Make sure the machine can access these URLs based on your environment:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it's recommended that URL filtering is done.
 
-- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
-- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the Azure AD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support Azure AD, Backup, Replication, and Storage URLs.  
 
 #### Run setup
 Run Unified Setup as a Local Administrator, to install the configuration server. The process server and the master target server are also installed by default on the configuration server.
@@ -144,7 +144,7 @@ Run Unified Setup as a Local Administrator, to install the configuration server.
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 
-## Target Settings
+## Target settings
 
 Select and verify target resources.
 
@@ -211,7 +211,7 @@ By default, a matching policy is automatically created for failback. For example
        It takes a few minutes for the servers to be discovered and listed.
        :::image type="content" source="./media/physical-azure-disaster-recovery/add-physical-machines.png" alt-text="Screenshot of add machine page.":::
 
-1. Under **Replication settings** tab, select and verify the the user account details.
+1. Under **Replication settings** tab, select and verify the user account details.
     :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-settings.png" alt-text="Screenshot of enable replication setting page.":::
 1. Under **Replication policy** tab, verify that the correct replication policy is selected.
     :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-policy.png" alt-text="Screenshot of enable replication policy page.":::
