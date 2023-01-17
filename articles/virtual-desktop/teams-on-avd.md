@@ -137,9 +137,9 @@ To enable hardware encode:
 
 1. On your client device, from the start menu, run **Registry Editor** as an administrator.
 1. Go to `HKCU\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector`.
-2. Add the **UseHardwareEncoding** as a DWORD value.
-3. Set the value to **1** to enable the feature.
-4. Repeat these instructions for every client device.
+1. Add the **UseHardwareEncoding** as a DWORD value.
+1. Set the value to **1** to enable the feature.
+1. Repeat these instructions for every client device.
 
 ### Enable content sharing for Teams for Remote App
 
@@ -148,9 +148,9 @@ Enabling content sharing for Teams on Azure Virtual Desktop lets you share your 
 To enable content sharing:
 
 1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-2. Go to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
-3. Add the **ShareClientDesktop** as a DWORD value.
-4. Set the value to **1** to enable the feature.
+1. Go to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+1. Add the **ShareClientDesktop** as a DWORD value.
+1. Set the value to **1** to enable the feature.
 
 ### Disable desktop screen share for Teams for Remote App
 
@@ -162,9 +162,9 @@ You can disable desktop screen sharing for Teams on Azure Virtual Desktop. To en
 To disable desktop screen share:
 
 1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-2. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
-3. Add the **DisableRAILScreensharing** as a DWORD value.
-4. Set the value to **1** to disable desktop screen share.
+1. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+1. Add the **DisableRAILScreensharing** as a DWORD value.
+1. Set the value to **1** to disable desktop screen share.
 
 ### Disable application window sharing for Teams for Remote App
 
@@ -176,9 +176,9 @@ You can disable application window sharing for Teams on Azure Virtual Desktop. T
 To disable application window sharing:
 
 1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-2. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
-3. Add the **DisableRAILAppSharing** as a DWORD value.
-4. Set the value to **1** to disable application window sharing.
+1. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+1. Add the **DisableRAILAppSharing** as a DWORD value.
+1. Set the value to **1** to disable application window sharing.
 
 ## Customize Remote Desktop Protocol properties for a host pool
 
