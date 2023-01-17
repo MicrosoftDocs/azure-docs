@@ -94,6 +94,7 @@ az acr task show --name timertask --registry $ACR_NAME --output table
 ```
 
 Run the [az acr task run][az-acr-task-run ] command to trigger the task manually.
+
 ```azurecli
 az acr task run --name timertask --registry $ACR_NAME
 ```
