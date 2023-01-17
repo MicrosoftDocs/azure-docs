@@ -1,3 +1,4 @@
+---
 title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
 services: active-directory-b2c
@@ -7,6 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
+
 ms.date: 01/17/2023
 ms.author: godonnell
 ms.subservice: B2C
@@ -32,25 +34,17 @@ You can create an API endpoint using one of our [samples](api-connector-samples.
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD B2C**.
-4. Select **API connectors**, and then select **New API connector**.
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **API connectors**, and then select **New API connector**.
 
-   ![Screenshot of the basic API connector configuration](media/add-api-connector-token-enrichment/api-connector-new.png)
    ![Screenshot showing the API connectors page in the Azure portal with the New API Connector button highlighted](media/add-api-connector-token-enrichment/api-connector-new.png)
 
-5. Provide a display name for the call. For example, **Enrich token from external source**.
-6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 1. Provide a display name for the call. For example, **Enrich token from external source**.
 1. Provide the **Endpoint URL** for the API call.
 1. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-   ![Screenshot of authentication configuration for an API connector](media/add-api-connector-token-enrichment/api-connector-config.png)
    ![Screenshot showing sample authentication configuration for an API connector](media/add-api-connector-token-enrichment/api-connector-config.png)
 
-8. Select **Save**.
 1. Select **Save**.
 
 ## Enable the API connector in a user flow
@@ -58,16 +52,12 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 Follow these steps to add an API connector to a sign-up user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure services**, select **Azure AD B2C**.
-4. Select **User flows**, and then select the user flow you want to add the API connector to.
-5. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
 1. Under **Azure services**, select **Azure AD B2C**.
 1. Select **User flows**, and then select the user flow you want to add the API connector to.
 1. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
 
    ![Screenshot of selecting an API connector for a user flow step](media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png)
 
-6. Select **Save**.
 1. Select **Save**.
 
 This step only exists for **Sign up and sign in (Recommended)**, **Sign up (Recommended)**, and **Sign in (Recommended)** user flows.
@@ -129,12 +119,13 @@ Content-type: application/json
 ```
 | Parameter                                          | Type              | Required | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version     | String | Yes      | The version of your API.                                                    |
+git | version     | String | Yes      | The version of your API.                                                    |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | They can be returned in the token if selected as an **Application claim**.                                        |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. They can returned in the token if selected as an **Application claim**.  |
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
+
 In this scenario, we enrich the user's token data by integrating with a corporate line-of-business workflow. During sign-up or sign-in with local or federated account, Azure AD B2C invokes a REST API to get the user's extended profile data from a remote data source. In this sample, Azure AD B2C sends the user's unique identifier, the objectId. The REST API then returns the user's account balance (a random number). Use this sample as a starting point to integrate with your own CRM system, marketing database, or any line-of-business workflow.
 You can also design the interaction as a validation technical profile. This is suitable when the REST API will be validating data on screen and returning claims. For more information, see [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md).
 ## Prerequisites
@@ -335,9 +326,9 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * Monitor your API for long response times. 
 Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
 1. Go to **Azure AD B2C**
-2. Under **Activities**, select **Audit logs**.
-3. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
-4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
+1. Under **Activities**, select **Audit logs**.
+1. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
+1. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
    ![Screenshot of an example audit log with API connector transaction](media/add-api-connector-token-enrichment/example-anonymized-audit-log.png)
 ::: zone-end
 ## Next steps
