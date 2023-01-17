@@ -47,7 +47,7 @@ You can run secret scanning as part of the Azure DevOps build process by using t
 
 By adding the additions to your yaml file, you will ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
 
-## Remediate findings
+## Remediate secrets findings
 
 When credential are discovered in your code, you can remove them. Instead you can use an alternative method that will not expose the secrets directly in your source code. Some of the best practices that exist to handle this type of situation include:
 
@@ -57,7 +57,7 @@ When credential are discovered in your code, you can remove them. Instead you ca
 
 - Updating your authentication methods to take advantage of managed identities (MSI) via Azure Active Directory (AAD).
   
-**To remediate findings using Azure Key Vault**:
+**To remediate secrets findings using Azure Key Vault**:
 
 1. Create a [key vault using PowerShell](../key-vault/general/quick-create-powershell.md).
 
@@ -70,17 +70,39 @@ When credential are discovered in your code, you can remove them. Instead you ca
 
 Once you have remediated findings you can review the [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md).
 
-**To remediate findings using managed identities**:
+**To remediate secrets findings using managed identities**:
+
+Before you can remediate secrets findings using managed identities, you need to ensure that the Azure resource you are authenticating to in your code supports managed identities. You can check the full list of [Azure services that can use managed identities to access other services](../active-directory/managed-identities-azure-resources/managed-identities-status.md).
+
+If your Azure service is listed, you can [manage your identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 
 ## Suppress false positives
 
 When the scanner runs, it may detect credentials that are false positives. Inline-suppression tools can be used to suppress false positives. 
 
+Some reasons to suppress false positives include:
+
+- Fake or mocked credentials in the test files. These credentials can't access resources.
+
+- Placeholder strings. For example, placeholder strings may be used to initialize a variable which is then populated using a secret store such as AKV.
+
+- External library or SDKs that are directly consumed. For example, openssl.
+
+- THard-coded credentials for an ephemeral test resource that only exists for the lifetime of the test being run.
+
+- Self-signed certificates that are used locally and not used as a root. For example, they may be used when running localhost to allow HTTPS.
+
+- Source-controlled documentation with non-functional credential for illustration purposes only
+
+- Invalid results. The output is not a credential or a secret.
+
 You may want to suppress fake secrets in unit tests or mock paths, or inaccurate results. We don't recommend using suppression to suppress test credentials. Test credentials can still pose a security risk and should be securely stored.
 
 > [!NOTE]
 > Valid inline suppression syntax depends on the language, data format and CredScan version you are using. 
+
+Credentials that are used for test resources and environments shouldn't be suppressed. They are being used to demonstration purposes only and do not affect anything else. 
 
 ### Suppress a same line secret
 
