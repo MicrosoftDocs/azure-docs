@@ -35,11 +35,11 @@ Health data is collected in the *SentinelHealth* table in your Log Analytics wor
 
 **Did an automation rule run as expected?**
 
-[Did my automation rule run when it was supposed to](./monitor-automation-health.md) - that is, when its conditions were met? Did all the actions in the automation rule run successfully? 
+[Did my automation rule run when it was supposed to](./monitor-automation-health.md)&mdash;that is, when its conditions were met? Did all the actions in the automation rule run successfully? 
 
 **Did an analytics rule run as expected?**
 
-
+[Did my analytics rule run when it was supposed to, and did it generate results](monitor-analytics-rule-health.md)?
 
 ## How Microsoft Sentinel presents health data
 
@@ -48,6 +48,7 @@ To dive into the health data that Microsoft Sentinel generates, you can:
 - Run queries on the *SentinelHealth* data table from the Microsoft Sentinel **Logs** blade.
     - [Data connectors](monitor-data-connector-health.md#run-queries-to-detect-health-drifts)
     - [Automation rules and playbooks](monitor-automation-health.md#get-the-complete-automation-picture) (join query with Azure Logic Apps diagnostics)
+    - [Analytics rules](monitor-analytics-rule-health.md#bookmark)
 
 - Use the health monitoring workbooks provided in Microsoft Sentinel.
     - [Data connectors](monitor-data-connector-health.md#use-the-health-monitoring-workbook)
@@ -59,4 +60,5 @@ To dive into the health data that Microsoft Sentinel generates, you can:
 - [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
 - Monitor the health of your [data connectors](monitor-data-connector-health.md).
+- Monitor the health of your [analytics rules](monitor-analytics-rule-health.md).
 - See more information about the [*SentinelHealth* table schema](health-table-reference.md).
