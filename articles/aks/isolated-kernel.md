@@ -33,6 +33,8 @@ This article helps you understand this new feature, and how to implement it.
 
 ## Limitations
 
+What limnitations need to be specified?
+
 ## How it works
 
 To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. Kernel isolation provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that aren't shared with other Kata Containers or namespace containers running on the same host.
