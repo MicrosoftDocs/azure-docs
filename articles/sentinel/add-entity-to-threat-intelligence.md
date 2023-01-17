@@ -2,9 +2,9 @@
 title: Add entities to threat intelligence in Microsoft Sentinel
 description: This article shows you, if you discover a malicious entity in an incident investigation, how to add the entity to your threat intelligence indicator lists in Microsoft Sentinel.
 author: yelevin
-ms.topic: how-to
-ms.date: 08/25/2022
 ms.author: yelevin
+ms.topic: how-to
+ms.date: 01/17/2023
 ---
 
 # Add entities to threat intelligence in Microsoft Sentinel

@@ -4,7 +4,7 @@ description: This article shows you how to take response actions against threat 
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 01/17/2023
 ---
 
 # Respond to threat actors while investigating or threat hunting in Microsoft Sentinel
@@ -66,7 +66,7 @@ When you're investigating an incident, and you determine that a given entity - a
 
 In this article, you learned how to run playbooks manually to remediate threats from entities while in the middle of investigating an incident or hunting for threats.
 
-- Learn more about [investigating incidents](investigate-cases.md) in Microsoft Sentinel.
+- Learn more about [investigating incidents](investigate-incidents.md) in Microsoft Sentinel.
 - Learn how to [proactively hunt for threats](hunting.md) using Microsoft Sentinel.
 - Learn more about [entities](entities.md) in Microsoft Sentinel.
 - Learn more about [playbooks](automate-responses-with-playbooks.md) in Microsoft Sentinel.

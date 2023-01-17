@@ -4,7 +4,7 @@ description: Use entity pages to get information about entities that you come ac
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 01/17/2023
 ---
 
 # Investigate entities with entity pages in Microsoft Sentinel

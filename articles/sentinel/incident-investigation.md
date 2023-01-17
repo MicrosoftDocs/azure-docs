@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 01/01/2023
 ---
 
-# Investigate incidents comprehensively in Microsoft Sentinel
+# Understand Microsoft Sentinel's incident investigation and case management capabilities
 
 Microsoft Sentinel gives you a complete, full-featured case management platform for investigating and managing security incidents. **Incidents** are Microsoft Sentinel’s name for case files that contain a complete and constantly updated chronology of a security threat, whether it’s individual pieces of evidence (alerts), suspects and parties of interest (entities), insights collected and curated by security experts and AI/machine learning models, or comments and logs of all the actions taken in the course of the investigation.
 

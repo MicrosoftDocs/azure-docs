@@ -2,9 +2,9 @@
 title: Relate alerts to incidents in Microsoft Sentinel | Microsoft Docs
 description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel.
 author: yelevin
-ms.topic: how-to
-ms.date: 05/12/2022
 ms.author: yelevin
+ms.topic: how-to
+ms.date: 01/17/2023
 ---
 
 # Relate alerts to incidents in Microsoft Sentinel
