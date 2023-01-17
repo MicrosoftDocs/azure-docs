@@ -966,6 +966,8 @@ items:
         href: containers/container-insights-enable-aks.md
       - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
+      - name: AKS hybrid cluster
+        href: containers/container-insights-enable-provisioned-clusters.md
       - name: Hybrid cluster
         href: containers/container-insights-hybrid-setup.md
       - name: Enable with Azure Policy
@@ -1303,10 +1305,6 @@ items:
       href: change/change-analysis-enable.md
     - name: Visualizations
       href: change/change-analysis-visualizations.md
-    - name: Custom filters
-      href: change/change-analysis-custom-filters.md
-    - name: Pin and share changes via Azure dashboard
-      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
 - name: Respond
