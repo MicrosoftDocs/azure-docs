@@ -4,7 +4,7 @@ ms.topic: include
 ms.date: 01/17/2023
 ---
 
-Arc-enabled server endpoints are required for all server based Arc offerings. 
+Azure Arc-enabled server endpoints are required for all server based Arc offerings. 
 
 ### Networking configuration
 
