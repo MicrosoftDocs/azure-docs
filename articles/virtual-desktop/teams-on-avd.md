@@ -125,6 +125,61 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
       If optimizations don't load, uninstall then reinstall Teams and check again.
 
+## Enable registry keys for optional features
+
+If you want to use certain optional features for Azure Virtual Desktop, you'll need to enable certain registry keys.
+
+### Enable hardware encode for teams on Azure Virtual Desktop
+
+Hardware encode lets you increase video quality for the outgoing camera during Teams calls. You'll need to repeat the following instructions for every client device. 
+
+To enable hardware encode:
+
+1. On your client device, from the start menu, run **Registry Editor** as an administrator.
+1. Go to `HKCU\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector`.
+2. Add the **UseHardwareEncoding** as a DWORD value.
+3. Set the value to **1** to enable the feature.
+4. Repeat these instructions for every client device.
+
+### Enable content sharing for Teams for Remote App
+
+Enabling content sharing for Teams on Azure Virtual Desktop lets you share your screen or application window.
+
+To enable content sharing:
+
+1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
+2. Go to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+3. Add the **ShareClientDesktop** as a DWORD value.
+4. Set the value to **1** to enable the feature.
+
+### Disable desktop screen share for Teams for Remote App
+
+You can disable desktop screen sharing for Teams on Azure Virtual Desktop.
+
+>[!NOTE]
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+
+To disable desktop screen share:
+
+1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
+2. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+3. Add the **DisableRAILScreensharing** as a DWORD value.
+4. Set the value to **1** to disable desktop screen share.
+
+### Disable application window sharing for Teams for Remote App
+
+You can disable application window sharing for Teams on Azure Virtual Desktop.
+
+>[!NOTE]
+>You must [enable the ShareClientDesktop key](#enable-content-sharing-for-teams-for-remote-app) before you can use this key.
+
+To disable application window sharing:
+
+1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
+2. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
+3. Add the **DisableRAILAppSharing** as a DWORD value.
+4. Set the value to **1** to disable application window sharing.
+
 ## Customize Remote Desktop Protocol properties for a host pool
 
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience or enabling microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs.
@@ -136,52 +191,6 @@ Enabling device redirections isn't required when using Teams with media optimiza
 - `camerastoredirect:s:*` redirects all cameras.
 
 To learn more, check out [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md).
-
-## Enable registry keys for optional features
-
-If you want to use certain optional features for Azure Virtual Desktop, you'll need to enable certain registry keys.
-
-### Enable hardware encode
-
-Hardware encode lets you increase video quality for the outgoing camera during Teams calls. To enable this feature:
-
-1. On your local machine, from the start menu, run **Registry Editor** as an administrator.
-1. Navigate to `HKCU\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector`.
-2. Add the **UseHardwareEncoding** key if it isn't already there.
-3. Set the value to **1** to enable the feature.
-
-### Enable content sharing on RAIL
-
-Enabling content sharing for Teams on Azure Virtual Desktop lets you share your screen or application window on Remote Applications Integrated Locally (RAIL). To enable this feature:
-
-1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-1. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
-1. Add the **ShareClientDesktop** key if it isn't already there.
-2. Set the value to **1** to enable the feature.
-
-### Disable desktop screen share on RAIL
-
-You can disable desktop screen sharing for Teams on Azure VIrtual Desktop when using Teams for RAIL.
-
->[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-on-rail) before you can use this key.
-
-1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-2. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
-3. Add the **DisableRAILScreensharing** key if it isn't already there.
-4. Set the value to **1** to enable the feature.
-
-### Disable app window sharing on RAIL
-
-You can disable app window sharing for Teams on Azure VIrtual Desktop when using Teams for RAIL.
-
->[!NOTE]
->You must [enable the ShareClientDesktop key](#enable-content-sharing-on-rail) before you can use this key.
-
-1. On your session host VM, from the start menu, run **Registry Editor** as an administrator.
-2. Navigate to `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy`.
-3. Add the **DisableRAILAppSharing** key if it isn't already there.
-4. Set the value to **1** to enable the feature.
 
 ## Next steps
 
