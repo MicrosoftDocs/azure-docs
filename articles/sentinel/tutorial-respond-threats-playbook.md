@@ -87,7 +87,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 Regardless of which trigger you chose to create your playbook with in the previous step, the **Create playbook** wizard will appear.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-LAC.png" alt-text="Create a logic app":::
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-basics.png" alt-text="Create a logic app":::
 
 1. In the **Basics** tab:
 
@@ -113,7 +113,7 @@ Regardless of which trigger you chose to create your playbook with in the previo
 
 1. Your playbook will take a few minutes to be created and deployed, after which you will see the message "Your deployment is complete" and you will be taken to your new playbook's [Logic App Designer](../logic-apps/logic-apps-overview.md). The trigger you chose at the beginning will have automatically been added as the first step, and you can continue designing the workflow from there.
 
-    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank-LAC.png":::
+    :::image type="content" source="media/tutorial-respond-threats-playbook/logic-app-blank.png" alt-text="Screenshot of logic app designer screen with opening trigger." lightbox="media/tutorial-respond-threats-playbook/logic-app-blank.png":::
 
     If you chose the **Microsoft Sentinel entity (Preview)** trigger, select the type of entity you want this playbook to receive as an input.
 

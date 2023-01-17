@@ -144,9 +144,9 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ##  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. You can control access to keys using Key Vault [role-based access control](../general/rbac-guide.md) (recommended) or old [vault access policy](../general/assign-access-policy.md) permssion model. Role-based permission model has three predefined roles to manage keys: 'Key Vault Crypto Officer', 'Key Vault Crypto User', 'Key Vault Service Encryption User' and can be scoped to subscription, resource group or vault level.
 
-The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object.  Granting access to a service principal in key vault is a onetime operation, and it will remain same for all Azure subscriptions. You can use it to deploy as many certificates as you want. 
+Vault access policy permssion model permissions:
 
 - Permissions for key management operations
   - *get*: Read the public part of a key, plus its attributes
@@ -176,7 +176,7 @@ The following permissions can be granted, on a per user / service principal basi
   - *get rotation policy*: Retrieve rotation policy configuration
   - *set rotation policy*: Set rotation policy configuration
 
-For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
+For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). 
 
 ## Next steps
 - [About Key Vault](../general/overview.md)

@@ -2,11 +2,11 @@
   href: ./index.yml
 - name: Overview
   items:
-    - name: About AKS
+    - name: What is AKS?
       href: intro-kubernetes.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md
-    - name: Supported Kubernetes version
+    - name: Supported Kubernetes versions
       href: supported-kubernetes-versions.md
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
@@ -94,7 +94,7 @@
       href: concepts-network.md
     - name: Storage
       href: concepts-storage.md
-    - name: Scale
+    - name: Scaling
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
@@ -248,6 +248,8 @@
               href: use-cvm.md
             - name: Use system node pools
               href: use-system-pools.md
+            - name: Use instance-level public IP addresses
+              href: use-node-public-ips.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
             - name: Start/stop node pools
@@ -388,8 +390,10 @@
           items:
             - name: Restrict and control cluster egress traffic
               href: limit-egress-traffic.md
-            - name: Use a user defined route for egress
+            - name: Configure outbound type for AKS
               href: egress-outboundtype.md
+            - name: Use a user defined route for egress
+              href: egress-udr.md
             - name: Managed NAT Gateway
               href: nat-gateway.md
             - name: Use an HTTP proxy
@@ -505,9 +509,11 @@
           href: ../api-management/api-management-kubernetes.md
         - name: Use Dapr
           items:
-            - name: How to use the Dapr extension
+            - name: Create the Dapr extension
               href: dapr.md
-            - name: Migrate from Dapr OSS
+            - name: Configure the Dapr extension
+              href: dapr-settings.md
+            - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md
@@ -575,7 +581,7 @@
     - name: PowerShell
       href: /powershell/module/az.aks/#aks
     - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
+      href: /dotnet/api/overview/azure/container-service
     - name: Python
       href: /python/api/overview/azure/container-service
     - name: Java
