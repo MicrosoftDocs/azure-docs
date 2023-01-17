@@ -35,7 +35,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | Value |Parameter name |
 |--|--|
 | SIM name. The SIM name must only contain alphanumeric characters, dashes, and underscores. | `simName` |
-| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. The ICCID is a unique numerical value between 19 and 20 digits in length, beginning with 89. | `integratedCircuitCardIdentifier` |
+| The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. The ICCID is optional and is a unique numerical value between 19 and 20 digits in length, beginning with 89. | `integratedCircuitCardIdentifier` |
 | The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. | `internationalMobileSubscriberIdentity` |
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | `operatorKeyCode` |
@@ -60,9 +60,9 @@ Each IP address must come from the pool you assigned for static IP address alloc
 
 Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create a JSON array containing properties for each of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
 
-If you don't want to assign a SIM policy to a SIM, you can delete the `simPolicyId` parameter for that SIM.
+If you don't want to assign an ICCID value to a SIM, you can delete the `integratedCircuitCardIdentifier` parameter for that SIM. Similarly, delete the `simPolicyId` parameter if you don't want to assign a SIM policy to a SIM.
 
-If you don't want to configure static IP addresses for a SIM, you can delete the `staticIpConfiguration` parameter. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
+If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
 
 ```json
 [
