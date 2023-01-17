@@ -34,7 +34,7 @@ When you create an Enterprise tier instance of Azure Spring Apps, you'll be prov
 - [tanzu-buildpacks/nodejs](https://network.tanzu.vmware.com/products/tanzu-nodejs-buildpack)
 - [tanzu-buildpacks/python](https://network.tanzu.vmware.com/products/tanzu-python-buildpack/)
 
-These buildpacks support deployment from source code or artifact for Java, .NET Core, Go, web static files, Node.js, and Python apps. You can also create a custom builder by specifying buildpacks and stack. For more information, see the [Manage custom builders to deploy an app](how-to-enterprise-build-service.md#manage-custom-builders-to-deploy-an-app) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+These buildpacks support deployment from source code or artifact for Java, .NET Core, Go, web static files, Node.js, and Python apps. You can also create a custom builder by specifying buildpacks and stack. For more information, see the [Manage custom builders](how-to-enterprise-build-service.md#manage-custom-builders) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 When deploying polyglot apps, you should choose a builder to build the app, as shown in the following example. If you don't specify the builder, a `default` builder will be used.
 
