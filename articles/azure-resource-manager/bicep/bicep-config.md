@@ -2,7 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 01/17/2023
 ---
 
 # Configure your Bicep environment
@@ -31,9 +31,9 @@ When working with [modules](modules.md), you can add aliases for module paths. T
 
 The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can override the default settings for the Bicep file validation by modifying `bicepconfig.json`. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
 
-## Intellisense
+## Enable experimental features
 
-To enable experimental features, add the following JSON to bicepconfig.json.
+The following sample enables the [user-defined types in Bicep](https://aka.ms/bicepCustomTypes). 
 
 ```json
 {
