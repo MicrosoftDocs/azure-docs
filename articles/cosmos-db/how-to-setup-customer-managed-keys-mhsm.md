@@ -23,11 +23,11 @@ Please refer to link [Configure customer-managed keys with Azure Key Vault](./ho
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), go to your Azure subscription, and select **Resource providers** under the **Settings** tab:
 
-   :::image type="content" source="./media/how-to-setup-cmk-mhsm/portal-rp.png" alt-text="Resource providers entry from the left menu":::
+   :::image type="content" source="./media/how-to-setup-cmk-mhsm/navigation-resource-providers.png" alt-text="Screenshot of the Resource providers option in the resource navigation menu.":::
 
 1. Search for the **Microsoft.DocumentDB** resource provider. Verify if the resource provider is already marked as registered. If not, choose the resource provider and select **Register**:
 
-   :::image type="content" source="./media/how-to-setup-cmk-mhsm/portal-rp-register.png" alt-text="Registering the Microsoft.DocumentDB resource provider":::
+   :::image type="content" source="media/how-to-setup-cmk-mhsm/resource-provider-registration.png" lightbox="media/how-to-setup-cmk-mhsm/resource-provider-registration.png" alt-text="Screenshot of the Register option for the Microsoft.DocumentDB resource provider.":::
 
 ## Configure your Azure Managed HSM Key Vault
 
