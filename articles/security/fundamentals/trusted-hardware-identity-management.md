@@ -97,12 +97,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
          ```
        2. Create an AKS cluster with one CVM node in the resource group. 
          ```bash
-         az aks create --name <CLUSTER_NAME> \ 
-         --resource-group <RG_NAME> \ 
-         -l <LOCATION> \ 
-         --node-vm-size Standard_DC4as_v5 \ 
-         --nodepool-name <POOL_NAME> \ 
-         --node-count 1 
+         az aks create --name <CLUSTER_NAME> --resource-group <RG_NAME> -l <LOCATION> --node-vm-size Standard_DC4as_v5 --nodepool-name <POOL_NAME> --node-count 1
          ```
        3. Configure kubectl to connect to the cluster. 
          ```bash
@@ -110,11 +105,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
          ```
     2. Add a CVM node pool to the existing AKS cluster.
       ```bash
-      az aks nodepool add --cluster-name <CLUSTER_NAME> \ 
-      --resource-group <RG_NAME> \ 
-      --name <POOL_NAME > \ 
-      --node-vm-size Standard_DC4as_v5 \ 
-      --node-count 1 
+      az aks nodepool add --cluster-name <CLUSTER_NAME> --resource-group <RG_NAME> --name <POOL_NAME > --node-vm-size Standard_DC4as_v5 --node-count 1 
       ```
     3. Verify the connection to your cluster using the kubectl get command. This command returns a list of the cluster nodes.
       ```bash
@@ -127,7 +118,8 @@ Follow the steps below for requesting AMD collateral in a confidential container
 
 2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please visit HERE. 
 
-    ```curl.yaml
+    **curl.yaml**
+    ```bash
     apiVersion: batch/v1 
     kind: Job 
     metadata: 
