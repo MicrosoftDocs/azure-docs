@@ -24,7 +24,7 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
 
 1. Search for _Spark job definition_ in the pipeline Activities pane, and drag a Spark job definition activity under the Synapse to the pipeline canvas.
 
-2. Select the new Spark job definition activity on the canvas if it is not already selected. 
+2. Select the new Spark job definition activity on the canvas if it isn't already selected.
 
 3. In the **General** tab, enter sample for Name.
 
@@ -42,7 +42,7 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
 
 ## Azure Synapse Analytics (Artifacts) settings
 
-1. Select the new Spark job definition activity on the canvas if it is not already selected. 
+1. Select the new Spark job definition activity on the canvas if it isn't already selected. 
 
 2. Select the **Azure Synapse Analytics (Artifacts)** tab to select or create a new Azure Synapse Analytics linked service that will execute the Spark job definition activity.
 
@@ -51,13 +51,13 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
 
 ## Settings tab
 
-1. Select the new Spark job definition activity on the canvas if it is not already selected. 
+1. Select the new Spark job definition activity on the canvas if isn't already selected. 
 
 2. Select the **Settings** tab.
 
 3. Expand the Spark job definition list, you can select an existing Apache Spark job definition in the linked Azure Synapse Analytics workspace.
 
-4. (Optional) You can fill in information for Apache Spark job definition. If the following settings are empty, the settings of the spark job definition itself will be used to run; if the following settings are not empty, these settings will replace the settings of the spark job definition itself.
+4. (Optional) You can fill in information for Apache Spark job definition. If the following settings are empty, the settings of the spark job definition itself will be used to run; if the following settings aren't empty, these settings will replace the settings of the spark job definition itself.
 
      |  Property   | Description   |  
      | ----- | ----- |  
@@ -79,7 +79,7 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
 
 5. You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions, and system variables to add to dynamic content.
 
-    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-add-dynamic-content.png" alt-text="Shows the UI for the add dynamic content for a spark job definition activity.":::
+    :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-add-dynamic-content.png" alt-text="Displays the UI for adding dynamic content to Spark job definition activities.":::
 
 ## User properties tab
 
@@ -89,7 +89,7 @@ You can add properties for Apache Spark job definition activity in this panel.
 
 ## Azure Synapse spark job definition activity definition
 
-Here is the sample JSON definition of an Azure Synapse Analytics Notebook Activity:
+Here's the sample JSON definition of an Azure Synapse Analytics Notebook Activity:
 
 ```json
  {
@@ -136,7 +136,7 @@ definition:
 
 ## See Azure Synapse Spark job definition activity run history
 
-Go to Pipeline runs under the **Monitor** tab, you'll see the pipeline you have triggered. Open the pipeline that contains Azure Synapse Spark job definition activity activity to see the run history.
+Go to Pipeline runs under the **Monitor** tab, you'll see the pipeline you've triggered. Open the pipeline that contains Azure Synapse Spark job definition activity to see the run history.
 
 :::image type="content" source="./media/transform-data-synapse-spark-job-definition/input-output-sjd.png" alt-text="Shows the UI for the input and output for a spark job definition activity runs.":::
 
