@@ -14,27 +14,27 @@ ms.author: jodowns
 
 # Logs and metrics tracked by Azure Front Door
 
-Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration. Telemetry is captured and managed by [Azure Monitor](TODO).
+Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration. Telemetry is captured and managed by [Azure Monitor](../azure-monitor/overview.md).
 
 ## Metrics
 
-Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor and to appear in the portal. Metrics can be displayed in charts or grids, and are accessible through the Azure portal, PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor and to appear in the portal. Metrics can be displayed in charts or grids, and are accessible through the Azure portal, PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
 
 The metrics listed in the table below are recorded and stored free of charge. You can enable additional metrics or storage for an extra cost.
 
 | Metrics  | Description | Dimensions |
 | ------------- | ------------- | ------------- |
-| Bytes Hit ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress. </br> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. </br> **Scenarios excluded in bytes hit ratio calculation**:</br> 1. You explicitly configure no cache either through the Rules Engine or query string caching behavior. </br> 2. You explicitly configure cache-control directive with no-store or private cache. </br>3. Byte hit ratio can be low if most of the traffic is forwarded to origin rather than served from caching based on your configurations or scenarios. | Endpoint |
-| RequestCount | The number of client requests served by CDN. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| ResponseSize | The number of bytes sent as responses from Front Door to clients. |Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
-| TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
-| RequestSize | The number of bytes sent as requests from clients to AFD. | Endpoint, Client Country, client Region, HTTP status, HTTP Status Group |
-| 4XX % ErrorRate | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
-| 5XX % ErrorRate | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
-| OriginRequestCount  | The number of requests sent from AFD to origin | Endpoint, Origin, HTTP Status, HTTP Status Group |
-| OriginLatency | The time calculated from when the request was sent by AFD edge to the backend until AFD received the last response byte from the backend. | Endpoint, Origin |
-| OriginHealth% | The percentage of successful health probes from AFD to origin.| Origin, Origin Group |
-| WAF request count | Matched WAF request. | Action, Rule Name, Policy Name |
+| Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress. </br> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. </br> **Scenarios excluded in bytes hit ratio calculation**:</br> 1. You explicitly configure no cache either through the Rules Engine or query string caching behavior. </br> 2. You explicitly configure cache-control directive with no-store or private cache. </br>3. Byte hit ratio can be low if most of the traffic is forwarded to origin rather than served from caching based on your configurations or scenarios. | Endpoint |
+| Origin Health Percentage | The percentage of successful health probes from AFD to origin.| Origin, Origin Group |
+| Origin Latency | The time calculated from when the request was sent by AFD edge to the backend until AFD received the last response byte from the backend. | Endpoint, Origin |
+| Origin Request Count  | The number of requests sent from AFD to origin | Endpoint, Origin, HTTP Status, HTTP Status Group |
+| Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
+| Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
+| Request Count | The number of client requests served by CDN. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
+| Request Size | The number of bytes sent as requests from clients to AFD. | Endpoint, Client Country, client Region, HTTP status, HTTP Status Group |
+| Response Size | The number of bytes sent as responses from Front Door to clients. |Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
+| Total Latency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
+| Web Application Firewall Request Count | The numer of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name |
 
 > [!NOTE]
 > If a request to the the origin times out, the value for the Http Status dimension is **0**.
