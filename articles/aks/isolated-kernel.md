@@ -35,15 +35,17 @@ This article helps you understand this new feature, and how to implement it.
 
 ## How it works
 
-On AKS, to achieve this functionality [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. This provides the ability to extend the benefits of hardware isolation such as separate kernel per each UVM, that carve out resources for each pod that are not shared with other Kata Containers or namespace containers that run on the same host.
+To achieve this functionality on AKS, [Kata Containers][kata-containers-overview] running on Mariner AKS Container Host (MACH) stack delivers hardware-enforced isolation. This provides the ability to extend the benefits of hardware isolation such as separate kernel per each Kata Container, and allocate resources for each pod that are not shared with other Kata Containers or namespace containers running on the same host.
 
 The solution architecture is based on the following components:
 
 * Mariner AKS Container Host
 * Azure-tuned Dom0 Linux Kernel
-* Open-source Cloud-Hypervisor VMM
+* Open-source Cloud-Hypervisor Virtual Machine Monitor (VMM)
 * Microsoft Hyper-V Hypervisor
 * Integration with Kata Container framework
+
+Deploying Pod Sandboxing using Kata Containers is similar to the standard containerd workflow to deploy containers, the deployment includes kata-runtime options that can be defined in the pod template.
 
 ## Deploy
 
