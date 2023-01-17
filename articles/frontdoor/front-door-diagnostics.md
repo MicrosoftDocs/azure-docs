@@ -17,7 +17,7 @@ zone_pivot_groups: front-door-tiers
 
 Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration. Telemetry is stored and managed by [Azure Monitor](../azure-monitor/overview.md).
 
-::: zone pivot="standard-premium"
+::: zone pivot="front-door-standard-premium"
 
 ## Metrics
 
@@ -160,7 +160,7 @@ To enable and store your diagnostic logs, see [Configure Azure Front Door logs](
 
 ::: zone-end
 
-::: zone pivot="classic"
+::: zone pivot="front-door-classic"
 
 When using Azure Front Door (classic), you can monitor resources in the following ways:
 
