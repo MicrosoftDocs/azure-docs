@@ -40,7 +40,7 @@ In this tutorial, you complete the following steps:
 
 To follow this quickstart using authentication passwordless and your own Azure account:
 
-* Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
 * Sign in with your Azure account at the terminal or command prompt with `az login`. 
 * Use the same account when you add the appropriate role to your resource later in the tutorial.
 * Run the tutorial code in the same terminal or command prompt.
