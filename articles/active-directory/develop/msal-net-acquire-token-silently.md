@@ -32,7 +32,7 @@ Web APIs on ASP.NET Core should use Microsoft.Identity.Web. Web APIs on ASP.NET 
 
 Applications that request tokens for an app identity, with no user involved, by calling `AcquiretTokenForClient` can either rely on MSAL's internal caching, define their own memory token caching or distributed token caching. For instructions and more information, see [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md?tabs=aspnet). 
 
-Since no user is involved, there's no reason to call `AcquireTokenSilent` API. `AcquireTokenForClient` will look in the cache on its own as there's no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
+Since no user is involved, there's no reason to call `AcquireTokenSilent`. `AcquireTokenForClient` will look in the cache on its own as there's no API to clear the cache. Cache size is proportional with the number of tenants and resources you need tokens for. Cache size can be managed by setting eviction policies on the underlying cache store, such as MemoryCache, Redis etc.
 
 ## Desktop, command-line, and mobile applications
 
