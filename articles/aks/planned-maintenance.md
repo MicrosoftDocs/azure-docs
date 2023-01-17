@@ -12,7 +12,7 @@ author: qpetraroia
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that will update your control plane as well as your kube-system pods on a VMSS instance, and minimize workload impact. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows to perform updates and minimize workload impact. Once scheduled, maintenance will occur only during the window you selected.
 
 ## Before you begin
 
@@ -40,28 +40,39 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
+## Understanding maintenance window configuration types
+
+There are currently two available configuration types: `default` and `aksManagedAutoUpgradeSchedule`:
+
+- `default` corresponds to a basic configuration that will update your control plane as well as your kube-system pods on a VMSS instance.
+- `aksManagedAutoUpgradeSchedule` is a more complex configuration that controls when upgrades scheduled by your specified auto-upgrade channel are performed. For more details on about cluster auto-upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
+> [!NOTE]
+> When using auto-upgrade, to ensure proper functionality use a maintenance window with a duration of four hours or more.
+
 ## Creating a maintenance window
 
-To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `aksManagedAutoUpgradeSchedule`. Using any other name will cause your maintenance window not to run.
+To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default` or `aksManagedAutoUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name will cause your maintenance window not to run.
 
 Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
-> [!NOTE]
-> Previously created maintenance configurations using the `--name` value `default` remain valid and able to be used.
-
 A maintenance window has the following properties:
 
-|Name|Description|Default value|
-|--|--|--|
-|`utcOffset`|Used to determine the timezone for cluster maintenance|`+00:00`|
-|`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|
-|`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|
-|`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|
-|`intervalWeeks`|The interval in weeks for maintenance runs|N/A|
-|`intervalMonths`|The interval in months for maintenance runs|N/A|
-|`dayOfWeek`|The specified day of the week for maintenance to begin|N/A|
-|`durationHours`|The duration of the window for maintenance to run|N/A|
-|`notAllowedDates`|Specifies a range of dates that maintenance cannot run, determined by `start` and `end` subproperties. Only applicable when creating the maintenance window using a config file|N/A|
+|Name|Description|Default value|Applicable configuration types|
+|--|--|--|--|
+|`timeInWeek`|In a `default` configuration, this property contains the `day` and `hourSlots` values defining a maintenance window|N/A|`default`|
+|`timeInWeek.day`|The day of the week to perform maintenance in a `default` configuration|N/A|`default`|
+|`timeInWeek.hourSlots`|A list of hour-long time slots to perform maintenance on a given day in a `default` configuration|N/A|`default`|
+|`utcOffset`|Used to determine the timezone for cluster maintenance|`+00:00`|`aksManagedAutoUpgradeSchedule`|
+|`startDate`|The date on which the maintenance window will begin to take effect|The current date at creation time|`aksManagedAutoUpgradeSchedule`|
+|`startTime`|The time for maintenance to begin, based on the timezone determined by `utcOffset`|N/A|`aksManagedAutoUpgradeSchedule`|
+|`schedule`|Used to determine frequency. Three types are available: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`|N/A|`aksManagedAutoUpgradeSchedule`|
+|`intervalWeeks`|The interval in weeks for maintenance runs|N/A|`aksManagedAutoUpgradeSchedule`|
+|`intervalMonths`|The interval in months for maintenance runs|N/A|`aksManagedAutoUpgradeSchedule`|
+|`dayOfWeek`|The specified day of the week for maintenance to begin|N/A|`aksManagedAutoUpgradeSchedule`|
+|`durationHours`|The duration of the window for maintenance to run|N/A|`aksManagedAutoUpgradeSchedule`|
+|`notAllowedDates`|Specifies a range of dates that maintenance cannot run, determined by `start` and `end` subproperties. Only applicable when creating the maintenance window using a config file|N/A|`aksManagedAutoUpgradeSchedule`|
+
 ### Understanding schedule types
 
 There are currently three available schedule types: `Weekly`, `AbsoluteMonthly`, and `RelativeMonthly`:
@@ -92,7 +103,7 @@ An `AbsoluteMonthly` schedule may look like "every 3 months, on the first day of
 }
 ```
 
-### RelativeMonthly schedule
+#### RelativeMonthly schedule
 
 A `RelativeMonthly` schedule may look like "Every 2 months, on the last Monday"
 
@@ -108,18 +119,56 @@ A `RelativeMonthly` schedule may look like "Every 2 months, on the last Monday"
 
 ## Add a maintenance window configuration with Azure CLI
 
-The following example shows a command to add a new maintenance configuration that allows maintenance to run every third Friday between 12:00 AM and 8:00 AM in the `UTC+5:30` timezone:
+The following example shows a command to add a new `default` maintenance configuration that allows maintenance to run from 1:00am to 2:00am every Monday:
 
 ```azurecli-interactive
-aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSCluster -n aksManagedAutoUpgradeSchedule --schedule-type Weekly --day-of-week Friday --interval-weeks 3 --duration 8 --utc-offset +05:30 --start-time 00:00
+az aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSCluster --name default --weekday Monday --start-hour 1
 ```
 
 > [!NOTE]
-> To allow maintenance anytime during a day, omit the *start-time* parameter.
+> To allow maintenance anytime during a day, omit the `--start-time` parameter.
+
+The following example shows a command to add a new `aksManagedAutoUpgradeSchedule` maintenance configuration that allows maintenance to run every third Friday between 12:00 AM and 8:00 AM in the `UTC+5:30` timezone:
+
+```azurecli-interactive
+az aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSCluster -n aksManagedAutoUpgradeSchedule --schedule-type Weekly --day-of-week Friday --interval-weeks 3 --duration 8 --utc-offset +05:30 --start-time 00:00
+```
+
 
 ## Add a maintenance window configuration with a JSON file
 
 You can also use a JSON file create a maintenance configuration instead of using parameters. This has the added benefit of allowing maintenance to be prevented during a range of dates specified by `notAllowedDates.start` and `notAllowedDates.end`.
+
+Create a `default.json` file with the following contents:
+
+```json
+{
+  "timeInWeek": [
+    {
+      "day": "Tuesday",
+      "hour_slots": [
+        1,
+        2
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "hour_slots": [
+        1,
+        6
+      ]
+    }
+  ],
+  "notAllowedTime": [
+    {
+      "start": "2021-05-26T03:00:00Z",
+      "end": "2021-05-30T12:00:00Z"
+    }
+  ]
+}
+```
+
+The above JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am and at 6:00am - 7:00am. There is also an exception from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window.
 
 Create an `autoUpgradeWindow.json` file with the following contents:
 
@@ -149,10 +198,12 @@ Create an `autoUpgradeWindow.json` file with the following contents:
 
 The above JSON file specifies maintenance windows every three months on the first of the month between 9:00 AM - 1:00 PM. There is also an exception from *2023-12-23* to *2024-01-05* where maintenance isn't allowed even if it overlaps with a maintenance window.
 
-The following command adds the maintenance windows from `autoUpgradeWindow.json`:
+The following command adds the maintenance windows from `default.json` and `autoUpgradeWindow.json`:
 
 ```azurecli-interactive
-az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
+az aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
+
+az aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSCluster --name aksManagedAutoUpgradeSchedule --config-file ./autoUpgradeWindow.json
 ```
 
 ## Update an existing maintenance window
@@ -160,7 +211,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 To update an existing maintenance configuration, use the `az aks maintenanceconfiguration update` command.
 
 ```azurecli-interactive
-az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
+az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 2
 ```
 
 ## List all maintenance windows in an existing cluster
@@ -198,13 +249,6 @@ To delete a certain maintenance configuration window in your AKS Cluster, use th
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name autoUpgradeSchedule
 ```
-
-## Using Planned Maintenance with Cluster Auto-Upgrade
-
-Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. For more details on about Cluster Auto-Upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
-
-> [!NOTE]
-> To ensure proper functionality, use a maintenance window of four hours or more.
 
 ## Next steps
 
