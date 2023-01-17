@@ -47,7 +47,7 @@ To follow this quickstart using authentication passwordless and your own Azure a
 
 ### [Connection string](#tab/connection-string)
 
-To follow this quickstart using a connection string to authentication, you won't need to install Azure CLI. In a later step, you'll copy the connection string from the Azure portal and paste it into the code.
+To follow this quickstart using a connection string to authenticate, you don't use your own Azure account. Instead, in a later step, you'll copy the connection string from the Azure portal and use it in the code.
 
 ---
 
