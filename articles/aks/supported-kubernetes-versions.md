@@ -14,9 +14,6 @@ The Kubernetes community releases minor versions roughly every three months. Rec
 
 Minor version releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
->[!WARNING]
-> Due to an issue with Calico and AKS. It is highly reccomended that customers using Calico do not upgrade or create new clusters on v1.25.
-
 ## Kubernetes versions
 
 Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme for each version:
