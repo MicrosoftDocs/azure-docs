@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 11/21/2022
+ms.date: 01/15/2023
 ---
 
 # Identify and remediate attack paths 
