@@ -32,7 +32,6 @@ AutoML runs a number of trials (specified in max_trials) in parallel (specified 
 
 
 
-You can train this type of model by using the [Train Model](././train-model.md). 
 
 1.  Add the **AutoML Image Object Detection** component to your pipeline.
 

@@ -28,7 +28,6 @@ This component trains an NLP classification model on text data. Text classificat
 This model requires a training and Validation dataset. The datasets must be in ML Table format.
 
 
-You can train this type of model by using the [Train Model](././train-model.md). 
 
 1. Add the **AutoML Text NER** component to your pipeline.
 

@@ -27,8 +27,6 @@ This component trains an NLP classification model on text data. Text classificat
 This model requires a training and a validation dataset. The datasets must be in ML Table format.
 
 
-
-
 1.  Add the **AutoML Text Multilabel Classification** component to your pipeline.
 
 1.  Specify the **Target Column** you want the model to output 

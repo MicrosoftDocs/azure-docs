@@ -38,9 +38,6 @@ AutoML runs a number of trials (specified in `max_trials`) in parallel (`specifi
 
 
 
-
-You can train this type of model by using the [Train Model](././train-model.md). 
-
 1.  Add the **AutoML Image Classification Multilable** component to your pipeline.
 
 1.  Specify the **Target Column** you want the model to output 

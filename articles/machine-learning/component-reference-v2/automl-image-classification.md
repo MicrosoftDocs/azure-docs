@@ -32,7 +32,6 @@ Follow this link to get more information on [how to prepare your dataset.](/how-
 AutoML runs a number of trials (specified in max_trials) in parallel (specified in max_concurrent_trials) that try different algorithms and parameters for your model. The service iterates through ML algorithms paired with hyperparameter selections and each trial produces a model with a training score. You are able to choose the metric you want the model to optimize for. The better the score for the chosen metric the better the model is considered to "fit" your data. You are able to define an exit criteria (termination policy) for the experiment. The exit criteria will be model with a specific training score you want AutoML to find. It will stop once it hits the exit criteria defined. This component will then output the best model that has been generated at the end of the run for your dataset.
 
 
-You can train this type of model by using the [Train Model](././train-model.md). 
 
 1.  Add the **AutoML Image Classification** component to your pipeline.
 
