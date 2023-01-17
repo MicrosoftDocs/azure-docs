@@ -20,5 +20,7 @@ items:
     href: ./dynatrace/index.yml
   - name: NGINXaaS - Azure Native ISV Service
     href: ./nginx/index.yml
-  - name: Azure Native Qumulo Scalable File Service
+  - name: Azure Native Qumulo Scalable File Service 
     href: ./qumulo/index.yml
+  - name: Azure Native New Relic Service
+    href: ./new-relic/index.yml
