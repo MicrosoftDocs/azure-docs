@@ -40,13 +40,13 @@ items:
     href: policy-control.md
   - name: Default service and SIM policy
     href: default-service-sim-policy.md
-  - name: Monitor Azure Private 5G Core using Azure Monitor platform metrics
-    href: monitor-private-5g-core-with-platform-metrics.md
-  - name: Local monitoring tools
+  - name: Monitor Azure Private 5G Core
     items:
-    - name: Distributed tracing
+    - name: Cloud monitoring with Azure Monitor platform metrics
+      href: monitor-private-5g-core-with-platform-metrics.md
+    - name: Local monitoring with distributed tracing
       href: distributed-tracing.md
-    - name: Packet core dashboards
+    - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
   - name: Security
     href: security.md
