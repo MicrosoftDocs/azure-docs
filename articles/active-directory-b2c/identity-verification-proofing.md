@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/17/2023
 ms.author: gasinh
-ms.subservice: B2C
 ---
 
 # Identity verification and proofing partners
