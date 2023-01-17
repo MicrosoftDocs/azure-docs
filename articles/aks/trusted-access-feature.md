@@ -4,7 +4,11 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 01/17/2023
+=======
+ms.date: 01/16/2023
+>>>>>>> 2185167a1300bba9833ee4c0f41a4c965117c7ac
 ms.author: schaffererin
 ---
 
@@ -71,7 +75,7 @@ After confirming which role to use, use the Azure CLI to create a Trusted Access
 ### Azure CLI
 
 ```azurecli
-az aks trustedaccess rolebinding create az aks trustedaccess rolebinding create -g --cluster-name -n -s --roles
+az aks trustedaccess rolebinding create  --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <rolebinding name> -s <connected service resource ID> --roles <role name1, rolename2>
 ```
 
 ### Sample Azure CLI command
@@ -81,7 +85,31 @@ az aks trustedaccess rolebinding create \
 -g myResourceGroup \
 --cluster-name myAKSCluster -n test-binding \
 -s /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
---roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader Microsoft.Compute/virtualMachineScaleSets/test-admin
+--roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader,Microsoft.Compute/virtualMachineScaleSets/test-admin
+```
+
+---
+
+## Update an existing Trusted Access RoleBinding
+
+For an existing RoleBinding with associated source service, you can update the rolebinding with new roles.
+
+> [!NOTE]
+> The new RoleBinding may take up to 5 minutes to take effect as addon manager updates clusters every 5 mintes. Before new RoleBinding takes effect, the old RoleBinding still works.
+
+### Azure CLI
+
+```azurecli
+az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing rolebinding name>  --roles <new role name1, newrolename2>
+```
+
+### Sample Azure CLI command
+
+```azurecli
+az aks trustedaccess rolebinding update \
+--resource-group myResourceGroup \
+--cluster-name myAKSCluster -n test-binding \
+--roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader,Microsoft.Compute/virtualMachineScaleSets/test-admin
 ```
 
 ---
@@ -91,7 +119,7 @@ az aks trustedaccess rolebinding create \
 Use the Azure CLI to check the Trusted Access RoleBindings for a cluster.
 
 ```azurecli
-az aks trustedaccess rolebinding list --resource-group <clusterResourceGroup> --cluster-name <clusterName>
+az aks trustedaccess rolebinding list --name <rolebinding name> --resource-group <AKS resource group>
 ```
 
 ---
@@ -101,7 +129,7 @@ az aks trustedaccess rolebinding list --resource-group <clusterResourceGroup> --
 Use the Azure CLI to list your specific Trusted Access RoleBinding.
 
 ```azurecli
-az aks trustedaccess rolebinding show --name <bindingName> --resource-group <clusterResourceGroup> --cluster-name <clusterName>
+az aks trustedaccess rolebinding show --name <rolebinding name> --resource-group <AKS resource group> --cluster-name <AKS cluster name>
 ```
 
 ## Next steps
