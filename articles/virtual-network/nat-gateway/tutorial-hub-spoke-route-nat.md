@@ -55,7 +55,7 @@ All outbound internet traffic will traverse the NAT gateway to the internet. Use
     | NAT gateway name | Enter **myNATgateway**. |
     | Region | Select **South Central US**. |
     | Availability zone | Select a **Zone** or **No zone**. |
-    | TCP idle timeout (minutes) | Enter **15**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 5. Select **Next: Outbound IP**.
 
