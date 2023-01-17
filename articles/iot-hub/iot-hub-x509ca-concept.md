@@ -14,7 +14,7 @@ ms.author: eustacea
 
 This article describes the value of using X.509 certificate authority (CA) certificates in IoT device manufacturing and authentication.
 
-An X.509 CA certificate is a digital certificate that can sign other certificates. A digital certificate is considered X.509 if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard. And a certificate authority (CA) means that its holder can sign other certificates.
+An X.509 CA certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard. A certificate authority (CA) means that its holder can sign other certificates.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
@@ -86,7 +86,7 @@ A successful response to the proof-of-possession challenge from IoT Hub complete
 
 ## Sign devices into a certificate chain of trust
 
-IoT requires a unique identity for every device that connects. When using certificate-based authentication, these identities are in the form of certificates. In our example, this means that every Smart-X-Widget must possess a unique device certificate.
+IoT requires a unique identity for every device that connects. For certificate-based authentication, these identities are in the form of certificates. In our example, certificate-based authentication means that every Smart-X-Widget must possess a unique device certificate.
 
 One way to provide unique certificates on each device is to pre-generate certificates for Smart-X-Widgets and to trust supply chain partners with the corresponding private keys. For Company-X, this means entrusting both Factory-Y and Technician-Z. While this is a valid method, it comes with challenges that must be overcome to ensure trust, as follows:
 
