@@ -56,16 +56,16 @@ The following table summarizes the expected performance targets between standard
 
 Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see [Provisioned model](understanding-billing.md#provisioned-model).
 
-| **Capacity (GiB)** | **Baseline IOPS** | **Burst IOPS** | **Burst credits** | **Throughput (ingress + egress) (MiB/sec)** |
+| **Capacity (GiB)** | **Baseline IOPS** | **Burst IOPS** | **Burst credits** | **Throughput (ingress + egress)** |
 |--------------------|-------------------|----------------|-------------------|---------------------------------------------|
-| 100                | 3,100             | Up to 10,000   | 24,840,000        | 110                                         |
-| 500                | 3,500             | Up to 10,000   | 23,400,000        | 150                                         |
-| 1,024              | 4,024             | Up to 10,000   | 21,513,600        | 203                                         |
-| 5,120              | 8,120             | Up to 15,360   | 26,064,000        | 613                                         |
-| 10,240             | 13,240            | Up to 30,720   | 62,928,000        | 1,125                                       |
-| 33,792             | 36,792            | Up to 100,000  | 227,548,800       | 3,480                                       |
-| 51,200             | 54,200            | Up to 100,000  | 164,880,000       | 5,220                                       |
-| 102,400            | 100,000           | Up to 100,000  | 0                 | 10,340                                      |
+| 100                | 3,100             | Up to 10,000   | 24,840,000        | 110 MiB/s                                   |
+| 500                | 3,500             | Up to 10,000   | 23,400,000        | 150 MiB/s                                   |
+| 1,024              | 4,024             | Up to 10,000   | 21,513,600        | 203 MiB/s                                   |
+| 5,120              | 8,120             | Up to 15,360   | 26,064,000        | 613 MiB/s                                   |
+| 10,240             | 13,240            | Up to 30,720   | 62,928,000        | 1,125 MiB/s                                 |
+| 33,792             | 36,792            | Up to 100,000  | 227,548,800       | 3,480 MiB/s                                 |
+| 51,200             | 54,200            | Up to 100,000  | 164,880,000       | 5,220 MiB/s                                 |
+| 102,400            | 100,000           | Up to 100,000  | 0                 | 10,340 MiB/s                                |
 
 ### Performance checklist
 
@@ -77,7 +77,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Throughput:** If the workload uses larger block size or more IOPS that will cause bandwidth to exceed 300 MiB/s per share or 60 MiB/s per file, then you should choose a premium file share over standard.
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#bursting) for and how long it spends bellow the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share.
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share.
 
 - **Workload parallelization:** For parallel supported workloads, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
 
@@ -91,22 +91,22 @@ When thinking about latency, it's important to first understand how latency is d
 
 - **Service Latency (SuccessServerLatency)** is the time it takes for a transaction to round-trip only within the Azure Files service. This doesn't include any client or network latency.
 
-The difference between SuccessE2ELatency and SuccessServerLatency values is the latency likely caused by the network and/or the client.
+  :::image type="content" source="media/understanding-performance/latency-diagram.png" alt-text="Diagram comparing client latency and service latency.":::
+
+The difference between **SuccessE2ELatency** and **SuccessServerLatency** values is the latency likely caused by the network and/or the client.
 
 It's common to confuse client latency with service latency (in this case, Azure Files capabilities). For example, if the service latency is reporting low latency and the end-to-end is reporting [very high latency](storage-troubleshooting-files-performance.md#very-high-latency-for-requests), that suggests that all the time is spent in transit to and from the client, and not in the Azure Files service.
 
-Furthermore, as the diagram below illustrates, the farther you are away from the service, the slower the latency experience will be, and the more difficult it will be to achieve performance scale limits. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are effective, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
-
-:::image type="content" source="media/understanding-performance/latency-diagram.png" alt-text="Diagram comparing client latency and service latency.":::
+Furthermore, as the diagram illustrates, the farther you are away from the service, the slower the latency experience will be, and the more difficult it will be to achieve performance scale limits. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are effective, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
 
 > [!NOTE]
 > Using a VM in Azure to test performance between on-premises and Azure is an effective and practical way to baseline the networking capabilities of the connection to Azure. Often a workload can be slowed down by an undersized or incorrectly routed ExpressRoute circuit or VPN gateway.
 
 ## Queue depth
 
-Queue depth is the number of outstanding IO requests that a storage resource can service. As the disks used by storage systems have evolved from hard disk drive spindles (IDE, SATA, SAS) to solid state devices (SSD, NVMe), they have also evolved to support higher queue depth.
+Queue depth is the number of outstanding IO requests that a storage resource can service. As the disks used by storage systems have evolved from HDD spindles (IDE, SATA, SAS) to solid state devices (SSD, NVMe), they've also evolved to support higher queue depth.
 
-High queue depth can be achieved in several different ways in combination with many clients, files, and threads. To determine the queue depth, simply multiply the number of clients by the number of files by the number of threads (clients x files x threads = queue depth).
+High queue depth can be achieved in several different ways in combination with many clients, files, and threads. To determine the queue depth, multiply the number of clients by the number of files by the number of threads (clients * files * threads = queue depth).
 
 A workload consisting of a single client that serially interacts with a single file within a large dataset is an example of low queue depth. In contrast, a workload that supports parallelism with multiple threads and multiple files can easily achieve high queue depth. Because Azure Files is a distributed file service that spans thousands of Azure cluster nodes and is designed to run workloads at scale, it's easy to achieve high queue depth.
 
@@ -136,7 +136,7 @@ This table breaks down the time needed (in milliseconds) to create a single 16 K
 |------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
 | Thread 1         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
-In this example, it would take approximately 14 ms to create a single 16 KiB file from the six operations. If a single-threaded application wants to move 10,000 files to an Azure file share, that translates to 140,000 ms (14 ms * 10,000) or 140 seconds, because each file is moved sequentially one at a time. Keep in mind that the time to service each request is primarily determined by how close the compute and storage are located to each other, as discussed in the previous section.
+In this example, it would take approximately 14 ms to create a single 16 KiB file from the six operations. If a single-threaded application wants to move 10,000 files to an Azure file share, that translates to 140,000 ms (14 ms * 10,000) or 140 seconds because each file is moved sequentially one at a time. Keep in mind that the time to service each request is primarily determined by how close the compute and storage are located to each other, as discussed in the previous section.
 
 By using eight threads instead of one, the above workload can be reduced from 140,000 ms (140 seconds) down to 17,500 ms (17.5 seconds). As the table below shows, when you're moving eight files in parallel instead of one file at a time, you can move the same amount of file data in 87.5% less time.
 
