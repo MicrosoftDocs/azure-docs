@@ -4,11 +4,7 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-<<<<<<< HEAD
-ms.date: 01/17/2023
-=======
 ms.date: 01/16/2023
->>>>>>> 2185167a1300bba9833ee4c0f41a4c965117c7ac
 ms.author: schaffererin
 ---
 
@@ -100,12 +96,12 @@ For an existing RoleBinding with associated source service, you can update the r
 ### Azure CLI
 
 ```azurecli
+# Update RoleBinding command
+
 az aks trustedaccess rolebinding update --resource-group <AKS resource group> --cluster-name <AKS cluster name> -n <existing rolebinding name>  --roles <new role name1, newrolename2>
-```
 
-### Sample Azure CLI command
+# Update RoleBinding command with sample resource group, cluster, and roles
 
-```azurecli
 az aks trustedaccess rolebinding update \
 --resource-group myResourceGroup \
 --cluster-name myAKSCluster -n test-binding \
