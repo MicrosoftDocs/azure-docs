@@ -117,25 +117,25 @@ Open the required location and start the `azurite.exe`. After you run the execut
 
 In Visual Studio 2022, create an **Azure Functions** project. While setting the project options, mark the box labeled **Use Azurite for runtime storage account**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project.":::
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions.png":::
 
 After you create the project, Azurite starts automatically. The output looks similar to the following screenshot:
 
-:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project.":::
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions-output.png":::
 
 #### Running Azurite from an ASP.NET project
 
 In Visual Studio 2022, create an **ASP.NET Core Web App** project. Then, open the **Connected Services** dialog box, select **Add a service dependency**, and then select **Storage Azurite emulator**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connect.png" alt-text="A screenshot showing how to add Azurite as a dependency to an ASP.NET project.":::
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connect.png" alt-text="A screenshot showing how to add Azurite as a dependency to an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connect.png":::
 
 In the **Configure Storage Azurite emulator** dialog box, set the **Connection string name** field to `StorageConnectionString`, and then select **Finish**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project.":::
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connection-string.png":::
 
-When the configuration completes, select **Close**. The Azurite emulator starts automatically.
+When the configuration completes, select **Close** and the Azurite emulator starts automatically. The output looks similar to the following screenshot:
 
-:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-output.png" alt-text="A screenshot showing output after connecting an ASP.NET project to the Azurite emulator.":::
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-output.png" alt-text="A screenshot showing output after connecting an ASP.NET project to the Azurite emulator." lightbox="media/storage-use-azurite/azurite-aspnet-output.png":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
