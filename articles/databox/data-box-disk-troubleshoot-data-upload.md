@@ -26,10 +26,6 @@ The error notification and options vary depending on whether you can fix the err
 
     An example of a non-retryable error is if a blob storage container is configured as Write Once, Read Many (WORM). Upload of any blobs that are already stored in the container will fail. This type of error is referred to as a *non-retryable error* in the discussion that follows.
 
-> [!NOTE]
-> The information in this article applies to import orders only.
-
-
 ## Upload errors notification
 
 When a file upload fails because of an error, you'll receive a notification in the Azure portal. You can tell whether the error can be fixed by the status and options in the order overview.
@@ -71,7 +67,7 @@ To resolve retryable copy errors during an upload, do these steps:
 
    Your screen will look similar to the one below. In the example, the **Enable large file share** error can be resolved by toggling **Not enabled** for each storage account.
 
-   ![Screenshot of a Data Box Disk order with Resolve errors pane.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-03.png)
+   ![Screenshot of a Data Box Disk order with Resolve errors pane and Enable large file shares highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-03.png)
 
 
    You can then select **Proceed with data copy** or **Skip and proceed with data erasure**. If you opt for **Proceed with data copy**, you can select if you want to address the error for **Selected disk** or **All disks**.
