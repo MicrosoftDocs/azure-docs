@@ -16,7 +16,7 @@ ms.date: 12/15/2022
 # Model sweeping and selection for forecasting in AutoML
 This article focuses on how AutoML searches for and selects forecasting models. Please see the [methods overview article](./concept-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-## Model Sweeping
+## Model sweeping
 The central task for AutoML is to train and evaluate several models and choose the best one with respect to the given primary metric. The word "model" here refers to both the model class - such as ARIMA or Random Forest - and the specific hyper-parameter settings which distinguish models within a class. For instance, ARIMA refers to a class of models that share a mathematical template and a set of statistical assumptions. Training, or fitting, an ARIMA model requires a list of positive integers that specify the precise mathematical form of the model; these are the hyper-parameters. ARIMA(1, 0, 1) and ARIMA(2, 1, 2) have the same class, but different hyper-parameters and, so, can be separately fit with the training data and evaluated against each other. AutoML searches, or _sweeps_, over different model classes and within classes by varying hyper-parameters.
 
 The following table shows the different hyper-parameter sweeping methods that AutoML uses for different model classes:
