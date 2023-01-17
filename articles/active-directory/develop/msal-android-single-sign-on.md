@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 01/17/2023
 ms.author: henrymbugua
 ---
 
@@ -25,8 +25,6 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 ## Prerequisites
 
-This how-to assumes you know how to:
-
 - Provision your app using the Azure portal. For more information about app provision, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
@@ -34,11 +32,10 @@ This how-to assumes you know how to:
 
 There are two ways for applications using MSAL for Android to achieve SSO:
 
-* Through a [broker application](#sso-through-brokered-authentication)
-* Through the [system browser](#sso-through-system-browser)
+- Through a [broker application](#sso-through-brokered-authentication)
+- Through the [system browser](#sso-through-system-browser)
 
-
-   It's recommended to use a broker application for benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
+  It's recommended to use a broker application for benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
 
 ## SSO through brokered authentication
 
@@ -50,7 +47,7 @@ We recommend that you use one of Microsoft's authentication brokers to participa
   - Device Registration (Workplace Join)
   - Mobile Device Management
 - Device-wide Account Management
-  -  via Android AccountManager & Account Settings
+  - via Android AccountManager & Account Settings
   - "Work Account" - custom account type
 
 On Android, the Microsoft Authentication Broker is a component that's included in the [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) and [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) apps.
@@ -87,7 +84,7 @@ Installing a broker doesn't require the user to sign in again. Only when the use
 
 If there's only one broker hosting app installed, and it's removed, then the user will need to sign in again. Uninstalling the active broker removes the account and associated tokens from the device.
 
-If Intune Company Portal is installed and is operating as the active broker, and Microsoft Authenticator is also installed, then if the Intune Company Portal (active broker) is uninstalled the user will need to sign in again. Once they sign in again, the Microsoft Authenticator app  becomes the active broker.
+If Intune Company Portal is installed and is operating as the active broker, and Microsoft Authenticator is also installed, then if the Intune Company Portal (active broker) is uninstalled the user will need to sign in again. Once they sign in again, the Microsoft Authenticator app becomes the active broker.
 
 ### Integrating with a broker
 
@@ -111,7 +108,7 @@ Windows:
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Once you've generated a signature hash with *keytool*, use the Azure portal to generate the redirect URI:
+Once you've generated a signature hash with _keytool_, use the Azure portal to generate the redirect URI:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you registered your application.
@@ -154,7 +151,7 @@ If you get an `MsalClientException` with error code `"BROKER_BIND_FAILURE"`, the
 It might not be immediately clear that broker integration is working, but you can use the following steps to check:
 
 1. On your Android device, complete a request using the broker.
-1. In the settings on your Android device, look for a newly created account corresponding to the account that you authenticated with. The account should be of type *Work account*.
+1. In the settings on your Android device, look for a newly created account corresponding to the account that you authenticated with. The account should be of type _Work account_.
 
 You can remove the account from settings if you want to repeat the test.
 
@@ -166,7 +163,7 @@ Android applications have the option to use the WebView, system browser, or Chro
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
 
-MSAL supports authorization using a `WebView`, or the system browser.  The image below shows how it looks using the `WebView`, or the system browser with CustomTabs or without CustomTabs:
+MSAL supports authorization using a `WebView`, or the system browser. The image below shows how it looks using the `WebView`, or the system browser with CustomTabs or without CustomTabs:
 
 ![MSAL login examples](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -176,7 +173,7 @@ By default, applications integrated with MSAL use the system browser's Custom Ta
 
 If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a single sign-on experience across the device or between native apps and web apps.
 
-If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have a SSO experience across applications if they have an active sign-in with one of the apps.
+If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have SSO experience across applications if they have an active sign-in with one of the apps.
 
 ### WebView
 
@@ -186,7 +183,7 @@ To use the in-app WebView, put the following line in the app configuration JSON 
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-When using the in-app `WebView`, the user signs in directly to the app. The tokens are kept inside the sandbox of the app and aren't available outside the app's cookie jar. As a result, the user can't have a SSO experience across applications unless the apps integrate with the Authenticator or Company Portal.
+When using the in-app `WebView`, the user signs in directly to the app. The tokens are kept inside the sandbox of the app and aren't available outside the app's cookie jar. As a result, the user can't have SSO experience across applications unless the apps integrate with the Authenticator or Company Portal.
 
 However, `WebView` does provide the capability to customize the look and feel for sign-in UI. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
 
@@ -198,7 +195,7 @@ By default, MSAL uses the browser and a [custom tabs](https://developer.chrome.c
 "authorization_user_agent" : "BROWSER"
 ```
 
-Use this approach to provide a SSO experience through the device's browser. MSAL uses a shared cookie jar, which allows other native apps or web apps to achieve  SSO on the device by using the persist session cookie set by MSAL.
+Use this approach to provide SSO experience through the device's browser. MSAL uses a shared cookie jar, which allows other native apps or web apps to achieve SSO on the device by using the persist session cookie set by MSAL.
 
 ### Browser selection heuristic
 
@@ -206,23 +203,23 @@ Because it's impossible for MSAL to specify the exact browser package to use on 
 
 MSAL primarily retrieves the default browser from the package manager and checks if it is in a tested list of safe browsers. If not, MSAL falls back on using the Webview rather than launching another non-default browser from the safe list. The default browser will be chosen regardless of whether it supports custom tabs. If the browser supports Custom Tabs, MSAL will launch the Custom Tab. Custom Tabs have a look and feel closer to an in-app `WebView` and allow basic UI customization. See [Custom Tabs in Android](https://developer.chrome.com/multidevice/android/customtabs) to learn more.
 
-If there are no browser packages on the device, MSAL uses the in-app `WebView`. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure a SSO experience.
+If there are no browser packages on the device, MSAL uses the in-app `WebView`. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure SSO experience.
 
 #### Tested Browsers
 
 The following browsers have been tested to see if they correctly redirect to the `"redirect_uri"` specified in the configuration file:
 
-| Device | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
-| -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
-| Nexus 4 (API 17) | pass | pass |not applicable |not applicable |not applicable |not applicable |
-| Samsung S7 (API 25) | pass<sup>1</sup> | pass | pass | pass | fail |pass |
-| Huawei (API 26) |pass<sup>2</sup> | pass | fail | pass | pass |pass |
-| Vivo (API 26) |pass|pass|pass|pass|pass|fail|
-| Pixel 2 (API 26) |pass | pass | pass | pass | fail |pass |
-| Oppo | pass | not applicable<sup>3</sup>|not applicable  |not applicable |not applicable | not applicable|
-| OnePlus (API 25) |pass | pass | pass | pass | fail |pass |
-| Nexus (API 28) |pass | pass | pass | pass | fail |pass |
-|MI | pass | pass | pass | pass | fail |pass |
+| Device              | Built-in Browser |                     Chrome |          Opera | Microsoft Edge |     UC Browser |        Firefox |
+| ------------------- | :--------------: | -------------------------: | -------------: | -------------: | -------------: | -------------: |
+| Nexus 4 (API 17)    |       pass       |                       pass | not applicable | not applicable | not applicable | not applicable |
+| Samsung S7 (API 25) | pass<sup>1</sup> |                       pass |           pass |           pass |           fail |           pass |
+| Huawei (API 26)     | pass<sup>2</sup> |                       pass |           fail |           pass |           pass |           pass |
+| Vivo (API 26)       |       pass       |                       pass |           pass |           pass |           pass |           fail |
+| Pixel 2 (API 26)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
+| Oppo                |       pass       | not applicable<sup>3</sup> | not applicable | not applicable | not applicable | not applicable |
+| OnePlus (API 25)    |       pass       |                       pass |           pass |           pass |           fail |           pass |
+| Nexus (API 28)      |       pass       |                       pass |           pass |           pass |           fail |           pass |
+| MI                  |       pass       |                       pass |           pass |           pass |           fail |           pass |
 
 <sup>1</sup>Samsung's built-in browser is Samsung Internet.<br/>
 <sup>2</sup>Huawei's built-in browser is Huawei Browser.<br/>
