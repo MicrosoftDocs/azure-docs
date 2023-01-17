@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 01/17/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -27,10 +27,10 @@ The following architecture diagram illustrates the verification and proofing flo
 1. User begins registration with a device.
 2. User enters information.
 3. Digital-risk score is assessed, then third-party identity proofing and identity validation occurs.
-4. Identity is validated.
-5. User account is created in Azure Active Directory B2C.
-6. User access is assigned.
-7. User receives access-approved message.
+4. Identity is validated or rejected.
+5. User attributes are passed to Azure Active Directory B2C.
+6. If user verification is successful, a user account is created in Azure AD B2C during sign-in.
+7. Based on the verification result, the user receives an access-approved or -denied message.
 
 ## Software vendors and integration documentation
 
@@ -38,7 +38,7 @@ Microsoft partners with independent software vendors (ISVs). Use the following t
 
 | ISV logo | ISV link and description| Integration documentation|
 |---|---|---|
-| ![Screenshot of the Deduce logo.](./media/partner-gallery/deduce-logo.png) | [Deduce](https://www.deduce.com/): Identity verification and proofing provider that helps stop account takeover and registration fraud. Use it to combat identity fraud and create a trusted user experience. |[Configure Azure AD B2C with Deduce to combat identity fraud and create a trusted user experience](/azure/active-directory-b2c/partner-deduce)|
+| ![Screenshot of the Deduce logo.](./media/partner-gallery/deduce-logo.png) | [Deduce](https://www.deduce.com/): Identity verification and proofing provider that helps stop account takeover and registration fraud. Use it to combat identity fraud and create a trusted user experience. |[Configure Azure AD B2C with Deduce to combat identity fraud and create a trusted user experience](https://learn.microsoft.com/azure/active-directory-b2c/partner-deduce)|
 | ![Screenshot of the eID-Me logo.](./media/partner-gallery/eid-me-logo.png) |  [Bluink, Ltd.](https://bluink.ca/): eID-Me is an identity verification and decentralized digital identity solution for Canadian citizens. Use it to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |[Configure eID-Me with Azure AD B2C for identity verification](/articles/active-directory-b2c/partner-eid-me.md)|
 |![Screenshot of the Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian Information Solutions, Inc.](https://www.experian.com/business/products/crosscore): Identity verification and proofing provider with solutions that perform risk assessments based on user attributes. |[Tutorial: Configure Experian with Azure AD B2C](/articles/active-directory-b2c/partner-experian.md)|
 |![Screenshot of the IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology, a GBG company](./partner-idology.md): Identity verification and proofing provider with ID verification, fraud prevention, and compliance solutions.|[Tutorial for configuring IDology with Azure AD B2C](/azure/active-directory-b2c/partner-idology)|
