@@ -320,6 +320,9 @@
       - name: NGINX
         tocHref: /azure/partner-solutions/nginx/
         topicHref: /azure/partner-solutions/nginx/nginx-overview
+      - name: New Relic
+        tocHref: /azure/partner-solutions/new-relic/
+        topicHref: /azure/partner-solutions/new-relic/new-relic-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
