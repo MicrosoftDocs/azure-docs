@@ -61,7 +61,7 @@ Forbidden (403)
 Key Vault isn't correctly configured to allow VNet/Trusted Service Bypass. The provision detects that it can't access key vault therefore throw the error. |
 | Mitigation | Go to Azure portal -\> Key Vault -\> Networking -\> Firewalls and virtual networks -\> Ensure "Allow public access from specific virtual networks and IP addresses" is selected and the "Allow trusted Microsoft services to bypass this firewall" is checked -\> Save
 
-:::image type="content" source="./media/troubleshoot-cmk/nw-allow-public-access.png" alt-text="Network settings to allow public access":::
+:::image type="content" source="./media/troubleshoot-cmk/nw-allow-public-access.png" alt-text="Network settings to allow public access.":::
 
 
 ___________________________________
