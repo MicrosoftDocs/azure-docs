@@ -8,7 +8,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 01/17/2023
 
 ms.author: cmulligan 
 author: csmulligan 
@@ -33,11 +33,11 @@ You can usually leave an organization on your own without having to contact an a
 1. To view the organizations you belong to, first open your **My Account** page. You either have a work or school account  created by an organization or a personal account such as for Xbox, Hotmail, or Outlook.com.  
 
    - If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
-   - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your **Primary domain** or **Tenant ID**.
-   
-    :::image type="content" source="media/leave-the-organization/personal-account-overview.png" alt-text="Screenshot of Azure AD tenant overview.":::
-
-   Example My Account URLs: https://myaccount.microsoft.com?tenantId=11111111-aaaa-2222-bbbb-333333333333 or https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com.
+   - If you're using a personal account or email one-time passcode, you'll need to use a My Account URL that includes your tenant name or tenant ID.
+   For example:
+    https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com
+    or 
+    https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789.
 
 1. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
