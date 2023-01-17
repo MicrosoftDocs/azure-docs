@@ -27,7 +27,7 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 
 ### Managed Identity Support 
 
-You can use a managed identity to authenticate to any service that supports Azure AD (Active Directory) authentication with Microsoft Energy Data Services. For example, you can write a script in Azure Function to ingest data in Microsoft Energy Data Services. (link will be created today)
+You can use a managed identity to authenticate to any [service that supports Azure AD (Active Directory) authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md) with Microsoft Energy Data Services. For example, you can write a script in Azure Function to ingest data in Microsoft Energy Data Services. Now, you can use managed identity to connect to Microsoft Energy Data Services using system or user assigned managed identity from other Azure services. [Learn more.]( ../energy-data-services/how-to-use-managed-identity.md)
 
 
 <hr width=100%>
