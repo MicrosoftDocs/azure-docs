@@ -4,23 +4,17 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 01/10/2023
+ms.date: 01/17/2023
 ms.author: schaffererin
 ---
 
 # Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access (PREVIEW)
 
-Many Azure services depend on clusterAdmin kubeconfig and the publicly accessible kube-apiserver endpoint to access AKS clusters.
-
-The AKS Trusted Access feature enables you to bypass the private endpoint restriction. Instead of relying on an overpowered [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
+Many Azure services that integrate with Azure Kubernetes Service (AKS) need access to the Kubernetes API server. In order to avoid granting these services admin access or having to keep your AKS clusters public for network access, you can use the AKS Trusted Access feature, which enables you to bypass the private endpoint restriction. Instead of relying on an overpowered [Microsoft Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) application, this feature can use your system-assigned MSI to authenticate with the managed services and applications you want to use on top of AKS.
 
 Trusted Access eliminates the following concerns:
 
-* Azure services may not have stable access to customer api-servers.
-
-  * Unable to access when the authorized IP range is enabled.
-
-  * Unable to access in private clusters unless Azure services implement a complex private endpoint access model.
+* Azure services may be unable to access your api-servers when the authorized IP range is enabled, or in private clusters unless you implement a complex private endpoint access model.
 
 * clusterAdmin kubeconfig in Azure services creates a risks or privilege escalation and leaking kubeconfig.
 
