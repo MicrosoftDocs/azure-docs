@@ -57,7 +57,7 @@ Importantly, AutoML also includes **ensemble** models that create weighted combi
 > 1.  The TCN cannot currently be included in ensembles.
 > 2. AutoML by default disables another ensemble method, the **stack ensemble**, which is included with default regression and classification tasks in AutoML. The stack ensemble fits a meta-model on the best model forecasts to find ensemble weights. We've found in internal benchmarking that this strategy has an increased tendency to over fit time series data. This can result in poor generalization, so the stack ensemble is disabled by default. However, it can be enabled if desired in the AutoML configuration.
 
-## How AutoML Uses Your Data
+## How AutoML uses your data
 
 AutoML accepts time series data in tabular, "wide" format; that is, each variable must have its own corresponding column. AutoML requires that one of the columns must be the time axis for the forecasting problem which is parsable into a datetime type. The simplest time series data set consists of a **time column** and a numeric **target column**. The target is the variable one intends to predict into the future. An example of the format in this simple case follows below: 
 
@@ -83,7 +83,7 @@ timestamp | SKU | price | advertised | quantity
 
 In this example, there's a SKU, a retail price, and a flag indicating whether an item was advertised in addition to the timestamp and target quantity. There are evidently two series in this dataset - one for the JUICE1 SKU and one for the BREAD3 SKU; the `SKU` column is a **time series ID column** since grouping by it gives two groups containing a single series each. Before sweeping over models, AutoML does basic validation of the input configuration and data and adds engineered features.
 
-### Missing Data Handling
+### Missing data handling
 AutoML's time series models generally require data with regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Prior to modeling, AutoML must ensure that series are values are not missing _and_ that the observations are regular. Hence, there are two missing data cases:
 
 * A value is missing for some cell in the tabular data
@@ -112,7 +112,7 @@ Numeric Feature     | Median value
 
 Missing values for categorical features are handled during numerical encoding by including an additional category corresponding to a missing value. Imputation is implicit in this case.
 
-### Automated Feature Engineering
+### Automated feature engineering
 AutoML generally adds new columns to user data in an effort to increase modeling accuracy. Engineered feature can include the following:
 
 Feature Group | Default/Optional
@@ -127,11 +127,11 @@ Seasonal decomposition (STL) | Optional
 
 The user can configure featurization from the AutoML SDK via the [ForecastingJob](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings) class or from the [AzureML Studio web interface](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-### Model Sweeping
+### Model sweeping
 After data has been prepared with missing data handling and feature engineering, AutoML sweeps over a set of models and hyper-parameters using a [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/). The models are ranked based on validation or cross-validation metrics and then, optionally, the top models may be used in an ensemble model. The best model, or any of the trained models, can be inspected, downloaded, or deployed to produce forecasts as needed. See the [model sweeping and selection](./concept-automl-forecasting-sweeping.md) article for more details.
 
 
-### Model Grouping
+### Model grouping
 When a dataset contains more than one time series, as in the given data example, there are multiple ways to model that data. For instance, we may simply group by the **time series ID column(s)** and train independent models for each series. A more general approach is to partition the data into groups that may each contain multiple, likely related series and train a model per group. By default, AutoML forecasting uses a mixed approach to model grouping. Time series models, plus ARIMAX and Prophet, assign one series to one group and other regression models assign all series to a single group. The following table summarizes the model groupings in two categories, one-to-one and many-to-one:  
 
 Each Series in Own Group (1:1) | All Series in Single Group (N:1)
@@ -140,7 +140,7 @@ Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, 
 
 More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) and [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb).
 
-## Next Steps
+## Next steps
 
 * Learn more about [model sweeping and selection](./concept-automl-forecasting-sweeping.md) for forecasting in AutoML.
 * Learn about how AutoML creates [features from the calendar](./concept-automl-forecasting-calendar-features.md).
