@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 01/19/2023
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -149,3 +149,4 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Configure access control lists on NFSv4.1 with Azure NetApp Files](configure-access-control-lists.md)
 * [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)
+* [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)

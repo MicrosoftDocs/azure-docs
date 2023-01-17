@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 01/19/2023
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -50,7 +50,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
 
-\* The maximum size of a regular volume is 100 TiB. You can create a [large volume](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) with a size of between 100 TiB and 500 TiB. Once you create a large volume, you cannot resize it to less than 100 TiB. 
+\* The maximum size of a regular volume is 100 TiB. You can create a [large volume](large-volumes-requirements-considerations.md) with a size of between 100 TiB and 500 TiB. Once you create a large volume, you cannot resize it to less than 100 TiB. 
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
