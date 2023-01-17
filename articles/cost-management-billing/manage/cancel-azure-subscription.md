@@ -102,7 +102,7 @@ Depending on your subscription type, you may not be able to delete a subscriptio
 
 >[!NOTE]
 > - 90 days after you cancel a subscription, the subscription is automatically deleted.
-> - If you have deleted all resources but the Delete your subscription pays shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
+> - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
 
 
 
