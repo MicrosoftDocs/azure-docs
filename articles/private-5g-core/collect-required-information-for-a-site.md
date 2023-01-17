@@ -29,7 +29,8 @@ Collect all the values in the following table for the mobile network site resour
    |The Azure subscription to use to create the mobile network site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**|
    |The Azure resource group in which to create the mobile network site resource. We recommend that you use the same resource group that already contains your private mobile network.                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
-   |The region in which you’re creating the mobile network site resource. We recommend that you use the East US region.                         |**Instance details: Region**|
+   |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
+   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
    |The mobile network resource representing the private mobile network to which you’re adding the site. |**Instance details: Mobile network**|
    |The billing plan for the site that you are creating. The available plans have the following allowances:</br></br> G1 - 1 Gbps per site and 100 devices per network. </br> G2 - 2 Gbps per site and 200 devices per network. </br> G3 - 3 Gbps per site and 300 devices per network. </br> G4 - 4 Gbps per site and 400 devices per network. </br> G5 - 5 Gbps per site and 500 devices per network.|**Instance details: Site plan**|
 

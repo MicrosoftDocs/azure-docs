@@ -610,11 +610,15 @@
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-troubleshoot-error-messages-and-conditions.md",
-        "redirect_url": "/azure/healthcare-apis/iot/troubleshoot-error-messages-and-conditions",
+        "redirect_url": "/azure/healthcare-apis/iot/troubleshoot-errors",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/troubleshoot-error-messages-and-conditions.md",
+        "redirect_url": "/azure/healthcare-apis/iot/troubleshoot-errors",
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-troubleshoot-mappings.md",
-        "redirect_url": "/azure/healthcare-apis/iot/troubleshoot-mappings",
+        "redirect_url": "/azure/healthcare-apis/iot/troubleshoot-errors",
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-connector-faqs.md",
@@ -635,6 +639,10 @@
     },
     {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-button.md",
         "redirect_url": "/azure/healthcare-apis/iot/deploy-new-arm",
+        "redirect_document_id": false
+    },
+    {   "source_path_from_root": "/articles/healthcare-apis/iot/troubleshoot-mappings.md",
+        "redirect_url": "/azure/healthcare-apis/iot/troubleshoot-errors",
         "redirect_document_id": false
     },
     {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
