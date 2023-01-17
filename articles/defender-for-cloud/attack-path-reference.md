@@ -95,7 +95,7 @@ This section  lists all of the cloud security graph components (connections & in
 | Is managed | Indicates that an identity is managed by the cloud provider | Azure Managed Identity |
 | Contains common usernames | Indicates that a SQL server has user accounts with common usernames which are prone to brute force attacks. | SQL on VM |
 | Can execute code on the host | Indicates that a SQL server allows executing code on the underlying VM using a built-in mechanism such as xp_cmdshell. | SQL on VM |
-| Has vulnerabilities | indicates that the resource SQL server has vulnerabilities detected | SQL on VM |
+| Has vulnerabilities | Indicates that the resource SQL server has vulnerabilities detected | SQL on VM |
 | DEASM findings | Microsoft Defender External Attack Surface Management (DEASM) internet scanning findings | Public IP |
 | Privileged container | Indicates that a Kubernetes container runs in a privileged mode | Kubernetes container |
 | Uses host network | Indicates that a Kubernetes pod uses the network namespace of its host machine | Kubernetes pod |
