@@ -91,7 +91,6 @@ Common settings:
   - `https://login.partner.microsoftonline.cn`
   - `https://login.chinacloudapi.cn`
   - `https://login.microsoftonline.us`
-  - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
   
 ### More configuration options
