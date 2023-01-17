@@ -4,10 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 01/17/2023
 ms.author: qpetraroia
 author: qpetraroia
-
 ---
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
