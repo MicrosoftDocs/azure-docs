@@ -1299,7 +1299,7 @@ items:
     - name: Pin and share changes via Azure dashboard
       href: change/change-analysis-query.md
     - name: Track a web outage with Change Analysis
-      href: change/tutorial-outages.md
+      href: change/change-analysis-track-outages.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
 - name: Respond
