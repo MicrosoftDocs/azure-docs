@@ -31,7 +31,20 @@ To perform the procedures described in this article, make sure that:
 
 ## Create SSL/TLS certificates
 
-Create SSL/TLS certificates by first downloading a security certificate from the OT sensor or on-premises management console and then exporting it to the required file types.
+Use a certificate management platform, such as an automated PKI management platform, to create a certificate. Verify that the certificate meets [certificate file requirements](#verify-certificate-file-parameter-requirements), and then [test the certificate](#test-your-ssltls-certificates) file you created when you're done.
+
+If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. For more information, see [certificate file requirements](#verify-certificate-file-parameter-requirements).
+
+Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
+
+You can also convert existing certificate files if you don't want to create new ones.
+
+## Create self-signed SSL/TLS certificates
+
+Create self-signed SSL/TLS certificates by first downloading a security certificate from the OT sensor or on-premises management console and then exporting it to the required file types.
+
+> [!NOTE]
+> While you can use a locally-generated and self-signed certificate, we do not recommend this option.
 
 ### Download a security certificate
 
@@ -212,9 +225,6 @@ After you've created your SSL/TLS certificate as required and have it installed 
 1. In the **SSL/TLS certificate** pane, enter your certificate name and passphrase, and then upload the files you'd created earlier.
 
     Select **Enable certificate validation** to validate the certificate against a [CRL server](#verify-crl-server-access).
-
-    > [!NOTE]
-    > While you can also use a locally-generated and self-signed certificate, we do not recommend this option.
 
 1. Select **Save** to save your certificate settings.
 
