@@ -13,12 +13,16 @@ ms.author: hrshelar
 
 This page provides an overview on how to register or license your spacecraft with Azure Orbital.
 
+   > [!NOTE]
+   > This process is for the ground station license only. Microsoft manages the ground station licenses in our network and ensures customer satellites are added and authorized. 
+   > The customer is responsible for acquiring a spacecraft license for their spacecraft. Microsoft can provide technical information needed to complete the federal regulator and ITU processes as needed.
+
 ## Prerequisites 
 
 To initiate the spacecraft licensing process, you'll need:
 
 - A spacecraft object that corresponds to the spacecraft in orbit or slated for launch. The links in this object must match all current and planned filings.
-- List of ground stations that you wish to use 
+- A list of ground stations that you wish to use to communicate with your satellite.
 
 ## Step 1 - Initiate the request
 
@@ -26,18 +30,22 @@ The process starts by initiating the licensing request via the Azure portal.
 
 1. Navigate to the spacecraft object and select New Support Request under the Support + troubleshooting category to the left.
 1. Complete the following fields:
-    1. Summary: Provide a relevant ticket title.
-    1. Issue type: Technical.
-    1. Subscription: Choose your current subscription.
-    1. Service: My Service
-    1. Service Type: Azure Orbital
-    1. Problem type: Spacecraft Management and Setup
-    1. Problem subtype: Spacecraft Registration
-1. Click next to Solutions
-1. Click next to Details
-1. Enter the desired ground stations in the Description field
-1. Enable advanced diagnostic information
-1. Click next to Review + Create
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | Summary | Provide a relevant ticket title. |
+   | Issue type | Technical |
+   | Subscription | Choose your current subscription. |
+   | Service |  My Service |
+   | Service Type | Azure Orbital |
+   | Problem type | Spacecraft Management and Setup |
+   | Problem subtype | Spacecraft Registration |
+
+1. Click next to Solutions.
+1. Click next to Details.
+1. Enter the desired ground stations in the Description field.
+1. Enable advanced diagnostic information.
+1. Click next to Review + Create.
 1. Click Create.
 
 ## Step 2 - Provide more details
@@ -62,8 +70,101 @@ Once the licenses are in place, the spacecraft object will be updated by Azure O
 
 ## FAQ
 
-Q. Are third party ground stations such as KSAT included in this process?
-A. No, the process on this page applies to Microsoft sites only. For more information, see [Integrate partner network ground stations](./partner-network-integration.md).
+**Q.** Are third party ground stations such as KSAT included in this process?
+<br>
+**A.** No, the process on this page applies to Microsoft ground station sites only. For more information, see [Integrate partner network ground stations](./partner-network-integration.md).
+<br>
+<br>
+**Q.** Do public satellites requite licensing?
+<br>
+**A.** The Azure Orbital Ground Station service supports several public satellites that do not require licensing. These include Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
+<br>
+<br>
+**Q.** How much does it cost to complete the ground station license process? How long will it take?
+<br>
+**A.** Refer to the tables below:
+<br>
+
+<table>
+  <tr>
+    <td><b>Station</b></td>
+    <td><b>Quincy</b></td>
+    <td><b>Chile</b></td>
+    <td><b>Sweden</b></td>
+    <td><b>South Africa</b></td>
+    <td><b>Singapore</b></td>
+  </tr>
+  <tr>
+      <td colspan="6"> <b> Onboarding Costs (Variable): </b> </td>
+  </tr>
+  <tr>
+      <td>Application Fees</td>
+      <td>$310</td>
+      <td> - </td>
+      <td> - </td>
+      <td> - </td>
+      <td> - </td>
+  </tr>
+  <tr>
+      <td>Legal Fees</td>
+      <td>$5,000</td>
+      <td>$2,500</td>
+      <td>$2,500</td>
+      <td> - </td>
+      <td>$3,000</td>
+  </tr>
+  <tr>
+      <td>Engineering Fees</td>
+      <td>-</td>
+      <td>$1,000</td>
+      <td>-</td>
+      <td>-</td>
+      <td>$1,000</td>
+  </tr>  
+  <tr>
+      <td colspan="6"> <b> Ground Station Costs (Fixed): </b> </td>
+  </tr>
+  <tr>
+      <td>License Modification</td>
+      <td>$545</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+  </tr>
+  <tr>
+      <td>Regulator Fees</td>
+      <td>$595</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+  </tr>
+  <tr>
+      <td>Legal Services</td>
+      <td>$3,500</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+  </tr>
+  <tr>
+      <td><b>Total Costs (Var + Fixed):</b> </td>
+      <td> <b> $9,950 </b> </td>
+      <td> <b> $3,500 </b> </td>
+      <td> <b> $2,500 </b> </td>
+      <td>-</td>
+      <td> <b> $4,000 </b> </td>
+  </tr>
+  <tr>
+    <td colspan="6"> <b> Total Costs Per Customer: $19,950 </b> </td>
+  </tr>
+</table>
+
+| **Station** | **Qunicy** | **Chile** | **Sweden** | **South Africa** | **Singapore** |
+| ----------- | ---------- | --------- | ---------- | ---------------- | ------------- |
+| Onboarding Timeframe | 3-6 months | 3-6 months | 3-6 months | <1 month | 3-6 months |
+
 
 ## Next steps
 - [Integrate partner network ground stations](./partner-network-integration.md)
