@@ -33,7 +33,7 @@ This article helps you understand this new feature, and how to implement it.
 
 ## Limitations
 
-What limnitations need to be specified?
+What limitations need to be specified?
 
 ## How it works
 
