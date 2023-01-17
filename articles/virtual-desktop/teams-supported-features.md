@@ -61,17 +61,6 @@ The following table lists the minimum required versions for each Teams feature. 
 |Diagnostic overlay|1.2.3316 and later|Not supported|1.17.2205.23001 and later|Updates within 90 days of the current version|
 |Noise suppression|1.2.3316 and later|Not supported|1.0.2006.11001 and later|Updates within 90 days of the current version|
 
-## Required registry keys
-
-The following registry keys are required to enable certain features for Teams on Azure Virtual Desktop.
-
-|Feature|Description|RegKey path|RegKey location|RegKey name|Type|Data value|
-|:---|---|---|---|---|---|---|
-|Hardware encode|Increases video quality (resolution and framerate) of the outgoing camera during Teams calls. |HKCU\SOFTWARE\Microsoft\Terminal Server Client\Default\AddIns\WebRTC Redirector|Local machine|UseHardwareEncoding|DWORD|1: Enable|
-|Enable content sharing for Teams on Azure Virtual Desktop|Enable content sharing for Teams for Remote App	Enables screenshare and application window sharing when using Teams for RAIL. <br></br>To disable either screenshare or app sharing, add the DisableRAILScreensharing and DisableRAILAppSharing key. |HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy|Virtual machine|ShareClientDesktop|DWORD|1: Enable|
-|Disable desktop screen share for Teams on Azure Virtual Desktop|Disables sharing of local client desktop when using Teams for RAIL. You must enable ShareClientDesktop to use this key. |HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy|Virtual machine|DisableRAILScreenSharing|DWORD|1: Disable|
-|Disable application window sharing for Teams on Azure Virtual Desktop|Disable sharing of local and Remote App windows when using Teams for RAIL. You must enable ShareClientDesktop to use this key. |HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\AddIns\WebRTC Redirector\Policy|Virtual machine|DisableRAILAppSharing|DWORD|1: Disable|
-
 ## Next steps
 
 Learn more about how to set up Teams for Azure Virtual Desktop at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
