@@ -45,11 +45,11 @@ You can run secret scanning as part of the Azure DevOps build process by using t
 
 1.  Select **Save**.
 
-By adding the additions to your yaml file, you will ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
+By adding the additions to your yaml file, you'll ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
 
 ## Remediate secrets findings
 
-When credential are discovered in your code, you can remove them. Instead you can use an alternative method that will not expose the secrets directly in your source code. Some of the best practices that exist to handle this type of situation include:
+When credentials are discovered in your code, you can remove them. Instead you can use an alternative method that won't expose the secrets directly in your source code. Some of the best practices that exists to handle this type of situation include:
 
 - Eliminating the use of credentials (if possible).
 
@@ -68,11 +68,11 @@ When credential are discovered in your code, you can remove them. Instead you ca
     - [Azure Key Vault for App Service application](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)
     - [Azure Key Vault for applications deployed to a VM](../key-vault/general/tutorial-net-virtual-machine.md)
 
-Once you have remediated findings you can review the [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md).
+Once you have remediated findings, you can review the [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md).
 
 **To remediate secrets findings using managed identities**:
 
-Before you can remediate secrets findings using managed identities, you need to ensure that the Azure resource you are authenticating to in your code supports managed identities. You can check the full list of [Azure services that can use managed identities to access other services](../active-directory/managed-identities-azure-resources/managed-identities-status.md).
+Before you can remediate secrets findings using managed identities, you need to ensure that the Azure resource you're authenticating to in your code supports managed identities. You can check the full list of [Azure services that can use managed identities to access other services](../active-directory/managed-identities-azure-resources/managed-identities-status.md).
 
 If your Azure service is listed, you can [manage your identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -85,24 +85,24 @@ Some reasons to suppress false positives include:
 
 - Fake or mocked credentials in the test files. These credentials can't access resources.
 
-- Placeholder strings. For example, placeholder strings may be used to initialize a variable which is then populated using a secret store such as AKV.
+- Placeholder strings. For example, placeholder strings may be used to initialize a variable, which is then populated using a secret store such as AKV.
 
-- External library or SDKs that are directly consumed. For example, openssl.
+- External library or SDKs that 's directly consumed. For example, openssl.
 
-- THard-coded credentials for an ephemeral test resource that only exists for the lifetime of the test being run.
+- Hard-coded credentials for an ephemeral test resource that only exists for the lifetime of the test being run.
 
 - Self-signed certificates that are used locally and not used as a root. For example, they may be used when running localhost to allow HTTPS.
 
 - Source-controlled documentation with non-functional credential for illustration purposes only
 
-- Invalid results. The output is not a credential or a secret.
+- Invalid results. The output isn't a credential or a secret.
 
 You may want to suppress fake secrets in unit tests or mock paths, or inaccurate results. We don't recommend using suppression to suppress test credentials. Test credentials can still pose a security risk and should be securely stored.
 
 > [!NOTE]
 > Valid inline suppression syntax depends on the language, data format and CredScan version you are using. 
 
-Credentials that are used for test resources and environments shouldn't be suppressed. They are being used to demonstration purposes only and do not affect anything else. 
+Credentials that are used for test resources and environments shouldn't be suppressed. They're being used to demonstration purposes only and don't affect anything else. 
 
 ### Suppress a same line secret
 
@@ -250,11 +250,8 @@ ServiceBusNamespace=...SharedAccessPolicy=...Key=abcdefghijklmnopqrstuvwxyz01234
 | CSCAN-GH0010 | GitHub Personal Access Token | pat=ghp_abcdefghijklmnopqrstuvwxyzABCD012345 <br> pat=v1.abcdef0123456789abcdef0123456789abcdef01 <br> https://user:abcdef0123456789abcdef0123456789abcdef01@github.com | [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) |
 | CSCAN-GOOG0010 | Google API key | apiKey=AIzaefgh0123456789_-ABCDEFGHIJKLMNOPQRS; | [Authenticate using API keys](https://cloud.google.com/docs/authentication/api-keys) |
 | CSCAN-MSFT0100 | Microsoft Bing Maps Key | bingMapsKey=abcdefghijklmnopqrstuvwxyz0123456789-_ABCDEabcdefghijklmnopqrstu <br>...bing.com/api/maps/...key=abcdefghijklmnopqrstuvwxyz0123456789-_ABCDEabcdefghijklmnopqrstu <br>...dev.virtualearth.net/...key=abcdefghijklmnopqrstuvwxyz0123456789-_ABCDEabcdefghijklmnopqrstu | [Getting a Bing Maps Key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key) |
-
-
-
-
-
+| CSCAN-WORK0010 | Slack Access Token | slack_token= xoxp-abcdef-abcdef-abcdef-abcdef ; <br> slack_token= xoxb-abcdef-abcdef ; <br> slack_token= xoxa-2-abcdef-abcdef-abcdef-abcdef ; <br>slack_token= xoxr-abcdef-abcdef-abcdef-abcdef ; | [Token types](https://api.slack.com/authentication/token-types) |
 
 ## Next steps
-+ Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they are shipped to production.
+
+- Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud to remediate secrets in code before they're shipped to production.
