@@ -5,15 +5,15 @@ titleSuffix: Azure Network Watcher
 description: This article explains how to use the built-in policies to manage the deployment of NSG flow logs 
 services: network-watcher
 documentationcenter: na
-author: damendo
+author: harsha-cs
 
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
-
+ms.date: 02/09/2022
+ms.author: harshacs
+ms.custom: engagement-fy23
 ---
 
 # QuickStart: Deploy and manage NSG Flow Logs using Azure Policy 

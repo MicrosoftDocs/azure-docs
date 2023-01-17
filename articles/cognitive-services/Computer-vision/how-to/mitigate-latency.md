@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 1/5/2021
+ms.date: 11/07/2021
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: cogserv-non-critical-vision
@@ -42,7 +42,7 @@ The Face service must then download the image from the remote server. If the con
 To mitigate this situation, consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
 
 ``` csharp
-var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+var faces = await client.Face.DetectWithUrlAsync("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/Family1-Daughter1.jpg");
 ```
 
 ### Large upload size
@@ -61,7 +61,7 @@ If the file to upload is large, that will impact the response time of the `Detec
 Mitigations:
 - Consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
 ``` csharp
-var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
+var faces = await client.Face.DetectWithUrlAsync("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/Family1-Daughter1.jpg");
 ```
 - Consider uploading a smaller file.
     - See the guidelines regarding [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).

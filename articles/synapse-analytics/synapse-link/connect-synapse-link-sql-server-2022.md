@@ -1,27 +1,23 @@
 ---
-title: Create Azure Synapse Link for SQL Server 2022 (preview)
-description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link (preview).
+title: Create Azure Synapse Link for SQL Server 2022
+description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link.
 author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022, engagement-fy23
-ms.date: 09/27/2022
+ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
 
-# Get started with Azure Synapse Link for SQL Server 2022 (preview)
+# Get started with Azure Synapse Link for SQL Server 2022
 
 This article is a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022. For an overview, see [Azure Synapse Link for SQL Server 2022](sql-server-2022-synapse-link.md). 
 
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Prerequisites
 
-* Before you begin, see [Create a new Azure Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. The current tutorial is to create Azure Synapse Link for SQL in a public network. This article assumes that you selected **Disable Managed virtual network** and **Allow connections from all IP addresses** when you created an Azure Synapse workspace. If you want to configure Azure Synapse Link for SQL Server 2022 with network security, also see [Configure Azure Synapse Link for SQL Server 2022 with network security (preview)](connect-synapse-link-sql-server-2022-vnet.md).
+* Before you begin, see [Create a new Azure Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. The current tutorial is to create Azure Synapse Link for SQL in a public network. This article assumes that you selected **Disable Managed virtual network** and **Allow connections from all IP addresses** when you created an Azure Synapse workspace. If you want to configure Azure Synapse Link for SQL Server 2022 with network security, also see [Configure Azure Synapse Link for SQL Server 2022 with network security](connect-synapse-link-sql-server-2022-vnet.md).
 
 * Create an Azure Data Lake Storage Gen2 account, which is different from the account you create with the Azure Synapse Analytics workspace. You'll use this account as the landing zone to stage the data submitted by SQL Server 2022. For more information, see [Create an Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md).
 
@@ -150,9 +146,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 1. From Synapse Studio, open the **Integrate** hub.
 
 
-1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection (Preview)**.
+1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/new-link-connection.png" alt-text="Screenshot that shows the 'Link connection (Preview)' button.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/new-link-connection.png" alt-text="Screenshot that shows the 'Link connection' button.":::
 
 1. Enter your source database:
 

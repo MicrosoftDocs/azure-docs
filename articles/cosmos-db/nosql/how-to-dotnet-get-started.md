@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for NoSQL and .NET
+title: Get started with Azure Cosmos DB for NoSQL using .NET
 description: Get started developing a .NET application that works with Azure Cosmos DB for NoSQL. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for NoSQL endpoint.
 author: seesharprun
 ms.author: sidandrews
@@ -8,10 +8,10 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for NoSQL and .NET
+# Get started with Azure Cosmos DB for NoSQL using .NET
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
@@ -21,10 +21,10 @@ This article shows you how to connect to Azure Cosmos DB for NoSQL using the .NE
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Azure Cosmos DB for NoSQL account. [Create a API for NoSQL account](how-to-create-account.md).
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ## Set up your project
 
@@ -50,11 +50,11 @@ dotnet build
 
 ## <a id="connect-to-azure-cosmos-db-sql-api"></a>Connect to Azure Cosmos DB for NoSQL
 
-To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to a API for NoSQL account using the **CosmosClient** class:
+To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three core ways to connect to an API for NoSQL account using the **CosmosClient** class:
 
-* [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
-* [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
-* [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
+- [Connect with a API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
+- [Connect with a API for NoSQL connection string](#connect-with-a-connection-string)
+- [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
 
 ### Connect with an endpoint and key
 
@@ -357,13 +357,13 @@ Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT``
 
 As you build your application, your code will primarily interact with four types of resources:
 
-* The API for NoSQL account, which is the unique top-level namespace for your Azure Cosmos DB data.
+- The API for NoSQL account, which is the unique top-level namespace for your Azure Cosmos DB data.
 
-* Databases, which organize the containers in your account.
+- Databases, which organize the containers in your account.
 
-* Containers, which contain a set of individual items in your database.
+- Containers, which contain a set of individual items in your database.
 
-* Items, which represent a JSON document in your container.
+- Items, which represent a JSON document in your container.
 
 The following diagram shows the relationship between these resources.
 
@@ -390,15 +390,15 @@ The following guides show you how to use each of these classes to build your app
 
 ## See also
 
-* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-* [Samples](samples-dotnet.md)
-* [API reference](/dotnet/api/microsoft.azure.cosmos)
-* [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
-* [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+- [Samples](samples-dotnet.md)
+- [API reference](/dotnet/api/microsoft.azure.cosmos)
+- [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
 
 ## Next steps
 
-Now that you've connected to a API for NoSQL account, use the next guide to create and manage databases.
+Now that you've connected to an API for NoSQL account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md)

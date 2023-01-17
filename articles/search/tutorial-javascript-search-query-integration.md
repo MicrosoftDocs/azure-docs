@@ -69,7 +69,7 @@ The Suggest function API is called in the React app at `\src\components\SearchBa
 
 The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api/Lookup/index.js) takes an ID and returns the document object from the Search Index. 
 
-Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Lookup/function.json) bindings.
+Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/api/Lookup/function.json) bindings.
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api/Lookup/index.js" highlight="4-9, 17" :::
 

@@ -25,18 +25,18 @@ ACS UI Library uses components and icons from both [Fluent UI](https://developer
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Localization over the Web UI library](./includes/theming/web.md)]
+[!INCLUDE [Theming over the Web UI library](./includes/theming/web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Localization over the Android UI library](./includes/theming/android.md)]
+[!INCLUDE [Theming over the Android UI library](./includes/theming/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Localization over the iOS UI library](./includes/theming/ios.md)]
+[!INCLUDE [Theming over the iOS UI library](./includes/theming/ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about UI Library](../../quickstarts/ui-library/get-started-composites.md)
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
 - [Learn more about UI Library Design Kit](../../quickstarts/ui-library/get-started-ui-kit.md)

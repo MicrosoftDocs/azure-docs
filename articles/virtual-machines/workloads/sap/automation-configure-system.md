@@ -69,9 +69,9 @@ The table below contains the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resource_group_name`   | Name of the resource group to be created                 | Optional   |  
-> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
-> | `resource_group_tags`   | Tags to be associated to the resource group              | Optional   |
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |  
+> | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
+> | `resourcegroup_tags`    | Tags to be associated to the resource group              | Optional   |
 
 
 ## SAP Virtual Hostname parameters

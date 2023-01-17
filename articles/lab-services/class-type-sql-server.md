@@ -4,7 +4,7 @@ description: Learn how to set up a lab to manage and develop with Azure SQL Data
 author: emaher
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Set up a lab to manage and develop with SQL Server

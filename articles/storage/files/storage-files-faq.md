@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
+title: Frequently asked questions (FAQ) for Azure Files
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage

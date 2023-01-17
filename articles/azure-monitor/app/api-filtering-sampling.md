@@ -2,7 +2,7 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 11/14/2022
 ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: cithomas
@@ -336,7 +336,7 @@ cfg: { // Application Insights Configuration
 </script>
 ```
 
-For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
 
 You can add as many initializers as you like. They're called in the order that they're added.
 
@@ -480,7 +480,7 @@ public void Initialize(ITelemetry telemetry)
 }
 ```
 
-#### Control the client IP address used for gelocation mappings
+#### Control the client IP address used for geolocation mappings
 
 The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
 

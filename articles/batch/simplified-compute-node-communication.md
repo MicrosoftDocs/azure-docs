@@ -2,7 +2,7 @@
 title: Use simplified compute node communication
 description: Learn about the simplified compute node communication mode in the Azure Batch service and how to enable it.
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 11/17/2022
 ms.custom: references_regions
 ---
 
@@ -29,7 +29,7 @@ Simplified compute node communication in Azure Batch is currently available for 
 
 - Government: USGov Arizona, USGov Virginia, USGov Texas.
 
-- China: China North 3.
+- China: all China regions where Batch is present except for China North 1 and China East 1.
 
 ## Compute node communication differences between Classic and Simplified
 
