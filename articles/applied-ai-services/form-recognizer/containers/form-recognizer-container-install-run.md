@@ -544,6 +544,8 @@ $docker-compose up
 * You can choose to analyze the file of your choice against the trained model.
 
 ---
+   [Install and run Docker containers for Form Recognizer v2\.1 \- Azure Applied AI Services \| Microsoft Learn](https://review.learn.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run?view=form-recog-2.1.0&branch=main&tabs=layout)
+   
 
 ## Validate that the service is running
 
