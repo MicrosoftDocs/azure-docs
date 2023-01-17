@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Cloud resources:
 
@@ -334,12 +334,12 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-201806.png)
 :::moniker-end
 
 <!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
-   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-202011.png)
+![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version-1.4.png)
 :::moniker-end
 
 View the messages being sent from the temperature sensor module:

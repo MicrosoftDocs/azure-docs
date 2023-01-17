@@ -135,7 +135,7 @@ items:
   - name: Control plane SDK
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/iot/management
+        href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
       - name: Python
         href: /python/api/azure-mgmt-deviceupdate/
   - name: Data plane SDK

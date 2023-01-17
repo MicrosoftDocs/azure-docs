@@ -30,7 +30,7 @@ Usage of the `voice` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
-| `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=stt-tts).| Required|
+| `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=tts).| Required|
 | `effect` |A voice-specific effect processor. You can choose a specific value according to the corresponding scenarios. The following values are supported:<br/><ul><li>`eq_car` – Optimize the auditory experience when providing high-fidelity speech in the car scenarios, such as small cars, buses, and other enclosed small/medium vehicles.</li><li>`eq_telecomhp8k` – Optimize the auditory experience in telecom or telephone scenarios. This feature is only designed for narrowband speech (sampling rate = 8kHz). If the sample rate of the output speech is not 8kHz, the auditory quality of the output speech isn't guaranteed even with this attribute. We recommend that you convert the sample rate of the output speech to 8kHz to get a better result with this attribute in telecom scenarios. </li></ul><br/>If the value is missing or invalid, the `effect` attribute will be ignored and the service will use the default neutral speech.|  Optional |
 
 ### Voice examples
@@ -97,7 +97,7 @@ You use the `effect` attribute to optimize the auditory experience for different
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> Styles, style degree, and roles are supported for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles) documentation. To determine what styles and roles are supported for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
+> Styles, style degree, and roles are supported for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine what styles and roles are supported for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
 
 Usage of the `mstts:express-as` element's attributes are described in the following table.
 
@@ -460,5 +460,5 @@ The supported values for attributes of the `mstts:backgroundaudio` element were 
 
 - [SSML overview](speech-synthesis-markup.md)
 - [SSML document structure and events](speech-synthesis-markup-structure.md)
-- [Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)
+- [Language support: Voices, locales, languages](language-support.md?tabs=tts)
 
