@@ -51,7 +51,7 @@ CA Certificates is supported for all language family buildpacks, but not all sup
 
 | Supported language | Required environment variables                                                                                 | Other environment variables                                                                                         |
 |--------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| Java               | 1. connection-string (Upper case key or use "_" to replace "-" is also acceptable) <br> 2. sampling-percentage | [Application Insights Overview](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) |
+| Java               | 1. connection-string (Upper case key or use "_" to replace "-" is also acceptable) <br> 2. sampling-percentage | [Application Insights Overview](/azure/azure-monitor/app/app-insights-overview?tabs=net) |
 
 ### Use Dynatrace
 
@@ -98,7 +98,7 @@ To edit buildpack bindings for the builder, select **Edit**. After a builder is 
 :::image type="content" source="media/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox="media/how-to-enterprise-build-service/edit-binding.png":::
 
 > [!NOTE]
-> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights.. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
