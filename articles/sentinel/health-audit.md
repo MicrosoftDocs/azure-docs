@@ -4,8 +4,7 @@ description: Learn about the Microsoft Sentinel health and audit feature, which 
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
-ms.date: 08/19/2022
-ms.service: microsoft-sentinel
+ms.date: 01/17/2023
 ---
 
 # Health monitoring in Microsoft Sentinel 
@@ -37,6 +36,10 @@ Health data is collected in the *SentinelHealth* table in your Log Analytics wor
 **Did an automation rule run as expected?**
 
 [Did my automation rule run when it was supposed to](./monitor-automation-health.md) - that is, when its conditions were met? Did all the actions in the automation rule run successfully? 
+
+**Did an analytics rule run as expected?**
+
+
 
 ## How Microsoft Sentinel presents health data
 
