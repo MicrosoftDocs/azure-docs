@@ -94,7 +94,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. Add the following import statement.
+1. Add the following `import` statements.
 
     ```python
     import asyncio
