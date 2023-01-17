@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 01/19/2023
 ms.author: anfdocs
 ---
 
@@ -35,34 +35,6 @@ This article describes requirements and considerations about [using the volume c
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can't revert a source or destination volume of cross-region replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
-
-### Large volume configuration
-
-Large volumes (greater than 100 TiB) are supported in cross-region replication. You must first register for the [large volumes preview](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) and then register to use large volumes with cross-region-replication. 
-
-<!-- Additional steps -->
-
-This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. To access this feature, contact your account team. 
-
-Follow the registration steps if you're using the feature for the first time.
-
-1.  Register the feature by running the following commands:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumesCRR
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)

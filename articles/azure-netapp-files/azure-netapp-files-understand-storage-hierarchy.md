@@ -113,13 +113,12 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * Existing volumes cannot be resized over 100 TiB. You cannot convert Azure NetApp Files to large volumes.
 * Large volumes must be created at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
 * Large volume cannot be resized below 100 TiB and can only be resized up to 30% of lowest provisioned size. 
-* You cannot use large volumes in a cross-region replication relationship.
 * You cannot create a large volume from a backup.
 * You cannot create a backup from a large volume.
-* You cannot use Standard storage with cool access with large volumes.
+<!-- * You cannot use Standard storage with cool access with large volumes. -->
+* Large volumes are not currently supported with cross-region replication.
 * You cannot create a large volume with application volume groups.
-* Large volumes are not currently supported with [cross-zone replication](cross-zone-replication-introduction.md).
-* Large volumes in a cross-region replication require additional configuration.   
+* Large volumes are not currently supported with cross-zone replication.
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You'll be able to grow to 500 TiB with the throughput ceiling as per the table below. 
 
 | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |

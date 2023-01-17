@@ -25,8 +25,6 @@ Azure NetApp Files replication does not currently support multiple subscriptions
 
 Before you begin, ensure that you have reviewed the [requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).  
 
-
-
 ## Locate the source volume resource ID  
 
 You need to obtain the resource ID of the source volume that you want to replicate. 
