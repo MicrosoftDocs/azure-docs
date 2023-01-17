@@ -46,14 +46,16 @@ The metrics listed in the table below are recorded and stored free of charge. Yo
 
 Logs track all requests that pass through Azure Front Door. Logs can take a few minutes to be stored and processed. The following logs are collected:
 
-* [Access logs](#access-log) track detailed information about every request that Azure Front Door receives. They help you to analyze and monitor access patterns, and debug issues.
-* [Health probe logs](#health-probe-log) track the requests that Azure Front Door's health probes make to your origins. They help you to find and resolve origin health issues.
-* [Web application firewall (WAF) logs](#web-application-firewall-log) provide detailed information about requests that are processed by the Azure Front Door WAF. When your WAF is enabled, requests are logged whether the WAF is configured to use detection or prevention mode.
+There are multiple Front Door logs, which you can use for different purposes:
+
+- [Access logs](#access-log) can be used to identify slow requests, determine error rates, and understand how Front Door's caching behavior is working for your solution.
+- [Web application firewall (WAF) logs](#web-application-firewall-log) can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked.
+- [Health probe logs](#health-probe-log) can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
 * [Activity logs](#activity-logs) provide visibility into the operations done on Azure resources, such as configuration changes to your Azure Front Door profile.
 
-Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md).
+The activity log and web application firewall log includes a *tracking reference*, which is also propagated to the origin through the `X-Azure-Ref` request header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
 
-Activity log entries are collected by default, and you can view them in the Azure portal.
+Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md). Activity log entries are collected by default, and you can view them in the Azure portal.
 
 ## Access log
 

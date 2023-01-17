@@ -36,17 +36,9 @@ When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs
 
 ### Configure logging
 
-Front Door logs information about every request that it receives. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients.
+Front Door logs extensive telemetry about every request that it receives. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients. For more information about the metrics and logs that Azure Front Door records, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
 
-There are multiple Front Door logs:
-
-- **Activity log** can be used to identify slow requests, determine error rates, and understand how Front Door's caching behavior is working for your solution.
-- **Web application firewall logs** can be used to detect potential attacks, as well as false positive detections that might indicate legitimate requests that the WAF blocked.
-- **Health probe logs** can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
-
-The activity log and web application firewall log includes a tracking reference, which is also propagated to the origin through the `X-Azure-Ref` request header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
-
-For more information, see [Azure Front Door logs](standard-premium/how-to-logs.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
+To configure logging for your own application, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md)
 
 ## TLS best practices
 
