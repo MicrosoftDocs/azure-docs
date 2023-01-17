@@ -46,8 +46,6 @@ items:
     href: essentials/tutorial-metrics.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Detect and analyze anomalies in Azure Monitor Logs
-    href: logs/kql-machine-learning-azure-monitor.md
   - name: Create a metric alert
     href: alerts/tutorial-metric-alert.md
   - name: Create a log query alert
@@ -1236,9 +1234,11 @@ items:
         href: /azure/data-explorer/kusto/query/
       - name: Sample queries
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+      - name: Detect and analyze anomalies in log data
+        href: logs/kql-machine-learning-azure-monitor.md
       - name: Standard columns
         href: logs/log-standard-columns.md
-      - name: Query Basic Logs
+      - name: Query Basic logs
         href: logs/basic-logs-query.md
       - name: Audit queries
         href: logs/query-audit.md
