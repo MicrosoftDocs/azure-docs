@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 09/11/2022
+ms.date: 01/17/2023
 ---
 
 # Detect exposed secrets in code
@@ -46,6 +46,32 @@ You can run secret scanning as part of the Azure DevOps build process by using t
 1.  Select **Save**.
 
 By adding the additions to your yaml file, you will ensure that secret scanning only runs when you execute a build to your Azure DevOps pipeline.
+
+## Remediate findings
+
+When credential are discovered in your code, you can remove them. Instead you can use an alternative method that will not expose the secrets directly in your source code. Some of the best practices that exist to handle this type of situation include:
+
+- Eliminating the use of credentials (if possible).
+
+- Using secret storage such as Azure Key Vault (AKV).
+
+- Updating your authentication methods to take advantage of managed identities (MSI) via Azure Active Directory (AAD).
+  
+**To remediate findings using Azure Key Vault**:
+
+1. Create a [key vault using PowerShell](../key-vault/general/quick-create-powershell.md).
+
+1. [Add any necessary secrets](../key-vault/secrets/quick-create-net.md) for your application to your Key Vault.
+
+1. Update your application to connect to Key Vault using managed identity with one of the following:
+
+    - [Azure Key Vault for App Service application](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)
+    - [Azure Key Vault for applications deployed to a VM](../key-vault/general/tutorial-net-virtual-machine.md)
+
+Once you have remediated findings you can review the [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md).
+
+**To remediate findings using managed identities**:
+
 
 ## Suppress false positives
 
