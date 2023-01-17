@@ -19,7 +19,7 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
 * **Application Proxy**:
   * Protect users, apps, and data in the cloud and on-premises 
   * Use it to publish on-premises web applications externally
-  * [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy)
+  * [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md)
 * **Secure hybrid access through Azure AD partner integrations**:
   * Pre-built solutions
   * Conditional Access policies per application
