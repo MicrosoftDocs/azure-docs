@@ -121,7 +121,7 @@ In Visual Studio 2022, create an **Azure Functions** project. While setting the 
 
 After you create the project, Azurite starts automatically. The output looks similar to the following screenshot:
 
-:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project.":::
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project.":::
 
 #### Running Azurite from an ASP.NET project
 
