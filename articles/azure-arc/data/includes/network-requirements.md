@@ -13,7 +13,10 @@ ms.date: 12/13/2022
 | Azure monitor APIs <sup>*</sup> | 443 |`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com` | Outbound | Azure Data Studio and Azure CLI connect to the Azure Resource Manager APIs to send and retrieve data to and from Azure for some features. See [Azure Monitor APIs](#azure-monitor-apis).
 | Azure Arc data processing service <sup>*</sup>| 443 |`san-af-<region>-prod.azurewebsites.net` | Outbound<br/> Inbound |
 
-<sup>*</sup> For direct mode, then the controller pod on the Kubernetes cluster needs to have outbound connectivity to the endpoints to send the logs, metrics, inventory, and billing information to Azure Monitor/Data Processing Service. For indirect mode, then the machine on which the user is running `az arcdata dc upload` needs to have the outbound connectivity to Azure Monitor and Data Processing Service.
+<sup>*</sup> Requirement depends on deployment mode:
+
+  - For direct mode, the controller pod on the Kubernetes cluster needs to have outbound connectivity to the endpoints to send the logs, metrics, inventory, and billing information to Azure Monitor/Data Processing Service. 
+  - For indirect mode, the machine that runs `az arcdata dc upload` needs to have the outbound connectivity to Azure Monitor and Data Processing Service.
 
 ### Azure Monitor APIs
 
