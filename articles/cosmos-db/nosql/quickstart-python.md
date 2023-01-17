@@ -7,8 +7,8 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2022
-ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, devguide-python, cosmos-db-dev-journey
+ms.date: 01/17/2023
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-api, ignite-2022, devguide-python, cosmos-db-dev-journey, passwordless-python
 ---
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for Python
@@ -35,6 +35,11 @@ Get started with the Azure Cosmos DB client library for Python to create databas
 ### Prerequisite check
 
 - In a terminal or command window, run ``python --version`` to check that the .NET SDK is version 3.7 or later.
+- Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+
+### Prerequisite check
+
+- In a terminal or command window, run ``python --version`` to check that the version 3.7 or later.
 - Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
@@ -89,6 +94,27 @@ For this sample code, the container will use the category as a logical partition
 
 ### Authenticate the client
 
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
+
+## [Passwordless](#tab/passwordless)
+
+[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+
+[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+
+#### Authenticate using DefaultAzureCredential
+
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+
+You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
+
+```python
+from azure.identity import DefaultAzureCredential
+```
+TBD TBD TBD
+
+## [Connection String](#tab/connection-string)
+
 From the project directory, open the *app.py* file. In your editor, import the `os` and `json` modules. Then, import the `CosmosClient` and `PartitionKey` classes from the `azure.cosmos` module.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="imports":::
@@ -100,6 +126,8 @@ Create variables for the `COSMOS_ENDPOINT` and `COSMOS_KEY` environment variable
 Create a new client instance using the [`CosmosClient`](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) class constructor and the two variables you created as parameters.
 
 :::code language="python" source="~/cosmos-db-nosql-python-samples/001-quickstart/app.py" id="create_client":::
+
+---
 
 ### Create a database
 
