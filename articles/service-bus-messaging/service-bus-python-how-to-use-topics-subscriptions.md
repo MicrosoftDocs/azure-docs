@@ -4,10 +4,10 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 01/16/2023
+ms.date: 01/17/2023
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, passwordless-python
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)
