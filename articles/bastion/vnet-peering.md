@@ -21,7 +21,7 @@ Azure Bastion works with the following types of peering:
 * **Global virtual network peering:** Connecting virtual networks across Azure regions.
 
 > [!NOTE]
-> This configuration is not supported with Virtual WAN.
+> Deploying Azure Bastion **within** a Virtual WAN hub is not supported. You can deploy Azure Bastion in a spoke VNet and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different VNet via the Virtual WAN hub.
 >
 
 ## Architecture
