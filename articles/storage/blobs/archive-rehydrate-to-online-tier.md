@@ -46,19 +46,19 @@ The following examples show how to copy an archived blob to a blob in the hot ti
 2. In the navigation pane for the storage account, select **Storage browser**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/open-storage-browser.png)
+   > ![Screenshot of Storage explorer button in the navigation pane.](./media/archive-rehydrate-to-online-tier/open-storage-browser.png)
 
 3. In storage browser, navigate to the location of the archived blob, select the checkbox that appears beside the blob, and then select the **Copy** button. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the checkbox next to an archived blob and then the location of the copy button](./media/archive-rehydrate-to-online-tier/copy-button.png)
+   > ![Screenshot of the checkbox next to an archived blob and then the location of the copy button.](./media/archive-rehydrate-to-online-tier/copy-button.png)
 
 4. Navigate to the container where you would like to place the rehydrated blob, and then select the **Paste** button.
 
    The **Paste archive blob** dialog box appears.
 
    > [!div class="mx-imgBorder"]
-   > ![Image of the paste archive blob dialog box](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
+   > ![Screenshot of the paste archive blob dialog box.](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
 
    > [!NOTE]
    > If you select the **Paste** button while in the same location as the source blob, then the default name that appears in the **Destination blob name** field contains a numeric suffix. This ensures that the source and destination blobs have different names. You can change this name if you want as long as the name is different than the name of the source blob.
@@ -133,27 +133,27 @@ The following examples show how to copy an archived blob to a blob in the hot ti
 2. In the navigation pane for the storage account, select **Storage browser**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane](./media/archive-rehydrate-to-online-tier/open-storage-browser.png)
+   > ![Screenshot of Storage explorer button in the navigation pane.](./media/archive-rehydrate-to-online-tier/open-storage-browser.png)
 
 3. In storage browser, navigate to the location of the archived blob, select the checkbox that appears beside the blob, and then select the **Copy** button. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of selecting the checkbox next to an archived blob and then the location of the copy button](./media/archive-rehydrate-to-online-tier/copy-button.png)
+   > ![Screenshot of selecting the checkbox next to an archived blob and then the location of the copy button.](./media/archive-rehydrate-to-online-tier/copy-button.png)
 
 4. Navigate to the destination storage account, and in the navigation pane, select **Storage browser**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of Storage explorer button in the navigation pane of the destination storage account](./media/archive-rehydrate-to-online-tier/open-storage-browser-2.png)
+   > ![Screenshot of Storage explorer button in the navigation pane of the destination storage account.](./media/archive-rehydrate-to-online-tier/open-storage-browser-2.png)
 
 1. Navigate to the container where you would like to place the rehydrated blob, and then select the **Paste** button.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the location of the paste button](./media/archive-rehydrate-to-online-tier/paste-button.png)
+   > ![Screenshot of the location of the paste button.](./media/archive-rehydrate-to-online-tier/paste-button.png)
 
    The **Paste archive blob** dialog box appears.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the paste archive blob dialog box](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
+   > ![Screenshot of the paste archive blob dialog box.](./media/archive-rehydrate-to-online-tier/paste-dialog-box.png)
 
 5. In the **Paste archive blob** dialog box, choose an access tier and a rehydration priority. Then, select **Paste** to rehydrate the blob.
 
@@ -261,7 +261,7 @@ To change a blob's tier from archive to hot or cool in the Azure portal, follow 
 1. Select the target access tier from the **Access tier** dropdown.
 1. From the **Rehydrate priority** dropdown, select the desired rehydration priority. Keep in mind that setting the rehydration priority to *High* typically results in a faster rehydration, but also incurs a greater cost.
 
-    :::image type="content" source="media/archive-rehydrate-to-online-tier/rehydrate-change-tier-portal.png" alt-text="Screenshot showing how to rehydrate a blob from the archive tier in the Azure portal ":::
+    :::image type="content" source="media/archive-rehydrate-to-online-tier/rehydrate-change-tier-portal.png" alt-text="Screenshot showing how to rehydrate a blob from the archive tier in the Azure portal. ":::
 
 1. Select the **Save** button.
 
@@ -393,11 +393,11 @@ Keep in mind that rehydration of an archived blob may take up to 15 hours, and r
 
 To check the status and priority of a pending rehydration operation in the Azure portal, display the **Change tier** dialog for the blob:
 
-:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-status-portal.png" alt-text="Screenshot showing the rehydration status for a blob in the Azure portal":::
+:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-status-portal.png" alt-text="Screenshot showing the rehydration status for a blob in the Azure portal.":::
 
 When the rehydration is complete, you can see in the Azure portal that the fully rehydrated blob now appears in the targeted online tier.
 
-:::image type="content" source="media/archive-rehydrate-to-online-tier/set-blob-tier-rehydrated.png" alt-text="Screenshot showing the rehydrated blob in the cool tier and the log blob written by the event handler":::
+:::image type="content" source="media/archive-rehydrate-to-online-tier/set-blob-tier-rehydrated.png" alt-text="Screenshot showing the rehydrated blob in the cool tier and the log blob written by the event handler.":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -449,7 +449,7 @@ To change the rehydration priority for a pending operation with the Azure portal
 1. In the **Rehydrate priority** dropdown, set the priority to *High*.
 1. Select **Save**.
 
-    :::image type="content" source="media/archive-rehydrate-to-online-tier/update-rehydration-priority-portal.png" alt-text="Screenshot showing how to update the rehydration priority for a rehydrating blob in Azure portal":::
+    :::image type="content" source="media/archive-rehydrate-to-online-tier/update-rehydration-priority-portal.png" alt-text="Screenshot showing how to update the rehydration priority for a rehydrating blob in Azure portal.":::
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -519,7 +519,7 @@ To perform the copy operation from the archive tier to an online tier with Stand
 
 After you've initiated the copy operation, you'll see in the Azure portal, that both the source and destination blob are in the archive tier. The destination blob is rehydrating with Standard priority.
 
-:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-standard-priority.png" alt-text="Screenshot showing destination blob in archive tier and rehydrating with Standard priority":::
+:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-standard-priority.png" alt-text="Screenshot showing destination blob in archive tier and rehydrating with Standard priority.":::
 
 To change the rehydration priority for the destination blob, follow these steps:
 
@@ -531,7 +531,7 @@ To change the rehydration priority for the destination blob, follow these steps:
 
 The destination blob's properties page now shows that it's rehydrating with High priority.
 
-:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-high-priority.png" alt-text="Screenshot showing destination blob in archive tier and rehydrating with High priority":::
+:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-high-priority.png" alt-text="Screenshot showing destination blob in archive tier and rehydrating with High priority.":::
 
 #### [PowerShell](#tab/azure-powershell)
 
