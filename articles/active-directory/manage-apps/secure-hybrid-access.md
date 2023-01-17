@@ -19,7 +19,7 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
 * **Application Proxy**:
   * Protect users, apps, and data in the cloud and on-premises 
   * Use it to publish on-premises web applications externally
-  * [What is Application Proxy?](./app-proxy/application-proxy#what-is-application-proxy)
+  * [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy)
 * **Secure hybrid access through Azure AD partner integrations**:
   * Pre-built solutions
   * Conditional Access policies per application
@@ -30,8 +30,8 @@ In addition to Application Proxy, you can strengthen your security posture with 
 
 Learn more:
 
-* [What is Identity Protection?](/articles/active-directory/identity-protection/overview-identity-protection.md)
-* [Using Azure AD Application Proxy to publish on-premises apps for remote users](/articles/active-directory/app-proxywhat-is-application-proxy.md)
+* [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
+* [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
 ## Single sign-on and multi-factor authentication
 
@@ -39,8 +39,8 @@ With Azure AD as an identity provider (IdP), you can use modern authentication a
 
 Learn more:
 
-* [What is SSO in Azure Active Directory?](/articles/active-directory/manage-apps/what-is-single-sign-on.md)
-* [How it works: Azure AD Multi-Factor Authentication](/articles/active-directory/authentication/concept-mfa-howitworks.md)
+* [What is SSO in Azure Active Directory?](what-is-single-sign-on.md)
+* [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 
 ## Secure hybrid access with Application Proxy
 
@@ -48,9 +48,9 @@ Use Application Proxy for secure remote access to on-premises web applications. 
 
 Learn more:
 
-* [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](/articles/active-directory/app-proxy/application-proxy-add-on-premises-application.md)
-* [How to configure SSO to an Application Proxy application](/articles/active-directory/app-proxy/application-proxy-config-sso-how-to.md)
-* [Using Azure AD Application Proxy to publish on-premises apps for remote users](/articles/active-directory/app-proxy/what-is-application-proxy.md)
+* [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md)
+* [How to configure SSO to an Application Proxy application](../app-proxy/application-proxy-config-sso-how-to.md)
+* [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
 ### Application publishing and access management
 
@@ -58,8 +58,8 @@ Use Application Proxy remote access as a service to publish applications to user
 
 Learn more:
 
-* [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](/articles/active-directory/app-proxy/application-proxy-add-on-premises-application.md)
-* [Plan an Azure AD Application Proxy deployment](/articles/active-directory/app-proxy/application-proxy-deployment-plan.md)
+* [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure AD](../app-proxy/application-proxy-add-on-premises-application.md)
+* [Plan an Azure AD Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
 
 ## Partner integrations for apps: on-premises and legacy authentication
 
