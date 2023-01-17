@@ -83,6 +83,7 @@ On this panel, you can reference to the Spark job definition to run.
      |  Property   | Description   |  
      | ----- | ----- |  
      |Main definition file| The main file used for the job. Select a PY/JAR/ZIP file from your storage. You can select **Upload file** to upload the file to a storage account. <br> Sample: `abfss://…/path/to/wordcount.jar`|
+     | References from subfolders | Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named "jars", "pyFiles", "files" or "archives" will be scanned, and the folders name are case sensitive. |
      |Main class name| The fully qualified identifier or the main class that is in the main definition file. <br> Sample: `WordCount`|
      |Command-line arguments| You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br> |
      |Apache Spark pool| You can select Apache Spark pool from the list.|
