@@ -13,20 +13,20 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 
 # Understanding Public Key Cryptography and X.509 Public Key Infrastructure
 
-You can use X.509 certificates to authenticate devices to an Azure IoT Hub. A certificate is a digital document that contains the device's public key and can be used to verify that the device is what it claims to be. X.509 certificates and certificate revocation lists (CRLs) are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). Certificates are just one part of an X.509 public key infrastructure (PKI). To understand X.509 PKI, you need to understand cryptographic algorithms, cryptographic keys, certificates, and certification authorities (CAs):
+You can use X.509 certificates to authenticate devices to an Azure IoT hub. A certificate is a digital document that contains the device's public key and can be used to verify that the device is what it claims to be. X.509 certificates and certificate revocation lists (CRLs) are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). Certificates are just one part of an X.509 public key infrastructure (PKI). To understand X.509 PKI, you need to understand cryptographic algorithms, cryptographic keys, certificates, and certificate authorities (CAs):
 
 * **Algorithms** define how original plaintext data is transformed into ciphertext and back to plaintext.
 * **Keys** are random or pseudorandom data strings used as input to an algorithm.
 * **Certificates** are digital documents that contain an entity's public key and enable you to determine whether the subject of the certificate is who or what it claims to be.
-* **Certification Authorities** attest to the authenticity of certificate subjects.
+* **Certificate Authorities** attest to the authenticity of certificate subjects.
 
-You can purchase a certificate from a certification authority (CA). You can also, for testing and development or if you're working in a self-contained environment, create a self-signed root CA. If, for example, you own one or more devices and are testing IoT hub authentication, you can self-sign your root CA and use that to issue device certificates. You can also issue self-signed device certificates. This is discussed in subsequent articles.
+You can purchase a certificate from a certificate authority (CA). You can also, for testing and development or if you're working in a self-contained environment, create a self-signed root CA. For example, if you want to test IoT Hub authentication on devices that you own, you can self-sign your root CA and use that to issue device certificates. You can also issue self-signed device certificates.
 
-Before discussing X.509 certificates in more detail and using them to authenticate devices to an IoT Hub, we discuss the cryptography on which certificates are based.
+Before discussing X.509 certificates in more detail and using them to authenticate devices to an IoT hub, here are the fundamental cryptography concepts on which certificates are based.
 
 ## Cryptography
 
-Cryptography is used to protect information and communications. This is typically done by using cryptographic techniques to scramble plaintext (ordinary text) into ciphertext (encoded text) and back again. This scrambling process is called encryption. The reverse process is called decryption. Cryptography is concerned with the following objectives:
+Cryptography protects information and communications through *encryption* and *decryption*. Encryption is the process of translating plain text data (*plaintext*) into something that appears to be random and meaningless (*ciphertext*). Decryption is the process of converting ciphertext back to plaintext. Cryptography is concerned with the following objectives:
 
 * **Confidentiality**: The information can be understood by only the intended audience.
 * **Integrity**: The information can't be altered in storage or in transit.
@@ -43,15 +43,15 @@ There are two types of encryption. Symmetric encryption uses the same key for bo
 
 Symmetric encryption uses the same key to encrypt plaintext into ciphertext and decrypt ciphertext back into plaintext. The necessary length of the key, expressed in number of bits, is determined by the algorithm. After the key is used to encrypt plaintext, the encrypted message is sent to the recipient who then decrypts the ciphertext. The symmetric key must be securely transmitted to the recipient. Sending the key is the greatest security risk when using a symmetric algorithm.
 
-![Symmetric encryption example](media/iot-hub-x509-certificate-concepts/symmetric-keys.png)
+:::image type="content" source="./media/iot-hub-x509-certificate-concepts/symmetric-keys.png" alt-text="Diagram showing an example of symmetric encryption and decryption." lightbox="./media/iot-hub-x509-certificate-concepts/symmetric-keys.png":::
 
 ### Asymmetric encryption
 
-If only symmetric encryption is used, the problem is that all parties to the communication must possess the private key. However, it's possible that unauthorized third parties can capture the key during transmission to authorized users. To address this issue, use asymmetric or public key cryptography instead.
+If only symmetric encryption is used, the problem is that all parties to the communication must possess the private key. However, it's possible that unauthorized third parties can capture the key during transmission to authorized users. To address this issue, you can use asymmetric or public key cryptography instead.
 
 In asymmetric cryptography, every user has two mathematically related keys called a key pair. One key is public and the other key is private. The key pair ensures that only the recipient has access to the private key needed to decrypt the data. The following illustration summarizes the asymmetric encryption process.
 
-![Asymmetric encryption example](media/iot-hub-x509-certificate-concepts/asymmetric-keys.png)
+:::image type="content" source="./media/iot-hub-x509-certificate-concepts/asymmetric-keys.png" alt-text="Diagram showing an example of asymmetric encryption and decryption." lightbox="./media/iot-hub-x509-certificate-concepts/asymmetric-keys.png":::
 
 1. The recipient creates a public-private key pair and sends the public key to a CA. The CA packages the public key in an X.509 certificate.
 
@@ -67,7 +67,7 @@ In asymmetric cryptography, every user has two mathematically related keys calle
 
 Symmetric and asymmetric encryption can be combined to take advantage of their relative strengths. Symmetric encryption is much faster than asymmetric encryption, but, because of the necessity of sending private keys to other parties, it isn't as secure. To combine the two types together, symmetric encryption can be used to convert plaintext to ciphertext. Asymmetric encryption is used to exchange the symmetric key. This process is demonstrated by the following diagram.
 
-![Symmetric and assymetric encryption](media/iot-hub-x509-certificate-concepts/symmetric-asymmetric-encryption.png)
+:::image type="content" source="./media/iot-hub-x509-certificate-concepts/symmetric-asymmetric-encryption.png" alt-text="Diagram showing an example of combining symmetric and asymmetric encryption and decryption." lightbox="./media/iot-hub-x509-certificate-concepts/symmetric-asymmetric-encryption.png":::
 
 1. The sender retrieves the recipient's public key.
 
@@ -85,9 +85,9 @@ Symmetric and asymmetric encryption can be combined to take advantage of their r
 
 Asymmetric algorithms can be used to protect data from modification and prove the identity of the data creator. The following illustration shows how asymmetric signing helps prove the sender's identity.
 
-![Asymmetric signing example](media/iot-hub-x509-certificate-concepts/asymmetric-signing.png)
+:::image type="content" source="./media/iot-hub-x509-certificate-concepts/asymmetric-signing.png" alt-text="Diagram showing an example of asymmetric signing." lightbox="./media/iot-hub-x509-certificate-concepts/asymmetric-signing.png":::
 
-1. The sender passes plaintext data through an asymmetric encryption algorithm, using the private key for encryption. Notice that this scenario reverses use of the private and public keys outlined in the preceding section that detailed asymmetric encryption.
+1. The sender passes plaintext data through an asymmetric encryption algorithm, using the private key for encryption. Notice that this scenario reverses use of the private and public keys outlined in the preceding section, [Asymmetric encryption](#asymmetric-encryption).
 
 1. The resulting ciphertext is sent to the recipient.
 
@@ -97,9 +97,9 @@ Asymmetric algorithms can be used to protect data from modification and prove th
 
 ## Signing
 
-Digital signing can be used to determine whether the data has been modified in transit or at rest. The data is passed through a hash algorithm, a one-way function that produces a mathematical result from the given message. The result is called a *hash value*, *message digest*, *digest*, *signature*, or *thumbprint*. A hash value cannot be reversed to obtain the original message. Because A small change in the message results in a significant change in the *thumbprint*, the hash value can be used to determine whether a message has been altered. The following illustration shows how asymmetric encryption and hash algorithms can be used to verify that a message hasn't been modified.
+Digital signing can be used to determine whether the data has been modified in transit or at rest. The data is passed through a hash algorithm, a one-way function that produces a mathematical result from the given message. The result is called a *hash value*, *message digest*, *digest*, *signature*, *fingerprint*, or *thumbprint*. A hash value can't be reversed to obtain the original message. Because a small change in the message results in a significant change in the *thumbprint*, the hash value can be used to determine whether a message has been altered. The following illustration shows how asymmetric encryption and hash algorithms can be used to verify that a message hasn't been modified.
 
-![Signing example](media/iot-hub-x509-certificate-concepts/signing.png)
+:::image type="content" source="./media/iot-hub-x509-certificate-concepts/signing.png" alt-text="Diagram showing an example of digital signing." lightbox="./media/iot-hub-x509-certificate-concepts/signing.png":::
 
 1. The sender creates a plaintext message.
 
@@ -117,12 +117,12 @@ Digital signing can be used to determine whether the data has been modified in t
 
 ## Next steps
 
-To learn more about the fields that make up a certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
 
-If you already know a lot about X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT Hub, see the following topics:
+If you're already familiar with X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT hub, see the following articles:
 
 * [Using Microsoft-Supplied Scripts to Create Test Certificates](tutorial-x509-scripts.md)
 * [Using OpenSSL to Create Test Certificates](tutorial-x509-openssl.md)
 * [Using OpenSSL to Create Self-Signed Test Certificates](tutorial-x509-self-sign.md)
 
-If you have a certification authority (CA) certificate or subordinate CA certificate and you want to upload it to your IoT hub and prove that you own it, see [Proving Possession of a CA Certificate](tutorial-x509-prove-possession.md).
+If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate before you can use it. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).
