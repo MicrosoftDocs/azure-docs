@@ -564,6 +564,9 @@ For example, with a sharded collection, sharded on key “country”: To delete 
 
 To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal.
 
+> [!NOTE]
+> Retryable writes does not support bulk *unordered* writes at this time. If you would like to perform bulk writes, either perform bulk ordered writes with retryable writes enabled or disable retryable writes to perform unordered bulk writes.
+
 ## Sharding
 
 Azure Cosmos DB supports automatic, server-side sharding. It manages shard creation, placement, and balancing automatically. Azure Cosmos DB doesn't support manual sharding commands, which means you don't have to invoke commands such as addShard, balancerStart, moveChunk etc. You only need to specify the shard key while creating the containers or querying the data.
