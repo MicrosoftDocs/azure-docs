@@ -23,15 +23,15 @@ In this article, learn to protect your on-premises and cloud legacy authenticati
 * **Secure hybrid access through Azure AD partner integrations**:
   * Pre-built solutions
   * Conditional Access policies per application
-  * [What is Conditional Access?](./conditional-access/overview.md)
+  * [What is Conditional Access?](../conditional-access/overview.md)
   * Azure AD integration documentation
 
 In addition to Application Proxy, you can strengthen your security posture with Identity Protection. 
 
 Learn more:
 
-* [What is Identity Protection?](./identity-protection/overview-identity-protection.md)
-* [Using Azure AD Application Proxy to publish on-premises apps for remote users](./app-proxy/what-is-application-proxy.md)
+* [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
+* [Using Azure AD Application Proxy to publish on-premises apps for remote users](../app-proxy/what-is-application-proxy.md)
 
 ## Single sign-on and multi-factor authentication
 
