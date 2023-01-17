@@ -1,8 +1,8 @@
 ---
 title: Amazon S3 multi-cloud scanning connector for Microsoft Purview
 description: This how-to guide describes details of how to scan Amazon S3 buckets in Microsoft Purview.
-author: batamig
-ms.author: bagol
+author: aashishr
+ms.author: aashishr
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

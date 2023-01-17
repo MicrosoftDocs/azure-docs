@@ -13,7 +13,7 @@ Azure Event Hubs is a scalable event processing service that ingests and process
 This article builds on the information in the [overview article](./event-hubs-about.md), and provides technical and implementation details about Event Hubs components and features.
 
 > [!TIP]
-> [The protocol support for **Apache Kafka** clients](event-hubs-for-kafka-ecosystem-overview.md)  (versions >=1.0) provides network endpoints that enable applications built to use Apache Kafka with any client to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an Event Hub namespace instead of a Kafka cluster bootstrap server. 
+> [The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides network endpoints that enable applications built to use Apache Kafka with any client to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an Event Hub namespace instead of a Kafka cluster bootstrap server. 
 >
 >From the perspective of cost, operational effort, and reliability, Azure Event Hubs is a great alternative to deploying and operating your own Kafka and Zookeeper clusters and to Kafka-as-a-Service offerings not native to Azure. 
 >
@@ -27,7 +27,7 @@ An Event Hubs namespace is a management container for event hubs (or topics, in 
 
 ## Event publishers
 
-Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token gain publishing access.
+Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Azure Active Directory based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
 
 ### Publishing an event
 

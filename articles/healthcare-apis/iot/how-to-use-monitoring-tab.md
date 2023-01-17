@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 1/12/2023
 ms.author: jasteppe
 ---
 
@@ -18,19 +18,19 @@ In this article, you'll learn how to use the MedTech service monitoring tab in t
 
 1. Within your Azure Health Data Services workspace, select **MedTech service** under **Services**.
 
-   :::image type="content" source="media\iot-monitoring-tab\workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\iot-monitoring-tab\workspace-displayed-with-connectors-button.png":::
+   :::image type="content" source="media\how-to-use-monitoring-tab\workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\how-to-use-monitoring-tab\workspace-displayed-with-connectors-button.png":::
 
 2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
 
-   :::image type="content" source="media\iot-monitoring-tab\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\iot-monitoring-tab\select-medtech-service.png":::
+   :::image type="content" source="media\how-to-use-monitoring-tab\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\how-to-use-monitoring-tab\select-medtech-service.png":::
 
 3. Select **Monitoring** tab within the MedTech service page.
 
-   :::image type="content" source="media\iot-monitoring-tab\select-monitoring-tab.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\iot-monitoring-tab\select-monitoring-tab.png":::
+   :::image type="content" source="media\how-to-use-monitoring-tab\select-monitoring-tab.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\how-to-use-monitoring-tab\select-monitoring-tab.png":::
 
 4. The MedTech service monitoring tab will open displaying a subset of the supported MedTech service metrics. By default, the **Show data for last** option is set to 1 hour. To adjust the time duration, select the **Show data for last option**, select the time period you would like to view, and select **Apply**. Select the down arrow in the **Traffic** MedTech service metrics tile to display the next set of MedTech service traffic metrics. 
 
-   :::image type="content" source="media\iot-monitoring-tab\display-metrics-tile.png" alt-text="Screenshot the MedTech service monitoring tab with drop-down menus." lightbox="media\iot-monitoring-tab\display-metrics-tile.png":::
+   :::image type="content" source="media\how-to-use-monitoring-tab\display-metrics-tile.png" alt-text="Screenshot the MedTech service monitoring tab with drop-down menus." lightbox="media\how-to-use-monitoring-tab\display-metrics-tile.png":::
 
    > [!IMPORTANT]
    > If you leave the MedTech service monitoring tab, any customized settings you have made to the monitoring settings are lost and will have to be recreated. If you would like to save your customizations for future viewing, you can pin them to an Azure portal dashboard as a tile. 
@@ -39,10 +39,10 @@ In this article, you'll learn how to use the MedTech service monitoring tab in t
 
 5. **Optional** - Select the **pin icon** to save the metrics tile to an Azure portal dashboard of your choosing.
 
-   :::image type="content" source="media\iot-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\iot-monitoring-tab\pin-metrics-to-dashboard.png":::
+   :::image type="content" source="media\how-to-use-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\how-to-use-monitoring-tab\pin-metrics-to-dashboard.png":::
    
    > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
+   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md)
 
 ## Available metrics for the MedTech service
 
@@ -62,7 +62,7 @@ Metric category|Metric name|Metric description|
 
 ## Next steps
 
-In this article, you learned about how to use the MedTech service monitoring tab.
+In this article, you learned how to use the MedTech service monitoring tab.
 
 To learn how to configure the MedTech service metrics, see
 
