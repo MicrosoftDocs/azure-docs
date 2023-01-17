@@ -282,7 +282,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ## Receive messages from a subscription
 
-Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
+The following sample code shows you how to receive messages from a subscription. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
 
 Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code into it.
 
@@ -376,7 +376,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ## Run the app
 
-Open a command prompt that has Python in its path, and then run the code to send and receive messages from the queue.
+Open a command prompt that has Python in its path, and then run the code to send and receive messages for a subscription under a topic.
 
 ```shell
 python send.py; python recv.py
