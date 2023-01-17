@@ -16,7 +16,7 @@ ms.date: 12/15/2022
 # Frequently asked questions about forecasting in AutoML
 This article answers common questions about forecasting in AutoML. See the [methods overview article](./concept-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-#### How do I start building forecasting models in AutoML?
+## How do I start building forecasting models in AutoML?
 You can start by reading our guide on [setting up AutoML to train a time-series forecasting model with Python](./how-to-auto-train-forecast.md). We've also provided hands-on examples in several Jupyter notebooks:  
 1. [Bike share example](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
 2. [Forecasting using deep learning](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
@@ -24,13 +24,13 @@ You can start by reading our guide on [setting up AutoML to train a time-series 
 4. [Forecasting Recipes](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb)
 5. [Advanced forecasting scenarios](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 
-#### Why is AutoML slow on my data?
+## Why is AutoML slow on my data?
 
 We're always working to make it faster and more scalable! To work as a general forecasting platform, AutoML does extensive data validations, complex feature engineering, and searches over a large model space. This complexity can require a lot of time, depending on the data and the configuration. 
 
 One common source of slow runtime is training AutoML with default settings on data containing numerous time series. The cost of many forecasting methods scales with the number of series. For example, methods like Exponential Smoothing and Prophet [train a model for each time series](./concept-automl-forecasting-methods.md#model-grouping) in the training data. **The Many Models feature of AutoML scales to these scenarios** by distributing training jobs across a compute cluster and has been successfully applied to data with millions of time series. For more information, see the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) article. You can also read about [the success of Many Models](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition data set.
 
-#### How can I make AutoML faster?
+## How can I make AutoML faster?
 See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer to understand why it may be slow in your case.
 Consider the following configuration changes that may speed up your job:
 - Block time series models like ARIMA and Prophet
@@ -42,7 +42,7 @@ Consider the following configuration changes that may speed up your job:
   - number of cross validation folds.
 - Ensure that early termination is enabled.
   
-#### What modeling configuration should I use?
+## What modeling configuration should I use?
 
 There are four basic configurations supported by AutoML forecasting:
   
@@ -93,7 +93,7 @@ There are four basic configurations supported by AutoML forecasting:
     > [!NOTE]  
     > HTS is designed for tasks where training or prediction is required at aggregated levels in the hierarchy. For hierarchical data requiring only leaf node training and prediction, use [Many Models](./how-to-auto-train-forecast.md#many-models) instead.
 
-#### How can I prevent over-fitting and data leakage?
+## How can I prevent over-fitting and data leakage?
 
 AutoML uses machine learning best practices, such as cross-validated model selection, that mitigate many over-fitting issues. However, there are other potential sources of over-fitting:
 
@@ -101,7 +101,7 @@ AutoML uses machine learning best practices, such as cross-validated model selec
 - The training data uses **features that are not known into the future**, up to the forecast horizon. AutoML's regression models currently assume all features are known to the forecast horizon. We advise you to explore your data prior to training and remove any feature columns that are only known historically.
 - There are **significant structural differences - regime changes - between the training, validation, or test portions of the data**. For example, consider the effect of the COVID-19 pandemic on demand for almost any good during 2020 and 2021; this is a classic example of a regime change. Over-fitting due to regime change is the most challenging issue to address because it's highly scenario dependent and can require deep knowledge to identify. As a first line of defense, try to reserve 10 - 20% of the total history for validation, or cross-validation, data. This is not always possible if the training history is short, but is generally a best practice. See our guide on [configuring validation](./how-to-auto-train-forecast.md#training-and-validation-data) for more information.  
 
-#### What if my time series data doesn't have regularly spaced observations?
+## What if my time series data doesn't have regularly spaced observations?
 
 AutoML's forecasting models all require that training data have regularly spaced observations with respect to the calendar. This requirement includes cases like monthly or yearly observations where the number of days between observations may vary. There are two cases where time dependent data may not meet this requirement:
 
@@ -110,7 +110,7 @@ guide for more information on configuring imputation.
 
 - **The data does not have a well defined frequency**. That is, the duration between observations does not have a discernible pattern. Transactional data, like that from a point-of-sales system, is one example. In this case, you can set AutoML to aggregate your data to a chosen frequency. You can choose a regular frequency that best suites the data and the modeling objectives. See the [data aggregation](./how-to-auto-train-forecast.md#frequency--target-data-aggregation) section for more information.
 
-#### How do I choose the primary metric?
+## How do I choose the primary metric?
 
 The primary metric is very important since its value on validation data determines the best model during [ sweeping and selection](./concept-automl-forecasting-sweeping.md). **Normalized root mean squared error (NRMSE) or normalized mean absolute error (NMAE) are usually the best choices for the primary metric** in forecasting tasks. To choose between them, note that RMSE penalizes outliers in the training data more than MAE because it uses the square of the error. The NMAE may be a better choice if you want the model to be less sensitive to outliers. See the [regression and forecasting metrics](./how-to-understand-automated-ml.md#regressionforecasting-metrics) guide for more information.
 
@@ -120,7 +120,7 @@ The primary metric is very important since its value on validation data determin
 > [!NOTE]
 > AutoML does not support custom, or user-provided functions for the primary metric. You must choose one of the predefined primary metrics that AutoML supports. 
 
-#### How can I improve the accuracy of my model?
+## How can I improve the accuracy of my model?
 
 - Ensure that you're configuring AutoML the best way for your data. See the [model configuration](#what-modeling-configuration-should-i-use) answer for more information.
 - Check out the [forecasting recipes notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb) for step-by-step guides on how to build and improve forecast models.  
@@ -151,13 +151,13 @@ We support the following advanced prediction scenarios:
 
 See the [advanced forecasting scenarios notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb) for examples and details.
 
-#### How do I view metrics from forecasting training jobs?
+## How do I view metrics from forecasting training jobs?
 
 See our [metrics in studio UI](./v1/how-to-log-view-metrics.md#view-run-metrics-in-the-studio-ui) guide for finding training and validation metric values. Note that you can view metrics for any forecasting model trained in AutoML by navigating to a model from the AutoML job UI in the studio and clicking on the "metrics" tab.
 
 :::image type="content" source="media/how-to-automl-forecasting-faq/metrics_UI.png" alt-text="A view of the metric interface for an AutoML forecasting model.":::
 
-#### How do I debug failures with forecasting training jobs?
+## How do I debug failures with forecasting training jobs?
 
 If your AutoML forecasting job fails, you will see an error message in the studio UI that may help to diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. Check out the [run logs](./v1/how-to-log-view-metrics.md#view-and-download-log-files-for-a-run) guide for instructions on finding driver logs.
 

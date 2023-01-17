@@ -41,7 +41,7 @@ AutoML's forecasting regression models can also be augmented to use historical v
 
 Another notable difference between the time series models and the regression models is in the way they generate forecasts. Time series models are generally defined by recursion relations and produce forecasts one-at-a-time. To forecast many periods into the future, they iterate up-to the forecast horizon, feeding previous forecasts back into the model to generate the next one-period-ahead forecast as needed. In contrast, the regression models are so-called **direct forecasters** that generate _all_ forecasts up to the horizon in one go. Direct forecasters can be preferable to recursive ones because recursive models compound prediction error when they feed previous forecasts back into the model. When lag features are included, AutoML makes some important modifications to the training data so that the regression models can function as direct forecasters. See the [lag features article](./concept-automl-forecasting-lags.md) for more details. 
 
-## Forecasting Models in AutoML
+## Forecasting models in AutoML
 The following table lists the forecasting models implemented in AutoML and what category they belong to:
 
 Time Series Models | Regression Models
