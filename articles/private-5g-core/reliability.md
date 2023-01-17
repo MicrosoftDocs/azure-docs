@@ -103,7 +103,7 @@ For security reasons, Azure Private 5G Core will never return the SIM credential
 Your Azure Private 5G Core deployment may make use of Azure Key Vaults for storing [SIM encryption keys](/azure/private-5g-core/security#customer-managed-key-encryption-at-rest) or HTTPS certificates for [local monitoring](/azure/private-5g-core/security#access-to-local-monitoring-tools). You must follow the [key vault documentation](/azure/key-vault/general/disaster-recovery-guidance) to ensure that your keys and certificates will be available in the backup region.
 
 ##### Recovery
-In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (@@ instructions are in the region move article). If all the resources are not present,stop here and not follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
+In the event of a region failure, first validate that all the resources in your backup region are present by querying the configuration through the Azure portal or API (see [Move resources to a different region](/azure/private-5g-core/region-move)). If all the resources are not present,stop here and not follow the rest of this procedure. You may not be able to recover service at the edge site without the resource configuration.
 
 The recovery process is split into three stages for each packet core:
 
@@ -114,7 +114,7 @@ The recovery process is split into three stages for each packet core:
 You must repeat this process for every packet core in your mobile network. It is recommended that you only perform this procedure for packet cores where you have a business-critical need to manage the Azure Private 5G Core deployment through Azure during the region failure because the procedure will cause a network outage lasting several hours for each packet core.
 
 **Disconnect the edge device from the failed region**
-(@@FMC instructions on resetting the ASE to remove the ARC connection, following up with ASE team as nothing in public docs)
+<!-- (@@FMC instructions on resetting the ASE to remove the ARC connection, following up with ASE team as nothing in public docs) <-->
 
 **Connect the edge device to the new region**
 Re-run the installation script provided by your trials engineer to redeploy the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your ASE device. Ensure that you use a different name for this new installation to avoid clashes when the failed region recovers. As part of this process you will get a new custom location ID for the cluster, which you should note down.
@@ -142,12 +142,14 @@ You then have two choices for ongoing management:
 
 If you want to test your disaster recovery plans, you can follow the recovery procedure for a single packet core at any time. Note that this will cause a service outage of your packet core service and interrupt network connectivity to your UEs for up to four hours, so we recommend only doing this with non-production packet core deployments or at a time when an outage will not adversely affect your business.
 
+<!-->
 ### Capacity and proactive disaster recovery resiliency
 
-<!--> [FMC 22-Dec-2022] proactive disaster recovery is the backup deployment setup, described above. There are no capacity concerns for Azure Private 5G Core so people don't need to pre-allocate resources or similar. I think this means we can remove this section? <-->
+ [FMC 22-Dec-2022] proactive disaster recovery is the backup deployment setup, described above. There are no capacity concerns for Azure Private 5G Core so people don't need to pre-allocate resources or similar. I think this means we can remove this section? <-->
 
+<!-->
 ## Additional guidance
-TODO: Add your additional guidance
+ TODO: Add your additional guidance <-->
 
 ## Next steps
 
