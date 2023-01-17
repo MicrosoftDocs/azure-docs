@@ -140,7 +140,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
           restartPolicy: "Never" 
     ```
     
-    Arguments
+    **Arguments**
     | Name | Type | Description |
     |--|--|--|
     | Metadata | Boolean | Setting to True to allow for collateral to be returned |
@@ -152,6 +152,8 @@ Follow the steps below for requesting AMD collateral in a confidential container
     ```bash
     kubectl get pods 
     ```
+    
+    **Example Reponse**
     | Name | Ready | Status | Restarts | Age |
     |--|--|--|--|--|
     | Curl-w7nt8  | 0/1 | Completed | 0 | 72s |
