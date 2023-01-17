@@ -224,7 +224,7 @@ As part of the core logic, most runbooks make calls to the remote systems. For e
 - Other web services
 - SQL Services
 
-When the system that the runbooks are calling are busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency into the runbooks, you must implement the retry logic while making the calls so that the runbooks can handle a transient problem without failing. 
+When the system (that the runbooks are calling) is busy, temporary unavailable or implementing throttling under load, the calls are vulnerable to have runtime errors. To build resiliency in the runbooks, you must implement the retry logic when making the calls so that the runbooks can handle a transient problem without failing. 
 
 For more information, refer [Retry pattern](https://learn.microsoft.com/azure/architecture/patterns/retry) and [General REST and retry guidelines](https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#general-rest-and-retry-guidelines).
 
@@ -235,7 +235,7 @@ $searchServiceURL = "https://$searchServiceName.search.windows.net"
 $resource = Get-AzureRmResource -ResourceType "Microsoft.Search/searchServices" -ResourceGroupName $searchResourceGroupName -ResourceName  $searchServiceName -ApiVersion 2015-08-19
 $searchAPIKey = (Invoke-AzureRmResourceAction -Action listAdminKeys -ResourceId $resource.ResourceId -ApiVersion 2015-08-19 -Force).PrimaryKey
 ```
-When you call `Invoke-AzureRmResourceAction`, transient failures are observed. In such scenario, we recommend that you implement the following basic pattern around the call to the cmdlet.
+When you call `Invoke-AzureRmResourceAction`, you may observe transient failures. In such scenario, we recommend that you implement the following basic pattern around the call to the cmdlet.
 
 ```powershell
 $searchServiceURL = "https://$searchServiceName.search.windows.net"
@@ -272,7 +272,7 @@ $resource = Get-AzureRmResource -ResourceType "Microsoft.Search/searchServices" 
 
 ### Example 2 : If the runbook is making frequent remote calls
 
-If the runbook is making frequent remote calls that it could experience transient runtime issues, then create a function that will implement this logic for each call that is made and pass the call to be made in as a script block to execute.
+If the runbook is making frequent remote calls that it could experience transient runtime issues, then create a function that implements the logic for each call that is made and pass the call to be made in as a script block to execute.
 
 ```powershell
 Function ResilientRemoteCall {
