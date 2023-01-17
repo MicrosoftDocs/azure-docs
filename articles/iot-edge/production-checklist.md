@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -251,9 +251,18 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
 1. In the text editor, change your image values under `[agent.config]`. Replace the values in brackets with your own.
 
-   ```bash
+   ```toml
    [agent.config]
-   Image = "<registry-name/server>/azureiotedge-agent:1.4"
+   image = "<registry-name/server>/azureiotedge-agent:1.4"
+   ```
+
+1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.
+
+   ```toml
+   [agent.config.auth]
+   serveraddress = "<login-server>" # Almost always equivalent to <registry-name/server>
+   username = "<username>"
+   password = "<password>"
    ```
 
 1. Save your changes and exit your text editor.
@@ -268,7 +277,7 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
 For more information, see:
 
-* [Configure the IoT Edge agent](/azure/iot-edge/how-to-configure-proxy-support#configure-the-iot-edge-agent)
+* [Configure the IoT Edge agent](./how-to-configure-proxy-support.md#configure-the-iot-edge-agent)
 * [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent)
 * [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub)
 

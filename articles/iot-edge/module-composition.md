@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/08/2020
+ms.date: 07/06/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Learn how to deploy modules and establish routes in IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. IoT Edge device can run multiple additional modules for any number of processes. Use a deployment manifest to tell your device which modules to install and how to configure them to work together.
 
@@ -215,7 +215,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 }
 ```
 
-The IoT Edge hub schema version 1.1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge hub schema version 1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 Every route needs a *source* where the messages come from and a *sink* where the messages go. The *condition* is an optional piece that you can use to filter messages.
 
@@ -336,7 +336,7 @@ The following example shows what a valid deployment manifest document may look l
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
               "createOptions": "{}"
             }
           },
@@ -346,7 +346,7 @@ The following example shows what a valid deployment manifest document may look l
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }

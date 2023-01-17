@@ -16,8 +16,6 @@ AKS clusters can now be deployed in a dual-stack (using both IPv4 and IPv6 addre
 
 This article shows you how to use dual-stack networking with an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Limitations
 > [!NOTE]
 > Dual-stack kubenet networking is currently not available in sovereign clouds. This note will be removed when rollout is complete.
@@ -38,36 +36,40 @@ This article shows you how to use dual-stack networking with an AKS cluster. For
 * Azure CLI with the `aks-preview` extension 0.5.48 or newer.
 * If using Azure Resource Manager templates, schema version 2021-10-01 is required.
 
-### Register the `AKS-EnableDualStack` preview feature
+## Install the aks-preview Azure CLI extension
 
-To create an AKS dual-stack cluster, you must enable the `AKS-EnableDualStack` feature flag on your subscription.
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-Register the `AKS-EnableDualStack` feature flag by using the `az feature register` command, as shown in the following example:
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Register the 'AKS-EnableDualStack' feature flag
+
+Register the `AKS-EnableDualStack` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-EnableDualStack"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-EnableDualStack')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "AKS-EnableDualStack"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
-```
-
-### Install the aks-preview CLI extension
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
 ```
 
 ## Overview of dual-stack networking in Kubernetes
@@ -405,3 +407,6 @@ curl -s "http://[${SERVICE_IP}]" | head -n5
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
 [user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-mi
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

@@ -125,7 +125,7 @@
       displayName: AKS, inference
       href: how-to-create-attach-kubernetes.md
     - name: Link to Azure Synapse Analytics workspace
-      href: ../v1/how-to-link-synapse-ml-workspaces.md
+      href: how-to-link-synapse-ml-workspaces.md
   - name: Security
     items:
     - name: Use managed identities for access control

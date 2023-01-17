@@ -6,18 +6,18 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 12/16/2022
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files data migration and protection.
 
 ## How do I migrate data to Azure NetApp Files?
-Azure NetApp Files provides NFS and SMB volumes.  You can use any file-based copy tool to migrate data to the service. 
+Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy tool to migrate data to the service. 
 
-NetApp offers a SaaS-based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
+NetApp offers a SaaS-based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service). The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
-You can also use a wide array of free tools to copy data. For NFS, you can use workloads tools such as [rsync](https://rsync.samba.org/examples.html) to copy and synchronize source data into an Azure NetApp Files volume. For SMB, you can use workloads [robocopy](/windows-server/administration/windows-commands/robocopy) in the same manner.  These tools can also replicate file or folder permissions. 
+You can also use a wide array of free tools to copy data. For NFS, you can use workloads tools such as [rsync](https://rsync.samba.org/examples.html) to copy and synchronize source data into an Azure NetApp Files volume. For SMB, you can use workloads [robocopy](/windows-server/administration/windows-commands/robocopy) in the same manner. These tools can also replicate file or folder permissions. 
 
 The requirements for data migration from on premises to Azure NetApp Files are as follows: 
 
@@ -25,6 +25,9 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 - Validate network connectivity between the source and the Azure NetApp Files target volume IP address. Data transfer between on premises and the Azure NetApp Files service is supported over ExpressRoute.
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
+
+>[!NOTE]
+>[AzCopy](../storage/common/storage-use-azcopy-v10.md) can only be used in migration scenarios where the source or target is a storage account. Azure NetApp Files is not a storage account.
 
 ## Where does Azure NetApp Files store customer data?   
 

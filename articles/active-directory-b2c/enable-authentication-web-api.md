@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2021
+ms.date: 01/10/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Enable authentication in your own web API by using Azure AD B2C
 
-To authorize access to a web API, serve only requests that include a valid Azure Active Directory B2C (Azure AD B2C)-issued access token. This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
+To authorize access to a web API, you can serve only requests that include a valid access token that's issued by Azure Active Directory B2C (Azure AD B2C). This article shows you how to enable Azure AD B2C authorization to your web API. After you complete the steps in this article, only users who obtain a valid access token will be authorized to call your web API endpoints.  
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The app does the following:
 1. It passes the access token as a bearer token in the authentication header of the HTTP request by using this format: 
 
     ```http
-    Authorization: Bearer <token>
+    Authorization: Bearer <access token>
     ```    
 
 The web API does the following:
@@ -49,7 +49,7 @@ The web API does the following:
 
 ### App registration overview
 
-To enable your app to sign in with Azure AD B2C and call a web API, you must register two applications in the Azure AD B2C directory.  
+To enable your app to sign in with Azure AD B2C and call a web API, you need to register two applications in the Azure AD B2C directory.  
 
 - The *web, mobile, or SPA application* registration enables your app to sign in with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your application (for example, *App ID: 1*).
 

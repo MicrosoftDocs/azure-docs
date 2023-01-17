@@ -29,7 +29,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -112,7 +112,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet --runtime-version 6 --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.

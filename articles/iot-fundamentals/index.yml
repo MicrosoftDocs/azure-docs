@@ -54,7 +54,7 @@ conceptualContent:
   summary: Azure IoT offers you cloud and edge IoT platforms as well as fully managed IoT solutions
   items:
     # Card
-    - title: Start with a solution development environment (aPaaS)
+    - title: Evaluate your IoT cloud solution (aPaaS)
       links:
         - url: ../iot-central/core/overview-iot-central.md
           itemType: overview

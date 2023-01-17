@@ -11,10 +11,23 @@ zone_pivot_groups: programming-languages-set-functions
 
 Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely upgrade to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
 
+> [!IMPORTANT]
+> Beginning on December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. 
+> 
+> After the deadline, function apps can be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps are not eligible for new features, security patches, and performance optimizations. You'll get related service support once you upgraded them to version 4.x.
+> 
+>End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these older runtime versions. This requirement affects all [languages supported by Azure Functions](supported-languages.md). 
+>
+>We highly recommend you migrating your function apps to version 4.x of the Functions runtime by following this article.
+>    
+>Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
+
+
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
 ::: zone pivot="programming-language-csharp" 
 ## Choose your target .NET
+
 
 On version 3.x of the Functions runtime, your C# function app targets .NET Core 3.1. When you migrate your function app to version 4.x, you have the opportunity to choose the target version of .NET. You can upgrade your C# project to one of the following versions of .NET, all of which can run on Functions version 4.x: 
 
@@ -24,7 +37,14 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 | .NET 6 | [Isolated worker process](./dotnet-isolated-process-guide.md) | 
 | .NET 6 | [In-process](./functions-dotnet-class-library.md) |  
 
-<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Non-LTS releases and .NET Framework require you to run in an [isolated worker process](./dotnet-isolated-process-guide.md). 
+<sup>*</sup> [In-process execution](./functions-dotnet-class-library.md) is only supported for Long Term Support (LTS) releases of .NET. Standard Terms Support (STS) releases and .NET Framework are supported .NET Azure functions [isolated worker process](./dotnet-isolated-process-guide.md). 
+
+> [!TIP]
+> On version 3.x of the Functions runtime, if you're on .NET 5, we recommend you upgrade to .NET 7. If you're on .NET Core 3.1, we recommend you upgrade to .NET 6 (in-process) for a quick upgrade path. 
+>
+> If you're looking for moving to a Long Term Support (LTS) .NET release, we recommend you upgrade to .NET 6 .
+> 
+> Migrating to .NET Isolated worker model to get all benefits provided by Azure Functions .NET isolated worker process. For more information about .NET isolated worker process advantages see [.NET isolated worker process enhancement](./dotnet-isolated-in-process-differences.md). For more information about .NET version support, see [Supported versions](./dotnet-isolated-process-guide.md#supported-versions).
 
 Upgrading from .NET Core 3.1 to .NET 6 running in-process requires minimal updates to your project and virtually no updates to code. Switching to the isolated worker process model requires you to make changes to your code, but provides the flexibility of being able to easily run on any future version of .NET. For a feature and functionality comparison between the two process models, see [Differences between in-process and isolate worker process .NET Azure Functions](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
@@ -35,6 +55,7 @@ Before you upgrade your app to version 4.x of the Functions runtime, you should 
 
 * Review the list of [breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x).
 * [Run the pre-upgrade validator](#run-the-pre-upgrade-validator).
+* Identify the list of v2&v3 Function Apps in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-upgrade).
 * When possible, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
 * Upgrade your function app in Azure to the new version. If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#upgrade-using-slots).  
 * Republished your migrated project to the upgraded function app. When you use Visual Studio to publish a version 4.x project to an existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#upgrade-without-slots).
@@ -50,6 +71,13 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 1. In **Function App Diagnostics**, start typing `Functions 4.x Pre-Upgrade Validator` and then choose it from the list. 
 
 1.  After validation completes, review the recommendations and address any issues in your app. If you need to make changes to your app, make sure to validate the changes against version 4.x of the Functions runtime, either [locally using Azure Functions Core Tools v4](#upgrade-your-local-project) or by [using a staging slot](#upgrade-using-slots). 
+
+
+## Identify function apps to upgrade
+
+Use the following PowerShell script to generate a list of function apps in your subscription that currently target versions 2.x or 3.x:
+
+:::code language="powershell" source="~/functions-azure-product/EOLHostMigration/CheckEOLAppsPerAzSub.ps1" range="4-20":::
 
 ## Upgrade your local project
 

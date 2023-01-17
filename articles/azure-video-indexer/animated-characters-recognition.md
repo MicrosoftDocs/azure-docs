@@ -7,6 +7,8 @@ ms.author: juliako
 ---
 # Animated character detection 
 
+[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+
 Azure Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). This functionality is available both through the portal and through the API.
 
 After uploading an animated video with a specific animation model, Azure Video Indexer extracts keyframes, detects animated characters in these frames, groups similar character, and chooses the best sample. Then, it sends the grouped characters to Custom Vision that identifies characters based on the models it was trained on. 

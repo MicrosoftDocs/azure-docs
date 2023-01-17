@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/10/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
 monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
@@ -20,11 +19,11 @@ recommendations: false
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+**This article applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**.
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 > * *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
@@ -243,7 +242,7 @@ Use the tags editor pane to create a new tag you'd like to identify:
 
 1. In the main editor, select the total value from the highlighted text elements.
 
-1. Select the Total tag to apply to the value, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+1. Select the Total tag to apply to the value, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane. Follow these steps to label all five forms in the sample dataset:
 
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms:
@@ -258,8 +257,6 @@ Use the tags editor pane to create a new tag you'd like to identify:
     > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
-
-1. Continue to follow the steps above to label all five forms in the sample dataset.
 
   :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Label the samples.":::
 
@@ -276,7 +273,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 #### Analyze a custom form
 
-1. Select the **Analyze** (light bulb) icon on the left to test your model.
+1. Select the **Analyze** icon from the navigation bar to test your model.
 
 1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder.
 

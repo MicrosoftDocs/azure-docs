@@ -102,7 +102,7 @@ I/O-bound apps may also benefit from increasing the number of worker processes b
 The `FUNCTIONS_WORKER_PROCESS_COUNT` applies to each host that Functions creates when scaling out your application to meet demand.
 
 > [!NOTE]
-> Multiple Python workers are not supported in V2 at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the V2 model.
+> Multiple Python workers are not supported by the Python v2 programming model at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the v2 model. 
 
 #### Set up max workers within a language worker process
 

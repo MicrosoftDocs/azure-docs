@@ -16,7 +16,7 @@ Each workbook graph or chart is based on an Azure Resource Graph (ARG) query run
 - Gather sensor statuses
 - Identify new devices in your network
 - Find alerts related to specific IP addresses
-- Understand which alerts are seen by each sensor.
+- Understand which alerts are seen by each sensor
 
 ## View workbooks
 

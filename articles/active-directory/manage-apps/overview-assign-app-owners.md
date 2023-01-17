@@ -36,7 +36,7 @@ As a best practice, we recommend proactive monitoring applications in your envir
 
 **How can I find enterprise applications that are ownerless or at risk of being ownerless in my organization?**
 
-To learn how to identify ownerless enterprise apps or those with only one owner using Microsoft Graph API, see [List ownerless applications](/graph/tutorial-applications-basics.md#manage-application-ownership).
+To learn how to identify ownerless enterprise apps or those with only one owner using Microsoft Graph API, see [List ownerless applications](/graph/tutorial-applications-basics#manage-application-ownership).
 
 **How do you add yourself as an owner of an enterprise application?**
 

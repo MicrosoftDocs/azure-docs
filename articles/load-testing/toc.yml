@@ -101,3 +101,5 @@ items:
       href: resource-supported-azure-resource-types.md
     - name: Service limits
       href: resource-limits-quotas-capacity.md
+    - name: JMeter property overrides
+      href: resource-jmeter-property-overrides.md
