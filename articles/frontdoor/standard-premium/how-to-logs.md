@@ -1,6 +1,6 @@
 ---
 title: 'Logs - Azure Front Door'
-description: This article explains how Azure Front Door tracks and monitor your environment with logs.
+description: This article explains how to configure Azure Front Door logs.
 services: front-door
 author: duongau
 ms.service: frontdoor
@@ -9,24 +9,11 @@ ms.date: 01/16/2023
 ms.author: duau
 ---
 
-# Azure Front Door logs
+# Configure Azure Front Door logs
 
-TODO
+Azure Front Door captures several types of logs. Logs can help you monitor your application, track requests, and debug your Front Door configuration. For more information about Azure Front Door's logs, see [Logs and metrics tracked by Azure Front Door](../logs-metrics.md).
 
-## Configure log storage
-
-* Access logs have detailed information about every request that AFD receives and help you analyze and monitor access patterns, and debug issues. 
-* Activity logs provide visibility into the operations done on Azure resources.  
-* Health probe logs provide the logs for every failed probe to your origin. 
-* Web Application Firewall (WAF) logs provide detailed information of requests that gets logged through either detection or prevention mode of an Azure Front Door endpoint. A custom domain that gets configured with WAF can also be viewed through these logs. For more information on WAF logs, see [Azure Web Application Firewall monitoring and logging](../../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
-
-Access logs, health probe logs and WAF logs aren't enabled by default. Use the steps below to enable logging. Activity log entries are collected by default, and you can view them in the Azure portal. Logs can have delays up to a few minutes. 
-
-You have three options for storing your logs: 
-
-* **Storage account:** Storage accounts are best used for scenarios when logs are stored for a longer duration and reviewed when needed. 
-* **Event hubs:** Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores. For example: Splunk/DataDog/Sumo. 
-* **Azure Log Analytics:** Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
+Access logs, health probe logs, and WAF logs aren't enabled by default. In this article, you'll learn how to enable diagnostic logs for your Azure Front Door profile.
 
 ## Configure logs
 
@@ -45,11 +32,17 @@ You have three options for storing your logs:
 1. Select the **Destination details**. Destination options are: 
 
     * **Send to Log Analytics**
-        * Select the *Subscription* and *Log Analytics workspace*.
+      * Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
+      * Select the *Subscription* and *Log Analytics workspace*.
     * **Archive to a storage account**
-        * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
+      * Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
+      * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
     * **Stream to an event hub**
-        * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
+      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, DataDog, or Sumo. 
+      * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
+
+    > [!TIP]
+    > Most Azure customers use Log Analytics.
 
      :::image type="content" source="../media/how-to-logging/front-door-logging-2.png" alt-text="Screenshot of diagnostic settings page.":::
 

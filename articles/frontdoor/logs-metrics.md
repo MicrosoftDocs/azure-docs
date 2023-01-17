@@ -14,41 +14,43 @@ ms.author: jodowns
 
 # Logs and metrics tracked by Azure Front Door
 
-Azure Front Door provides different logging to help you track, monitor, and debug your Front Door. 
+Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration. Telemetry is captured and managed by [Azure Monitor](TODO).
 
-* Access logs have detailed information about every request that AFD receives and help you analyze and monitor access patterns, and debug issues. 
-* Activity logs provide visibility into the operations done on Azure resources.  
-* Health Probe logs provides the logs for every failed probe to your origin. 
-* Web Application Firewall (WAF) logs provide detailed information of requests that gets logged through either detection or prevention mode of an Azure Front Door endpoint. A custom domain that gets configured with WAF can also be viewed through these logs.
+## Metrics
 
-Access logs, health probe logs, and WAF logs aren't enabled by default. Use the steps below to enable logging. Activity log entries are collected by default, and you can view them in the Azure portal. Logs can have delays up to a few minutes.
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to be processed by Azure Monitor and to appear in the portal. Metrics can be displayed in charts or grids, and are accessible through the Azure portal, PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).  
 
-You have three options for storing your logs: 
-
-* **Storage account:** Storage accounts are best used for scenarios when logs are stored for a longer duration and reviewed when needed. 
-* **Event hubs:** Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores. For example: Splunk/DataDog/Sumo. 
-* **Azure Log Analytics:** Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
-
-For more information about storing logs, see TODO.
-
-## Metrics supported in Azure Front Door
+The metrics listed in the table below are recorded and stored free of charge. You can enable additional metrics or storage for an extra cost.
 
 | Metrics  | Description | Dimensions |
 | ------------- | ------------- | ------------- |
-| Bytes Hit ratio | The percentage of egress from AFD cache, computed against the total egress. </br> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. </br> **Scenarios excluded in bytes hit ratio calculation**:</br> 1. You explicitly configure no cache either through Rules Engine or Query String caching behavior. </br> 2. You explicitly configure cache-control directive with no-store or private cache. </br>3. Byte hit ratio can be low if most of the traffic is forwarded to origin rather than served from caching based on your configurations or scenarios. | Endpoint |
-| RequestCount | The number of client requests served by CDN. | Endpoint, client country, client region, HTTP status, HTTP status group |
-| ResponseSize | The number of bytes sent as responses from Front Door to clients. |Endpoint, client country, client region, HTTP status, HTTP status group |
-| TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint, client country, client region, HTTP status, HTTP status group |
-| RequestSize | The number of bytes sent as requests from clients to AFD. | Endpoint, client country, client region, HTTP status, HTTP status group |
+| Bytes Hit ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress. </br> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. </br> **Scenarios excluded in bytes hit ratio calculation**:</br> 1. You explicitly configure no cache either through the Rules Engine or query string caching behavior. </br> 2. You explicitly configure cache-control directive with no-store or private cache. </br>3. Byte hit ratio can be low if most of the traffic is forwarded to origin rather than served from caching based on your configurations or scenarios. | Endpoint |
+| RequestCount | The number of client requests served by CDN. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
+| ResponseSize | The number of bytes sent as responses from Front Door to clients. |Endpoint, client Country, client Region, HTTP Status, HTTP Status Group |
+| TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group |
+| RequestSize | The number of bytes sent as requests from clients to AFD. | Endpoint, Client Country, client Region, HTTP status, HTTP Status Group |
 | 4XX % ErrorRate | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region |
 | 5XX % ErrorRate | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region |
-| OriginRequestCount  | The number of requests sent from AFD to origin | Endpoint, Origin, HTTP status, HTTP status group |
+| OriginRequestCount  | The number of requests sent from AFD to origin | Endpoint, Origin, HTTP Status, HTTP Status Group |
 | OriginLatency | The time calculated from when the request was sent by AFD edge to the backend until AFD received the last response byte from the backend. | Endpoint, Origin |
 | OriginHealth% | The percentage of successful health probes from AFD to origin.| Origin, Origin Group |
-| WAF request count | Matched WAF request. | Action, rule name, Policy Name |
+| WAF request count | Matched WAF request. | Action, Rule Name, Policy Name |
 
 > [!NOTE]
-> If a request to the the origin timeout, the value for HttpStatusCode dimension will be **0**.
+> If a request to the the origin times out, the value for the Http Status dimension is **0**.
+
+## Logs
+
+Logs track all requests that pass through Azure Front Door. Logs can take a few minutes to be stored and processed. Several types of logs are recorded:
+
+* [Access logs](#access-log) track detailed information about every request that Azure Front Door receives. They help you to analyze and monitor access patterns, and debug issues.
+* [Health probe logs](#health-probe-log) track the requests that Azure Front Door's health probes make to your origins. They help you to find and resolve origin health issues.
+* [Web application firewall (WAF) logs](#web-application-firewall-log) provide detailed information about requests that are processed by the Azure Front Door WAF. When your WAF is enabled, requests are logged whether the WAF is configured to use detection or prevention mode.
+* [Activity logs](#activity-logs) provide visibility into the operations done on Azure resources, such as configuration changes to your Azure Front Door profile.
+
+Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md).
+
+Activity log entries are collected by default, and you can view them in the Azure portal.
 
 ## Access log
 
@@ -100,7 +102,7 @@ Each health probe log has the following schema.
 | HealthProbeId  | A unique ID to identify the request. |
 | Time | Probe complete time |
 | HttpMethod | HTTP method used by the health probe request. Values include GET and HEAD, based on health probe configurations. |
-| Result | Status of health probe to origin, value includes success, and other error text. |
+| Result | Status of health probe to origin, which is either success, or a description of the error the probe received. |
 | HttpStatusCode  | The HTTP status code returned from the origin. |
 | ProbeURL (target) | The full URL of the origin where requests are being sent. Composed of the scheme, host header, path, and query string. |
 | OriginName  | The origin where requests are being sent. This field helps locate origins of interest if origin is configured to FDQN. |
@@ -151,3 +153,4 @@ Activity logs provide information about the operations done to manage your Azure
 
 ## Next steps
 
+To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md).
