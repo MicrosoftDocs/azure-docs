@@ -71,7 +71,7 @@
     - name: Microsoft Power BI integration
       items:
         - name: "Part 1: Train and deploy models"
-          href: ../tutorial-power-bi-custom-model.md
+          href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
 - name: Samples (v1)
@@ -125,7 +125,7 @@
       displayName: AKS, inference
       href: how-to-create-attach-kubernetes.md
     - name: Link to Azure Synapse Analytics workspace
-      href: ../v1/how-to-link-synapse-ml-workspaces.md
+      href: how-to-link-synapse-ml-workspaces.md
   - name: Security
     items:
     - name: Use managed identities for access control

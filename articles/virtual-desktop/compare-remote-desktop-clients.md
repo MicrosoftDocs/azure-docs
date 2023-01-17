@@ -47,7 +47,9 @@ The following table shows which input methods are available for each Remote Desk
 | Mouse | X | X | X | X | X | X |
 | Touch | X | X | X | X |  | X |
 | Multi-touch | X | X | X | X |  |  |
-| Pen | X |  | X (as touch) | X (as touch) |  |  |
+| Pen | X |  | X (as touch) | X\* |  |  |
+
+\* Pen input redirection is not supported when connecting to Windows 8, Windows 8.1, Windows Server 2012, or Windows Server 2012 R2.
 
 ### Port redirection
 

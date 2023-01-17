@@ -26,6 +26,10 @@ An updated or deleted secret doesn't automatically affect existing revisions in 
 
 Before you delete a secret, deploy a new revision that no longer references the old secret. Then deactivate all revisions that reference the secret.
 
+> [!NOTE]
+> Container Apps doesn't support Azure Key Vault integration. Instead, enable managed identity in the container app and use the [Key Vault SDK](../key-vault/general/developers-guide.md) in your app to access secrets.
+
+
 ## Defining secrets
 
 # [ARM template](#tab/arm-template)

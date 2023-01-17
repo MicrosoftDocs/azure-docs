@@ -45,7 +45,7 @@ The server admin user account can be used to create additional users and grant t
 3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password.
 
    ```sql
-   CREATE ROLE <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE USER <new_user> CREATEDB CREATEROLE PASSWORD '<StrongPassword!>';
 
    GRANT azure_pg_admin TO <new_user>;
    ```
@@ -64,7 +64,7 @@ The server admin user account can be used to create additional users and grant t
    ```sql
    CREATE DATABASE <newdb>;
 
-   CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE USER <db_user> PASSWORD '<StrongPassword!>';
 
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```

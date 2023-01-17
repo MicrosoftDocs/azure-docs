@@ -1,17 +1,18 @@
 ---
-title: Control access to Azure file shares by assigning share-level permissions to a hybrid user identity
+title: Control access to Azure file shares by assigning share-level permissions
 description: Learn how to assign share-level permissions to an Azure Active Directory (Azure AD) identity that represents a hybrid user to control user access to Azure file shares with identity-based authentication.
 author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 12/07/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
+recommendations: false
 ---
 
-# Assign share-level permissions to an identity
+# Assign share-level permissions
 
 Once you've enabled an Active Directory (AD) source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Azure AD users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 

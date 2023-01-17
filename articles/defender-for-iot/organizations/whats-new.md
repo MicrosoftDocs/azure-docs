@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 01/03/2023
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -15,15 +15,56 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## January 2023
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | - **Sensor version 22.3.4**: [Azure connectivity status shown on OT sensors](#azure-connectivity-status-shown-on-ot-sensors)<br>- **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
+
+### Update sensor software from the Azure portal (Public preview)
+
+For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, now you can update your sensor software directly from the new **Sites and sensors** page on the Azure portal.
+
+:::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
+
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors).
+
+### Azure connectivity status shown on OT sensors
+
+Details about Azure connectivity status are now shown on the **Overview** page in OT network sensors, and errors are shown if the sensor's connection to Azure is lost.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of the Azure connectivity status shown on the OT sensor's Overview page.":::
+
+For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md) and [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
+
 ## December 2022
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+|**OT networks**     |  [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+|**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
+
+### Enterprise IoT sensor alerts and recommendations (Public Preview)
+
+The Azure portal now provides the following additional security data for traffic detected by Enterprise IoT network sensors:
+
+|Data type  |Description  |
+|---------|---------|
+|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
+|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: <br>**Disable insecure administration protocol**        |
+
+For more information, see:
+
+- [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Enhance security posture with security recommendations](recommendations.md)
+- [Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ### New purchase experience for OT plans
 
-The **Pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
+The **Plans and pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
 
 For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
 
@@ -333,8 +374,7 @@ The sensor console is also synchronized with an on-premises management console, 
 For more information, see:
 
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [View alerts on your sensor](how-to-view-alerts.md)
-- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
+- [View and manage alerts on your sensor](how-to-view-alerts.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
 ### Sensor connections restored after certificate rotation
@@ -554,7 +594,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings.
 
-    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-a-report).
+    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report)
 
 - The **System settings** area has been reorganized in to sections for *Basic* settings, settings for *Network monitoring*, *Sensor management*, *Integrations*, and *Import settings*.
 
@@ -566,7 +606,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - Right-click a device on the map to view contextual information about the device, including related alerts, event timeline data, and connected devices.
 
-- To enable the ability to collapse IT networks, ensure that the **Toggle IT Networks Grouping** option is enabled. This option is now only available from the map.
+- Select **Disable Display IT Networks Groups** to prevent the ability to collapse IT networks in the map. This option is turned on by default.
 
 - The **Simplified Map View** option has been removed.
 
@@ -650,7 +690,7 @@ The sensor console's **Custom alert rules** page now provides:
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png" alt-text="Screenshot of the updated Custom alerts dialog. "lightbox="media/how-to-manage-sensors-on-the-cloud/protocol-support-custom-alerts.png":::
 
-For more information and the updated custom alert procedure, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).
+For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor).
 
 ### CLI command updates
 
@@ -711,87 +751,6 @@ The following Defender for IoT options and configurations have been moved, remov
 - Reports previously found on the **Reports** page are now shown on the **Data Mining** page instead. You can also continue to view data mining information directly from the on-premises management console.
 
 - Changing a locally managed sensor name is now supported only by onboarding the sensor to the Azure portal again with the new name. Sensor names can no longer be changed directly from the sensor. For more information, see [Change the name of a sensor](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor).
-
-
-## December 2021
-
-**Sensor software version**: 10.5.4
-
-- [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
-- [Apache Log4j vulnerability](#apache-log4j-vulnerability)
-- [Alerting](#alerting)
-
-### Enhanced integration with Microsoft Sentinel (Preview)
-
-The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
-
-For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
-
-### Apache Log4j vulnerability
-
-Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details, see [the security advisory update](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844).
-
-### Alerting
-
-Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
-
-- Alerts for certain minor events or edge-cases are now disabled.
-- For certain scenarios, similar alerts are minimized in a single alert message.
-
-These changes reduce alert volume and enable more efficient targeting and analysis of security and operational events.
-
-For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
-
-#### Alerts permanently disabled
-
-The alerts listed below are permanently disabled with version 10.5.4. Detection and monitoring are still supported for traffic associated with the alerts.
-
-**Policy engine alerts**
-
-- RPC Procedure Invocations
-- Unauthorized HTTP Server
-- Abnormal usage of MAC Addresses
-
-#### Alerts disabled by default
-
-The alerts listed below are disabled by default with version 10.5.4. You can re-enable the alerts from the Support page of the sensor console, if necessary.
-
-**Anomaly engine alert**
-- Abnormal Number of Parameters in HTTP Header
-- Abnormal HTTP Header Length
-- Illegal HTTP Header Content
-
-**Operational engine alerts**
-- HTTP Client Error
-- RPC Operation Failed
-
-**Policy engine alerts**
-
-Disabling these alerts also disables monitoring of related traffic. Specifically, this traffic won't be reported in Data Mining reports.
-
-- Illegal HTTP Communication alert and HTTP Connections Data Mining traffic
-- Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
-- Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
-
-#### Updated alert functionality
-
-**Unauthorized Database Operation alert**
-Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
-- DDL traffic: alerting and monitoring are supported.
-- DML traffic: Monitoring is supported.  Alerting isn't supported.
-
-**New Asset Detected alert**
-This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if necessary.
-
-### Minimized alerting
-
-Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
-
-This new functionality is available on the following alerts:
-
-- Port Scan Detected alerts, based on activity of the source device (generated by the Anomaly engine)
-- Malware alerts, based on activity of the source device. (generated by the Malware engine). 
-- Suspicion of Denial of Service Attack alerts, based on activity of the destination device (generated by the Malware engine)
 
 ## Next steps
 
