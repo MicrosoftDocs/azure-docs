@@ -26,7 +26,7 @@ A distinguishing attribute of X.509 CA authentication is the one-to-many relatio
 
 Another important attribute of X.509 CA authentication is simplification of supply chain logistics. Secure authentication of devices requires that each device holds a unique secret like a key as the basis for trust. In certificate-based authentication, this secret is a private key. A typical device manufacturing flow involves multiple steps and custodians. Securely managing device private keys across multiple custodians and maintaining trust is difficult and expensive. Using certificate authorities solves this problem by signing each custodian into a cryptographic chain of trust rather than entrusting them with device private keys. Each custodian signs devices at their respective step of the manufacturing flow. The overall result is an optimal supply chain with built-in accountability through use of the cryptographic chain of trust.
 
-This process yields the most security when devices protect their unique private keys. To this end, we recommend using Hardware Secure Modules (HSM) capable of internally generating private keys that will never see the light of day.
+This process yields the most security when devices protect their unique private keys. To this end, we recommend using Hardware Secure Modules (HSM) capable of internally generating private keys.
 
 The Azure IoT Hub Device Provisioning Service (DPS) makes it easy to provision groups of devices to hubs. For more information, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
@@ -54,7 +54,7 @@ Details on how to accomplish these steps differ with various service providers.
 
 Purchasing a CA certificate has the benefit of having a well-known root CA act as a trusted third party to vouch for the legitimacy of IoT devices when the devices connect. Choose this option if your devices will interact with third-party products or services.
 
-To purchase an X.509 CA certificate, choose a root certificates service provider. An internet search for the phrase 'Root CA' will yield good leads. The root CA provider will guide you on how to create the public/private key pair and how to generate a certificate signing request (CSR) for their services. A CSR is the formal process of applying for a certificate from a certificate authority. The outcome of this purchase is a certificate for use as an authority certificate. Given the ubiquity of X.509 certificates, the certificate is likely to have been properly formatted to IETF's RFC 5280 standard.
+To purchase an X.509 CA certificate, choose a root certificate service provider. An internet search for the phrase 'Root CA' will yield good leads. The root CA provider will guide you on how to create the public/private key pair and how to generate a certificate signing request (CSR) for their services. A CSR is the formal process of applying for a certificate from a certificate authority. The outcome of this purchase is a certificate for use as an authority certificate. Given the ubiquity of X.509 certificates, the certificate is likely to have been properly formatted to IETF's RFC 5280 standard.
 
 ### Creating a self-signed certificate
 
@@ -68,7 +68,7 @@ Company-X needs to register the X.509 CA to IoT Hub where it will serve to authe
 
 Registering the X.509 CA certificate is a two-step process: upload the certificate then provide proof-of-possession.
 
-![Registering an X509CA certificate](./media/iot-hub-x509ca-concept/pop-flow.png)
+![Registering an X.509 CA certificate](./media/iot-hub-x509ca-concept/pop-flow.png)
 
 ### Certificate upload
 
@@ -76,7 +76,7 @@ The X.509 CA certificate upload process is just that: uploading the CA certifica
 
 The certificate file must not under any circumstances contain any private keys. Best practices from standards governing Public Key Infrastructure (PKI) mandates that knowledge of Company-X's private key resides exclusively within Company-X.
 
-### Proof-of-possession
+### Proof of possession
 
 The X.509 CA certificate, just like any digital certificate, is public information that is susceptible to eavesdropping. As such, an eavesdropper may intercept a certificate and try to upload it as their own. In our example, IoT Hub has to make sure that the CA certificate Company-X uploaded really belongs to Company-X. It does so by challenging Company-X to prove that they possess the certificate through a [proof-of-possession (PoP) flow](https://tools.ietf.org/html/rfc5280#section-3.1).
 

@@ -125,4 +125,4 @@ If you're already familiar with X.509 certificates, and you want to generate tes
 * [Using OpenSSL to Create Test Certificates](tutorial-x509-openssl.md)
 * [Using OpenSSL to Create Self-Signed Test Certificates](tutorial-x509-self-sign.md)
 
-If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate before you can use it. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).
+If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate. For more information, see [Tutorial: Upload and verify a CA certificate to IoT Hub](tutorial-x509-prove-possession.md).
