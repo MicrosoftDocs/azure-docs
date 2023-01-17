@@ -13,19 +13,27 @@ ms.reviewer: cynthn
 
 # What's new for Azure Compute Gallery
 
-This article describes what's new for Compute Gallery in Azure.
+This article is a list of updates to Compute Gallery features in Azure.
 
 ## Updates:
 
 - Launched public preview of Direct shared gallery on 07/25
-- 'ARM64' Shared Image Gallery images now supported
+
+- 'ARM64' Shared Image Gallery image support
+
 - Best Practices document available
+
 - 'TrustedLaunch' support
+
 - 'ConfidentialVM' support
+
 - 'IsAcceleratedNetworkSupported' support
+
 - Replica count increased from 50 to 100
+
 - Replication Mode: Full and Shallow (Shallow replication support image size up to 32TB), however shallow replication is only for test images.
-- 'Disk Encryption Sets' supported
+
+- 'Disk Encryption Sets' support
 
 ## Next steps
 
