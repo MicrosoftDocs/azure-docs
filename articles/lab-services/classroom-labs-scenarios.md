@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
-ms.date: 17/01/2023
+ms.date: 01/17/2023
 ---
 
 # Use labs for trainings
