@@ -109,7 +109,7 @@ Credentials that are used for test resources and environments shouldn't be suppr
 To suppress a secret that is found on the same line, add the following code as a comment at the end of the line that has the secret:
 
 ```bash
-[SuppressMessage("Microsoft.Security", "CS001:SecretInLine", Justification="... .")]
+#[SuppressMessage("Microsoft.Security", "CS001:SecretInLine", Justification="... .")]
 ```
 
 ### Suppress a secret in the next line 
@@ -117,7 +117,7 @@ To suppress a secret that is found on the same line, add the following code as a
 To suppress the secret found in the next line, add the following code as a comment before the line that has the secret:
 
 ```bash
-[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine", Justification="... .")]
+#[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine", Justification="... .")]
 ```
 
 ## Supported file types and exit codes
