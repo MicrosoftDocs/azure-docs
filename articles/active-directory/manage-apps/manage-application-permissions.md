@@ -56,7 +56,7 @@ Each option generates PowerShell scripts that enable you to control user access 
 Using the following Azure AD PowerShell script revokes all permissions granted to an application.
 
 ```powershell
-Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All" "AppRoleAssignment.ReadWrite.All", 
+Connect-AzureAD 
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
@@ -83,7 +83,7 @@ $spApplicationPermissions | ForEach-Object {
 Remove appRoleAssignments for users or groups to the application using the following scripts.
 
 ```powershell
-Connect-AzureAD -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
+Connect-AzureAD
 
 # Get Service Principal using objectId
 $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
