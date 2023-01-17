@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, engagement-fy23
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 17/01/2023
 ---
 
 # Service Connector internals
@@ -49,7 +49,7 @@ Service Connector runs multiple tasks while creating or updating service connect
 
 If a step fails during this process, Service Connector rolls back all previous steps to keep the initial settings in the source and target instances.
 
-## Service Connector resource provider
+## Resource provider
 
 [!INCLUDE [Service Connector MicrosoftServiceLinker](../../includes/service-connector-service-linker.md)]
 
