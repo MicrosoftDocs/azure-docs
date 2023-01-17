@@ -1,15 +1,15 @@
 ---
-title: Pod Sandboxing (preview) on Azure Kubernetes Service (AKS)
-description: Learn about and deploy Kernel Isolation (preview) on an Azure Kubernetes Service (AKS) cluster
+title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
+description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 01/05/2023
+ms.date: 01/17/2023
 
 ---
 
-# Pod Sandboxing (preview) on Azure Kubernetes Service (AKS)
+# Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 
-To mitigate security risks of your container workloads running on Azure Kubernetes Service (AKS) that share kernel and container host resources to untrusted or potentially malicious code, a mechanism called Pod Sandboxing (preview) is introduced to provide an isolation boundary between the container application and the shared kernel and resources of the container host (for example CPU, memory, networking, etc.).
+Container workloads running on Azure Kubernetes Service (AKS) share kernel and container host resources. This exposes the cluster to untrusted or potentially malicious code. To further secure and protect your workloads, AKS now includes a mechanism called Pod Sandboxing (preview) to provide an isolation boundary between the container application, and the shared kernel and resources of the container host (for example CPU, memory, networking, etc.).
 
 Pod Sandboxing compliments other security measures or data protection controls with your overall architecture to help you meet regulatory, industry, or governance compliance requirements for securing sensitive information.
 
