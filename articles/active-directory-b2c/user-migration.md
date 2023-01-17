@@ -9,8 +9,9 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 10/24/2022
 ms.author: kengaderdus
+ms.custom: engagement-fy23
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C

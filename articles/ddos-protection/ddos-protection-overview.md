@@ -9,7 +9,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/14/2022
 ms.author: abell
 ---
 # What is Azure DDoS Protection?
@@ -35,7 +35,7 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
  
 ## SKU
 
-Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
+Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection Preview and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
 
 
 ### Native platform integration
@@ -70,7 +70,7 @@ Azure DDoS Protection is designed for [services that are deployed in a virtual n
 ## Pricing
 
 For DDoS Network Protection, under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there's no need to create more than one DDoS protection plan.
-For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS on any public IP resource.
+For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS IP protection on any public IP resource.
 
 To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). 
 

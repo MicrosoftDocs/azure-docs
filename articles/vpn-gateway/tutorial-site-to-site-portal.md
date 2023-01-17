@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Connect an on-premises network and a virtual network: S2S VPN: Azure portal'
-description: In this tutorial, learn how to create a site-to-site VPN Gateway IPsec connection from your on-premises network to a VNet.
+description: In this tutorial, learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network to a VNet.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
@@ -12,7 +12,7 @@ ms.date: 09/21/2022
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
 
-Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial shows you how to use the Azure portal to create a site-to-site VPN gateway connection from your on-premises network to the VNet. You can also create this configuration using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
+This tutorial shows you how to use the Azure portal to create a site-to-site VPN gateway connection between your on-premises network and a virtual network (VNet). You can also create this configuration using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Site-to-site VPN Gateway cross-premises connection diagram.":::
 

@@ -1,42 +1,40 @@
 ---
-title: Connect to and manage Azure Arc-enabled SQL Server instances
-description: This guide describes how to connect to Azure Arc-enabled SQL Server in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Arc-enabled SQL Server source.
+title: Connect to and manage Azure Arc-enabled SQL Server
+description: This guide describes how to connect to Azure Arc-enabled SQL Server in Microsoft Purview, and use Microsoft Purview features to scan and manage your Azure Arc-enabled SQL Server source.
 author: heniot
 ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 11/23/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage an Azure Arc-enabled SQL Server instance in Microsoft Purview (Public preview)
+# Connect to and manage Azure Arc-enabled SQL Server in Microsoft Purview (public preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This article outlines how to register Azure Arc-enabled SQL Server instances, and how to authenticate and interact with an Azure Arc-enabled SQL Server instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
+This article shows how to register an Azure Arc-enabled SQL Server instance. It also shows how to authenticate and interact with Azure Arc-enabled SQL Server in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|Metadata extraction|Full scan|Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#access-policy) | Limited** | No |
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes - GA](#access-policy) | Limited** | No |
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\** Lineage is supported if the dataset is used as a source/sink in the [Azure Data Factory copy activity](how-to-link-azure-data-factory.md). 
 
-The supported SQL Server versions are 2012 and above. SQL Server Express LocalDB is not supported.
+The supported SQL Server versions are 2012 and later. SQL Server Express LocalDB is not supported.
 
-When scanning Azure Arc-enabled SQL Server, Microsoft Purview supports:
+When you're scanning Azure Arc-enabled SQL Server, Microsoft Purview supports extracting the following technical metadata:
 
-- Extracting technical metadata including:
+- Instances
+- Databases
+- Schemas
+- Tables, including the columns
+- Views, including the columns
 
-    - Instance
-    - Databases
-    - Schemas
-    - Tables including the columns
-    - Views including the columns
-
-When setting up scan, you can choose to specify the database name to scan one database, and you can further scope the scan by selecting tables and views as needed. The whole Azure Arc-enabled SQL Server will be scanned if database name is not provided.
+When you're setting up a scan, you can choose to specify the database name to scan one database. You can further scope the scan by selecting tables and views as needed. The whole Azure Arc-enabled SQL Server instance will be scanned if you don't provide a database name.
 
 ## Prerequisites
 
@@ -44,130 +42,183 @@ When setting up scan, you can choose to specify the database name to scan one da
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. See [Access control in the Microsoft Purview governance portal](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
+* The latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and manage a self-hosted integration runtime](manage-integration-runtimes.md).
 
 ## Register
 
-This section describes how to register an Azure Arc-enabled SQL Server instance in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register an Azure Arc-enabled SQL Server instance in Microsoft Purview by using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
-There are two ways to set up authentication for scanning Azure Arc-enabled SQL Server with self-hosted integration runtime:
+There are two ways to set up authentication for scanning Azure Arc-enabled SQL Server with a self-hosted integration runtime:
 
-- SQL Authentication
-- Windows Authentication
+- Windows authentication
+- SQL Server authentication
 
-#### Set up SQL server authentication
+To configure authentication for the SQL Server deployment:
 
-If SQL Authentication is applied, ensure the SQL Server deployment is configured to allow SQL Server and Windows Authentication.
+1. In SQL Server Management Studio (SSMS), go to **Server Properties**, and then select **Security** on the left pane. 
+1. Under **Server authentication**:
 
-To enable this, within SQL Server Management Studio (SSMS), navigate to "Server Properties" and change from "Windows Authentication Mode" to "SQL Server and Windows Authentication mode".
+   - For Windows authentication, select either **Windows Authentication mode** or **SQL Server and Windows Authentication mode**.
+   - For SQL Server authentication, select **SQL Server and Windows Authentication mode**.   
 
-:::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/enable-sql-server-authentication.png" alt-text="Screenshot that shows the open Server Properties window. The security page is selected. Under Server authentication, SQL Server and Windows Authentication mode is selected.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/enable-sql-server-authentication.png" alt-text="Screenshot that shows the Security page of the Server Properties window, with options for selecting authentication mode.":::
 
-If Windows Authentication is applied, configure the SQL Server deployment to use Windows Authentication mode.
+A change to the server authentication requires you to restart the SQL Server instance and SQL Server Agent. In SSMS, go to the SQL Server instance and select **Restart** on the right-click options pane.
 
-A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.
+#### Create a new login and user
 
-##### Creating a new login and user
+If you want to create a new login and user to scan your SQL Server instance, use the following steps.
 
-If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
-
-The account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Microsoft Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
+The account must have access to the master database, because `sys.databases` is in the master database. The Microsoft Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 > [!Note]
-> All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
+> You can run all the following steps by using [this code](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
-1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) on login and create New login. If Windows Authentication is applied, select "Windows authentication". If SQL Authentication is applied, make sure to select "SQL authentication".
+1. Go to SSMS, connect to the server, and then select **Security** on the left pane.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/create-new-login-user.png" alt-text="Screenshot that shows how to create a new login and user.":::
+1. Select and hold (or right-click) **Login**, and then select **New login**. If Windows authentication is applied, select **Windows authentication**. If SQL Server authentication is applied, select **SQL Server authentication**.
 
-1. Select Server roles on the left navigation and ensure that public role is assigned.
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/create-new-login-user.png" alt-text="Screenshot that shows selections for creating a new login and user.":::
 
-1. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
+1. Select **Server Roles** on the left pane, and ensure that a public role is assigned.
+
+1. Select **User Mapping** on the left pane, select all the databases in the map, and then select the **db_datareader** database role.
 
    :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/user-mapping.png" alt-text="Screenshot that shows user mapping.":::
 
-1. Select OK to save.
+1. Select **OK** to save.
 
-1. If SQL Authentication is applied, navigate again to the user you created, by selecting and holding (or right-clicking) and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It is required to change your password as soon as you create a new login.**
+1. If SQL Server authentication is applied, you must change your password as soon as you create a new login:
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/change-password.png" alt-text="Screenshot that shows how to change a password.":::
+   1. Select and hold (or right-click) the user that you created, and then select **Properties**. 
+   1. Enter a new password and confirm it. 
+   1. Select the **Specify old password** checkbox and enter the old password.
+   1. Select **OK**.
 
-##### Storing your SQL login password in a key vault and creating a credential in Microsoft Purview
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/change-password.png" alt-text="Screenshot that shows selections for changing a password.":::
 
-1. Navigate to your key vault in the Azure portal1. Select **Settings > Secrets**
-1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
-1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan. Make sure the right authentication method is selected when creating a new credential. If SQL Authentication is applied, select "SQL authentication" as the authentication method. If Windows Authentication is applied, then select "Windows authentication".
+#### Store your SQL Server login password in a key vault and create a credential in Microsoft Purview
+
+1. Go to your key vault in the Azure portal. Select **Settings** > **Secrets**.
+1. Select **+ Generate/Import**. For **Name** and **Value**, enter the password from your SQL Server login.
+1. Select **Create**.
+1. If your key vault is not connected to Microsoft Purview yet, [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account).
+1. [Create a new credential](manage-credentials.md#create-a-new-credential) by using the username and password to set up your scan. 
+
+   Be sure to select the right authentication method when you're creating a new credential. If Windows authentication is applied, select **Windows authentication**. If SQL Server authentication is applied, select **SQL Server authentication**.
 
 ### Steps to register
 
-1. Navigate to your Microsoft Purview account
+1. Go to your Microsoft Purview account.
 
-1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
+1. Under **Sources and scanning** on the left pane, select **Integration runtimes**. Make sure that a self-hosted integration runtime is set up. If it isn't set up, [follow the steps to create a self-hosted integration runtime](manage-integration-runtimes.md) for scanning on an on-premises or Azure virtual machine that has access to your on-premises network.
 
-1. Select **Data Map** on the left navigation.
+1. Select **Data Map** on the left pane.
 
-1. Select **Register**
+1. Select **Register**.
 
-1. Select **SQL server** and then **Continue**
+1. Select **Azure Arc-enabled SQL Server**, and then select **Continue**.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Screenshot that shows how to set up the SQL data source.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/set-up-azure-arc-enabled-sql-data-source.png" alt-text="Screenshot that shows selecting a SQL data source.":::
 
-1. Provide a friendly name, which will be a short name you can use to identify your server, and the server endpoint.
+1. Provide a friendly name, which is a short name that you can use to identify your server. Also provide the server endpoint.
 
 1. Select **Finish** to register the data source.
 
 ## Scan
 
-Follow the steps below to scan Azure Arc-enabled SQL Server instances to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+Use the following steps to scan Azure Arc-enabled SQL Server instances to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
-### Create and run scan
+To create and run a new scan:
 
-To create and run a new scan, do the following:
+1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select the **Data Map** tab on the left pane.
 
-1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+1. Select the Azure Arc-enabled SQL Server source that you registered.
 
-1. Select the SQL Server source that you registered.
+1. Select **New scan**.
 
-1. Select **New scan**
+1. Select the credential to connect to your data source. Credentials are grouped and listed under the authentication methods.
 
-1. Select the credential to connect to your data source. The credentials are grouped and listed under different authentication methods.
-
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-set-up-scan-win-auth.png" alt-text="Screenshot that shows how to set up a scan.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-set-up-scan-win-auth.png" alt-text="Screenshot that shows selecting a credential for a scan.":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scope-your-scan.png" alt-text="Screenshot that shows how to scope your scan.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scope-your-scan.png" alt-text="Screenshot that shows selected assets for scoping a scan.":::
 
-1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+1. Select a scan rule set. You can choose between the system default, existing custom rule sets, or creation of a new rule set inline.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scan-rule-set.png" alt-text="Screenshot that shows the scan rule set.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/azure-arc-enabled-sql-scan-rule-set.png" alt-text="Screenshot that shows selecting a scan rule set.":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/trigger-scan.png" alt-text="Screenshot that shows how to choose a trigger.":::
+   :::image type="content" source="media/register-scan-azure-arc-enabled-sql-server/trigger-scan.png" alt-text="Screenshot that shows setting up a recurring scan trigger.":::
 
-1. Review your scan and select **Save and run**.
+1. Review your scan, and then select **Save and run**.
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Access policy
 
 ### Supported policies
-The following types of policies are supported on this data resource from Microsoft Purview:
-* [DevOps policies](how-to-policies-devops-arc-sql-server.md)
-* [Data Owner](how-to-policies-data-owner-arc-sql-server.md)
 
+The following types of policies are supported on this data resource from Microsoft Purview:
+
+- [DevOps policies](concept-policies-devops.md)
+- [Data Owner policies](concept-policies-data-owner.md) (preview)
+
+### Access policy prerequisites on Azure Arc-enabled SQL Server
+
+[!INCLUDE [Access policies Azure Arc-enabled SQL Server prerequisites](./includes/access-policies-prerequisites-arc-sql-server.md)]
+
+### Configure the Microsoft Purview account for policies
+
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+
+### Register the data source and enable Data use management
+
+Before you can create policies, you must register the Azure Arc-enabled SQL Server data source with Microsoft Purview:
+
+1. Sign in to Microsoft Purview Studio.
+
+1. Go to **Data map** on the left pane, select **Sources**, and then select **Register**. Enter **Azure Arc** in the search box and select **SQL Server on Azure Arc**. Then select **Continue**.
+
+   ![Screenshot that shows selecting a source for registration.](./media/how-to-policies-data-owner-sql/select-arc-sql-server-for-registration.png)
+
+1. For **Name**, enter a name for this registration. It's best practice to make the name of the registration the same as the server name in the next step.
+
+1. Select values for **Azure subscription**, **Server name**, and **Server endpoint**.
+
+1. For **Select a collection**, choose a collection to put this registration in. 
+
+1. Enable **Data use management**. **Data use management** needs certain permissions and can affect the security of your data, because it delegates to certain Microsoft Purview roles to manage access to the data sources. Go through the secure practices related to **Data use management** in this guide: [Enable Data use management on your Microsoft Purview sources](./how-to-enable-data-use-management.md).
+
+1. Upon enabling Data Use Management, Microsoft Purview will automatically capture the **Application ID** of the App Registration related to this Azure Arc-enabled SQL Server if one has been configured. Come back to this screen and hit the refresh button on the side of it to refresh, in case the association between the Azure Arc-enabled SQL Server and the App Registration changes in the future.
+
+1. Select **Register** or **Apply**.
+
+![Screenshot that shows selections for registering a data source for a policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
+
+### Enable policies in Azure Arc-enabled SQL Server
+[!INCLUDE [Access policies Arc enabled SQL Server configuration](./includes/access-policies-configuration-arc-sql-server.md)]
+
+### Create a policy
+
+To create an access policy for Azure Arc-enabled SQL Server, follow these guides:
+
+* [DevOps policy on a single Azure Arc-enabled SQL Server instance - GA](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
+* [Data owner policy on a single Azure Arc-enabled SQL Server instance - Public Preview](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
+
+To create policies that cover all data sources inside a resource group or Azure subscription, see [Discover and govern multiple Azure sources in Microsoft Purview](register-scan-azure-multiple-sources.md#access-policy).
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+Now that you've registered your source, use the following guides to learn more about Microsoft Purview and your data:
 
+- [DevOps policies in Microsoft Purview](concept-policies-devops.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
-- [Search Data Catalog](how-to-search-catalog.md)
+- [Search the data catalog](how-to-search-catalog.md)

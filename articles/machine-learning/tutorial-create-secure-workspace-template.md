@@ -94,6 +94,17 @@ The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure
 | [machinelearningcompute.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningcompute.bicep) | Defines an Azure Machine Learning compute cluster and compute instance. |
 | [privateaks.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/privateaks.bicep) | Defines an Azure Kubernetes Services cluster instance. |
 
+> [!IMPORTANT]
+> The example templates may not always use the latest API version for Azure Machine Learning. Before using the template, we recommend modifying it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+>
+> Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
+>
+> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure Machine Learning workspace that uses an API version of `2022-05-01`:
+>
+>```json
+>resource machineLearning 'Microsoft.MachineLearningServices/workspaces@2022-05-01' = {
+>```
+
 # [Terraform](#tab/terraform)
 
 The template consists of multiple files. The following table describes what each file is responsible for:
@@ -141,6 +152,9 @@ To run the Bicep template, use the following commands from the `machine-learning
 
     # [Azure CLI](#tab/cli)
 
+    > [!TIP]
+    > The `prefix` must be 5 or less characters.
+
     ```azurecli
     az deployment group create \
         --resource-group exampleRG \
@@ -151,6 +165,9 @@ To run the Bicep template, use the following commands from the `machine-learning
         dsvmJumpboxPassword=securepassword
     ```
     # [Azure PowerShell](#tab/ps1)
+
+    > [!TIP]
+    > The `prefix` must be 5 or less characters.
 
     ```azurepowershell
     $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force

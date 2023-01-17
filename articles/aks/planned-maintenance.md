@@ -12,7 +12,7 @@ author: qpetraroia
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that will update your control plane as well as your kube-system Pods on a VMSS instance and minimize workload impact. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that will update your control plane as well as your kube-system pods on a VMSS instance, and minimize workload impact. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
 
 ## Before you begin
 
@@ -22,7 +22,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
-When using Planned Maintenance, the following restrictions apply:
+When you use Planned Maintenance, the following restrictions apply:
 
 - AKS reserves the right to break these windows for unplanned/reactive maintenance operations that are urgent or critical.
 - Currently, performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
@@ -74,7 +74,7 @@ The following example output shows the maintenance window from 1:00am to 2:00am 
 }
 ```
 
-To allow maintenance any time during a day, omit the *start-hour* parameter. For example, the following command sets the maintenance window for the full day every Monday:
+To allow maintenance anytime during a day, omit the *start-hour* parameter. For example, the following command sets the maintenance window for the full day every Monday:
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday
@@ -212,6 +212,9 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 ## Using Planned Maintenance with Cluster Auto-Upgrade
 
 Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. For more details on about Cluster Auto-Upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
+> [!NOTE]
+> To ensure proper functionality, use a maintenance window of four hours or more.
 
 ## Next steps
 

@@ -63,6 +63,17 @@ For more information about anomaly detection and how to configure alerts, see [I
 **Anomaly detection is now available by default in Azure global.**
 
 
+<a name="homev2"></a>
+
+## Recent and pinned views in the cost analysis preview
+
+Cost analysis is your tool for interactive analytics and insights. You've seen the addition of new views and capabilities, like anomaly detection, in the cost analysis preview, but classic cost analysis is still the best tool for quick data exploration with simple filtering and grouping. While these capabilities are coming to the preview, we're introducing a new experience that allows you to select which view you want to start with, whether that be a preview view, a built-in view, or a custom view you created.
+
+The first time you open the cost analysis preview, you'll see a list of all views. When you return, you'll see a list of the recently used views to help you get back to where you left off quicker than ever. You can pin any view or even rename or subscribe to alerts for your saved views.
+
+The recent and pinned views can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
+
+
 <a name="aksnestedtable"></a>
 
 ## Grouping SQL databases and elastic pools

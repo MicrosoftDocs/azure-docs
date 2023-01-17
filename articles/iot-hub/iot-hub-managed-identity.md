@@ -418,7 +418,6 @@ result = iothub_job_manager.create_import_export_job(JobProperties(
 - [.NET SDK sample](https://aka.ms/iothubmsicsharpsample)
 - [Java SDK sample](https://aka.ms/iothubmsijavasample)
 - [Python SDK sample](https://github.com/Azure/azure-iot-hub-python/tree/main/samples)
-- Node.js SDK samples: [bulk device import](https://aka.ms/iothubmsinodesampleimport), [bulk device export](https://aka.ms/iothubmsinodesampleexport)
 
 ## Next steps
 

@@ -3,14 +3,12 @@ title: Troubleshoot a connection between Microsoft Sentinel and a CEF or Syslog 
 description: Learn how to troubleshoot issues with your Microsoft Sentinel CEF or Syslog data connector.
 author: limwainstein
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
 ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 

@@ -5,10 +5,9 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 11/02/2022
+ms.date: 12/02/2022
 ms.topic: conceptual
 ms.author: normesta
-ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
 ---
@@ -23,7 +22,7 @@ The following list describes features and capabilities that are available in the
 
 - **Inventory reports for blobs and containers**
 
-  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, content length, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. Currently, the  report does not have an option to include Soft Deleted blobs or Soft Delete containers.
+  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, content length, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. 
 
 - **Custom Schema**
 
@@ -388,16 +387,27 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
-### Inventory job fails to complete for hierarchical namespace enabled accounts
+#### Inventory jobs take a longer time to complete in certain cases
 
-The inventory job might not complete within 2 days for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created. If a job does not complete successfully, check subsequent jobs to see if they complete before contacting support. The performance of a job can vary, so if a job doesn't complete, it's possible that subsequent jobs will.
+An inventory job can take a longer amount of time in these cases:
 
-### Inventory job cannot write inventory reports
+- A large amount new data is added
 
-An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make them immutable when they are partially completed. This can lead to inventory job failure.
+- A rule or set of rules is being run for the first time
+
+  The inventory run might take longer time to run as compared to the subsequent inventory runs.  
+
+- In inventory run is processing a large amount of data in hierarchical namespace enabled accounts
+
+  An inventory job might take more than one day to complete for hierarchal namespace enabled accounts that have hundreds of millions of blobs. Sometimes the inventory job fails and doesn't create an inventory file. If a job doesn't complete successfully, check subsequent jobs to see if they are complete before contacting support. 
+
+#### Inventory jobs can't write reports to containers that have an object replication policy
+
+An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they are partially completed which can cause inventory jobs to fail.
 
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

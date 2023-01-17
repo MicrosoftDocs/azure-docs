@@ -33,10 +33,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). If you want to provision SIMs, you'll need to prepare a JSON file containing your SIM information, as described in [JSON file format for provisioning SIMs](collect-required-information-for-private-mobile-network.md#json-file-format-for-provisioning-sims).
 - Identify the names of the interfaces corresponding to ports 5 and 6 on the Azure Stack Edge Pro device in the site.
 - [Collect the required information for a site](collect-required-information-for-a-site.md).
+- Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md).
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-full-5gc-deployment). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-full-5gc-deployment/azuredeploy.json).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/mobilenetwork-create-full-5gc-deployment). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-full-5gc-deployment/azuredeploy.json).
 
 The following Azure resources are defined in the template.
 
@@ -66,7 +67,7 @@ The following Azure resources are defined in the template.
     |---------|---------|
     |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
     |**Resource group**     | Create a new resource group.        |
-    |**Region**     | Select **East US**.        |
+    |**Region**     | Select the region in which you're deploying the private mobile network.        |
     |**Location**     | Leave this field unchanged.        |
     |**Mobile Network Name**     | Enter a name for the private mobile network.        |
     |**Mobile Country Code**     | Enter the mobile country code for the private mobile network.        |
@@ -108,7 +109,7 @@ The following Azure resources are defined in the template.
 
     - A **Mobile Network** resource representing the private mobile network as a whole.
     - A **Slice** resource representing a network slice.
-    - A **Data Network** resource representing the data network.
+    - A **Data Network** resource representing a data network.
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.

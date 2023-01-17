@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 11/08/2022
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -31,8 +31,12 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
 > * An outstanding invoice is paid by your default payment method. In order to have it paid by check or wire transfer, you must change your default payment method to check or wire transfer after you've been approved.
 > * Currently, payment by check or wire transfer isn't supported for Global Azure in China.
 > * For Microsoft Online Services Program accounts, if you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
+> * Currently, only customers in the United States can get automatically approved to change their payment method to check/wire transfer. Support for other regions is being evaluated. 
 
 ## Request to pay by check or wire transfer
+
+> [!NOTE]
+> Currently only customers in the United States can get automatically approved to change their payment method to check/wire transfer. Support for other regions is being evaluated. If you are not in the United States, you must [Submit a request to set up pay by check or wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) to change your payment method.
 
 1. Sign in to the Azure portal.
 1. Navigate to **Subscriptions** and then select the one that you want to set up check or wire transfer for.
@@ -52,6 +56,8 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
     You're all set to pay by check or wire transfer.
 
 ## Submit a request to set up pay by check or wire transfer
+
+Users in all regions can submit a request to pay by check or wire transfer through support. Currently, only customers in the United States can get automatically approved to change their payment method to check/wire transfer.
 
 If you're not automatically approved, you can submit a request to Azure support to approve payment by check or wire transfer. If your request is approved, you can switch to pay by check or wire transfer in the Azure portal.
 

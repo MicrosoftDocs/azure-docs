@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 01/17/2023
 ms.author: anfdocs
 ---
 # Delete volume replications or volumes

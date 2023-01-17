@@ -40,14 +40,13 @@ For more information about creating custom endpoints in IoT Hub, see [IoT Hub en
 
 For more information about reading from custom endpoints, see:
 
-* Reading from [Azure Storage containers](../storage/blobs/storage-blobs-introduction.md).
-
+* Reading from [Storage containers](../storage/blobs/storage-blobs-introduction.md).
 * Reading from [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 * Reading from [Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 * Reading from [Service Bus topics](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
-
+* Reading from [Cosmos DB](../cosmos-db/nosql/query/getting-started.md)
 ## Next steps
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).

@@ -6,7 +6,7 @@ ms.author: saraic
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
-ms.date: 11/01/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
 
@@ -17,8 +17,6 @@ ms.custom: devx-track-azurecli
 
 ## Create a scale set using Azure CLI
 
-> [!IMPORTANT]
-> You can't currently create a Flexible Virtual Machine Scale Set from an image shared by another tenant. 
 
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 

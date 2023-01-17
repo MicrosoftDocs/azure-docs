@@ -24,6 +24,8 @@ API calls performed by Defender for Cloud count against the [Azure DevOps Global
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+- You must [configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+
 
 ## Availability
 
@@ -84,7 +86,11 @@ API calls performed by Defender for Cloud count against the [Azure DevOps Global
 
 1. Review the information and select **Create**.
 
-The Defender for DevOps service automatically discovers the organizations, projects, and repositories you select and analyzes them for any security issues. The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
+The Defender for DevOps service automatically discovers the organizations, projects, and repositories you select and analyzes them for any security issues. 
+
+When auto-discovery is selected during the onbaording process, it can take up to 4 hours for repositories to appear. 
+
+The Inventory page populates with your selected repositories, and the Recommendations page shows any security issues related to a selected repository.
 
 ## Learn more
 
@@ -106,7 +112,5 @@ For information on how to correct this issue, check out the [DevOps trouble shoo
 
 ## Next steps
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
-
-Learn how to [configure the MSDO Azure DevOps extension](azure-devops-extension.md).
 
 Learn how to [configure pull request annotations](enable-pull-request-annotations.md) in Defender for Cloud.

@@ -1,5 +1,5 @@
 ---
-title: Move an Azure Storage account to another region | Microsoft Docs
+title: Move an Azure Storage account to another region
 description: Shows you how to move an Azure Storage account to another region.
 services: storage
 author: jimmart-dev

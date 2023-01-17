@@ -14,7 +14,7 @@ ms.custom: language-service-clu, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Orchestration workflow (preview)
+# Quickstart: Orchestration workflow
 
 Use this article to get started with Orchestration workflow projects using Language Studio and the REST API. Follow these steps to try out an example.
 

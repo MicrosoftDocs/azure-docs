@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure Recovery Services Vault to availability zone support 
 description: Learn how to migrate your Azure Recovery Services Vault to availability zone support.
-author: anaharris-ms
+author: jfaurskov 
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/24/2022

@@ -377,7 +377,7 @@ To update and run the provisioning sample with your device information:
     | :-------------------------------- | :------- | :-------------- |
     | `--i` or `--IdScope`              | True     | The ID Scope of the DPS instance |
     | `--r` or `--RegistrationId`       | True     | The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
-    | `--p` or `--PrimaryKey`           | True     | The primary key of the individual enrollment or the derived device key of the group enrollment. See the [ComputeDerivedSymmetricKeySample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples/Getting%20Started/ComputeDerivedSymmetricKeySample) for how to generate the derived key. |
+    | `--p` or `--PrimaryKey`           | True     | The primary key of the individual enrollment or the derived device key of the group enrollment. See the [ComputeDerivedSymmetricKeySample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples/getting%20started/ComputeDerivedSymmetricKeySample) for how to generate the derived key. |
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 

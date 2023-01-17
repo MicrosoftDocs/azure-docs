@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2021
+ms.date: 12/05/2022
 ms.author: mbender
 ---
 
@@ -45,7 +45,7 @@ The following options are available:
 
 5. Choose the distribution mode and then select **Save**.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true":::
+:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true" lightbox="./media/load-balancer-distribution-mode/session-persistence.png":::
 
 
 # [**PowerShell**](#tab/azure-powershell)
@@ -70,7 +70,7 @@ Set the value of the `LoadDistribution` element for the type of load balancing r
 
 # [**CLI**](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
 

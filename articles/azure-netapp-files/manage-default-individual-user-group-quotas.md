@@ -7,7 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 01/17/2023
 ---
 # Manage default and individual user and group quotas for a volume 
 
@@ -27,18 +27,14 @@ Quota rules will only come into effect on the CRR destination volume after the r
 * Individual group quota and default group quota aren't supported for SMB and dual protocol volumes.
 * Group quotas track the consumption of disk space for files owned by a particular group. A file can only be owned by exactly one group. 
 * Auxiliary groups only help in permission checks and cannot be used to restrict the quota (disk space) for a file.
-* In a cross-region replication (CRR) setting:
-    * Currently, syncing quota rules to the destination (data protection) volume isn't supported.   
+* In a cross-region replication setting:
+    * Currently, syncing quota rules to the destination (data protection) volume isn't supported. 
     * You can’t create quota rules on the destination volume until the [replication is deleted](cross-region-replication-delete.md).  
     * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the replication is deleted.
     * If a quota rule is in the error state after you delete the replication relationship, it must be deleted and recreated on the destination volume. 
     * During sync or reverse resync operations:
         * If you create, update, or delete a rule on a source volume, you must perform the same operation on the destination volume. 
         * Any new rule that is created or existing rule that is updated or deleted on a destination volume following the deletion of the replication relationship will be reverted to keep the  source and destination volumes in sync. 
-* If you are using large volumes (volumes larger than 100 TiB): <!-- confirm large volumes in public preview --> 
-    * The space and file usage in a large volume might exceed as much as five percent more than the configured hard limit before the quota limit is enforced and rejects traffic.
-    * To provide optimal performance, the space consumption may exceed configured hard limit before the quota is enforced. The additional space consumption will not exceed either the lower of 1 GB or five percent of the configured hard limit. 
-    * After reaching the quota limit, if a user or administrator delete files or directories to reduce quota usage under the limit, subsequent quota-consuming file operations may resume with a delay of up to five seconds.
 
 ## Register the feature  
 
@@ -98,13 +94,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ![Screenshot that shows the Edit and Delete options of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-delete-edit.png) 
 
-2. If you are editing a quota rule, update **Quota Limit** in the Edit User Quota Rule window that appears.
+    1. If you are editing a quota rule, update **Quota Limit** in the Edit User Quota Rule window that appears.
+    
+        ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-edit-rule.png) 
 
-    ![Screenshot that shows the Edit User Quota Rule window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-edit-rule.png) 
-
-3. If you are deleting a quota rule, confirm the deletion by selecting **Yes**.  
-
-    ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-confirm-delete.png) 
+    1. If you are deleting a quota rule, confirm the deletion by selecting **Yes**.  
+    
+        ![Screenshot that shows the Confirm Delete window of Users and Group Quotas.](../media/azure-netapp-files/user-group-quotas-confirm-delete.png) 
 
 ## Next steps 
 * [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md)
