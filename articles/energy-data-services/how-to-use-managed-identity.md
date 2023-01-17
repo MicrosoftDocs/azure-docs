@@ -17,7 +17,7 @@ This article describes how to access the data plane or control plane of Microsof
 
 There's a need for services such as Azure Functions to be able to consume Microsoft Energy Data Services APIs. This interoperability allows you to use the best capabilities of multiple Azure services. 
 
-For example, you can write a script in Azure Functions to ingest data in Microsoft Energy Data Services. In that scenario, you should assume that Azure Functions is the source service while Microsoft Energy Data Services is the target service. 
+For example, you can write a script in Azure Functions to ingest data in Microsoft Energy Data Services. In that scenario, you should assume that Azure Functions is the source service and Microsoft Energy Data Services is the target service. 
 
 This article walks you through the five main steps for configuring Azure Functions to access Microsoft Energy Data Services.
 
@@ -81,7 +81,7 @@ Retrieve the application ID of the user-assigned identity by using the object ID
 
 ## Step 4: Add the application ID to entitlement groups 
 
-Next, add the application ID to the appropriate groups that will use the entitlement service to access Microsoft Energy Data Services APIs. The following example adds the Application ID to two groups:
+Next, add the application ID to the appropriate groups that will use the entitlement service to access Microsoft Energy Data Services APIs. The following example adds the application ID to two groups:
 
 * users@[partition ID].dataservices.energy
 * users.datalake.editors@[partition ID].dataservices.energy 
@@ -96,7 +96,7 @@ Next, add the application ID to the appropriate groups that will use the entitle
    * [Access token](how-to-manage-users.md#prerequisites)
    * Application ID of the managed identity
 
-2. Use the [Add Member API](https://microsoft.github.io/meds-samples/rest-apis/index.html?page=/meds-samples/rest-apis/entitlements_openapi.yaml#/add-member-api/addMemberUsingPOST) to add the application ID of the user-managed identity to the appropriate entitlement groups. 
+2. Use the [Add Member API](https://microsoft.github.io/meds-samples/rest-apis/index.html?page=/meds-samples/rest-apis/entitlements_openapi.yaml#/add-member-api/addMemberUsingPOST) to add the application ID of the user-assigned managed identity to the appropriate entitlement groups. 
 
    > [!NOTE]
    > In the following commands, be sure to use the application ID of the managed identity and not the object ID. 
