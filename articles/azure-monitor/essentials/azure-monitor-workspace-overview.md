@@ -23,13 +23,13 @@ The following table lists the contents of Azure Monitor workspaces. This table w
 
 ## Azure Monitor workspace architecture 
 
-While a single Azure Monitor workspace may be sufficient for many use cases using Azure Monitor, many organizations will create multiple workspaces to better meet their needs Presented here are a set of criteria for determining whether to use a single Azure Monitor workspace, or multiple Azure Monitor workspaces, and the configuration and placement of those accounts to meet your requirements. 
+While a single Azure Monitor workspace may be sufficient for many use cases using Azure Monitor, many organizations create multiple workspaces to better meet their needs. This article presents a set of criteria for deciding whether to use a single Azure Monitor workspace, multiple Azure Monitor workspaces, and the configuration and placement of those workspaces. 
 
 ### Design criteria 
 
-As you identify the right criteria to create additional Azure Monitor workspaces, your design should use the fewest number that will match your requirements while optimizing for minimal administrative management overhead. 
+As you identify the right criteria to create additional Azure Monitor workspaces, your design should use the lowest number of workspaces that will match your requirements, while optimizing for minimal administrative management overhead. 
 
-The following table briefly presents the criteria that you should consider in designing your Azure Monitor workspace architecture.  
+The following table presents criteria to consider when designing an Azure Monitor workspace architecture.  
 
 |Criteria|Description|
 |---|---|
@@ -40,26 +40,27 @@ The following table briefly presents the criteria that you should consider in de
 
 ### Growing account capacity  
 
-Upon creating a new Azure Monitor workspace, it is assigned a default quota/limit for metrics. As your product grows and you need more metrics, you can ask for this limit to be increased to an upper threshold of 50 million events or active time series. If your capacity needs grow exceptionally large, and your data ingestion needs can no longer be met by a single Azure Monitor workspace, you may need to consider creating multiple Azure Monitor workspaces. 
+Azure Monitor workspaces have [default quotas and limitations](../service-limits.md#ingestion) for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity needs grow exceptionally large, and your data ingestion needs can no longer be met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. 
 
 ### Multiple Azure Monitor workspaces  
 
-When an Azure Monitor workspace reaches 80% of its max capacity, and/or depending on your current and forecasted metric volume, it is recommended to split the Azure Monitor workspace into multiple workspaces. Based on logical separation, determine which logical grouping makes more sense for your business. For example, a company using Azure cloud service can logically separate its metrics in Azure Monitor workspaces by grouping them by application. By doing this, all the telemetric data can be managed and queried in an efficient way. 
+When an Azure Monitor workspace reaches 80% of its maximum capacity, or depending on your current and forecasted metric volume, it's recommended to split the Azure Monitor workspace into multiple workspaces. Split the workspace based on how the data in the workspace is used by your applications and business processes,  and how you want to access that data in the future.  For example, a company using Azure cloud service can logically separate its metrics in Azure Monitor workspaces by grouping them by application. By doing this, all the telemetric data can be managed and queried in an efficient way. 
 
-In special scenarios, splitting Azure Monitor workspace into multiple workspaces can be necessary because of one or more reasons listed below: 
-1. Monitoring data in sovereign clouds – Create Azure Monitor workspace(s) in each corresponding sovereign cloud.  
+In certain circumstances, splitting Azure Monitor workspace into multiple workspaces can be necessary. For example: 
+1. Monitoring data in sovereign clouds – Create Azure Monitor workspace(s) in each sovereign cloud.  
 
-1. Compliance/Regulatory requirements that mandate storage of data in specific regions – Create an Azure Monitor workspace per region as per requirements. Need for managing the scale of metrics for large services or financial institutions with regional accounts. 
+1. Compliance or regulatory requirements that mandate storage of data in specific regions – Create an Azure Monitor workspace per region as per requirements. There may be a need to manage the scale of metrics for large services or financial institutions with regional accounts. 
 1. Separating metric data in test, pre-production, and production environments 
 
 >[!Note] 
-> When splitting Azure Monitor workspaces, keep in mind that creating a single query across multiple Azure Monitor workspaces is not supported. Setting up Grafana with each workspace as a dedicated data source which will allow for querying both workspaces in a single Grafana panel. 
+> A single query cannot access multiple Azure Monitor workspaces. Keep data that you want to retrieve in a single query in same workspace. For presentation purposes, setting up Grafana with each workspace as a dedicated data source will allow for querying multiple workspaces in a single Grafana panel. 
+
 
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
 - Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
 - Azure monitor workspaces are currently only supported in public clouds.
-- Azure monitor workspaces do not currently support being moved into a different subscription or resource group once created.
+- Azure monitor workspaces don't currently support being moved into a different subscription or resource group once created.
 
 
 ## Create an Azure Monitor workspace
@@ -68,13 +69,13 @@ In addition to the methods below, you may be given the option to create a new Az
 ### [Azure portal](#tab/azure-portal)
 
 1. Open the **Azure Monitor workspaces** menu in the Azure portal.
-2. Click **Create**.
+2. Select **Create**.
 
     :::image type="content" source="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" lightbox="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" alt-text="Screenshot of Azure Monitor workspaces menu and page.":::
 
 3. On the **Create an Azure Monitor Workspace** page, select a **Subscription** and **Resource group** where the workspace should be created.
 4. Provide a **Name** and a **Region** for the workspace.
-5. Click **Review + create** to create the workspace.
+5. Select **Review + create** to create the workspace.
 
 ### [CLI](#tab/cli)
 Use the following command to create an Azure Monitor workspace using Azure CLI.
@@ -129,14 +130,14 @@ resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
 
 
 ## Delete an Azure Monitor workspace
-When you delete an Azure Monitor workspace, no soft-delete operation is performed like with a [Log Analytics workspace](../logs/delete-workspace.md). The data in the workspace is immediately deleted, and there is no recovery option.
+When you delete an Azure Monitor workspace, no soft-delete operation is performed like with a [Log Analytics workspace](../logs/delete-workspace.md). The data in the workspace is immediately deleted, and there's no recovery option.
 
 
 ### [Azure portal](#tab/azure-portal)
 
 1. Open the **Azure Monitor workspaces** menu in the Azure portal.
 2. Select your workspace.
-4. Click **Delete**.
+4. Select **Delete**.
 
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
@@ -159,7 +160,7 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 
 1. Open the **Azure Monitor workspace** menu in the Azure portal.
 2. Select your workspace.
-3. Click **Linked Grafana workspaces**.
+3. Select **Linked Grafana workspaces**.
 4. Select a Grafana workspace.
 
 ### [CLI](#tab/cli)
