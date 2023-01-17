@@ -43,7 +43,7 @@ To create a new SIM group:
 1. Do the following on the **Basics** configuration tab.
 
    - Enter a name for the new SIM group into the **SIM group name** field.
-   - Set **Region** to **East US**.
+   - In the **Region** field, select the region in which you deployed the private mobile network.
    - Select your private mobile network from the **Mobile network** drop-down menu.
 
         :::image type="content" source="media/manage-sim-groups/create-sim-group-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::

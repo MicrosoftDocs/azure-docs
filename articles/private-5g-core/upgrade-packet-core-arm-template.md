@@ -74,7 +74,7 @@ If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you ne
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the mobile network resource representing your private mobile network.
-    - **Region:** select **East US**.
+    - **Region:** select the region in which you deployed the private mobile network.
     - **Existing packet core:** select the name of the packet core instance you want to upgrade.
     - **New version:** enter the version to which you want to upgrade the packet core instance.
 
