@@ -1,13 +1,13 @@
 ---
 title: Get started with Azure Service Bus topics (Python)
-description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topic subscriptions using the Python programming language.
+description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the Python programming language.
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 01/13/2023
+ms.date: 02/16/2022
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python
+ms.custom: devx-track-python, mode-api
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)
