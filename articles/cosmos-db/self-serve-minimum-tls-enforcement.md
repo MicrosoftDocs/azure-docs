@@ -1,5 +1,5 @@
 ---
-title: Self-Serve minimum tls version enforcement in Azure Cosmos DB
+title: Self-serve minimum tls version enforcement in Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
 description: Learn how to self-serve minimum TLS version enforcement for your Azure Cosmos DB account to improve your security posture.
 author: dileepraotv-github
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/18/2023
 ---
 
-# Self-Serve minimum TLS version enforcement in Azure Cosmos DB
+# Self-serve minimum TLS version enforcement in Azure Cosmos DB
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
@@ -65,7 +65,7 @@ $patchParameters = @{
 Invoke-AzRestMethod @patchParameters
 ```
 
-### Set via ARM Template
+### Set via ARM template
 
 To set this property using an ARM template, update your existing template or export a new template for your current deployment, then add `"minimalTlsVersion"` to the properties for the `databaseAccounts` resources, with the desired minimum TLS version value. Below is a basic example of an Azure Resource Manager template with this property setting, using a parameter.
 
