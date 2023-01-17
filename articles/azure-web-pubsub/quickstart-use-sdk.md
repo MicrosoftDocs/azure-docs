@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Publish messages using the Azure Web PubSub service SDK
 
-Azure Web PubSub helps you develop web messaging applications using WebSockets. This quickstart shows you how to publish messages to the clients using Azure Web PubSub service SDK.
+Azure Web PubSub helps you manage WebSocket clients. This quickstart shows you how to publish messages to the WebSocket clients using Azure Web PubSub service SDK.
 
 
 ## Prerequisites
@@ -154,7 +154,7 @@ The connection to the Web PubSub service is established when you see a JSON mess
 
 ## Publish messages using service SDK
 
-You will create a client that uses the Azure Web PubSub SDK to publish a message to all the connected client.
+You will use the Azure Web PubSub SDK to publish a message to all the connected client.
 
 First, open another command shell.
 

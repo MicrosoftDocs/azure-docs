@@ -10,7 +10,7 @@ ms.date: 11/01/2021
 
 # Tutorial: Publish and subscribe messages using WebSocket API and Azure Web PubSub service SDK
 
-The Azure Web PubSub service helps you easily build real-time web messaging applications using the publish-subscribe pattern with WebSockets. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages and using the Web PubSub service SDK.
+The Azure Web PubSub service helps you easily build real-time web messaging applications. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages and using the Web PubSub service SDK.
 
 In this tutorial, you learn how to:
 
