@@ -30,7 +30,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
     -  The [Azure Arc Hybrid Connected Machine agent](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
     - Verify that the servers are running [a supported operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
     - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/prerequisites.md#required-permissions).
-    - Make sure [the required URLs](../azure-arc/servers/network-requirements.md#urls) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
+    - Make sure [the required URLs](../azure-arc/servers/network-requirements.md#details) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
     - Review the [regions supported](../azure-arc/servers/overview.md#supported-regions) for Azure Arc. 
     - Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
 

@@ -31,7 +31,7 @@ You can perform a **connect** and **disconnect** manually while logged on intera
 
 ### check
 
-This parameter allows you to run network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#urls), but does not include endpoints accessed by extensions you install.
+This parameter allows you to run network connectivity tests to troubleshoot networking issues between the agent and Azure services. The network connectivity check includes all [required Azure Arc network endpoints](network-requirements.md#details), but does not include endpoints accessed by extensions you install.
 
 When running a network connectivity check, you must provide the name of the Azure region (for example, eastus) that you want to test. It's also recommended to use the `--verbose` parameter to see the results of both successful and unsuccessful tests:
 

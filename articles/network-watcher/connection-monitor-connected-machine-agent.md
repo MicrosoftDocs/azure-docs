@@ -24,7 +24,7 @@ This article describes how to install the Azure Connected Machine agent.
   * Your target machine is running a supported [operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
   * Your account has the [required Azure built-in roles](../azure-arc/servers/prerequisites.md#required-permissions).
   * The machine is in a [supported region](../azure-arc/overview.md).
-  * If the machine connects through a firewall or proxy server to communicate over the internet, the listed URLs in [Connected Machine agent network requirements](../azure-arc/servers/network-requirements.md#urls) aren't blocked.
+  * If the machine connects through a firewall or proxy server to communicate over the internet, the listed URLs in [Connected Machine agent network requirements](../azure-arc/servers/network-requirements.md#details) aren't blocked.
 
 ## Generate an installation script
 
