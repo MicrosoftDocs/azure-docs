@@ -20,7 +20,7 @@ Azure Monitor Logs collects data from a wide variety of sources, including Windo
 |Splunk offering|Azure offering|
 |---|---|
 |Splunk, Splunk Cloud|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multi-cloud, and on-premises environments.|
-|Splunk Observability|Azure Monitor's [Container Insights](../containers/container-insights-overview.md) feature monitors the performance of container workloads deployed to the cloud.|
+|Splunk Observability|[Azure Monitor's Container Insights feature](../containers/container-insights-overview.md) monitors the performance of container workloads deployed to the cloud.|
 |Splunk Enterprise|[Azure Monitor](../overview.md) offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-curated-visualizations), and [alerts and response](../overview.md#respond-to-critical-situations) capabilities.  |
 |Splunk Enterprise Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that provides intelligent security analytics and threat intelligence across the enterprise.|
 
