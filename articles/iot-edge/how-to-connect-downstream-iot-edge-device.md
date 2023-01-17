@@ -4,7 +4,7 @@ description: Step by step adaptable manual instructions on how to create a hiera
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/09/2023
+ms.date: 01/17/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

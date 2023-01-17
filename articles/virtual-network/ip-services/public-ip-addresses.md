@@ -178,7 +178,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Forward DNS for IPv6 is supported for Azure public DNS. Reverse DNS isn't supported.
 
-* Routing Preference and cross-region load balancer aren't supported.
+* Routing Preference Internet isn't supported.
 
 For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 

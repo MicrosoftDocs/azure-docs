@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/05/2022
+ms.date: 01/17/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
