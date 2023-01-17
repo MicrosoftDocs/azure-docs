@@ -116,7 +116,7 @@ sections:
         answer: |
           You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
           
-          - **None** - Only subscriptions with role based  access can locate the service. 
+          - **None** - Only subscriptions with role based access can locate the service. 
           - **Restrictive** - Only subscriptions that are approved and with role based access can locate the service. 
           - **All** - Everyone can locate the service. 
            
