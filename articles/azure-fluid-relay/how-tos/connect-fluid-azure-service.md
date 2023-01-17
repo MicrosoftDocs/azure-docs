@@ -29,9 +29,11 @@ To connect to an Azure Fluid Relay instance, you first need to create an `AzureC
 > The `InsecureTokenProvider` should only be used for development purposes because **using it exposes the tenant key secret in your client-side code bundle.** This must be replaced with an implementation of `ITokenProvider` that fetches the token from your own backend service that is responsible for signing it with the tenant key. Note: the `id` and `name` fields are arbitrary.
 
 ```javascript
+const user = { id: "userId", name: "userName" };
+
 const config = {
   tenantId: "myTenantId",
-  tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId", name: "userName" }),
+  tokenProvider: new InsecureTokenProvider("myTenantKey", user),
   endpoint: "https://myServiceEndpointUrl",
   type: "remote",
 };
