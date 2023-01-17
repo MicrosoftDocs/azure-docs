@@ -22,7 +22,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 | [Wildcard](https://en.wikipedia.org/wiki/Wildcard_DNS_record) | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). |
 
 > [!NOTE]
-> For an end-to-end tutorial that shows you how to configure a `www` subdomain and a managed certificate, see [Tutorial: Secure your Azure App Service app with a custom domain and a managed certificate](app-service-web-tutorial-custom-domain.md).
+> For an end-to-end tutorial that shows you how to configure a `www` subdomain and a managed certificate, see [Tutorial: Secure your Azure App Service app with a custom domain and a managed certificate](tutorial-secure-domain-certificate.md).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The DNS record type you need to add with your domain provider depends on the dom
     > [!NOTE]
     > To configure an App Service domain, see [Buy a custom domain name for Azure App Service](manage-custom-dns-buy-domain.md).
 
-1. For **TLS/SSL certificate**, select **App Service Managed Certificate** if your app is in **Basic** tier or higher. If you want to remain in **Shared** tier, select **Add certificate later**.
+1. For **TLS/SSL certificate**, select **App Service Managed Certificate** if your app is in **Basic** tier or higher. If you want to remain in **Shared** tier, or if you want to use your own certificate, select **Add certificate later**.
 
 1. For **TLS/SSL type**, select the binding type you want.
 
