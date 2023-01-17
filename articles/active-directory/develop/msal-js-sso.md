@@ -20,7 +20,7 @@ ms.custom: aaddev, has-adal-ref, engagement-fy23
 
 Single sign-on (SSO) provides a more seamless experience by reducing the number of times a user is asked for credentials. Users enter their credentials once, and the established session can be reused by other applications on the same device without further prompting.
 
-Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. The two mechanisms, Azure AD session cookie and MSAL cache, are independent of each other but work together to provide SSO behavior.
+Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. The two mechanisms, Azure AD session cookie and Microsoft Authentication Library (MSAL) cache, are independent of each other but work together to provide SSO behavior.
 
 ## SSO between browser tabs for the same app
 
