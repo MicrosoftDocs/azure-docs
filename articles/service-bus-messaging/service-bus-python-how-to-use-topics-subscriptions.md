@@ -33,7 +33,7 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Python 3.7 or higher, with the [Azure Python SDK][/azure/developer/python/sdk/azure-sdk-overview] package installed.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
