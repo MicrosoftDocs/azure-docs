@@ -20,8 +20,6 @@ This article covers common issues, workarounds, and diagnostic steps when you're
 
 The Azure Functions trigger and bindings for Azure Cosmos DB depend on the extension package [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) over the base Azure Functions runtime. Always keep these packages updated, because they include fixes and new features that can help you address any potential issues you might encounter.
 
-This article refers to Azure Functions V2 whenever the runtime is mentioned, unless it explicitly specifies otherwise.
-
 ## Consume the Azure Cosmos DB SDK independently
 
 The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Azure Cosmos DB. The package also includes the [Azure Cosmos DB .NET SDK](sdk-dotnet-core-v2.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
@@ -72,7 +70,7 @@ This error means that you're currently using a partitioned lease collection with
 
 To resolve this issue:
 
-* Upgrade to the latest available version. If you're currently running Azure Functions V1, you need to upgrade to Azure Functions V2.
+* Upgrade to the latest available version.
 
 ### Your Azure function fails to start, with error message "Forbidden (403); Substatus: 5300... The given request [POST ...] can't be authorized by AAD token in data plane"
 
