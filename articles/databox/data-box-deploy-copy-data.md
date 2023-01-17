@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/18/2022
+ms.date: 01/13/2023
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
@@ -102,7 +102,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Shares shown in File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account. The same behavior applies to Azure Files. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
     
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
