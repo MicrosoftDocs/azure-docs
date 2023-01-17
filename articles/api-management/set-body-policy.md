@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/02/2022
+ms.date: 01/13/2023
 ms.author: danlep
 ---
 
@@ -228,13 +228,40 @@ This example shows how to perform content filtering by removing data elements fr
 
 ### Transform JSON using a Liquid template
 ```xml
+<set-body template="liquid">
 {
 "order": {
     "id": "{{body.customer.purchase.identifier}}",
     "summary": "{{body.customer.purchase.orderShortDesc}}"
     }
 }
+</set-body>
 ```
+
+### Access the body as URL-encoded form data
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+
+```xml
+<set-body> 
+@{ 
+    var inBody = context.Request.Body.AsFormUrlEncodedContent();
+    return JsonConvert.SerializeObject(inBody); 
+} 
+</set-body>
+```
+
+### Transfrom JSON body to URL-encoded form data
+The following example accesses the request body as JSON and tranforms it to URL-encoded form data (content type `application/x-www-form-urlencoded`). We are preserving the original request body so that we can access it later in the pipeline.
+
+```xml
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(preserveContent: true); 
+    return inBody.ToFormUrlEncodedContent(); 
+} 
+</set-body>
+```
+
 
 ## Related policies
 
