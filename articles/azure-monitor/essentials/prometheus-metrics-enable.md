@@ -76,7 +76,7 @@ The output for each command will look similar to the following:
     "metrics": {
         "enabled": true,
         "kubeStateMetrics": {
-            "metrican'tationsAllowList": "",
+            "metricAnnotationsAllowList": "",
             "metricLabelsAllowlist": ""
         }
     }
@@ -102,7 +102,7 @@ The output will be similar to the following:
         "metrics": {
           "enabled": true,
           "kubeStateMetrics": {
-            "metrican'tationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
+            "metricAnnotationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
             "metricLabelsAllowlist": "namespaces=[k8s-label-1,k8s-label-n]"
           }
         }
