@@ -10,6 +10,8 @@ ms.date: 07/03/2018
 ---
 # Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
 
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
 U-SQL database provides structured views over unstructured data and managed structured data in tables. It also provides a general metadata catalog system for organizing your structured data and custom code. The database is the concept that groups these related objects together.
 
 Learn more about [U-SQL database and Data Definition Language (DDL)](/u-sql/data-definition-language-ddl-statements).

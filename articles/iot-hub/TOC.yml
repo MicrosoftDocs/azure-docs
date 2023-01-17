@@ -527,7 +527,7 @@
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
       displayName: Microsoft.Azure.Management.DeviceUpdate, Microsoft.Azure.Management.DeviceUpdate.Models, Microsoft.Azure.Management.IotHub, Microsoft.Azure.Management.IotHub.Models
-      href: /dotnet/api/overview/azure/iot/management
+      href: /dotnet/api/microsoft.azure.management.iothub.models
     - name: Java (Device)
       displayName: com.microsoft.azure.sdk.iot.device
       href: /java/api/com.microsoft.azure.sdk.iot.device

@@ -96,12 +96,12 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 ### Machine Learning Compute
 
 **Compute cluster**
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk. 
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption is not enabled for workspaces by default. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, then the OS disk is encrypted. 
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the temporary disk is encrypted. This environment is short-lived (only for the duration of your job,) and encryption support is limited to system-managed keys only.
 
 **Compute instance**
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temp disk.
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the workspace was created with the `hbi_workspace` parameter set to `TRUE`, the local OS and temporary disks on compute instance are encrypted with Microsoft managed keys. Customer managed key encryption is not supported for OS and temporary disks.
 
 For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 

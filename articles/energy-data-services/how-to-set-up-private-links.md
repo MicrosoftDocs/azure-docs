@@ -104,6 +104,6 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-To learn more about data security and encryption
+To learn more about using customer Lockbox as an interface to review and approve or reject access requests.
 > [!div class="nextstepaction"]
-> [Data security and encryption in Microsoft Energy Data Services](how-to-manage-data-security-and-encryption.md)
+> [Use Lockbox for Microsoft Energy Data Services](how-to-create-lockbox.md)
