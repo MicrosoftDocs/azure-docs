@@ -1086,4 +1086,6 @@ recognizer.stop_continuous_recognition()
 
 ## Next steps
 
-* [Captioning concepts](captioning-concepts.md)
+* [Try the speech to text quickstart](get-started-speech-to-text.md)
+* [Improve recognition accuracy with custom speech](custom-speech-overview.md)
+* [Use batch transcription](batch-transcription.md)
