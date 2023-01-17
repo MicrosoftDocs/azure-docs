@@ -51,7 +51,7 @@ To retrieve the certificate, you must install the [Azure DCAP library](#what-is-
 
 ### How do I request collateral in a Confidential Virtual Machine (CVM)?
 
-Use the following sample in a CVM guest for requesting AMD collateral that includes the VCEK certificate and certificate chain. For details on this collateral and where it originates from, see [Versioned Chip Endorsement Key (VCEK) Certificate and KDS Interface Specification](https://www.amd.com/system/files/TechDocs/57230.pdf) (from <amd.com>).
+Use the following sample in a CVM guest for requesting AMD collateral that includes the VCEK certificate and certificate chain. For details on this collateral and where it originates from, see [Versioned Chip Endorsement Key (VCEK) Certificate and KDS Interface Specification](https://www.amd.com/system/files/TechDocs/57230.pdf).
 
 #### URI parameters
 
@@ -116,7 +116,7 @@ Follow the steps below for requesting AMD collateral in a confidential container
     |--|--|--|--|--|
     | aks-nodepool1-31718369-0 | Ready | agent | 6m44s | v1.12.8 |
 
-2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please visit HERE. 
+2. Once the AKS cluster is created, create a curl.yaml file with the following content. It defines a job that runs a curl container to fetch AMD collateral from the THIM endpoint. For more information about Kubernetes Jobs, please see [here](https://kubernetes.io/docs/concepts/workloads/controllers/job/). 
 
     **curl.yaml**
     ```bash
