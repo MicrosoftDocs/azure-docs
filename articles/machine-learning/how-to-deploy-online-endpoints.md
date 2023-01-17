@@ -469,16 +469,16 @@ For more information on working with registered models, see [Register and work w
 
 ---
 
-### Use different CPU and GPU instance types
+### Use different CPU and GPU instance types and images
 
-The preceding YAML uses a general-purpose type (`Standard_DS2_v2`) and a non-GPU Docker image (in the YAML, see the `image` attribute). For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
+The preceding definition uses a general-purpose type `Standard_DS2_v2` instance (see `instance_type` in the YAML definition) and a non-GPU Docker image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest` (see `image` in the YAML definition). For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
 
-### Use more than one model
+### Use more than one model in a deployment
 
 Currently, you can specify only one model per deployment in the YAML. If you have more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel).
 
